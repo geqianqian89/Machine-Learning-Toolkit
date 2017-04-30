@@ -1,0 +1,66 @@
+\begin{theindex}
+
+  \item {Classifier}, \hyperpage{5}
+  \item {copy}
+    \subitem {Data}, \hyperpage{6}
+  \item {Cross\+Validation}, \hyperpage{5}
+
+  \indexspace
+
+  \item {Data}, \hyperpage{6}
+    \subitem {copy}, \hyperpage{6}
+    \subitem {get\+Dim}, \hyperpage{6}
+    \subitem {get\+Features\+Names}, \hyperpage{7}
+    \subitem {get\+Number\+Negative\+Points}, \hyperpage{7}
+    \subitem {get\+Number\+Positive\+Points}, \hyperpage{7}
+    \subitem {get\+Size}, \hyperpage{7}
+    \subitem {insert\+Point}, \hyperpage{8}
+    \subitem {is\+Empty}, \hyperpage{8}
+    \subitem {load\+Dataset}, \hyperpage{8}
+    \subitem {remove\+Point}, \hyperpage{9}
+  \item {Dual\+Classifier}, \hyperpage{10}
+
+  \indexspace
+
+  \item {Feature\+Selection}, \hyperpage{10}
+
+  \indexspace
+
+  \item {get\+Dim}
+    \subitem {Data}, \hyperpage{6}
+  \item {get\+Features\+Names}
+    \subitem {Data}, \hyperpage{7}
+  \item {get\+Number\+Negative\+Points}
+    \subitem {Data}, \hyperpage{7}
+  \item {get\+Number\+Positive\+Points}
+    \subitem {Data}, \hyperpage{7}
+  \item {get\+Size}
+    \subitem {Data}, \hyperpage{7}
+
+  \indexspace
+
+  \item {insert\+Point}
+    \subitem {Data}, \hyperpage{8}
+  \item {is\+Empty}
+    \subitem {Data}, \hyperpage{8}
+
+  \indexspace
+
+  \item {load\+Dataset}
+    \subitem {Data}, \hyperpage{8}
+
+  \indexspace
+
+  \item {Point}, \hyperpage{11}
+  \item {Primal\+Classifier}, \hyperpage{11}
+
+  \indexspace
+
+  \item {remove\+Point}
+    \subitem {Data}, \hyperpage{9}
+
+  \indexspace
+
+  \item {Solution}, \hyperpage{12}
+
+\end{theindex}

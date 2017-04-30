@@ -1,0 +1,378 @@
+\hypertarget{class_data}{}\section{Data Class Reference}
+\label{class_data}\index{Data@{Data}}
+
+
+Wrapper for the dataset data.  
+
+
+
+
+{\ttfamily \#include $<$Data.\+hpp$>$}
+
+
+
+Collaboration diagram for Data\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=168pt]{class_data__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Type \hyperlink{class_data_a80629b0e6a2516d17475c58e77dbae7d}{identify\+File\+Type} (std\+::string file)
+\begin{DoxyCompactList}\small\item\em Returns the type of the file. \end{DoxyCompactList}\item 
+bool \hyperlink{class_data_a0083fa28fc5282e095c87d79588e9292}{load\+\_\+csv} (std\+::string path)
+\begin{DoxyCompactList}\small\item\em Load a dataset from a csv file. \end{DoxyCompactList}\item 
+bool \hyperlink{class_data_af7b0e31d7dd93fdb3788d30f5ce38693}{load\+\_\+arff} (std\+::string path)
+\begin{DoxyCompactList}\small\item\em Load a dataset from a arff file. \end{DoxyCompactList}\item 
+bool \hyperlink{class_data_a327bed527832d41a227f360c0beb838b}{load\+\_\+data} (std\+::string path)
+\begin{DoxyCompactList}\small\item\em Load a dataset from a data file. \end{DoxyCompactList}\item 
+bool \hyperlink{class_data_a555ae0bc506ec70f7c0411604ca6406b}{load\+\_\+txt} (std\+::string path)
+\begin{DoxyCompactList}\small\item\em Load a dataset from a txt file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_data_af11f741cb7f587e2e495452a8905a22a}\label{class_data_af11f741cb7f587e2e495452a8905a22a}} 
+\hyperlink{class_data_af11f741cb7f587e2e495452a8905a22a}{Data} ()
+\begin{DoxyCompactList}\small\item\em Constructor for empty data. \end{DoxyCompactList}\item 
+\hyperlink{class_data_acdbe72be259faa3c285b8e0f6dc89a94}{Data} (std\+::string dataset)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_data}{Data} constructor to load a dataset from a file. \end{DoxyCompactList}\item 
+int \hyperlink{class_data_abfd7c7cca66a186ff45efa430bcb2f1e}{get\+Size} ()
+\begin{DoxyCompactList}\small\item\em Returns the size of the dataset. \end{DoxyCompactList}\item 
+int \hyperlink{class_data_a0391940729a8023ea9b154132a854d35}{get\+Dim} ()
+\begin{DoxyCompactList}\small\item\em Returns the dimension of the dataset. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{class_point}{Point} $>$ \hyperlink{class_data_a8fe9ce813848765a7615b909c4654b55}{get\+Points} ()
+\begin{DoxyCompactList}\small\item\em Returns the features names. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_data_a728c2d3d71d759b252af8820f9f7d135}\label{class_data_a728c2d3d71d759b252af8820f9f7d135}} 
+std\+::vector$<$ int $>$ {\bfseries get\+Features\+Names} ()
+\item 
+\mbox{\Hypertarget{class_data_a26376768a100f1999ef3ac15a2aa2a67}\label{class_data_a26376768a100f1999ef3ac15a2aa2a67}} 
+\hyperlink{class_statistics}{Statistics} {\bfseries get\+Statistics} ()
+\item 
+int \hyperlink{class_data_a45a39ab2144bcdd0ac1aa67d7d08a6cc}{get\+Number\+Positive\+Points} ()
+\begin{DoxyCompactList}\small\item\em Return the number of positive points. \end{DoxyCompactList}\item 
+int \hyperlink{class_data_a5166e74e946c2dbac75f383d63f018ea}{get\+Number\+Negative\+Points} ()
+\begin{DoxyCompactList}\small\item\em Return the number of negative points. \end{DoxyCompactList}\item 
+bool \hyperlink{class_data_a93468d3b8b2ce0f73e369e5de160534e}{is\+Empty} ()
+\begin{DoxyCompactList}\small\item\em Returns if there\textquotesingle{}s a dataset loaded. \end{DoxyCompactList}\item 
+bool \hyperlink{class_data_ac2ed251251be234c607f486e16902112}{load} (std\+::string file)
+\begin{DoxyCompactList}\small\item\em Load a dataset from a file. \end{DoxyCompactList}\item 
+\hyperlink{class_data}{Data} \hyperlink{class_data_afb7687021aa7d5f1ecae464eee601710}{copy} ()
+\begin{DoxyCompactList}\small\item\em Returns a copy of the data. \end{DoxyCompactList}\item 
+bool \hyperlink{class_data_ad927494a13a5018ff3644212d7234a03}{remove\+Point} (int pid)
+\begin{DoxyCompactList}\small\item\em Remove a point from the data. \end{DoxyCompactList}\item 
+bool \hyperlink{class_data_abb6aade47d78a284301c32e82b2cbee2}{insert\+Point} (\hyperlink{class_data}{Data} sample, int id)
+\begin{DoxyCompactList}\small\item\em Insert a point to the data from another sample. \end{DoxyCompactList}\item 
+std\+::vector$<$ bool $>$ \hyperlink{class_data_a6cc376e614e5440061c66833e1c8d30a}{remove\+Points} (std\+::vector$<$ int $>$ ids)
+\begin{DoxyCompactList}\small\item\em Remove several points from the sample. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_data_a02affbc0f8564106c84dc59f34666912}\label{class_data_a02affbc0f8564106c84dc59f34666912}} 
+void {\bfseries operator=} (const \hyperlink{class_data}{Data} \&)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_data_a351597c4fca22a1ec5c87145cb44689d}\label{class_data_a351597c4fca22a1ec5c87145cb44689d}} 
+std\+::vector$<$ \hyperlink{class_point}{Point} $>$ \hyperlink{class_data_a351597c4fca22a1ec5c87145cb44689d}{points}
+\begin{DoxyCompactList}\small\item\em Set of points. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_data_a999aba95f0c89626c4a1703aa0ec32a3}\label{class_data_a999aba95f0c89626c4a1703aa0ec32a3}} 
+std\+::vector$<$ int $>$ \hyperlink{class_data_a999aba95f0c89626c4a1703aa0ec32a3}{fnames}
+\begin{DoxyCompactList}\small\item\em Features names. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_data_a084ffb2a4f0c22eecd225bec65d1fded}\label{class_data_a084ffb2a4f0c22eecd225bec65d1fded}} 
+std\+::vector$<$ int $>$ {\bfseries index}
+\item 
+\mbox{\Hypertarget{class_data_a554d30dd485385a9c817198cfbf095d8}\label{class_data_a554d30dd485385a9c817198cfbf095d8}} 
+int \hyperlink{class_data_a554d30dd485385a9c817198cfbf095d8}{size} = 0
+\begin{DoxyCompactList}\small\item\em Number of points in the dataset. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_data_a1012a0abcf17048fb7b75c18689a2811}\label{class_data_a1012a0abcf17048fb7b75c18689a2811}} 
+int \hyperlink{class_data_a1012a0abcf17048fb7b75c18689a2811}{dim} = 0
+\begin{DoxyCompactList}\small\item\em Dataset points dimension. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_data_a6c9865c4a6b11b8cbc59dcddb90fdc5d}\label{class_data_a6c9865c4a6b11b8cbc59dcddb90fdc5d}} 
+bool \hyperlink{class_data_a6c9865c4a6b11b8cbc59dcddb90fdc5d}{is\+\_\+empty} = true
+\begin{DoxyCompactList}\small\item\em Verify if there\textquotesingle{}s some data loaded. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_data_a9f761e3ff27ae21cdad00be62516fc6a}\label{class_data_a9f761e3ff27ae21cdad00be62516fc6a}} 
+\hyperlink{class_statistics}{Statistics} \hyperlink{class_data_a9f761e3ff27ae21cdad00be62516fc6a}{stats}
+\begin{DoxyCompactList}\small\item\em Values for statistical methods. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Wrapper for the dataset data. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_data_acdbe72be259faa3c285b8e0f6dc89a94}\label{class_data_acdbe72be259faa3c285b8e0f6dc89a94}} 
+\index{Data@{Data}!Data@{Data}}
+\index{Data@{Data}!Data@{Data}}
+\subsubsection{\texorpdfstring{Data()}{Data()}}
+{\footnotesize\ttfamily Data\+::\+Data (\begin{DoxyParamCaption}\item[{std\+::string}]{dataset }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{class_data}{Data} constructor to load a dataset from a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dataset} & (???) Path to the dataset to be loaded. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_data_afb7687021aa7d5f1ecae464eee601710}\label{class_data_afb7687021aa7d5f1ecae464eee601710}} 
+\index{Data@{Data}!copy@{copy}}
+\index{copy@{copy}!Data@{Data}}
+\subsubsection{\texorpdfstring{copy()}{copy()}}
+{\footnotesize\ttfamily \hyperlink{class_data}{Data} Data\+::copy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns a copy of the data. 
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_data}{Data} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_a0391940729a8023ea9b154132a854d35}\label{class_data_a0391940729a8023ea9b154132a854d35}} 
+\index{Data@{Data}!get\+Dim@{get\+Dim}}
+\index{get\+Dim@{get\+Dim}!Data@{Data}}
+\subsubsection{\texorpdfstring{get\+Dim()}{getDim()}}
+{\footnotesize\ttfamily int Data\+::get\+Dim (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the dimension of the dataset. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_a5166e74e946c2dbac75f383d63f018ea}\label{class_data_a5166e74e946c2dbac75f383d63f018ea}} 
+\index{Data@{Data}!get\+Number\+Negative\+Points@{get\+Number\+Negative\+Points}}
+\index{get\+Number\+Negative\+Points@{get\+Number\+Negative\+Points}!Data@{Data}}
+\subsubsection{\texorpdfstring{get\+Number\+Negative\+Points()}{getNumberNegativePoints()}}
+{\footnotesize\ttfamily int Data\+::get\+Number\+Negative\+Points (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return the number of negative points. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_a45a39ab2144bcdd0ac1aa67d7d08a6cc}\label{class_data_a45a39ab2144bcdd0ac1aa67d7d08a6cc}} 
+\index{Data@{Data}!get\+Number\+Positive\+Points@{get\+Number\+Positive\+Points}}
+\index{get\+Number\+Positive\+Points@{get\+Number\+Positive\+Points}!Data@{Data}}
+\subsubsection{\texorpdfstring{get\+Number\+Positive\+Points()}{getNumberPositivePoints()}}
+{\footnotesize\ttfamily int Data\+::get\+Number\+Positive\+Points (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return the number of positive points. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_a8fe9ce813848765a7615b909c4654b55}\label{class_data_a8fe9ce813848765a7615b909c4654b55}} 
+\index{Data@{Data}!get\+Points@{get\+Points}}
+\index{get\+Points@{get\+Points}!Data@{Data}}
+\subsubsection{\texorpdfstring{get\+Points()}{getPoints()}}
+{\footnotesize\ttfamily vector$<$ \hyperlink{class_point}{Point} $>$ Data\+::get\+Points (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the features names. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$int$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_abfd7c7cca66a186ff45efa430bcb2f1e}\label{class_data_abfd7c7cca66a186ff45efa430bcb2f1e}} 
+\index{Data@{Data}!get\+Size@{get\+Size}}
+\index{get\+Size@{get\+Size}!Data@{Data}}
+\subsubsection{\texorpdfstring{get\+Size()}{getSize()}}
+{\footnotesize\ttfamily int Data\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the size of the dataset. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_a80629b0e6a2516d17475c58e77dbae7d}\label{class_data_a80629b0e6a2516d17475c58e77dbae7d}} 
+\index{Data@{Data}!identify\+File\+Type@{identify\+File\+Type}}
+\index{identify\+File\+Type@{identify\+File\+Type}!Data@{Data}}
+\subsubsection{\texorpdfstring{identify\+File\+Type()}{identifyFileType()}}
+{\footnotesize\ttfamily Type Data\+::identify\+File\+Type (\begin{DoxyParamCaption}\item[{std\+::string}]{file }\end{DoxyParamCaption})}
+
+
+
+Returns the type of the file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & (???) Path to the file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_abb6aade47d78a284301c32e82b2cbee2}\label{class_data_abb6aade47d78a284301c32e82b2cbee2}} 
+\index{Data@{Data}!insert\+Point@{insert\+Point}}
+\index{insert\+Point@{insert\+Point}!Data@{Data}}
+\subsubsection{\texorpdfstring{insert\+Point()}{insertPoint()}}
+{\footnotesize\ttfamily bool Data\+::insert\+Point (\begin{DoxyParamCaption}\item[{\hyperlink{class_data}{Data}}]{sample,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Insert a point to the data from another sample. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sample} & (???) Sample with the point to be added. \\
+\hline
+{\em id} & (???) Index of the point to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_a93468d3b8b2ce0f73e369e5de160534e}\label{class_data_a93468d3b8b2ce0f73e369e5de160534e}} 
+\index{Data@{Data}!is\+Empty@{is\+Empty}}
+\index{is\+Empty@{is\+Empty}!Data@{Data}}
+\subsubsection{\texorpdfstring{is\+Empty()}{isEmpty()}}
+{\footnotesize\ttfamily bool Data\+::is\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns if there\textquotesingle{}s a dataset loaded. 
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_ac2ed251251be234c607f486e16902112}\label{class_data_ac2ed251251be234c607f486e16902112}} 
+\index{Data@{Data}!load@{load}}
+\index{load@{load}!Data@{Data}}
+\subsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily bool Data\+::load (\begin{DoxyParamCaption}\item[{std\+::string}]{file }\end{DoxyParamCaption})}
+
+
+
+Load a dataset from a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & (???) Path to dataset file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_af7b0e31d7dd93fdb3788d30f5ce38693}\label{class_data_af7b0e31d7dd93fdb3788d30f5ce38693}} 
+\index{Data@{Data}!load\+\_\+arff@{load\+\_\+arff}}
+\index{load\+\_\+arff@{load\+\_\+arff}!Data@{Data}}
+\subsubsection{\texorpdfstring{load\+\_\+arff()}{load\_arff()}}
+{\footnotesize\ttfamily bool Data\+::load\+\_\+arff (\begin{DoxyParamCaption}\item[{std\+::string}]{path }\end{DoxyParamCaption})}
+
+
+
+Load a dataset from a arff file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & (???) Path to arff file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_a0083fa28fc5282e095c87d79588e9292}\label{class_data_a0083fa28fc5282e095c87d79588e9292}} 
+\index{Data@{Data}!load\+\_\+csv@{load\+\_\+csv}}
+\index{load\+\_\+csv@{load\+\_\+csv}!Data@{Data}}
+\subsubsection{\texorpdfstring{load\+\_\+csv()}{load\_csv()}}
+{\footnotesize\ttfamily bool Data\+::load\+\_\+csv (\begin{DoxyParamCaption}\item[{std\+::string}]{path }\end{DoxyParamCaption})}
+
+
+
+Load a dataset from a csv file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & (???) Path to csv file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_a327bed527832d41a227f360c0beb838b}\label{class_data_a327bed527832d41a227f360c0beb838b}} 
+\index{Data@{Data}!load\+\_\+data@{load\+\_\+data}}
+\index{load\+\_\+data@{load\+\_\+data}!Data@{Data}}
+\subsubsection{\texorpdfstring{load\+\_\+data()}{load\_data()}}
+{\footnotesize\ttfamily bool Data\+::load\+\_\+data (\begin{DoxyParamCaption}\item[{std\+::string}]{path }\end{DoxyParamCaption})}
+
+
+
+Load a dataset from a data file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & (???) Path to data file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_a555ae0bc506ec70f7c0411604ca6406b}\label{class_data_a555ae0bc506ec70f7c0411604ca6406b}} 
+\index{Data@{Data}!load\+\_\+txt@{load\+\_\+txt}}
+\index{load\+\_\+txt@{load\+\_\+txt}!Data@{Data}}
+\subsubsection{\texorpdfstring{load\+\_\+txt()}{load\_txt()}}
+{\footnotesize\ttfamily bool Data\+::load\+\_\+txt (\begin{DoxyParamCaption}\item[{std\+::string}]{path }\end{DoxyParamCaption})}
+
+
+
+Load a dataset from a txt file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & (???) Path to txt file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_ad927494a13a5018ff3644212d7234a03}\label{class_data_ad927494a13a5018ff3644212d7234a03}} 
+\index{Data@{Data}!remove\+Point@{remove\+Point}}
+\index{remove\+Point@{remove\+Point}!Data@{Data}}
+\subsubsection{\texorpdfstring{remove\+Point()}{removePoint()}}
+{\footnotesize\ttfamily bool Data\+::remove\+Point (\begin{DoxyParamCaption}\item[{int}]{pid }\end{DoxyParamCaption})}
+
+
+
+Remove a point from the data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pid} & (???) Index of the point to be removed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_a6cc376e614e5440061c66833e1c8d30a}\label{class_data_a6cc376e614e5440061c66833e1c8d30a}} 
+\index{Data@{Data}!remove\+Points@{remove\+Points}}
+\index{remove\+Points@{remove\+Points}!Data@{Data}}
+\subsubsection{\texorpdfstring{remove\+Points()}{removePoints()}}
+{\footnotesize\ttfamily vector$<$ bool $>$ Data\+::remove\+Points (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$}]{ids }\end{DoxyParamCaption})}
+
+
+
+Remove several points from the sample. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ids} & (???) Ids of the points to be removed (must be sorted). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/mateus558/\+Dropbox/\+Aprendizado de Máquinas/\+Classification\+\_\+\+Algorithms\+\_\+\+System/includes/Data.\+hpp\item 
+/home/mateus558/\+Dropbox/\+Aprendizado de Máquinas/\+Classification\+\_\+\+Algorithms\+\_\+\+System/src/\hyperlink{_data_8cpp}{Data.\+cpp}\end{DoxyCompactItemize}

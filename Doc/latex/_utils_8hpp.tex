@@ -1,0 +1,127 @@
+\hypertarget{_utils_8hpp}{}\section{/home/mateus558/\+Dropbox/\+Aprendizado de Máquinas/\+Classification\+\_\+\+Algorithms\+\_\+\+System/includes/\+Utils.hpp File Reference}
+\label{_utils_8hpp}\index{/home/mateus558/\+Dropbox/\+Aprendizado de Máquinas/\+Classification\+\_\+\+Algorithms\+\_\+\+System/includes/\+Utils.\+hpp@{/home/mateus558/\+Dropbox/\+Aprendizado de Máquinas/\+Classification\+\_\+\+Algorithms\+\_\+\+System/includes/\+Utils.\+hpp}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+Include dependency graph for Utils.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{_utils_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_utils_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_utils_8hpp_a12c2040f25d8e3a7b9e1c2024c618cb6}\label{_utils_8hpp_a12c2040f25d8e3a7b9e1c2024c618cb6}} 
+\#define {\bfseries I\+NF}~1\+E8
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_utils_8hpp_ad4bb8dabdbf8ad75e34220cc666b59ca}\label{_utils_8hpp_ad4bb8dabdbf8ad75e34220cc666b59ca}} 
+enum {\bfseries Norm\+Type} \{ {\bfseries N\+O\+R\+M\+\_\+\+L\+I\+NF} = 0, 
+{\bfseries N\+O\+R\+M\+\_\+\+L1} = 1, 
+{\bfseries N\+O\+R\+M\+\_\+\+L2} = 2
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{_utils_8hpp_ad5057d992c7e88f80c37a28044320e45}{is\+\_\+number} (std\+::string str)
+\begin{DoxyCompactList}\small\item\em Verify if the string is a number. \end{DoxyCompactList}\item 
+int \hyperlink{_utils_8hpp_a8f8f36f1e1b6c6900fac56c148f754eb}{stoin} (std\+::string str)
+\begin{DoxyCompactList}\small\item\em Converts the string to an integer. \end{DoxyCompactList}\item 
+double \hyperlink{_utils_8hpp_a0187e008853de2faa4269af7602af7d5}{stodn} (std\+::string str)
+\begin{DoxyCompactList}\small\item\em Converts the string to a double. \end{DoxyCompactList}\item 
+double \hyperlink{_utils_8hpp_a79ab62c544d771819865bec0eb8e5360}{max\+Abs\+Element} (std\+::vector$<$ double $>$ x)
+\begin{DoxyCompactList}\small\item\em Returns the max absolute element. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Utils functions
+
+\begin{DoxyAuthor}{Author}
+Mateus Coutinho Marim 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_utils_8hpp_ad5057d992c7e88f80c37a28044320e45}\label{_utils_8hpp_ad5057d992c7e88f80c37a28044320e45}} 
+\index{Utils.\+hpp@{Utils.\+hpp}!is\+\_\+number@{is\+\_\+number}}
+\index{is\+\_\+number@{is\+\_\+number}!Utils.\+hpp@{Utils.\+hpp}}
+\subsubsection{\texorpdfstring{is\+\_\+number()}{is\_number()}}
+{\footnotesize\ttfamily bool is\+\_\+number (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})}
+
+
+
+Verify if the string is a number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & String to be tested. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_utils_8hpp_a79ab62c544d771819865bec0eb8e5360}\label{_utils_8hpp_a79ab62c544d771819865bec0eb8e5360}} 
+\index{Utils.\+hpp@{Utils.\+hpp}!max\+Abs\+Element@{max\+Abs\+Element}}
+\index{max\+Abs\+Element@{max\+Abs\+Element}!Utils.\+hpp@{Utils.\+hpp}}
+\subsubsection{\texorpdfstring{max\+Abs\+Element()}{maxAbsElement()}}
+{\footnotesize\ttfamily double max\+Abs\+Element (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$}]{x }\end{DoxyParamCaption})}
+
+
+
+Returns the max absolute element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The vector used to obtain the max element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The max absolute element found. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_utils_8hpp_a0187e008853de2faa4269af7602af7d5}\label{_utils_8hpp_a0187e008853de2faa4269af7602af7d5}} 
+\index{Utils.\+hpp@{Utils.\+hpp}!stodn@{stodn}}
+\index{stodn@{stodn}!Utils.\+hpp@{Utils.\+hpp}}
+\subsubsection{\texorpdfstring{stodn()}{stodn()}}
+{\footnotesize\ttfamily double stodn (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})}
+
+
+
+Converts the string to a double. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The string to be converted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The double resulted from the conversion. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_utils_8hpp_a8f8f36f1e1b6c6900fac56c148f754eb}\label{_utils_8hpp_a8f8f36f1e1b6c6900fac56c148f754eb}} 
+\index{Utils.\+hpp@{Utils.\+hpp}!stoin@{stoin}}
+\index{stoin@{stoin}!Utils.\+hpp@{Utils.\+hpp}}
+\subsubsection{\texorpdfstring{stoin()}{stoin()}}
+{\footnotesize\ttfamily int stoin (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})}
+
+
+
+Converts the string to an integer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & String to be converted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The integer resulted from the conversion. 
+\end{DoxyReturn}

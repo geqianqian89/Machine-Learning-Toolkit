@@ -1,0 +1,57 @@
+\hypertarget{class_classifier}{}\section{Classifier Class Reference}
+\label{class_classifier}\index{Classifier@{Classifier}}
+
+
+Inheritance diagram for Classifier\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{class_classifier__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_classifier_a4e2f077e6f1dce1ef0376a02b60e7c21}{train} ()=0
+\begin{DoxyCompactList}\small\item\em Function that execute the training phase of a classification algorithm. \end{DoxyCompactList}\item 
+virtual int \hyperlink{class_classifier_a3934f8c7f64aa65bade43a179ea1fc46}{evaluate} (\hyperlink{class_point}{Point} x)=0
+\begin{DoxyCompactList}\small\item\em Returns the class of a feature point based on the trained classifier. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_classifier_a3934f8c7f64aa65bade43a179ea1fc46}\label{class_classifier_a3934f8c7f64aa65bade43a179ea1fc46}} 
+\index{Classifier@{Classifier}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!Classifier@{Classifier}}
+\subsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily virtual int Classifier\+::evaluate (\begin{DoxyParamCaption}\item[{\hyperlink{class_point}{Point}}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns the class of a feature point based on the trained classifier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{class_point}{Point}} & x (???) Features point to be evaluated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_classifier_a4e2f077e6f1dce1ef0376a02b60e7c21}\label{class_classifier_a4e2f077e6f1dce1ef0376a02b60e7c21}} 
+\index{Classifier@{Classifier}!train@{train}}
+\index{train@{train}!Classifier@{Classifier}}
+\subsubsection{\texorpdfstring{train()}{train()}}
+{\footnotesize\ttfamily virtual void Classifier\+::train (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Function that execute the training phase of a classification algorithm. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/mateus558/\+Dropbox/\+Aprendizado de Máquinas/\+Classification\+\_\+\+Algorithms\+\_\+\+System/includes/Classifier.\+hpp\end{DoxyCompactItemize}
