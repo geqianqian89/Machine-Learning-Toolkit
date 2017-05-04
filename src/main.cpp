@@ -57,20 +57,22 @@ int main(int argc, char *argv[])
     process_mem_usage(a, b);
     cout << a << " " << b << endl;
 
-    vector<int> ids(20);
+    vector<int> ids(2), fnames;
 
-    iota(ids.begin(), ids.end(), 21);
-
+    iota(ids.begin(), ids.end(), 1);
+    for(int i = 0; i < ids.size(); i++) cout << ids[i] << endl;
     cp = data;
-    cp.removePoints(ids);
-
-    for(Point p: cp.points){
+    data.removeFeatures(ids);
+    cp = data;
+    for(Point p: data.points){
         cout << p.id << "- ";
         for(int i = 0; i < p.x.size(); i++){
             cout << p.x[i] << " ";
         }
         cout << endl;
     }
+    fnames = data.getFeaturesNames();
+    for(int i = 0; i < fnames.size(); i++) cout << fnames[i] << endl;
     cout << "Dataset size: " << cp.getSize() << endl;
     cout << "Dataset dim: " << cp.getDim() << endl;
     cout << "Negative Points: " << cp.getNumberNegativePoints() << endl;

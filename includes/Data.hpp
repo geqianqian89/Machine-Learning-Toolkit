@@ -129,10 +129,15 @@ class Data {
         /**
          * \brief Remove several points from the sample.
          * \param ids (???) Ids of the points to be removed (must be sorted).
-         * \return bool
+         * \return booleans informing which points were removed succesfully.
          */
         std::vector<bool> removePoints (std::vector<int> ids);
-
+        /**
+         * \brief Remove several features from the sample.
+         * \param feats (???) Names of the features to be removed (must be sorted).
+         * \return boolean informing if all features were succesfully removed.
+         */
+        bool removeFeatures (std::vector<int> feats);
         void operator=(const Data&);
 };
 

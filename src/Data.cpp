@@ -584,6 +584,50 @@ vector<bool> Data::removePoints(vector<int> ids){
     return notFound;
 }
 
+bool Data::removeFeatures(std::vector<int> feats){
+    int i, j, k, psize = points.size(), rsize = feats.size();
+    vector<double>::iterator itr;
+    vector<int>::iterator fitr;
+
+    if(fnames.size() == 1){
+        cerr << "Error: RemoveFeature, only one feature left.\n";
+        return false;
+    }
+    if(feats.size() >= fnames.size()){
+        cerr << "Error: RemoveFeature, more or equal features to remove than exist.\n";
+        return false;
+    }
+
+    //Sort feats for remove features easily
+    sort(feats.begin(), feats.end());
+
+    //Remove features from each point
+    for(i = 0; i < psize; i++){
+        for(itr = points[i].x.begin(),k = 0, j = 0; itr != points[i].x.end();){
+            if(k == rsize) break;
+            if(fnames[j] == feats[k]){
+                if(i == 0) dim--;
+                itr = points[i].x.erase(itr);
+                k++;
+            }else itr++;
+            j++;
+        }
+    }
+
+    //remove names of non-existent features
+    for(k = 0; k < rsize; k++){
+        for(fitr = fnames.begin(); fitr != fnames.end();){
+            if((*fitr) == feats[k]){
+                fitr = fnames.erase(fitr);
+            }else{
+                fitr++;
+            }
+        }
+    }
+
+    return true;
+}
+
 Data Data::copy(){
     return *this;
 }
@@ -603,6 +647,10 @@ int Data::getDim(){
 
 int Data::getSize(){
     return size;
+}
+
+vector<int> Data::getFeaturesNames(){
+    return fnames;
 }
 
 vector<Point> Data::getPoints(){
