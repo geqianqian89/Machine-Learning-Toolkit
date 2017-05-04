@@ -1,4 +1,5 @@
 #include <vector>
+#include <cmath>
 
 #include "../includes/Statistics.hpp"
 
