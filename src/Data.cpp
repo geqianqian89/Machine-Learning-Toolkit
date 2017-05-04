@@ -606,7 +606,7 @@ bool Data::removeFeatures(std::vector<int> feats){
         for(itr = points[i].x.begin(),k = 0, j = 0; itr != points[i].x.end();){
             if(k == rsize) break;
             if(fnames[j] == feats[k]){
-                if(i == 0) dim--;
+                if(i == 0)  dim--;
                 itr = points[i].x.erase(itr);
                 k++;
             }else itr++;
