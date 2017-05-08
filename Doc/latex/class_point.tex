@@ -12,6 +12,9 @@ Class of a \hyperlink{class_point}{Point} of doubles in a space of n dimensions.
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{class_point_a82e69bcefbcbc72eac5c1acd88784aef}\label{class_point_a82e69bcefbcbc72eac5c1acd88784aef}} 
+{\bfseries Point} (int dim)
+\item 
 double \hyperlink{class_point_a9d8da6733d7e4110a62e8d0f82676761}{dot} (std\+::vector$<$ double $>$ p)
 \begin{DoxyCompactList}\small\item\em Computes the dot product with a vector. \end{DoxyCompactList}\item 
 double \hyperlink{class_point_aab64e3f0a9eecba00a1607eb4c7768c3}{norm} (int p=2)
@@ -26,8 +29,14 @@ std\+::vector$<$ double $>$ \hyperlink{class_point_a1e22056737f10e31025b353c86e3
 double \hyperlink{class_point_afa38be143ae800e6ad69ce8ed4df62d8}{y} = 0
 \begin{DoxyCompactList}\small\item\em \hyperlink{class_point}{Point} classification. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_point_a3ccd2080027d6845744bd044280da9e7}\label{class_point_a3ccd2080027d6845744bd044280da9e7}} 
-int \hyperlink{class_point_a3ccd2080027d6845744bd044280da9e7}{id}
+int \hyperlink{class_point_a3ccd2080027d6845744bd044280da9e7}{id} = 0
 \begin{DoxyCompactList}\small\item\em \hyperlink{class_point}{Point} identification. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_point_a18e1e2eb3b3b27719f367688e8611b45}\label{class_point_a18e1e2eb3b3b27719f367688e8611b45}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&output, const \hyperlink{class_point}{Point} \&p)
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}

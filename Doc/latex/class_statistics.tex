@@ -9,48 +9,73 @@ Class with methods for statistical computations.
 
 {\ttfamily \#include $<$Statistics.\+hpp$>$}
 
-
-
-Collaboration diagram for Statistics\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=168pt]{class_statistics__coll__graph}
-\end{center}
-\end{figure}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static double \hyperlink{class_statistics_ab121520f7556f75e295e04ff71f2af39}{mean} (std\+::vector$<$ double $>$ p)
 \begin{DoxyCompactList}\small\item\em Compute the mean (average) of a vector. \end{DoxyCompactList}\item 
+static double \hyperlink{class_statistics_a4201ed0f3f817591bcf18d8ba7bfc1e0}{get\+Feature\+Mean} (\hyperlink{class_data}{Data} data, int index)
+\begin{DoxyCompactList}\small\item\em Computes the mean of a feature in the sample. \end{DoxyCompactList}\item 
 static double \hyperlink{class_statistics_af3a74e0ab944341356b8afeb9fc0ecbd}{variance} (std\+::vector$<$ double $>$ p)
 \begin{DoxyCompactList}\small\item\em Compute the variance of a vector. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_statistics_a0390754b117a9b7a637b44992ed2ebf6}\label{class_statistics_a0390754b117a9b7a637b44992ed2ebf6}} 
-static double {\bfseries variance} (\hyperlink{class_data}{Data} data, int index)
-\item 
+static double \hyperlink{class_statistics_a0390754b117a9b7a637b44992ed2ebf6}{variance} (\hyperlink{class_data}{Data} data, int index)
+\begin{DoxyCompactList}\small\item\em Compute the variance of a sample. \end{DoxyCompactList}\item 
 static double \hyperlink{class_statistics_a75435245095cd0fd54b2d57a6ae592da}{stdev} (std\+::vector$<$ double $>$ p)
-\begin{DoxyCompactList}\small\item\em Compute the standard deviation of a vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Public Attributes}
+\begin{DoxyCompactList}\small\item\em Compute the standard deviation of a vector. \end{DoxyCompactList}\item 
+static double \hyperlink{class_statistics_a4cd8cbff1c0b3cdf08adf6c7fc453251}{get\+Feature\+Stdev} (\hyperlink{class_data}{Data} data, int index)
+\begin{DoxyCompactList}\small\item\em Computes the standard deviation of a feature. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_statistics_a51adeaf4b7f078a4dfd373082fd1f7e1}\label{class_statistics_a51adeaf4b7f078a4dfd373082fd1f7e1}} 
-\hyperlink{class_point}{Point} \hyperlink{class_statistics_a51adeaf4b7f078a4dfd373082fd1f7e1}{pos\+\_\+centroid}
-\begin{DoxyCompactList}\small\item\em Centroid of the positive points. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_statistics_ab7a104abc574d7d0e063f97ccc5f52e0}\label{class_statistics_ab7a104abc574d7d0e063f97ccc5f52e0}} 
-\hyperlink{class_point}{Point} \hyperlink{class_statistics_ab7a104abc574d7d0e063f97ccc5f52e0}{neg\+\_\+centroid}
-\begin{DoxyCompactList}\small\item\em Centroid of the negative points. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_statistics_a95918ee9568c41b665ba3920f3255829}\label{class_statistics_a95918ee9568c41b665ba3920f3255829}} 
-int \hyperlink{class_statistics_a95918ee9568c41b665ba3920f3255829}{n\+\_\+pos} = 0
-\begin{DoxyCompactList}\small\item\em Number of positive points. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_statistics_a221eee7599d594bc55f69608c82bb242}\label{class_statistics_a221eee7599d594bc55f69608c82bb242}} 
-int \hyperlink{class_statistics_a221eee7599d594bc55f69608c82bb242}{n\+\_\+neg} = 0
-\begin{DoxyCompactList}\small\item\em Number of negative points. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\mbox{\Hypertarget{class_statistics_a242d9fdd7c3ba48097582a2662b6f48d}\label{class_statistics_a242d9fdd7c3ba48097582a2662b6f48d}} 
+class {\bfseries Data}
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 Class with methods for statistical computations. 
 
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_statistics_a4201ed0f3f817591bcf18d8ba7bfc1e0}\label{class_statistics_a4201ed0f3f817591bcf18d8ba7bfc1e0}} 
+\index{Statistics@{Statistics}!get\+Feature\+Mean@{get\+Feature\+Mean}}
+\index{get\+Feature\+Mean@{get\+Feature\+Mean}!Statistics@{Statistics}}
+\subsubsection{\texorpdfstring{get\+Feature\+Mean()}{getFeatureMean()}}
+{\footnotesize\ttfamily double Statistics\+::get\+Feature\+Mean (\begin{DoxyParamCaption}\item[{\hyperlink{class_data}{Data}}]{data,  }\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Computes the mean of a feature in the sample. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & (???) Sample where the feature is located. \\
+\hline
+{\em index} & (???) Index of the feature to compute the mean. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_statistics_a4cd8cbff1c0b3cdf08adf6c7fc453251}\label{class_statistics_a4cd8cbff1c0b3cdf08adf6c7fc453251}} 
+\index{Statistics@{Statistics}!get\+Feature\+Stdev@{get\+Feature\+Stdev}}
+\index{get\+Feature\+Stdev@{get\+Feature\+Stdev}!Statistics@{Statistics}}
+\subsubsection{\texorpdfstring{get\+Feature\+Stdev()}{getFeatureStdev()}}
+{\footnotesize\ttfamily double Statistics\+::get\+Feature\+Stdev (\begin{DoxyParamCaption}\item[{\hyperlink{class_data}{Data}}]{data,  }\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Computes the standard deviation of a feature. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & (???) Sample where the feature is located. \\
+\hline
+{\em index} & (???) Index of teh feature to compute the standard deviation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_statistics_ab121520f7556f75e295e04ff71f2af39}\label{class_statistics_ab121520f7556f75e295e04ff71f2af39}} 
 \index{Statistics@{Statistics}!mean@{mean}}
 \index{mean@{mean}!Statistics@{Statistics}}
@@ -81,7 +106,7 @@ Compute the standard deviation of a vector.
 
 
 \begin{DoxyParams}{Parameters}
-{\em p} & (???) Vector to compute stdev. \\
+{\em p} & (???) \hyperlink{class_point}{Point} to compute stdev. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -90,7 +115,7 @@ double
 \mbox{\Hypertarget{class_statistics_af3a74e0ab944341356b8afeb9fc0ecbd}\label{class_statistics_af3a74e0ab944341356b8afeb9fc0ecbd}} 
 \index{Statistics@{Statistics}!variance@{variance}}
 \index{variance@{variance}!Statistics@{Statistics}}
-\subsubsection{\texorpdfstring{variance()}{variance()}}
+\subsubsection{\texorpdfstring{variance()}{variance()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily static double Statistics\+::variance (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
@@ -100,6 +125,26 @@ Compute the variance of a vector.
 
 \begin{DoxyParams}{Parameters}
 {\em p} & (???) Vector to compute the variance. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_statistics_a0390754b117a9b7a637b44992ed2ebf6}\label{class_statistics_a0390754b117a9b7a637b44992ed2ebf6}} 
+\index{Statistics@{Statistics}!variance@{variance}}
+\index{variance@{variance}!Statistics@{Statistics}}
+\subsubsection{\texorpdfstring{variance()}{variance()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double Statistics\+::variance (\begin{DoxyParamCaption}\item[{\hyperlink{class_data}{Data}}]{data,  }\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Compute the variance of a sample. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & (???) Sample to compute the variance. \\
+\hline
+{\em index} & (???) Index of the feature to be ignored. (-\/1 dont ignore any feature) \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

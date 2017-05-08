@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['n_5fneg',['n_neg',['../class_statistics.html#a221eee7599d594bc55f69608c82bb242',1,'Statistics']]],
-  ['n_5fpos',['n_pos',['../class_statistics.html#a95918ee9568c41b665ba3920f3255829',1,'Statistics']]],
-  ['neg_5fcentroid',['neg_centroid',['../class_statistics.html#ab7a104abc574d7d0e063f97ccc5f52e0',1,'Statistics']]]
+  ['x',['x',['../class_point.html#a1e22056737f10e31025b353c86e3b9e3',1,'Point']]]
 ];
