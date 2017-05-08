@@ -77,7 +77,8 @@ double stodn(string str){
 }
 
 double maxAbsElement(vector<double> x){
-    int i, dim = x.size(), max, absv;
+    int i, dim = x.size();
+    double max, absv;
 
     for(i = 0, max = -INF; i < dim; i++){
         absv = fabs(x[i]);

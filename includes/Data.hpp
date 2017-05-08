@@ -15,7 +15,7 @@ enum  Type {TYPE_INVALID = -1, TYPE_DATA = 0, TYPE_CSV = 1, TYPE_ARFF = 2, TYPE_
 class Data {
     // Associations
     // Attributes
-    public :
+    private :
         /// Set of points.
         std::vector<Point> points;
         /// Features names.

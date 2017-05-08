@@ -4,6 +4,8 @@
 #include <ios>
 #include <numeric>
 #include "../includes/Data.hpp"
+#include "../includes/Statistics.hpp"
+#include "../includes/Utils.hpp"
 
 using namespace std;
 
@@ -47,30 +49,31 @@ int main(int argc, char *argv[])
 {
     Data data, cp;
     int i;
+    Point p;
+    vector<double> o(4);
     double a, b;
     data.load(string(argv[1]));
+    cp.load(string(argv[1]));
 
 
     process_mem_usage(a, b);
     cout << a << " " << b << endl;
+    o[0] = 0.1, o[1] = 1, o[2] = 2, o[3] = 3;
+    p.x = o;
+    p.y = -1;
 
-    vector<int> ids(1100), fnames;
-
-    iota(ids.begin(), ids.end(), 1);
-
-    data.removePoints(ids);
-    /*for(Point p: data.points){
-            cout << p.id << "- ";
-            for(int i = 0; i < p.x.size(); i++){
-                cout << p.x[i] << " ";
-            }
-            cout << endl;
-     }*/
+    for(Point p: data.getPoints()){
+        cout << p.id << "- ";
+        for(int i = 0; i < p.x.size(); i++){
+            cout << p.x[i] << " ";
+        }
+        cout << endl;
+    }
+    cout << "Dataset variance: " << Statistics::variance(data, -1) << endl;
     cout << "Dataset size: " << data.getSize() << endl;
     cout << "Dataset dim: " << data.getDim() << endl;
     cout << "Negative Points: " << data.getNumberNegativePoints() << endl;
     cout << "Positive Points: " << data.getNumberPositivePoints() << endl;
-    cin >> a;
     /*    for(Point p: data.points){
         cout << p.id << "- ";
         for(int i = 0; i < p.x.size(); i++){

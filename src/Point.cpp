@@ -10,7 +10,8 @@
 using namespace std;
 
 double Point::dot(vector<double> p){
-    int i, dot, dim = p.size();
+    int i, dim = p.size();
+    double dot;
 
     if(dim != x.size()){
         cerr << "The points must have the same dimension!" << endl;
@@ -25,7 +26,8 @@ double Point::dot(vector<double> p){
 }
 
 double Point::norm(int p){
-    int i, norm, dim = x.size();
+    int i, dim = x.size();
+    double norm;
 
     if(p == NormType::NORM_LINF){
         return maxAbsElement(x);

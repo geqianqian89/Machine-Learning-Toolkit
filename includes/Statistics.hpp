@@ -1,8 +1,11 @@
 #ifndef STATISTICS__HPP
 #define STATISTICS__HPP
 
-#include "Point.hpp"
 #include <vector>
+
+#include "Point.hpp"
+
+class Data;
 
 /**
  * \brief Class with methods for statistical computations.
@@ -21,17 +24,24 @@ class Statistics {
     // Operations
         Statistics (){}
         /**
-         * \brief Compute the standard deviation of a vector.
-         * \param p (???) Point to compute stdev.
-         * \return double
-         */
-        static double stdev (std::vector<double> p);
-        /**
          * \brief Compute the mean (average) of a vector.
          * \param p (???) Point to compute the mean.
          * \return double
          */
         static double mean (std::vector<double> p);
+        /**
+         * \brief Compute the variance of a vector.
+         * \param p (???) Vector to compute the variance.
+         * \return double
+         */
+        static double variance (std::vector<double> p);
+        static double variance (Data data, int index);
+        /**
+         * \brief Compute the standard deviation of a vector.
+         * \param p (???) Vector to compute stdev.
+         * \return double
+         */
+        static double stdev (std::vector<double> p);
 };
 
 #endif
