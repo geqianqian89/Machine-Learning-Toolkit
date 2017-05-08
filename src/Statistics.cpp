@@ -82,3 +82,19 @@ double Statistics::variance(Data data, int index){
 double Statistics::stdev(vector<double> p){
     return sqrt(variance(p));
 }
+
+double Statistics::getFeatureStdev(Data data, int index){
+    int i, size = data.getSize();
+    double avg, sd, vetsize = data.getDim();
+    vector<Point> points = data.getPoints();
+
+    if(size == 1) return 0.0;
+
+    avg = getFeatureMean(data, index);
+
+    for(sd = 0.0, i = 0; i < vetsize; ++i){
+        sd = (points[i].x[index] - avg)*(points[i].x[index] - avg);
+    }
+
+    return sqrt(sd/(vetsize - 1));
+}

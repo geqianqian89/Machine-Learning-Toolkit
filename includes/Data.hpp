@@ -158,6 +158,11 @@ class Data {
          * \return boolean informing if all features were succesfully removed.
          */
         bool removeFeatures (std::vector<int> feats);
+        /**
+         * \brief Change the x vector of a sample.
+         * \param index (???) Indexes of the change to be made.
+         * \return void
+         */
         void changeXVector(std::vector<int> index);
 
         void operator=(const Data&);

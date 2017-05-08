@@ -65,6 +65,7 @@ int main(int argc, char *argv[])
     }
     cout << "Dataset variance: " << Statistics::variance(data, -1) << endl;
     cout << "feat 1 mean: " << Statistics::getFeatureMean(data, 0) << endl;
+    cout << "feat 1 stdev: " << Statistics::getFeatureStdev(data, 0) << endl;
     cout << "Dataset size: " << data.getSize() << endl;
     cout << "Dataset dim: " << data.getDim() << endl;
     cout << "Negative Points: " << data.getNumberNegativePoints() << endl;

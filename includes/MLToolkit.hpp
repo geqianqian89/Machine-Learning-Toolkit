@@ -2,6 +2,8 @@
 #define MLTOOLKIT_H_INCLUDED
 
 #include "Data.hpp"
+#include "Solution.hpp"
+#include "ValidationSolution.hpp"
 #include "Point.hpp"
 #include "Statistics.hpp"
 #include "Utils.hpp"

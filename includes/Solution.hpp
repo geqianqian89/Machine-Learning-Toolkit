@@ -7,7 +7,7 @@ class Solution {
     // Attributes
     private :
         /// Features names of the resulting solution.
-        vector<int> fnames;
+        std::vector<int> fnames;
         /// Margin generated from the classifier that generated the solution.
         double margin;
 };
