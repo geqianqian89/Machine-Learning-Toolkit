@@ -18,6 +18,19 @@ double Statistics::mean(vector<double> p){
     return (avg / psize);
 }
 
+double Statistics::getFeatureMean(Data data, int index){
+    int i, size = data.getSize();
+    double sum = 0.0;
+    vector<Point> points = data.getPoints();
+
+    for(i = 0; i < size; ++i){
+        sum += points[i].x[index];
+    }
+    sum /= size;
+
+    return sum;
+}
+
 double Statistics::variance(vector<double> p){
     if(p.size() == 1) return 0.0;
     int i;

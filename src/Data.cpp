@@ -657,6 +657,18 @@ bool Data::insertPoint(Point p){
     return true;
 }
 
+void Data::changeXVector(vector<int> index){
+    int i, j;
+    vector<Point> nPoints(size, Point(dim));
+
+    for(i = 0; i < size; i++){
+        nPoints[i].x = points[index[i]].x;
+        nPoints[i].y = points[index[i]].y;
+    }
+
+    points = nPoints;
+}
+
 Point Data::getPoint(int index){
     return points[index];
 }

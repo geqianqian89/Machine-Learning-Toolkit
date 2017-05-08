@@ -2,12 +2,17 @@
   \brief Implementation of the Point class methods.
   \file Point.cpp
 */
-#include <iostream>
 #include <cmath>
 #include "../includes/Point.hpp"
 #include "../includes/Utils.hpp"
 
 using namespace std;
+
+Point::Point(){}
+
+Point::Point(int dim){
+    x.resize(dim);
+}
 
 double Point::dot(vector<double> p){
     int i, dim = p.size();
@@ -38,4 +43,17 @@ double Point::norm(int p){
     }
 
     return pow(norm, 1.0/p);
+}
+
+ostream &operator<<( ostream &output,
+     const Point &p ) {
+     int i, dim = p.x.size();
+
+     output << p.id << ":[";
+     for(i = 0; i < dim; ++i){
+        output << p.x[i] << ", ";
+     }
+     output << p.y << "]";
+
+     return output;
 }

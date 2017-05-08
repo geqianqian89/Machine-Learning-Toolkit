@@ -3,9 +3,7 @@
 #include <unistd.h>
 #include <ios>
 #include <numeric>
-#include "../includes/Data.hpp"
-#include "../includes/Statistics.hpp"
-#include "../includes/Utils.hpp"
+#include "../includes/MLToolkit.hpp"
 
 using namespace std;
 
@@ -63,13 +61,10 @@ int main(int argc, char *argv[])
     p.y = -1;
 
     for(Point p: data.getPoints()){
-        cout << p.id << "- ";
-        for(int i = 0; i < p.x.size(); i++){
-            cout << p.x[i] << " ";
-        }
-        cout << endl;
+        cout << p << endl;
     }
     cout << "Dataset variance: " << Statistics::variance(data, -1) << endl;
+    cout << "feat 1 mean: " << Statistics::getFeatureMean(data, 0) << endl;
     cout << "Dataset size: " << data.getSize() << endl;
     cout << "Dataset dim: " << data.getDim() << endl;
     cout << "Negative Points: " << data.getNumberNegativePoints() << endl;

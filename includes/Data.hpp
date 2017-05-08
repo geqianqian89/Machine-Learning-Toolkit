@@ -158,6 +158,7 @@ class Data {
          * \return boolean informing if all features were succesfully removed.
          */
         bool removeFeatures (std::vector<int> feats);
+        void changeXVector(std::vector<int> index);
 
         void operator=(const Data&);
 };

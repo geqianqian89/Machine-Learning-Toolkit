@@ -29,6 +29,7 @@ class Statistics {
          * \return double
          */
         static double mean (std::vector<double> p);
+        static double getFeatureMean(Data data, int index);
         /**
          * \brief Compute the variance of a vector.
          * \param p (???) Vector to compute the variance.
