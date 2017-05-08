@@ -32,37 +32,37 @@ Data::Data(string dataset){
 Type Data::identifyFileType(string file){
     int l , k, i, j, tsize = types.size();
 
-        for(k = file.size() - 1; (k >= 0 && file[k] != '.') ; k--){
-            for(i = 0; i < tsize; ++i){
-                if(file[k] == types[i][types[i].size()-1]){
-                    for(j = types[i].size() - 1, l = 0; (j >= 0 && file[k-l] != '.') ; j--, l++){
-                        if(j == 0 && types[i][j] == file[k-l]){
-                            switch(i){
-                                case 0:
-                                        return Type::TYPE_DATA;
-                                        break;
-                                case 1:
-                                        return Type::TYPE_CSV;
-                                        break;
-                                case 2:
-                                        return Type::TYPE_ARFF;
-                                        break;
-                                case 3:
-                                        return Type::TYPE_TXT;
-                                        break;
-                                default:
-                                        return Type::TYPE_INVALID;
-                                        break;
-                            }
-                        }else if(types[i][j] != file[k-l]){
-                            break;
+    for(k = file.size() - 1; (k >= 0 && file[k] != '.') ; k--){
+        for(i = 0; i < tsize; ++i){
+            if(file[k] == types[i][types[i].size()-1]){
+                for(j = types[i].size() - 1, l = 0; (j >= 0 && file[k-l] != '.') ; j--, l++){
+                    if(j == 0 && types[i][j] == file[k-l]){
+                        switch(i){
+                            case 0:
+                                    return Type::TYPE_DATA;
+                                    break;
+                            case 1:
+                                    return Type::TYPE_CSV;
+                                    break;
+                            case 2:
+                                    return Type::TYPE_ARFF;
+                                    break;
+                            case 3:
+                                    return Type::TYPE_TXT;
+                                    break;
+                            default:
+                                    return Type::TYPE_INVALID;
+                                    break;
                         }
+                    }else if(types[i][j] != file[k-l]){
+                        break;
                     }
                 }
             }
         }
+    }
 
-        return Type::TYPE_INVALID;
+    return Type::TYPE_INVALID;
 }
 
 bool Data::load(string file){
@@ -468,9 +468,9 @@ bool Data::load_txt(string path){
         }
 
         if(size != 0 &&  dim != d ){
-                cerr << dim << " " << this->dim << endl;
-                cerr << "All the samples must have the same dimension!" << endl;
-                return false;
+            cerr << dim << " " << this->dim << endl;
+            cerr << "All the samples must have the same dimension!" << endl;
+            return false;
         }
 
         d = dim;
@@ -628,17 +628,41 @@ bool Data::removeFeatures(std::vector<int> feats){
     return true;
 }
 
-Data Data::copy(){
-    return *this;
+bool Data::insertPoint(Data sample, int index){
+    if(index > sample.getSize()-1){
+        cerr << "Index out of bounds. (insertPoint)" << endl;
+        return false;
+    }
+
+    insertPoint(sample.getPoint(index));
+
+    return true;
 }
 
-void Data::operator=(const Data& data){
-    points = data.points;
-    fnames = data.fnames;
-    dim = data.dim;
-    size = data.size;
-    stats = data.stats;
-    is_empty = data.is_empty;
+bool Data::insertPoint(Point p){
+    if(int(p.x.size()) > dim){
+        cerr << "Point with dimension different from the data. (insertPoint)" << endl;
+        return false;
+    }
+
+    points.insert(points.end(), p);
+    size++;
+
+    if(p.y > 0)
+        stats.n_pos++;
+    else stats.n_neg++;
+
+    points[size-1].id = points[size-2].id + 1;
+
+    return true;
+}
+
+Point Data::getPoint(int index){
+    return points[index];
+}
+
+Data Data::copy(){
+    return *this;
 }
 
 int Data::getDim(){
@@ -667,4 +691,13 @@ int Data::getNumberPositivePoints(){
 
 Statistics Data::getStatistics(){
     return stats;
+}
+
+void Data::operator=(const Data& data){
+    points = data.points;
+    fnames = data.fnames;
+    dim = data.dim;
+    size = data.size;
+    stats = data.stats;
+    is_empty = data.is_empty;
 }

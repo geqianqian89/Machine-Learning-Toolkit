@@ -50,21 +50,28 @@ int main(int argc, char *argv[])
     double a, b;
     data.load(string(argv[1]));
 
+
+    process_mem_usage(a, b);
+    cout << a << " " << b << endl;
+
+    vector<int> ids(1100), fnames;
+
+    iota(ids.begin(), ids.end(), 1);
+
+    data.removePoints(ids);
+    /*for(Point p: data.points){
+            cout << p.id << "- ";
+            for(int i = 0; i < p.x.size(); i++){
+                cout << p.x[i] << " ";
+            }
+            cout << endl;
+     }*/
     cout << "Dataset size: " << data.getSize() << endl;
     cout << "Dataset dim: " << data.getDim() << endl;
     cout << "Negative Points: " << data.getNumberNegativePoints() << endl;
     cout << "Positive Points: " << data.getNumberPositivePoints() << endl;
-    process_mem_usage(a, b);
-    cout << a << " " << b << endl;
-
-    vector<int> ids(2), fnames;
-
-    iota(ids.begin(), ids.end(), 1);
-    for(int i = 0; i < ids.size(); i++) cout << ids[i] << endl;
-    cp = data;
-    data.removeFeatures(ids);
-    cp = data;
-    for(Point p: data.points){
+    cin >> a;
+    /*    for(Point p: data.points){
         cout << p.id << "- ";
         for(int i = 0; i < p.x.size(); i++){
             cout << p.x[i] << " ";
@@ -76,6 +83,6 @@ int main(int argc, char *argv[])
     cout << "Dataset size: " << cp.getSize() << endl;
     cout << "Dataset dim: " << cp.getDim() << endl;
     cout << "Negative Points: " << cp.getNumberNegativePoints() << endl;
-    cout << "Positive Points: " << cp.getNumberPositivePoints() << endl;
+    cout << "Positive Points: " << cp.getNumberPositivePoints() << endl;*/
     return 0;
 }

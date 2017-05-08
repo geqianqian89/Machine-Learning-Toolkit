@@ -1,10 +1,10 @@
 #ifndef DATA__HPP
 #define DATA__HPP
 
-#include "Point.hpp"
-#include "Statistics.hpp"
 #include <vector>
 #include <string>
+#include "Point.hpp"
+#include "Statistics.hpp"
 
 static const std::vector<std::string> types {"data", "csv", "arff", "txt"};
 enum  Type {TYPE_INVALID = -1, TYPE_DATA = 0, TYPE_CSV = 1, TYPE_ARFF = 2, TYPE_TXT = 3};
@@ -81,12 +81,26 @@ class Data {
          */
         int getDim ();
         /**
+         * \brief Returns the point with the given index.
+         * \param index    Position of a point in the points array.
+         * \return std::vector<Points>
+         */
+        Point getPoint (int index);
+        /**
+         * \brief Returns the vector of Points of the sample.
+         * \return std::vector<Points>
+         */
+        std::vector<Point> getPoints ();
+        /**
          * \brief Returns the features names.
          * \return std::vector<int>
          */
-        std::vector<Point> getPoints();
         std::vector<int> getFeaturesNames ();
-        Statistics getStatistics();
+        /**
+         * \brief Returns a class with the statistics info of the sample.
+         * \return Statistics
+         */
+        Statistics getStatistics ();
         /**
          * \brief Return the number of positive points.
          * \return int
@@ -114,12 +128,6 @@ class Data {
          */
         Data copy ();
         /**
-         * \brief Remove a point from the data.
-         * \param pid (???) Index of the point to be removed.
-         * \return bool
-         */
-        bool removePoint (int pid);
-        /**
          * \brief Insert a point to the data from another sample.
          * \param sample (???) Sample with the point to be added.
          * \param id (???) Index of the point to be added.
@@ -127,17 +135,30 @@ class Data {
          */
         bool insertPoint (Data sample, int id);
         /**
+         * \brief Insert a point to the end of vector points.
+         * \param p (???) Point to be inserted.
+         * \return bool
+         */
+        bool insertPoint (Point p);
+        /**
          * \brief Remove several points from the sample.
          * \param ids (???) Ids of the points to be removed (must be sorted).
          * \return booleans informing which points were removed succesfully.
          */
         std::vector<bool> removePoints (std::vector<int> ids);
         /**
+         * \brief Remove a point from the data.
+         * \param pid (???) Index of the point to be removed.
+         * \return bool
+         */
+        bool removePoint (int pid);
+        /**
          * \brief Remove several features from the sample.
          * \param feats (???) Names of the features to be removed (must be sorted).
          * \return boolean informing if all features were succesfully removed.
          */
         bool removeFeatures (std::vector<int> feats);
+
         void operator=(const Data&);
 };
 
