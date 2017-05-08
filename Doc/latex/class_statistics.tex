@@ -21,10 +21,15 @@ Collaboration diagram for Statistics\+:\nopagebreak
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static double \hyperlink{class_statistics_a4c1ba6a34efe8686419edd83e7c6d579}{stdev} (std\+::vector$<$ double $>$ p)
-\begin{DoxyCompactList}\small\item\em Compute the standard deviation of a vector. \end{DoxyCompactList}\item 
-static double \hyperlink{class_statistics_ad56432dac5366707268de10e58f7972a}{mean} (std\+::vector$<$ double $>$ p)
-\begin{DoxyCompactList}\small\item\em Compute the mean (average) of a vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+static double \hyperlink{class_statistics_ab121520f7556f75e295e04ff71f2af39}{mean} (std\+::vector$<$ double $>$ p)
+\begin{DoxyCompactList}\small\item\em Compute the mean (average) of a vector. \end{DoxyCompactList}\item 
+static double \hyperlink{class_statistics_af3a74e0ab944341356b8afeb9fc0ecbd}{variance} (std\+::vector$<$ double $>$ p)
+\begin{DoxyCompactList}\small\item\em Compute the variance of a vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_statistics_a0390754b117a9b7a637b44992ed2ebf6}\label{class_statistics_a0390754b117a9b7a637b44992ed2ebf6}} 
+static double {\bfseries variance} (\hyperlink{class_data}{Data} data, int index)
+\item 
+static double \hyperlink{class_statistics_a75435245095cd0fd54b2d57a6ae592da}{stdev} (std\+::vector$<$ double $>$ p)
+\begin{DoxyCompactList}\small\item\em Compute the standard deviation of a vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -46,11 +51,11 @@ int \hyperlink{class_statistics_a221eee7599d594bc55f69608c82bb242}{n\+\_\+neg} =
 Class with methods for statistical computations. 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_statistics_ad56432dac5366707268de10e58f7972a}\label{class_statistics_ad56432dac5366707268de10e58f7972a}} 
+\mbox{\Hypertarget{class_statistics_ab121520f7556f75e295e04ff71f2af39}\label{class_statistics_ab121520f7556f75e295e04ff71f2af39}} 
 \index{Statistics@{Statistics}!mean@{mean}}
 \index{mean@{mean}!Statistics@{Statistics}}
 \subsubsection{\texorpdfstring{mean()}{mean()}}
-{\footnotesize\ttfamily static double Statistics\+::mean (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily double Statistics\+::mean (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -64,11 +69,11 @@ Compute the mean (average) of a vector.
 \begin{DoxyReturn}{Returns}
 double 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_statistics_a4c1ba6a34efe8686419edd83e7c6d579}\label{class_statistics_a4c1ba6a34efe8686419edd83e7c6d579}} 
+\mbox{\Hypertarget{class_statistics_a75435245095cd0fd54b2d57a6ae592da}\label{class_statistics_a75435245095cd0fd54b2d57a6ae592da}} 
 \index{Statistics@{Statistics}!stdev@{stdev}}
 \index{stdev@{stdev}!Statistics@{Statistics}}
 \subsubsection{\texorpdfstring{stdev()}{stdev()}}
-{\footnotesize\ttfamily static double Statistics\+::stdev (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily double Statistics\+::stdev (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -76,7 +81,25 @@ Compute the standard deviation of a vector.
 
 
 \begin{DoxyParams}{Parameters}
-{\em p} & (???) \hyperlink{class_point}{Point} to compute stdev. \\
+{\em p} & (???) Vector to compute stdev. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_statistics_af3a74e0ab944341356b8afeb9fc0ecbd}\label{class_statistics_af3a74e0ab944341356b8afeb9fc0ecbd}} 
+\index{Statistics@{Statistics}!variance@{variance}}
+\index{variance@{variance}!Statistics@{Statistics}}
+\subsubsection{\texorpdfstring{variance()}{variance()}}
+{\footnotesize\ttfamily static double Statistics\+::variance (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Compute the variance of a vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & (???) Vector to compute the variance. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -84,6 +107,7 @@ double
 \end{DoxyReturn}
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/mateus558/\+Dropbox/\+Aprendizado de Máquinas/\+Classification\+\_\+\+Algorithms\+\_\+\+System/includes/Statistics.\+hpp\end{DoxyCompactItemize}
+includes/Statistics.\+hpp\item 
+src/Statistics.\+cpp\end{DoxyCompactItemize}

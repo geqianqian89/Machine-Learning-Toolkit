@@ -85,12 +85,18 @@ Collaboration diagram for Statistics:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a4c1ba6a34efe8686419edd83e7c6d579"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#a4c1ba6a34efe8686419edd83e7c6d579">stdev</a> (std::vector&lt; double &gt; p)</td></tr>
-<tr class="memdesc:a4c1ba6a34efe8686419edd83e7c6d579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the standard deviation of a vector.  <a href="#a4c1ba6a34efe8686419edd83e7c6d579">More...</a><br /></td></tr>
-<tr class="separator:a4c1ba6a34efe8686419edd83e7c6d579"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad56432dac5366707268de10e58f7972a"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#ad56432dac5366707268de10e58f7972a">mean</a> (std::vector&lt; double &gt; p)</td></tr>
-<tr class="memdesc:ad56432dac5366707268de10e58f7972a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the mean (average) of a vector.  <a href="#ad56432dac5366707268de10e58f7972a">More...</a><br /></td></tr>
-<tr class="separator:ad56432dac5366707268de10e58f7972a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab121520f7556f75e295e04ff71f2af39"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#ab121520f7556f75e295e04ff71f2af39">mean</a> (std::vector&lt; double &gt; p)</td></tr>
+<tr class="memdesc:ab121520f7556f75e295e04ff71f2af39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the mean (average) of a vector.  <a href="#ab121520f7556f75e295e04ff71f2af39">More...</a><br /></td></tr>
+<tr class="separator:ab121520f7556f75e295e04ff71f2af39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3a74e0ab944341356b8afeb9fc0ecbd"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#af3a74e0ab944341356b8afeb9fc0ecbd">variance</a> (std::vector&lt; double &gt; p)</td></tr>
+<tr class="memdesc:af3a74e0ab944341356b8afeb9fc0ecbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the variance of a vector.  <a href="#af3a74e0ab944341356b8afeb9fc0ecbd">More...</a><br /></td></tr>
+<tr class="separator:af3a74e0ab944341356b8afeb9fc0ecbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0390754b117a9b7a637b44992ed2ebf6"><td class="memItemLeft" align="right" valign="top"><a id="a0390754b117a9b7a637b44992ed2ebf6"></a>
+static double&#160;</td><td class="memItemRight" valign="bottom"><b>variance</b> (<a class="el" href="class_data.html">Data</a> data, int index)</td></tr>
+<tr class="separator:a0390754b117a9b7a637b44992ed2ebf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75435245095cd0fd54b2d57a6ae592da"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#a75435245095cd0fd54b2d57a6ae592da">stdev</a> (std::vector&lt; double &gt; p)</td></tr>
+<tr class="memdesc:a75435245095cd0fd54b2d57a6ae592da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the standard deviation of a vector.  <a href="#a75435245095cd0fd54b2d57a6ae592da">More...</a><br /></td></tr>
+<tr class="separator:a75435245095cd0fd54b2d57a6ae592da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -114,8 +120,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class with methods for statistical computations. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ad56432dac5366707268de10e58f7972a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad56432dac5366707268de10e58f7972a">&#9670;&nbsp;</a></span>mean()</h2>
+<a id="ab121520f7556f75e295e04ff71f2af39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab121520f7556f75e295e04ff71f2af39">&#9670;&nbsp;</a></span>mean()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -124,7 +130,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static double Statistics::mean </td>
+          <td class="memname">double Statistics::mean </td>
           <td>(</td>
           <td class="paramtype">std::vector&lt; double &gt;&#160;</td>
           <td class="paramname"><em>p</em></td><td>)</td>
@@ -149,8 +155,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 
 </div>
 </div>
-<a id="a4c1ba6a34efe8686419edd83e7c6d579"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c1ba6a34efe8686419edd83e7c6d579">&#9670;&nbsp;</a></span>stdev()</h2>
+<a id="a75435245095cd0fd54b2d57a6ae592da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75435245095cd0fd54b2d57a6ae592da">&#9670;&nbsp;</a></span>stdev()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -159,7 +165,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static double Statistics::stdev </td>
+          <td class="memname">double Statistics::stdev </td>
           <td>(</td>
           <td class="paramtype">std::vector&lt; double &gt;&#160;</td>
           <td class="paramname"><em>p</em></td><td>)</td>
@@ -176,7 +182,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 <p>Compute the standard deviation of a vector. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">p</td><td>(???) <a class="el" href="class_point.html" title="Class of a Point of doubles in a space of n dimensions. ">Point</a> to compute stdev. </td></tr>
+    <tr><td class="paramname">p</td><td>(???) Vector to compute stdev. </td></tr>
   </table>
   </dd>
 </dl>
@@ -184,8 +190,44 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/<a class="el" href="_statistics_8hpp_source.html">Statistics.hpp</a></li>
+<a id="af3a74e0ab944341356b8afeb9fc0ecbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3a74e0ab944341356b8afeb9fc0ecbd">&#9670;&nbsp;</a></span>variance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static double Statistics::variance </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; double &gt;&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compute the variance of a vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>(???) Vector to compute the variance. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>includes/<a class="el" href="_statistics_8hpp_source.html">Statistics.hpp</a></li>
+<li>src/Statistics.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
