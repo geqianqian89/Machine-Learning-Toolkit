@@ -19,14 +19,18 @@
 
 using namespace std;
 
-Data::Data(){
-
+Data::Data(string pos_class, string neg_class){
+    this->pos_class = pos_class;
+    this->neg_class = neg_class;
 }
 
-Data::Data(string dataset){
+Data::Data(string dataset, string pos_class, string neg_class){
     if(!load(dataset)){
         cerr << "Couldn't read the dataset." << endl;
     }
+
+    this->pos_class = pos_class;
+    this->neg_class = neg_class;
 }
 
 Type Data::identifyFileType(string file){
@@ -87,7 +91,7 @@ bool Data::load(string file){
 
 bool Data::load_csv(string path){
     ifstream input(path.c_str());
-    string str, item, pos_class, neg_class;
+    string str, item;
     int dim, ldim, size, ssize;
     char deli;
     bool cond, flag, atEnd;
@@ -99,11 +103,6 @@ bool Data::load_csv(string path){
         cout << "File could not be opened!" << endl;
         return false;
     }
-
-    cout << "Positive class: ";
-    cin >> pos_class;
-    cout << "Negative class: ";
-    cin >> neg_class;
 
     //Verify if the class is at the begining or at the end and error check
     while(getline(input, str)){
@@ -188,7 +187,7 @@ bool Data::load_csv(string path){
 
             if(cond){
                 if(is_number(item))
-                    new_point.x[dim] = stodn(item);
+                    new_point.x[(!atEnd)?dim:dim+1] = stodn(item);
             }else{
                 int c;
                 if(is_number(item)){
@@ -218,19 +217,14 @@ bool Data::load_csv(string path){
 
 bool Data::load_data(string path){
     ifstream input(path.c_str());
-    string str, item, pos_class, neg_class, buffer;
+    string str, item, buffer;
     int dim, ldim, c, size;
-    bool flag;
+    bool flag, atEnd = false, cond;
 
     if(!input){
         cout << "File could not be opened!" << endl;
         return false;
     }
-
-    cout << "Positive class: ";
-    cin >> pos_class;
-    cout << "Negative class: ";
-    cin >> neg_class;
 
     dim = ldim = size = c = 0;
     flag = false;
@@ -241,11 +235,23 @@ bool Data::load_data(string path){
         dim = -1;
 
         while(getline(ss, item, ' ')){
+        	
             if(!is_number(item)){
                 clog << "Warning: point[" << size  << "] " << dim+1 << " feature is not a number." << endl;
                 dim--;
             }
-
+			//Verify if the class is at the beggining or at the end
+			if(dim == -1 && !flag){
+                if(!((item == pos_class) || (item == neg_class))){
+                    atEnd = true;
+                    flag = true;
+                }
+            }else if(ss.eof() && !flag){
+                if(!((item == pos_class) || (item == neg_class))){
+                    flag = true;
+                }
+            }
+            
             dim++;
         }
 
@@ -279,18 +285,19 @@ bool Data::load_data(string path){
         Point new_point;
         stringstream ss(str);
 
-        dim = -1;
+        dim = 0;
         new_point.x.resize(this->dim, 0.0);
 
         //Read features from line
         while(getline(ss, item, ' ')){
-            if(dim == -1){
-                c = (item == pos_class)?1:-1;
-                new_point.y = c;
-                if(c == -1) stats.n_neg++; else stats.n_pos++;
-                dim++;
-            }else{
-                buffer.clear();
+        	//Verify if the class is at the beggining or at the end
+        	if(atEnd)
+                cond = (!ss.eof() && atEnd);
+            else
+                cond = !(dim == 0);
+
+            if(cond){
+            	buffer.clear();
 
                 flag = false; //Verify if it's including value or fname
 
@@ -311,10 +318,16 @@ bool Data::load_data(string path){
                     }
                 }
 
-                if(is_number(buffer)){
-                    new_point.x[dim] = stodn(buffer);
-                    dim++;
+                if(is_number(buffer)){	
+                    new_point.x[(atEnd)?dim:dim-1] = stodn(buffer);
+     				dim++;           	
                 }
+            }else{
+            	c = (item == pos_class)?1:-1;
+                new_point.y = c;
+                if(c == -1) stats.n_neg++; else stats.n_pos++;
+                
+                if(!atEnd) dim++;
             }
         }
         points[size++] = new_point;
@@ -329,7 +342,7 @@ bool Data::load_data(string path){
 
 bool Data::load_arff(string path){
     ifstream input(path.c_str());
-    string str, item, pos_class, neg_class;
+    string str, item;
     int dim, ldim, size, c;
     bool atEnd, atBegin, flag, cond;
 
@@ -337,11 +350,6 @@ bool Data::load_arff(string path){
         cout << "File could not be opened!" << endl;
         return false;
     }
-
-    cout << "Positive class: ";
-    cin >> pos_class;
-    cout << "Negative class: ";
-    cin >> neg_class;
 
     dim = ldim = size = c = 0;
     atEnd = atBegin = flag = cond = false;
@@ -543,6 +551,7 @@ bool Data::removePoint(int pid){
         }
     }
 
+    //Find the point by its id and erase it
     for(i = 0; i < size; i++){
         if(points[i].id == pid){
             if(stats.n_pos > 0 || stats.n_neg > 0){
@@ -563,6 +572,7 @@ vector<bool> Data::removePoints(vector<int> ids){
     int i = 0, j, idsize = ids.size();
     vector<bool> notFound(idsize, true);
 
+    //Find the points with the ids to be removed
     for(j = 0; j < size && i != idsize; j++){
         if(points[j].id == ids[i]){
             //Size verification.
@@ -573,6 +583,7 @@ vector<bool> Data::removePoints(vector<int> ids){
                 if(points[j].y == 1) stats.n_pos--;
                 else if(points[j].y == -1) stats.n_neg--;
             }
+            //Erase point and set false in notFound vector
             points.erase(points.begin() + j);
             notFound[i] = false;
             size--;
@@ -640,11 +651,13 @@ bool Data::insertPoint(Data sample, int index){
 }
 
 bool Data::insertPoint(Point p){
+    //Dimension verification
     if(int(p.x.size()) > dim){
         cerr << "Point with dimension different from the data. (insertPoint)" << endl;
         return false;
     }
 
+    //Insert the point p at the end of the points vector
     points.insert(points.end(), p);
     size++;
 
@@ -652,6 +665,7 @@ bool Data::insertPoint(Point p){
         stats.n_pos++;
     else stats.n_neg++;
 
+    //Give a new id to the point equal to the previous point id plus 1
     points[size-1].id = points[size-2].id + 1;
 
     return true;
@@ -661,11 +675,13 @@ void Data::changeXVector(vector<int> index){
     int i, j;
     vector<Point> nPoints(size, Point(dim));
 
+    //Copy features and classes of the points making the changes
     for(i = 0; i < size; i++){
         nPoints[i].x = points[index[i]].x;
         nPoints[i].y = points[index[i]].y;
     }
 
+    //Save changes in the class
     points = nPoints;
 }
 
@@ -675,6 +691,91 @@ Point Data::getPoint(int index){
 
 Data Data::copy(){
     return *this;
+}
+
+void Data::join(Data data){
+    int i, j, dim1 = data.getDim(), antsize = size, size1 = data.getSize();
+    vector<int> index1 = data.getIndex(), antindex = index;
+    vector<Point> points1 = data.getPoints();
+
+    if(dim > dim1){
+        cerr << "Error: sample1 dimension must be less or equal to sample2\n";
+        exit(1);
+    }
+
+    size += size1;
+
+    if(index.size() != 0 && index1.size() != 0){
+        index.resize(size, 0);
+        for(i = 0; i < antsize; i++) index[i] = antindex[i];
+        for(i = 0; i < size1; i++) index[i + antsize] = index1[i];
+    }
+
+    points.resize(size);
+
+    for(i = antsize, j = 0; i < size && j < size1; i++, j++){
+        points[i] = points1[j];
+        if(points1[j].y == 1) stats.n_pos++;
+        else if(points1[j].y == -1) stats.n_neg++;
+    }
+
+}
+
+/*void Data::normalize(){
+    int i, j, p = 2;
+    double norm;
+
+    dim += 1;
+    normalized = true;
+
+    fnames.resize(dim, dim);
+
+    for(i = 0; i < size; i++){
+        points[i].x.resize(dim, 0);
+
+        for(norm = 0, j = 0; j < dim-1; j++){
+            norm += pow(points[i].x[j], p);
+        }
+        points[i].x[j] = 1;
+        fnames[j] = j + 1;
+        norm += pow(points[i].x[j], p);
+        norm = pow(norm, 1.0 / p);
+
+        for(j = 0; j < dim + 1; j++){
+            points[i].x[j] /= norm;
+        }
+    }
+    dim += 1;
+}*/
+
+void Data::normalize(double p){
+    int i = 0, j = 0;
+    double norm = 0.0;
+
+    for(i = 0; i < size; ++i){
+        for(norm = 0, j = 0; j < dim; ++j){
+            norm += pow(fabs(points[i].x[j]),p);
+        }
+        norm = pow(norm, 1.0/p);
+        for(j = 0; j < dim; ++j){
+            points[i].x[j] /= norm;
+        }
+    }
+
+    normalized = true;
+}
+
+void Data::normalize(vector<double> &v, double q){
+    int i = 0, dim = v.size();
+    double norm = 0.0;
+
+    for(i = 0; i < dim; ++i)
+        norm += pow(fabs(v[i]), q);
+
+    norm = pow(norm, 1.0/q);
+
+    for(i = 0; i < dim; ++i)
+        v[i] /= norm;
 }
 
 int Data::getDim(){
@@ -693,6 +794,10 @@ vector<Point> Data::getPoints(){
     return points;
 }
 
+vector<int> Data::getIndex(){
+    return index;
+}
+
 int Data::getNumberNegativePoints(){
     return stats.n_neg;
 }
@@ -705,6 +810,11 @@ Statistics Data::getStatistics(){
     return stats;
 }
 
+void Data::setClasses(string pos, string neg){
+    pos_class = pos;
+    neg_class = neg;
+}
+
 void Data::operator=(const Data& data){
     points = data.points;
     fnames = data.fnames;
@@ -712,4 +822,5 @@ void Data::operator=(const Data& data){
     size = data.size;
     stats = data.stats;
     is_empty = data.is_empty;
+    normalized = data.normalized;
 }

@@ -98,3 +98,114 @@ double Statistics::getFeatureStdev(Data data, int index){
 
     return sqrt(sd/(vetsize - 1));
 }
+
+double Statistics::getRadius(Data data, int index, double q){
+    int i = 0, j = 0, dim = data.getDim(), size = data.getSize();
+    double norm = 0.0;
+    double max = 1.0;
+    vector<int> fnames = data.getFeaturesNames();
+    vector<double> avg(dim, 0.0);
+    vector<Point> points = data.getPoints();
+
+    if(q == 2){
+        for(j = 0; j < dim; ++j){
+            if(index < 0 || fnames[j] != index){
+                for(i = 0; i < size; ++i){
+                    avg[j] += points[i].x[j];
+                }
+                avg[j] = avg[j] / size;
+            }
+        }
+
+        for(max = 0, i = 0; i < size; ++i){
+            for(norm = 0, j = 0; j < dim; ++j){
+                if(index < 0 || fnames[j] != index){
+                    norm += pow(avg[j] - points[i].x[j], 2);
+                }
+
+                norm = sqrt(norm);
+
+                if(max < norm) max = norm;
+            }
+        }
+
+    }else if(q == 1){
+        for(max = 0, i = 0; i < size; ++i){
+            for(j = 0; j < dim; ++j){
+                if(index < 0 || fnames[j] != index)
+                    if(max < fabs(points[i].x[j]))
+                        max = fabs(points[i].x[j]);
+            }
+        }
+    }
+
+    return max;
+}
+
+double Statistics::getDistCenters(Data data, int index){
+    int i = 0, j = 0, dim = data.getDim(), size = data.getSize();
+    double dist = 0.0;
+    int size_pos = 0, size_neg = 0;
+    vector<int> fnames = data.getFeaturesNames();
+    vector<double> avg_pos(dim, 0.0), avg_neg(dim, 0.0);
+    vector<Point> points = data.getPoints();
+
+    for(size_pos = 0, size_neg = 0, i = 0; i < size; ++i){
+        if(points[i].y == 1)	size_pos++;
+        else 					size_neg++;
+    }
+
+    for(j = 0; j < dim; ++j){
+        for(i = 0; i < size; ++i){
+            if(points[i].y == 1){
+                avg_pos[j] += points[i].x[j];
+            }else
+                avg_neg[j] += points[i].x[j];
+        }
+
+        avg_pos[j] /= (double)size_pos;
+        avg_neg[j] /= (double)size_neg;
+    }
+
+    for(dist = 0.0, j = 0; j < dim; ++j){
+        if(index < 0 || fnames[j] != index)
+            dist += pow(avg_pos[j] - avg_neg[j], 2);
+    }
+
+    return sqrt(dist);
+}
+
+double Statistics::getDistCentersWithoutFeats(Data data, std::vector<int> feats, int index){
+    int i = 0, j = 0, dim = data.getDim(), size = data.getSize();
+    double dist = 0.0;
+    int size_pos = 0, size_neg = 0, featsize = feats.size();
+    vector<int> fnames = data.getFeaturesNames();
+    vector<double> avg_pos(dim, 0.0), avg_neg(dim, 0.0);
+    vector<Point> points = data.getPoints();
+
+    for(size_pos = 0, size_neg = 0, i = 0; i < size; ++i){
+        if(points[i].y == 1)	size_pos++;
+        else					size_neg++;
+    }
+
+    for(j = 0; j < dim; ++j){
+        for(i = 0; i < size; ++i){
+            if(points[i].y == 1)
+                avg_pos[j] += points[i].x[j];
+            else
+                avg_neg[j] += points[i].x[j];
+        }
+
+        avg_pos[j] /= (double) size_pos;
+        avg_neg[j] /= (double) size_neg;
+    }
+
+    for(dist = 0.0, j = 0; j < dim; ++j){
+        for(i = 0; i < featsize; ++i){
+            if(fnames[j] == feats[i])
+                dist -= pow(avg_pos[j] - avg_neg[j], 2);
+        }
+    }
+
+    return sqrt(fabs(dist));
+}

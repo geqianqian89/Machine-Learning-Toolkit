@@ -1,66 +1,154 @@
 \begin{theindex}
 
-  \item {Classifier}, \hyperpage{5}
+  \item {change\+X\+Vector}
+    \subitem {Data}, \hyperpage{10}
+  \item {Classifier}, \hyperpage{7}
+    \subitem {evaluate}, \hyperpage{7}
+    \subitem {train}, \hyperpage{8}
   \item {copy}
-    \subitem {Data}, \hyperpage{6}
-  \item {Cross\+Validation}, \hyperpage{5}
+    \subitem {Data}, \hyperpage{10}
+  \item {Cross\+Validation}, \hyperpage{8}
 
   \indexspace
 
-  \item {Data}, \hyperpage{6}
-    \subitem {copy}, \hyperpage{6}
-    \subitem {get\+Dim}, \hyperpage{6}
-    \subitem {get\+Features\+Names}, \hyperpage{7}
-    \subitem {get\+Number\+Negative\+Points}, \hyperpage{7}
-    \subitem {get\+Number\+Positive\+Points}, \hyperpage{7}
-    \subitem {get\+Size}, \hyperpage{7}
-    \subitem {insert\+Point}, \hyperpage{8}
-    \subitem {is\+Empty}, \hyperpage{8}
-    \subitem {load\+Dataset}, \hyperpage{8}
-    \subitem {remove\+Point}, \hyperpage{9}
-  \item {Dual\+Classifier}, \hyperpage{10}
+  \item {Data}, \hyperpage{8}
+    \subitem {change\+X\+Vector}, \hyperpage{10}
+    \subitem {copy}, \hyperpage{10}
+    \subitem {Data}, \hyperpage{9}
+    \subitem {get\+Dim}, \hyperpage{10}
+    \subitem {get\+Features\+Names}, \hyperpage{11}
+    \subitem {get\+Number\+Negative\+Points}, \hyperpage{11}
+    \subitem {get\+Number\+Positive\+Points}, \hyperpage{11}
+    \subitem {get\+Point}, \hyperpage{11}
+    \subitem {get\+Points}, \hyperpage{12}
+    \subitem {get\+Size}, \hyperpage{12}
+    \subitem {get\+Statistics}, \hyperpage{12}
+    \subitem {insert\+Point}, \hyperpage{12, 13}
+    \subitem {is\+Empty}, \hyperpage{13}
+    \subitem {load}, \hyperpage{13}
+    \subitem {remove\+Features}, \hyperpage{14}
+    \subitem {remove\+Point}, \hyperpage{14}
+    \subitem {remove\+Points}, \hyperpage{14}
+  \item {dot}
+    \subitem {Point}, \hyperpage{18}
+  \item {Dual\+Classifier}, \hyperpage{16}
 
   \indexspace
 
-  \item {Feature\+Selection}, \hyperpage{10}
+  \item {evaluate}
+    \subitem {Classifier}, \hyperpage{7}
+
+  \indexspace
+
+  \item {Feature\+Selection}, \hyperpage{17}
 
   \indexspace
 
   \item {get\+Dim}
-    \subitem {Data}, \hyperpage{6}
+    \subitem {Data}, \hyperpage{10}
+  \item {get\+Feature\+Mean}
+    \subitem {Statistics}, \hyperpage{21}
+  \item {get\+Feature\+Stdev}
+    \subitem {Statistics}, \hyperpage{21}
   \item {get\+Features\+Names}
-    \subitem {Data}, \hyperpage{7}
+    \subitem {Data}, \hyperpage{11}
   \item {get\+Number\+Negative\+Points}
-    \subitem {Data}, \hyperpage{7}
+    \subitem {Data}, \hyperpage{11}
   \item {get\+Number\+Positive\+Points}
-    \subitem {Data}, \hyperpage{7}
+    \subitem {Data}, \hyperpage{11}
+  \item {get\+Point}
+    \subitem {Data}, \hyperpage{11}
+  \item {get\+Points}
+    \subitem {Data}, \hyperpage{12}
   \item {get\+Size}
-    \subitem {Data}, \hyperpage{7}
+    \subitem {Data}, \hyperpage{12}
+  \item {get\+Statistics}
+    \subitem {Data}, \hyperpage{12}
 
   \indexspace
 
+  \item {includes/\+Utils.\+hpp}, \hyperpage{25}
   \item {insert\+Point}
-    \subitem {Data}, \hyperpage{8}
+    \subitem {Data}, \hyperpage{12, 13}
+  \item {is\+\_\+number}
+    \subitem {Utils.\+hpp}, \hyperpage{26}
   \item {is\+Empty}
-    \subitem {Data}, \hyperpage{8}
+    \subitem {Data}, \hyperpage{13}
 
   \indexspace
 
-  \item {load\+Dataset}
-    \subitem {Data}, \hyperpage{8}
+  \item {Kernel}, \hyperpage{17}
 
   \indexspace
 
-  \item {Point}, \hyperpage{11}
-  \item {Primal\+Classifier}, \hyperpage{11}
+  \item {load}
+    \subitem {Data}, \hyperpage{13}
 
   \indexspace
 
+  \item {max\+Abs\+Element}
+    \subitem {Utils.\+hpp}, \hyperpage{26}
+  \item {mean}
+    \subitem {Statistics}, \hyperpage{22}
+
+  \indexspace
+
+  \item {norm}
+    \subitem {Point}, \hyperpage{18}
+
+  \indexspace
+
+  \item {Point}, \hyperpage{17}
+    \subitem {dot}, \hyperpage{18}
+    \subitem {norm}, \hyperpage{18}
+  \item {Primal\+Classifier}, \hyperpage{19}
+
+  \indexspace
+
+  \item {remove\+Features}
+    \subitem {Data}, \hyperpage{14}
   \item {remove\+Point}
-    \subitem {Data}, \hyperpage{9}
+    \subitem {Data}, \hyperpage{14}
+  \item {remove\+Points}
+    \subitem {Data}, \hyperpage{14}
 
   \indexspace
 
-  \item {Solution}, \hyperpage{12}
+  \item {Solution}, \hyperpage{20}
+  \item {src/\+Data.\+cpp}, \hyperpage{27}
+  \item {src/\+Point.\+cpp}, \hyperpage{28}
+  \item {src/\+Utils.\+cpp}, \hyperpage{29}
+  \item {Statistics}, \hyperpage{20}
+    \subitem {get\+Feature\+Mean}, \hyperpage{21}
+    \subitem {get\+Feature\+Stdev}, \hyperpage{21}
+    \subitem {mean}, \hyperpage{22}
+    \subitem {stdev}, \hyperpage{22}
+    \subitem {variance}, \hyperpage{22, 23}
+  \item {stdev}
+    \subitem {Statistics}, \hyperpage{22}
+  \item {stodn}
+    \subitem {Utils.\+hpp}, \hyperpage{27}
+  \item {stoin}
+    \subitem {Utils.\+hpp}, \hyperpage{27}
+
+  \indexspace
+
+  \item {train}
+    \subitem {Classifier}, \hyperpage{8}
+
+  \indexspace
+
+  \item {Utils.\+hpp}
+    \subitem {is\+\_\+number}, \hyperpage{26}
+    \subitem {max\+Abs\+Element}, \hyperpage{26}
+    \subitem {stodn}, \hyperpage{27}
+    \subitem {stoin}, \hyperpage{27}
+
+  \indexspace
+
+  \item {Validation}, \hyperpage{23}
+  \item {Validation\+Solution}, \hyperpage{24}
+  \item {variance}
+    \subitem {Statistics}, \hyperpage{22, 23}
 
 \end{theindex}

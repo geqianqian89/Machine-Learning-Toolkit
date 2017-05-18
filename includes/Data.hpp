@@ -25,8 +25,11 @@ class Data {
         int size = 0;
         /// Dataset points dimension.
         int dim = 0;
+        std::string pos_class, neg_class;
         /// Verify if there's some data loaded.
         bool is_empty = true;
+        /// Verify if the data is normalized.
+        bool normalized = false;
         /// Values for statistical methods.
         Statistics stats;
     // Operations
@@ -63,13 +66,17 @@ class Data {
     public :
         /**
          * \brief Constructor for empty data.
+         * \param pos_class String representing the positive class on the dataset.
+         * \param neg_class String representing the negative class on the dataset.
          */
-        Data ();
+        Data (std::string pos_class = "1", std::string neg_class = "-1");
         /**
          * \brief Data constructor to load a dataset from a file.
          * \param dataset (???) Path to the dataset to be loaded.
+         * \param pos_class String representing the positive class on the dataset.
+         * \param neg_class String representing the negative class on the dataset.
          */
-        Data (std::string dataset);
+        Data (std::string dataset, std::string pos_class = "1", std::string neg_class = "-1");
         /**
          * \brief Returns the size of the dataset.
          * \return int
@@ -102,6 +109,11 @@ class Data {
          */
         Statistics getStatistics ();
         /**
+         * \brief Returns the vector of indexes.
+         * \return std::vector<int>
+         */
+        std::vector<int> getIndex();
+        /**
          * \brief Return the number of positive points.
          * \return int
          */
@@ -111,11 +123,22 @@ class Data {
          * \return int
          */
         int getNumberNegativePoints ();
+        /*!
+         * \brief setClasses Set the classes of the dataset.
+         * \param pos   Positive class.
+         * \param neg   Negative class.
+         */
+        void setClasses(std::string pos, std::string neg);
         /**
          * \brief Returns if there's a dataset loaded.
          * \return bool
          */
         bool isEmpty ();
+        /**
+         * \brief Returns if the dataset is normalized.
+         * \return bool
+         */
+        bool isNormalized();
         /**
          * \brief Load a dataset from a file.
          * \param file (???) Path to dataset file.
@@ -127,6 +150,12 @@ class Data {
          * \return Data
          */
         Data copy ();
+        /**
+         * \brief Merge one dataset with another.
+         * \param data (???) Dataset to be joined.
+         * \return bool
+         */
+        void join(Data data);
         /**
          * \brief Insert a point to the data from another sample.
          * \param sample (???) Sample with the point to be added.
@@ -164,6 +193,17 @@ class Data {
          * \return void
          */
         void changeXVector(std::vector<int> index);
+        //void normalize();
+        /*!
+         * \brief normalize Normalize the dataset using a Lp-norm.
+         * \param p Norm to be utilized.
+         */
+        void normalize(double p = 2);
+        /*!
+         * \brief normalize Normalize a vector using a Lp-norm.
+         * \param p Norm to be utilized.
+         */
+        static void normalize(std::vector<double> &p, double q);
 
         void operator=(const Data&);
 };

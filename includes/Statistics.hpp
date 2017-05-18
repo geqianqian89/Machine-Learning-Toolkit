@@ -66,6 +66,9 @@ public:
      * \return double
      */
     static double getFeatureStdev (Data data, int index);
+    static double getRadius(Data data, int index, double q);
+    static double getDistCenters(Data data, int index);
+    static double getDistCentersWithoutFeats(Data data, std::vector<int> feats, int index);
 };
 
 #endif

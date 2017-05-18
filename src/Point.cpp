@@ -4,7 +4,6 @@
 */
 #include <cmath>
 #include "../includes/Point.hpp"
-#include "../includes/Utils.hpp"
 
 using namespace std;
 

@@ -3,6 +3,9 @@
 
 #include <iostream>
 #include <vector>
+
+#include "../includes/Utils.hpp"
+
 /**
  * \brief Class of a Point of doubles in a space of n dimensions.
  */
@@ -12,7 +15,7 @@ class Point {
         /// Features values.
         std::vector<double> x;
         /// Point classification.
-        double y = 0;
+        double y = 0, alpha = 0.0;
         /// Point identification.
         int id = 0;
     // Operations

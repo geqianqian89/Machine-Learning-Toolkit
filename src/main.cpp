@@ -47,9 +47,11 @@ int main(int argc, char *argv[])
 {
     Data data, cp;
     int i;
-    Point p;
+    Point p, q;
     vector<double> o(4);
+    vector<int> fnames, feats(2);
     double a, b;
+
     data.load(string(argv[1]));
     cp.load(string(argv[1]));
 
@@ -59,29 +61,30 @@ int main(int argc, char *argv[])
     o[0] = 0.1, o[1] = 1, o[2] = 2, o[3] = 3;
     p.x = o;
     p.y = -1;
-
+    q = data.getPoint(1);
+    data.normalize();
     for(Point p: data.getPoints()){
         cout << p << endl;
     }
-    cout << "Dataset variance: " << Statistics::variance(data, -1) << endl;
-    cout << "feat 1 mean: " << Statistics::getFeatureMean(data, 0) << endl;
-    cout << "feat 1 stdev: " << Statistics::getFeatureStdev(data, 0) << endl;
-    cout << "Dataset size: " << data.getSize() << endl;
-    cout << "Dataset dim: " << data.getDim() << endl;
-    cout << "Negative Points: " << data.getNumberNegativePoints() << endl;
-    cout << "Positive Points: " << data.getNumberPositivePoints() << endl;
-    /*    for(Point p: data.points){
-        cout << p.id << "- ";
-        for(int i = 0; i < p.x.size(); i++){
-            cout << p.x[i] << " ";
-        }
-        cout << endl;
-    }
+
+    Data::normalize(q.x, 2);
+    cout << q << endl;
     fnames = data.getFeaturesNames();
+    iota(feats.begin(), feats.end(), 1);
     for(int i = 0; i < fnames.size(); i++) cout << fnames[i] << endl;
+    cp = data.copy();
+    cout << "Dataset radius: " << Statistics::getRadius(cp, -1, 2) << endl;
+    cout << "Dataset dist centers: " << Statistics::getDistCenters(cp, -1) << endl;
+    cout << "Dataset dist centers*: " << Statistics::getDistCentersWithoutFeats(cp, feats, -1) << endl;
     cout << "Dataset size: " << cp.getSize() << endl;
     cout << "Dataset dim: " << cp.getDim() << endl;
     cout << "Negative Points: " << cp.getNumberNegativePoints() << endl;
-    cout << "Positive Points: " << cp.getNumberPositivePoints() << endl;*/
+    cout << "Positive Points: " << cp.getNumberPositivePoints() << endl;
+	cout << endl;
+	cout << "Dataset size: " << data.getSize() << endl;
+    cout << "Dataset dim: " << data.getDim() << endl;
+    cout << "Negative Points: " << data.getNumberNegativePoints() << endl;
+    cout << "Positive Points: " << data.getNumberPositivePoints() << endl;
+    
     return 0;
 }
