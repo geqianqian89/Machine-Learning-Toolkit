@@ -666,7 +666,7 @@ bool Data::insertPoint(Point p){
     else stats.n_neg++;
 
     //Give a new id to the point equal to the previous point id plus 1
-    points[size-1].id = points[size-2].id + 1;
+    points[size-1].id = size;
 
     return true;
 }
@@ -689,8 +689,24 @@ Point Data::getPoint(int index){
     return points[index];
 }
 
+void Data::setPoint(int index, Point p){
+    points[index] = p;
+}
+
 Data Data::copy(){
     return *this;
+}
+
+Data Data::copyZero(){
+    Data cp;
+
+    cp.fnames = fnames;
+    cp.dim = dim;
+    cp.size = 0;
+    cp.is_empty = is_empty;
+    cp.normalized = normalized;
+
+    return cp;
 }
 
 void Data::join(Data data){
@@ -818,9 +834,18 @@ void Data::setClasses(string pos, string neg){
 void Data::operator=(const Data& data){
     points = data.points;
     fnames = data.fnames;
+    index = data.index;
     dim = data.dim;
     size = data.size;
     stats = data.stats;
     is_empty = data.is_empty;
     normalized = data.normalized;
+}
+
+ostream &operator<<( ostream &output, const Data &data ){
+    for(Point p : data.points){
+        output << p << endl;
+    }
+
+    return output;
 }

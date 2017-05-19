@@ -45,46 +45,26 @@ void process_mem_usage(double& vm_usage, double& resident_set){
 
 int main(int argc, char *argv[])
 {
-    Data data, cp;
-    int i;
-    Point p, q;
-    vector<double> o(4);
-    vector<int> fnames, feats(2);
-    double a, b;
-
+    Data data, train, test;
     data.load(string(argv[1]));
-    cp.load(string(argv[1]));
+    Validation valid(data);
+    vector<Point> tpoints, tepoints;
 
+    valid.partTrainTest(3, 1);
+    train = valid.getTrainSample();
+    test = valid.getTestSample();
 
-    process_mem_usage(a, b);
-    cout << a << " " << b << endl;
-    o[0] = 0.1, o[1] = 1, o[2] = 2, o[3] = 3;
-    p.x = o;
-    p.y = -1;
-    q = data.getPoint(1);
-    data.normalize();
-    for(Point p: data.getPoints()){
-        cout << p << endl;
-    }
+    tepoints = test.getPoints();
+    tpoints = train.getPoints();
 
-    Data::normalize(q.x, 2);
-    cout << q << endl;
-    fnames = data.getFeaturesNames();
-    iota(feats.begin(), feats.end(), 1);
-    for(int i = 0; i < fnames.size(); i++) cout << fnames[i] << endl;
-    cp = data.copy();
-    cout << "Dataset radius: " << Statistics::getRadius(cp, -1, 2) << endl;
-    cout << "Dataset dist centers: " << Statistics::getDistCenters(cp, -1) << endl;
-    cout << "Dataset dist centers*: " << Statistics::getDistCentersWithoutFeats(cp, feats, -1) << endl;
-    cout << "Dataset size: " << cp.getSize() << endl;
-    cout << "Dataset dim: " << cp.getDim() << endl;
-    cout << "Negative Points: " << cp.getNumberNegativePoints() << endl;
-    cout << "Positive Points: " << cp.getNumberPositivePoints() << endl;
-	cout << endl;
-	cout << "Dataset size: " << data.getSize() << endl;
-    cout << "Dataset dim: " << data.getDim() << endl;
-    cout << "Negative Points: " << data.getNumberNegativePoints() << endl;
-    cout << "Positive Points: " << data.getNumberPositivePoints() << endl;
-    
+    cout << "Train sample size: " << train.getSize() << endl;
+    cout << "Test sample size: " << test.getSize() << endl;
+    cout << "sample size: " << data.getSize() << endl;
+
+    cout << "\nTest data: " << endl;
+    cout << test << endl;
+    cout << "\nTrain data: " << endl;
+    cout << train << endl;
+
     return 0;
 }

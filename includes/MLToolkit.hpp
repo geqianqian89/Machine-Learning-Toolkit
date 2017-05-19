@@ -3,6 +3,7 @@
 
 #include "Data.hpp"
 #include "Solution.hpp"
+#include "Validation.hpp"
 #include "ValidationSolution.hpp"
 #include "Point.hpp"
 #include "Statistics.hpp"

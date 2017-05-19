@@ -93,6 +93,7 @@ class Data {
          * \return std::vector<Points>
          */
         Point getPoint (int index);
+        void setPoint (int index, Point p);
         /**
          * \brief Returns the vector of Points of the sample.
          * \return std::vector<Points>
@@ -151,6 +152,11 @@ class Data {
          */
         Data copy ();
         /**
+         * \brief Returns a copy of the data with zero points.
+         * \return Data
+         */
+        Data copyZero ();
+        /**
          * \brief Merge one dataset with another.
          * \param data (???) Dataset to be joined.
          * \return bool
@@ -206,6 +212,8 @@ class Data {
         static void normalize(std::vector<double> &p, double q);
 
         void operator=(const Data&);
+        friend std::ostream &operator<<( std::ostream &output, const Data &data );
+
 };
 
 #endif
