@@ -24,6 +24,11 @@ class Validation {
     public :
         Validation ();
         Validation (Data sample, Classifier *classifier = NULL);
+        /**
+         * @brief Divide sample into train and test.
+         * @param fold Number of folds.
+         * @param seed  Seed to feed the pseudo random number generator.
+         */
         void partTrainTest(int fold, uint seed);
         double kFold (int fold, int seed);
         void validation (int fold, int qtde);

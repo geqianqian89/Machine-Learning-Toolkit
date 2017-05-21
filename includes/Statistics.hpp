@@ -66,8 +66,28 @@ public:
      * \return double
      */
     static double getFeatureStdev (Data data, int index);
+    /**
+     * \brief Returns radius of the ball that circ. the data.
+     * \param data  Dataset to compute the radius.
+     * \param index Feature to be ignored (-1 uses all features).
+     * \param q Lp-Norm to be used.
+     * \return double
+     */
     static double getRadius(Data data, int index, double q);
+    /**
+     * \brief Returns distance of centers of the classes.
+     * \param data  Dataset to compute the distance.
+     * \param index Feature to be ignored (-1 uses all features).
+     * \return double
+     */
     static double getDistCenters(Data data, int index);
+    /**
+     * \brief Returns distance of centers of the classes without given features.
+     * \param data  Dataset to compute the distance.
+     * \param feats Features to be excluded from the computation.
+     * \param index Feature to be ignored (-1 uses all features).
+     * \return double
+     */
     static double getDistCentersWithoutFeats(Data data, std::vector<int> feats, int index);
 };
 

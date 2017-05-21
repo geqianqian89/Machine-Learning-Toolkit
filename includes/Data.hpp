@@ -69,14 +69,14 @@ class Data {
          * \param pos_class String representing the positive class on the dataset.
          * \param neg_class String representing the negative class on the dataset.
          */
-        Data (std::string pos_class = "1", std::string neg_class = "-1");
+        Data (const char* pos_class = "1", const char* neg_class = "-1");
         /**
          * \brief Data constructor to load a dataset from a file.
          * \param dataset (???) Path to the dataset to be loaded.
          * \param pos_class String representing the positive class on the dataset.
          * \param neg_class String representing the negative class on the dataset.
          */
-        Data (std::string dataset, std::string pos_class = "1", std::string neg_class = "-1");
+        Data (std::string dataset, const char* pos_class = "1", const char* neg_class = "-1");
         /**
          * \brief Returns the size of the dataset.
          * \return int
@@ -199,13 +199,12 @@ class Data {
          * \return void
          */
         void changeXVector(std::vector<int> index);
-        //void normalize();
-        /*!
+        /**
          * \brief normalize Normalize the dataset using a Lp-norm.
          * \param p Norm to be utilized.
          */
         void normalize(double p = 2);
-        /*!
+        /**
          * \brief normalize Normalize a vector using a Lp-norm.
          * \param p Norm to be utilized.
          */
