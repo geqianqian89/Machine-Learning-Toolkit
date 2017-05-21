@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['solution',['Solution',['../class_solution.html',1,'']]],
-  ['statistics',['Statistics',['../class_statistics.html',1,'']]]
+  ['point',['Point',['../class_point.html',1,'']]],
+  ['primalclassifier',['PrimalClassifier',['../class_primal_classifier.html',1,'']]]
 ];

@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['point',['Point',['../class_point.html',1,'']]],
-  ['point_2ecpp',['Point.cpp',['../_point_8cpp.html',1,'']]],
-  ['points',['points',['../class_data.html#a351597c4fca22a1ec5c87145cb44689d',1,'Data']]],
-  ['pos_5fcentroid',['pos_centroid',['../class_statistics.html#a51adeaf4b7f078a4dfd373082fd1f7e1',1,'Statistics']]],
-  ['primalclassifier',['PrimalClassifier',['../class_primal_classifier.html',1,'']]]
+  ['norm',['norm',['../class_kernel.html#a1f548d2e5477ae0ee3dd3bc7f23e6920',1,'Kernel::norm()'],['../class_point.html#aab64e3f0a9eecba00a1607eb4c7768c3',1,'Point::norm()']]],
+  ['normalize',['normalize',['../class_data.html#a38bbab57bd9d871bd78771df47529d6b',1,'Data::normalize(double p=2)'],['../class_data.html#acd8fd65a56a3d097d1bc19fb8249ee20',1,'Data::normalize(std::vector&lt; double &gt; &amp;p, double q)']]]
 ];

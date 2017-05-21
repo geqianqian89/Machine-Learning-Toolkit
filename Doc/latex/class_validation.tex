@@ -12,9 +12,11 @@ Class of methods for the validation of ML algorithms.
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_validation_ab58bb5bc64a10f5c8260b8bbadd5e9ce}\label{class_validation_ab58bb5bc64a10f5c8260b8bbadd5e9ce}} 
-{\bfseries Cross\+Validation} (\hyperlink{class_data}{Data} sample, \hyperlink{class_classifier}{Classifier} classifier)
+\mbox{\Hypertarget{class_validation_a874c6394992adb0d577e85eb9f439981}\label{class_validation_a874c6394992adb0d577e85eb9f439981}} 
+{\bfseries Validation} (\hyperlink{class_data}{Data} sample, \hyperlink{class_classifier}{Classifier} $\ast$classifier=N\+U\+LL)
 \item 
+void \hyperlink{class_validation_ad50f5974699c4d13098371fdf56f8342}{part\+Train\+Test} (int fold, uint seed)
+\begin{DoxyCompactList}\small\item\em Divide sample into train and test. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_validation_a3aae72caef37b12a57aaf5cdd862de3a}\label{class_validation_a3aae72caef37b12a57aaf5cdd862de3a}} 
 double {\bfseries k\+Fold} (int fold, int seed)
 \item 
@@ -32,6 +34,27 @@ void {\bfseries validation} (int fold, int qtde)
 \subsection{Detailed Description}
 Class of methods for the validation of ML algorithms. 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_validation_ad50f5974699c4d13098371fdf56f8342}\label{class_validation_ad50f5974699c4d13098371fdf56f8342}} 
+\index{Validation@{Validation}!part\+Train\+Test@{part\+Train\+Test}}
+\index{part\+Train\+Test@{part\+Train\+Test}!Validation@{Validation}}
+\subsubsection{\texorpdfstring{part\+Train\+Test()}{partTrainTest()}}
+{\footnotesize\ttfamily void Validation\+::part\+Train\+Test (\begin{DoxyParamCaption}\item[{int}]{fold,  }\item[{uint}]{seed }\end{DoxyParamCaption})}
+
+
+
+Divide sample into train and test. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fold} & Number of folds. \\
+\hline
+{\em seed} & Seed to feed the pseudo random number generator. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-includes/Validation.\+hpp\end{DoxyCompactItemize}
+includes/Validation.\+hpp\item 
+src/Validation.\+cpp\end{DoxyCompactItemize}

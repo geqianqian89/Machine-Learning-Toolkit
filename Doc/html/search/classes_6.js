@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['validation',['Validation',['../class_validation.html',1,'']]],
-  ['validationsolution',['ValidationSolution',['../class_validation_solution.html',1,'']]]
+  ['solution',['Solution',['../class_solution.html',1,'']]],
+  ['statistics',['Statistics',['../class_statistics.html',1,'']]]
 ];

@@ -12,10 +12,9 @@ Wrapper for the dataset data.
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_data_af11f741cb7f587e2e495452a8905a22a}\label{class_data_af11f741cb7f587e2e495452a8905a22a}} 
-\hyperlink{class_data_af11f741cb7f587e2e495452a8905a22a}{Data} ()
+\hyperlink{class_data_aa3ca35c963eec5a4734df23f88443077}{Data} (const char $\ast$pos\+\_\+class=\char`\"{}1\char`\"{}, const char $\ast$neg\+\_\+class=\char`\"{}-\/1\char`\"{})
 \begin{DoxyCompactList}\small\item\em Constructor for empty data. \end{DoxyCompactList}\item 
-\hyperlink{class_data_acdbe72be259faa3c285b8e0f6dc89a94}{Data} (std\+::string dataset)
+\hyperlink{class_data_a85afba1f115dce4b6d2a952326624dd4}{Data} (std\+::string dataset, const char $\ast$pos\+\_\+class=\char`\"{}1\char`\"{}, const char $\ast$neg\+\_\+class=\char`\"{}-\/1\char`\"{})
 \begin{DoxyCompactList}\small\item\em \hyperlink{class_data}{Data} constructor to load a dataset from a file. \end{DoxyCompactList}\item 
 int \hyperlink{class_data_abfd7c7cca66a186ff45efa430bcb2f1e}{get\+Size} ()
 \begin{DoxyCompactList}\small\item\em Returns the size of the dataset. \end{DoxyCompactList}\item 
@@ -23,22 +22,35 @@ int \hyperlink{class_data_a0391940729a8023ea9b154132a854d35}{get\+Dim} ()
 \begin{DoxyCompactList}\small\item\em Returns the dimension of the dataset. \end{DoxyCompactList}\item 
 \hyperlink{class_point}{Point} \hyperlink{class_data_a8cc66e410f7288913204585f215b786d}{get\+Point} (int index)
 \begin{DoxyCompactList}\small\item\em Returns the point with the given index. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_data_a9f34656f179b152407d51b04aab70748}\label{class_data_a9f34656f179b152407d51b04aab70748}} 
+void {\bfseries set\+Point} (int index, \hyperlink{class_point}{Point} p)
+\item 
 std\+::vector$<$ \hyperlink{class_point}{Point} $>$ \hyperlink{class_data_a8fe9ce813848765a7615b909c4654b55}{get\+Points} ()
 \begin{DoxyCompactList}\small\item\em Returns the vector of Points of the sample. \end{DoxyCompactList}\item 
 std\+::vector$<$ int $>$ \hyperlink{class_data_a2f6399baee6535e7f48250da54fbf00d}{get\+Features\+Names} ()
 \begin{DoxyCompactList}\small\item\em Returns the features names. \end{DoxyCompactList}\item 
 \hyperlink{class_statistics}{Statistics} \hyperlink{class_data_a26376768a100f1999ef3ac15a2aa2a67}{get\+Statistics} ()
 \begin{DoxyCompactList}\small\item\em Returns a class with the statistics info of the sample. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \hyperlink{class_data_a16685ae631c5bedc22c974980bc74c05}{get\+Index} ()
+\begin{DoxyCompactList}\small\item\em Returns the vector of indexes. \end{DoxyCompactList}\item 
 int \hyperlink{class_data_a45a39ab2144bcdd0ac1aa67d7d08a6cc}{get\+Number\+Positive\+Points} ()
 \begin{DoxyCompactList}\small\item\em Return the number of positive points. \end{DoxyCompactList}\item 
 int \hyperlink{class_data_a5166e74e946c2dbac75f383d63f018ea}{get\+Number\+Negative\+Points} ()
 \begin{DoxyCompactList}\small\item\em Return the number of negative points. \end{DoxyCompactList}\item 
+void \hyperlink{class_data_a6dd8a8a1e1659c76e5716fc8a23a86e2}{set\+Classes} (std\+::string pos, std\+::string neg)
+\begin{DoxyCompactList}\small\item\em set\+Classes Set the classes of the dataset. \end{DoxyCompactList}\item 
 bool \hyperlink{class_data_a93468d3b8b2ce0f73e369e5de160534e}{is\+Empty} ()
 \begin{DoxyCompactList}\small\item\em Returns if there\textquotesingle{}s a dataset loaded. \end{DoxyCompactList}\item 
+bool \hyperlink{class_data_ad96fc8e9c5ec9e40b1dc6d9670eefe0c}{is\+Normalized} ()
+\begin{DoxyCompactList}\small\item\em Returns if the dataset is normalized. \end{DoxyCompactList}\item 
 bool \hyperlink{class_data_ac2ed251251be234c607f486e16902112}{load} (std\+::string file)
 \begin{DoxyCompactList}\small\item\em Load a dataset from a file. \end{DoxyCompactList}\item 
 \hyperlink{class_data}{Data} \hyperlink{class_data_afb7687021aa7d5f1ecae464eee601710}{copy} ()
 \begin{DoxyCompactList}\small\item\em Returns a copy of the data. \end{DoxyCompactList}\item 
+\hyperlink{class_data}{Data} \hyperlink{class_data_ae9f7aeb470be537dc20c43b317dc6478}{copy\+Zero} ()
+\begin{DoxyCompactList}\small\item\em Returns a copy of the data with zero points. \end{DoxyCompactList}\item 
+void \hyperlink{class_data_a83c2a01ded98c4fad0b5b31538039046}{join} (\hyperlink{class_data}{Data} data)
+\begin{DoxyCompactList}\small\item\em Merge one dataset with another. \end{DoxyCompactList}\item 
 bool \hyperlink{class_data_abb6aade47d78a284301c32e82b2cbee2}{insert\+Point} (\hyperlink{class_data}{Data} sample, int id)
 \begin{DoxyCompactList}\small\item\em Insert a point to the data from another sample. \end{DoxyCompactList}\item 
 bool \hyperlink{class_data_a4694df7867fa112b219bbf6ed17880e9}{insert\+Point} (\hyperlink{class_point}{Point} p)
@@ -51,8 +63,21 @@ bool \hyperlink{class_data_a0e0136f31687452ff10b489f8804ceb8}{remove\+Features} 
 \begin{DoxyCompactList}\small\item\em Remove several features from the sample. \end{DoxyCompactList}\item 
 void \hyperlink{class_data_a3e66e3dce7675bf2a1eded906e3d7912}{change\+X\+Vector} (std\+::vector$<$ int $>$ index)
 \begin{DoxyCompactList}\small\item\em Change the x vector of a sample. \end{DoxyCompactList}\item 
+void \hyperlink{class_data_a38bbab57bd9d871bd78771df47529d6b}{normalize} (double p=2)
+\begin{DoxyCompactList}\small\item\em normalize Normalize the dataset using a Lp-\/norm. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_data_a02affbc0f8564106c84dc59f34666912}\label{class_data_a02affbc0f8564106c84dc59f34666912}} 
 void {\bfseries operator=} (const \hyperlink{class_data}{Data} \&)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_data_acd8fd65a56a3d097d1bc19fb8249ee20}{normalize} (std\+::vector$<$ double $>$ \&p, double q)
+\begin{DoxyCompactList}\small\item\em normalize Normalize a vector using a Lp-\/norm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_data_ae7387779a206ec9f8d282b354e0c3316}\label{class_data_ae7387779a206ec9f8d282b354e0c3316}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&output, const \hyperlink{class_data}{Data} \&data)
 \end{DoxyCompactItemize}
 
 
@@ -60,11 +85,28 @@ void {\bfseries operator=} (const \hyperlink{class_data}{Data} \&)
 Wrapper for the dataset data. 
 
 \subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_data_acdbe72be259faa3c285b8e0f6dc89a94}\label{class_data_acdbe72be259faa3c285b8e0f6dc89a94}} 
+\mbox{\Hypertarget{class_data_aa3ca35c963eec5a4734df23f88443077}\label{class_data_aa3ca35c963eec5a4734df23f88443077}} 
 \index{Data@{Data}!Data@{Data}}
 \index{Data@{Data}!Data@{Data}}
-\subsubsection{\texorpdfstring{Data()}{Data()}}
-{\footnotesize\ttfamily Data\+::\+Data (\begin{DoxyParamCaption}\item[{std\+::string}]{dataset }\end{DoxyParamCaption})}
+\subsubsection{\texorpdfstring{Data()}{Data()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Data\+::\+Data (\begin{DoxyParamCaption}\item[{const char $\ast$}]{pos\+\_\+class = {\ttfamily \char`\"{}1\char`\"{}},  }\item[{const char $\ast$}]{neg\+\_\+class = {\ttfamily \char`\"{}-\/1\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Constructor for empty data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos\+\_\+class} & String representing the positive class on the dataset. \\
+\hline
+{\em neg\+\_\+class} & String representing the negative class on the dataset. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_data_a85afba1f115dce4b6d2a952326624dd4}\label{class_data_a85afba1f115dce4b6d2a952326624dd4}} 
+\index{Data@{Data}!Data@{Data}}
+\index{Data@{Data}!Data@{Data}}
+\subsubsection{\texorpdfstring{Data()}{Data()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Data\+::\+Data (\begin{DoxyParamCaption}\item[{std\+::string}]{dataset,  }\item[{const char $\ast$}]{pos\+\_\+class = {\ttfamily \char`\"{}1\char`\"{}},  }\item[{const char $\ast$}]{neg\+\_\+class = {\ttfamily \char`\"{}-\/1\char`\"{}} }\end{DoxyParamCaption})}
 
 
 
@@ -73,6 +115,10 @@ Wrapper for the dataset data.
 
 \begin{DoxyParams}{Parameters}
 {\em dataset} & (???) Path to the dataset to be loaded. \\
+\hline
+{\em pos\+\_\+class} & String representing the positive class on the dataset. \\
+\hline
+{\em neg\+\_\+class} & String representing the negative class on the dataset. \\
 \hline
 \end{DoxyParams}
 
@@ -109,6 +155,19 @@ Returns a copy of the data.
 \begin{DoxyReturn}{Returns}
 \hyperlink{class_data}{Data} 
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_data_ae9f7aeb470be537dc20c43b317dc6478}\label{class_data_ae9f7aeb470be537dc20c43b317dc6478}} 
+\index{Data@{Data}!copy\+Zero@{copy\+Zero}}
+\index{copy\+Zero@{copy\+Zero}!Data@{Data}}
+\subsubsection{\texorpdfstring{copy\+Zero()}{copyZero()}}
+{\footnotesize\ttfamily \hyperlink{class_data}{Data} Data\+::copy\+Zero (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns a copy of the data with zero points. 
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_data}{Data} 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_data_a0391940729a8023ea9b154132a854d35}\label{class_data_a0391940729a8023ea9b154132a854d35}} 
 \index{Data@{Data}!get\+Dim@{get\+Dim}}
 \index{get\+Dim@{get\+Dim}!Data@{Data}}
@@ -131,6 +190,19 @@ int
 
 
 Returns the features names. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$int$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_a16685ae631c5bedc22c974980bc74c05}\label{class_data_a16685ae631c5bedc22c974980bc74c05}} 
+\index{Data@{Data}!get\+Index@{get\+Index}}
+\index{get\+Index@{get\+Index}!Data@{Data}}
+\subsubsection{\texorpdfstring{get\+Index()}{getIndex()}}
+{\footnotesize\ttfamily vector$<$ int $>$ Data\+::get\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the vector of indexes. 
 
 \begin{DoxyReturn}{Returns}
 std\+::vector$<$int$>$ 
@@ -269,6 +341,37 @@ Returns if there\textquotesingle{}s a dataset loaded.
 \begin{DoxyReturn}{Returns}
 bool 
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_data_ad96fc8e9c5ec9e40b1dc6d9670eefe0c}\label{class_data_ad96fc8e9c5ec9e40b1dc6d9670eefe0c}} 
+\index{Data@{Data}!is\+Normalized@{is\+Normalized}}
+\index{is\+Normalized@{is\+Normalized}!Data@{Data}}
+\subsubsection{\texorpdfstring{is\+Normalized()}{isNormalized()}}
+{\footnotesize\ttfamily bool Data\+::is\+Normalized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns if the dataset is normalized. 
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_data_a83c2a01ded98c4fad0b5b31538039046}\label{class_data_a83c2a01ded98c4fad0b5b31538039046}} 
+\index{Data@{Data}!join@{join}}
+\index{join@{join}!Data@{Data}}
+\subsubsection{\texorpdfstring{join()}{join()}}
+{\footnotesize\ttfamily void Data\+::join (\begin{DoxyParamCaption}\item[{\hyperlink{class_data}{Data}}]{data }\end{DoxyParamCaption})}
+
+
+
+Merge one dataset with another. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & (???) Dataset to be joined. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_data_ac2ed251251be234c607f486e16902112}\label{class_data_ac2ed251251be234c607f486e16902112}} 
 \index{Data@{Data}!load@{load}}
 \index{load@{load}!Data@{Data}}
@@ -287,6 +390,36 @@ Load a dataset from a file.
 \begin{DoxyReturn}{Returns}
 bool 
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_data_a38bbab57bd9d871bd78771df47529d6b}\label{class_data_a38bbab57bd9d871bd78771df47529d6b}} 
+\index{Data@{Data}!normalize@{normalize}}
+\index{normalize@{normalize}!Data@{Data}}
+\subsubsection{\texorpdfstring{normalize()}{normalize()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Data\+::normalize (\begin{DoxyParamCaption}\item[{double}]{p = {\ttfamily 2} }\end{DoxyParamCaption})}
+
+
+
+normalize Normalize the dataset using a Lp-\/norm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Norm to be utilized. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_data_acd8fd65a56a3d097d1bc19fb8249ee20}\label{class_data_acd8fd65a56a3d097d1bc19fb8249ee20}} 
+\index{Data@{Data}!normalize@{normalize}}
+\index{normalize@{normalize}!Data@{Data}}
+\subsubsection{\texorpdfstring{normalize()}{normalize()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void Data\+::normalize (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$ \&}]{p,  }\item[{double}]{q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+normalize Normalize a vector using a Lp-\/norm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Norm to be utilized. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_data_a0e0136f31687452ff10b489f8804ceb8}\label{class_data_a0e0136f31687452ff10b489f8804ceb8}} 
 \index{Data@{Data}!remove\+Features@{remove\+Features}}
 \index{remove\+Features@{remove\+Features}!Data@{Data}}
@@ -341,6 +474,23 @@ Remove several points from the sample.
 \begin{DoxyReturn}{Returns}
 booleans informing which points were removed succesfully. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_data_a6dd8a8a1e1659c76e5716fc8a23a86e2}\label{class_data_a6dd8a8a1e1659c76e5716fc8a23a86e2}} 
+\index{Data@{Data}!set\+Classes@{set\+Classes}}
+\index{set\+Classes@{set\+Classes}!Data@{Data}}
+\subsubsection{\texorpdfstring{set\+Classes()}{setClasses()}}
+{\footnotesize\ttfamily void Data\+::set\+Classes (\begin{DoxyParamCaption}\item[{std\+::string}]{pos,  }\item[{std\+::string}]{neg }\end{DoxyParamCaption})}
+
+
+
+set\+Classes Set the classes of the dataset. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & Positive class. \\
+\hline
+{\em neg} & Negative class. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

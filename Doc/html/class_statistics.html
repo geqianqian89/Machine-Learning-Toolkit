@@ -95,6 +95,15 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a4cd8cbff1c0b3cdf08adf6c7fc453251"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#a4cd8cbff1c0b3cdf08adf6c7fc453251">getFeatureStdev</a> (<a class="el" href="class_data.html">Data</a> data, int index)</td></tr>
 <tr class="memdesc:a4cd8cbff1c0b3cdf08adf6c7fc453251"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the standard deviation of a feature.  <a href="#a4cd8cbff1c0b3cdf08adf6c7fc453251">More...</a><br /></td></tr>
 <tr class="separator:a4cd8cbff1c0b3cdf08adf6c7fc453251"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6fd43364deef34396204503b90bf792"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#ac6fd43364deef34396204503b90bf792">getRadius</a> (<a class="el" href="class_data.html">Data</a> data, int index, double q)</td></tr>
+<tr class="memdesc:ac6fd43364deef34396204503b90bf792"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns radius of the ball that circ. the data.  <a href="#ac6fd43364deef34396204503b90bf792">More...</a><br /></td></tr>
+<tr class="separator:ac6fd43364deef34396204503b90bf792"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9150c8c61b5c5255d448e9e3ed387c73"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#a9150c8c61b5c5255d448e9e3ed387c73">getDistCenters</a> (<a class="el" href="class_data.html">Data</a> data, int index)</td></tr>
+<tr class="memdesc:a9150c8c61b5c5255d448e9e3ed387c73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns distance of centers of the classes.  <a href="#a9150c8c61b5c5255d448e9e3ed387c73">More...</a><br /></td></tr>
+<tr class="separator:a9150c8c61b5c5255d448e9e3ed387c73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a705f3b85e91f08f926670c6602fffda6"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics.html#a705f3b85e91f08f926670c6602fffda6">getDistCentersWithoutFeats</a> (<a class="el" href="class_data.html">Data</a> data, std::vector&lt; int &gt; feats, int index)</td></tr>
+<tr class="memdesc:a705f3b85e91f08f926670c6602fffda6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns distance of centers of the classes without given features.  <a href="#a705f3b85e91f08f926670c6602fffda6">More...</a><br /></td></tr>
+<tr class="separator:a705f3b85e91f08f926670c6602fffda6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -105,6 +114,105 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Data</b></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class with methods for statistical computations. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9150c8c61b5c5255d448e9e3ed387c73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9150c8c61b5c5255d448e9e3ed387c73">&#9670;&nbsp;</a></span>getDistCenters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Statistics::getDistCenters </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_data.html">Data</a>&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns distance of centers of the classes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Dataset to compute the distance. </td></tr>
+    <tr><td class="paramname">index</td><td>Feature to be ignored (-1 uses all features). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
+
+</div>
+</div>
+<a id="a705f3b85e91f08f926670c6602fffda6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a705f3b85e91f08f926670c6602fffda6">&#9670;&nbsp;</a></span>getDistCentersWithoutFeats()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Statistics::getDistCentersWithoutFeats </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_data.html">Data</a>&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; int &gt;&#160;</td>
+          <td class="paramname"><em>feats</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns distance of centers of the classes without given features. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Dataset to compute the distance. </td></tr>
+    <tr><td class="paramname">feats</td><td>Features to be excluded from the computation. </td></tr>
+    <tr><td class="paramname">index</td><td>Feature to be ignored (-1 uses all features). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
+
+</div>
+</div>
 <a id="a4201ed0f3f817591bcf18d8ba7bfc1e0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4201ed0f3f817591bcf18d8ba7bfc1e0">&#9670;&nbsp;</a></span>getFeatureMean()</h2>
 
@@ -190,6 +298,59 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Data</b></td></tr>
   <table class="params">
     <tr><td class="paramname">data</td><td>(???) Sample where the feature is located. </td></tr>
     <tr><td class="paramname">index</td><td>(???) Index of teh feature to compute the standard deviation. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
+
+</div>
+</div>
+<a id="ac6fd43364deef34396204503b90bf792"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6fd43364deef34396204503b90bf792">&#9670;&nbsp;</a></span>getRadius()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Statistics::getRadius </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_data.html">Data</a>&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>q</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns radius of the ball that circ. the data. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Dataset to compute the radius. </td></tr>
+    <tr><td class="paramname">index</td><td>Feature to be ignored (-1 uses all features). </td></tr>
+    <tr><td class="paramname">q</td><td>Lp-Norm to be used. </td></tr>
   </table>
   </dd>
 </dl>

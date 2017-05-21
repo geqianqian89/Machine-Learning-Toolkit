@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['data',['Data',['../class_data.html#af11f741cb7f587e2e495452a8905a22a',1,'Data::Data()'],['../class_data.html#acdbe72be259faa3c285b8e0f6dc89a94',1,'Data::Data(std::string dataset)']]],
+  ['data',['Data',['../class_data.html#aa3ca35c963eec5a4734df23f88443077',1,'Data::Data(const char *pos_class=&quot;1&quot;, const char *neg_class=&quot;-1&quot;)'],['../class_data.html#a85afba1f115dce4b6d2a952326624dd4',1,'Data::Data(std::string dataset, const char *pos_class=&quot;1&quot;, const char *neg_class=&quot;-1&quot;)']]],
   ['dot',['dot',['../class_point.html#a9d8da6733d7e4110a62e8d0f82676761',1,'Point']]]
 ];
