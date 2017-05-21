@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <unistd.h>
+#include <ctime>
 #include <ios>
 #include <numeric>
 #include "../includes/MLToolkit.hpp"
@@ -45,26 +46,34 @@ void process_mem_usage(double& vm_usage, double& resident_set){
 
 int main(int argc, char *argv[])
 {
+    double elapsed_secs;
+    string pos, neg;
     Data data, train, test;
+    clock_t b = clock();
     data.load(string(argv[1]));
+    clock_t e = clock();
+    elapsed_secs = double(e - b) / CLOCKS_PER_SEC;
+    cout << elapsed_secs << endl;
     Validation valid(data);
-    vector<Point> tpoints, tepoints;
-
+    clock_t begin = clock();
     valid.partTrainTest(3, 1);
+    clock_t end = clock();
+    elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+    cout << elapsed_secs << endl;
     train = valid.getTrainSample();
     test = valid.getTestSample();
-
-    tepoints = test.getPoints();
-    tpoints = train.getPoints();
 
     cout << "Train sample size: " << train.getSize() << endl;
     cout << "Test sample size: " << test.getSize() << endl;
     cout << "sample size: " << data.getSize() << endl;
 
-    cout << "\nTest data: " << endl;
-    cout << test << endl;
-    cout << "\nTrain data: " << endl;
-    cout << train << endl;
+    /*cout << "\nTest data: " << endl;
 
+    cout << test << endl;
+
+    cout << "\nTrain data: " << endl;
+
+    cout << train << endl;
+*/
     return 0;
 }

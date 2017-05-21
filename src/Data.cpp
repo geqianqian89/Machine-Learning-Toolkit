@@ -19,18 +19,18 @@
 
 using namespace std;
 
-Data::Data(string pos_class, string neg_class){
-    this->pos_class = pos_class;
-    this->neg_class = neg_class;
+Data::Data(const char* pos_class, const char* neg_class){
+    this->pos_class = string(pos_class);
+    this->neg_class = string(neg_class);
 }
 
-Data::Data(string dataset, string pos_class, string neg_class){
+Data::Data(string dataset, const char* pos_class, const char* neg_class){
     if(!load(dataset)){
         cerr << "Couldn't read the dataset." << endl;
     }
 
-    this->pos_class = pos_class;
-    this->neg_class = neg_class;
+    this->pos_class = string(pos_class);
+    this->neg_class = string(neg_class);
 }
 
 Type Data::identifyFileType(string file){
@@ -736,33 +736,6 @@ void Data::join(Data data){
     }
 
 }
-
-/*void Data::normalize(){
-    int i, j, p = 2;
-    double norm;
-
-    dim += 1;
-    normalized = true;
-
-    fnames.resize(dim, dim);
-
-    for(i = 0; i < size; i++){
-        points[i].x.resize(dim, 0);
-
-        for(norm = 0, j = 0; j < dim-1; j++){
-            norm += pow(points[i].x[j], p);
-        }
-        points[i].x[j] = 1;
-        fnames[j] = j + 1;
-        norm += pow(points[i].x[j], p);
-        norm = pow(norm, 1.0 / p);
-
-        for(j = 0; j < dim + 1; j++){
-            points[i].x[j] /= norm;
-        }
-    }
-    dim += 1;
-}*/
 
 void Data::normalize(double p){
     int i = 0, j = 0;
