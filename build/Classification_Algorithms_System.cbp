@@ -8,38 +8,38 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/build-Classification_Algorithms_System-Desktop_Qt_5_8_0_GCC_64bit-Default"/>
+				<Option working_dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/build-Classification_Algorithms_System-Desktop_Qt_5_8_0_GCC_64bit-Default/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/build-Classification_Algorithms_System-Desktop_Qt_5_8_0_GCC_64bit-Default/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/build-Classification_Algorithms_System-Desktop_Qt_5_8_0_GCC_64bit-Default/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/build-Classification_Algorithms_System-Desktop_Qt_5_8_0_GCC_64bit-Default/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/build/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/build/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/build-Classification_Algorithms_System-Desktop_Qt_5_8_0_GCC_64bit-Default"/>
+				<Option working_dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/build-Classification_Algorithms_System-Desktop_Qt_5_8_0_GCC_64bit-Default/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/build-Classification_Algorithms_System-Desktop_Qt_5_8_0_GCC_64bit-Default/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/build-Classification_Algorithms_System-Desktop_Qt_5_8_0_GCC_64bit-Default/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/build-Classification_Algorithms_System-Desktop_Qt_5_8_0_GCC_64bit-Default/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/build/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/build/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/build-Classification_Algorithms_System-Desktop_Qt_5_8_0_GCC_64bit-Default"/>
+				<Option working_dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/build-Classification_Algorithms_System-Desktop_Qt_5_8_0_GCC_64bit-Default/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/build-Classification_Algorithms_System-Desktop_Qt_5_8_0_GCC_64bit-Default/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/build-Classification_Algorithms_System-Desktop_Qt_5_8_0_GCC_64bit-Default/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/build-Classification_Algorithms_System-Desktop_Qt_5_8_0_GCC_64bit-Default/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/build/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/build/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Classification_Algorithms_System">
-				<Option output="/home/mateus558/Dropbox/Aprendizado de Máquinas/build-Classification_Algorithms_System-Desktop_Qt_5_8_0_GCC_64bit-Default/Classification_Algorithms_System" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/build-Classification_Algorithms_System-Desktop_Qt_5_8_0_GCC_64bit-Default"/>
+				<Option output="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build/Classification_Algorithms_System" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -54,15 +54,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/build-Classification_Algorithms_System-Desktop_Qt_5_8_0_GCC_64bit-Default/Makefile&quot;  VERBOSE=1 Classification_Algorithms_System"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/build-Classification_Algorithms_System-Desktop_Qt_5_8_0_GCC_64bit-Default/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/build-Classification_Algorithms_System-Desktop_Qt_5_8_0_GCC_64bit-Default/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/build-Classification_Algorithms_System-Desktop_Qt_5_8_0_GCC_64bit-Default/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/build/Makefile&quot;  VERBOSE=1 Classification_Algorithms_System"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/build/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Classification_Algorithms_System/fast">
-				<Option output="/home/mateus558/Dropbox/Aprendizado de Máquinas/build-Classification_Algorithms_System-Desktop_Qt_5_8_0_GCC_64bit-Default/Classification_Algorithms_System" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/build-Classification_Algorithms_System-Desktop_Qt_5_8_0_GCC_64bit-Default"/>
+				<Option output="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build/Classification_Algorithms_System" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -77,17 +77,14 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/build-Classification_Algorithms_System-Desktop_Qt_5_8_0_GCC_64bit-Default/Makefile&quot;  VERBOSE=1 Classification_Algorithms_System/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/build-Classification_Algorithms_System-Desktop_Qt_5_8_0_GCC_64bit-Default/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/build-Classification_Algorithms_System-Desktop_Qt_5_8_0_GCC_64bit-Default/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/build-Classification_Algorithms_System-Desktop_Qt_5_8_0_GCC_64bit-Default/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/build/Makefile&quot;  VERBOSE=1 Classification_Algorithms_System/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/build/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Classifier.hpp">
-			<Option target="Classification_Algorithms_System"/>
-		</Unit>
-		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/CrossValidation.hpp">
 			<Option target="Classification_Algorithms_System"/>
 		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Data.hpp">

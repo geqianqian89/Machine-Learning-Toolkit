@@ -149,6 +149,8 @@ functional
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/main.cpp
 iostream
 -
+algorithm
+-
 fstream
 -
 unistd.h

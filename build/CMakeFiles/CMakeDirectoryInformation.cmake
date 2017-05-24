@@ -3,7 +3,7 @@
 
 # Relative path conversion top directories.
 set(CMAKE_RELATIVE_PATH_TOP_SOURCE "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System")
-set(CMAKE_RELATIVE_PATH_TOP_BINARY "/home/mateus558/Dropbox/Aprendizado de Máquinas/build-Classification_Algorithms_System-Desktop_Qt_5_8_0_GCC_64bit-Default")
+set(CMAKE_RELATIVE_PATH_TOP_BINARY "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build")
 
 # Force unix paths in dependencies.
 set(CMAKE_FORCE_UNIX_PATHS 1)
