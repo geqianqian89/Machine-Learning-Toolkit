@@ -12,7 +12,7 @@ class Validation {
     // Attributes
     private :
         Classifier *classifier;
-        Data sample;
+        Data *sample;
         Data train_sample;
         Data test_sample;
         double initial_error;

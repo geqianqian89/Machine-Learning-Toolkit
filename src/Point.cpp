@@ -9,8 +9,8 @@ using namespace std;
 
 Point::Point(){}
 
-Point::Point(int dim){
-    x.resize(dim);
+Point::Point(int dim, int val){
+    x.resize(dim, val);
 }
 
 double Point::dot(vector<double> p){
@@ -55,4 +55,8 @@ ostream &operator<<( ostream &output,
      output << p.y << "]";
 
      return output;
+}
+
+Point::~Point(){
+
 }

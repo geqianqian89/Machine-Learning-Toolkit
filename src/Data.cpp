@@ -210,6 +210,7 @@ bool Data::load_csv(string path){
     }
 
     is_empty = false;
+    input.clear();
     input.close();
 
     return true;
@@ -335,6 +336,7 @@ bool Data::load_data(string path){
     }
 
     is_empty = false;
+    input.clear();
     input.close();
 
     return true;
@@ -446,6 +448,7 @@ bool Data::load_arff(string path){
     }
 
     is_empty = false;
+    input.clear();
     input.close();
     return true;
 }
@@ -529,6 +532,7 @@ bool Data::load_txt(string path){
     }
 
     is_empty = false;
+    input.clear();
     input.close();
 
     return true;
@@ -569,26 +573,31 @@ bool Data::removePoint(int pid){
 }
 
 vector<bool> Data::removePoints(vector<int> ids){
-    int i = 0, j, idsize = ids.size();
+    int idsize = ids.size(), i;
+    bool save;
+    Point po;
+    vector<Point>::iterator p = points.begin();
     vector<bool> notFound(idsize, true);
 
-    //Find the points with the ids to be removed
-    for(j = 0; j < size && i != idsize; j++){
-        if(points[j].id == ids[i]){
+    for(; p != points.end();){
+        save = true;
+        po = (*p);
+        for(i = 0; i < idsize; i++){
+            if(po.id == ids[i]){
+                save = false;
+                notFound[i] = false;
+                break;
+            }
+        }
+
+        if(save) p++;
+        else{
+            p = points.erase(p);
             //Size verification.
             if(size == 1){ clog << "Error: RemovePoint, only one point left." << endl; break;}
-            //Ids bound verification
-            if(ids[i] > points[size-1].id || ids[i] < 0){ break;}
-            if(stats.n_pos > 0 || stats.n_neg > 0){
-                if(points[j].y == 1) stats.n_pos--;
-                else if(points[j].y == -1) stats.n_neg--;
-            }
-            //Erase point and set false in notFound vector
-            points.erase(points.begin() + j);
-            notFound[i] = false;
+            if(po.y == 1) stats.n_pos--;
+            else if(po.y == -1) stats.n_neg--;
             size--;
-            j--;
-            i++;
         }
     }
 

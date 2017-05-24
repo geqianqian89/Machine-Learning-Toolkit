@@ -8,7 +8,7 @@
 class Classifier {
     // Attributes
     private :
-        Data samples;
+        Data *samples;
         /// Support vectors points.
         std::vector<Point> svs;
         Solution solution;

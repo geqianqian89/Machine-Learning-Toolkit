@@ -206,7 +206,8 @@ class Data {
         void normalize(double p = 2);
         /**
          * \brief normalize Normalize a vector using a Lp-norm.
-         * \param p Norm to be utilized.
+         * \param q Norm to be utilized.
+         * \param p Vector to be normalized.
          */
         static void normalize(std::vector<double> &p, double q);
 

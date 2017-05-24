@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 #include <fstream>
 #include <unistd.h>
 #include <ctime>
@@ -49,24 +50,33 @@ int main(int argc, char *argv[])
     double elapsed_secs;
     string pos, neg;
     Data data, train, test;
+    vector<int> rem(1100);
+    Validation val(data);
     clock_t b = clock();
     data.load(string(argv[1]));
     clock_t e = clock();
     elapsed_secs = double(e - b) / CLOCKS_PER_SEC;
     cout << elapsed_secs << endl;
-    Validation valid(data);
     clock_t begin = clock();
-    valid.partTrainTest(3, 1);
+    //valid.partTrainTest(3, 1);
     clock_t end = clock();
     elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
     cout << elapsed_secs << endl;
-    train = valid.getTrainSample();
-    test = valid.getTestSample();
+   // train = valid.getTrainSample();
+    //test = valid.getTestSample();
 
-    cout << "Train sample size: " << train.getSize() << endl;
+    /*cout << "Train sample size: " << train.getSize() << endl;
     cout << "Test sample size: " << test.getSize() << endl;
     cout << "sample size: " << data.getSize() << endl;
-
+*/
+    iota(rem.begin(), rem.end(), 3000);
+    sort(rem.rbegin(), rem.rend());
+    data.removePoints(rem);
+    cout << "Size: " << data.getSize() << endl;
+    cout << "Dim: " << data.getDim() << endl;
+    cout << "Pos: " << data.getNumberPositivePoints() << endl;
+    cout << "Neg: " << data.getNumberNegativePoints() << endl;
+    cin >> elapsed_secs;
     /*cout << "\nTest data: " << endl;
 
     cout << test << endl;

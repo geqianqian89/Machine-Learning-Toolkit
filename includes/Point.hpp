@@ -20,7 +20,7 @@ class Point {
         int id = 0;
     // Operations
         Point();
-        Point(int dim);
+        Point(int dim, int val = 0);
         /**
          * \brief Computes the dot product with a vector.
          * \param p (???)
@@ -35,5 +35,7 @@ class Point {
         double norm (int p = 2);
 
         friend std::ostream &operator<<( std::ostream &output, const Point &p );
+
+        ~Point();
 };
 #endif

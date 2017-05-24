@@ -6,24 +6,24 @@
 using namespace std;
 
 Validation::Validation(Data sample, Classifier *classifier){
-    this->sample = sample;
+    this->sample = &sample;
     this->classifier = classifier;
 }
 
 void Validation::partTrainTest(int fold, uint seed){
-    int i, j, npos, nneg, size = sample.getSize();
+    int i, j, npos, nneg, size = sample->getSize();
     Point p, aux;
     Data sample_pos, sample_neg;
 
-    sample_pos = sample.copyZero();
-    sample_neg = sample.copyZero();
+    sample_pos = sample->copyZero();
+    sample_neg = sample->copyZero();
 
     for(i = 0; i < size; i++){
-        p = sample.getPoint(i);
+        p = sample->getPoint(i);
         if(p.y == 1){
-            sample_pos.insertPoint(sample, i);
+            sample_pos.insertPoint(*sample, i);
         }else{
-            sample_neg.insertPoint(sample, i);
+            sample_neg.insertPoint(*sample, i);
         }
     }
 

@@ -8,8 +8,8 @@
 class FeatureSelection {
     // Attributes
     private :
-        Data samples;
-        Classifier classifier;
+        Data *samples;
+        Classifier *classifier;
         Solution solution;
 };
 

@@ -5,4 +5,5 @@ file(GLOB SOURCES
     includes/*.hpp
     src/*.cpp
 )
+
 add_executable(${PROJECT_NAME} ${SOURCES})
