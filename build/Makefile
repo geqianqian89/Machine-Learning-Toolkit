@@ -285,6 +285,60 @@ src/Validation.cpp.s:
 	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.s
 .PHONY : src/Validation.cpp.s
 
+src/Visualisation.o: src/Visualisation.cpp.o
+
+.PHONY : src/Visualisation.o
+
+# target to build an object file
+src/Visualisation.cpp.o:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Visualisation.cpp.o
+.PHONY : src/Visualisation.cpp.o
+
+src/Visualisation.i: src/Visualisation.cpp.i
+
+.PHONY : src/Visualisation.i
+
+# target to preprocess a source file
+src/Visualisation.cpp.i:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Visualisation.cpp.i
+.PHONY : src/Visualisation.cpp.i
+
+src/Visualisation.s: src/Visualisation.cpp.s
+
+.PHONY : src/Visualisation.s
+
+# target to generate assembly for a file
+src/Visualisation.cpp.s:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Visualisation.cpp.s
+.PHONY : src/Visualisation.cpp.s
+
+src/gnuplot_i.o: src/gnuplot_i.cpp.o
+
+.PHONY : src/gnuplot_i.o
+
+# target to build an object file
+src/gnuplot_i.cpp.o:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/gnuplot_i.cpp.o
+.PHONY : src/gnuplot_i.cpp.o
+
+src/gnuplot_i.i: src/gnuplot_i.cpp.i
+
+.PHONY : src/gnuplot_i.i
+
+# target to preprocess a source file
+src/gnuplot_i.cpp.i:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/gnuplot_i.cpp.i
+.PHONY : src/gnuplot_i.cpp.i
+
+src/gnuplot_i.s: src/gnuplot_i.cpp.s
+
+.PHONY : src/gnuplot_i.s
+
+# target to generate assembly for a file
+src/gnuplot_i.cpp.s:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/gnuplot_i.cpp.s
+.PHONY : src/gnuplot_i.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -339,6 +393,12 @@ help:
 	@echo "... src/Validation.o"
 	@echo "... src/Validation.i"
 	@echo "... src/Validation.s"
+	@echo "... src/Visualisation.o"
+	@echo "... src/Visualisation.i"
+	@echo "... src/Visualisation.s"
+	@echo "... src/gnuplot_i.o"
+	@echo "... src/gnuplot_i.i"
+	@echo "... src/gnuplot_i.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

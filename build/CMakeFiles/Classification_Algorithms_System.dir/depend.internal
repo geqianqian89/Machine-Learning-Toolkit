@@ -30,7 +30,6 @@ CMakeFiles/Classification_Algorithms_System.dir/src/Utils.cpp.o
 CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.o
  /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Classifier.hpp
  /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Data.hpp
- /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/MLToolkit.hpp
  /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Point.hpp
  /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Solution.hpp
  /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Statistics.hpp
@@ -38,6 +37,17 @@ CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.o
  /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Validation.hpp
  /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/ValidationSolution.hpp
  /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Validation.cpp
+CMakeFiles/Classification_Algorithms_System.dir/src/Visualisation.cpp.o
+ /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Data.hpp
+ /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Point.hpp
+ /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Statistics.hpp
+ /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Utils.hpp
+ /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Visualisation.hpp
+ /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/gnuplot_i.hpp
+ /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Visualisation.cpp
+CMakeFiles/Classification_Algorithms_System.dir/src/gnuplot_i.cpp.o
+ /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/gnuplot_i.hpp
+ /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/gnuplot_i.cpp
 CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o
  /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Classifier.hpp
  /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Data.hpp
@@ -48,4 +58,6 @@ CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o
  /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Utils.hpp
  /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Validation.hpp
  /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/ValidationSolution.hpp
+ /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Visualisation.hpp
+ /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/gnuplot_i.hpp
  /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/main.cpp
