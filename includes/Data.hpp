@@ -77,6 +77,7 @@ class Data {
          * \param neg_class String representing the negative class on the dataset.
          */
         Data (std::string dataset, const char* pos_class = "1", const char* neg_class = "-1");
+        void write(std::string fname, std::string ext);
         /**
          * \brief Returns the size of the dataset.
          * \return int

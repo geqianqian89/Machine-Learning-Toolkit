@@ -54,36 +54,17 @@ int main(int argc, char *argv[])
     Validation val(data);
     clock_t b = clock();
     data.load(string(argv[1]));
-    clock_t e = clock();
-    elapsed_secs = double(e - b) / CLOCKS_PER_SEC;
-    cout << elapsed_secs << endl;
-    clock_t begin = clock();
-    //valid.partTrainTest(3, 1);
-    clock_t end = clock();
-    elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
-    cout << elapsed_secs << endl;
-   // train = valid.getTrainSample();
-    //test = valid.getTestSample();
+    Visualisation vis(&data);
 
-    /*cout << "Train sample size: " << train.getSize() << endl;
-    cout << "Test sample size: " << test.getSize() << endl;
-    cout << "sample size: " << data.getSize() << endl;
-*/
-    iota(rem.begin(), rem.end(), 3000);
-    sort(rem.rbegin(), rem.rend());
-    data.removePoints(rem);
+
+    vis.setStyle("points");
+    vis.setTitle("Teste");
+    vis.plot3D(4,5,6);
+
     cout << "Size: " << data.getSize() << endl;
     cout << "Dim: " << data.getDim() << endl;
     cout << "Pos: " << data.getNumberPositivePoints() << endl;
     cout << "Neg: " << data.getNumberNegativePoints() << endl;
     cin >> elapsed_secs;
-    /*cout << "\nTest data: " << endl;
-
-    cout << test << endl;
-
-    cout << "\nTrain data: " << endl;
-
-    cout << train << endl;
-*/
     return 0;
 }

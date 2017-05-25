@@ -1,7 +1,9 @@
 #include <random>
 #include <functional>
 
-#include "../includes/MLToolkit.hpp"
+#include "../includes/Validation.hpp"
+#include "../includes/Data.hpp"
+#include "../includes/Point.hpp"
 
 using namespace std;
 

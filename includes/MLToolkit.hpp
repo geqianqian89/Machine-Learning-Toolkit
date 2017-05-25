@@ -4,6 +4,7 @@
 #include "Data.hpp"
 #include "Solution.hpp"
 #include "Validation.hpp"
+#include "Visualisation.hpp"
 #include "ValidationSolution.hpp"
 #include "Point.hpp"
 #include "Statistics.hpp"

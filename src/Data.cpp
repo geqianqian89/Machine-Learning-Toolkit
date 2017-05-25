@@ -572,6 +572,36 @@ bool Data::removePoint(int pid){
     return true;
 }
 
+void Data::write(string fname, string ext){
+    int i, j;
+    string path = fname + "." + ext;
+    ofstream outstream(path.c_str(), ios::out);
+
+    if(!outstream.is_open()){
+        cerr << "Can't write in file." << endl;
+        return;
+    }
+
+    for(i = 0; i < size; i++){
+        outstream << points[i].y << " ";
+
+        if(ext == "plt"){
+            for(j = 0; j < dim-1; j++){
+                outstream << points[i].x[j] << " ";
+            }
+            outstream << points[i].x[j] << endl;
+        }else if(ext == "data"){
+
+            for(j = 0; j < dim-1; j++){
+                outstream << fnames[j] << ":" << points[i].x[j] << " ";
+            }
+            outstream << fnames[j] << ":" << points[i].x[j] << "\n";
+        }
+    }
+
+    outstream.close();
+}
+
 vector<bool> Data::removePoints(vector<int> ids){
     int idsize = ids.size(), i;
     bool save;
