@@ -1,16 +1,16 @@
 <map id="includes/Utils.hpp" name="includes/Utils.hpp">
-<area shape="rect" id="node2" href="$_point_8hpp_source.html" title="includes/Point.hpp" alt="" coords="561,80,690,107"/>
-<area shape="rect" id="node9" href="$_m_l_toolkit_8hpp_source.html" title="includes/MLToolkit.hpp" alt="" coords="29,453,185,480"/>
-<area shape="rect" id="node12" href="$_data_8cpp.html" title="Implementation of the Data class methods. " alt="" coords="1235,304,1333,331"/>
-<area shape="rect" id="node15" href="$_utils_8cpp.html" title="Implementation of methods for general use in the system. " alt="" coords="836,80,932,107"/>
-<area shape="rect" id="node3" href="$_data_8hpp_source.html" title="includes/Data.hpp" alt="" coords="598,229,725,256"/>
-<area shape="rect" id="node13" href="$_statistics_8hpp_source.html" title="includes/Statistics.hpp" alt="" coords="433,155,588,181"/>
-<area shape="rect" id="node14" href="$_point_8cpp.html" title="Implementation of the Point class methods. " alt="" coords="663,155,761,181"/>
-<area shape="rect" id="node4" href="$_classifier_8hpp_source.html" title="includes/Classifier.hpp" alt="" coords="584,304,739,331"/>
-<area shape="rect" id="node5" href="$_cross_validation_8hpp_source.html" title="includes/CrossValidation.hpp" alt="" coords="145,379,335,405"/>
-<area shape="rect" id="node7" href="$_feature_selection_8hpp_source.html" title="includes/FeatureSelection.hpp" alt="" coords="781,379,979,405"/>
-<area shape="rect" id="node8" href="$_validation_8hpp_source.html" title="includes/Validation.hpp" alt="" coords="1003,379,1159,405"/>
-<area shape="rect" id="node11" href="$_kernel_8hpp_source.html" title="includes/Kernel.hpp" alt="" coords="404,304,540,331"/>
-<area shape="rect" id="node6" href="$_dual_classifier_8hpp_source.html" title="includes/DualClassifier.hpp" alt="" coords="360,379,541,405"/>
-<area shape="rect" id="node10" href="$_primal_classifier_8hpp_source.html" title="includes/PrimalClassifier.hpp" alt="" coords="566,379,757,405"/>
+<area shape="rect" id="node2" href="$_point_8hpp_source.html" title="includes/Point.hpp" alt="" coords="271,80,401,107"/>
+<area shape="rect" id="node8" href="$_m_l_toolkit_8hpp_source.html" title="includes/MLToolkit.hpp" alt="" coords="113,453,269,480"/>
+<area shape="rect" id="node12" href="$_data_8cpp.html" title="Implementation of the Data class methods. " alt="" coords="1103,304,1201,331"/>
+<area shape="rect" id="node15" href="$_utils_8cpp.html" title="Implementation of methods for general use in the system. " alt="" coords="616,80,712,107"/>
+<area shape="rect" id="node3" href="$_data_8hpp_source.html" title="includes/Data.hpp" alt="" coords="414,229,541,256"/>
+<area shape="rect" id="node13" href="$_statistics_8hpp_source.html" title="includes/Statistics.hpp" alt="" coords="259,155,413,181"/>
+<area shape="rect" id="node14" href="$_point_8cpp.html" title="Implementation of the Point class methods. " alt="" coords="43,155,141,181"/>
+<area shape="rect" id="node4" href="$_classifier_8hpp_source.html" title="includes/Classifier.hpp" alt="" coords="457,304,612,331"/>
+<area shape="rect" id="node6" href="$_feature_selection_8hpp_source.html" title="includes/FeatureSelection.hpp" alt="" coords="409,379,607,405"/>
+<area shape="rect" id="node7" href="$_validation_8hpp_source.html" title="includes/Validation.hpp" alt="" coords="229,379,385,405"/>
+<area shape="rect" id="node10" href="$_kernel_8hpp_source.html" title="includes/Kernel.hpp" alt="" coords="859,304,995,331"/>
+<area shape="rect" id="node11" href="$_visualisation_8hpp_source.html" title="includes/Visualisation.hpp" alt="" coords="636,304,809,331"/>
+<area shape="rect" id="node5" href="$_dual_classifier_8hpp_source.html" title="includes/DualClassifier.hpp" alt="" coords="847,379,1028,405"/>
+<area shape="rect" id="node9" href="$_primal_classifier_8hpp_source.html" title="includes/PrimalClassifier.hpp" alt="" coords="631,379,822,405"/>
 </map>
