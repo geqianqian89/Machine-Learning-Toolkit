@@ -366,6 +366,33 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/testes.o: src/testes.cpp.o
+
+.PHONY : src/testes.o
+
+# target to build an object file
+src/testes.cpp.o:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.o
+.PHONY : src/testes.cpp.o
+
+src/testes.i: src/testes.cpp.i
+
+.PHONY : src/testes.i
+
+# target to preprocess a source file
+src/testes.cpp.i:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.i
+.PHONY : src/testes.cpp.i
+
+src/testes.s: src/testes.cpp.s
+
+.PHONY : src/testes.s
+
+# target to generate assembly for a file
+src/testes.cpp.s:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.s
+.PHONY : src/testes.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -402,6 +429,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/testes.o"
+	@echo "... src/testes.i"
+	@echo "... src/testes.s"
 .PHONY : help
 
 

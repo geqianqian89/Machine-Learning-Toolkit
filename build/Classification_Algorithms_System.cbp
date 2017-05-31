@@ -156,6 +156,9 @@
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/main.cpp">
 			<Option target="Classification_Algorithms_System"/>
 		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/testes.cpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

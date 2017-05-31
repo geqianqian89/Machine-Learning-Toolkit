@@ -8,6 +8,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Classification_Algorithms_System.dir/src/Visualisation.cpp.o"
   "CMakeFiles/Classification_Algorithms_System.dir/src/gnuplot_i.cpp.o"
   "CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o"
+  "CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.o"
   "Classification_Algorithms_System.pdb"
   "Classification_Algorithms_System"
 )

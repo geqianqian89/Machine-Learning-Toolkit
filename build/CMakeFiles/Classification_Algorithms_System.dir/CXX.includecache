@@ -195,6 +195,24 @@ cstdio
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/gnuplot_i.hpp
 
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/main.cpp
+dirent.h
+-
+windows.h
+-
+iostream
+-
+vector
+-
+algorithm
+-
+sstream
+-
+ctime
+-
+../includes/MLToolkit.hpp
+/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/MLToolkit.hpp
+
+/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/testes.cpp
 iostream
 -
 algorithm

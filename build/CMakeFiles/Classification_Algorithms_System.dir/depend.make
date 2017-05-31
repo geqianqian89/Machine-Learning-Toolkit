@@ -61,3 +61,16 @@ CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/Visu
 CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/gnuplot_i.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../src/main.cpp
 
+CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.o: ../includes/Classifier.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.o: ../includes/Data.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.o: ../includes/MLToolkit.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.o: ../includes/Point.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.o: ../includes/Solution.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.o: ../includes/Statistics.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.o: ../includes/Utils.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.o: ../includes/Validation.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.o: ../includes/ValidationSolution.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.o: ../includes/Visualisation.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.o: ../includes/gnuplot_i.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.o: ../src/testes.cpp
+
