@@ -215,6 +215,9 @@ class Data {
         void operator=(const Data&);
         friend std::ostream &operator<<( std::ostream &output, const Data &data );
 
+        void clear();
+
+        ~Data();
 };
 
 #endif

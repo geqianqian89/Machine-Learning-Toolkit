@@ -16,6 +16,11 @@ class Visualisation {
         Data *samples;
         /// Interface to gnuplot.
         Gnuplot g;
+        /**
+         * \brief Create temporary files to plot the negative and positive samples.
+         * \return void
+         */
+        void createPosNegTemps();
     // Operations
     public :
         Visualisation ();
@@ -38,7 +43,20 @@ class Visualisation {
          * \return void
          */
         void setStyle (std::string style);
+        /**
+         * \brief Plot the selected features in 2D.
+         * \param x (???) Feature to be used in the x-axis.
+         * \param y (???) Feature to be used in the y-axis.
+         * \return void
+         */
         void plot2D(int x, int y);
+        /**
+         * \brief Plot the selected features in 3D.
+         * \param x (???) Feature to be used in the x-axis.
+         * \param y (???) Feature to be used in the y-axis.
+         * \param z (???) Feature to be used in the z-axis.
+         * \return void
+         */
         void plot3D(int x, int y, int z);
         ~Visualisation();
 };

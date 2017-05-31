@@ -843,6 +843,10 @@ void Data::setClasses(string pos, string neg){
     neg_class = neg;
 }
 
+bool Data::isEmpty(){
+    return is_empty;
+}
+
 void Data::operator=(const Data& data){
     points = data.points;
     fnames = data.fnames;
@@ -861,3 +865,20 @@ ostream &operator<<( ostream &output, const Data &data ){
 
     return output;
 }
+
+void Data::clear(){
+    points.clear();
+    fnames.clear();
+    index.clear();
+    size = 0;
+    dim = 0;
+    stats.n_neg = 0;
+    stats.n_pos = 0;
+    stats.centroid = Point();
+    stats.neg_centroid = Point();
+    stats.pos_centroid = Point();
+    normalized = false;
+    is_empty = true;
+}
+
+Data::~Data(){}
