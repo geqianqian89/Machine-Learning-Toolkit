@@ -1,28 +1,27 @@
 \begin{theindex}
 
   \item {change\+X\+Vector}
-    \subitem {Data}, \hyperpage{11}
+    \subitem {Data}, \hyperpage{10}
   \item {Classifier}, \hyperpage{7}
     \subitem {evaluate}, \hyperpage{7}
     \subitem {train}, \hyperpage{8}
   \item {copy}
-    \subitem {Data}, \hyperpage{11}
+    \subitem {Data}, \hyperpage{12}
   \item {copy\+Zero}
-    \subitem {Data}, \hyperpage{11}
-  \item {Cross\+Validation}, \hyperpage{8}
+    \subitem {Data}, \hyperpage{12}
 
   \indexspace
 
   \item {Data}, \hyperpage{8}
-    \subitem {change\+X\+Vector}, \hyperpage{11}
-    \subitem {copy}, \hyperpage{11}
-    \subitem {copy\+Zero}, \hyperpage{11}
+    \subitem {change\+X\+Vector}, \hyperpage{10}
+    \subitem {copy}, \hyperpage{12}
+    \subitem {copy\+Zero}, \hyperpage{12}
     \subitem {Data}, \hyperpage{10}
-    \subitem {get\+Dim}, \hyperpage{11}
+    \subitem {get\+Dim}, \hyperpage{12}
     \subitem {get\+Features\+Names}, \hyperpage{12}
-    \subitem {get\+Index}, \hyperpage{12}
-    \subitem {get\+Number\+Negative\+Points}, \hyperpage{12}
-    \subitem {get\+Number\+Positive\+Points}, \hyperpage{12}
+    \subitem {get\+Index}, \hyperpage{13}
+    \subitem {get\+Number\+Negative\+Points}, \hyperpage{13}
+    \subitem {get\+Number\+Positive\+Points}, \hyperpage{13}
     \subitem {get\+Point}, \hyperpage{13}
     \subitem {get\+Points}, \hyperpage{14}
     \subitem {get\+Size}, \hyperpage{14}
@@ -53,7 +52,7 @@
   \indexspace
 
   \item {get\+Dim}
-    \subitem {Data}, \hyperpage{11}
+    \subitem {Data}, \hyperpage{12}
   \item {get\+Dist\+Centers}
     \subitem {Statistics}, \hyperpage{38}
   \item {get\+Dist\+Centers\+Without\+Feats}
@@ -65,11 +64,11 @@
   \item {get\+Features\+Names}
     \subitem {Data}, \hyperpage{12}
   \item {get\+Index}
-    \subitem {Data}, \hyperpage{12}
+    \subitem {Data}, \hyperpage{13}
   \item {get\+Number\+Negative\+Points}
-    \subitem {Data}, \hyperpage{12}
+    \subitem {Data}, \hyperpage{13}
   \item {get\+Number\+Positive\+Points}
-    \subitem {Data}, \hyperpage{12}
+    \subitem {Data}, \hyperpage{13}
   \item {get\+Point}
     \subitem {Data}, \hyperpage{13}
   \item {get\+Points}
@@ -121,11 +120,11 @@
 
   \indexspace
 
-  \item {includes/\+Utils.\+hpp}, \hyperpage{45}
+  \item {includes/\+Utils.\+hpp}, \hyperpage{47}
   \item {insert\+Point}
     \subitem {Data}, \hyperpage{14, 15}
   \item {is\+\_\+number}
-    \subitem {Utils.\+hpp}, \hyperpage{46}
+    \subitem {Utils.\+hpp}, \hyperpage{48}
   \item {is\+\_\+valid}
     \subitem {Gnuplot}, \hyperpage{22}
   \item {is\+Empty}
@@ -151,7 +150,7 @@
   \indexspace
 
   \item {max\+Abs\+Element}
-    \subitem {Utils.\+hpp}, \hyperpage{47}
+    \subitem {Utils.\+hpp}, \hyperpage{49}
   \item {mean}
     \subitem {Statistics}, \hyperpage{40}
 
@@ -172,6 +171,10 @@
 
   \item {part\+Train\+Test}
     \subitem {Validation}, \hyperpage{42}
+  \item {plot2D}
+    \subitem {Visualisation}, \hyperpage{44}
+  \item {plot3D}
+    \subitem {Visualisation}, \hyperpage{44}
   \item {plot\+\_\+equation}
     \subitem {Gnuplot}, \hyperpage{23}
   \item {plot\+\_\+equation3d}
@@ -238,10 +241,16 @@
     \subitem {Gnuplot}, \hyperpage{28}
   \item {set\+Classes}
     \subitem {Data}, \hyperpage{18}
+  \item {set\+Sample}
+    \subitem {Visualisation}, \hyperpage{45}
+  \item {set\+Style}
+    \subitem {Visualisation}, \hyperpage{45}
+  \item {set\+Title}
+    \subitem {Visualisation}, \hyperpage{46}
   \item {Solution}, \hyperpage{37}
-  \item {src/\+Data.\+cpp}, \hyperpage{48}
-  \item {src/\+Point.\+cpp}, \hyperpage{49}
-  \item {src/\+Utils.\+cpp}, \hyperpage{49}
+  \item {src/\+Data.\+cpp}, \hyperpage{50}
+  \item {src/\+Point.\+cpp}, \hyperpage{51}
+  \item {src/\+Utils.\+cpp}, \hyperpage{51}
   \item {Statistics}, \hyperpage{37}
     \subitem {get\+Dist\+Centers}, \hyperpage{38}
     \subitem {get\+Dist\+Centers\+Without\+Feats}, \hyperpage{39}
@@ -254,9 +263,9 @@
   \item {stdev}
     \subitem {Statistics}, \hyperpage{41}
   \item {stodn}
-    \subitem {Utils.\+hpp}, \hyperpage{47}
+    \subitem {Utils.\+hpp}, \hyperpage{49}
   \item {stoin}
-    \subitem {Utils.\+hpp}, \hyperpage{47}
+    \subitem {Utils.\+hpp}, \hyperpage{49}
 
   \indexspace
 
@@ -286,10 +295,10 @@
   \item {unset\+\_\+zlogscale}
     \subitem {Gnuplot}, \hyperpage{32}
   \item {Utils.\+hpp}
-    \subitem {is\+\_\+number}, \hyperpage{46}
-    \subitem {max\+Abs\+Element}, \hyperpage{47}
-    \subitem {stodn}, \hyperpage{47}
-    \subitem {stoin}, \hyperpage{47}
+    \subitem {is\+\_\+number}, \hyperpage{48}
+    \subitem {max\+Abs\+Element}, \hyperpage{49}
+    \subitem {stodn}, \hyperpage{49}
+    \subitem {stoin}, \hyperpage{49}
 
   \indexspace
 
@@ -298,5 +307,11 @@
   \item {Validation\+Solution}, \hyperpage{43}
   \item {variance}
     \subitem {Statistics}, \hyperpage{41}
+  \item {Visualisation}, \hyperpage{44}
+    \subitem {plot2D}, \hyperpage{44}
+    \subitem {plot3D}, \hyperpage{44}
+    \subitem {set\+Sample}, \hyperpage{45}
+    \subitem {set\+Style}, \hyperpage{45}
+    \subitem {set\+Title}, \hyperpage{46}
 
 \end{theindex}
