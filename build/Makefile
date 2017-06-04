@@ -123,6 +123,33 @@ Classification_Algorithms_System/fast:
 	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/build
 .PHONY : Classification_Algorithms_System/fast
 
+src/Classifier.o: src/Classifier.cpp.o
+
+.PHONY : src/Classifier.o
+
+# target to build an object file
+src/Classifier.cpp.o:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Classifier.cpp.o
+.PHONY : src/Classifier.cpp.o
+
+src/Classifier.i: src/Classifier.cpp.i
+
+.PHONY : src/Classifier.i
+
+# target to preprocess a source file
+src/Classifier.cpp.i:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Classifier.cpp.i
+.PHONY : src/Classifier.cpp.i
+
+src/Classifier.s: src/Classifier.cpp.s
+
+.PHONY : src/Classifier.s
+
+# target to generate assembly for a file
+src/Classifier.cpp.s:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Classifier.cpp.s
+.PHONY : src/Classifier.cpp.s
+
 src/Data.o: src/Data.cpp.o
 
 .PHONY : src/Data.o
@@ -177,6 +204,33 @@ src/Kernel.cpp.s:
 	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Kernel.cpp.s
 .PHONY : src/Kernel.cpp.s
 
+src/PerceptronPrimal.o: src/PerceptronPrimal.cpp.o
+
+.PHONY : src/PerceptronPrimal.o
+
+# target to build an object file
+src/PerceptronPrimal.cpp.o:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/PerceptronPrimal.cpp.o
+.PHONY : src/PerceptronPrimal.cpp.o
+
+src/PerceptronPrimal.i: src/PerceptronPrimal.cpp.i
+
+.PHONY : src/PerceptronPrimal.i
+
+# target to preprocess a source file
+src/PerceptronPrimal.cpp.i:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/PerceptronPrimal.cpp.i
+.PHONY : src/PerceptronPrimal.cpp.i
+
+src/PerceptronPrimal.s: src/PerceptronPrimal.cpp.s
+
+.PHONY : src/PerceptronPrimal.s
+
+# target to generate assembly for a file
+src/PerceptronPrimal.cpp.s:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/PerceptronPrimal.cpp.s
+.PHONY : src/PerceptronPrimal.cpp.s
+
 src/Point.o: src/Point.cpp.o
 
 .PHONY : src/Point.o
@@ -203,6 +257,33 @@ src/Point.s: src/Point.cpp.s
 src/Point.cpp.s:
 	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Point.cpp.s
 .PHONY : src/Point.cpp.s
+
+src/PrimalClassifier.o: src/PrimalClassifier.cpp.o
+
+.PHONY : src/PrimalClassifier.o
+
+# target to build an object file
+src/PrimalClassifier.cpp.o:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.o
+.PHONY : src/PrimalClassifier.cpp.o
+
+src/PrimalClassifier.i: src/PrimalClassifier.cpp.i
+
+.PHONY : src/PrimalClassifier.i
+
+# target to preprocess a source file
+src/PrimalClassifier.cpp.i:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.i
+.PHONY : src/PrimalClassifier.cpp.i
+
+src/PrimalClassifier.s: src/PrimalClassifier.cpp.s
+
+.PHONY : src/PrimalClassifier.s
+
+# target to generate assembly for a file
+src/PrimalClassifier.cpp.s:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.s
+.PHONY : src/PrimalClassifier.cpp.s
 
 src/Statistics.o: src/Statistics.cpp.o
 
@@ -366,33 +447,6 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-src/testes.o: src/testes.cpp.o
-
-.PHONY : src/testes.o
-
-# target to build an object file
-src/testes.cpp.o:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.o
-.PHONY : src/testes.cpp.o
-
-src/testes.i: src/testes.cpp.i
-
-.PHONY : src/testes.i
-
-# target to preprocess a source file
-src/testes.cpp.i:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.i
-.PHONY : src/testes.cpp.i
-
-src/testes.s: src/testes.cpp.s
-
-.PHONY : src/testes.s
-
-# target to generate assembly for a file
-src/testes.cpp.s:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.s
-.PHONY : src/testes.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -402,15 +456,24 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... Classification_Algorithms_System"
+	@echo "... src/Classifier.o"
+	@echo "... src/Classifier.i"
+	@echo "... src/Classifier.s"
 	@echo "... src/Data.o"
 	@echo "... src/Data.i"
 	@echo "... src/Data.s"
 	@echo "... src/Kernel.o"
 	@echo "... src/Kernel.i"
 	@echo "... src/Kernel.s"
+	@echo "... src/PerceptronPrimal.o"
+	@echo "... src/PerceptronPrimal.i"
+	@echo "... src/PerceptronPrimal.s"
 	@echo "... src/Point.o"
 	@echo "... src/Point.i"
 	@echo "... src/Point.s"
+	@echo "... src/PrimalClassifier.o"
+	@echo "... src/PrimalClassifier.i"
+	@echo "... src/PrimalClassifier.s"
 	@echo "... src/Statistics.o"
 	@echo "... src/Statistics.i"
 	@echo "... src/Statistics.s"
@@ -429,9 +492,6 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/testes.o"
-	@echo "... src/testes.i"
-	@echo "... src/testes.s"
 .PHONY : help
 
 

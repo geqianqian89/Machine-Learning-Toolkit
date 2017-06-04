@@ -102,6 +102,9 @@
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/MLToolkit.hpp">
 			<Option target="Classification_Algorithms_System"/>
 		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/PerceptronPrimal.hpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Point.hpp">
 			<Option target="Classification_Algorithms_System"/>
 		</Unit>
@@ -129,13 +132,22 @@
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/gnuplot_i.hpp">
 			<Option target="Classification_Algorithms_System"/>
 		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Classifier.cpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Data.cpp">
 			<Option target="Classification_Algorithms_System"/>
 		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Kernel.cpp">
 			<Option target="Classification_Algorithms_System"/>
 		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/PerceptronPrimal.cpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Point.cpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/PrimalClassifier.cpp">
 			<Option target="Classification_Algorithms_System"/>
 		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Statistics.cpp">
@@ -154,9 +166,6 @@
 			<Option target="Classification_Algorithms_System"/>
 		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/main.cpp">
-			<Option target="Classification_Algorithms_System"/>
-		</Unit>
-		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/testes.cpp">
 			<Option target="Classification_Algorithms_System"/>
 		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/CMakeLists.txt">

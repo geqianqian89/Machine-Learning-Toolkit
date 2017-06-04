@@ -57,9 +57,33 @@ include CMakeFiles/Classification_Algorithms_System.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Classification_Algorithms_System.dir/flags.make
 
+CMakeFiles/Classification_Algorithms_System.dir/src/Classifier.cpp.o: CMakeFiles/Classification_Algorithms_System.dir/flags.make
+CMakeFiles/Classification_Algorithms_System.dir/src/Classifier.cpp.o: ../src/Classifier.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Classification_Algorithms_System.dir/src/Classifier.cpp.o"
+	/usr/bin/g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Classification_Algorithms_System.dir/src/Classifier.cpp.o -c "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Classifier.cpp"
+
+CMakeFiles/Classification_Algorithms_System.dir/src/Classifier.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Classification_Algorithms_System.dir/src/Classifier.cpp.i"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Classifier.cpp" > CMakeFiles/Classification_Algorithms_System.dir/src/Classifier.cpp.i
+
+CMakeFiles/Classification_Algorithms_System.dir/src/Classifier.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Classification_Algorithms_System.dir/src/Classifier.cpp.s"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Classifier.cpp" -o CMakeFiles/Classification_Algorithms_System.dir/src/Classifier.cpp.s
+
+CMakeFiles/Classification_Algorithms_System.dir/src/Classifier.cpp.o.requires:
+
+.PHONY : CMakeFiles/Classification_Algorithms_System.dir/src/Classifier.cpp.o.requires
+
+CMakeFiles/Classification_Algorithms_System.dir/src/Classifier.cpp.o.provides: CMakeFiles/Classification_Algorithms_System.dir/src/Classifier.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Classifier.cpp.o.provides.build
+.PHONY : CMakeFiles/Classification_Algorithms_System.dir/src/Classifier.cpp.o.provides
+
+CMakeFiles/Classification_Algorithms_System.dir/src/Classifier.cpp.o.provides.build: CMakeFiles/Classification_Algorithms_System.dir/src/Classifier.cpp.o
+
+
 CMakeFiles/Classification_Algorithms_System.dir/src/Data.cpp.o: CMakeFiles/Classification_Algorithms_System.dir/flags.make
 CMakeFiles/Classification_Algorithms_System.dir/src/Data.cpp.o: ../src/Data.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Classification_Algorithms_System.dir/src/Data.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Classification_Algorithms_System.dir/src/Data.cpp.o"
 	/usr/bin/g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Classification_Algorithms_System.dir/src/Data.cpp.o -c "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Data.cpp"
 
 CMakeFiles/Classification_Algorithms_System.dir/src/Data.cpp.i: cmake_force
@@ -83,7 +107,7 @@ CMakeFiles/Classification_Algorithms_System.dir/src/Data.cpp.o.provides.build: C
 
 CMakeFiles/Classification_Algorithms_System.dir/src/Kernel.cpp.o: CMakeFiles/Classification_Algorithms_System.dir/flags.make
 CMakeFiles/Classification_Algorithms_System.dir/src/Kernel.cpp.o: ../src/Kernel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Classification_Algorithms_System.dir/src/Kernel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Classification_Algorithms_System.dir/src/Kernel.cpp.o"
 	/usr/bin/g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Classification_Algorithms_System.dir/src/Kernel.cpp.o -c "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Kernel.cpp"
 
 CMakeFiles/Classification_Algorithms_System.dir/src/Kernel.cpp.i: cmake_force
@@ -105,9 +129,33 @@ CMakeFiles/Classification_Algorithms_System.dir/src/Kernel.cpp.o.provides: CMake
 CMakeFiles/Classification_Algorithms_System.dir/src/Kernel.cpp.o.provides.build: CMakeFiles/Classification_Algorithms_System.dir/src/Kernel.cpp.o
 
 
+CMakeFiles/Classification_Algorithms_System.dir/src/PerceptronPrimal.cpp.o: CMakeFiles/Classification_Algorithms_System.dir/flags.make
+CMakeFiles/Classification_Algorithms_System.dir/src/PerceptronPrimal.cpp.o: ../src/PerceptronPrimal.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Classification_Algorithms_System.dir/src/PerceptronPrimal.cpp.o"
+	/usr/bin/g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Classification_Algorithms_System.dir/src/PerceptronPrimal.cpp.o -c "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/PerceptronPrimal.cpp"
+
+CMakeFiles/Classification_Algorithms_System.dir/src/PerceptronPrimal.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Classification_Algorithms_System.dir/src/PerceptronPrimal.cpp.i"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/PerceptronPrimal.cpp" > CMakeFiles/Classification_Algorithms_System.dir/src/PerceptronPrimal.cpp.i
+
+CMakeFiles/Classification_Algorithms_System.dir/src/PerceptronPrimal.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Classification_Algorithms_System.dir/src/PerceptronPrimal.cpp.s"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/PerceptronPrimal.cpp" -o CMakeFiles/Classification_Algorithms_System.dir/src/PerceptronPrimal.cpp.s
+
+CMakeFiles/Classification_Algorithms_System.dir/src/PerceptronPrimal.cpp.o.requires:
+
+.PHONY : CMakeFiles/Classification_Algorithms_System.dir/src/PerceptronPrimal.cpp.o.requires
+
+CMakeFiles/Classification_Algorithms_System.dir/src/PerceptronPrimal.cpp.o.provides: CMakeFiles/Classification_Algorithms_System.dir/src/PerceptronPrimal.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/PerceptronPrimal.cpp.o.provides.build
+.PHONY : CMakeFiles/Classification_Algorithms_System.dir/src/PerceptronPrimal.cpp.o.provides
+
+CMakeFiles/Classification_Algorithms_System.dir/src/PerceptronPrimal.cpp.o.provides.build: CMakeFiles/Classification_Algorithms_System.dir/src/PerceptronPrimal.cpp.o
+
+
 CMakeFiles/Classification_Algorithms_System.dir/src/Point.cpp.o: CMakeFiles/Classification_Algorithms_System.dir/flags.make
 CMakeFiles/Classification_Algorithms_System.dir/src/Point.cpp.o: ../src/Point.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Classification_Algorithms_System.dir/src/Point.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Classification_Algorithms_System.dir/src/Point.cpp.o"
 	/usr/bin/g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Classification_Algorithms_System.dir/src/Point.cpp.o -c "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Point.cpp"
 
 CMakeFiles/Classification_Algorithms_System.dir/src/Point.cpp.i: cmake_force
@@ -129,9 +177,33 @@ CMakeFiles/Classification_Algorithms_System.dir/src/Point.cpp.o.provides: CMakeF
 CMakeFiles/Classification_Algorithms_System.dir/src/Point.cpp.o.provides.build: CMakeFiles/Classification_Algorithms_System.dir/src/Point.cpp.o
 
 
+CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.o: CMakeFiles/Classification_Algorithms_System.dir/flags.make
+CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.o: ../src/PrimalClassifier.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.o"
+	/usr/bin/g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.o -c "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/PrimalClassifier.cpp"
+
+CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.i"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/PrimalClassifier.cpp" > CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.i
+
+CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.s"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/PrimalClassifier.cpp" -o CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.s
+
+CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.o.requires:
+
+.PHONY : CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.o.requires
+
+CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.o.provides: CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.o.provides.build
+.PHONY : CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.o.provides
+
+CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.o.provides.build: CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.o
+
+
 CMakeFiles/Classification_Algorithms_System.dir/src/Statistics.cpp.o: CMakeFiles/Classification_Algorithms_System.dir/flags.make
 CMakeFiles/Classification_Algorithms_System.dir/src/Statistics.cpp.o: ../src/Statistics.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Classification_Algorithms_System.dir/src/Statistics.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Classification_Algorithms_System.dir/src/Statistics.cpp.o"
 	/usr/bin/g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Classification_Algorithms_System.dir/src/Statistics.cpp.o -c "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Statistics.cpp"
 
 CMakeFiles/Classification_Algorithms_System.dir/src/Statistics.cpp.i: cmake_force
@@ -155,7 +227,7 @@ CMakeFiles/Classification_Algorithms_System.dir/src/Statistics.cpp.o.provides.bu
 
 CMakeFiles/Classification_Algorithms_System.dir/src/Utils.cpp.o: CMakeFiles/Classification_Algorithms_System.dir/flags.make
 CMakeFiles/Classification_Algorithms_System.dir/src/Utils.cpp.o: ../src/Utils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Classification_Algorithms_System.dir/src/Utils.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Classification_Algorithms_System.dir/src/Utils.cpp.o"
 	/usr/bin/g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Classification_Algorithms_System.dir/src/Utils.cpp.o -c "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Utils.cpp"
 
 CMakeFiles/Classification_Algorithms_System.dir/src/Utils.cpp.i: cmake_force
@@ -179,7 +251,7 @@ CMakeFiles/Classification_Algorithms_System.dir/src/Utils.cpp.o.provides.build: 
 
 CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.o: CMakeFiles/Classification_Algorithms_System.dir/flags.make
 CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.o: ../src/Validation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.o"
 	/usr/bin/g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.o -c "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Validation.cpp"
 
 CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.i: cmake_force
@@ -203,7 +275,7 @@ CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.o.provides.bu
 
 CMakeFiles/Classification_Algorithms_System.dir/src/Visualisation.cpp.o: CMakeFiles/Classification_Algorithms_System.dir/flags.make
 CMakeFiles/Classification_Algorithms_System.dir/src/Visualisation.cpp.o: ../src/Visualisation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Classification_Algorithms_System.dir/src/Visualisation.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Classification_Algorithms_System.dir/src/Visualisation.cpp.o"
 	/usr/bin/g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Classification_Algorithms_System.dir/src/Visualisation.cpp.o -c "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Visualisation.cpp"
 
 CMakeFiles/Classification_Algorithms_System.dir/src/Visualisation.cpp.i: cmake_force
@@ -227,7 +299,7 @@ CMakeFiles/Classification_Algorithms_System.dir/src/Visualisation.cpp.o.provides
 
 CMakeFiles/Classification_Algorithms_System.dir/src/gnuplot_i.cpp.o: CMakeFiles/Classification_Algorithms_System.dir/flags.make
 CMakeFiles/Classification_Algorithms_System.dir/src/gnuplot_i.cpp.o: ../src/gnuplot_i.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Classification_Algorithms_System.dir/src/gnuplot_i.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Classification_Algorithms_System.dir/src/gnuplot_i.cpp.o"
 	/usr/bin/g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Classification_Algorithms_System.dir/src/gnuplot_i.cpp.o -c "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/gnuplot_i.cpp"
 
 CMakeFiles/Classification_Algorithms_System.dir/src/gnuplot_i.cpp.i: cmake_force
@@ -251,7 +323,7 @@ CMakeFiles/Classification_Algorithms_System.dir/src/gnuplot_i.cpp.o.provides.bui
 
 CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: CMakeFiles/Classification_Algorithms_System.dir/flags.make
 CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o"
 	/usr/bin/g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o -c "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/main.cpp"
 
 CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.i: cmake_force
@@ -273,59 +345,39 @@ CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o.provides: CMakeFi
 CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o.provides.build: CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o
 
 
-CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.o: CMakeFiles/Classification_Algorithms_System.dir/flags.make
-CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.o: ../src/testes.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.o"
-	/usr/bin/g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.o -c "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/testes.cpp"
-
-CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.i"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/testes.cpp" > CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.i
-
-CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.s"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/testes.cpp" -o CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.s
-
-CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.o.requires:
-
-.PHONY : CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.o.requires
-
-CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.o.provides: CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.o.provides.build
-.PHONY : CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.o.provides
-
-CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.o.provides.build: CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.o
-
-
 # Object files for target Classification_Algorithms_System
 Classification_Algorithms_System_OBJECTS = \
+"CMakeFiles/Classification_Algorithms_System.dir/src/Classifier.cpp.o" \
 "CMakeFiles/Classification_Algorithms_System.dir/src/Data.cpp.o" \
 "CMakeFiles/Classification_Algorithms_System.dir/src/Kernel.cpp.o" \
+"CMakeFiles/Classification_Algorithms_System.dir/src/PerceptronPrimal.cpp.o" \
 "CMakeFiles/Classification_Algorithms_System.dir/src/Point.cpp.o" \
+"CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.o" \
 "CMakeFiles/Classification_Algorithms_System.dir/src/Statistics.cpp.o" \
 "CMakeFiles/Classification_Algorithms_System.dir/src/Utils.cpp.o" \
 "CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.o" \
 "CMakeFiles/Classification_Algorithms_System.dir/src/Visualisation.cpp.o" \
 "CMakeFiles/Classification_Algorithms_System.dir/src/gnuplot_i.cpp.o" \
-"CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o" \
-"CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.o"
+"CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o"
 
 # External object files for target Classification_Algorithms_System
 Classification_Algorithms_System_EXTERNAL_OBJECTS =
 
+Classification_Algorithms_System: CMakeFiles/Classification_Algorithms_System.dir/src/Classifier.cpp.o
 Classification_Algorithms_System: CMakeFiles/Classification_Algorithms_System.dir/src/Data.cpp.o
 Classification_Algorithms_System: CMakeFiles/Classification_Algorithms_System.dir/src/Kernel.cpp.o
+Classification_Algorithms_System: CMakeFiles/Classification_Algorithms_System.dir/src/PerceptronPrimal.cpp.o
 Classification_Algorithms_System: CMakeFiles/Classification_Algorithms_System.dir/src/Point.cpp.o
+Classification_Algorithms_System: CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.o
 Classification_Algorithms_System: CMakeFiles/Classification_Algorithms_System.dir/src/Statistics.cpp.o
 Classification_Algorithms_System: CMakeFiles/Classification_Algorithms_System.dir/src/Utils.cpp.o
 Classification_Algorithms_System: CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.o
 Classification_Algorithms_System: CMakeFiles/Classification_Algorithms_System.dir/src/Visualisation.cpp.o
 Classification_Algorithms_System: CMakeFiles/Classification_Algorithms_System.dir/src/gnuplot_i.cpp.o
 Classification_Algorithms_System: CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o
-Classification_Algorithms_System: CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.o
 Classification_Algorithms_System: CMakeFiles/Classification_Algorithms_System.dir/build.make
 Classification_Algorithms_System: CMakeFiles/Classification_Algorithms_System.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable Classification_Algorithms_System"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable Classification_Algorithms_System"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Classification_Algorithms_System.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -333,16 +385,18 @@ CMakeFiles/Classification_Algorithms_System.dir/build: Classification_Algorithms
 
 .PHONY : CMakeFiles/Classification_Algorithms_System.dir/build
 
+CMakeFiles/Classification_Algorithms_System.dir/requires: CMakeFiles/Classification_Algorithms_System.dir/src/Classifier.cpp.o.requires
 CMakeFiles/Classification_Algorithms_System.dir/requires: CMakeFiles/Classification_Algorithms_System.dir/src/Data.cpp.o.requires
 CMakeFiles/Classification_Algorithms_System.dir/requires: CMakeFiles/Classification_Algorithms_System.dir/src/Kernel.cpp.o.requires
+CMakeFiles/Classification_Algorithms_System.dir/requires: CMakeFiles/Classification_Algorithms_System.dir/src/PerceptronPrimal.cpp.o.requires
 CMakeFiles/Classification_Algorithms_System.dir/requires: CMakeFiles/Classification_Algorithms_System.dir/src/Point.cpp.o.requires
+CMakeFiles/Classification_Algorithms_System.dir/requires: CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.o.requires
 CMakeFiles/Classification_Algorithms_System.dir/requires: CMakeFiles/Classification_Algorithms_System.dir/src/Statistics.cpp.o.requires
 CMakeFiles/Classification_Algorithms_System.dir/requires: CMakeFiles/Classification_Algorithms_System.dir/src/Utils.cpp.o.requires
 CMakeFiles/Classification_Algorithms_System.dir/requires: CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.o.requires
 CMakeFiles/Classification_Algorithms_System.dir/requires: CMakeFiles/Classification_Algorithms_System.dir/src/Visualisation.cpp.o.requires
 CMakeFiles/Classification_Algorithms_System.dir/requires: CMakeFiles/Classification_Algorithms_System.dir/src/gnuplot_i.cpp.o.requires
 CMakeFiles/Classification_Algorithms_System.dir/requires: CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o.requires
-CMakeFiles/Classification_Algorithms_System.dir/requires: CMakeFiles/Classification_Algorithms_System.dir/src/testes.cpp.o.requires
 
 .PHONY : CMakeFiles/Classification_Algorithms_System.dir/requires
 
