@@ -1,0 +1,139 @@
+# depslib dependency file v1.0
+1496267219 source:c:\users\saulo\dropbox\ufjf\projetos\201602 - tp toolkit am\aprendizado de máquinas\classification_algorithms_system\main.cpp
+	<dirent.h>
+	<windows.h>
+	<iostream>
+	<vector>
+	<algorithm>
+	<sstream>
+	<string>
+	<ctime>
+	"includes/MLToolkit.hpp"
+
+1495643264 c:\users\saulo\dropbox\ufjf\projetos\201602 - tp toolkit am\aprendizado de máquinas\classification_algorithms_system\includes\mltoolkit.hpp
+	"Data.hpp"
+	"Solution.hpp"
+	"Validation.hpp"
+	"Visualisation.hpp"
+	"ValidationSolution.hpp"
+	"Point.hpp"
+	"Statistics.hpp"
+	"Utils.hpp"
+
+1496198624 c:\users\saulo\dropbox\ufjf\projetos\201602 - tp toolkit am\aprendizado de máquinas\classification_algorithms_system\includes\data.hpp
+	<vector>
+	<string>
+	"Point.hpp"
+	"Statistics.hpp"
+
+1495638869 c:\users\saulo\dropbox\ufjf\projetos\201602 - tp toolkit am\aprendizado de máquinas\classification_algorithms_system\includes\point.hpp
+	<iostream>
+	<vector>
+	"../includes/Utils.hpp"
+
+1494684707 c:\users\saulo\dropbox\ufjf\projetos\201602 - tp toolkit am\aprendizado de máquinas\classification_algorithms_system\includes\utils.hpp
+	<string>
+	<vector>
+
+1495332206 c:\users\saulo\dropbox\ufjf\projetos\201602 - tp toolkit am\aprendizado de máquinas\classification_algorithms_system\includes\statistics.hpp
+	<vector>
+	"Point.hpp"
+
+1495720899 c:\users\saulo\dropbox\ufjf\projetos\201602 - tp toolkit am\aprendizado de máquinas\classification_algorithms_system\includes\solution.hpp
+	<vector>
+
+1496266021 c:\users\saulo\dropbox\ufjf\projetos\201602 - tp toolkit am\aprendizado de máquinas\classification_algorithms_system\includes\validation.hpp
+	"Classifier.hpp"
+	"Data.hpp"
+	"ValidationSolution.hpp"
+
+1496266397 c:\users\saulo\dropbox\ufjf\projetos\201602 - tp toolkit am\aprendizado de máquinas\classification_algorithms_system\includes\classifier.hpp
+	"Data.hpp"
+	"Solution.hpp"
+	<vector>
+
+1494267069 c:\users\saulo\dropbox\ufjf\projetos\201602 - tp toolkit am\aprendizado de máquinas\classification_algorithms_system\includes\validationsolution.hpp
+	"Solution.hpp"
+
+1496193636 c:\users\saulo\dropbox\ufjf\projetos\201602 - tp toolkit am\aprendizado de máquinas\classification_algorithms_system\includes\visualisation.hpp
+	"Data.hpp"
+	"gnuplot_i.hpp"
+	<string>
+
+1496266750 c:\users\saulo\dropbox\ufjf\projetos\201602 - tp toolkit am\aprendizado de máquinas\classification_algorithms_system\includes\gnuplot_i.hpp
+	<iostream>
+	<string>
+	<vector>
+	<fstream>
+	<sstream>
+	<stdexcept>
+	<cstdio>
+	<cstdlib>
+	<list>
+	<windows.h>
+	<io.h>
+	<unistd.h>
+
+1496266397 source:c:\users\saulo\dropbox\ufjf\projetos\201602 - tp toolkit am\aprendizado de máquinas\classification_algorithms_system\src\data.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+	<numeric>
+	<sstream>
+	<iterator>
+	<fstream>
+	<ctime>
+	<cmath>
+	<cstdio>
+	"../includes/Data.hpp"
+	"../includes/Utils.hpp"
+
+1496267009 source:c:\users\saulo\dropbox\ufjf\projetos\201602 - tp toolkit am\aprendizado de máquinas\classification_algorithms_system\src\gnuplot_i.cpp
+	"../includes/gnuplot_i.hpp"
+
+1496266440 source:c:\users\saulo\dropbox\ufjf\projetos\201602 - tp toolkit am\aprendizado de máquinas\classification_algorithms_system\src\kernel.cpp
+	<cmath>
+	"../includes/Kernel.hpp"
+
+1495076807 c:\users\saulo\dropbox\ufjf\projetos\201602 - tp toolkit am\aprendizado de máquinas\classification_algorithms_system\includes\kernel.hpp
+	<vector>
+	"../includes/Data.hpp"
+
+1496266440 source:c:\users\saulo\dropbox\ufjf\projetos\201602 - tp toolkit am\aprendizado de máquinas\classification_algorithms_system\src\point.cpp
+	<cmath>
+	"../includes/Point.hpp"
+
+1496266440 source:c:\users\saulo\dropbox\ufjf\projetos\201602 - tp toolkit am\aprendizado de máquinas\classification_algorithms_system\src\statistics.cpp
+	<vector>
+	<cmath>
+	<iostream>
+	"../includes/Statistics.hpp"
+	"../includes/Data.hpp"
+
+1496267009 source:c:\users\saulo\dropbox\ufjf\projetos\201602 - tp toolkit am\aprendizado de máquinas\classification_algorithms_system\src\testes.cpp
+	<iostream>
+	<algorithm>
+	<fstream>
+	<unistd.h>
+	<ctime>
+	<ios>
+	<numeric>
+	"../includes/MLToolkit.hpp"
+
+1496266440 source:c:\users\saulo\dropbox\ufjf\projetos\201602 - tp toolkit am\aprendizado de máquinas\classification_algorithms_system\src\utils.cpp
+	<cmath>
+	"../includes/Utils.hpp"
+
+1496266440 source:c:\users\saulo\dropbox\ufjf\projetos\201602 - tp toolkit am\aprendizado de máquinas\classification_algorithms_system\src\validation.cpp
+	<random>
+	<functional>
+	"../includes/Validation.hpp"
+	"../includes/Data.hpp"
+	"../includes/Point.hpp"
+
+1496266991 source:c:\users\saulo\dropbox\ufjf\projetos\201602 - tp toolkit am\aprendizado de máquinas\classification_algorithms_system\src\visualisation.cpp
+	"../includes/Visualisation.hpp"
+	<cstdio>
+	<string>
+	<sstream>
+

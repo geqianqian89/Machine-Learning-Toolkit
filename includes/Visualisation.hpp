@@ -2,9 +2,11 @@
 #define VISUALISATION__HPP
 
 #include "Data.hpp"
+#include "Solution.hpp"
 #include "gnuplot_i.hpp"
 
 #include <string>
+
 
 /**
  * \brief Class for visualize data using gnuplot.
@@ -21,6 +23,9 @@ class Visualisation {
          * \return void
          */
         void createPosNegTemps();
+        bool valid_file(std::string file);
+        std::vector<std::string> getTempFilesNames();
+        void removeTempFiles();
     // Operations
     public :
         Visualisation ();
@@ -58,6 +63,8 @@ class Visualisation {
          * \return void
          */
         void plot3D(int x, int y, int z);
+        void plot2DwithHyperplane(int x, int y, Solution w);
+        void plot3DwithHyperplane(int x, int y, int z, Solution w);
         ~Visualisation();
 };
 

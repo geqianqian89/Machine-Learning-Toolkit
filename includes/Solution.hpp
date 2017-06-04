@@ -5,14 +5,15 @@
 
 class Solution {
     // Attributes
-    private :
-        ///Weights vector
+    public :
+        /// Weights vector
         std::vector<double> w;
-        double bias;
+        double bias = 0;
         /// Features names of the resulting solution.
         std::vector<int> fnames;
         /// Margin generated from the classifier that generated the solution.
-        double margin;
+        double margin = 0;
+        double norm = 0;
 };
 
 #endif

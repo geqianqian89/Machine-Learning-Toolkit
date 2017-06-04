@@ -6,7 +6,7 @@
 #include "Point.hpp"
 #include "Statistics.hpp"
 
-static const std::vector<std::string> types {"data", "csv", "arff", "txt"};
+static const std::vector<std::string> types {"data", "csv", "arff", "txt", "plt"};
 enum  Type {TYPE_INVALID = -1, TYPE_DATA = 0, TYPE_CSV = 1, TYPE_ARFF = 2, TYPE_TXT = 3};
 
 /**

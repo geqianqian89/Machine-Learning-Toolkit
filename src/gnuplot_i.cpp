@@ -13,23 +13,24 @@
 ///    by Rajarshi Guha (07/03/03)
 /// 2. corrections for Win32 compatibility
 ///    by V. Chyzhdzenka (20/05/03)
-/// 3. some member functions added, corrections for Win32 and Linux 
-///    compatibility 
+/// 3. some member functions added, corrections for Win32 and Linux
+///    compatibility
 ///    by M. Burgis (10/03/08)
 /// 4. Move function definition into gnuplot_i.cpp
 ///    by X. BROQUERE (25/10/11)
 ///
 /// Requirements:
 /// * gnuplot has to be installed (http://www.gnuplot.info/download.html)
-/// * for Windows: set Path-Variable for Gnuplot path 
+/// * for Windows: set Path-Variable for Gnuplot path
 ///         (e.g. C:/program files/gnuplot/bin)
-///         or set Gnuplot path with: 
+///         or set Gnuplot path with:
 ///         Gnuplot::set_GNUPlotPath(const std::string &path);
 ///
 ////////////////////////////////////////////////////////////////////////////////
 
 
 #include "../includes/gnuplot_i.hpp"
+#include <stdio.h>
 
 //------------------------------------------------------------------------------
 //
@@ -64,7 +65,7 @@ Gnuplot::Gnuplot(const std::string &style)
     init();
     set_style(style);
 }
-  
+
 //------------------------------------------------------------------------------
 //
 // constructor: open a new session, plot a signal (x)
@@ -166,7 +167,7 @@ Gnuplot& Gnuplot::plot_x(const X& x, const std::string &title)
     return *this;
 }
 
-  
+
 //------------------------------------------------------------------------------
 //
 /// Plots a 2d graph from a list of doubles: x y
@@ -967,8 +968,8 @@ Gnuplot& Gnuplot::plotfile_xy_err(const std::string &filename,
     else
         cmdstr << "plot ";
 
-    cmdstr << "\"" << filename << "\" using " 
-           << column_x << ":" << column_y << ":" << column_dy 
+    cmdstr << "\"" << filename << "\" using "
+           << column_x << ":" << column_y << ":" << column_dy
            << " with errorbars ";
 
     if (title == "")
@@ -1009,7 +1010,7 @@ Gnuplot& Gnuplot::plotfile_xyz(const std::string &filename,
     else
         cmdstr << "splot ";
 
-    cmdstr << "\"" << filename << "\" using " << column_x << ":" << column_y 
+    cmdstr << "\"" << filename << "\" using " << column_x << ":" << column_y
            << ":" << column_z;
 
     if (title == "")
@@ -1049,7 +1050,7 @@ Gnuplot& Gnuplot::plot_image(const unsigned char * ucPicBuf,
     {
       for(int iColumn = 0; iColumn < (int)iWidth; iColumn++)
         {
-            tmp << iColumn << " " << iRow  << " " 
+            tmp << iColumn << " " << iRow  << " "
                 << static_cast<float>(ucPicBuf[iIndex++]) << std::endl;
         }
     }
@@ -1096,15 +1097,15 @@ Gnuplot& Gnuplot::cmd(const std::string &cmdstr)
 
     // int fputs ( const char * str, FILE * stream );
     // writes the string str to the stream.
-    // The function begins copying from the address specified (str) until it 
-    // reaches the terminating null character ('\0'). This final 
+    // The function begins copying from the address specified (str) until it
+    // reaches the terminating null character ('\0'). This final
     // null-character is not copied to the stream.
     fputs( (cmdstr+"\n").c_str(), gnucmd );
 
     // int fflush ( FILE * stream );
-    // If the given stream was open for writing and the last i/o operation was 
-    // an output operation, any unwritten data in the output buffer is written 
-    // to the file.  If the argument is a null pointer, all open files are 
+    // If the given stream was open for writing and the last i/o operation was
+    // an output operation, any unwritten data in the output buffer is written
+    // to the file.  If the argument is a null pointer, all open files are
     // flushed.  The stream remains open after this call.
     fflush(gnucmd);
 
@@ -1136,8 +1137,8 @@ Gnuplot& Gnuplot::cmd(const std::string &cmdstr)
 void Gnuplot::init()
 {
     // char * getenv ( const char * name );  get value of environment variable
-    // Retrieves a C string containing the value of the environment variable 
-    // whose name is specified as argument.  If the requested variable is not 
+    // Retrieves a C string containing the value of the environment variable
+    // whose name is specified as argument.  If the requested variable is not
     // part of the environment list, the function returns a NULL pointer.
 #if ( defined(unix) || defined(__unix) || defined(__unix__) ) && !defined(__APPLE__)
     if (getenv("DISPLAY") == NULL)
@@ -1159,12 +1160,12 @@ void Gnuplot::init()
     //
     // open pipe
     //
-    std::string tmp = Gnuplot::m_sGNUPlotPath + "/" + 
+    std::string tmp = Gnuplot::m_sGNUPlotPath + "/" +
         Gnuplot::m_sGNUPlotFileName;
 
     // FILE *popen(const char *command, const char *mode);
-    // The popen() function shall execute the command specified by the string 
-    // command, create a pipe between the calling program and the executed 
+    // The popen() function shall execute the command specified by the string
+    // command, create a pipe between the calling program and the executed
     // command, and return a pointer to a stream that can be used to either read
     // from or write to the pipe.
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__TOS_WIN__)
@@ -1174,7 +1175,7 @@ void Gnuplot::init()
 #endif
 
     // popen() shall return a pointer to an open stream that can be used to read
-    // or write to the pipe.  Otherwise, it shall return a null pointer and may 
+    // or write to the pipe.  Otherwise, it shall return a null pointer and may
     // set errno to indicate the error.
     if (!gnucmd)
     {
@@ -1202,7 +1203,7 @@ bool Gnuplot::get_program_path()
     //
     // first look in m_sGNUPlotPath for Gnuplot
     //
-    std::string tmp = Gnuplot::m_sGNUPlotPath + "/" + 
+    std::string tmp = Gnuplot::m_sGNUPlotPath + "/" +
         Gnuplot::m_sGNUPlotFileName;
 
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__TOS_WIN__)
@@ -1240,7 +1241,7 @@ bool Gnuplot::get_program_path()
 #endif
 
         // scan list for Gnuplot program files
-        for (std::list<std::string>::const_iterator i = ls.begin(); 
+        for (std::list<std::string>::const_iterator i = ls.begin();
                 i != ls.end(); ++i)
         {
             tmp = (*i) + "/" + Gnuplot::m_sGNUPlotFileName;
@@ -1255,7 +1256,7 @@ bool Gnuplot::get_program_path()
             }
         }
 
-        tmp = "Can't find gnuplot neither in PATH nor in \"" + 
+        tmp = "Can't find gnuplot neither in PATH nor in \"" +
             Gnuplot::m_sGNUPlotPath + "\"";
         throw GnuplotException(tmp);
 
@@ -1281,7 +1282,7 @@ bool Gnuplot::file_exists(const std::string &filename, int mode)
 
     // int _access(const char *path, int mode);
     //  returns 0 if the file has the given mode,
-    //  it returns -1 if the named file does not exist or is not accessible in 
+    //  it returns -1 if the named file does not exist or is not accessible in
     //  the given mode
     // mode = 0 (F_OK) (default): checks file for existence only
     // mode = 1 (X_OK): execution permission
@@ -1343,7 +1344,7 @@ std::string Gnuplot::create_tmpfile(std::ofstream &tmp)
     if (Gnuplot::tmpfile_num == GP_MAX_TMP_FILES - 1)
     {
         std::ostringstream except;
-        except << "Maximum number of temporary files reached (" 
+        except << "Maximum number of temporary files reached ("
                << GP_MAX_TMP_FILES << "): cannot open more files" << std::endl;
 
         throw GnuplotException( except.str() );
@@ -1352,12 +1353,12 @@ std::string Gnuplot::create_tmpfile(std::ofstream &tmp)
 
     // int mkstemp(char *name);
     // shall replace the contents of the string pointed to by "name" by a unique
-    // filename, and return a file descriptor for the file open for reading and 
-    // writing.  Otherwise, -1 shall be returned if no suitable file could be 
-    // created.  The string in template should look like a filename with six 
-    // trailing 'X' s; mkstemp() replaces each 'X' with a character from the 
+    // filename, and return a file descriptor for the file open for reading and
+    // writing.  Otherwise, -1 shall be returned if no suitable file could be
+    // created.  The string in template should look like a filename with six
+    // trailing 'X' s; mkstemp() replaces each 'X' with a character from the
     // portable filename character set.  The characters are chosen such that the
-    // resulting name does not duplicate the name of an existing file at the 
+    // resulting name does not duplicate the name of an existing file at the
     // time of a call to mkstemp()
 
 

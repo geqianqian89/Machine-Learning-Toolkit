@@ -12,7 +12,7 @@ Validation::Validation(Data sample, Classifier *classifier){
     this->classifier = classifier;
 }
 
-void Validation::partTrainTest(int fold, uint seed){
+void Validation::partTrainTest(int fold, unsigned int seed){
     int i, j, npos, nneg, size = sample->getSize();
     Point p, aux;
     Data sample_pos, sample_neg;

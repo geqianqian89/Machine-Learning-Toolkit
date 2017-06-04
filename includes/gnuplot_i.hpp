@@ -13,17 +13,17 @@
 ///    by Rajarshi Guha (07/03/03)
 /// 2. corrections for Win32 compatibility
 ///    by V. Chyzhdzenka (20/05/03)
-/// 3. some member functions added, corrections for Win32 and Linux 
-///    compatibility 
+/// 3. some member functions added, corrections for Win32 and Linux
+///    compatibility
 ///    by M. Burgis (10/03/08)
 /// 4. Move function definition into gnuplot_i.cpp
 ///    by X. BROQUERE (25/10/11)
 ///
 /// Requirements:
 /// * gnuplot has to be installed (http://www.gnuplot.info/download.html)
-/// * for Windows: set Path-Variable for Gnuplot path 
+/// * for Windows: set Path-Variable for Gnuplot path
 ///         (e.g. C:/program files/gnuplot/bin)
-///         or set Gnuplot path with: 
+///         or set Gnuplot path with:
 ///         Gnuplot::set_GNUPlotPath(const std::string &path);
 ///
 ////////////////////////////////////////////////////////////////////////////////
@@ -36,19 +36,18 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <fstream>  
+#include <fstream>
 #include <sstream>              // for std::ostringstream
-#include <stdexcept> 
-#include <cstdio>     
+#include <stdexcept>
+#include <cstdio>
 #include <cstdlib>              // for getenv()
 #include <list>                 // for std::list
 
-
-#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__TOS_WIN__) 
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__TOS_WIN__)
 //defined for 32 and 64-bit environments
  #include <io.h>                // for _access(), _mktemp()
  #define GP_MAX_TMP_FILES  27   // 27 temporary files it's Microsoft restriction
-#elif defined(unix) || defined(__unix) || defined(__unix__) || defined(__APPLE__) 
+#elif defined(unix) || defined(__unix) || defined(__unix__) || defined(__APPLE__)
 //all UNIX-like OSs (Linux, *BSD, MacOSX, Solaris, ...)
  #include <unistd.h>            // for access(), mkstemp()
  #define GP_MAX_TMP_FILES  64
@@ -74,30 +73,30 @@ class Gnuplot
     //----------------------------------------------------------------------------------
     // member data
 	///\brief pointer to the stream that can be used to write to the pipe
-        FILE                    *gnucmd; 
-	///\brief validation of gnuplot session      
-        bool                     valid;  
-	///\brief true = 2d, false = 3d      
-        bool                     two_dim;  
-	///\brief number of plots in session   
-        int                      nplots;  
-  	///\brief functions and data are displayed in a defined styles   
-        std::string              pstyle;  
+        FILE                    *gnucmd;
+	///\brief validation of gnuplot session
+        bool                     valid;
+	///\brief true = 2d, false = 3d
+        bool                     two_dim;
+	///\brief number of plots in session
+        int                      nplots;
+  	///\brief functions and data are displayed in a defined styles
+        std::string              pstyle;
   	///\brief interpolate and approximate data in defined styles (e.g. spline)
-        std::string              smooth;    
-  	///\brief list of created tmpfiles   
-        std::vector<std::string> tmpfile_list; 
+        std::string              smooth;
+  	///\brief list of created tmpfiles
+        std::vector<std::string> tmpfile_list;
 
     //----------------------------------------------------------------------------------
     // static data
 	///\brief number of all tmpfiles (number of tmpfiles restricted)
-        static int               tmpfile_num;   
-	///\brief name of executed GNUPlot file     
-        static std::string       m_sGNUPlotFileName; 
+        static int               tmpfile_num;
+	///\brief name of executed GNUPlot file
+        static std::string       m_sGNUPlotFileName;
 	///\brief gnuplot path
         static std::string       m_sGNUPlotPath;
-	///\brief standart terminal, used by showonscreen     
-        static std::string       terminal_std;       
+	///\brief standart terminal, used by showonscreen
+        static std::string       terminal_std;
 
     //----------------------------------------------------------------------------------
     // member functions (auxiliary functions)
@@ -105,18 +104,18 @@ class Gnuplot
 	///\brief get_program_path(); and popen();
 	///
 	/// \param --> void
-	/// 
+	///
 	/// \return <-- void
 	// ---------------------------------------------------
-        void           init(); 
+        void           init();
 	// ---------------------------------------------------
-	///\brief creates tmpfile and returns its name   
-	/// 
+	///\brief creates tmpfile and returns its name
+	///
 	/// \param tmp --> points to the tempfile
-	/// 
+	///
 	/// \return <-- the name of the tempfile
-	// ---------------------------------------------------                          
-        std::string    create_tmpfile(std::ofstream &tmp);  
+	// ---------------------------------------------------
+        std::string    create_tmpfile(std::ofstream &tmp);
 
     //----------------------------------------------------------------------------------
 	///\brief gnuplot path found?
@@ -125,8 +124,8 @@ class Gnuplot
 	///
 	/// \return <-- found the gnuplot path (yes == true, no == false)
 	// ---------------------------------------------------------------------------------
-    static bool    get_program_path(); 
-	
+    static bool    get_program_path();
+
 	// ---------------------------------------------------------------------------------
 	///\brief checks if file is available
 	///
@@ -134,9 +133,9 @@ class Gnuplot
 	/// \param mode 	--> the mode [optional,default value = 0]
 	///
 	/// \return file exists (yes == true, no == false)
-	// ---------------------------------------------------------------------------------                                  
+	// ---------------------------------------------------------------------------------
     bool file_available(const std::string &filename);
-      
+
 	// ---------------------------------------------------------------------------------
 	///\brief checks if file exists
 	///
@@ -144,15 +143,15 @@ class Gnuplot
 	/// \param mode 	--> the mode [optional,default value = 0]
 	///
 	/// \return file exists (yes == true, no == false)
-	// ---------------------------------------------------------------------------------                                  
-    static bool    file_exists(const std::string &filename, int mode=0); 
+	// ---------------------------------------------------------------------------------
+    static bool    file_exists(const std::string &filename, int mode=0);
 
     public:
 
 		// ----------------------------------------------------------------------------
         /// \brief optional function: set Gnuplot path manual
         /// attention:  for windows: path with slash '/' not backslash '\'
-		/// 
+		///
 		/// \param path --> the gnuplot path
 		///
 		/// \return true on success, false otherwise
@@ -163,7 +162,7 @@ class Gnuplot
 		// ----------------------------------------------------------------------------
         /// optional: set standart terminal, used by showonscreen
         ///   defaults: Windows - win, Linux - x11, Mac - aqua
-		/// 
+		///
 		/// \param type --> the terminal type
 		///
 		/// \return ---
@@ -216,8 +215,8 @@ class Gnuplot
 	/// send a command to gnuplot using the <<  operator
 	///
 	/// \param cmdstr --> the command string
-	/// 
-	/// \return <-- a reference to the gnuplot object	
+	///
+	/// \return <-- a reference to the gnuplot object
 	// ---------------------------------------------------------------------------------
     inline Gnuplot& operator<<(const std::string &cmdstr){
         cmd(cmdstr);
@@ -253,12 +252,12 @@ class Gnuplot
     // ----------------------------------------------------------------------
     /// \brief unset smooth
     /// attention: smooth is not set by default
-    /// 
+    ///
     /// \param ---
-    /// 
+    ///
     /// \return <-- a reference to a gnuplot object
     // ----------------------------------------------------------------------
-    inline Gnuplot& unset_smooth(){ smooth = ""; return *this;}; 
+    inline Gnuplot& unset_smooth(){ smooth = ""; return *this;};
 
 
     /// scales the size of the points used in plots
@@ -266,12 +265,12 @@ class Gnuplot
 
     /// turns grid on/off
     inline Gnuplot& set_grid()	{cmd("set grid");return *this;};
-    /// grid is not set by default	
-    inline Gnuplot& unset_grid(){cmd("unset grid");return *this;}; 
+    /// grid is not set by default
+    inline Gnuplot& unset_grid(){cmd("unset grid");return *this;};
 
     // -----------------------------------------------
     /// set the mulitplot mode
-    /// 
+    ///
     /// \param ---
     ///
     /// \return <-- reference to the gnuplot object
@@ -280,13 +279,13 @@ class Gnuplot
 
     // -----------------------------------------------
     /// unsets the mulitplot mode
-    /// 
+    ///
     /// \param ---
     ///
     /// \return <-- reference to the gnuplot object
     // -----------------------------------------------
     inline Gnuplot& unset_multiplot(){cmd("unset multiplot");return *this;};
-    
+
 
 
     /// set sampling rate of functions, or for interpolating data
@@ -310,7 +309,7 @@ class Gnuplot
     ///
     /// \return <-- reference to the gnuplot object
     // ---------------------------------------------------------------------------
-    inline Gnuplot& unset_hidden3d(){cmd("unset hidden3d"); return *this;}; 
+    inline Gnuplot& unset_hidden3d(){cmd("unset hidden3d"); return *this;};
 
     /// enables/disables contour drawing for surfaces (for 3d plot)
     ///  base, surface, both
@@ -327,17 +326,17 @@ class Gnuplot
     // ------------------------------------------------------------
     /// enables/disables the display of surfaces (for 3d plot)
     ///
-    /// \param ---	
+    /// \param ---
     ///
     /// \return <-- reference to the gnuplot object
     // ------------------------------------------------------------------
-    inline Gnuplot& set_surface(){cmd("set surface");return *this;}; 
+    inline Gnuplot& set_surface(){cmd("set surface");return *this;};
 
     // ----------------------------------------------------------
     /// surface is set by default,
     /// it disables the display of surfaces (for 3d plot)
     ///
-    /// \param ---	
+    /// \param ---
     ///
     /// \return <-- reference to the gnuplot object
     // ------------------------------------------------------------------
@@ -346,25 +345,25 @@ class Gnuplot
 
     /// switches legend on/off
     /// position: inside/outside, left/center/right, top/center/bottom, nobox/box
-    Gnuplot& set_legend(const std::string &position = "default"); 
+    Gnuplot& set_legend(const std::string &position = "default");
 
     // ------------------------------------------------------------------
     /// \brief  Switches legend off
     /// attention:legend is set by default
     ///
-    /// \param ---	
+    /// \param ---
     ///
     /// \return <-- reference to the gnuplot object
     // ------------------------------------------------------------------
     inline Gnuplot& unset_legend(){cmd("unset key"); return *this;}
 
-    // ----------------------------------------------------------------------- 
+    // -----------------------------------------------------------------------
     /// \brief sets and clears the title of a gnuplot session
     ///
     /// \param title --> the title of the plot [optional, default == ""]
     ///
     /// \return <-- reference to the gnuplot object
-    // ----------------------------------------------------------------------- 
+    // -----------------------------------------------------------------------
     inline Gnuplot& set_title(const std::string &title = "")
     {
         std::string cmdstr;
@@ -403,7 +402,7 @@ class Gnuplot
     Gnuplot& set_zrange(const double iFrom,
                         const double iTo);
     /// autoscale axis (set by default) of xaxis
-    /// 
+    ///
     /// \param ---
     ///
     /// \return <-- reference to the gnuplot object
@@ -412,7 +411,7 @@ class Gnuplot
 
     // -----------------------------------------------
     /// autoscale axis (set by default) of yaxis
-    /// 
+    ///
     /// \param ---
     ///
     /// \return <-- reference to the gnuplot object
@@ -421,7 +420,7 @@ class Gnuplot
 
     // -----------------------------------------------
     /// autoscale axis (set by default) of zaxis
-    /// 
+    ///
     /// \param ---
     ///
     /// \return <-- reference to the gnuplot object
@@ -436,31 +435,31 @@ class Gnuplot
     /// turns on/off log scaling for the specified zaxis (logscale is not set by default)
     Gnuplot& set_zlogscale(const double base = 10);
 
-    // ----------------------------------------------- 
+    // -----------------------------------------------
     /// turns off log scaling for the x axis
-    /// 
+    ///
     /// \param ---
     ///
     /// \return <-- reference to the gnuplot object
-    // -----------------------------------------------	
+    // -----------------------------------------------
     inline Gnuplot& unset_xlogscale(){cmd("unset logscale x"); return *this;};
 
-    // ----------------------------------------------- 
+    // -----------------------------------------------
     /// turns off log scaling for the y axis
-    /// 
+    ///
     /// \param ---
     ///
     /// \return <-- reference to the gnuplot object
-    // -----------------------------------------------	
+    // -----------------------------------------------
     inline Gnuplot& unset_ylogscale(){cmd("unset logscale y"); return *this;};
 
-    // ----------------------------------------------- 
+    // -----------------------------------------------
     /// turns off log scaling for the z axis
-    /// 
+    ///
     /// \param ---
     ///
     /// \return <-- reference to the gnuplot object
-    // -----------------------------------------------		
+    // -----------------------------------------------
     inline Gnuplot& unset_zlogscale(){cmd("unset logscale z"); return *this;};
 
 
@@ -557,7 +556,7 @@ class Gnuplot
     ///\brief replot repeats the last plot or splot command.
     ///  this can be useful for viewing a plot with different set options,
     ///  or when generating the same plot for several devices (showonscreen, savetops)
-    /// 
+    ///
     /// \param ---
     ///
     /// \return ---
@@ -575,12 +574,12 @@ class Gnuplot
 
     // -------------------------------------------------------------------
     /// \brief Is the gnuplot session valid ??
-    /// 
+    ///
     ///
     /// \param ---
-    /// 
+    ///
     /// \return true if valid, false if not
-    // ------------------------------------------------------------------- 
+    // -------------------------------------------------------------------
     inline bool is_valid(){return(valid);};
 
 };

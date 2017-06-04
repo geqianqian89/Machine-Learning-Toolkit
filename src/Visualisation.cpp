@@ -1,5 +1,12 @@
 #include "../includes/Visualisation.hpp"
+#ifdef __unix__
+    #include <dirent.h>
+#elif _WIN32
+    #include <windows.h>
+#endif
 #include <cstdio>
+#include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -45,27 +52,116 @@ void Visualisation::createPosNegTemps(){
     und_file.close();
 }
 
+bool Visualisation::valid_file(string file){
+    int i;
+    bool flag = false;
+    string ext;
+
+    if(file.empty() || file.size() < 4)
+        return false;
+
+    for(i = file.size()-1; i >= 0; i--){
+        if(file[i] == '.') break;
+        string f(1, file[i]);
+        ext = f + ext;
+    }
+
+    for(string type : types){
+        if(type == ext) flag = true;
+    }
+
+    return flag;
+}
+
+vector<string> Visualisation::getTempFilesNames(){
+    vector<string> files;
+
+    #ifdef __unix__
+        DIR *dpdf;
+        struct dirent *epdf;
+        string path = string("temp");
+
+        dpdf = opendir(path.c_str());
+        if(dpdf != NULL){
+            while((epdf = readdir(dpdf))){
+                string file = string(epdf->d_name);
+                if(valid_file(file) && !file.empty()){
+                    files.push_back(file);
+                }
+            }
+        }else{
+            cout << "Folder not found!" << endl;
+        }
+
+        closedir(dpdf);
+    #elif _WIN32
+        HANDLE hFind;
+        WIN32_FIND_DATA data;
+
+        hFind = FindFirstFile(".\\temp\\*.*", &data);
+        if (hFind != INVALID_HANDLE_VALUE) {
+          do {
+            string file_name(data.cFileName);
+            if(valid_file(file_name) && !file_name.empty()){
+                files.push_back(file_name);
+            }
+          } while (FindNextFile(hFind, &data));
+          FindClose(hFind);
+        }
+    #else
+        cerr << "Can't remove temporary files, please remove manually. (Unsupported System)." << endl;
+    #endif
+
+    return files;
+}
+
+void Visualisation::removeTempFiles(){
+    string path;
+    vector<string> temps;
+
+    temps = getTempFilesNames();
+
+    for(string file : temps){
+        path = "temp/" + file;
+        remove(path.c_str());
+    }
+}
+
 void Visualisation::plot2D(int x, int y){
-    string dims = to_string(x) + ":" + to_string(y);
+    string dims = itos(x) + ":" + itos(y);
     string cmd = "plot 'temp/pos.plt' using " + dims + " title '+1' with points, 'temp/neg.plt' using " + dims + " title '-1' with points";
     createPosNegTemps();
     g.cmd(cmd);
-
 }
 
 void Visualisation::plot3D(int x, int y, int z){
-    string dims = to_string(x) + ":" + to_string(y) + ":" + to_string(z);
+    string dims = itos(x) + ":" + itos(y) + ":" + itos(z);
     string cmd = "splot 'temp/pos.plt' using " + dims + " title '+1' with points, 'temp/neg.plt' using " + dims + " title '-1' with points";
+    createPosNegTemps();
+    g.cmd(cmd);
+}
+
+void Visualisation::plot2DwithHyperplane(int x, int y, Solution s){
+    string feats = itos(x) + ":" + itos(y);
+    string fx = "f(x) = "+dtoa(s.w[x-1]/-s.w[y-1])+"*x + "+dtoa(s.bias/-s.w[y-1]);
+    string gx = "g(x) = "+dtoa(s.w[x-1]/-s.w[y-1])+"*x + "+dtoa((s.bias + s.margin*s.norm)/-s.w[y-1]);
+    string hx = "h(x) = "+dtoa(s.w[x-1]/-s.w[y-1])+"*x + "+dtoa((s.bias - s.margin*s.norm)/-s.w[y-1]);
+    string cmd = fx + "; "+ gx +"; "+ hx +"; plot 'temp/pos.plt' using "+feats+" title '+1' with points, 'temp/neg.plt' using "+feats+" title '-1' with points, f(x) notitle with lines ls 1, g(x) notitle with lines ls 2, h(x) notitle with lines ls 2";
+    createPosNegTemps();
+    g.cmd(cmd);
+}
+
+void Visualisation::plot3DwithHyperplane(int x, int y, int z, Solution s){
+    string feats = itos(x) + ":" + itos(y) + ":" + itos(z);
+    string fxy = "f(x,y) = "+dtoa(s.w[x-1]/-s.w[z-1])+"*x + "+dtoa(s.w[y-1]/-s.w[z-1])+"*y + "+dtoa(s.bias/-s.w[z-1]);
+    string cmd = fxy + "; splot 'temp/pos.plt' using "+ feats +" title '+1' with points, 'temp/neg.plt' using "+ feats +" title '-1' with points, f(x,y) notitle with lines ls 1";
     createPosNegTemps();
     g.cmd(cmd);
 }
 
 Visualisation::~Visualisation(){
     g.cmd("quit");
-    remove("temp/tmp.plt");
-    remove("temp/neg.plt");
-    remove("temp/pos.plt");
-    remove("temp/und.plt");
+    removeTempFiles();
 }
 
 

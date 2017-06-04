@@ -7,10 +7,10 @@
 #include <vector>
 #include <algorithm>
 #include <sstream>
+#include <string>
 #include <ctime>
 
-#include "../includes/MLToolkit.hpp"
-#include "../includes/PerceptronPrimal.hpp"
+#include "includes/MLToolkit.hpp"
 
 using namespace std;
 
@@ -18,8 +18,6 @@ bool sair = false, inva = false;
 double max_time = 100.0f;
 string data_folder = "DB/";
 Data data;
-Solution sol;
-Visualisation plot(&data);
 
 //Menus utilities
 void clear(void);
@@ -36,23 +34,14 @@ int selector(void);
 void mainMenu(void);
 void datasetMenu(void);
 void dataMenu(void);
-void visualisationMenu(void);
-void classifiersMenu(void);
 
 //Functions to call the execution of the menus options
 void mainOption(int);
+void classifiersOption(int);
 void datasetOption(int);
 void dataOption(int);
-void visualisationOption(int);
-void classifiersOption(int);
-void primalClassifiersOption(int);
-void dualClassifiersOption(int);
 
-
-int main(int argc, char* argv[]){
-    if(argc > 1){
-        data.load(string(argv[1]));
-    }
+int main(){
     while (true) {
         if(sair) exitProgram();
         clear();
@@ -110,9 +99,8 @@ vector<string> list_datasets(bool list){
     #elif _WIN32
         HANDLE hFind;
         WIN32_FIND_DATA data;
-        string path = ".\\" + data_folder + "\\*.*";
 
-        hFind = FindFirstFile(path, &data);
+        hFind = FindFirstFile(".\\DB\\*.*", &data);
         if (hFind != INVALID_HANDLE_VALUE) {
           do {
             string file_name(data.cFileName);
@@ -186,8 +174,11 @@ void mainMenu(){
 
     cout << "1 - Dataset" << endl;
     cout << "2 - Data" << endl;
-    cout << "3 - Data Visualisation" << endl;
-    cout << "4 - Classifiers" << endl;
+    cout << "3 - Classifiers" << endl;
+    cout << "4 - Emsembles" << endl;
+    cout << "5 - Feature Selection" << endl;
+    cout << "6 - Genomic" << endl;
+    cout << "7 - Utils" << endl;
     cout << "0 - Exit" << endl;
 
     option = selector();
@@ -225,42 +216,12 @@ void dataMenu(void){
     cout << "5 - Data radius" << endl;
     cout << "6 - Distance from the center of the classes" << endl;
     cout << "7 - Normalize dataset" << endl;
-    cout << "8 - Print dataset" << endl;
     cout << "0 - Back to the main menu" << endl;
 
     option = selector();
     dataOption(option);
 }
 
-void visualisationMenu(void){
-    int option;
-
-    clear();
-    header();
-
-    cout << "1 - Plot features in 2D" << endl;
-    cout << "2 - Plot features in 3D" << endl;
-    cout << "3 - Plot features in 2D with hyperplane" << endl;
-    cout << "4 - Plot features in 3D with hyperplane" << endl;
-    cout << "0 - Back to the main menu" << endl;
-
-    option = selector();
-    visualisationOption(option);
-}
-
-void classifiersMenu(){
-    int option;
-
-    clear();
-    header();
-
-    cout << "1 - Primal Classifiers" << endl;
-    cout << "2 - Dual Classifiers" << endl;
-    cout << "0 - Back to the main menu" << endl;
-
-    option = selector();
-    classifiersOption(option);
-}
 
 void mainOption(int option){
     switch(option){
@@ -271,10 +232,10 @@ void mainOption(int option){
             dataMenu();
             break;
         case 3:
-            visualisationMenu();
+            //classifiersMenu();
             break;
         case 4:
-            classifiersMenu();
+           // emsemblesMenu();
             break;
         case 5:
             //featureSelectionMenu();
@@ -323,10 +284,10 @@ void datasetOption(int option){
                 cout << "Enter the negative class: ";
                 cin >> neg;
 
-                path = data_folder + files[stoi(sid)];
+                path = data_folder + files[stoin(sid)];
                 clock_t begin = clock();
                 data.setClasses(pos, neg);
-                cout << "\n" << path << endl;
+                cout << path << endl;
                 data.load(path);
                 clock_t end = clock();
 
@@ -460,61 +421,52 @@ void dataOption(int option){
     int i = 0, j = 0;
 
     switch(option){
-        case 1:
-            if(!data.isEmpty()){
-                int totalFeat, flag_feat, f, fnamesize;
-                vector<int> feats;
-                vector<int> fnames = data.getFeaturesNames();
+            case 1:
+                /*if(_data != NULL && !_data->empty()){
+                    int totalFeat, flag_feat, f, fnamesize;
+                    vector<int> feats;
+                    vector<int> fnames = _data->get_fnames();
 
-                fnamesize = fnames.size();
-                cout << "Insert how many features: ";
-                cin >> totalFeat;
-                feats.resize(totalFeat);
+                    fnamesize = fnames.size();
+                    cout << "Insert how many features: ";
+                    cin >> totalFeat;
+                    feats.resize(totalFeat);
 
-                for(i = 0; i < totalFeat; i++){
-                    cout << "Feature " << i + 1 << ": ";
-                    cin >> f;
-                    feats[i] = f;
+                    for(i = 0; i < totalFeat; i++){
+                        cout << "Feature " << i + 1 << ": ";
+                        cin >> f;
+                        feats[i] = f;
 
-                    for(flag_feat = 0, j = 0; j < fnamesize; j++){
-                        if(feats[i] == fnames[j]){
-                            flag_feat = 1;
+                        for(flag_feat = 0, j = 0; j < fnamesize; j++){
+                            if(feats[i] == fnames[j]){
+                                flag_feat = 1;
+                            }
+                        }
+
+                        if(!flag_feat){
+                            cout << "Feature " << feats[i] << " does not belongs to the set.\n";
+                            i--;
+                            cin.clear();
                         }
                     }
 
-                    if(!flag_feat){
-                        cout << "Feature " << feats[i] << " does not belongs to the set.\n";
-                        i--;
-                        cin.clear();
-                    }
-                }
-
-                //Sample *samples = Sample::copy(_data->get_samples());
-                //Sample *sample_temp = _data->insert_features(samples, feats, totalFeat, verbose);
-                //_data->set_samples(sample_temp);
-            }else cout << "Load a dataset first...\n\n";
-
-            waitUserAction();
-            break;
+                    Sample *samples = Sample::copy(_data->get_samples());
+                    Sample *sample_temp = _data->insert_features(samples, feats, totalFeat, verbose);
+                    _data->set_samples(sample_temp);
+                }else cout << "Load a dataset first...\n\n";
+                */
+                waitUserAction();
+                break;
         case 2:
-            if(!data.isEmpty()){
+            /*if(_data != NULL && !_data->empty()){
                 int totalFeat, flag_feat, f, fnamesize;
                 vector<int> feats;
-                vector<int> fnames = data.getFeaturesNames();
+                vector<int> fnames = _data->get_fnames();
 
                 fnamesize = fnames.size();
 
-                cout << endl;
-                while(true){
-                    cout << "Remove how many features (-1 to cancel): ";
-                    cin >> totalFeat;
-                    if(totalFeat > fnamesize - 1){
-                        clear();
-                        cout << "Can't remove more features than exist." << endl;
-                    }else if(totalFeat < 0){
-                        break;
-                    }
-                }
+                cout << "Remove how many features: ";
+                cin >> totalFeat;
 
                 for(i = 0; i < totalFeat; i++){
                     cout << "Feature " << i + 1 << ": ";
@@ -532,48 +484,44 @@ void dataOption(int option){
                     }
                 }
                 cout << endl;
-                data.removeFeatures(feats);
-
-                fnames = data.getFeaturesNames();
-
+                Sample *samples = _data->get_samples();
+                _data->remove_features(samples, feats);
             }else cout << "Load a dataset first...\n\n";
-
+            */
             waitUserAction();
             break;
         case 3:
-            if(!data.isEmpty()){
-                cout << "Point to remove index (-1 to cancel): ";
+            /*if(_data != NULL && !_data->empty()){
+                Sample* samp = _data->get_samples();
+
+                cout << "Point to remove index: ";
                 cin >> i;
 
-                if(i < 0){
-                   break;
-                }
-
-                data.removePoint(i);
+                _data->remove_point(samp, i);
             }else cout << "Load a dataset first...\n\n";
-
+            */
             waitUserAction();
             break;
         case 4:
-            if(!data.isEmpty()){
+            /*if(_data != NULL && !_data->empty()){
                 int index;
 
-                cout << "Feature to be ignored (-1 doesnt ignore any feature): ";
+                cout << "Feature to be ignored: ";
                 cin >> index;
                 clock_t begin = clock();
                 cout << endl;
-                cout << "The variance values is: " << Statistics::variance(data, index) << endl;
+                cout << "The variance values is: " << _data->get_variance(index) << endl;
                 clock_t end = clock();
 
                 double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
                 cout << endl;
                 cout << elapsed_secs << " seconds to compute.\n";
             }else cout << "Load a dataset first...\n\n";
-
+            */
             waitUserAction();
             break;
         case 5:
-            if(!data.isEmpty()){
+           /* if(_data != NULL && !_data->empty()){
                 int index, q;
 
                 cout << "Feature to be ignored: ";
@@ -583,18 +531,18 @@ void dataOption(int option){
                 cout << endl;
 
                 clock_t begin = clock();
-                cout << "The value of the radius is: " << Statistics::getRadius(data, index, q) << endl;
+                cout << "The value of the radius is: " << _data->get_radius(index, q) << endl;
                 clock_t end = clock();
 
                 double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
                 cout << endl;
                 cout << elapsed_secs << " seconds to compute.\n";
             }else cout << "Load a dataset first...\n\n";
-
+            */
             waitUserAction();
             break;
         case 6:
-            if(!data.isEmpty()){
+            /*if(_data != NULL && !_data->empty()){
                 int index;
 
                 cout << "Feature to be ignored: ";
@@ -602,7 +550,7 @@ void dataOption(int option){
                 cout << endl;
 
                 clock_t begin = clock();
-                cout << "The value of the center of the classes are: " << Statistics::getDistCenters(data, index) << endl;
+                cout << "The value of the center of the classes are: " << _data->get_dist_centers(index) << endl;
                 cout << endl;
                 clock_t end = clock();
 
@@ -610,11 +558,11 @@ void dataOption(int option){
 
                 cout << elapsed_secs << " seconds to compute.\n";
             }else cout << "Load a dataset first...\n\n";
-
+            */
             waitUserAction();
             break;
         case 7:
-            if(!data.isEmpty()){
+            /*if(_data != NULL && !_data->empty()){
                 int q, p;
 
                 cout << "Value of q: ";
@@ -630,7 +578,8 @@ void dataOption(int option){
                 }
 
                 clock_t begin = clock();
-                data.normalize(p);
+                _data->set_norm(p, q);
+                _data->normalize_dataset();
                 cout << "The dataset was normalized." << endl;
                 clock_t end = clock();
 
@@ -638,14 +587,7 @@ void dataOption(int option){
                 cout << endl;
                 cout << elapsed_secs << " seconds to compute.\n";
             }else cout << "Load a dataset first...\n\n";
-
-            waitUserAction();
-            break;
-        case 8:
-            if(!data.isEmpty()){
-                cout << data << endl;
-            }else cout << "Load a dataset first...\n\n";
-
+            */
             waitUserAction();
             break;
         case 0:
@@ -658,136 +600,4 @@ void dataOption(int option){
     dataMenu();
 }
 
-void visualisationOption(int opt){
-    int x, y, z;
 
-    switch (opt) {
-    case 1:
-        cout << "Enter the feature to plot in the x-axis: ";
-        cin >> x;
-        cout << "Enter the feature to plot in the y-axis: ";
-        cin >> y;
-
-        plot.plot2D(x, y);
-        break;
-    case 2:
-        cout << "Enter the feature to plot in the x-axis: ";
-        cin >> x;
-        cout << "Enter the feature to plot in the y-axis: ";
-        cin >> y;
-        cout << "Enter the feature to plot in the z-axis: ";
-        cin >> z;
-        plot.plot3D(x, y, z);
-        break;
-    case 3:
-        if(sol.w.size() == 0){
-            cout << "Run a classifier in the data first." << endl;
-            waitUserAction();
-            break;
-        }
-        cout << "Enter the feature to plot in the x-axis: ";
-        cin >> x;
-        cout << "Enter the feature to plot in the y-axis: ";
-        cin >> y;
-
-        plot.plot2DwithHyperplane(x, y, sol);
-        break;
-    case 4:
-        if(sol.w.size() == 0){
-            cout << "Run a classifier in the data first." << endl;
-            waitUserAction();
-            break;
-        }
-        cout << "Enter the feature to plot in the x-axis: ";
-        cin >> x;
-        cout << "Enter the feature to plot in the y-axis: ";
-        cin >> y;
-        cout << "Enter the feature to plot in the z-axis: ";
-        cin >> z;
-
-        plot.plot3DwithHyperplane(x, y, z, sol);
-        break;
-    case 0:
-        mainMenu();
-        break;
-    default:
-        inva = true;
-        break;
-    }
-    visualisationMenu();
-}
-
-void classifiersOption(int option){
-    int opt;
-
-    switch (option) {
-    case 1:
-        clear();
-        header();
-        cout << "1 - Perceptron Primal" << endl;
-        cout << "0 - Back to classifiers menu" << endl;
-        opt = selector();
-        primalClassifiersOption(opt);
-        break;
-    case 2:
-        clear();
-        header();
-        cout << "0 - Back to classifiers menu" << endl;
-        opt = selector();
-        dualClassifiersOption(opt);
-        break;
-    case 0:
-        mainMenu();
-        break;
-    default:
-        inva = true;
-        break;
-    }
-    classifiersMenu();
-}
-
-void primalClassifiersOption(int option){
-    int q, i;
-    double rate;
-
-    switch (option) {
-    case 1:
-        if(!data.isEmpty()){
-            cout << "Value of the learning rate: ";
-            cin >> rate;
-            cout << "Value of the q norm: ";
-            cin >> q;
-            cout << endl;
-
-            PerceptronPrimal perc(&data, q, rate);
-
-            perc.train();
-            sol = perc.getSolution();
-
-            cout << "Number of steps through data: " << perc.getSteps() << endl;
-            cout << "Number of updates: " << perc.getUpdates() << endl;
-            cout << "Weights vector:" << endl;
-            cout << "[";
-            for(i = 0; i < sol.w.size(); i++){
-                cout << sol.w[i] << ", ";
-            }
-            cout << sol.bias <<  "]" << endl;
-            cout << endl;
-            waitUserAction();
-        }else{
-            cout << "Load a dataset first..." << endl;
-        }
-        break;
-    case 0:
-        classifiersMenu();
-        break;
-    default:
-        inva = true;
-        break;
-    }
-    classifiersMenu();
-}
-
-void dualClassifiersOption(int option){
-
-}

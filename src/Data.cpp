@@ -161,7 +161,9 @@ bool Data::load_csv(string path){
 
     //reserve memory for fnames array and set feature names
     fnames.assign(dim, 0);
+    index.assign(size, 0);
     iota(fnames.begin(), fnames.end(), 1);
+    iota(index.begin(), index.end(), 0);
 
     //reserve memory for points array
     points.resize(size);
@@ -236,7 +238,7 @@ bool Data::load_data(string path){
         dim = -1;
 
         while(getline(ss, item, ' ')){
-        	
+
             if(!is_number(item)){
                 clog << "Warning: point[" << size  << "] " << dim+1 << " feature is not a number." << endl;
                 dim--;
@@ -252,7 +254,7 @@ bool Data::load_data(string path){
                     flag = true;
                 }
             }
-            
+
             dim++;
         }
 
@@ -274,7 +276,9 @@ bool Data::load_data(string path){
 
     //reserve memory for fnames array and set feature names
     fnames.assign(dim, 0);
+    index.assign(size, 0);
     iota(fnames.begin(), fnames.end(), 1);
+    iota(index.begin(), index.end(), 0);
 
     //reserve memory for points array
     points.resize(size);
@@ -319,15 +323,15 @@ bool Data::load_data(string path){
                     }
                 }
 
-                if(is_number(buffer)){	
+                if(is_number(buffer)){
                     new_point.x[(atEnd)?dim:dim-1] = stodn(buffer);
-     				dim++;           	
+     				dim++;
                 }
             }else{
             	c = (item == pos_class)?1:-1;
                 new_point.y = c;
                 if(c == -1) stats.n_neg++; else stats.n_pos++;
-                
+
                 if(!atEnd) dim++;
             }
         }
@@ -401,7 +405,9 @@ bool Data::load_arff(string path){
 
     //reserve memory for fnames array and set feature names
     fnames.assign(dim, 0);
+    index.assign(size, 0);
     iota(fnames.begin(), fnames.end(), 1);
+    iota(index.begin(), index.end(), 0);
 
     //reserve memory for points array
     points.resize(size);
@@ -494,7 +500,9 @@ bool Data::load_txt(string path){
 
     //Set features names
     fnames.assign(dim, 0);
+    index.assign(size, 0);
     iota(fnames.begin(), fnames.end(), 1);
+    iota(index.begin(), index.end(), 0);
 
     input.clear();
     input.seekg(0, ios::beg);

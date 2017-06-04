@@ -40,5 +40,7 @@ double stodn(std::string str);
  * \return  The max absolute element found.
  */
 double maxAbsElement(std::vector<double> x);
+std::string itos(int n);
+std::string dtoa(double n);
 
 #endif

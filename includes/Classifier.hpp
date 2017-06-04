@@ -1,17 +1,32 @@
 #ifndef CLASSIFIER__HPP
 #define CLASSIFIER__HPP
 
-#include "Data.hpp"
 #include "Solution.hpp"
-#include <vector>
+#include "Data.hpp"
+
+#define MIN_INC  1.001
+#define MAX_IT   1E9
+#define MAX_UP   1E9
 
 class Classifier {
     // Attributes
-    private :
-        Data *samples;
+    protected :
+        Data* samples;
         /// Support vectors points.
         std::vector<Point> svs;
         Solution solution;
+        /// Learning rate
+        double rate = 0.5;
+        /// Initial time.
+        double start_time = 0;
+        /// Maximum time of training.
+        double max_time = 200;
+        /// Number of steps in the data.
+        int steps = 0;
+        /// Number of updates of the weights.
+        int ctot = 0;
+        /// Max precision.
+        double EPS = 1E-9;
     // Operations
     public :
         /**
@@ -24,7 +39,10 @@ class Classifier {
          * \param Point x (???) Features point to be evaluated.
          * \return int
          */
-        virtual int evaluate ( Point x) = 0;
+        virtual double evaluate (Point p) = 0;
+        virtual void setSamples(Data *samples);
+        int getSteps();
+        int getUpdates();
 };
 
 #endif
