@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['size',['size',['../class_data.html#a554d30dd485385a9c817198cfbf095d8',1,'Data']]],
-  ['stats',['stats',['../class_data.html#a9f761e3ff27ae21cdad00be62516fc6a',1,'Data']]]
+  ['margin',['margin',['../class_solution.html#a3580af26a22d86e44df701f654165e0f',1,'Solution']]],
+  ['max_5ftime',['max_time',['../class_classifier.html#ae5ada7ce4d5436d1dcff3dff458107fd',1,'Classifier']]]
 ];

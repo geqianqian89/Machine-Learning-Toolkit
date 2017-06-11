@@ -6,14 +6,25 @@ Implementation of methods for general use in the system.
 
 
 {\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
 {\ttfamily \#include \char`\"{}../includes/\+Utils.\+hpp\char`\"{}}\newline
-Include dependency graph for Utils.\+cpp\+:\nopagebreak
+Include dependency graph for Utils.\+cpp\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=246pt]{_utils_8cpp__incl}
+\includegraphics[width=310pt]{_utils_8cpp__incl}
 \end{center}
 \end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_utils_8cpp_a9c7b069fee3c8184e14a7de8e5da2dc6}\label{_utils_8cpp_a9c7b069fee3c8184e14a7de8e5da2dc6}} 
+\#define {\bfseries P\+R\+E\+C\+I\+S\+I\+ON}~1\+E-\/9
+\item 
+\mbox{\Hypertarget{_utils_8cpp_a7873e5175e32a7777d5f4761791b0126}\label{_utils_8cpp_a7873e5175e32a7777d5f4761791b0126}} 
+\#define {\bfseries M\+A\+X\+\_\+\+N\+U\+M\+B\+E\+R\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+S\+I\+ZE}~32
+\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -26,6 +37,16 @@ int {\bfseries stoin} (string str)
 \mbox{\Hypertarget{_utils_8cpp_a5a71f54c5a674098cd327eb73ef77149}\label{_utils_8cpp_a5a71f54c5a674098cd327eb73ef77149}} 
 double {\bfseries stodn} (string str)
 \item 
+string \hyperlink{_utils_8cpp_a26f5a4cacb0634afa02adbeebd3f023c}{itos} (int n)
+\begin{DoxyCompactList}\small\item\em itos Integer to string conversion. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_utils_8cpp_aad7fea725cb4b198ace1aa3df5051244}\label{_utils_8cpp_aad7fea725cb4b198ace1aa3df5051244}} 
+void {\bfseries reverse} (char $\ast$str, int len)
+\item 
+\mbox{\Hypertarget{_utils_8cpp_a631933fa325410873e33addc6c4bb24a}\label{_utils_8cpp_a631933fa325410873e33addc6c4bb24a}} 
+int {\bfseries int\+To\+Str} (int x, char str\mbox{[}$\,$\mbox{]}, int d)
+\item 
+string \hyperlink{_utils_8cpp_a275d36ee09955d83c3c2433d10088a04}{dtoa} (double n)
+\begin{DoxyCompactList}\small\item\em dtoa Double to string conversion. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{_utils_8cpp_a266561b2b682f65844e8ace4e10b398e}\label{_utils_8cpp_a266561b2b682f65844e8ace4e10b398e}} 
 double {\bfseries max\+Abs\+Element} (vector$<$ double $>$ x)
 \end{DoxyCompactItemize}
@@ -37,3 +58,42 @@ Implementation of methods for general use in the system.
 Utils functions \begin{DoxyAuthor}{Author}
 Mateus Coutinho Marim 
 \end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_utils_8cpp_a275d36ee09955d83c3c2433d10088a04}\label{_utils_8cpp_a275d36ee09955d83c3c2433d10088a04}} 
+\index{Utils.\+cpp@{Utils.\+cpp}!dtoa@{dtoa}}
+\index{dtoa@{dtoa}!Utils.\+cpp@{Utils.\+cpp}}
+\subsubsection{\texorpdfstring{dtoa()}{dtoa()}}
+{\footnotesize\ttfamily string dtoa (\begin{DoxyParamCaption}\item[{double}]{n }\end{DoxyParamCaption})}
+
+
+
+dtoa Double to string conversion. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Double to be converted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_utils_8cpp_a26f5a4cacb0634afa02adbeebd3f023c}\label{_utils_8cpp_a26f5a4cacb0634afa02adbeebd3f023c}} 
+\index{Utils.\+cpp@{Utils.\+cpp}!itos@{itos}}
+\index{itos@{itos}!Utils.\+cpp@{Utils.\+cpp}}
+\subsubsection{\texorpdfstring{itos()}{itos()}}
+{\footnotesize\ttfamily string itos (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+itos Integer to string conversion. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Integer to be converted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}

@@ -1,0 +1,81 @@
+\hypertarget{class_perceptron_primal}{}\section{Perceptron\+Primal Class Reference}
+\label{class_perceptron_primal}\index{Perceptron\+Primal@{Perceptron\+Primal}}
+
+
+Inheritance diagram for Perceptron\+Primal\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{class_perceptron_primal__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Perceptron\+Primal\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=188pt]{class_perceptron_primal__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_perceptron_primal_a39efaee2fbf8d0ad6b9955e46cfd91b3}\label{class_perceptron_primal_a39efaee2fbf8d0ad6b9955e46cfd91b3}} 
+{\bfseries Perceptron\+Primal} (\hyperlink{class_data}{Data} $\ast$samples=N\+U\+LL, double \hyperlink{class_primal_classifier_a746ad2ff93fb77d82ae389f90dbdc89e}{q}=2, double \hyperlink{class_classifier_af9867e5919742de1303dd971a9a1c19a}{rate}=0.\+5)
+\item 
+bool \hyperlink{class_perceptron_primal_a17f817a72fc7d61d1686ea77f7f9e84d}{train} ()
+\begin{DoxyCompactList}\small\item\em Function that execute the training phase of a classification algorithm. \end{DoxyCompactList}\item 
+double \hyperlink{class_perceptron_primal_ac8ce9ceffe2b35b5386e5367fb419b3b}{evaluate} (\hyperlink{class_point}{Point} p)
+\begin{DoxyCompactList}\small\item\em Returns the class of a feature point based on the trained classifier. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_perceptron_primal_ac8ce9ceffe2b35b5386e5367fb419b3b}\label{class_perceptron_primal_ac8ce9ceffe2b35b5386e5367fb419b3b}} 
+\index{Perceptron\+Primal@{Perceptron\+Primal}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!Perceptron\+Primal@{Perceptron\+Primal}}
+\subsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily double Perceptron\+Primal\+::evaluate (\begin{DoxyParamCaption}\item[{\hyperlink{class_point}{Point}}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Returns the class of a feature point based on the trained classifier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{class_point}{Point}} & x (???) Features point to be evaluated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_classifier_ae8e9554823b85ddc2dcad2955da811d9}{Classifier}.
+
+\mbox{\Hypertarget{class_perceptron_primal_a17f817a72fc7d61d1686ea77f7f9e84d}\label{class_perceptron_primal_a17f817a72fc7d61d1686ea77f7f9e84d}} 
+\index{Perceptron\+Primal@{Perceptron\+Primal}!train@{train}}
+\index{train@{train}!Perceptron\+Primal@{Perceptron\+Primal}}
+\subsubsection{\texorpdfstring{train()}{train()}}
+{\footnotesize\ttfamily bool Perceptron\+Primal\+::train (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Function that execute the training phase of a classification algorithm. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_classifier_a2306a5de27555ab093593ac9642bc7d9}{Classifier}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+includes/Perceptron\+Primal.\+hpp\item 
+src/Perceptron\+Primal.\+cpp\end{DoxyCompactItemize}

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['x',['x',['../class_point.html#a1e22056737f10e31025b353c86e3b9e3',1,'Point']]]
+  ['norm',['norm',['../class_solution.html#acbc0610c1c2e2d7bb5c39af33b7eb99c',1,'Solution']]]
 ];

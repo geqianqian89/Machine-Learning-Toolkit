@@ -1,8 +1,10 @@
 var searchData=
 [
-  ['parttraintest',['partTrainTest',['../class_validation.html#ad50f5974699c4d13098371fdf56f8342',1,'Validation']]],
+  ['parttraintest',['partTrainTest',['../class_validation.html#a83b3cc552927fe8595f3cdd143d645c0',1,'Validation']]],
   ['plot2d',['plot2D',['../class_visualisation.html#a7569c77520391e6adf7e285410f4b358',1,'Visualisation']]],
+  ['plot2dwithhyperplane',['plot2DwithHyperplane',['../class_visualisation.html#a39b7bd29878bfc2d21fc4219803fd99d',1,'Visualisation']]],
   ['plot3d',['plot3D',['../class_visualisation.html#a39cf83c146a4c92a32782bfdf6168594',1,'Visualisation']]],
+  ['plot3dwithhyperplane',['plot3DwithHyperplane',['../class_visualisation.html#a3318af0b08322183e0dbe8d4891b580d',1,'Visualisation']]],
   ['plot_5fequation',['plot_equation',['../class_gnuplot.html#a42dfb8c9d4636745c7be277ed818e849',1,'Gnuplot']]],
   ['plot_5fequation3d',['plot_equation3d',['../class_gnuplot.html#a79aed3a6927f7d1d3497cba441e8a943',1,'Gnuplot']]],
   ['plot_5fimage',['plot_image',['../class_gnuplot.html#aae22c0470a6fbbc1f5e84dec8d023381',1,'Gnuplot']]],

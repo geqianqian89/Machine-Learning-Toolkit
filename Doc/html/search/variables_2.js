@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y',['y',['../class_point.html#afa38be143ae800e6ad69ce8ed4df62d8',1,'Point']]]
+  ['eps',['EPS',['../class_classifier.html#ad7cd0cfea68461340df2adb0c132dc93',1,'Classifier']]]
 ];

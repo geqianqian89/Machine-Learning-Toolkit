@@ -16,22 +16,24 @@ Wrapper for the dataset data.
 \begin{DoxyCompactList}\small\item\em Constructor for empty data. \end{DoxyCompactList}\item 
 \hyperlink{class_data_a85afba1f115dce4b6d2a952326624dd4}{Data} (std\+::string dataset, const char $\ast$pos\+\_\+class=\char`\"{}1\char`\"{}, const char $\ast$neg\+\_\+class=\char`\"{}-\/1\char`\"{})
 \begin{DoxyCompactList}\small\item\em \hyperlink{class_data}{Data} constructor to load a dataset from a file. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_data_a6550f72555320ae9225ba216a9f4e7b3}\label{class_data_a6550f72555320ae9225ba216a9f4e7b3}} 
-void {\bfseries write} (std\+::string fname, std\+::string ext)
-\item 
+void \hyperlink{class_data_a6550f72555320ae9225ba216a9f4e7b3}{write} (std\+::string fname, std\+::string ext)
+\begin{DoxyCompactList}\small\item\em write Write the data to a file with the given extention. \end{DoxyCompactList}\item 
 int \hyperlink{class_data_abfd7c7cca66a186ff45efa430bcb2f1e}{get\+Size} ()
 \begin{DoxyCompactList}\small\item\em Returns the size of the dataset. \end{DoxyCompactList}\item 
 int \hyperlink{class_data_a0391940729a8023ea9b154132a854d35}{get\+Dim} ()
 \begin{DoxyCompactList}\small\item\em Returns the dimension of the dataset. \end{DoxyCompactList}\item 
+void \hyperlink{class_data_aeedfb7697a9b3e6fec681b991cb46daa}{set\+Dim} (int dim)
+\begin{DoxyCompactList}\small\item\em set\+Dim Set the dimension of the points. \end{DoxyCompactList}\item 
 \hyperlink{class_point}{Point} \hyperlink{class_data_a8cc66e410f7288913204585f215b786d}{get\+Point} (int index)
 \begin{DoxyCompactList}\small\item\em Returns the point with the given index. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_data_a9f34656f179b152407d51b04aab70748}\label{class_data_a9f34656f179b152407d51b04aab70748}} 
-void {\bfseries set\+Point} (int index, \hyperlink{class_point}{Point} p)
-\item 
+void \hyperlink{class_data_a9f34656f179b152407d51b04aab70748}{set\+Point} (int index, \hyperlink{class_point}{Point} p)
+\begin{DoxyCompactList}\small\item\em set\+Point Set the point in a position of the data. \end{DoxyCompactList}\item 
 std\+::vector$<$ \hyperlink{class_point}{Point} $>$ \hyperlink{class_data_a8fe9ce813848765a7615b909c4654b55}{get\+Points} ()
 \begin{DoxyCompactList}\small\item\em Returns the vector of Points of the sample. \end{DoxyCompactList}\item 
 std\+::vector$<$ int $>$ \hyperlink{class_data_a2f6399baee6535e7f48250da54fbf00d}{get\+Features\+Names} ()
 \begin{DoxyCompactList}\small\item\em Returns the features names. \end{DoxyCompactList}\item 
+void \hyperlink{class_data_a2702b6464d7299c3b62e4eb4390fecd6}{set\+Features\+Names} (std\+::vector$<$ int $>$ fnames)
+\begin{DoxyCompactList}\small\item\em set\+Features\+Names Set the name of the features of the data. \end{DoxyCompactList}\item 
 \hyperlink{class_statistics}{Statistics} \hyperlink{class_data_a26376768a100f1999ef3ac15a2aa2a67}{get\+Statistics} ()
 \begin{DoxyCompactList}\small\item\em Returns a class with the statistics info of the sample. \end{DoxyCompactList}\item 
 std\+::vector$<$ int $>$ \hyperlink{class_data_a16685ae631c5bedc22c974980bc74c05}{get\+Index} ()
@@ -48,6 +50,9 @@ bool \hyperlink{class_data_ad96fc8e9c5ec9e40b1dc6d9670eefe0c}{is\+Normalized} ()
 \begin{DoxyCompactList}\small\item\em Returns if the dataset is normalized. \end{DoxyCompactList}\item 
 bool \hyperlink{class_data_ac2ed251251be234c607f486e16902112}{load} (std\+::string file)
 \begin{DoxyCompactList}\small\item\em Load a dataset from a file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_data_a44b749f64ffa35e034f9503fdec4917e}\label{class_data_a44b749f64ffa35e034f9503fdec4917e}} 
+void \hyperlink{class_data_a44b749f64ffa35e034f9503fdec4917e}{clear} ()
+\begin{DoxyCompactList}\small\item\em clear Clear the data. \end{DoxyCompactList}\item 
 \hyperlink{class_data}{Data} \hyperlink{class_data_afb7687021aa7d5f1ecae464eee601710}{copy} ()
 \begin{DoxyCompactList}\small\item\em Returns a copy of the data. \end{DoxyCompactList}\item 
 \hyperlink{class_data}{Data} \hyperlink{class_data_ae9f7aeb470be537dc20c43b317dc6478}{copy\+Zero} ()
@@ -62,6 +67,8 @@ std\+::vector$<$ bool $>$ \hyperlink{class_data_a6cc376e614e5440061c66833e1c8d30
 \begin{DoxyCompactList}\small\item\em Remove several points from the sample. \end{DoxyCompactList}\item 
 bool \hyperlink{class_data_ad927494a13a5018ff3644212d7234a03}{remove\+Point} (int pid)
 \begin{DoxyCompactList}\small\item\em Remove a point from the data. \end{DoxyCompactList}\item 
+\hyperlink{class_data}{Data} \hyperlink{class_data_a90e4e972afe7cfd622d4935299def743}{insert\+Features} (std\+::vector$<$ int $>$ ins\+\_\+feat)
+\begin{DoxyCompactList}\small\item\em insert\+Features Returns \hyperlink{class_data}{Data} object with only features in array. \end{DoxyCompactList}\item 
 bool \hyperlink{class_data_a0e0136f31687452ff10b489f8804ceb8}{remove\+Features} (std\+::vector$<$ int $>$ feats)
 \begin{DoxyCompactList}\small\item\em Remove several features from the sample. \end{DoxyCompactList}\item 
 void \hyperlink{class_data_a3e66e3dce7675bf2a1eded906e3d7912}{change\+X\+Vector} (std\+::vector$<$ int $>$ index)
@@ -70,9 +77,6 @@ void \hyperlink{class_data_a38bbab57bd9d871bd78771df47529d6b}{normalize} (double
 \begin{DoxyCompactList}\small\item\em normalize Normalize the dataset using a Lp-\/norm. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_data_a02affbc0f8564106c84dc59f34666912}\label{class_data_a02affbc0f8564106c84dc59f34666912}} 
 void {\bfseries operator=} (const \hyperlink{class_data}{Data} \&)
-\item 
-\mbox{\Hypertarget{class_data_a44b749f64ffa35e034f9503fdec4917e}\label{class_data_a44b749f64ffa35e034f9503fdec4917e}} 
-void {\bfseries clear} ()
 \end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -296,6 +300,24 @@ Returns a class with the statistics info of the sample.
 \begin{DoxyReturn}{Returns}
 \hyperlink{class_statistics}{Statistics} 
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_data_a90e4e972afe7cfd622d4935299def743}\label{class_data_a90e4e972afe7cfd622d4935299def743}} 
+\index{Data@{Data}!insert\+Features@{insert\+Features}}
+\index{insert\+Features@{insert\+Features}!Data@{Data}}
+\subsubsection{\texorpdfstring{insert\+Features()}{insertFeatures()}}
+{\footnotesize\ttfamily \hyperlink{class_data}{Data} Data\+::insert\+Features (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$}]{ins\+\_\+feat }\end{DoxyParamCaption})}
+
+
+
+insert\+Features Returns \hyperlink{class_data}{Data} object with only features in array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ins\+\_\+feat} & (???) Array with features that will be in the \hyperlink{class_data}{Data} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_data}{Data} If the object is empty something wrong happened. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_data_abb6aade47d78a284301c32e82b2cbee2}\label{class_data_abb6aade47d78a284301c32e82b2cbee2}} 
 \index{Data@{Data}!insert\+Point@{insert\+Point}}
 \index{insert\+Point@{insert\+Point}!Data@{Data}}
@@ -497,6 +519,70 @@ set\+Classes Set the classes of the dataset.
 {\em pos} & Positive class. \\
 \hline
 {\em neg} & Negative class. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_data_aeedfb7697a9b3e6fec681b991cb46daa}\label{class_data_aeedfb7697a9b3e6fec681b991cb46daa}} 
+\index{Data@{Data}!set\+Dim@{set\+Dim}}
+\index{set\+Dim@{set\+Dim}!Data@{Data}}
+\subsubsection{\texorpdfstring{set\+Dim()}{setDim()}}
+{\footnotesize\ttfamily void Data\+::set\+Dim (\begin{DoxyParamCaption}\item[{int}]{dim }\end{DoxyParamCaption})}
+
+
+
+set\+Dim Set the dimension of the points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dim} & (???) Dimension to be set. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_data_a2702b6464d7299c3b62e4eb4390fecd6}\label{class_data_a2702b6464d7299c3b62e4eb4390fecd6}} 
+\index{Data@{Data}!set\+Features\+Names@{set\+Features\+Names}}
+\index{set\+Features\+Names@{set\+Features\+Names}!Data@{Data}}
+\subsubsection{\texorpdfstring{set\+Features\+Names()}{setFeaturesNames()}}
+{\footnotesize\ttfamily void Data\+::set\+Features\+Names (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$}]{fnames }\end{DoxyParamCaption})}
+
+
+
+set\+Features\+Names Set the name of the features of the data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fnames} & (???) Name of the features. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_data_a9f34656f179b152407d51b04aab70748}\label{class_data_a9f34656f179b152407d51b04aab70748}} 
+\index{Data@{Data}!set\+Point@{set\+Point}}
+\index{set\+Point@{set\+Point}!Data@{Data}}
+\subsubsection{\texorpdfstring{set\+Point()}{setPoint()}}
+{\footnotesize\ttfamily void Data\+::set\+Point (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{\hyperlink{class_point}{Point}}]{p }\end{DoxyParamCaption})}
+
+
+
+set\+Point Set the point in a position of the data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & (???) Index of the point that will be set. \\
+\hline
+{\em p} & (???) \hyperlink{class_point}{Point} to be set. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_data_a6550f72555320ae9225ba216a9f4e7b3}\label{class_data_a6550f72555320ae9225ba216a9f4e7b3}} 
+\index{Data@{Data}!write@{write}}
+\index{write@{write}!Data@{Data}}
+\subsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily void Data\+::write (\begin{DoxyParamCaption}\item[{std\+::string}]{fname,  }\item[{std\+::string}]{ext }\end{DoxyParamCaption})}
+
+
+
+write Write the data to a file with the given extention. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fname} & Name of the file. \\
+\hline
+{\em ext} & Extention of the file. \\
 \hline
 \end{DoxyParams}
 

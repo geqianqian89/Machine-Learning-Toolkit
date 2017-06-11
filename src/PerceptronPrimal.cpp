@@ -18,6 +18,8 @@ bool PerceptronPrimal::train(){
     vector<double> func(size, 0), w(dim, 0), x;
     vector<int> index = samples->getIndex();
 
+    if(w.size() == 0) w.resize(dim);
+
     while(100.0f*clock()/CLOCKS_PER_SEC-time <= 0){
         for(e = 0, i = 0; i < size; ++i){
             idx = index[i];
@@ -84,7 +86,6 @@ bool PerceptronFixedMarginPrimal::train(){
 
     if(w.size() == 0) w.resize(dim);
     e = s = 0;
-
     while(100.0f*clock()/CLOCKS_PER_SEC-time <= 0){
         for(e = 0, i = 0; i < size; ++i){
             idx = index[i];

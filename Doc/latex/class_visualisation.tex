@@ -24,7 +24,11 @@ void \hyperlink{class_visualisation_a2d29fee9180bcb2fd5cb6fc78253ac5b}{set\+Styl
 void \hyperlink{class_visualisation_a7569c77520391e6adf7e285410f4b358}{plot2D} (int x, int y)
 \begin{DoxyCompactList}\small\item\em Plot the selected features in 2D. \end{DoxyCompactList}\item 
 void \hyperlink{class_visualisation_a39cf83c146a4c92a32782bfdf6168594}{plot3D} (int x, int y, int z)
-\begin{DoxyCompactList}\small\item\em Plot the selected features in 3D. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Plot the selected features in 3D. \end{DoxyCompactList}\item 
+void \hyperlink{class_visualisation_a39b7bd29878bfc2d21fc4219803fd99d}{plot2\+Dwith\+Hyperplane} (int x, int y, \hyperlink{class_solution}{Solution} w)
+\begin{DoxyCompactList}\small\item\em Plot the data in 2D with separated by the hyperplane in the solution. \end{DoxyCompactList}\item 
+void \hyperlink{class_visualisation_a3318af0b08322183e0dbe8d4891b580d}{plot3\+Dwith\+Hyperplane} (int x, int y, int z, \hyperlink{class_solution}{Solution} w)
+\begin{DoxyCompactList}\small\item\em Plot the data in 2D with separated by the hyperplane in the solution. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -51,6 +55,26 @@ Plot the selected features in 2D.
 \begin{DoxyReturn}{Returns}
 void 
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_visualisation_a39b7bd29878bfc2d21fc4219803fd99d}\label{class_visualisation_a39b7bd29878bfc2d21fc4219803fd99d}} 
+\index{Visualisation@{Visualisation}!plot2\+Dwith\+Hyperplane@{plot2\+Dwith\+Hyperplane}}
+\index{plot2\+Dwith\+Hyperplane@{plot2\+Dwith\+Hyperplane}!Visualisation@{Visualisation}}
+\subsubsection{\texorpdfstring{plot2\+Dwith\+Hyperplane()}{plot2DwithHyperplane()}}
+{\footnotesize\ttfamily void Visualisation\+::plot2\+Dwith\+Hyperplane (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{\hyperlink{class_solution}{Solution}}]{w }\end{DoxyParamCaption})}
+
+
+
+Plot the data in 2D with separated by the hyperplane in the solution. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & (???) Feature to be used in the x-\/axis. \\
+\hline
+{\em y} & (???) Feature to be used in the y-\/axis. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_visualisation_a39cf83c146a4c92a32782bfdf6168594}\label{class_visualisation_a39cf83c146a4c92a32782bfdf6168594}} 
 \index{Visualisation@{Visualisation}!plot3D@{plot3D}}
 \index{plot3D@{plot3D}!Visualisation@{Visualisation}}
@@ -60,6 +84,28 @@ void
 
 
 Plot the selected features in 3D. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & (???) Feature to be used in the x-\/axis. \\
+\hline
+{\em y} & (???) Feature to be used in the y-\/axis. \\
+\hline
+{\em z} & (???) Feature to be used in the z-\/axis. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_visualisation_a3318af0b08322183e0dbe8d4891b580d}\label{class_visualisation_a3318af0b08322183e0dbe8d4891b580d}} 
+\index{Visualisation@{Visualisation}!plot3\+Dwith\+Hyperplane@{plot3\+Dwith\+Hyperplane}}
+\index{plot3\+Dwith\+Hyperplane@{plot3\+Dwith\+Hyperplane}!Visualisation@{Visualisation}}
+\subsubsection{\texorpdfstring{plot3\+Dwith\+Hyperplane()}{plot3DwithHyperplane()}}
+{\footnotesize\ttfamily void Visualisation\+::plot3\+Dwith\+Hyperplane (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{z,  }\item[{\hyperlink{class_solution}{Solution}}]{w }\end{DoxyParamCaption})}
+
+
+
+Plot the data in 2D with separated by the hyperplane in the solution. 
 
 
 \begin{DoxyParams}{Parameters}

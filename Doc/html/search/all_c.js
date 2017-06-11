@@ -1,21 +1,4 @@
 var searchData=
 [
-  ['parttraintest',['partTrainTest',['../class_validation.html#ad50f5974699c4d13098371fdf56f8342',1,'Validation']]],
-  ['plot2d',['plot2D',['../class_visualisation.html#a7569c77520391e6adf7e285410f4b358',1,'Visualisation']]],
-  ['plot3d',['plot3D',['../class_visualisation.html#a39cf83c146a4c92a32782bfdf6168594',1,'Visualisation']]],
-  ['plot_5fequation',['plot_equation',['../class_gnuplot.html#a42dfb8c9d4636745c7be277ed818e849',1,'Gnuplot']]],
-  ['plot_5fequation3d',['plot_equation3d',['../class_gnuplot.html#a79aed3a6927f7d1d3497cba441e8a943',1,'Gnuplot']]],
-  ['plot_5fimage',['plot_image',['../class_gnuplot.html#aae22c0470a6fbbc1f5e84dec8d023381',1,'Gnuplot']]],
-  ['plot_5fslope',['plot_slope',['../class_gnuplot.html#a51ea5105eb87285820bb93910f8d346c',1,'Gnuplot']]],
-  ['plot_5fx',['plot_x',['../class_gnuplot.html#a80f3b2baae2bceff78ad005d9c3ec3fb',1,'Gnuplot']]],
-  ['plot_5fxy',['plot_xy',['../class_gnuplot.html#a0514a7391de6b42e79732ce746c310f7',1,'Gnuplot']]],
-  ['plot_5fxy_5ferr',['plot_xy_err',['../class_gnuplot.html#a3c5d382eba33f92b26ba85f201bc7dea',1,'Gnuplot']]],
-  ['plot_5fxyz',['plot_xyz',['../class_gnuplot.html#af89cb366fa7d09ffc1c351516ae54df5',1,'Gnuplot']]],
-  ['plotfile_5fx',['plotfile_x',['../class_gnuplot.html#a4fc34218cdfdd27a65b92eea1f1f9e84',1,'Gnuplot']]],
-  ['plotfile_5fxy',['plotfile_xy',['../class_gnuplot.html#a10e1fc7344bd726faa2d70cd5ced5e5e',1,'Gnuplot']]],
-  ['plotfile_5fxy_5ferr',['plotfile_xy_err',['../class_gnuplot.html#afe9d44ba12f617188111ab915010f3ab',1,'Gnuplot']]],
-  ['plotfile_5fxyz',['plotfile_xyz',['../class_gnuplot.html#a9dbde2a91eb816481657f3a22c9b0046',1,'Gnuplot']]],
-  ['point',['Point',['../class_point.html',1,'']]],
-  ['point_2ecpp',['Point.cpp',['../_point_8cpp.html',1,'']]],
-  ['primalclassifier',['PrimalClassifier',['../class_primal_classifier.html',1,'']]]
+  ['operator_3c_3c',['operator&lt;&lt;',['../class_gnuplot.html#afb69631c7a498077e378a3cbb56f38c8',1,'Gnuplot']]]
 ];

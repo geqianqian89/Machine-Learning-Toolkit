@@ -34,6 +34,10 @@ class Point {
          */
         double norm (int p = 2);
 
+        /**********************************************
+         *  Overloaded operators for the Point class. *
+         **********************************************/
+
         friend std::ostream &operator<<( std::ostream &output, const Point &p );
 
         ~Point();

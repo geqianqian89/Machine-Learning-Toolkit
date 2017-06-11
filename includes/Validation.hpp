@@ -25,9 +25,9 @@ class Validation {
         Validation ();
         Validation (Data *sample, Classifier *classifier = NULL);
         /**
-         * @brief Divide sample into train and test.
-         * @param fold Number of folds.
-         * @param seed  Seed to feed the pseudo random number generator.
+         * \brief Divide sample into train and test.
+         * \param fold Number of folds.
+         * \param seed  Seed to feed the pseudo random number generator.
          */
         void partTrainTest(int fold, unsigned int seed);
         double kFold (int fold, int seed);

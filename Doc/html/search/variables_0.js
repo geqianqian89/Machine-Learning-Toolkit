@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['id',['id',['../class_point.html#a3ccd2080027d6845744bd044280da9e7',1,'Point']]]
+  ['bias',['bias',['../class_solution.html#ac0a589a77d238aecf14c91f55d1b8daa',1,'Solution']]]
 ];

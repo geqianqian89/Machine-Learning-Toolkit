@@ -63,6 +63,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_classifier-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Classifier Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -73,23 +74,81 @@ Inheritance diagram for Classifier:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_classifier__inherit__graph.png" border="0" usemap="#_classifier_inherit__map" alt="Inheritance graph"/></div>
 <map name="_classifier_inherit__map" id="_classifier_inherit__map">
-<area shape="rect" id="node2" href="class_dual_classifier.html" title="DualClassifier" alt="" coords="5,80,109,107"/>
-<area shape="rect" id="node3" href="class_primal_classifier.html" title="PrimalClassifier" alt="" coords="133,80,248,107"/>
+<area shape="rect" id="node2" href="class_dual_classifier.html" title="DualClassifier" alt="" coords="7,80,111,107"/>
+<area shape="rect" id="node3" href="class_primal_classifier.html" title="PrimalClassifier" alt="" coords="135,80,250,107"/>
+<area shape="rect" id="node4" href="class_perceptron_fixed_margin_primal.html" title="PerceptronFixedMarginPrimal" alt="" coords="5,155,199,181"/>
+<area shape="rect" id="node5" href="class_perceptron_primal.html" title="PerceptronPrimal" alt="" coords="223,155,346,181"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for Classifier:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_classifier__coll__graph.png" border="0" usemap="#_classifier_coll__map" alt="Collaboration graph"/></div>
+<map name="_classifier_coll__map" id="_classifier_coll__map">
+<area shape="rect" id="node2" href="class_data.html" title="Wrapper for the dataset data. " alt="" coords="5,5,56,32"/>
+<area shape="rect" id="node3" href="class_solution.html" title="Solution" alt="" coords="80,5,149,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4e2f077e6f1dce1ef0376a02b60e7c21"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a4e2f077e6f1dce1ef0376a02b60e7c21">train</a> ()=0</td></tr>
-<tr class="memdesc:a4e2f077e6f1dce1ef0376a02b60e7c21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that execute the training phase of a classification algorithm.  <a href="#a4e2f077e6f1dce1ef0376a02b60e7c21">More...</a><br /></td></tr>
-<tr class="separator:a4e2f077e6f1dce1ef0376a02b60e7c21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3934f8c7f64aa65bade43a179ea1fc46"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a3934f8c7f64aa65bade43a179ea1fc46">evaluate</a> (<a class="el" href="class_point.html">Point</a> x)=0</td></tr>
-<tr class="memdesc:a3934f8c7f64aa65bade43a179ea1fc46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the class of a feature point based on the trained classifier.  <a href="#a3934f8c7f64aa65bade43a179ea1fc46">More...</a><br /></td></tr>
-<tr class="separator:a3934f8c7f64aa65bade43a179ea1fc46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2306a5de27555ab093593ac9642bc7d9"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a2306a5de27555ab093593ac9642bc7d9">train</a> ()=0</td></tr>
+<tr class="memdesc:a2306a5de27555ab093593ac9642bc7d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that execute the training phase of a classification algorithm.  <a href="#a2306a5de27555ab093593ac9642bc7d9">More...</a><br /></td></tr>
+<tr class="separator:a2306a5de27555ab093593ac9642bc7d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8e9554823b85ddc2dcad2955da811d9"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#ae8e9554823b85ddc2dcad2955da811d9">evaluate</a> (<a class="el" href="class_point.html">Point</a> p)=0</td></tr>
+<tr class="memdesc:ae8e9554823b85ddc2dcad2955da811d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the class of a feature point based on the trained classifier.  <a href="#ae8e9554823b85ddc2dcad2955da811d9">More...</a><br /></td></tr>
+<tr class="separator:ae8e9554823b85ddc2dcad2955da811d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b16736670cba8f4c8397b6a90c8c799"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a4b16736670cba8f4c8397b6a90c8c799">setSamples</a> (<a class="el" href="class_data.html">Data</a> *samples)</td></tr>
+<tr class="memdesc:a4b16736670cba8f4c8397b6a90c8c799"><td class="mdescLeft">&#160;</td><td class="mdescRight">setSamples Set the samples used in the classifier.  <a href="#a4b16736670cba8f4c8397b6a90c8c799">More...</a><br /></td></tr>
+<tr class="separator:a4b16736670cba8f4c8397b6a90c8c799"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fb3e4dfd80c154e89603c8fa1b11b76"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a1fb3e4dfd80c154e89603c8fa1b11b76">getSteps</a> ()</td></tr>
+<tr class="memdesc:a1fb3e4dfd80c154e89603c8fa1b11b76"><td class="mdescLeft">&#160;</td><td class="mdescRight">getSteps Returns the number of steps through the data by the classifier.  <a href="#a1fb3e4dfd80c154e89603c8fa1b11b76">More...</a><br /></td></tr>
+<tr class="separator:a1fb3e4dfd80c154e89603c8fa1b11b76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a738c2fbed982db6cad02062edcc037e4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a738c2fbed982db6cad02062edcc037e4">getUpdates</a> ()</td></tr>
+<tr class="memdesc:a738c2fbed982db6cad02062edcc037e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">getUpdates Returns the number of updates needed to get to the the solution.  <a href="#a738c2fbed982db6cad02062edcc037e4">More...</a><br /></td></tr>
+<tr class="separator:a738c2fbed982db6cad02062edcc037e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a515c225d0da93df02ca79f9f87811d17"><td class="memItemLeft" align="right" valign="top"><a id="a515c225d0da93df02ca79f9f87811d17"></a>
+<a class="el" href="class_data.html">Data</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>samples</b></td></tr>
+<tr class="separator:a515c225d0da93df02ca79f9f87811d17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9146fbbd020de483957a1ea68b614c7"><td class="memItemLeft" align="right" valign="top"><a id="ae9146fbbd020de483957a1ea68b614c7"></a>
+std::vector&lt; <a class="el" href="class_point.html">Point</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#ae9146fbbd020de483957a1ea68b614c7">svs</a></td></tr>
+<tr class="memdesc:ae9146fbbd020de483957a1ea68b614c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Support vectors points. <br /></td></tr>
+<tr class="separator:ae9146fbbd020de483957a1ea68b614c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e70651d36fa396f55028847acd6ae50"><td class="memItemLeft" align="right" valign="top"><a id="a8e70651d36fa396f55028847acd6ae50"></a>
+<a class="el" href="class_solution.html">Solution</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a8e70651d36fa396f55028847acd6ae50">solution</a></td></tr>
+<tr class="memdesc:a8e70651d36fa396f55028847acd6ae50"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_classifier.html">Classifier</a> solution. <br /></td></tr>
+<tr class="separator:a8e70651d36fa396f55028847acd6ae50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9867e5919742de1303dd971a9a1c19a"><td class="memItemLeft" align="right" valign="top"><a id="af9867e5919742de1303dd971a9a1c19a"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#af9867e5919742de1303dd971a9a1c19a">rate</a> = 0.5</td></tr>
+<tr class="memdesc:af9867e5919742de1303dd971a9a1c19a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Learning rate. <br /></td></tr>
+<tr class="separator:af9867e5919742de1303dd971a9a1c19a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4488a20bd7b4fc22d57244aaee57b002"><td class="memItemLeft" align="right" valign="top"><a id="a4488a20bd7b4fc22d57244aaee57b002"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a4488a20bd7b4fc22d57244aaee57b002">start_time</a> = 0</td></tr>
+<tr class="memdesc:a4488a20bd7b4fc22d57244aaee57b002"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial time. <br /></td></tr>
+<tr class="separator:a4488a20bd7b4fc22d57244aaee57b002"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5ada7ce4d5436d1dcff3dff458107fd"><td class="memItemLeft" align="right" valign="top"><a id="ae5ada7ce4d5436d1dcff3dff458107fd"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#ae5ada7ce4d5436d1dcff3dff458107fd">max_time</a> = 200</td></tr>
+<tr class="memdesc:ae5ada7ce4d5436d1dcff3dff458107fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum time of training. <br /></td></tr>
+<tr class="separator:ae5ada7ce4d5436d1dcff3dff458107fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e4c9c9ba059d5aff1d4d81eb41725cb"><td class="memItemLeft" align="right" valign="top"><a id="a1e4c9c9ba059d5aff1d4d81eb41725cb"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a1e4c9c9ba059d5aff1d4d81eb41725cb">steps</a> = 0</td></tr>
+<tr class="memdesc:a1e4c9c9ba059d5aff1d4d81eb41725cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of steps in the data. <br /></td></tr>
+<tr class="separator:a1e4c9c9ba059d5aff1d4d81eb41725cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99d9a7f504212bb3dc2726c10a2333c6"><td class="memItemLeft" align="right" valign="top"><a id="a99d9a7f504212bb3dc2726c10a2333c6"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a99d9a7f504212bb3dc2726c10a2333c6">ctot</a> = 0</td></tr>
+<tr class="memdesc:a99d9a7f504212bb3dc2726c10a2333c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of updates of the weights. <br /></td></tr>
+<tr class="separator:a99d9a7f504212bb3dc2726c10a2333c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7cd0cfea68461340df2adb0c132dc93"><td class="memItemLeft" align="right" valign="top"><a id="ad7cd0cfea68461340df2adb0c132dc93"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#ad7cd0cfea68461340df2adb0c132dc93">EPS</a> = 1E-9</td></tr>
+<tr class="memdesc:ad7cd0cfea68461340df2adb0c132dc93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max precision. <br /></td></tr>
+<tr class="separator:ad7cd0cfea68461340df2adb0c132dc93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a3934f8c7f64aa65bade43a179ea1fc46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3934f8c7f64aa65bade43a179ea1fc46">&#9670;&nbsp;</a></span>evaluate()</h2>
+<a id="ae8e9554823b85ddc2dcad2955da811d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8e9554823b85ddc2dcad2955da811d9">&#9670;&nbsp;</a></span>evaluate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -98,10 +157,10 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual int Classifier::evaluate </td>
+          <td class="memname">virtual double Classifier::evaluate </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_point.html">Point</a>&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -121,10 +180,52 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
 
+<p>Implemented in <a class="el" href="class_perceptron_fixed_margin_primal.html#af72c3dde96f1f1b803c7b522b5c1cc0f">PerceptronFixedMarginPrimal</a>, and <a class="el" href="class_perceptron_primal.html#ac8ce9ceffe2b35b5386e5367fb419b3b">PerceptronPrimal</a>.</p>
+
 </div>
 </div>
-<a id="a4e2f077e6f1dce1ef0376a02b60e7c21"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e2f077e6f1dce1ef0376a02b60e7c21">&#9670;&nbsp;</a></span>train()</h2>
+<a id="a1fb3e4dfd80c154e89603c8fa1b11b76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fb3e4dfd80c154e89603c8fa1b11b76">&#9670;&nbsp;</a></span>getSteps()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Classifier::getSteps </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getSteps Returns the number of steps through the data by the classifier. </p>
+<dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
+
+</div>
+</div>
+<a id="a738c2fbed982db6cad02062edcc037e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a738c2fbed982db6cad02062edcc037e4">&#9670;&nbsp;</a></span>getUpdates()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Classifier::getUpdates </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getUpdates Returns the number of updates needed to get to the the solution. </p>
+<dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
+
+</div>
+</div>
+<a id="a4b16736670cba8f4c8397b6a90c8c799"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b16736670cba8f4c8397b6a90c8c799">&#9670;&nbsp;</a></span>setSamples()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -133,7 +234,41 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void Classifier::train </td>
+          <td class="memname">void Classifier::setSamples </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_data.html">Data</a> *&#160;</td>
+          <td class="paramname"><em>samples</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>setSamples Set the samples used in the classifier. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">samples</td><td>Samples to be used. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2306a5de27555ab093593ac9642bc7d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2306a5de27555ab093593ac9642bc7d9">&#9670;&nbsp;</a></span>train()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Classifier::train </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -149,10 +284,13 @@ Public Member Functions</h2></td></tr>
 <p>Function that execute the training phase of a classification algorithm. </p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
+<p>Implemented in <a class="el" href="class_perceptron_fixed_margin_primal.html#ad41c2a42c4a819c03bf9879110b0f99f">PerceptronFixedMarginPrimal</a>, and <a class="el" href="class_perceptron_primal.html#a17f817a72fc7d61d1686ea77f7f9e84d">PerceptronPrimal</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>includes/<a class="el" href="_classifier_8hpp_source.html">Classifier.hpp</a></li>
+<li>src/Classifier.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

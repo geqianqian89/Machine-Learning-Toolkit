@@ -1,3 +1,5 @@
 <map id="PrimalClassifier" name="PrimalClassifier">
-<area shape="rect" id="node2" href="$class_classifier.html" title="Classifier" alt="" coords="24,5,101,32"/>
+<area shape="rect" id="node2" href="$class_classifier.html" title="Classifier" alt="" coords="33,95,111,121"/>
+<area shape="rect" id="node3" href="$class_data.html" title="Wrapper for the dataset data. " alt="" coords="5,5,56,32"/>
+<area shape="rect" id="node4" href="$class_solution.html" title="Solution" alt="" coords="80,5,149,32"/>
 </map>

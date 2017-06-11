@@ -14,6 +14,7 @@ class Classifier {
         Data* samples;
         /// Support vectors points.
         std::vector<Point> svs;
+        /// Classifier solution.
         Solution solution;
         /// Learning rate
         double rate = 0.5;
@@ -40,8 +41,20 @@ class Classifier {
          * \return int
          */
         virtual double evaluate (Point p) = 0;
+        /**
+         * \brief setSamples Set the samples used in the classifier.
+         * \param samples Samples to be used.
+         */
         virtual void setSamples(Data *samples);
+        /**
+         * \brief getSteps Returns the number of steps through the data by the classifier.
+         * \return int
+         */
         int getSteps();
+        /**
+         * \brief getUpdates Returns the number of updates needed to get to the the solution.
+         * \return int
+         */
         int getUpdates();
 };
 

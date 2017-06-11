@@ -737,6 +737,8 @@ void classifiersOption(int option){
     case 2:
         clear();
         header();
+        cout << "1 - Perceptron Dual" << endl;
+        cout << "2 - Perceptron Dual with fixed margin" << endl;
         cout << "0 - Back to classifiers menu" << endl;
         opt = selector();
         dualClassifiersOption(opt);

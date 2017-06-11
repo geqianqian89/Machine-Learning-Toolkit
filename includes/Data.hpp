@@ -20,11 +20,13 @@ class Data {
         std::vector<Point> points;
         /// Features names.
         std::vector<int> fnames;
+        /// Points indexes.
         std::vector<int> index;
         /// Number of points in the dataset.
         int size = 0;
         /// Dataset points dimension.
         int dim = 0;
+        /// Positive and negative classes. (1, -1 are the default classes)
         std::string pos_class, neg_class;
         /// Verify if there's some data loaded.
         bool is_empty = true;
@@ -77,6 +79,11 @@ class Data {
          * \param neg_class String representing the negative class on the dataset.
          */
         Data (std::string dataset, const char* pos_class = "1", const char* neg_class = "-1");
+        /**
+         * \brief write Write the data to a file with the given extention.
+         * \param fname Name of the file.
+         * \param ext   Extention of the file.
+         */
         void write(std::string fname, std::string ext);
         /**
          * \brief Returns the size of the dataset.
@@ -88,6 +95,10 @@ class Data {
          * \return int
          */
         int getDim ();
+        /**
+         * \brief setDim Set the dimension of the points.
+         * \param dim (???) Dimension to be set.
+         */
         void setDim(int dim);
         /**
          * \brief Returns the point with the given index.
@@ -95,6 +106,11 @@ class Data {
          * \return std::vector<Points>
          */
         Point getPoint (int index);
+        /**
+         * \brief setPoint Set the point in a position of the data.
+         * \param index (???) Index of the point that will be set.
+         * \param p (???) Point to be set.
+         */
         void setPoint (int index, Point p);
         /**
          * \brief Returns the vector of Points of the sample.
@@ -106,6 +122,10 @@ class Data {
          * \return std::vector<int>
          */
         std::vector<int> getFeaturesNames ();
+        /**
+         * \brief setFeaturesNames Set the name of the features of the data.
+         * \param fnames (???) Name of the features.
+         */
         void setFeaturesNames(std::vector<int> fnames);
         /**
          * \brief Returns a class with the statistics info of the sample.
@@ -127,7 +147,7 @@ class Data {
          * \return int
          */
         int getNumberNegativePoints ();
-        /*!
+        /**
          * \brief setClasses Set the classes of the dataset.
          * \param pos   Positive class.
          * \param neg   Negative class.
@@ -149,6 +169,10 @@ class Data {
          * \return bool
          */
         bool load (std::string file);
+        /**
+         * \brief clear Clear the data.
+         */
+        void clear();
         /**
          * \brief Returns a copy of the data.
          * \return Data
@@ -220,10 +244,12 @@ class Data {
          */
         static void normalize(std::vector<double> &p, double q);
 
+        /*********************************************
+         *  Overloaded operators for the Data class. *
+         *********************************************/
+
         void operator=(const Data&);
         friend std::ostream &operator<<( std::ostream &output, const Data &data );
-
-        void clear();
 
         ~Data();
 };

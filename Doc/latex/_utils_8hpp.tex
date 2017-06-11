@@ -48,7 +48,11 @@ int \hyperlink{_utils_8hpp_a8f8f36f1e1b6c6900fac56c148f754eb}{stoin} (std\+::str
 double \hyperlink{_utils_8hpp_a0187e008853de2faa4269af7602af7d5}{stodn} (std\+::string str)
 \begin{DoxyCompactList}\small\item\em Converts the string to a double. \end{DoxyCompactList}\item 
 double \hyperlink{_utils_8hpp_a79ab62c544d771819865bec0eb8e5360}{max\+Abs\+Element} (std\+::vector$<$ double $>$ x)
-\begin{DoxyCompactList}\small\item\em Returns the max absolute element. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Returns the max absolute element. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{_utils_8hpp_a2cb59bd32f3873689eb1b5516a1333f7}{itos} (int n)
+\begin{DoxyCompactList}\small\item\em itos Integer to string conversion. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{_utils_8hpp_aa2e6553d01cd9d5839b137e33d17f256}{dtoa} (double n)
+\begin{DoxyCompactList}\small\item\em dtoa Double to string conversion. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -60,6 +64,24 @@ Mateus Coutinho Marim
 
 
 \subsection{Function Documentation}
+\mbox{\Hypertarget{_utils_8hpp_aa2e6553d01cd9d5839b137e33d17f256}\label{_utils_8hpp_aa2e6553d01cd9d5839b137e33d17f256}} 
+\index{Utils.\+hpp@{Utils.\+hpp}!dtoa@{dtoa}}
+\index{dtoa@{dtoa}!Utils.\+hpp@{Utils.\+hpp}}
+\subsubsection{\texorpdfstring{dtoa()}{dtoa()}}
+{\footnotesize\ttfamily std\+::string dtoa (\begin{DoxyParamCaption}\item[{double}]{n }\end{DoxyParamCaption})}
+
+
+
+dtoa Double to string conversion. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Double to be converted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
 \mbox{\Hypertarget{_utils_8hpp_ad5057d992c7e88f80c37a28044320e45}\label{_utils_8hpp_ad5057d992c7e88f80c37a28044320e45}} 
 \index{Utils.\+hpp@{Utils.\+hpp}!is\+\_\+number@{is\+\_\+number}}
 \index{is\+\_\+number@{is\+\_\+number}!Utils.\+hpp@{Utils.\+hpp}}
@@ -77,6 +99,24 @@ Verify if the string is a number.
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_utils_8hpp_a2cb59bd32f3873689eb1b5516a1333f7}\label{_utils_8hpp_a2cb59bd32f3873689eb1b5516a1333f7}} 
+\index{Utils.\+hpp@{Utils.\+hpp}!itos@{itos}}
+\index{itos@{itos}!Utils.\+hpp@{Utils.\+hpp}}
+\subsubsection{\texorpdfstring{itos()}{itos()}}
+{\footnotesize\ttfamily std\+::string itos (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+itos Integer to string conversion. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Integer to be converted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
 \end{DoxyReturn}
 \mbox{\Hypertarget{_utils_8hpp_a79ab62c544d771819865bec0eb8e5360}\label{_utils_8hpp_a79ab62c544d771819865bec0eb8e5360}} 
 \index{Utils.\+hpp@{Utils.\+hpp}!max\+Abs\+Element@{max\+Abs\+Element}}

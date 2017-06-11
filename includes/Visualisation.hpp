@@ -23,8 +23,20 @@ class Visualisation {
          * \return void
          */
         void createPosNegTemps();
+        /**
+         * \brief valid_file Returns if a given file name is valid.
+         * \param file  Name of the file.
+         * \return bool
+         */
         bool valid_file(std::string file);
+        /**
+         * \brief getTempFilesNames Returns the name of the files in the temp folder.
+         * \return vector<string>
+         */
         std::vector<std::string> getTempFilesNames();
+        /**
+         * \brief removeTempFiles Remove the temporary files created in the temp folder.
+         */
         void removeTempFiles();
     // Operations
     public :
@@ -63,7 +75,20 @@ class Visualisation {
          * \return void
          */
         void plot3D(int x, int y, int z);
+        /**
+         * \brief Plot the data in 2D with separated by the hyperplane in the solution.
+         * \param x (???) Feature to be used in the x-axis.
+         * \param y (???) Feature to be used in the y-axis.
+         * \return void
+         */
         void plot2DwithHyperplane(int x, int y, Solution w);
+        /**
+         * \brief Plot the data in 2D with separated by the hyperplane in the solution.
+         * \param x (???) Feature to be used in the x-axis.
+         * \param y (???) Feature to be used in the y-axis.
+         * \param z (???) Feature to be used in the z-axis.
+         * \return void
+         */
         void plot3DwithHyperplane(int x, int y, int z, Solution w);
         ~Visualisation();
 };

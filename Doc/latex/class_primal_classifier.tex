@@ -2,25 +2,77 @@
 \label{class_primal_classifier}\index{Primal\+Classifier@{Primal\+Classifier}}
 
 
-Inheritance diagram for Primal\+Classifier\+:\nopagebreak
+Inheritance diagram for Primal\+Classifier\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=166pt]{class_primal_classifier__inherit__graph}
+\includegraphics[width=336pt]{class_primal_classifier__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Collaboration diagram for Primal\+Classifier\+:\nopagebreak
+Collaboration diagram for Primal\+Classifier\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=166pt]{class_primal_classifier__coll__graph}
+\includegraphics[width=188pt]{class_primal_classifier__coll__graph}
 \end{center}
 \end{figure}
-\subsection*{Additional Inherited Members}
-
-
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
 \item 
-includes/Primal\+Classifier.\+hpp\end{DoxyCompactItemize}
+void \hyperlink{class_primal_classifier_aecd2369094119c294333bc12df419b16}{set\+Norm} (double \hyperlink{class_primal_classifier_a746ad2ff93fb77d82ae389f90dbdc89e}{q})
+\begin{DoxyCompactList}\small\item\em set\+Norm Set the norm used by the classifier. (Euclidean norm is the default) \end{DoxyCompactList}\item 
+\hyperlink{class_solution}{Solution} \hyperlink{class_primal_classifier_a1a3d9ba4e80c58418db0d8454168b910}{get\+Solution} ()
+\begin{DoxyCompactList}\small\item\em get\+Solution Returns the solution of the primal classifier. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_primal_classifier_ad6ad165a5ad305841797374de9fc2aac}\label{class_primal_classifier_ad6ad165a5ad305841797374de9fc2aac}} 
+std\+::vector$<$ double $>$ \hyperlink{class_primal_classifier_ad6ad165a5ad305841797374de9fc2aac}{w}
+\begin{DoxyCompactList}\small\item\em Weights vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_primal_classifier_a746ad2ff93fb77d82ae389f90dbdc89e}\label{class_primal_classifier_a746ad2ff93fb77d82ae389f90dbdc89e}} 
+double \hyperlink{class_primal_classifier_a746ad2ff93fb77d82ae389f90dbdc89e}{q} = 2
+\begin{DoxyCompactList}\small\item\em Norm used in the classification. (Euclidean Norm is the default) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_primal_classifier_af660bbc42f67792e3da8876671b1e9df}\label{class_primal_classifier_af660bbc42f67792e3da8876671b1e9df}} 
+double \hyperlink{class_primal_classifier_af660bbc42f67792e3da8876671b1e9df}{flexible} = 0.\+0
+\begin{DoxyCompactList}\small\item\em Flexibilidade. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_primal_classifier_a1a3d9ba4e80c58418db0d8454168b910}\label{class_primal_classifier_a1a3d9ba4e80c58418db0d8454168b910}} 
+\index{Primal\+Classifier@{Primal\+Classifier}!get\+Solution@{get\+Solution}}
+\index{get\+Solution@{get\+Solution}!Primal\+Classifier@{Primal\+Classifier}}
+\subsubsection{\texorpdfstring{get\+Solution()}{getSolution()}}
+{\footnotesize\ttfamily \hyperlink{class_solution}{Solution} Primal\+Classifier\+::get\+Solution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Solution Returns the solution of the primal classifier. 
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_solution}{Solution} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_primal_classifier_aecd2369094119c294333bc12df419b16}\label{class_primal_classifier_aecd2369094119c294333bc12df419b16}} 
+\index{Primal\+Classifier@{Primal\+Classifier}!set\+Norm@{set\+Norm}}
+\index{set\+Norm@{set\+Norm}!Primal\+Classifier@{Primal\+Classifier}}
+\subsubsection{\texorpdfstring{set\+Norm()}{setNorm()}}
+{\footnotesize\ttfamily void Primal\+Classifier\+::set\+Norm (\begin{DoxyParamCaption}\item[{double}]{q }\end{DoxyParamCaption})}
+
+
+
+set\+Norm Set the norm used by the classifier. (Euclidean norm is the default) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Norm that will be used by the classifier. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+includes/Primal\+Classifier.\+hpp\item 
+src/Primal\+Classifier.\+cpp\end{DoxyCompactItemize}
