@@ -88,6 +88,7 @@ class Data {
          * \return int
          */
         int getDim ();
+        void setDim(int dim);
         /**
          * \brief Returns the point with the given index.
          * \param index    Position of a point in the points array.
@@ -105,6 +106,7 @@ class Data {
          * \return std::vector<int>
          */
         std::vector<int> getFeaturesNames ();
+        void setFeaturesNames(std::vector<int> fnames);
         /**
          * \brief Returns a class with the statistics info of the sample.
          * \return Statistics
@@ -188,6 +190,12 @@ class Data {
          * \return bool
          */
         bool removePoint (int pid);
+        /**
+         * @brief insertFeatures Returns Data object with only features in array.
+         * @param ins_feat (???) Array with features that will be in the Data object.
+         * @return Data If the object is empty something wrong happened.
+         */
+        Data insertFeatures(std::vector<int> ins_feat);
         /**
          * \brief Remove several features from the sample.
          * \param feats (???) Names of the features to be removed (must be sorted).

@@ -642,6 +642,56 @@ vector<bool> Data::removePoints(vector<int> ids){
     return notFound;
 }
 
+Data Data::insertFeatures(std::vector<int> ins_feat){
+    int i, j, s, offset = 0, fsize = ins_feat.size();
+    bool saveflag;
+    vector<int> new_fnames(fsize, 0);
+    Point p;
+    Data smout;
+
+    if(fsize == 0) return *this;
+    sort(ins_feat.begin(), ins_feat.end());
+
+    //error check
+    if(fsize > dim){ cerr << "Error: InsertFeature, fsize(" << ins_feat.size() << ")>dim(" << dim << ")\n"; return smout; }
+    smout.setDim(fsize);
+
+    //Copying information to new data array
+    for(i = 0; i < size; i++){
+        p.x.resize(fsize, 0);
+        p.y = points[i].y;
+        p.alpha = points[i].alpha;
+        p.id = points[i].id;
+
+        //Copying features
+        s = 0, offset = 0;
+        for(j = 0; j < dim; j++){
+            if(offset < fsize && fnames[j] == ins_feat[offset]){
+                saveflag = true;
+                offset++;
+            }
+
+            if(saveflag){
+                p.x[s] = points[i].x[j];
+                new_fnames[s] = fnames[j];
+                s++;
+                saveflag = false;
+            }
+        }
+        //error check
+        if(s != fsize){
+            cerr << "Error: Something went wrong on InsertFeature\n";
+            cerr << "s = " << s << ", dim = " << dim << ", fsize = " << fsize << endl;
+            smout.clear();
+            return smout;
+        }
+        smout.insertPoint(p);
+    }
+    smout.setFeaturesNames(new_fnames);
+
+    return smout;
+}
+
 bool Data::removeFeatures(std::vector<int> feats){
     int i, j, k, psize = points.size(), rsize = feats.size();
     vector<double>::iterator itr;
@@ -701,12 +751,14 @@ bool Data::insertPoint(Point p){
     //Dimension verification
     if(int(p.x.size()) > dim){
         cerr << "Point with dimension different from the data. (insertPoint)" << endl;
+        cerr << "Point dim = " << p.x.size() << " dim = " << dim << endl;
         return false;
     }
 
     //Insert the point p at the end of the points vector
     points.insert(points.end(), p);
     size++;
+    if(is_empty) is_empty = false;
 
     if(p.y > 0)
         stats.n_pos++;
@@ -818,12 +870,20 @@ int Data::getDim(){
     return dim;
 }
 
+void Data::setDim(int dim){
+    this->dim = dim;
+}
+
 int Data::getSize(){
     return size;
 }
 
 vector<int> Data::getFeaturesNames(){
     return fnames;
+}
+
+void Data::setFeaturesNames(std::vector<int> fnames){
+    this->fnames = fnames;
 }
 
 vector<Point> Data::getPoints(){

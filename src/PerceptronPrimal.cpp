@@ -82,6 +82,7 @@ bool PerceptronFixedMarginPrimal::train(){
     vector<int> index = samples->getIndex();
     Point p;
 
+    if(w.size() == 0) w.resize(dim);
     e = s = 0;
 
     while(100.0f*clock()/CLOCKS_PER_SEC-time <= 0){

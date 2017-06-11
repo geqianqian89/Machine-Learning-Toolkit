@@ -489,10 +489,13 @@ void dataOption(int option){
                         cin.clear();
                     }
                 }
+                Data temp = data.insertFeatures(feats);
 
-                //Sample *samples = Sample::copy(_data->get_samples());
-                //Sample *sample_temp = _data->insert_features(samples, feats, totalFeat, verbose);
-                //_data->set_samples(sample_temp);
+                if(!temp.isEmpty()){
+                    data = temp;
+                }else{
+                    cerr << "Something went wrong." << endl;
+                }
             }else cout << "Load a dataset first...\n\n";
 
             waitUserAction();
@@ -726,6 +729,7 @@ void classifiersOption(int option){
         clear();
         header();
         cout << "1 - Perceptron Primal" << endl;
+        cout << "2 - Perceptron Primal with fixed margin" << endl;
         cout << "0 - Back to classifiers menu" << endl;
         opt = selector();
         primalClassifiersOption(opt);
@@ -749,7 +753,7 @@ void classifiersOption(int option){
 
 void primalClassifiersOption(int option){
     int q, i;
-    double rate;
+    double rate, gamma;
 
     switch (option) {
     case 1:
@@ -761,6 +765,35 @@ void primalClassifiersOption(int option){
             cout << endl;
 
             PerceptronPrimal perc(&data, q, rate);
+
+            perc.train();
+            sol = perc.getSolution();
+
+            cout << "Number of steps through data: " << perc.getSteps() << endl;
+            cout << "Number of updates: " << perc.getUpdates() << endl;
+            cout << "Weights vector:" << endl;
+            cout << "[";
+            for(i = 0; i < sol.w.size(); i++){
+                cout << sol.w[i] << ", ";
+            }
+            cout << sol.bias <<  "]" << endl;
+            cout << endl;
+            waitUserAction();
+        }else{
+            cout << "Load a dataset first..." << endl;
+        }
+        break;
+    case 2:
+        if(!data.isEmpty()){
+            cout << "Value of the learning rate: ";
+            cin >> rate;
+            cout << "Value of the q norm: ";
+            cin >> q;
+            cout << "Gamma value: ";
+            cin >> gamma;
+            cout << endl;
+
+            PerceptronFixedMarginPrimal perc(&data, gamma, q, rate);
 
             perc.train();
             sol = perc.getSolution();
