@@ -23,7 +23,7 @@ class Validation {
     // Operations
     public :
         Validation ();
-        Validation (Data sample, Classifier *classifier = NULL);
+        Validation (Data *sample, Classifier *classifier = NULL);
         /**
          * @brief Divide sample into train and test.
          * @param fold Number of folds.

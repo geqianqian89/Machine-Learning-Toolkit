@@ -10,6 +10,7 @@ class PrimalClassifier : public Classifier {
         std::vector<double> w;
         /// Norm used in the classification. (Euclidean Norm is the default)
         double q = 2;
+        double flexible = 0.0;
     public:
         void setNorm(double q);
         Solution getSolution();

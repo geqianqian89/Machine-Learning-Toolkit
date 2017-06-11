@@ -7,8 +7,8 @@
 
 using namespace std;
 
-Validation::Validation(Data sample, Classifier *classifier){
-    this->sample = &sample;
+Validation::Validation(Data *sample, Classifier *classifier){
+    this->sample = sample;
     this->classifier = classifier;
 }
 

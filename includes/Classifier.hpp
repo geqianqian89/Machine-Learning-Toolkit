@@ -33,7 +33,7 @@ class Classifier {
          * \brief Function that execute the training phase of a classification algorithm.
          * \return void
          */
-        virtual void train () = 0;
+        virtual bool train () = 0;
         /**
          * \brief Returns the class of a feature point based on the trained classifier.
          * \param Point x (???) Features point to be evaluated.

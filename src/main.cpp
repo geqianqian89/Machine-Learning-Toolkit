@@ -18,6 +18,8 @@ bool sair = false, inva = false;
 double max_time = 100.0f;
 string data_folder = "DB/";
 Data data;
+Data test_sample;
+Data train_sample;
 Solution sol;
 Visualisation plot(&data);
 
@@ -341,11 +343,10 @@ void datasetOption(int option){
 
                 if(y == 'y'){
                     data.clear();
-                    /*if(test_sample){
-                        delete test_sample;
-                        test_sample = NULL;
+                    if(!test_sample.isEmpty()){
+                        test_sample.clear();
+                        train_sample.clear();
                     }
-                    _data = NULL;*/
                     cout << "\nOld dataset erased, select this option again."<< endl;
                 }
             }
@@ -363,17 +364,17 @@ void datasetOption(int option){
                 cout << "Positive points: ";
                 cout << data.getNumberPositivePoints() << endl;
 
-                /*if(test_sample != NULL){
+                if(!test_sample.isEmpty()){
                     cout << "\n\nTest sample information\n\n";
                     cout << "Number of features: ";
-                    cout << test_sample->dim << endl;
+                    cout << test_sample.getDim() << endl;
                     cout << "Number of samples: ";
-                    cout << test_sample->size << endl;
+                    cout << test_sample.getSize() << endl;
                     cout << "Negative points: ";
-                    cout << test_sample->nneg_samples << endl;
+                    cout << test_sample.getNumberNegativePoints() << endl;
                     cout << "Positive points: ";
-                    cout << test_sample->npos_samples << endl;
-                }*/
+                    cout << test_sample.getNumberPositivePoints() << endl;
+                }
             }else cout << "Load a dataset first...\n\n";
 
             waitUserAction();
@@ -398,32 +399,32 @@ void datasetOption(int option){
             waitUserAction();
             break;
         case 5:
-            /*if(_data != NULL && !_data->empty()){
+            if(!data.isEmpty()){
                 int fold;
                 unsigned int seed;
+                Validation valid(&data);
 
-                if(!test_sample){
-                    Sample *sample = Sample::copy(_data->get_samples());
-                    test_sample = new Sample;
-
+                if(test_sample.isEmpty()){
                     cout << "K-Fold: ";
                     cin >> fold;
                     cout << "Seed for timestamps: ";
                     cin >> seed;
 
                     clock_t begin = clock();
-                    test_sample = _data->part_train_test(sample, test_sample, fold, seed, verbose);
+                    valid.partTrainTest(fold, seed);
+                    test_sample = valid.getTestSample();
+                    train_sample = valid.getTrainSample();
                     clock_t end = clock();
 
                     cout << "\nDone!" << endl;
                     double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
-                    cout << "Size of the test sample: " << test_sample->size << endl;
+                    cout << "Size of the test sample: " << test_sample.getSize() << endl;
                     cout << endl;
                     cout << elapsed_secs << " seconds to compute.\n";
 
                 }else cout << "Test sample already divided...\n";
             }else cout << "Load a dataset first...\n\n";
-            */
+
             waitUserAction();
             break;
         case 6:
