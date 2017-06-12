@@ -114,7 +114,7 @@ vector<string> list_datasets(bool list){
         WIN32_FIND_DATA data;
         string path = ".\\" + data_folder + "\\*.*";
 
-        hFind = FindFirstFile(path, &data);
+        hFind = FindFirstFile(path.c_str(), &data);
         if (hFind != INVALID_HANDLE_VALUE) {
           do {
             string file_name(data.cFileName);
@@ -325,7 +325,7 @@ void datasetOption(int option){
                 cout << "Enter the negative class: ";
                 cin >> neg;
 
-                path = data_folder + files[stoi(sid)];
+                path = data_folder + files[stoin(sid)];
                 clock_t begin = clock();
                 data.setClasses(pos, neg);
                 cout << "\n" << path << endl;

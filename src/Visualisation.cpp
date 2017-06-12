@@ -1,9 +1,4 @@
 #include "../includes/Visualisation.hpp"
-#ifdef __unix__
-    #include <dirent.h>
-#elif _WIN32
-    #include <windows.h>
-#endif
 #include <cstdio>
 #include <string>
 #include <sstream>
@@ -131,14 +126,22 @@ void Visualisation::plot2D(int x, int y){
     string dims = itos(x) + ":" + itos(y);
     string cmd = "plot 'temp/pos.plt' using " + dims + " title '+1' with points, 'temp/neg.plt' using " + dims + " title '-1' with points";
     createPosNegTemps();
-    g.cmd(cmd);
+    #ifdef __unix__
+        g.cmd(cmd);
+    #elif _WIN32
+        system(cmd.c_str());
+    #endif
 }
 
 void Visualisation::plot3D(int x, int y, int z){
     string dims = itos(x) + ":" + itos(y) + ":" + itos(z);
     string cmd = "splot 'temp/pos.plt' using " + dims + " title '+1' with points, 'temp/neg.plt' using " + dims + " title '-1' with points";
     createPosNegTemps();
-    g.cmd(cmd);
+    #ifdef __unix__
+        g.cmd(cmd);
+    #elif _WIN32
+        system(cmd.c_str());
+    #endif
 }
 
 void Visualisation::plot2DwithHyperplane(int x, int y, Solution s){
@@ -148,7 +151,11 @@ void Visualisation::plot2DwithHyperplane(int x, int y, Solution s){
     string hx = "h(x) = "+dtoa(s.w[x-1]/-s.w[y-1])+"*x + "+dtoa((s.bias - s.margin*s.norm)/-s.w[y-1]);
     string cmd = fx + "; "+ gx +"; "+ hx +"; plot 'temp/pos.plt' using "+feats+" title '+1' with points, 'temp/neg.plt' using "+feats+" title '-1' with points, f(x) notitle with lines ls 1, g(x) notitle with lines ls 2, h(x) notitle with lines ls 2";
     createPosNegTemps();
-    g.cmd(cmd);
+    #ifdef __unix__
+        g.cmd(cmd);
+    #elif _WIN32
+        system(cmd.c_str());
+    #endif
 }
 
 void Visualisation::plot3DwithHyperplane(int x, int y, int z, Solution s){
@@ -156,7 +163,11 @@ void Visualisation::plot3DwithHyperplane(int x, int y, int z, Solution s){
     string fxy = "f(x,y) = "+dtoa(s.w[x-1]/-s.w[z-1])+"*x + "+dtoa(s.w[y-1]/-s.w[z-1])+"*y + "+dtoa(s.bias/-s.w[z-1]);
     string cmd = fxy + "; splot 'temp/pos.plt' using "+ feats +" title '+1' with points, 'temp/neg.plt' using "+ feats +" title '-1' with points, f(x,y) notitle with lines ls 1";
     createPosNegTemps();
-    g.cmd(cmd);
+    #ifdef __unix__
+        g.cmd(cmd);
+    #elif _WIN32
+        system(cmd.c_str());
+    #endif
 }
 
 Visualisation::~Visualisation(){

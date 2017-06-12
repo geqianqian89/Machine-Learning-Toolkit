@@ -1,9 +1,13 @@
 #ifndef VISUALISATION__HPP
 #define VISUALISATION__HPP
-
+#ifdef __unix__
+    #include <dirent.h>
+    #include "gnuplot_i.hpp"
+#elif _WIN32
+    #include <windows.h>
+#endif
 #include "Data.hpp"
 #include "Solution.hpp"
-#include "gnuplot_i.hpp"
 
 #include <string>
 
