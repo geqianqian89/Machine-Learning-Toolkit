@@ -40,6 +40,7 @@
 		<Unit filename="includes/FeatureSelection.hpp" />
 		<Unit filename="includes/Kernel.hpp" />
 		<Unit filename="includes/MLToolkit.hpp" />
+		<Unit filename="includes/PerceptronPrimal.hpp" />
 		<Unit filename="includes/Point.hpp" />
 		<Unit filename="includes/PrimalClassifier.hpp" />
 		<Unit filename="includes/Solution.hpp" />
@@ -49,16 +50,18 @@
 		<Unit filename="includes/ValidationSolution.hpp" />
 		<Unit filename="includes/Visualisation.hpp" />
 		<Unit filename="includes/gnuplot_i.hpp" />
-		<Unit filename="main.cpp" />
+		<Unit filename="src/Classifier.cpp" />
 		<Unit filename="src/Data.cpp" />
 		<Unit filename="src/Kernel.cpp" />
+		<Unit filename="src/PerceptronPrimal.cpp" />
 		<Unit filename="src/Point.cpp" />
+		<Unit filename="src/PrimalClassifier.cpp" />
 		<Unit filename="src/Statistics.cpp" />
 		<Unit filename="src/Utils.cpp" />
 		<Unit filename="src/Validation.cpp" />
 		<Unit filename="src/Visualisation.cpp" />
 		<Unit filename="src/gnuplot_i.cpp" />
-		<Unit filename="src/testes.cpp" />
+		<Unit filename="src/main.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

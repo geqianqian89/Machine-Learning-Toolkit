@@ -396,7 +396,7 @@ Gnuplot::~Gnuplot()
 
     // A stream opened by popen() should be closed by pclose()
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__TOS_WIN__)
-    if (_pclose(gnucmd) == -1)
+ //   if (_pclose(gnucmd) == -1)
 #elif defined(unix) || defined(__unix) || defined(__unix__) || defined(__APPLE__)
     if (pclose(gnucmd) == -1)
 #endif
@@ -1169,7 +1169,7 @@ void Gnuplot::init()
     // command, and return a pointer to a stream that can be used to either read
     // from or write to the pipe.
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__TOS_WIN__)
-    gnucmd = _popen(tmp.c_str(),"w");
+    //gnucmd = _popen(tmp.c_str(),"w");
 #elif defined(unix) || defined(__unix) || defined(__unix__) || defined(__APPLE__)
     gnucmd = popen(tmp.c_str(),"w");
 #endif

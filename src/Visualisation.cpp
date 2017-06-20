@@ -2,6 +2,7 @@
 #include <cstdio>
 #include <string>
 #include <sstream>
+#include <fstream>
 
 using namespace std;
 
@@ -13,11 +14,17 @@ Visualisation::Visualisation(Data *sample){
 }
 
 void Visualisation::setTitle(string title){
-    g.set_title(title);
+	#ifdef __unix__
+	    g.set_title(title);
+	#elif _WIN32
+	#endif
 }
 
 void Visualisation::setStyle(string style){
-    g.set_style(style);
+    #ifdef __unix__
+    	g.set_style(style);
+    #elif _WIN32
+    #endif
 }
 
 void Visualisation::createPosNegTemps(){
@@ -129,6 +136,7 @@ void Visualisation::plot2D(int x, int y){
     #ifdef __unix__
         g.cmd(cmd);
     #elif _WIN32
+        cmd = "echo " + cmd + " | gnuplot -persist";
         system(cmd.c_str());
     #endif
 }
@@ -140,6 +148,7 @@ void Visualisation::plot3D(int x, int y, int z){
     #ifdef __unix__
         g.cmd(cmd);
     #elif _WIN32
+        cmd = "echo " + cmd + " | gnuplot -persist";
         system(cmd.c_str());
     #endif
 }
@@ -154,6 +163,7 @@ void Visualisation::plot2DwithHyperplane(int x, int y, Solution s){
     #ifdef __unix__
         g.cmd(cmd);
     #elif _WIN32
+        cmd = "echo " + cmd + " | gnuplot -persist";
         system(cmd.c_str());
     #endif
 }
@@ -166,12 +176,16 @@ void Visualisation::plot3DwithHyperplane(int x, int y, int z, Solution s){
     #ifdef __unix__
         g.cmd(cmd);
     #elif _WIN32
+        cmd = "echo " + cmd + " | gnuplot -persist";
         system(cmd.c_str());
     #endif
 }
 
 Visualisation::~Visualisation(){
-    g.cmd("quit");
+	#ifdef __unix__
+	    g.cmd("quit");
+    #elif _WIN32
+    #endif
     removeTempFiles();
 }
 

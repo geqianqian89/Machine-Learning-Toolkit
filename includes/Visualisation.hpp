@@ -21,7 +21,11 @@ class Visualisation {
         /// Sample to be visualized.
         Data *samples;
         /// Interface to gnuplot.
-        Gnuplot g;
+        #ifdef __unix__
+        	Gnuplot g;
+        #elif _WIN32
+        
+        #endif
         /**
          * \brief Create temporary files to plot the negative and positive samples.
          * \return void
