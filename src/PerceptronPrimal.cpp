@@ -14,13 +14,14 @@ PerceptronPrimal::PerceptronPrimal(Data *samples, double q, double rate){
 bool PerceptronPrimal::train(){
     int size = samples->getSize(), dim = samples->getDim();
     int i, j, e, idx;
-    double norm, y, time = start_time + max_time, bias = solution.bias;
+    double norm, y, time = start_time + max_time, bias = 0;
     vector<double> func(size, 0), w(dim, 0), x;
     vector<int> index = samples->getIndex();
 
     if(w.size() == 0) w.resize(dim);
 
-    while(100.0f*clock()/CLOCKS_PER_SEC-time <= 0){
+    //while(100.0f*clock()/CLOCKS_PER_SEC-time <= 0){
+    while(1){
         for(e = 0, i = 0; i < size; ++i){
             idx = index[i];
             Point p = samples->getPoint(idx);

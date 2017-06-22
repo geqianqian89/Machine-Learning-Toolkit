@@ -515,7 +515,7 @@ void dataOption(int option){
                     if(totalFeat > fnamesize - 1){
                         clear();
                         cout << "Can't remove more features than exist." << endl;
-                    }else if(totalFeat < 0){
+                    }else if(totalFeat >= 0){
                         break;
                     }
                 }

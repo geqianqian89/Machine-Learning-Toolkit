@@ -131,9 +131,10 @@ void Visualisation::removeTempFiles(){
 
 void Visualisation::plot2D(int x, int y){
     string dims = itos(x) + ":" + itos(y);
-    string cmd = "plot 'temp/pos.plt' using " + dims + " title '+1' with points, 'temp/neg.plt' using " + dims + " title '-1' with points";
+    string cmd = "set terminal qt; plot 'temp/pos.plt' using " + dims + " title '+1' with points, 'temp/neg.plt' using " + dims + " title '-1' with points";
     createPosNegTemps();
     #ifdef __unix__
+    	cmd = "set terminal qt; " + cmd;
         g.cmd(cmd);
     #elif _WIN32
         cmd = "echo " + cmd + " | gnuplot -persist";
@@ -146,6 +147,7 @@ void Visualisation::plot3D(int x, int y, int z){
     string cmd = "splot 'temp/pos.plt' using " + dims + " title '+1' with points, 'temp/neg.plt' using " + dims + " title '-1' with points";
     createPosNegTemps();
     #ifdef __unix__
+    	cmd = "set terminal qt; " + cmd;
         g.cmd(cmd);
     #elif _WIN32
         cmd = "echo " + cmd + " | gnuplot -persist";
@@ -161,6 +163,7 @@ void Visualisation::plot2DwithHyperplane(int x, int y, Solution s){
     string cmd = fx + "; "+ gx +"; "+ hx +"; plot 'temp/pos.plt' using "+feats+" title '+1' with points, 'temp/neg.plt' using "+feats+" title '-1' with points, f(x) notitle with lines ls 1, g(x) notitle with lines ls 2, h(x) notitle with lines ls 2";
     createPosNegTemps();
     #ifdef __unix__
+    	cmd = "set terminal qt; " + cmd;
         g.cmd(cmd);
     #elif _WIN32
         cmd = "echo " + cmd + " | gnuplot -persist";
@@ -174,6 +177,7 @@ void Visualisation::plot3DwithHyperplane(int x, int y, int z, Solution s){
     string cmd = fxy + "; splot 'temp/pos.plt' using "+ feats +" title '+1' with points, 'temp/neg.plt' using "+ feats +" title '-1' with points, f(x,y) notitle with lines ls 1";
     createPosNegTemps();
     #ifdef __unix__
+    	cmd = "set terminal qt; " + cmd;
         g.cmd(cmd);
     #elif _WIN32
         cmd = "echo " + cmd + " | gnuplot -persist";

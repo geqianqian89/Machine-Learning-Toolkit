@@ -227,6 +227,8 @@ string
 -
 sstream
 -
+fstream
+-
 
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/gnuplot_i.cpp
 ../includes/gnuplot_i.hpp
