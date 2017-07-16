@@ -177,6 +177,33 @@ src/Data.cpp.s:
 	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Data.cpp.s
 .PHONY : src/Data.cpp.s
 
+src/DualClassifier.o: src/DualClassifier.cpp.o
+
+.PHONY : src/DualClassifier.o
+
+# target to build an object file
+src/DualClassifier.cpp.o:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/DualClassifier.cpp.o
+.PHONY : src/DualClassifier.cpp.o
+
+src/DualClassifier.i: src/DualClassifier.cpp.i
+
+.PHONY : src/DualClassifier.i
+
+# target to preprocess a source file
+src/DualClassifier.cpp.i:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/DualClassifier.cpp.i
+.PHONY : src/DualClassifier.cpp.i
+
+src/DualClassifier.s: src/DualClassifier.cpp.s
+
+.PHONY : src/DualClassifier.s
+
+# target to generate assembly for a file
+src/DualClassifier.cpp.s:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/DualClassifier.cpp.s
+.PHONY : src/DualClassifier.cpp.s
+
 src/Kernel.o: src/Kernel.cpp.o
 
 .PHONY : src/Kernel.o
@@ -204,32 +231,32 @@ src/Kernel.cpp.s:
 	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Kernel.cpp.s
 .PHONY : src/Kernel.cpp.s
 
-src/PerceptronPrimal.o: src/PerceptronPrimal.cpp.o
+src/Perceptron.o: src/Perceptron.cpp.o
 
-.PHONY : src/PerceptronPrimal.o
+.PHONY : src/Perceptron.o
 
 # target to build an object file
-src/PerceptronPrimal.cpp.o:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/PerceptronPrimal.cpp.o
-.PHONY : src/PerceptronPrimal.cpp.o
+src/Perceptron.cpp.o:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Perceptron.cpp.o
+.PHONY : src/Perceptron.cpp.o
 
-src/PerceptronPrimal.i: src/PerceptronPrimal.cpp.i
+src/Perceptron.i: src/Perceptron.cpp.i
 
-.PHONY : src/PerceptronPrimal.i
+.PHONY : src/Perceptron.i
 
 # target to preprocess a source file
-src/PerceptronPrimal.cpp.i:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/PerceptronPrimal.cpp.i
-.PHONY : src/PerceptronPrimal.cpp.i
+src/Perceptron.cpp.i:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Perceptron.cpp.i
+.PHONY : src/Perceptron.cpp.i
 
-src/PerceptronPrimal.s: src/PerceptronPrimal.cpp.s
+src/Perceptron.s: src/Perceptron.cpp.s
 
-.PHONY : src/PerceptronPrimal.s
+.PHONY : src/Perceptron.s
 
 # target to generate assembly for a file
-src/PerceptronPrimal.cpp.s:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/PerceptronPrimal.cpp.s
-.PHONY : src/PerceptronPrimal.cpp.s
+src/Perceptron.cpp.s:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Perceptron.cpp.s
+.PHONY : src/Perceptron.cpp.s
 
 src/Point.o: src/Point.cpp.o
 
@@ -462,12 +489,15 @@ help:
 	@echo "... src/Data.o"
 	@echo "... src/Data.i"
 	@echo "... src/Data.s"
+	@echo "... src/DualClassifier.o"
+	@echo "... src/DualClassifier.i"
+	@echo "... src/DualClassifier.s"
 	@echo "... src/Kernel.o"
 	@echo "... src/Kernel.i"
 	@echo "... src/Kernel.s"
-	@echo "... src/PerceptronPrimal.o"
-	@echo "... src/PerceptronPrimal.i"
-	@echo "... src/PerceptronPrimal.s"
+	@echo "... src/Perceptron.o"
+	@echo "... src/Perceptron.i"
+	@echo "... src/Perceptron.s"
 	@echo "... src/Point.o"
 	@echo "... src/Point.i"
 	@echo "... src/Point.s"

@@ -5,8 +5,6 @@
 #include "Data.hpp"
 
 #define MIN_INC  1.001
-#define MAX_IT   1E9
-#define MAX_UP   1E9
 
 class Classifier {
     // Attributes
@@ -28,6 +26,8 @@ class Classifier {
         int ctot = 0;
         /// Max precision.
         double EPS = 1E-9;
+        int MAX_IT = 1E9;
+        int MAX_UP = 1E9;
     // Operations
     public :
         /**
@@ -46,6 +46,11 @@ class Classifier {
          * \param samples Samples to be used.
          */
         virtual void setSamples(Data *samples);
+        void setStartTime(double start_time);
+        void setMaxTime(double max_time);
+        void setEPS(double EPS);
+        void setMaxIterations(int MAX_IT);
+        void setMaxUpdates(int MAX_UP);
         /**
          * \brief getSteps Returns the number of steps through the data by the classifier.
          * \return int

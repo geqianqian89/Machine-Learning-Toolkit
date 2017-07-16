@@ -10,7 +10,7 @@
 #include <ctime>
 
 #include "../includes/MLToolkit.hpp"
-#include "../includes/PerceptronPrimal.hpp"
+#include "../includes/Perceptron.hpp"
 
 using namespace std;
 
@@ -825,5 +825,93 @@ void primalClassifiersOption(int option){
 }
 
 void dualClassifiersOption(int option){
+    int i, kernel_type, kernel_param;
+    double rate;
+    Kernel K;
 
+    switch (option) {
+    case 1:
+        if(!data.isEmpty()){
+            cout << "Learning rate: ";
+            cin >> rate;
+            cout << "Kernel [0]Inner Product [1]Polynomial [2]Gaussian: ";
+            cin >> kernel_type;
+
+            if(kernel_type != 0){
+                if(kernel_type == 1){
+                    cout << "Polynomial degree: ";
+                }else{
+                    cout << "Gaussian gamma: ";
+                }
+                cin >> kernel_param;
+            }
+
+            K.setType(kernel_type);
+            K.setParam(kernel_param);
+            K.compute(data);
+
+            PerceptronDual perc_dual(&data, rate, &K);
+            perc_dual.train();
+
+            sol = perc_dual.getSolution();
+            cout << endl;
+            cout << "Alpha vector:" << endl;
+            cout << "[";
+            for(i = 0; i < sol.w.size(); i++){
+                cout << sol.w[i] << ", ";
+            }
+            cout << sol.bias <<  "]" << endl;
+            cout << endl;
+        }else{
+            cout << "Load a dataset first..." << endl;
+        }
+        waitUserAction();
+        break;
+    case 2:
+        if(!data.isEmpty()){
+            double gamma;
+            cout << "Learning rate: ";
+            cin >> rate;
+            cout << "Gamma value: ";
+            cin >> gamma;
+            cout << "Kernel [0]Inner Product [1]Polynomial [2]Gaussian: ";
+            cin >> kernel_type;
+
+            if(kernel_type != 0){
+                if(kernel_type == 1){
+                    cout << "Polynomial degree: ";
+                }else{
+                    cout << "Gaussian gamma: ";
+                }
+                cin >> kernel_param;
+            }
+
+            K.setType(kernel_type);
+            K.setParam(kernel_param);
+            K.compute(data);
+
+            PerceptronFixedMarginDual perc_fixmargin_dual(&data, gamma, rate, &K);
+            perc_fixmargin_dual.train();
+
+            sol = perc_fixmargin_dual.getSolution();
+            cout << endl;
+            cout << "Alpha vector:" << endl;
+            cout << "[";
+            for(i = 0; i < sol.w.size(); i++){
+                cout << sol.w[i] << ", ";
+            }
+            cout << sol.bias <<  "]" << endl;
+            cout << endl;
+        }else{
+            cout << "Load a dataset first..." << endl;
+        }
+        waitUserAction();
+        break;
+    case 0:
+        classifiersMenu();
+        break;
+    default:
+        break;
+    }
+    classifiersMenu();
 }
