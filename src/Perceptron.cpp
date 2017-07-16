@@ -9,7 +9,8 @@ PerceptronPrimal::PerceptronPrimal(Data *samples, double q, double rate, Solutio
     this->samples = samples;
     this->q = q;
     this->rate = rate;
-    this->solution = *initial_solution;
+    if(initial_solution)
+        this->solution = *initial_solution;
 }
 
 bool PerceptronPrimal::train(){
@@ -87,7 +88,8 @@ PerceptronFixedMarginPrimal::PerceptronFixedMarginPrimal(Data *samples, double g
     this->q = q;
     this->rate = rate;
     this->gamma = gamma;
-    this->solution = *initial_solution;
+    if(initial_solution)
+        this->solution = *initial_solution;
 }
 
 bool PerceptronFixedMarginPrimal::train(){
@@ -224,14 +226,17 @@ double PerceptronFixedMarginPrimal::evaluate(Point p){
 
 PerceptronDual::PerceptronDual(Data *samples, double rate, Kernel *K, Solution *initial_solution){
     this->samples = samples;
-    this->solution = *initial_solution;
+    if(initial_solution){
+        this->solution = *initial_solution;
+        this->alpha = (*initial_solution).alpha;
+    }
     this->rate = rate;
-    this->kernel = *K;
-    this->alpha = (*initial_solution).alpha;
+    if(K)
+        this->kernel = (*K);
 }
 
 bool PerceptronDual::train(){
-    int y, e, i, idx, r, size = samples->getSize();
+    int y, e, i, j, idx, r, size = samples->getSize(), dim = samples->getDim();
     double norm = solution.norm, time = start_time+max_time;
     double bias = solution.bias;
     const double sqrate = rate * rate;
@@ -292,7 +297,12 @@ bool PerceptronDual::train(){
     solution.bias = bias;
     solution.norm = norm;
     solution.alpha = alpha;
-
+    solution.w.resize(dim);
+    for(i = 0; i < dim; i++){
+        for(j = 0; j < size; j++){
+            solution.w[i] += alpha[j]*points[j].y*points[j].x[i];
+        }
+    }
     return (e == 0);
 }
 
@@ -302,15 +312,17 @@ double PerceptronDual::evaluate(Point p){
 
 PerceptronFixedMarginDual::PerceptronFixedMarginDual(Data *samples, double gamma, double rate, Kernel *K, Solution *initial_solution){
     this->samples = samples;
-    this->solution = *initial_solution;
+    //this->solution = *initial_solution;
     this->rate = rate;
-    this->kernel = *K;
+    if(K)
+        this->kernel = *K;
     this->gamma = gamma;
-    this->alpha = (*initial_solution).alpha;
+    if(initial_solution)
+        this->alpha = (*initial_solution).alpha;
 }
 
 bool PerceptronFixedMarginDual::train(){
-    int e, i, j, k, s, idx, r, size = samples->getSize();
+    int e, i, j, k, s, idx, r, size = samples->getSize(), dim = samples->getDim();
     double y, lambda, norm = solution.norm, time = start_time+max_time;
     double bias = solution.bias;
     const double sqrate  = rate*rate;
@@ -377,6 +389,13 @@ bool PerceptronFixedMarginDual::train(){
 
     solution.bias = bias;
     solution.norm = norm;
+    solution.alpha = alpha;
+    solution.w.resize(dim);
+    for(i = 0; i < dim; i++){
+        for(j = 0; j < size; j++){
+            solution.w[i] += alpha[j]*points[j].y*points[j].x[i];
+        }
+    }
 
     return (e == 0);
 }

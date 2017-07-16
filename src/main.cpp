@@ -857,6 +857,13 @@ void dualClassifiersOption(int option){
             cout << endl;
             cout << "Alpha vector:" << endl;
             cout << "[";
+            for(i = 0; i < sol.alpha.size(); i++){
+                cout << sol.alpha[i] << ", ";
+            }
+            cout << sol.bias <<  "]" << endl;
+            cout << endl;
+            cout << "Weights vector:" << endl;
+            cout << "[";
             for(i = 0; i < sol.w.size(); i++){
                 cout << sol.w[i] << ", ";
             }
@@ -897,8 +904,8 @@ void dualClassifiersOption(int option){
             cout << endl;
             cout << "Alpha vector:" << endl;
             cout << "[";
-            for(i = 0; i < sol.w.size(); i++){
-                cout << sol.w[i] << ", ";
+            for(i = 0; i < sol.alpha.size(); i++){
+                cout << sol.alpha[i] << ", ";
             }
             cout << sol.bias <<  "]" << endl;
             cout << endl;
