@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7egnuplot',['~Gnuplot',['../class_gnuplot.html#a78a68f621caa87d1f34324fcd093c7bd',1,'Gnuplot']]]
+  ['variance',['variance',['../class_statistics.html#af3a74e0ab944341356b8afeb9fc0ecbd',1,'Statistics::variance(std::vector&lt; double &gt; p)'],['../class_statistics.html#a0390754b117a9b7a637b44992ed2ebf6',1,'Statistics::variance(Data data, int index)']]]
 ];

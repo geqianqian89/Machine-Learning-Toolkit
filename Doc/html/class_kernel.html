@@ -76,13 +76,156 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a84dba549c0823454ecfc8089c20cf812"><td class="memItemLeft" align="right" valign="top"><a id="a84dba549c0823454ecfc8089c20cf812"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kernel.html#a84dba549c0823454ecfc8089c20cf812">Kernel</a> ()</td></tr>
+<tr class="memdesc:a84dba549c0823454ecfc8089c20cf812"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor. <br /></td></tr>
+<tr class="separator:a84dba549c0823454ecfc8089c20cf812"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a247e1614eacdda560f1d6ec98f292ecf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kernel.html#a247e1614eacdda560f1d6ec98f292ecf">Kernel</a> (dMatrix K)</td></tr>
+<tr class="memdesc:a247e1614eacdda560f1d6ec98f292ecf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class constructor.  <a href="#a247e1614eacdda560f1d6ec98f292ecf">More...</a><br /></td></tr>
+<tr class="separator:a247e1614eacdda560f1d6ec98f292ecf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad01e209470accf44ea240078f39fb127"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kernel.html#ad01e209470accf44ea240078f39fb127">setType</a> (int type)</td></tr>
+<tr class="memdesc:ad01e209470accf44ea240078f39fb127"><td class="mdescLeft">&#160;</td><td class="mdescRight">setType Set the kernel type used in the kernel computations.  <a href="#ad01e209470accf44ea240078f39fb127">More...</a><br /></td></tr>
+<tr class="separator:ad01e209470accf44ea240078f39fb127"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fe711ebdbc168be1733fbb8aea6cf92"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kernel.html#a4fe711ebdbc168be1733fbb8aea6cf92">setParam</a> (int param)</td></tr>
+<tr class="memdesc:a4fe711ebdbc168be1733fbb8aea6cf92"><td class="mdescLeft">&#160;</td><td class="mdescRight">setParam Set the kernel parameter used in the kernel computations.  <a href="#a4fe711ebdbc168be1733fbb8aea6cf92">More...</a><br /></td></tr>
+<tr class="separator:a4fe711ebdbc168be1733fbb8aea6cf92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3801cee0d86f25f1500d202f43a84b65"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kernel.html#a3801cee0d86f25f1500d202f43a84b65">setKernelMatrix</a> (dMatrix K)</td></tr>
+<tr class="memdesc:a3801cee0d86f25f1500d202f43a84b65"><td class="mdescLeft">&#160;</td><td class="mdescRight">setKernelMatrix Set a pre computed kernel matrix.  <a href="#a3801cee0d86f25f1500d202f43a84b65">More...</a><br /></td></tr>
+<tr class="separator:a3801cee0d86f25f1500d202f43a84b65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e398c63fee5f0e30b6dfb735c75e41a"><td class="memItemLeft" align="right" valign="top">dMatrix&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kernel.html#a5e398c63fee5f0e30b6dfb735c75e41a">getKernelMatrix</a> ()</td></tr>
+<tr class="memdesc:a5e398c63fee5f0e30b6dfb735c75e41a"><td class="mdescLeft">&#160;</td><td class="mdescRight">getKernelMatrix Get the kernel matrix.  <a href="#a5e398c63fee5f0e30b6dfb735c75e41a">More...</a><br /></td></tr>
+<tr class="separator:a5e398c63fee5f0e30b6dfb735c75e41a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dfd3a6b535745eadd9e17dc086d87c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kernel.html#a5dfd3a6b535745eadd9e17dc086d87c6">compute</a> (<a class="el" href="class_data.html">Data</a> samples)</td></tr>
+<tr class="memdesc:a5dfd3a6b535745eadd9e17dc086d87c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute Compute the kernel matrix with the given type and parameter.  <a href="#a5dfd3a6b535745eadd9e17dc086d87c6">More...</a><br /></td></tr>
+<tr class="separator:a5dfd3a6b535745eadd9e17dc086d87c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a363d65d70d64e1721b7be03df63bce2e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kernel.html#a363d65d70d64e1721b7be03df63bce2e">function</a> (<a class="el" href="class_point.html">Point</a> one, <a class="el" href="class_point.html">Point</a> two, int dim)</td></tr>
+<tr class="memdesc:a363d65d70d64e1721b7be03df63bce2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">function Compute the kernel function between two points.  <a href="#a363d65d70d64e1721b7be03df63bce2e">More...</a><br /></td></tr>
+<tr class="separator:a363d65d70d64e1721b7be03df63bce2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f548d2e5477ae0ee3dd3bc7f23e6920"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kernel.html#a1f548d2e5477ae0ee3dd3bc7f23e6920">norm</a> (<a class="el" href="class_data.html">Data</a> data)</td></tr>
 <tr class="memdesc:a1f548d2e5477ae0ee3dd3bc7f23e6920"><td class="mdescLeft">&#160;</td><td class="mdescRight">norm Computes norm in dual variables.  <a href="#a1f548d2e5477ae0ee3dd3bc7f23e6920">More...</a><br /></td></tr>
 <tr class="separator:a1f548d2e5477ae0ee3dd3bc7f23e6920"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class for the kernel computations. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a247e1614eacdda560f1d6ec98f292ecf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a247e1614eacdda560f1d6ec98f292ecf">&#9670;&nbsp;</a></span>Kernel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Kernel::Kernel </td>
+          <td>(</td>
+          <td class="paramtype">dMatrix&#160;</td>
+          <td class="paramname"><em>K</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Class constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">K</td><td><a class="el" href="class_kernel.html" title="Class for the kernel computations. ">Kernel</a> matrix to be set in initialization. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a5dfd3a6b535745eadd9e17dc086d87c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dfd3a6b535745eadd9e17dc086d87c6">&#9670;&nbsp;</a></span>compute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Kernel::compute </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_data.html">Data</a>&#160;</td>
+          <td class="paramname"><em>samples</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>compute Compute the kernel matrix with the given type and parameter. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">samples</td><td><a class="el" href="class_data.html" title="Wrapper for the dataset data. ">Data</a> used to compute the kernel matrix. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a363d65d70d64e1721b7be03df63bce2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a363d65d70d64e1721b7be03df63bce2e">&#9670;&nbsp;</a></span>function()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Kernel::function </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_point.html">Point</a>&#160;</td>
+          <td class="paramname"><em>one</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_point.html">Point</a>&#160;</td>
+          <td class="paramname"><em>two</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dim</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>function Compute the kernel function between two points. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">one</td><td>first point. </td></tr>
+    <tr><td class="paramname">two</td><td>second point. </td></tr>
+    <tr><td class="paramname">dim</td><td>Dimension of the points. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
+
+</div>
+</div>
+<a id="a5e398c63fee5f0e30b6dfb735c75e41a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e398c63fee5f0e30b6dfb735c75e41a">&#9670;&nbsp;</a></span>getKernelMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">dMatrix Kernel::getKernelMatrix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getKernelMatrix Get the kernel matrix. </p>
+<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;std::vector&lt;double&gt; &gt; </dd></dl>
+
+</div>
+</div>
 <a id="a1f548d2e5477ae0ee3dd3bc7f23e6920"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1f548d2e5477ae0ee3dd3bc7f23e6920">&#9670;&nbsp;</a></span>norm()</h2>
 
@@ -107,6 +250,84 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
+
+</div>
+</div>
+<a id="a3801cee0d86f25f1500d202f43a84b65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3801cee0d86f25f1500d202f43a84b65">&#9670;&nbsp;</a></span>setKernelMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Kernel::setKernelMatrix </td>
+          <td>(</td>
+          <td class="paramtype">dMatrix&#160;</td>
+          <td class="paramname"><em>K</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>setKernelMatrix Set a pre computed kernel matrix. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">K</td><td><a class="el" href="class_kernel.html" title="Class for the kernel computations. ">Kernel</a> matrix to be set. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4fe711ebdbc168be1733fbb8aea6cf92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fe711ebdbc168be1733fbb8aea6cf92">&#9670;&nbsp;</a></span>setParam()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Kernel::setParam </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>param</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>setParam Set the kernel parameter used in the kernel computations. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">param</td><td>parameter to be set. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad01e209470accf44ea240078f39fb127"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad01e209470accf44ea240078f39fb127">&#9670;&nbsp;</a></span>setType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Kernel::setType </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>setType Set the kernel type used in the kernel computations. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td><a class="el" href="class_kernel.html" title="Class for the kernel computations. ">Kernel</a> type. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

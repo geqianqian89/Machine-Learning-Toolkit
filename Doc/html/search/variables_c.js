@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y',['y',['../class_point.html#afa38be143ae800e6ad69ce8ed4df62d8',1,'Point']]]
+  ['w',['w',['../class_primal_classifier.html#ad6ad165a5ad305841797374de9fc2aac',1,'PrimalClassifier::w()'],['../class_solution.html#a736054c66aab1014bba4a71de293ad2f',1,'Solution::w()']]]
 ];

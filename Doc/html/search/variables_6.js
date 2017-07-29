@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['norm',['norm',['../class_solution.html#acbc0610c1c2e2d7bb5c39af33b7eb99c',1,'Solution']]]
+  ['k',['K',['../class_solution.html#af63bb12412227102794729af7491e9db',1,'Solution']]],
+  ['kernel',['kernel',['../class_dual_classifier.html#a710addb26d481a0b7b60e37e537c2290',1,'DualClassifier']]]
 ];

@@ -73,6 +73,9 @@ $(function() {
 <li>cmd()
 : <a class="el" href="class_gnuplot.html#a07607803ede8dd5416906df0a1924fc5">Gnuplot</a>
 </li>
+<li>compute()
+: <a class="el" href="class_kernel.html#a5dfd3a6b535745eadd9e17dc086d87c6">Kernel</a>
+</li>
 <li>copy()
 : <a class="el" href="class_data.html#afb7687021aa7d5f1ecae464eee601710">Data</a>
 </li>
@@ -95,8 +98,17 @@ $(function() {
 <h3><a id="index_e"></a>- e -</h3><ul>
 <li>evaluate()
 : <a class="el" href="class_classifier.html#ae8e9554823b85ddc2dcad2955da811d9">Classifier</a>
+, <a class="el" href="class_perceptron_dual.html#a3ed5554b85b4b1ec98f57acab3eeeaca">PerceptronDual</a>
+, <a class="el" href="class_perceptron_fixed_margin_dual.html#a1370fdbc95bf728f82a83f219be32d23">PerceptronFixedMarginDual</a>
 , <a class="el" href="class_perceptron_fixed_margin_primal.html#af72c3dde96f1f1b803c7b522b5c1cc0f">PerceptronFixedMarginPrimal</a>
 , <a class="el" href="class_perceptron_primal.html#ac8ce9ceffe2b35b5386e5367fb419b3b">PerceptronPrimal</a>
+</li>
+</ul>
+
+
+<h3><a id="index_f"></a>- f -</h3><ul>
+<li>function()
+: <a class="el" href="class_kernel.html#a363d65d70d64e1721b7be03df63bce2e">Kernel</a>
 </li>
 </ul>
 
@@ -123,6 +135,9 @@ $(function() {
 <li>getIndex()
 : <a class="el" href="class_data.html#a16685ae631c5bedc22c974980bc74c05">Data</a>
 </li>
+<li>getKernelMatrix()
+: <a class="el" href="class_kernel.html#a5e398c63fee5f0e30b6dfb735c75e41a">Kernel</a>
+</li>
 <li>getNumberNegativePoints()
 : <a class="el" href="class_data.html#a5166e74e946c2dbac75f383d63f018ea">Data</a>
 </li>
@@ -142,7 +157,8 @@ $(function() {
 : <a class="el" href="class_data.html#abfd7c7cca66a186ff45efa430bcb2f1e">Data</a>
 </li>
 <li>getSolution()
-: <a class="el" href="class_primal_classifier.html#a1a3d9ba4e80c58418db0d8454168b910">PrimalClassifier</a>
+: <a class="el" href="class_dual_classifier.html#a1ecc7089dd9d5456f398e62506f37c14">DualClassifier</a>
+, <a class="el" href="class_primal_classifier.html#a1a3d9ba4e80c58418db0d8454168b910">PrimalClassifier</a>
 </li>
 <li>getStatistics()
 : <a class="el" href="class_data.html#a26376768a100f1999ef3ac15a2aa2a67">Data</a>
@@ -154,7 +170,7 @@ $(function() {
 : <a class="el" href="class_classifier.html#a738c2fbed982db6cad02062edcc037e4">Classifier</a>
 </li>
 <li>Gnuplot()
-: <a class="el" href="class_gnuplot.html#a187eb517b362cf379492fe7f1621ee50">Gnuplot</a>
+: <a class="el" href="class_gnuplot.html#a14191e89154f2716608f6907975cc012">Gnuplot</a>
 </li>
 </ul>
 
@@ -181,6 +197,13 @@ $(function() {
 <h3><a id="index_j"></a>- j -</h3><ul>
 <li>join()
 : <a class="el" href="class_data.html#a83c2a01ded98c4fad0b5b31538039046">Data</a>
+</li>
+</ul>
+
+
+<h3><a id="index_k"></a>- k -</h3><ul>
+<li>Kernel()
+: <a class="el" href="class_kernel.html#a84dba549c0823454ecfc8089c20cf812">Kernel</a>
 </li>
 </ul>
 
@@ -391,8 +414,17 @@ $(function() {
 <li>setFeaturesNames()
 : <a class="el" href="class_data.html#a2702b6464d7299c3b62e4eb4390fecd6">Data</a>
 </li>
+<li>setKernel()
+: <a class="el" href="class_dual_classifier.html#a0cf616ad02cfcdd69cfd3d0b35001946">DualClassifier</a>
+</li>
+<li>setKernelMatrix()
+: <a class="el" href="class_kernel.html#a3801cee0d86f25f1500d202f43a84b65">Kernel</a>
+</li>
 <li>setNorm()
 : <a class="el" href="class_primal_classifier.html#aecd2369094119c294333bc12df419b16">PrimalClassifier</a>
+</li>
+<li>setParam()
+: <a class="el" href="class_kernel.html#a4fe711ebdbc168be1733fbb8aea6cf92">Kernel</a>
 </li>
 <li>setPoint()
 : <a class="el" href="class_data.html#a9f34656f179b152407d51b04aab70748">Data</a>
@@ -409,6 +441,9 @@ $(function() {
 <li>setTitle()
 : <a class="el" href="class_visualisation.html#ac217fcae4984edeb003bfcd208a253de">Visualisation</a>
 </li>
+<li>setType()
+: <a class="el" href="class_kernel.html#ad01e209470accf44ea240078f39fb127">Kernel</a>
+</li>
 <li>showonscreen()
 : <a class="el" href="class_gnuplot.html#a356d2faaa79f08d13fec9718b776b28d">Gnuplot</a>
 </li>
@@ -421,6 +456,8 @@ $(function() {
 <h3><a id="index_t"></a>- t -</h3><ul>
 <li>train()
 : <a class="el" href="class_classifier.html#a2306a5de27555ab093593ac9642bc7d9">Classifier</a>
+, <a class="el" href="class_perceptron_dual.html#a91b0bd1e86a6003b57b96199266cdc3e">PerceptronDual</a>
+, <a class="el" href="class_perceptron_fixed_margin_dual.html#aa095c90a3d04f70e1cf2e38e2afa769b">PerceptronFixedMarginDual</a>
 , <a class="el" href="class_perceptron_fixed_margin_primal.html#ad41c2a42c4a819c03bf9879110b0f99f">PerceptronFixedMarginPrimal</a>
 , <a class="el" href="class_perceptron_primal.html#a17f817a72fc7d61d1686ea77f7f9e84d">PerceptronPrimal</a>
 </li>

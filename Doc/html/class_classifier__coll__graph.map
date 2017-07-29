@@ -1,4 +1,5 @@
 <map id="Classifier" name="Classifier">
-<area shape="rect" id="node2" href="$class_data.html" title="Wrapper for the dataset data. " alt="" coords="5,5,56,32"/>
-<area shape="rect" id="node3" href="$class_solution.html" title="Solution" alt="" coords="80,5,149,32"/>
+<area shape="rect" id="node2" href="$class_data.html" title="Wrapper for the dataset data. " alt="" coords="5,95,56,121"/>
+<area shape="rect" id="node3" href="$class_solution.html" title="Solution" alt="" coords="80,95,149,121"/>
+<area shape="rect" id="node4" href="$class_kernel.html" title="Class for the kernel computations. " alt="" coords="85,5,144,32"/>
 </map>

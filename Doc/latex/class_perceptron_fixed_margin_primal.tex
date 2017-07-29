@@ -2,8 +2,16 @@
 \label{class_perceptron_fixed_margin_primal}\index{Perceptron\+Fixed\+Margin\+Primal@{Perceptron\+Fixed\+Margin\+Primal}}
 
 
-Inheritance diagram for Perceptron\+Fixed\+Margin\+Primal\+:
-\nopagebreak
+Wrapper for the implementation of the Perceptron primal with fixed margin algorithm.  
+
+
+
+
+{\ttfamily \#include $<$Perceptron.\+hpp$>$}
+
+
+
+Inheritance diagram for Perceptron\+Fixed\+Margin\+Primal\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -23,8 +31,8 @@ Collaboration diagram for Perceptron\+Fixed\+Margin\+Primal\+:
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_perceptron_fixed_margin_primal_adfb619eab2be28bd10af8efadf62e703}\label{class_perceptron_fixed_margin_primal_adfb619eab2be28bd10af8efadf62e703}} 
-{\bfseries Perceptron\+Fixed\+Margin\+Primal} (\hyperlink{class_data}{Data} $\ast$samples=N\+U\+LL, double gamma=1.\+0, double \hyperlink{class_primal_classifier_a746ad2ff93fb77d82ae389f90dbdc89e}{q}=2, double \hyperlink{class_classifier_af9867e5919742de1303dd971a9a1c19a}{rate}=0.\+5)
+\mbox{\Hypertarget{class_perceptron_fixed_margin_primal_a2128977635875acf812b693df741baf8}\label{class_perceptron_fixed_margin_primal_a2128977635875acf812b693df741baf8}} 
+{\bfseries Perceptron\+Fixed\+Margin\+Primal} (\hyperlink{class_data}{Data} $\ast$samples=N\+U\+LL, double gamma=1.\+0, double \hyperlink{class_primal_classifier_a746ad2ff93fb77d82ae389f90dbdc89e}{q}=2, double \hyperlink{class_classifier_af9867e5919742de1303dd971a9a1c19a}{rate}=0.\+5, \hyperlink{class_solution}{Solution} $\ast$initial\+\_\+solution=N\+U\+LL)
 \item 
 bool \hyperlink{class_perceptron_fixed_margin_primal_ad41c2a42c4a819c03bf9879110b0f99f}{train} ()
 \begin{DoxyCompactList}\small\item\em Function that execute the training phase of a classification algorithm. \end{DoxyCompactList}\item 
@@ -32,6 +40,9 @@ double \hyperlink{class_perceptron_fixed_margin_primal_af72c3dde96f1f1b803c7b522
 \begin{DoxyCompactList}\small\item\em Returns the class of a feature point based on the trained classifier. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
+
+\subsection{Detailed Description}
+Wrapper for the implementation of the Perceptron primal with fixed margin algorithm. 
 
 \subsection{Member Function Documentation}
 \mbox{\Hypertarget{class_perceptron_fixed_margin_primal_af72c3dde96f1f1b803c7b522b5c1cc0f}\label{class_perceptron_fixed_margin_primal_af72c3dde96f1f1b803c7b522b5c1cc0f}} 
@@ -77,5 +88,5 @@ Implements \hyperlink{class_classifier_a2306a5de27555ab093593ac9642bc7d9}{Classi
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-includes/Perceptron\+Primal.\+hpp\item 
-src/Perceptron\+Primal.\+cpp\end{DoxyCompactItemize}
+includes/Perceptron.\+hpp\item 
+src/Perceptron.\+cpp\end{DoxyCompactItemize}

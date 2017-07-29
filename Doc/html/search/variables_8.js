@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rate',['rate',['../class_classifier.html#af9867e5919742de1303dd971a9a1c19a',1,'Classifier']]]
+  ['norm',['norm',['../class_solution.html#acbc0610c1c2e2d7bb5c39af33b7eb99c',1,'Solution']]]
 ];

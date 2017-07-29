@@ -1,5 +1,5 @@
 <map id="PrimalClassifier" name="PrimalClassifier">
-<area shape="rect" id="node3" href="$class_perceptron_fixed_margin_primal.html" title="PerceptronFixedMarginPrimal" alt="" coords="5,155,199,181"/>
-<area shape="rect" id="node4" href="$class_perceptron_primal.html" title="PerceptronPrimal" alt="" coords="223,155,346,181"/>
+<area shape="rect" id="node3" href="$class_perceptron_fixed_margin_primal.html" title="Wrapper for the implementation of the Perceptron primal with fixed margin algorithm. " alt="" coords="5,155,199,181"/>
+<area shape="rect" id="node4" href="$class_perceptron_primal.html" title="Wrapper for the implementation of the Perceptron primal algorithm. " alt="" coords="223,155,346,181"/>
 <area shape="rect" id="node2" href="$class_classifier.html" title="Classifier" alt="" coords="154,5,231,32"/>
 </map>

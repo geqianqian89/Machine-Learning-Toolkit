@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['featureselection',['FeatureSelection',['../class_feature_selection.html',1,'']]],
-  ['flexible',['flexible',['../class_primal_classifier.html#af660bbc42f67792e3da8876671b1e9df',1,'PrimalClassifier']]],
-  ['fnames',['fnames',['../class_solution.html#a86d40d16bfa9e7dbe476a62008431987',1,'Solution']]]
+  ['eps',['EPS',['../class_classifier.html#ad7cd0cfea68461340df2adb0c132dc93',1,'Classifier']]],
+  ['evaluate',['evaluate',['../class_classifier.html#ae8e9554823b85ddc2dcad2955da811d9',1,'Classifier::evaluate()'],['../class_perceptron_primal.html#ac8ce9ceffe2b35b5386e5367fb419b3b',1,'PerceptronPrimal::evaluate()'],['../class_perceptron_fixed_margin_primal.html#af72c3dde96f1f1b803c7b522b5c1cc0f',1,'PerceptronFixedMarginPrimal::evaluate()'],['../class_perceptron_dual.html#a3ed5554b85b4b1ec98f57acab3eeeaca',1,'PerceptronDual::evaluate()'],['../class_perceptron_fixed_margin_dual.html#a1370fdbc95bf728f82a83f219be32d23',1,'PerceptronFixedMarginDual::evaluate()']]]
 ];

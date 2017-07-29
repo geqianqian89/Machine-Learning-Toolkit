@@ -12,6 +12,23 @@ Class for the kernel computations.
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{class_kernel_a84dba549c0823454ecfc8089c20cf812}\label{class_kernel_a84dba549c0823454ecfc8089c20cf812}} 
+\hyperlink{class_kernel_a84dba549c0823454ecfc8089c20cf812}{Kernel} ()
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_kernel_a247e1614eacdda560f1d6ec98f292ecf}{Kernel} (d\+Matrix K)
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
+void \hyperlink{class_kernel_ad01e209470accf44ea240078f39fb127}{set\+Type} (int type)
+\begin{DoxyCompactList}\small\item\em set\+Type Set the kernel type used in the kernel computations. \end{DoxyCompactList}\item 
+void \hyperlink{class_kernel_a4fe711ebdbc168be1733fbb8aea6cf92}{set\+Param} (int param)
+\begin{DoxyCompactList}\small\item\em set\+Param Set the kernel parameter used in the kernel computations. \end{DoxyCompactList}\item 
+void \hyperlink{class_kernel_a3801cee0d86f25f1500d202f43a84b65}{set\+Kernel\+Matrix} (d\+Matrix K)
+\begin{DoxyCompactList}\small\item\em set\+Kernel\+Matrix Set a pre computed kernel matrix. \end{DoxyCompactList}\item 
+d\+Matrix \hyperlink{class_kernel_a5e398c63fee5f0e30b6dfb735c75e41a}{get\+Kernel\+Matrix} ()
+\begin{DoxyCompactList}\small\item\em get\+Kernel\+Matrix Get the kernel matrix. \end{DoxyCompactList}\item 
+void \hyperlink{class_kernel_a5dfd3a6b535745eadd9e17dc086d87c6}{compute} (\hyperlink{class_data}{Data} samples)
+\begin{DoxyCompactList}\small\item\em compute Compute the kernel matrix with the given type and parameter. \end{DoxyCompactList}\item 
+double \hyperlink{class_kernel_a363d65d70d64e1721b7be03df63bce2e}{function} (\hyperlink{class_point}{Point} one, \hyperlink{class_point}{Point} two, int dim)
+\begin{DoxyCompactList}\small\item\em function Compute the kernel function between two points. \end{DoxyCompactList}\item 
 double \hyperlink{class_kernel_a1f548d2e5477ae0ee3dd3bc7f23e6920}{norm} (\hyperlink{class_data}{Data} data)
 \begin{DoxyCompactList}\small\item\em norm Computes norm in dual variables. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -19,7 +36,75 @@ double \hyperlink{class_kernel_a1f548d2e5477ae0ee3dd3bc7f23e6920}{norm} (\hyperl
 \subsection{Detailed Description}
 Class for the kernel computations. 
 
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_kernel_a247e1614eacdda560f1d6ec98f292ecf}\label{class_kernel_a247e1614eacdda560f1d6ec98f292ecf}} 
+\index{Kernel@{Kernel}!Kernel@{Kernel}}
+\index{Kernel@{Kernel}!Kernel@{Kernel}}
+\subsubsection{\texorpdfstring{Kernel()}{Kernel()}}
+{\footnotesize\ttfamily Kernel\+::\+Kernel (\begin{DoxyParamCaption}\item[{d\+Matrix}]{K }\end{DoxyParamCaption})}
+
+
+
+Class constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em K} & \hyperlink{class_kernel}{Kernel} matrix to be set in initialization. \\
+\hline
+\end{DoxyParams}
+
+
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_kernel_a5dfd3a6b535745eadd9e17dc086d87c6}\label{class_kernel_a5dfd3a6b535745eadd9e17dc086d87c6}} 
+\index{Kernel@{Kernel}!compute@{compute}}
+\index{compute@{compute}!Kernel@{Kernel}}
+\subsubsection{\texorpdfstring{compute()}{compute()}}
+{\footnotesize\ttfamily void Kernel\+::compute (\begin{DoxyParamCaption}\item[{\hyperlink{class_data}{Data}}]{samples }\end{DoxyParamCaption})}
+
+
+
+compute Compute the kernel matrix with the given type and parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em samples} & \hyperlink{class_data}{Data} used to compute the kernel matrix. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_kernel_a363d65d70d64e1721b7be03df63bce2e}\label{class_kernel_a363d65d70d64e1721b7be03df63bce2e}} 
+\index{Kernel@{Kernel}!function@{function}}
+\index{function@{function}!Kernel@{Kernel}}
+\subsubsection{\texorpdfstring{function()}{function()}}
+{\footnotesize\ttfamily double Kernel\+::function (\begin{DoxyParamCaption}\item[{\hyperlink{class_point}{Point}}]{one,  }\item[{\hyperlink{class_point}{Point}}]{two,  }\item[{int}]{dim }\end{DoxyParamCaption})}
+
+
+
+function Compute the kernel function between two points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em one} & first point. \\
+\hline
+{\em two} & second point. \\
+\hline
+{\em dim} & Dimension of the points. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_kernel_a5e398c63fee5f0e30b6dfb735c75e41a}\label{class_kernel_a5e398c63fee5f0e30b6dfb735c75e41a}} 
+\index{Kernel@{Kernel}!get\+Kernel\+Matrix@{get\+Kernel\+Matrix}}
+\index{get\+Kernel\+Matrix@{get\+Kernel\+Matrix}!Kernel@{Kernel}}
+\subsubsection{\texorpdfstring{get\+Kernel\+Matrix()}{getKernelMatrix()}}
+{\footnotesize\ttfamily d\+Matrix Kernel\+::get\+Kernel\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Kernel\+Matrix Get the kernel matrix. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$std\+::vector$<$double$>$ $>$ 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_kernel_a1f548d2e5477ae0ee3dd3bc7f23e6920}\label{class_kernel_a1f548d2e5477ae0ee3dd3bc7f23e6920}} 
 \index{Kernel@{Kernel}!norm@{norm}}
 \index{norm@{norm}!Kernel@{Kernel}}
@@ -38,6 +123,51 @@ norm Computes norm in dual variables.
 \begin{DoxyReturn}{Returns}
 double 
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_kernel_a3801cee0d86f25f1500d202f43a84b65}\label{class_kernel_a3801cee0d86f25f1500d202f43a84b65}} 
+\index{Kernel@{Kernel}!set\+Kernel\+Matrix@{set\+Kernel\+Matrix}}
+\index{set\+Kernel\+Matrix@{set\+Kernel\+Matrix}!Kernel@{Kernel}}
+\subsubsection{\texorpdfstring{set\+Kernel\+Matrix()}{setKernelMatrix()}}
+{\footnotesize\ttfamily void Kernel\+::set\+Kernel\+Matrix (\begin{DoxyParamCaption}\item[{d\+Matrix}]{K }\end{DoxyParamCaption})}
+
+
+
+set\+Kernel\+Matrix Set a pre computed kernel matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em K} & \hyperlink{class_kernel}{Kernel} matrix to be set. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_kernel_a4fe711ebdbc168be1733fbb8aea6cf92}\label{class_kernel_a4fe711ebdbc168be1733fbb8aea6cf92}} 
+\index{Kernel@{Kernel}!set\+Param@{set\+Param}}
+\index{set\+Param@{set\+Param}!Kernel@{Kernel}}
+\subsubsection{\texorpdfstring{set\+Param()}{setParam()}}
+{\footnotesize\ttfamily void Kernel\+::set\+Param (\begin{DoxyParamCaption}\item[{int}]{param }\end{DoxyParamCaption})}
+
+
+
+set\+Param Set the kernel parameter used in the kernel computations. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em param} & parameter to be set. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_kernel_ad01e209470accf44ea240078f39fb127}\label{class_kernel_ad01e209470accf44ea240078f39fb127}} 
+\index{Kernel@{Kernel}!set\+Type@{set\+Type}}
+\index{set\+Type@{set\+Type}!Kernel@{Kernel}}
+\subsubsection{\texorpdfstring{set\+Type()}{setType()}}
+{\footnotesize\ttfamily void Kernel\+::set\+Type (\begin{DoxyParamCaption}\item[{int}]{type }\end{DoxyParamCaption})}
+
+
+
+set\+Type Set the kernel type used in the kernel computations. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & \hyperlink{class_kernel}{Kernel} type. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

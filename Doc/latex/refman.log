@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.4.23)  31 MAY 2017 00:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.4.23)  29 JUL 2017 10:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1201,8 +1201,8 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10> not available
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 8.99994pt on input line 1.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.19995pt on input line 15.
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 15.
+(Font)              scaled to size 7.19995pt on input line 18.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 18.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
@@ -1213,14 +1213,12 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <7> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 67.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 6.29996pt on input line 67.
- [2] [3] [4])
+ [2] [3] [4]
+[5])
 \tf@toc=\write5
 \openout5 = `refman.toc'.
 
-
-[5] [6
-
-]
+ [6]
 Package hyperref Info: Option `pageanchor' set `true' on input line 138.
 
 Chapter 1.
@@ -1240,6 +1238,7 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
 (Font)              scaled to size 12.9599pt on input line 1.
 ) [1
+
 
 ] [2
 
@@ -1277,245 +1276,280 @@ LaTeX Warning: Reference `_m_l_toolkit_8hpp' on page 5 undefined on input line
 9.
 
 
-LaTeX Warning: Reference `_point_8hpp' on page 5 undefined on input line 10.
+LaTeX Warning: Reference `_perceptron_8hpp' on page 5 undefined on input line 1
+0.
+
+
+LaTeX Warning: Reference `_point_8hpp' on page 5 undefined on input line 11.
 
 
 LaTeX Warning: Reference `_primal_classifier_8hpp' on page 5 undefined on input
- line 11.
+ line 12.
 
 
-LaTeX Warning: Reference `_solution_8hpp' on page 5 undefined on input line 12.
+LaTeX Warning: Reference `_solution_8hpp' on page 5 undefined on input line 13.
 
 
 
 LaTeX Warning: Reference `_statistics_8hpp' on page 5 undefined on input line 1
-3.
+4.
 
 
 LaTeX Warning: Reference `_validation_8hpp' on page 5 undefined on input line 1
-5.
+6.
 
 
 LaTeX Warning: Reference `_validation_solution_8hpp' on page 5 undefined on inp
-ut line 16.
+ut line 17.
 
 
 LaTeX Warning: Reference `_visualisation_8hpp' on page 5 undefined on input lin
-e 17.
+e 18.
 
 ) [5] [6
 
 ]
 Chapter 4.
 (./class_classifier.tex
-<class_classifier__inherit__graph.pdf, id=813, 262.9825pt x 156.585pt>
+<class_classifier__inherit__graph.pdf, id=1075, 442.65375pt x 214.8025pt>
 File: class_classifier__inherit__graph.pdf Graphic file (type pdf)
 
 <use class_classifier__inherit__graph.pdf>
 Package pdftex.def Info: class_classifier__inherit__graph.pdf used on input lin
-e 9.
-(pdftex.def)             Requested size: 262.0pt x 156.0064pt.
+e 10.
+(pdftex.def)             Requested size: 350.0pt x 169.84943pt.
+
+<class_classifier__coll__graph.pdf, id=1076, 188.705pt x 234.8775pt>
+File: class_classifier__coll__graph.pdf Graphic file (type pdf)
+
+<use class_classifier__coll__graph.pdf>
+Package pdftex.def Info: class_classifier__coll__graph.pdf used on input line 2
+0.
+(pdftex.def)             Requested size: 188.0pt x 233.99886pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7 <./class_classifier__inherit__graph.pdf>]
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 12.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 23.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 10.79993pt on input line 12.
+(Font)              scaled to size 10.79993pt on input line 23.
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 10.79993pt on input line 12.
-LaTeX Font Info:    Try loading font information for TS1+phv on input line 15.
+(Font)              scaled to size 10.79993pt on input line 23.
+LaTeX Font Info:    Try loading font information for TS1+phv on input line 26.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2001/06/04 scalable font definitions for TS1/phv.
 )
 LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 15.
+(Font)              scaled to size 8.99994pt on input line 26.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 8.09995pt on input line 16.
+(Font)              scaled to size 8.09995pt on input line 27.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 16.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 27.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 8.09995pt on input line 16.
-LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 8.99994pt on input line 25.
-LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 26.
- [7 <./class_classifier__inherit__graph.pdf>]
-Underfull \hbox (badness 10000) detected at line 37
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 50
-[][][]
- []
-
-) (./class_data.tex
+(Font)              scaled to size 8.09995pt on input line 27.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 44.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 31.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 6.29996pt on input line 44.
- [8]
-LaTeX Font Info:    Font shape `TS1/phv/m/it' in size <9> not available
-(Font)              Font shape `TS1/phv/m/sl' tried instead on input line 46.
-LaTeX Font Info:    Font shape `TS1/phv/m/sl' will be
-(Font)              scaled to size 8.09995pt on input line 46.
- [9]
+(Font)              scaled to size 6.29996pt on input line 31.
+ [8 <./class_classifier__coll__graph.pdf>]
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 7.19995pt on input line 97.
+(Font)              scaled to size 8.99994pt on input line 93.
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 94.
+
+Underfull \hbox (badness 10000) detected at line 105
+[][][]
+ []
+
+LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
+(Font)              scaled to size 6.29996pt on input line 115.
+
+Underfull \hbox (badness 10000) detected at line 122
+[][][]
+ []
+
+[9]
+Underfull \hbox (badness 10000) detected at line 135
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 163
+[][][]
+ []
+
+) (./class_data.tex [10]
+LaTeX Font Info:    Font shape `TS1/phv/m/it' in size <9> not available
+(Font)              Font shape `TS1/phv/m/sl' tried instead on input line 48.
+LaTeX Font Info:    Font shape `TS1/phv/m/sl' will be
+(Font)              scaled to size 8.09995pt on input line 48.
+ [11]
+LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
+(Font)              scaled to size 7.19995pt on input line 101.
 
 
 LaTeX Font Warning: Font shape `T1/pcr/bc/n' undefined
-(Font)              using `T1/pcr/m/n' instead on input line 97.
+(Font)              using `T1/pcr/m/n' instead on input line 101.
 
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 98.
-LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 6.29996pt on input line 136.
-[10] [11]
-Underfull \hbox (badness 10000) detected at line 148
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 161
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 174
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 187
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 200
-[][][]
- []
-
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 102.
 [12]
-Underfull \hbox (badness 10000) detected at line 213
+Underfull \hbox (badness 10000) detected at line 152
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 226
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 239
+Underfull \hbox (badness 10000) detected at line 165
 [][][]
  []
 
 [13]
-Underfull \hbox (badness 10000) detected at line 257
+Underfull \hbox (badness 10000) detected at line 178
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 270
+Underfull \hbox (badness 10000) detected at line 191
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 283
+Underfull \hbox (badness 10000) detected at line 204
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 296
+Underfull \hbox (badness 10000) detected at line 217
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 230
 [][][]
  []
 
 [14]
-Underfull \hbox (badness 10000) detected at line 316
+Underfull \hbox (badness 10000) detected at line 243
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 334
+Underfull \hbox (badness 10000) detected at line 261
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 347
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 360
+Underfull \hbox (badness 10000) detected at line 274
 [][][]
  []
 
 [15]
-Underfull \hbox (badness 10000) detected at line 378
+Underfull \hbox (badness 10000) detected at line 287
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 396
+Underfull \hbox (badness 10000) detected at line 300
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 318
 [][][]
  []
 
 [16]
-Underfull \hbox (badness 10000) detected at line 446
+Underfull \hbox (badness 10000) detected at line 338
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 464
+Underfull \hbox (badness 10000) detected at line 356
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 369
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 382
 [][][]
  []
 
 [17]
-Underfull \hbox (badness 10000) detected at line 482
+Underfull \hbox (badness 10000) detected at line 400
 [][][]
  []
 
-) (./class_dual_classifier.tex
-<class_dual_classifier__inherit__graph.pdf, id=986, 158.5925pt x 156.585pt>
+
+Underfull \hbox (badness 10000) detected at line 418
+[][][]
+ []
+
+[18]
+Underfull \hbox (badness 10000) detected at line 468
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 486
+[][][]
+ []
+
+[19]
+Underfull \hbox (badness 10000) detected at line 504
+[][][]
+ []
+
+[20]) (./class_dual_classifier.tex
+<class_dual_classifier__inherit__graph.pdf, id=1356, 321.2pt x 212.795pt>
 File: class_dual_classifier__inherit__graph.pdf Graphic file (type pdf)
 
 <use class_dual_classifier__inherit__graph.pdf>
 Package pdftex.def Info: class_dual_classifier__inherit__graph.pdf used on inpu
-t line 9.
-(pdftex.def)             Requested size: 158.0pt x 156.01357pt.
+t line 10.
+(pdftex.def)             Requested size: 320.0pt x 212.00543pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 2990) has occurred while \output is active []
 
- [18]
-<class_dual_classifier__coll__graph.pdf, id=993, 158.5925pt x 156.585pt>
+ [21]
+<class_dual_classifier__coll__graph.pdf, id=1364, 246.9225pt x 292.09125pt>
 File: class_dual_classifier__coll__graph.pdf Graphic file (type pdf)
 
 <use class_dual_classifier__coll__graph.pdf>
 Package pdftex.def Info: class_dual_classifier__coll__graph.pdf used on input l
-ine 18.
-(pdftex.def)             Requested size: 158.0pt x 156.01357pt.
-) (./class_feature_selection.tex)
-(./class_gnuplot.tex [19 <./class_dual_classifier__inherit__graph.pdf> <./class
-_dual_classifier__coll__graph.pdf
+ine 20.
+(pdftex.def)             Requested size: 246.0pt x 290.99855pt.
+ [22 <./class_dual_classifier__inherit__graph.pdf> <./class_dual_classifier__co
+ll__graph.pdf
 
 pdfTeX warning: pdflatex (file ./class_dual_classifier__coll__graph.pdf): PDF i
 nclusion: multiple pdfs with page group included in a single page
->] [20] [21]
+>]
+Underfull \hbox (badness 10000) detected at line 52
+[][][]
+ []
+
+) (./class_feature_selection.tex [23]) (./class_gnuplot.tex [24] [25]
 Underfull \hbox (badness 10000) detected at line 183
 [][][]
  []
 
-[22]
+[26]
 Underfull \hbox (badness 10000) detected at line 201
 [][][]
  []
 
-[23] [24]
+[27] [28]
 Underfull \hbox (badness 10000) detected at line 305
 [][][]
  []
 
-[25]
+[29]
 Underfull \hbox (badness 10000) detected at line 329
 [][][]
  []
@@ -1530,7 +1564,7 @@ Underfull \hbox (badness 10000) detected at line 367
 [][][]
  []
 
-[26]
+[30]
 Underfull \hbox (badness 10000) detected at line 395
 [][][]
  []
@@ -1540,7 +1574,7 @@ Underfull \hbox (badness 10000) detected at line 411
 [][][]
  []
 
-[27]
+[31]
 Underfull \hbox (badness 10000) detected at line 429
 [][][]
  []
@@ -1555,7 +1589,7 @@ Underfull \hbox (badness 10000) detected at line 461
 [][][]
  []
 
-[28]
+[32]
 Underfull \hbox (badness 10000) detected at line 477
 [][][]
  []
@@ -1570,7 +1604,7 @@ Underfull \hbox (badness 10000) detected at line 509
 [][][]
  []
 
-[29]
+[33]
 Underfull \hbox (badness 10000) detected at line 527
 [][][]
  []
@@ -1585,7 +1619,7 @@ Underfull \hbox (badness 10000) detected at line 561
 [][][]
  []
 
-[30]
+[34]
 Underfull \hbox (badness 10000) detected at line 577
 [][][]
  []
@@ -1600,7 +1634,7 @@ Underfull \hbox (badness 10000) detected at line 611
 [][][]
  []
 
-[31]
+[35]
 Underfull \hbox (badness 10000) detected at line 627
 [][][]
  []
@@ -1611,32 +1645,166 @@ Underfull \hbox (badness 10000) detected at line 643
  []
 
 ) (./class_gnuplot_exception.tex
-<class_gnuplot_exception__inherit__graph.pdf, id=1309, 174.6525pt x 156.585pt>
+<class_gnuplot_exception__inherit__graph.pdf, id=1700, 174.6525pt x 156.585pt>
 File: class_gnuplot_exception__inherit__graph.pdf Graphic file (type pdf)
 
 <use class_gnuplot_exception__inherit__graph.pdf>
 Package pdftex.def Info: class_gnuplot_exception__inherit__graph.pdf used on in
 put line 18.
 (pdftex.def)             Requested size: 174.0pt x 156.00879pt.
- [32]
-<class_gnuplot_exception__coll__graph.pdf, id=1316, 174.6525pt x 156.585pt>
+ [36]
+<class_gnuplot_exception__coll__graph.pdf, id=1708, 174.6525pt x 156.585pt>
 File: class_gnuplot_exception__coll__graph.pdf Graphic file (type pdf)
 
 <use class_gnuplot_exception__coll__graph.pdf>
 Package pdftex.def Info: class_gnuplot_exception__coll__graph.pdf used on input
  line 27.
 (pdftex.def)             Requested size: 174.0pt x 156.00879pt.
- [33 <./class_gnuplot_exception__inherit__graph.pdf> <./class_gnuplot_exception
+ [37 <./class_gnuplot_exception__inherit__graph.pdf> <./class_gnuplot_exception
 __coll__graph.pdf
 
 pdfTeX warning: pdflatex (file ./class_gnuplot_exception__coll__graph.pdf): PDF
  inclusion: multiple pdfs with page group included in a single page
->]) (./class_kernel.tex
-Underfull \hbox (badness 10000) detected at line 38
+>]) (./class_kernel.tex [38]
+Underfull \hbox (badness 10000) detected at line 92
 [][][]
  []
 
-[34]) (./class_point.tex [35]
+[39]
+Underfull \hbox (badness 10000) detected at line 105
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 123
+[][][]
+ []
+
+[40]) (./class_perceptron_dual.tex
+<class_perceptron_dual__inherit__graph.pdf, id=1793, 164.615pt x 212.795pt>
+File: class_perceptron_dual__inherit__graph.pdf Graphic file (type pdf)
+
+<use class_perceptron_dual__inherit__graph.pdf>
+Package pdftex.def Info: class_perceptron_dual__inherit__graph.pdf used on inpu
+t line 19.
+(pdftex.def)             Requested size: 164.0pt x 212.00543pt.
+
+<class_perceptron_dual__coll__graph.pdf, id=1794, 249.93375pt x 349.305pt>
+File: class_perceptron_dual__coll__graph.pdf Graphic file (type pdf)
+
+<use class_perceptron_dual__coll__graph.pdf>
+Package pdftex.def Info: class_perceptron_dual__coll__graph.pdf used on input l
+ine 29.
+(pdftex.def)             Requested size: 249.0pt x 348.01428pt.
+ [41 <./class_perceptron_dual__inherit__graph.pdf>] [42 <./class_perceptron_dua
+l__coll__graph.pdf>]
+Underfull \hbox (badness 10000) detected at line 64
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 81
+[][][]
+ []
+
+) (./class_perceptron_fixed_margin_dual.tex
+<class_perceptron_fixed_margin_dual__inherit__graph.pdf, id=1836, 217.81375pt x
+ 212.795pt>
+File: class_perceptron_fixed_margin_dual__inherit__graph.pdf Graphic file (type
+ pdf)
+ <use class_perceptron_fixed_margin_dual__inherit__graph.pdf>
+Package pdftex.def Info: class_perceptron_fixed_margin_dual__inherit__graph.pdf
+ used on input line 19.
+(pdftex.def)             Requested size: 217.0pt x 211.99895pt.
+
+[43]
+<class_perceptron_fixed_margin_dual__coll__graph.pdf, id=1842, 277.035pt x 349.
+305pt>
+File: class_perceptron_fixed_margin_dual__coll__graph.pdf Graphic file (type pd
+f)
+ <use class_perceptron_fixed_margin_dual__coll__graph.pdf>
+Package pdftex.def Info: class_perceptron_fixed_margin_dual__coll__graph.pdf us
+ed on input line 29.
+(pdftex.def)             Requested size: 276.0pt x 348.00362pt.
+ [44 <./class_perceptron_fixed_margin_dual__inherit__graph.pdf> <./class_percep
+tron_fixed_margin_dual__coll__graph.pdf
+
+pdfTeX warning: pdflatex (file ./class_perceptron_fixed_margin_dual__coll__grap
+h.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>]
+Underfull \hbox (badness 10000) detected at line 64
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 81
+[][][]
+ []
+
+[45]) (./class_perceptron_fixed_margin_primal.tex
+<class_perceptron_fixed_margin_primal__inherit__graph.pdf, id=1881, 225.84375pt
+ x 212.795pt>
+File: class_perceptron_fixed_margin_primal__inherit__graph.pdf Graphic file (ty
+pe pdf)
+ <use class_perceptron_fixed_margin_primal__inherit__graph.pdf>
+Package pdftex.def Info: class_perceptron_fixed_margin_primal__inherit__graph.p
+df used on input line 18.
+(pdftex.def)             Requested size: 225.0pt x 212.01193pt.
+
+<class_perceptron_fixed_margin_primal__coll__graph.pdf, id=1882, 225.84375pt x 
+349.305pt>
+File: class_perceptron_fixed_margin_primal__coll__graph.pdf Graphic file (type 
+pdf)
+ <use class_perceptron_fixed_margin_primal__coll__graph.pdf>
+Package pdftex.def Info: class_perceptron_fixed_margin_primal__coll__graph.pdf 
+used on input line 28.
+(pdftex.def)             Requested size: 225.0pt x 348.0196pt.
+
+Underfull \vbox (badness 1975) has occurred while \output is active []
+
+ [46 <./class_perceptron_fixed_margin_primal__inherit__graph.pdf>] [47 <./class
+_perceptron_fixed_margin_primal__coll__graph.pdf>]
+Underfull \hbox (badness 10000) detected at line 63
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 80
+[][][]
+ []
+
+) (./class_perceptron_primal.tex
+<class_perceptron_primal__inherit__graph.pdf, id=1924, 172.645pt x 212.795pt>
+File: class_perceptron_primal__inherit__graph.pdf Graphic file (type pdf)
+
+<use class_perceptron_primal__inherit__graph.pdf>
+Package pdftex.def Info: class_perceptron_primal__inherit__graph.pdf used on in
+put line 18.
+(pdftex.def)             Requested size: 172.0pt x 212.0022pt.
+ [48]
+<class_perceptron_primal__coll__graph.pdf, id=1930, 188.705pt x 349.305pt>
+File: class_perceptron_primal__coll__graph.pdf Graphic file (type pdf)
+
+<use class_perceptron_primal__coll__graph.pdf>
+Package pdftex.def Info: class_perceptron_primal__coll__graph.pdf used on input
+ line 28.
+(pdftex.def)             Requested size: 188.0pt x 347.99829pt.
+ [49 <./class_perceptron_primal__inherit__graph.pdf> <./class_perceptron_primal
+__coll__graph.pdf
+
+pdfTeX warning: pdflatex (file ./class_perceptron_primal__coll__graph.pdf): PDF
+ inclusion: multiple pdfs with page group included in a single page
+>]
+Underfull \hbox (badness 10000) detected at line 63
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 80
+[][][]
+ []
+
+) (./class_point.tex [50] [51]
 Underfull \hbox (badness 10000) detected at line 64
 [][][]
  []
@@ -1647,35 +1815,45 @@ Underfull \hbox (badness 10000) detected at line 82
  []
 
 ) (./class_primal_classifier.tex
-<class_primal_classifier__inherit__graph.pdf, id=1381, 166.6225pt x 156.585pt>
+<class_primal_classifier__inherit__graph.pdf, id=1995, 337.26pt x 212.795pt>
 File: class_primal_classifier__inherit__graph.pdf Graphic file (type pdf)
 
 <use class_primal_classifier__inherit__graph.pdf>
 Package pdftex.def Info: class_primal_classifier__inherit__graph.pdf used on in
-put line 9.
-(pdftex.def)             Requested size: 166.0pt x 156.01117pt.
+put line 10.
+(pdftex.def)             Requested size: 336.0pt x 212.00543pt.
 
-<class_primal_classifier__coll__graph.pdf, id=1382, 166.6225pt x 156.585pt>
+<class_primal_classifier__coll__graph.pdf, id=1996, 188.705pt x 292.09125pt>
 File: class_primal_classifier__coll__graph.pdf Graphic file (type pdf)
 
 <use class_primal_classifier__coll__graph.pdf>
 Package pdftex.def Info: class_primal_classifier__coll__graph.pdf used on input
- line 18.
-(pdftex.def)             Requested size: 166.0pt x 156.01117pt.
- [36 <./class_primal_classifier__inherit__graph.pdf>]) (./class_solution.tex
-<class_solution__inherit__graph.pdf, id=1397, 175.65625pt x 156.585pt>
+ line 20.
+(pdftex.def)             Requested size: 188.0pt x 290.99855pt.
+ [52 <./class_primal_classifier__inherit__graph.pdf>] [53 <./class_primal_class
+ifier__coll__graph.pdf>]
+Underfull \hbox (badness 10000) detected at line 55
+[][][]
+ []
+
+) (./class_solution.tex
+<class_solution__inherit__graph.pdf, id=2038, 175.65625pt x 156.585pt>
 File: class_solution__inherit__graph.pdf Graphic file (type pdf)
 
 <use class_solution__inherit__graph.pdf>
 Package pdftex.def Info: class_solution__inherit__graph.pdf used on input line 
 9.
 (pdftex.def)             Requested size: 175.0pt x 156.01117pt.
-) (./class_statistics.tex [37 <./class_primal_classifier__coll__graph.pdf> <./c
-lass_solution__inherit__graph.pdf
 
-pdfTeX warning: pdflatex (file ./class_solution__inherit__graph.pdf): PDF inclu
-sion: multiple pdfs with page group included in a single page
->] [38]
+<class_solution__coll__graph.pdf, id=2039, 132.495pt x 167.62625pt>
+File: class_solution__coll__graph.pdf Graphic file (type pdf)
+
+<use class_solution__coll__graph.pdf>
+Package pdftex.def Info: class_solution__coll__graph.pdf used on input line 19.
+
+(pdftex.def)             Requested size: 132.0pt x 167.01195pt.
+ [54 <./class_solution__inherit__graph.pdf>]) (./class_statistics.tex [55 <./cl
+ass_solution__coll__graph.pdf>] [56]
 Underfull \hbox (badness 10000) detected at line 62
 [][][]
  []
@@ -1690,7 +1868,7 @@ Underfull \hbox (badness 10000) detected at line 104
 [][][]
  []
 
-[39]
+[57]
 Underfull \hbox (badness 10000) detected at line 124
 [][][]
  []
@@ -1705,7 +1883,7 @@ Underfull \hbox (badness 10000) detected at line 164
 [][][]
  []
 
-[40]
+[58]
 Underfull \hbox (badness 10000) detected at line 182
 [][][]
  []
@@ -1719,7 +1897,7 @@ Underfull \hbox (badness 10000) detected at line 200
 Overfull \vbox (3.11624pt too high) has occurred while \output is active []
 
 
-[41]
+[59]
 Underfull \hbox (badness 10000) detected at line 220
 [][][]
  []
@@ -1727,9 +1905,9 @@ Underfull \hbox (badness 10000) detected at line 220
 ) (./class_validation.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [42])
+ [60])
 (./class_validation_solution.tex
-<class_validation_solution__inherit__graph.pdf, id=1500, 175.65625pt x 156.585p
+<class_validation_solution__inherit__graph.pdf, id=2164, 175.65625pt x 156.585p
 t>
 File: class_validation_solution__inherit__graph.pdf Graphic file (type pdf)
  <use class_validation_solution__inherit__graph.pdf>
@@ -1737,74 +1915,135 @@ Package pdftex.def Info: class_validation_solution__inherit__graph.pdf used on
 input line 18.
 (pdftex.def)             Requested size: 175.0pt x 156.01117pt.
 
-<class_validation_solution__coll__graph.pdf, id=1501, 175.65625pt x 156.585pt>
+<class_validation_solution__coll__graph.pdf, id=2165, 175.65625pt x 224.84pt>
 File: class_validation_solution__coll__graph.pdf Graphic file (type pdf)
 
 <use class_validation_solution__coll__graph.pdf>
 Package pdftex.def Info: class_validation_solution__coll__graph.pdf used on inp
-ut line 27.
-(pdftex.def)             Requested size: 175.0pt x 156.01117pt.
-) (./class_visualisation.tex
-[43 <./class_validation_solution__inherit__graph.pdf> <./class_validation_solut
-ion__coll__graph.pdf
+ut line 28.
+(pdftex.def)             Requested size: 175.0pt x 224.01605pt.
+ [61 <./class_validation_solution__inherit__graph.pdf> <./class_validation_solu
+tion__coll__graph.pdf
 
 pdfTeX warning: pdflatex (file ./class_validation_solution__coll__graph.pdf): P
 DF inclusion: multiple pdfs with page group included in a single page
->]
-Underfull \hbox (badness 10000) detected at line 51
-[][][]
- []
-
-[44]
-Underfull \hbox (badness 10000) detected at line 73
+>]) (./class_visualisation.tex [62]
+Underfull \hbox (badness 10000) detected at line 55
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 91
+Underfull \hbox (badness 10000) detected at line 75
+[][][]
+ []
+
+[63]
+Underfull \hbox (badness 10000) detected at line 97
 [][][]
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [45]
-Underfull \hbox (badness 10000) detected at line 109
+Underfull \hbox (badness 10000) detected at line 119
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 127
+Underfull \hbox (badness 10000) detected at line 137
 [][][]
  []
 
-) [46]
+[64]
+Underfull \hbox (badness 10000) detected at line 155
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 173
+[][][]
+ []
+
+) [65] [66
+
+]
 Chapter 5.
-(./_utils_8hpp.tex <_utils_8hpp__incl.pdf, id=1555, 184.69pt x 156.585pt>
+(./_utils_8hpp.tex <_utils_8hpp__incl.pdf, id=2240, 184.69pt x 156.585pt>
 File: _utils_8hpp__incl.pdf Graphic file (type pdf)
 
 <use _utils_8hpp__incl.pdf>
 Package pdftex.def Info: _utils_8hpp__incl.pdf used on input line 9.
 (pdftex.def)             Requested size: 184.0pt x 156.00162pt.
 
-<_utils_8hpp__dep__incl.pdf, id=1556, 1041.8925pt x 437.635pt>
+<_utils_8hpp__dep__incl.pdf, id=2241, 1120.185pt x 606.265pt>
 File: _utils_8hpp__dep__incl.pdf Graphic file (type pdf)
 
 <use _utils_8hpp__dep__incl.pdf>
 Package pdftex.def Info: _utils_8hpp__dep__incl.pdf used on input line 17.
-(pdftex.def)             Requested size: 350.0pt x 147.01096pt.
- [47
-
- <./_utils_8hpp__incl.pdf> <./_utils_8hpp__dep__incl.pdf
+(pdftex.def)             Requested size: 350.0pt x 189.4296pt.
+ [67 <./_utils_8hpp__incl.pdf> <./_utils_8hpp__dep__incl.pdf
 
 pdfTeX warning: pdflatex (file ./_utils_8hpp__dep__incl.pdf): PDF inclusion: mu
 ltiple pdfs with page group included in a single page
 >]
+Underfull \hbox (badness 10000) detected at line 61
+[][][]
+ []
+
+[68]
+Underfull \hbox (badness 10000) detected at line 82
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 100
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 118
+[][][]
+ []
+
+[69] [70]
+Underfull \hbox (badness 10000) detected at line 136
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 154
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 172
+[][][]
+ []
+
+) (./_data_8cpp.tex <_data_8cpp__incl.pdf, id=2294, 955.57pt x 381.425pt>
+File: _data_8cpp__incl.pdf Graphic file (type pdf)
+
+<use _data_8cpp__incl.pdf>
+Package pdftex.def Info: _data_8cpp__incl.pdf used on input line 24.
+(pdftex.def)             Requested size: 350.0pt x 139.70494pt.
+ [71]) (./_point_8cpp.tex
+<_point_8cpp__incl.pdf, id=2307, 328.22626pt x 269.005pt>
+File: _point_8cpp__incl.pdf Graphic file (type pdf)
+
+<use _point_8cpp__incl.pdf>
+Package pdftex.def Info: _point_8cpp__incl.pdf used on input line 14.
+(pdftex.def)             Requested size: 327.0pt x 268.00278pt.
+ [72 <./_data_8cpp__incl.pdf>]) (./_utils_8cpp.tex
+<_utils_8cpp__incl.pdf, id=2323, 311.1625pt x 212.795pt>
+File: _utils_8cpp__incl.pdf Graphic file (type pdf)
+
+<use _utils_8cpp__incl.pdf>
+Package pdftex.def Info: _utils_8cpp__incl.pdf used on input line 15.
+(pdftex.def)             Requested size: 310.0pt x 212.0022pt.
+ [73 <./_point_8cpp__incl.pdf>]
 Underfull \hbox (badness 10000) detected at line 57
 [][][]
  []
 
-[48]
+[74 <./_utils_8cpp__incl.pdf>]
 Underfull \hbox (badness 10000) detected at line 78
 [][][]
  []
@@ -1814,53 +2053,21 @@ Underfull \hbox (badness 10000) detected at line 96
 [][][]
  []
 
+) [75] [76
 
-Underfull \hbox (badness 10000) detected at line 114
-[][][]
- []
-
-[49]
-Underfull \hbox (badness 10000) detected at line 132
-[][][]
- []
-
-) (./_data_8cpp.tex <_data_8cpp__incl.pdf, id=1603, 955.57pt x 381.425pt>
-File: _data_8cpp__incl.pdf Graphic file (type pdf)
-
-<use _data_8cpp__incl.pdf>
-Package pdftex.def Info: _data_8cpp__incl.pdf used on input line 24.
-(pdftex.def)             Requested size: 350.0pt x 139.70494pt.
-) (./_point_8cpp.tex
-<_point_8cpp__incl.pdf, id=1607, 328.22626pt x 269.005pt>
-File: _point_8cpp__incl.pdf Graphic file (type pdf)
-
-<use _point_8cpp__incl.pdf>
-Package pdftex.def Info: _point_8cpp__incl.pdf used on input line 14.
-(pdftex.def)             Requested size: 327.0pt x 268.00278pt.
- [50 <./_data_8cpp__incl.pdf>]) (./_utils_8cpp.tex
-<_utils_8cpp__incl.pdf, id=1624, 246.9225pt x 212.795pt>
-File: _utils_8cpp__incl.pdf Graphic file (type pdf)
-
-<use _utils_8cpp__incl.pdf>
-Package pdftex.def Info: _utils_8cpp__incl.pdf used on input line 14.
-(pdftex.def)             Requested size: 246.0pt x 211.99895pt.
- [51 <./_point_8cpp__incl.pdf>]
-Underfull \hbox (badness 10000) detected at line 37
-[][][]
- []
-
-) [52 <./_utils_8cpp__incl.pdf>] (./refman.ind [53
+] (./refman.ind [77
 
 
+] [78] [79] [80
 
-] [54] [55])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 177.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 177.
+])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 181.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 181.
  (./refman.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 177.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 177.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 181.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 181.
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: 6855C2A2D1E9A0C37B62F2F8D269791A;26577.
+(rerunfilecheck)             Checksum: 46AF1D6E606C5390AAC3E252DCC94F46;36406.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1868,31 +2075,33 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 177.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 181.
  ) 
 Here is how much of TeX's memory you used:
- 15796 strings out of 494884
- 235001 string characters out of 6179236
- 320271 words of memory out of 5000000
- 18334 multiletter control sequences out of 15000+600000
+ 16194 strings out of 494884
+ 247990 string characters out of 6179236
+ 325091 words of memory out of 5000000
+ 18520 multiletter control sequences out of 15000+600000
  70620 words of font info for 94 fonts, out of 8000000 for 9000
  38 hyphenation exceptions out of 8191
- 53i,16n,92p,939b,630s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 53i,15n,92p,939b,630s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/cour
-ier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrro8a.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on refman.pdf (63 pages, 282044 bytes).
+f-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
+/helvetic/uhvro8a.pfb>
+Output written on refman.pdf (88 pages, 366017 bytes).
 PDF statistics:
- 1988 PDF objects out of 2073 (max. 8388607)
- 1853 compressed objects within 19 object streams
- 454 named destinations out of 1000 (max. 500000)
- 1156 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2825 PDF objects out of 2984 (max. 8388607)
+ 2615 compressed objects within 27 object streams
+ 648 named destinations out of 1000 (max. 500000)
+ 1598 words of extra memory for PDF output out of 10000 (max. 10000000)
 

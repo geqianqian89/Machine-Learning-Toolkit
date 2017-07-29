@@ -2,11 +2,12 @@
 \label{class_dual_classifier}\index{Dual\+Classifier@{Dual\+Classifier}}
 
 
-Inheritance diagram for Dual\+Classifier\+:\nopagebreak
+Inheritance diagram for Dual\+Classifier\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=158pt]{class_dual_classifier__inherit__graph}
+\includegraphics[width=320pt]{class_dual_classifier__inherit__graph}
 \end{center}
 \end{figure}
 
@@ -16,12 +17,59 @@ Collaboration diagram for Dual\+Classifier\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=188pt]{class_dual_classifier__coll__graph}
+\includegraphics[width=246pt]{class_dual_classifier__coll__graph}
 \end{center}
 \end{figure}
-\subsection*{Additional Inherited Members}
-
-
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
 \item 
-includes/Dual\+Classifier.\+hpp\end{DoxyCompactItemize}
+void \hyperlink{class_dual_classifier_a0cf616ad02cfcdd69cfd3d0b35001946}{set\+Kernel} (\hyperlink{class_kernel}{Kernel} K)
+\begin{DoxyCompactList}\small\item\em set\+Kernel Set the kernel used by the dual classifier. \end{DoxyCompactList}\item 
+\hyperlink{class_solution}{Solution} \hyperlink{class_dual_classifier_a1ecc7089dd9d5456f398e62506f37c14}{get\+Solution} ()
+\begin{DoxyCompactList}\small\item\em get\+Solution Returns the solution of the primal classifier. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_dual_classifier_a0ed1219ed410852620b844934a8c70a0}\label{class_dual_classifier_a0ed1219ed410852620b844934a8c70a0}} 
+std\+::vector$<$ double $>$ \hyperlink{class_dual_classifier_a0ed1219ed410852620b844934a8c70a0}{alpha}
+\begin{DoxyCompactList}\small\item\em Alphas vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_dual_classifier_a710addb26d481a0b7b60e37e537c2290}\label{class_dual_classifier_a710addb26d481a0b7b60e37e537c2290}} 
+\hyperlink{class_kernel}{Kernel} \hyperlink{class_dual_classifier_a710addb26d481a0b7b60e37e537c2290}{kernel}
+\begin{DoxyCompactList}\small\item\em Object for kernel computations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_dual_classifier_a1ecc7089dd9d5456f398e62506f37c14}\label{class_dual_classifier_a1ecc7089dd9d5456f398e62506f37c14}} 
+\index{Dual\+Classifier@{Dual\+Classifier}!get\+Solution@{get\+Solution}}
+\index{get\+Solution@{get\+Solution}!Dual\+Classifier@{Dual\+Classifier}}
+\subsubsection{\texorpdfstring{get\+Solution()}{getSolution()}}
+{\footnotesize\ttfamily \hyperlink{class_solution}{Solution} Dual\+Classifier\+::get\+Solution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Solution Returns the solution of the primal classifier. 
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_solution}{Solution} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_dual_classifier_a0cf616ad02cfcdd69cfd3d0b35001946}\label{class_dual_classifier_a0cf616ad02cfcdd69cfd3d0b35001946}} 
+\index{Dual\+Classifier@{Dual\+Classifier}!set\+Kernel@{set\+Kernel}}
+\index{set\+Kernel@{set\+Kernel}!Dual\+Classifier@{Dual\+Classifier}}
+\subsubsection{\texorpdfstring{set\+Kernel()}{setKernel()}}
+{\footnotesize\ttfamily void Dual\+Classifier\+::set\+Kernel (\begin{DoxyParamCaption}\item[{\hyperlink{class_kernel}{Kernel}}]{K }\end{DoxyParamCaption})}
+
+
+
+set\+Kernel Set the kernel used by the dual classifier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Norm that will be used by the classifier. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+includes/Dual\+Classifier.\+hpp\item 
+src/Dual\+Classifier.\+cpp\end{DoxyCompactItemize}

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['operator_3c_3c',['operator&lt;&lt;',['../class_gnuplot.html#afb69631c7a498077e378a3cbb56f38c8',1,'Gnuplot']]]
+  ['maxabselement',['maxAbsElement',['../_utils_8hpp.html#a79ab62c544d771819865bec0eb8e5360',1,'Utils.hpp']]],
+  ['mean',['mean',['../class_statistics.html#ab121520f7556f75e295e04ff71f2af39',1,'Statistics']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['kernel',['Kernel',['../class_kernel.html',1,'']]]
+  ['join',['join',['../class_data.html#a83c2a01ded98c4fad0b5b31538039046',1,'Data']]]
 ];

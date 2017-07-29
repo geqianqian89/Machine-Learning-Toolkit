@@ -1,0 +1,93 @@
+\hypertarget{class_perceptron_fixed_margin_dual}{}\section{Perceptron\+Fixed\+Margin\+Dual Class Reference}
+\label{class_perceptron_fixed_margin_dual}\index{Perceptron\+Fixed\+Margin\+Dual@{Perceptron\+Fixed\+Margin\+Dual}}
+
+
+Wrapper for the implementation of the Perceptron dual with fixed margin algorithm.  
+
+
+
+
+{\ttfamily \#include $<$Perceptron.\+hpp$>$}
+
+
+
+Inheritance diagram for Perceptron\+Fixed\+Margin\+Dual\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{class_perceptron_fixed_margin_dual__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Perceptron\+Fixed\+Margin\+Dual\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{class_perceptron_fixed_margin_dual__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_perceptron_fixed_margin_dual_ac58bf42eac090bba4221e761fbe7fd0c}\label{class_perceptron_fixed_margin_dual_ac58bf42eac090bba4221e761fbe7fd0c}} 
+{\bfseries Perceptron\+Fixed\+Margin\+Dual} (\hyperlink{class_data}{Data} $\ast$samples=N\+U\+LL, double gamma=1.\+0, double \hyperlink{class_classifier_af9867e5919742de1303dd971a9a1c19a}{rate}=0.\+5, \hyperlink{class_kernel}{Kernel} $\ast$K=N\+U\+LL, \hyperlink{class_solution}{Solution} $\ast$initial\+\_\+solution=N\+U\+LL)
+\item 
+bool \hyperlink{class_perceptron_fixed_margin_dual_aa095c90a3d04f70e1cf2e38e2afa769b}{train} ()
+\begin{DoxyCompactList}\small\item\em Function that execute the training phase of a classification algorithm. \end{DoxyCompactList}\item 
+double \hyperlink{class_perceptron_fixed_margin_dual_a1370fdbc95bf728f82a83f219be32d23}{evaluate} (\hyperlink{class_point}{Point} p)
+\begin{DoxyCompactList}\small\item\em Returns the class of a feature point based on the trained classifier. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Wrapper for the implementation of the Perceptron dual with fixed margin algorithm. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_perceptron_fixed_margin_dual_a1370fdbc95bf728f82a83f219be32d23}\label{class_perceptron_fixed_margin_dual_a1370fdbc95bf728f82a83f219be32d23}} 
+\index{Perceptron\+Fixed\+Margin\+Dual@{Perceptron\+Fixed\+Margin\+Dual}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!Perceptron\+Fixed\+Margin\+Dual@{Perceptron\+Fixed\+Margin\+Dual}}
+\subsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily double Perceptron\+Fixed\+Margin\+Dual\+::evaluate (\begin{DoxyParamCaption}\item[{\hyperlink{class_point}{Point}}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Returns the class of a feature point based on the trained classifier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{class_point}{Point}} & x (???) Features point to be evaluated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_classifier_ae8e9554823b85ddc2dcad2955da811d9}{Classifier}.
+
+\mbox{\Hypertarget{class_perceptron_fixed_margin_dual_aa095c90a3d04f70e1cf2e38e2afa769b}\label{class_perceptron_fixed_margin_dual_aa095c90a3d04f70e1cf2e38e2afa769b}} 
+\index{Perceptron\+Fixed\+Margin\+Dual@{Perceptron\+Fixed\+Margin\+Dual}!train@{train}}
+\index{train@{train}!Perceptron\+Fixed\+Margin\+Dual@{Perceptron\+Fixed\+Margin\+Dual}}
+\subsubsection{\texorpdfstring{train()}{train()}}
+{\footnotesize\ttfamily bool Perceptron\+Fixed\+Margin\+Dual\+::train (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Function that execute the training phase of a classification algorithm. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_classifier_a2306a5de27555ab093593ac9642bc7d9}{Classifier}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+includes/Perceptron.\+hpp\item 
+src/Perceptron.\+cpp\end{DoxyCompactItemize}
