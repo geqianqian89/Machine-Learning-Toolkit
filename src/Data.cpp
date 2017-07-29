@@ -915,15 +915,8 @@ bool Data::isEmpty(){
     return is_empty;
 }
 
-void Data::operator=(const Data& data){
-    points = data.points;
-    fnames = data.fnames;
-    index = data.index;
-    dim = data.dim;
-    size = data.size;
-    stats = data.stats;
-    is_empty = data.is_empty;
-    normalized = data.normalized;
+bool Data::operator==(const Data& data){
+	
 }
 
 ostream &operator<<( ostream &output, const Data &data ){
