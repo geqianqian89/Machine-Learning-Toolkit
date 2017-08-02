@@ -46,10 +46,30 @@ class Classifier {
          * \param samples Samples to be used.
          */
         virtual void setSamples(Data *samples);
+       	/**
+         * \brief setStartTime Set the initial time of the classifier.
+         * \param start_time Initial time.
+         */
         void setStartTime(double start_time);
+        /**
+         * \brief setMaxTime Set the maximum time of the classifier.
+         * \param max_time Maximum time.
+         */
         void setMaxTime(double max_time);
+        /**
+         * \brief setEPS Set the precision of the classifier.
+         * \param EPS Precision.
+         */
         void setEPS(double EPS);
+        /**
+         * \brief setMaxIterations Set the max number of iterations of the classifier.
+         * \param MAX_IT Number max of iterations.
+         */
         void setMaxIterations(int MAX_IT);
+        /**
+         * \brief setMaxIterations Set the max number of updates of the classifier.
+         * \param MAX_IT Number max of updates.
+         */
         void setMaxUpdates(int MAX_UP);
         /**
          * \brief getSteps Returns the number of steps through the data by the classifier.

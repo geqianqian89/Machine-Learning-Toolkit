@@ -219,7 +219,7 @@ double PerceptronFixedMarginPrimal::evaluate(Point p){
     double bias = solution.bias, func;
     vector<double> w = solution.w;
 
-    for(func = bias; i < dim; i++){
+    for(i = 0, func = bias; i < dim; i++){
         func += w[i] * p.x[i];
     }
 }
