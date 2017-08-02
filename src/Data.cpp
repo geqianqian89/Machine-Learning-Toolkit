@@ -952,3 +952,7 @@ void Data::clear(){
 }
 
 Data::~Data(){}
+
+void Data::setIndex(std::vector<int> index) {
+    this->index = index;
+}

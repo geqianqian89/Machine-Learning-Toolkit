@@ -7,3 +7,7 @@ void PrimalClassifier::setNorm(double q){
 Solution PrimalClassifier::getSolution(){
     return solution;
 }
+
+void PrimalClassifier::setVerbose(int verbose) {
+    this->verbose = verbose;
+}

@@ -164,6 +164,7 @@ class Data {
          * \return std::vector<int>
          */
         std::vector<int> getIndex();
+        void setIndex(std::vector<int> index);
         /**
          * \brief Return the number of positive points.
          * \return int
