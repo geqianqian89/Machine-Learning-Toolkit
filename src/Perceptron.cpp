@@ -338,6 +338,7 @@ bool PerceptronFixedMarginDual::train(){
 
                 for(r = 0; r < size; ++r){
                     alpha[r] *= lambda;
+                    cout << Kv[r] << endl;
                     func[r]           = lambda * func[r] + rate*y*(Kv[r]+1) + bias*(1-lambda);
                 }
 

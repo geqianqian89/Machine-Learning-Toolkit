@@ -878,13 +878,13 @@ void primalClassifiersOption(int option){
         }
         break;
     case 0:
-        classifiersMenu();
+        classifiersOption(1);
         break;
     default:
         inva = true;
         break;
     }
-    classifiersMenu();
+    classifiersOption(1);
 }
 
 void dualClassifiersOption(int option){
@@ -986,10 +986,10 @@ void dualClassifiersOption(int option){
         waitUserAction();
         break;
     case 0:
-        classifiersMenu();
+        classifiersOption(2);
         break;
     default:
         break;
     }
-    classifiersMenu();
+    classifiersOption(2);
 }
