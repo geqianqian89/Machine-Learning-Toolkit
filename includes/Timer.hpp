@@ -3,16 +3,21 @@
 
 #include <chrono>
 
-class Timer{
-private:
+namespace Timer{
   std::chrono::steady_clock::time_point start_time;
   std::chrono::steady_clock::time_point end_time;
 
-public:
-  Timer(){}
-  inline void start(){ start_time = std::chrono::steady_clock::now(); }
-  inline double count(){ return std::chrono::duration_cast<std::chrono::duration<double, std::chrono::seconds::period>>(end_time - start_time).count(); }
-  inline double end(){ end_time = std::chrono::steady_clock::now(); return count();}
-};
+  void start(){ 
+  	start_time = std::chrono::steady_clock::now(); 
+  }
+  
+  double count(){ 
+  	return std::chrono::duration_cast<std::chrono::duration<double, std::chrono::seconds::period>>(end_time - start_time).count(); 
+  }
+  
+  double end(){ 
+  	end_time = std::chrono::steady_clock::now(); return count();
+  }
+}
 
 #endif

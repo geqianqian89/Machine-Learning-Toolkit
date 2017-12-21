@@ -24,8 +24,8 @@ bool PerceptronPrimal::train(){
     if(w.size() == 0) w.resize(dim);
 
 
-    timer.start();
-    while(timer.end() - time <= 0){
+    Timer::start();
+    while(Timer::end() - time <= 0){
         for(e = 0, i = 0; i < size; ++i){
             idx = index[i];
             Point p = samples->getPoint(idx);
@@ -100,8 +100,8 @@ bool PerceptronFixedMarginPrimal::train(){
     if(w.size() == 0) w.resize(dim);
     e = s = 0;
 
-    timer.start();
-    while(timer.end() - time <= 0){
+    Timer::start();
+    while(Timer::end() - time <= 0){
         for(e = 0, i = 0; i < size; ++i){
             idx = index[i];
             p = samples->getPoint(idx);
@@ -243,8 +243,8 @@ bool PerceptronDual::train(){
 
     e = 1;
 
-    timer.start();
-    while(timer.end() - time <= 0){
+    Timer::start();
+    while(Timer::end() - time <= 0){
         for(e = 0, i = 0; i < size; ++i){
             idx = index[i];
             y = points[idx].y;
@@ -324,8 +324,8 @@ bool PerceptronFixedMarginDual::train(){
 
     e = 1, s = 0;
 
-    timer.start();
-    while(timer.end() - time <= 0){
+    Timer::start();
+    while(Timer::end() - time <= 0){
         for(e = 0, i = 0; i < size; ++i){
             idx = index[i];
             y = points[idx].y;

@@ -4,7 +4,6 @@
 #include "../includes/Validation.hpp"
 #include "../includes/Data.hpp"
 #include "../includes/Point.hpp"
-#include "../includes/Random.hpp"
 
 using namespace std;
 
@@ -61,6 +60,14 @@ void Validation::partTrainTest(int fold, unsigned int seed){
         test_sample.insertPoint(sample_neg, j);
     for(; j < nneg; j++)
         train_sample.insertPoint(sample_neg, j);
+}
+
+double Validation::kFold(int fold, unsigned int seed){
+
+}
+
+void Validation::validation(int fold, int qtde){
+
 }
 
 Data Validation::getTestSample(){

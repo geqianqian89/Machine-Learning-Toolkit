@@ -33,7 +33,8 @@ namespace Random {
     
     auto getSeed(){
     	return m_seed;
-    }   
+    }
+    
 }
 
 
