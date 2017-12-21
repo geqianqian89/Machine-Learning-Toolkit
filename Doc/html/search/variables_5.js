@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['id',['id',['../class_point.html#a3ccd2080027d6845744bd044280da9e7',1,'Point']]]
+  ['margin',['margin',['../class_solution.html#a3580af26a22d86e44df701f654165e0f',1,'Solution']]],
+  ['max_5ftime',['max_time',['../class_classifier.html#ae5ada7ce4d5436d1dcff3dff458107fd',1,'Classifier']]]
 ];

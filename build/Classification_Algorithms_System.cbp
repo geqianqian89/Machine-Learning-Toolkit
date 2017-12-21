@@ -96,6 +96,9 @@
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/FeatureSelection.hpp">
 			<Option target="Classification_Algorithms_System"/>
 		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/IMA.hpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Kernel.hpp">
 			<Option target="Classification_Algorithms_System"/>
 		</Unit>
@@ -139,6 +142,9 @@
 			<Option target="Classification_Algorithms_System"/>
 		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/DualClassifier.cpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/IMA.cpp">
 			<Option target="Classification_Algorithms_System"/>
 		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Kernel.cpp">

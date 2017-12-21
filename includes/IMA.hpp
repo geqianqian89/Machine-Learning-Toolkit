@@ -17,10 +17,29 @@ private:
     std::vector<int> svs;
 
 public:
-    IMAp(Data *samples = NULL, double margin, Solution *initial_solution = NULL);
+    IMAp(Data *samples = NULL, double margin = 0.0, Solution *initial_solution = NULL);
+
     bool train();
     double evaluate(Point p);
 };
 
+class IMApFixedMargin : public PrimalClassifier {
+private:
+    int n, maiorn = 0, flagNao1aDim;
+    double margin = 0.0, maiorw = 0.0;
+    unsigned long tMax;
+
+    /// Support vector.
+    std::vector<int> svs;
+
+public:
+    IMApFixedMargin(Data *samples = NULL, double gamma = 0, Solution *initial_solution = NULL);
+
+    bool train();
+    inline int* getFlagNot1aDim() {return &flagNao1aDim; }
+    inline unsigned long* gettMax(){ return &tMax; }
+    double evaluate(Point p);
+    void setNorm(double norm){ solution.norm = norm; }
+};
 
 #endif //CLASSIFICATION_ALGORITHMS_SYSTEM_IMAP_HPP

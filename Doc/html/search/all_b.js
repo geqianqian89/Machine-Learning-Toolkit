@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['margin',['margin',['../class_solution.html#a3580af26a22d86e44df701f654165e0f',1,'Solution']]],
-  ['max_5ftime',['max_time',['../class_classifier.html#ae5ada7ce4d5436d1dcff3dff458107fd',1,'Classifier']]],
-  ['maxabselement',['maxAbsElement',['../_utils_8hpp.html#a79ab62c544d771819865bec0eb8e5360',1,'Utils.hpp']]],
-  ['mean',['mean',['../class_statistics.html#ab121520f7556f75e295e04ff71f2af39',1,'Statistics']]]
+  ['norm',['norm',['../class_solution.html#acbc0610c1c2e2d7bb5c39af33b7eb99c',1,'Solution::norm()'],['../class_kernel.html#a1f548d2e5477ae0ee3dd3bc7f23e6920',1,'Kernel::norm()'],['../class_point.html#aab64e3f0a9eecba00a1607eb4c7768c3',1,'Point::norm()']]],
+  ['normalize',['normalize',['../class_data.html#a38bbab57bd9d871bd78771df47529d6b',1,'Data::normalize(double p=2)'],['../class_data.html#acd8fd65a56a3d097d1bc19fb8249ee20',1,'Data::normalize(std::vector&lt; double &gt; &amp;p, double q)']]]
 ];

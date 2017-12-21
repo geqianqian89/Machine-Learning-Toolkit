@@ -7,6 +7,7 @@ CMakeFiles/Classification_Algorithms_System.dir/src/Classifier.cpp.o: ../include
 CMakeFiles/Classification_Algorithms_System.dir/src/Classifier.cpp.o: ../includes/Point.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/Classifier.cpp.o: ../includes/Solution.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/Classifier.cpp.o: ../includes/Statistics.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/Classifier.cpp.o: ../includes/Timer.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/Classifier.cpp.o: ../includes/Utils.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/Classifier.cpp.o: ../src/Classifier.cpp
 
@@ -23,8 +24,27 @@ CMakeFiles/Classification_Algorithms_System.dir/src/DualClassifier.cpp.o: ../inc
 CMakeFiles/Classification_Algorithms_System.dir/src/DualClassifier.cpp.o: ../includes/Point.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/DualClassifier.cpp.o: ../includes/Solution.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/DualClassifier.cpp.o: ../includes/Statistics.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/DualClassifier.cpp.o: ../includes/Timer.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/DualClassifier.cpp.o: ../includes/Utils.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/DualClassifier.cpp.o: ../src/DualClassifier.cpp
+
+CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../includes/Classifier.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../includes/Data.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../includes/DualClassifier.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../includes/IMA.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../includes/Kernel.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../includes/MLToolkit.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../includes/Point.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../includes/PrimalClassifier.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../includes/Solution.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../includes/Statistics.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../includes/Timer.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../includes/Utils.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../includes/Validation.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../includes/ValidationSolution.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../includes/Visualisation.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../includes/gnuplot_i.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../src/IMA.cpp
 
 CMakeFiles/Classification_Algorithms_System.dir/src/Kernel.cpp.o: ../includes/Data.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/Kernel.cpp.o: ../includes/Kernel.hpp
@@ -43,6 +63,7 @@ CMakeFiles/Classification_Algorithms_System.dir/src/Perceptron.cpp.o: ../include
 CMakeFiles/Classification_Algorithms_System.dir/src/Perceptron.cpp.o: ../includes/PrimalClassifier.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/Perceptron.cpp.o: ../includes/Solution.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/Perceptron.cpp.o: ../includes/Statistics.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/Perceptron.cpp.o: ../includes/Timer.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/Perceptron.cpp.o: ../includes/Utils.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/Perceptron.cpp.o: ../includes/Validation.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/Perceptron.cpp.o: ../includes/ValidationSolution.hpp
@@ -61,6 +82,7 @@ CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.o: ../i
 CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.o: ../includes/PrimalClassifier.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.o: ../includes/Solution.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.o: ../includes/Statistics.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.o: ../includes/Timer.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.o: ../includes/Utils.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.o: ../src/PrimalClassifier.cpp
 
@@ -79,6 +101,7 @@ CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.o: ../include
 CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.o: ../includes/Point.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.o: ../includes/Solution.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.o: ../includes/Statistics.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.o: ../includes/Timer.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.o: ../includes/Utils.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.o: ../includes/Validation.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.o: ../includes/ValidationSolution.hpp
@@ -100,6 +123,7 @@ CMakeFiles/Classification_Algorithms_System.dir/src/gnuplot_i.cpp.o: ../src/gnup
 CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/Classifier.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/Data.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/DualClassifier.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/IMA.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/Kernel.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/MLToolkit.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/Perceptron.hpp
@@ -107,6 +131,7 @@ CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/Poin
 CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/PrimalClassifier.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/Solution.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/Statistics.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/Timer.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/Utils.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/Validation.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/ValidationSolution.hpp

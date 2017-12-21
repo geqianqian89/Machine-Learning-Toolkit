@@ -7,10 +7,12 @@
 #IncludeRegexTransform: 
 
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Classifier.hpp
-Solution.hpp
+../includes/Solution.hpp
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Solution.hpp
-Data.hpp
+../includes/Data.hpp
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Data.hpp
+../includes/Timer.hpp
+/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Timer.hpp
 
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Data.hpp
 vector
@@ -29,6 +31,16 @@ Classifier.hpp
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Classifier.hpp
 vector
 -
+
+/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/IMA.hpp
+vector
+-
+PrimalClassifier.hpp
+/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/PrimalClassifier.hpp
+DualClassifier.hpp
+/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/DualClassifier.hpp
+MLToolkit.hpp
+/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/MLToolkit.hpp
 
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Kernel.hpp
 vector
@@ -87,6 +99,10 @@ vector
 -
 Point.hpp
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Point.hpp
+
+/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Timer.hpp
+chrono
+-
 
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Utils.hpp
 string
@@ -177,6 +193,18 @@ cstdio
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/DualClassifier.cpp
 ../includes/DualClassifier.hpp
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/DualClassifier.hpp
+
+/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/IMA.cpp
+iostream
+-
+cmath
+-
+float.h
+-
+../includes/IMA.hpp
+/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/IMA.hpp
+../includes/Timer.hpp
+/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Timer.hpp
 
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Kernel.cpp
 cmath
@@ -273,4 +301,6 @@ ctime
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/MLToolkit.hpp
 ../includes/Perceptron.hpp
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Perceptron.hpp
+../includes/IMA.hpp
+/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/IMA.hpp
 

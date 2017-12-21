@@ -1,4 +1,10 @@
 var searchData=
 [
-  ['bias',['bias',['../class_solution.html#ac0a589a77d238aecf14c91f55d1b8daa',1,'Solution']]]
+  ['changexvector',['changeXVector',['../class_data.html#a3e66e3dce7675bf2a1eded906e3d7912',1,'Data']]],
+  ['classifier',['Classifier',['../class_classifier.html',1,'']]],
+  ['clear',['clear',['../class_data.html#a44b749f64ffa35e034f9503fdec4917e',1,'Data']]],
+  ['cmd',['cmd',['../class_gnuplot.html#a07607803ede8dd5416906df0a1924fc5',1,'Gnuplot']]],
+  ['copy',['copy',['../class_data.html#afb7687021aa7d5f1ecae464eee601710',1,'Data']]],
+  ['copyzero',['copyZero',['../class_data.html#ae9f7aeb470be537dc20c43b317dc6478',1,'Data']]],
+  ['ctot',['ctot',['../class_classifier.html#a99d9a7f504212bb3dc2726c10a2333c6',1,'Classifier']]]
 ];

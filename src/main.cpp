@@ -11,6 +11,7 @@
 
 #include "../includes/MLToolkit.hpp"
 #include "../includes/Perceptron.hpp"
+#include "../includes/IMA.hpp"
 
 using namespace std;
 
@@ -308,26 +309,26 @@ void datasetOption(int option){
                 string pos, neg;
                 string sid, path;
 
-                cout << "List all available datasets on DB folder?[y|n]" << endl;
+                /*cout << "List all available datasets on DB folder?[y|n]" << endl;
                 cout << " > ";
                 cin >> sid;
 
                 if(sid == "y"){
                     list = true;
-                }
+                }*/
 
-                files = list_datasets(list);
+                files = list_datasets(true);
                 cout << endl;
                 cout << "Enter the number of the DB (must be in the DB folder): ";
                 cin >> sid;
-                cout << "Enter the positive class: ";
+                /*cout << "Enter the positive class: ";
                 cin >> pos;
                 cout << "Enter the negative class: ";
-                cin >> neg;
+                cin >> neg;*/
 
                 path = data_folder + files[stoin(sid)];
                 clock_t begin = clock();
-                data.setClasses(pos, neg);
+                //data.setClasses(pos, neg);
                 cout << "\n" << path << endl;
                 data.load(path);
                 clock_t end = clock();
@@ -730,6 +731,7 @@ void classifiersOption(int option){
         header();
         cout << "1 - Perceptron Primal" << endl;
         cout << "2 - Perceptron Primal with fixed margin" << endl;
+        cout << "3 - Incremental Margin Algorithm Primal (IMAp)" << endl;
         cout << "0 - Back to classifiers menu" << endl;
         opt = selector();
         primalClassifiersOption(opt);
@@ -754,8 +756,8 @@ void classifiersOption(int option){
 }
 
 void primalClassifiersOption(int option){
-    int q, i;
-    double rate, gamma;
+    int p, q, i, norm, flexible, svs;
+    double rate, gamma, alpha_prox;
 
     switch (option) {
     case 1:
@@ -810,6 +812,67 @@ void primalClassifiersOption(int option){
             cout << sol.bias <<  "]" << endl;
             cout << endl;
             waitUserAction();
+        }else{
+            cout << "Load a dataset first..." << endl;
+        }
+        break;
+    case 3:
+        if(!data.isEmpty()){
+          cout << "[1]p or [2]q norm: ";
+          cin >> norm;
+          cout << endl;
+
+          if(norm == 1){
+            cout << "p-norm value: ";
+            cin >> p;
+            if(p == 1.0){
+              q = -1.0;
+            }else{
+              q = p/(p-1.0);
+            }
+          }else{
+            cout << "q-norm value: ";
+            cin >> q;
+            if(q == -1.0){
+              p = 1.0;
+            }else if(q == 1.0){
+              p = 100.0;
+            }else{
+              p = q/(q-1.0);
+            }
+          }
+          cout << endl;
+
+          cout << "Flexibilization value [0 - no flexibilization]: ";
+          cin >> flexible;
+          cout << endl;
+
+          cout << "Alpha aproximation value [1 - alpha]: ";
+          cin >> alpha_prox;
+          cout << endl;
+
+          IMAp imap(&data);
+
+          imap.setpNorm(p);
+          imap.setqNorm(q);
+          imap.setFlexible(flexible);
+          imap.setAlphaAprox(alpha_prox);
+
+          clock_t begin = clock();
+
+          if(imap.train()){
+            sol = imap.getSolution();
+            cout << "Training successful..." << endl;
+            cout << "\nMargin = " << sol.margin << ", Support Vectors = " << sol.svs << "\n" << endl;
+          }
+
+          clock_t end = clock();
+
+          double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+          cout << endl;
+          cout << elapsed_secs << " seconds to compute.\n";
+
+          waitUserAction();
         }else{
             cout << "Load a dataset first..." << endl;
         }
@@ -906,6 +969,14 @@ void dualClassifiersOption(int option){
             cout << "[";
             for(i = 0; i < sol.alpha.size(); i++){
                 cout << sol.alpha[i] << ", ";
+            }
+            cout << sol.bias <<  "]" << endl;
+            cout << endl;
+
+            cout << "Weights vector:" << endl;
+            cout << "[";
+            for(i = 0; i < sol.w.size(); i++){
+                cout << sol.w[i] << ", ";
             }
             cout << sol.bias <<  "]" << endl;
             cout << endl;

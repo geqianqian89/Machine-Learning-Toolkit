@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['data',['Data',['../class_data.html',1,'Data'],['../class_data.html#aa3ca35c963eec5a4734df23f88443077',1,'Data::Data(const char *pos_class=&quot;1&quot;, const char *neg_class=&quot;-1&quot;)'],['../class_data.html#a85afba1f115dce4b6d2a952326624dd4',1,'Data::Data(std::string dataset, const char *pos_class=&quot;1&quot;, const char *neg_class=&quot;-1&quot;)']]],
-  ['data_2ecpp',['Data.cpp',['../_data_8cpp.html',1,'']]],
-  ['dot',['dot',['../class_point.html#a9d8da6733d7e4110a62e8d0f82676761',1,'Point']]],
-  ['dtoa',['dtoa',['../_utils_8hpp.html#aa2e6553d01cd9d5839b137e33d17f256',1,'dtoa(double n):&#160;Utils.cpp'],['../_utils_8cpp.html#a275d36ee09955d83c3c2433d10088a04',1,'dtoa(double n):&#160;Utils.cpp']]],
-  ['dualclassifier',['DualClassifier',['../class_dual_classifier.html',1,'']]]
+  ['eps',['EPS',['../class_classifier.html#ad7cd0cfea68461340df2adb0c132dc93',1,'Classifier']]],
+  ['evaluate',['evaluate',['../class_classifier.html#ae8e9554823b85ddc2dcad2955da811d9',1,'Classifier::evaluate()'],['../class_perceptron_primal.html#ac8ce9ceffe2b35b5386e5367fb419b3b',1,'PerceptronPrimal::evaluate()'],['../class_perceptron_fixed_margin_primal.html#af72c3dde96f1f1b803c7b522b5c1cc0f',1,'PerceptronFixedMarginPrimal::evaluate()']]]
 ];

@@ -4,24 +4,27 @@
 
 #include <iostream>
 #include <cmath>
+#include <float.h>
 #include "../includes/IMA.hpp"
+#include "../includes/Timer.hpp"
 
 using namespace std;
 
-IMAp::IMAp(Data *samples, double margin, Solution *initial_solution = NULL) {
+IMAp::IMAp(Data *samples, double margin,  Solution *initial_solution) {
     this->samples = samples;
     this->margin = margin;
 
     if(initial_solution){
         w = initial_solution->w;
         solution.bias = initial_solution->bias;
+        hasInitialSolution = true;
     }else{
-        w.resize(samples->getSize());
+        w.resize(samples->getDim());
     }
 }
 
 bool IMAp::train() {
-    long int tmax = 0;
+    unsigned int tMax = 0;
     int i, j, n, maiorn = 0, flagNao1aDim = 0, y, it;
     int size = samples->getSize(), dim = samples->getDim(), t1=1, t3=1;
     double gamma, secs, bias = 0.0, alpha, rmargin = margin, inc;
@@ -29,7 +32,8 @@ bool IMAp::train() {
     vector<double> w_saved, func;
     vector<int> index = samples->getIndex(), fnames = samples->getFeaturesNames();
     vector<Point> points = samples->getPoints();
-    IMApFixedMargin IMApFixMargin(samples, gamma, samples->getIndex());
+    IMApFixedMargin imapFixMargin(samples, gamma);
+    Solution tempSol;
 
     n = dim;
     rate = 1.0;
@@ -41,7 +45,7 @@ bool IMAp::train() {
     func.resize(size);
 
     //Allocating space for w
-    if(w.size() > 0) {
+    if(hasInitialSolution) {
         if (q == 1)
             for (solution.norm = 0.0, i = 0; i < dim; ++i) solution.norm += fabs(w[i]);
         else if (q == 2) {
@@ -51,11 +55,14 @@ bool IMAp::train() {
             for (solution.norm = 0.0, i = 0; i < dim; ++i) solution.norm += pow(fabs(w[i]), q);
             solution.norm = pow(solution.norm, 1.0 / q);
         }
+
         for (i = 0; i < dim; ++i) w[i] /= solution.norm;
+
         solution.bias /= solution.norm;
         solution.norm = 1;
         flagNao1aDim = 1;
         int flag = 0;
+
         for (min = DBL_MAX, max = -DBL_MAX, i = 0; i < size; ++i) {
             y = points[i].y;
             for (func[i] = 0, j = 0; j < dim; ++j)
@@ -63,12 +70,9 @@ bool IMAp::train() {
             if (y == 1 && func[i] < min) min = func[i];
             else if (y == -1 && func[i] > max) max = func[i];
         }
-        //printf("min = %lf\n", min);
-        //printf("max = %lf\n", max);
-        //printf("flag = %d\n", flag);
+
         solution.bias = -(min + max) / 2.0;
-        //printf("bias: %lf\n", data.z->bias);
-        //flag = 0;
+
         for (min = DBL_MAX, max = -DBL_MAX, i = 0; i < size; ++i) {
             y = points[i].y;
             for (func[i] = solution.bias, j = 0; j < dim; ++j)
@@ -77,21 +81,18 @@ bool IMAp::train() {
             if (y == 1 && func[i] < min) min = func[i];
             else if (y == -1 && func[i] > max) max = func[i];
         }
-        //printf("flag = %d\n", flag);
+
         if (flag) rmargin = 0;
         else rmargin = fabs(min);
-        //printf("*margin = %lf / rmargin = %lf\n", *margin, rmargin);
+
         if (margin == 0) tMax = MAX_UP;
         else {
             double raio = Statistics::getRadius(*samples, -1, q);//data_get_radius(sample, -1, q);
             tMax = (raio * raio - rmargin * rmargin) / pow(margin - rmargin, 2);
             if (rmargin == 0) tMax *= 1.5;
-            //tMax *= 2;
         }
-        //printf("tMax = %ld\n", tMax);
-        //rmargin = 0;
-        //tMax = (raio * raio - rmargin * rmargin) / pow(*margin - rmargin, 2);
-        //printf("tMax = %d\n", tMax);
+
+        *imapFixMargin.gettMax() = tMax;
     }
 
     //Allocating space for index and initializing
@@ -118,18 +119,23 @@ bool IMAp::train() {
     start_time = 100.0f*clock()/CLOCKS_PER_SEC;
 
     //Parei aqui
-    IMApFixMargin.setCtot(ctot);
-    IMApFixMargin.setNorm(q);
-    IMApFixMargin.setSteps(steps);
-    IMApFixMargin.setGamma(gamma);
-    while(IMApFixMargin.train())
+    imapFixMargin.setCtot(ctot);
+    imapFixMargin.setqNorm(q);
+    imapFixMargin.setSteps(steps);
+    imapFixMargin.setGamma(gamma);
+
+    *imapFixMargin.getFlagNot1aDim() = flagNao1aDim;
+    while(imapFixMargin.train())
     {
-        ctot = IMApFixMargin.getCtot();
-        steps = IMApFixMargin.getSteps();
-        gamma = IMApFixMargin.getGamma();
+        ctot = imapFixMargin.getCtot();
+        steps = imapFixMargin.getSteps();
+        gamma = imapFixMargin.getGamma();
         //Finding minimum and maximum functional values
-        norm  = solution.norm;
-        bias  = solution.bias;
+        tempSol = imapFixMargin.getSolution();
+        norm  = tempSol.norm;
+        bias  = tempSol.bias;
+        func = tempSol.func;
+
         for(min = DBL_MAX, max = -DBL_MAX, i = 0; i < size; ++i)
         {
             y = points[i].y;
@@ -139,7 +145,7 @@ bool IMAp::train() {
         }
 
         //Saving good weights
-        for(i = 0; i < dim; i++) w_saved[i] = solution.w[i];
+        for(i = 0; i < dim; i++) w_saved[i] = tempSol.w[i];
 
         //Obtaining real margin
         rmargin = (fabs(min) > fabs(max)) ? fabs(max) : fabs(min);
@@ -147,13 +153,13 @@ bool IMAp::train() {
         //Shift no bias
         double mmargin = (fabs(max) + fabs(min)) / 2.0;
         if(fabs(max) > fabs(min))
-            solution.bias += fabs(mmargin - rmargin);
+            tempSol.bias += fabs(mmargin - rmargin);
         else
-            solution.bias -= fabs(mmargin - rmargin);
+            tempSol.bias -= fabs(mmargin - rmargin);
 
         //Obtaining new gamma_f
         gamma = (min-max)/2.0;
-        inc = (1+sample->alpha_aprox)*rmargin;
+        inc = (1+alpha_aprox)*rmargin;
         if(gamma < inc) gamma = inc;
         rmargin = mmargin;
 
@@ -163,22 +169,25 @@ bool IMAp::train() {
 
         if(it > 1)
         {
-            RATE = sqrt(t1) / sqrt(t3);
+            rate = sqrt(t1) / sqrt(t3);
             if(verbose) cout << "RATE: " << rate << "\n";
         }
         else if(it == 1 && verbose)
             cout << "RATE: " << rate << "\n";
 
-        secs = (100.0f*clock()/CLOCKS_PER_SEC-start_time)/100.0f;
-        if(verbose) cout << " " << it+1 << "   " << steps << "    " << ctot << "    " << rmargin << "    " << norm << "    " << secs << " ";
+        secs = imapFixMargin.getElapsedTime();
+
+        if(verbose) cout << " " << it+1 << "        " << steps << "           " << ctot << "              " << rmargin << "            " << norm << "        " << secs << " ";
 
         ++it; //IMA iteration increment
 
-        IMApFixMargin.setCtot(ctot);
-        IMApFixMargin.setNorm(q);
-        IMApFixMargin.setSteps(steps);
-        IMApFixMargin.setGamma(gamma);
-        //if(it > 3)
+        imapFixMargin.setCtot(ctot);
+        imapFixMargin.setqNorm(q);
+        imapFixMargin.setSteps(steps);
+        imapFixMargin.setGamma(gamma);
+        imapFixMargin.setSolution(tempSol);
+
+        if(it == 3) break;
         if(flagNao1aDim) break;
     }
 
@@ -210,6 +219,10 @@ bool IMAp::train() {
     return 1;
 }
 
+double IMAp::evaluate(Point p) {
+    return 0;
+}
+
 IMApFixedMargin::IMApFixedMargin(Data *samples, double gamma, Solution *initial_solution) {
     this->gamma = gamma;
     this->samples = samples;
@@ -219,7 +232,7 @@ IMApFixedMargin::IMApFixedMargin(Data *samples, double gamma, Solution *initial_
         solution.bias = initial_solution->bias;
         solution.norm = initial_solution->norm;
     }else{
-        w.resize(samples->getSize());
+        w.resize(samples->getDim());
     }
 }
 
@@ -227,16 +240,19 @@ bool IMApFixedMargin::train() {
     int c, e, i, k, s, j;
     int t, idx, r;
     int size = samples->getSize(), dim = samples->getDim();
-    double norm = solution.norm, bias = solution.bias, lambda = 1, y, time = START_TIME+max_time;
+    double norm = solution.norm, bias = solution.bias, lambda = 1, y, time = start_time+max_time;
     register double sumnorm = 0; //soma das normas para o calculo posterior (nao mais sqrt)
-    double maiorw_temp;
+    double maiorw_temp = 0;
     int n_temp;
+    bool cond;
     vector<double> x, func(size, 0.0);
+    vector<int> index = samples->getIndex();
     vector<Point> points = samples->getPoints();
 
     s = 0;
 
-    while(100.0f*clock()/CLOCKS_PER_SEC-time <= 0)
+    timer.start();
+    while(timer.end() - max_time <= 0)
     {
         for(e = 0, i = 0; i < size; ++i)
         {
@@ -252,7 +268,7 @@ bool IMApFixedMargin::train() {
             //Checking if the point is a mistake
             if(y*func[idx] <= gamma*norm - points[idx].alpha*flexible)
             {
-                lambda = (norm) ? (1-RATE*gamma/norm) : 1;
+                lambda = (norm) ? (1-rate*gamma/norm) : 1;
                 for(r = 0; r < size; ++r)
                     points[r].alpha *= lambda;
 
@@ -265,6 +281,7 @@ bool IMApFixedMargin::train() {
                         sumnorm += pow(fabs(w[j]), q);
                     }
                     norm = pow(sumnorm, 1.0/q);
+
                 }
                 else
                 {
@@ -309,17 +326,22 @@ bool IMApFixedMargin::train() {
             else if(steps > 0 && e > 1 && i > s) break;
         }
         steps++; //Number of iterations update
-
         //stop criterion
         if(e == 0)     break;
         if(steps > MAX_IT) break;
         if(ctot > MAX_UP) break;
+        if(flagNao1aDim) if(ctot > tMax) break;
     }
 
     solution.norm = norm;
     solution.bias = bias;
     solution.w = w;
+    solution.func = func;
 
     if(e == 0) return 1;
     else       return 0;
+}
+
+double IMApFixedMargin::evaluate(Point p) {
+    return 0;
 }

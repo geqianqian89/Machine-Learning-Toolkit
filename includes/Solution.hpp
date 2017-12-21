@@ -8,7 +8,7 @@ class Solution {
     // Attributes
     public :
         /// Weights vector
-        std::vector<double> w;
+        std::vector<double> w, func;
         ///Kernel for Dual methods
         Kernel K;
         /// Alpha Vector for Dual methods
@@ -21,6 +21,20 @@ class Solution {
         double margin = 0;
         /// Norm of the solution.
         double norm = 0;
+        /// Number of support Vectors
+        unsigned int svs = 0;
+
+        void operator=(const Solution& other){
+          w = other.w;
+          func = other.func;
+          K = other.K;
+          alpha = other.alpha;
+          bias = other.bias;
+          fnames = other.fnames;
+          margin = other.margin;
+          norm = other.norm;
+          svs = other.svs;
+        }
 };
 
 #endif

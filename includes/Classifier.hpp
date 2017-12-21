@@ -1,25 +1,27 @@
 #ifndef CLASSIFIER__HPP
 #define CLASSIFIER__HPP
 
-#include "Solution.hpp"
-#include "Data.hpp"
+#include "../includes/Solution.hpp"
+#include "../includes/Data.hpp"
+#include "../includes/Timer.hpp"
 
 #define MIN_INC  1.001
 
 class Classifier {
     // Attributes
     protected :
+        bool hasInitialSolution = false;
         Data* samples;
         /// Support vectors points.
         std::vector<Point> svs;
         /// Classifier solution.
         Solution solution;
         /// Learning rate
-        double rate = 0.5;
+        double rate = 0.5f;
         /// Initial time.
-        double start_time = 0;
+        double start_time = 0.0f;
         /// Maximum time of training.
-        double max_time = 200;
+        double max_time = .12f;
         /// Number of steps in the data.
         int steps = 0;
         /// Number of updates of the weights.
@@ -28,6 +30,7 @@ class Classifier {
         double EPS = 1E-9;
         int MAX_IT = 1E9;
         int MAX_UP = 1E9;
+        Timer timer;
     // Operations
     public :
         /**
@@ -46,6 +49,10 @@ class Classifier {
          * \param samples Samples to be used.
          */
         virtual void setSamples(Data *samples);
+        double getElapsedTime();
+        void setSteps(int steps);
+        void setCtot(int ctot);
+        int getCtot();
        	/**
          * \brief setStartTime Set the initial time of the classifier.
          * \param start_time Initial time.
@@ -55,6 +62,7 @@ class Classifier {
          * \brief setMaxTime Set the maximum time of the classifier.
          * \param max_time Maximum time.
          */
+        void setSolution(Solution solution);
         void setMaxTime(double max_time);
         /**
          * \brief setEPS Set the precision of the classifier.

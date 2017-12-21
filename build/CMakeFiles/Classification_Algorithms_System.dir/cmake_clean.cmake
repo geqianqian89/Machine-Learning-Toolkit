@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Classification_Algorithms_System.dir/src/Classifier.cpp.o"
   "CMakeFiles/Classification_Algorithms_System.dir/src/Data.cpp.o"
   "CMakeFiles/Classification_Algorithms_System.dir/src/DualClassifier.cpp.o"
+  "CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o"
   "CMakeFiles/Classification_Algorithms_System.dir/src/Kernel.cpp.o"
   "CMakeFiles/Classification_Algorithms_System.dir/src/Perceptron.cpp.o"
   "CMakeFiles/Classification_Algorithms_System.dir/src/Point.cpp.o"

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y',['y',['../class_point.html#afa38be143ae800e6ad69ce8ed4df62d8',1,'Point']]]
+  ['_7egnuplot',['~Gnuplot',['../class_gnuplot.html#a78a68f621caa87d1f34324fcd093c7bd',1,'Gnuplot']]]
 ];

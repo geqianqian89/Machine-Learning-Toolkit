@@ -26,10 +26,30 @@ void Classifier::setMaxUpdates(int MAX_UP){
     this->MAX_UP = MAX_UP;
 }
 
+void Classifier::setCtot(int ctot) {
+    this->ctot = ctot;
+}
+
+int Classifier::getCtot() {
+    return ctot;
+}
+
+double Classifier::getElapsedTime(){
+  return this->timer.count();
+}
+
+void Classifier::setSteps(int steps) {
+    this->steps = steps;
+}
+
 int Classifier::getSteps(){
     return steps;
 }
 
 int Classifier::getUpdates(){
     return ctot;
+}
+
+void Classifier::setSolution(Solution solution){
+  this->solution = solution;
 }

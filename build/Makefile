@@ -204,6 +204,33 @@ src/DualClassifier.cpp.s:
 	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/DualClassifier.cpp.s
 .PHONY : src/DualClassifier.cpp.s
 
+src/IMA.o: src/IMA.cpp.o
+
+.PHONY : src/IMA.o
+
+# target to build an object file
+src/IMA.cpp.o:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o
+.PHONY : src/IMA.cpp.o
+
+src/IMA.i: src/IMA.cpp.i
+
+.PHONY : src/IMA.i
+
+# target to preprocess a source file
+src/IMA.cpp.i:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.i
+.PHONY : src/IMA.cpp.i
+
+src/IMA.s: src/IMA.cpp.s
+
+.PHONY : src/IMA.s
+
+# target to generate assembly for a file
+src/IMA.cpp.s:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.s
+.PHONY : src/IMA.cpp.s
+
 src/Kernel.o: src/Kernel.cpp.o
 
 .PHONY : src/Kernel.o
@@ -492,6 +519,9 @@ help:
 	@echo "... src/DualClassifier.o"
 	@echo "... src/DualClassifier.i"
 	@echo "... src/DualClassifier.s"
+	@echo "... src/IMA.o"
+	@echo "... src/IMA.i"
+	@echo "... src/IMA.s"
 	@echo "... src/Kernel.o"
 	@echo "... src/Kernel.i"
 	@echo "... src/Kernel.s"
