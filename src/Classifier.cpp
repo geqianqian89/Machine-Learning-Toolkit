@@ -22,6 +22,10 @@ void Classifier::setMaxIterations(int MAX_IT){
     this->MAX_IT = MAX_IT;
 }
 
+void Classifier::setVerbose(int verbose) {
+    this->verbose = verbose;
+}
+
 void Classifier::setMaxUpdates(int MAX_UP){
     this->MAX_UP = MAX_UP;
 }

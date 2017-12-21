@@ -12,10 +12,6 @@ Solution PrimalClassifier::getSolution(){
     return solution;
 }
 
-void PrimalClassifier::setVerbose(int verbose) {
-    this->verbose = verbose;
-}
-
 void PrimalClassifier::setGamma(double gamma) {
     this->gamma = gamma;
 }

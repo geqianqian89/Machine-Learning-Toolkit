@@ -12,7 +12,6 @@ class PrimalClassifier : public Classifier {
         double q = 2, p = 2;
         /// Flexibilidade
         double flexible = 0.0;
-        int verbose = 1;
         double gamma = 0.0;
         double alpha_aprox = 0.0;
     public:
@@ -22,7 +21,6 @@ class PrimalClassifier : public Classifier {
          */
         void setqNorm(double q);
         void setpNorm(double p);
-        void setVerbose(int verbose);
         void setGamma(double gamma);
         void setFlexible(double flexible);
         void setAlphaAprox(double alpha_aprox);

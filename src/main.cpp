@@ -878,7 +878,7 @@ void primalClassifiersOption(int option){
         }
         break;
     case 0:
-        classifiersOption(1);
+        classifiersMenu();
         break;
     default:
         inva = true;
@@ -986,7 +986,7 @@ void dualClassifiersOption(int option){
         waitUserAction();
         break;
     case 0:
-        classifiersOption(2);
+        classifiersMenu();
         break;
     default:
         break;

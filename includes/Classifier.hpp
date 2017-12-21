@@ -30,6 +30,7 @@ class Classifier {
         double EPS = 1E-9;
         int MAX_IT = 1E9;
         int MAX_UP = 1E9;
+        int verbose = 1;
         Timer timer;
     // Operations
     public :
@@ -52,6 +53,7 @@ class Classifier {
         double getElapsedTime();
         void setSteps(int steps);
         void setCtot(int ctot);
+        void setVerbose(int verbose);
         int getCtot();
        	/**
          * \brief setStartTime Set the initial time of the classifier.

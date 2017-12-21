@@ -4,6 +4,7 @@
 #include "../includes/Validation.hpp"
 #include "../includes/Data.hpp"
 #include "../includes/Point.hpp"
+#include "../includes/Random.hpp"
 
 using namespace std;
 
