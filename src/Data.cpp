@@ -890,6 +890,10 @@ vector<Point> Data::getPoints(){
     return points;
 }
 
+Point* Data::getPtrToPoint(int id){
+    return &points[id];
+}
+
 vector<int> Data::getIndex(){
     return index;
 }

@@ -21,7 +21,7 @@
 
      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-           A Buddha statue to bless your 
+           A Buddha statue to bless your
                code to be bug free
 */
 
@@ -144,6 +144,7 @@ class Data {
          * \return std::vector<Points>
          */
         std::vector<Point> getPoints ();
+        Point* getPtrToPoint(int id);
         /**
          * \brief Returns the features names.
          * \return std::vector<int>

@@ -139,7 +139,7 @@ bool IMAp::train() {
         for(min = DBL_MAX, max = -DBL_MAX, i = 0; i < size; ++i)
         {
             y = points[i].y;
-            alpha = points[i].alpha;
+            alpha = samples->getPtrToPoint(i)->alpha;
             if((func[i] + y*alpha*flexible) >= 0 && min > (func[i] + y*alpha*flexible)/norm) min = (func[i] + y*alpha*flexible)/norm;
             else if((func[i] + y*alpha*flexible) <  0 && max < (func[i] + y*alpha*flexible)/norm) max = (func[i] + y*alpha*flexible)/norm;
         }
@@ -182,12 +182,10 @@ bool IMAp::train() {
         ++it; //IMA iteration increment
 
         imapFixMargin.setCtot(ctot);
-        imapFixMargin.setqNorm(q);
         imapFixMargin.setSteps(steps);
         imapFixMargin.setGamma(gamma);
         imapFixMargin.setSolution(tempSol);
 
-        if(it == 3) break;
         if(flagNao1aDim) break;
     }
 
@@ -252,7 +250,7 @@ bool IMApFixedMargin::train() {
     s = 0;
 
     timer.start();
-    while(timer.end() - max_time <= 0)
+    while(timer.end() - time <= 0)
     {
         for(e = 0, i = 0; i < size; ++i)
         {
@@ -269,8 +267,9 @@ bool IMApFixedMargin::train() {
             if(y*func[idx] <= gamma*norm - points[idx].alpha*flexible)
             {
                 lambda = (norm) ? (1-rate*gamma/norm) : 1;
-                for(r = 0; r < size; ++r)
-                    points[r].alpha *= lambda;
+                for(r = 0; r < size; ++r){
+                    samples->getPtrToPoint(r)->alpha *= lambda;
+                }
 
                 if(q != -1)
                 {

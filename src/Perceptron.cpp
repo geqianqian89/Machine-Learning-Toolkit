@@ -22,15 +22,10 @@ bool PerceptronPrimal::train(){
     vector<int> index = samples->getIndex();
 
     if(w.size() == 0) w.resize(dim);
-	
-	#ifdef __unix__
-		cond = 100.0f*clock()/CLOCKS_PER_SEC-time <= 0; 
-    #elif _WIN32
-    	cond = 100.0f*clock()/CLOCKS_PER_SEC-time >= 0; 
-    #endif
-    
-    while(cond){
-    //while(1){
+
+
+    timer.start();
+    while(timer.end() - time <= 0){
         for(e = 0, i = 0; i < size; ++i){
             idx = index[i];
             Point p = samples->getPoint(idx);
@@ -60,9 +55,9 @@ bool PerceptronPrimal::train(){
         if(steps > MAX_IT) 	break;
         if(ctot > MAX_UP)	break;
         #ifdef __unix__
-			cond = 100.0f*clock()/CLOCKS_PER_SEC-time <= 0; 
+			cond = 100.0f*clock()/CLOCKS_PER_SEC-time <= 0;
     	#elif _WIN32
-    		cond = 100.0f*clock()/CLOCKS_PER_SEC-time >= 0; 
+    		cond = 100.0f*clock()/CLOCKS_PER_SEC-time >= 0;
     	#endif
     }
 
@@ -104,14 +99,9 @@ bool PerceptronFixedMarginPrimal::train(){
 
     if(w.size() == 0) w.resize(dim);
     e = s = 0;
-    
-    #ifdef __unix__
-		cond = 100.0f*clock()/CLOCKS_PER_SEC-time <= 0; 
-    #elif _WIN32
-    	cond = 100.0f*clock()/CLOCKS_PER_SEC-time >= 0; 
-    #endif
-    
-    while(cond){
+
+    timer.start();
+    while(timer.end() - time <= 0){
         for(e = 0, i = 0; i < size; ++i){
             idx = index[i];
             p = samples->getPoint(idx);
@@ -199,11 +189,11 @@ bool PerceptronFixedMarginPrimal::train(){
         if(e == 0) 		break;
         if(steps > MAX_IT)	break;
         if(ctot > MAX_UP)	break;
-        
+
         #ifdef __unix__
-			cond = 100.0f*clock()/CLOCKS_PER_SEC-time <= 0; 
+			cond = 100.0f*clock()/CLOCKS_PER_SEC-time <= 0;
     	#elif _WIN32
-    		cond = 100.0f*clock()/CLOCKS_PER_SEC-time >= 0; 
+    		cond = 100.0f*clock()/CLOCKS_PER_SEC-time >= 0;
     	#endif
     }
 
@@ -253,13 +243,8 @@ bool PerceptronDual::train(){
 
     e = 1;
 
-    #ifdef __unix__
-        cond = 100.0f*clock()/CLOCKS_PER_SEC-time <= 0;
-    #elif _WIN32
-        cond = 100.0f*clock()/CLOCKS_PER_SEC-time >= 0;
-    #endif
-
-    while(cond){
+    timer.start();
+    while(timer.end() - time <= 0){
         for(e = 0, i = 0; i < size; ++i){
             idx = index[i];
             y = points[idx].y;
@@ -339,13 +324,8 @@ bool PerceptronFixedMarginDual::train(){
 
     e = 1, s = 0;
 
-    #ifdef __unix__
-        cond = 100.0f*clock()/CLOCKS_PER_SEC-time <= 0;
-    #elif _WIN32
-        cond = 100.0f*clock()/CLOCKS_PER_SEC-time >= 0;
-    #endif
-
-    while(cond){
+    timer.start();
+    while(timer.end() - time <= 0){
         for(e = 0, i = 0; i < size; ++i){
             idx = index[i];
             y = points[idx].y;
