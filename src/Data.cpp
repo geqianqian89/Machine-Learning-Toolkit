@@ -325,10 +325,10 @@ bool Data::load_data(string path){
 
                 if(is_number(buffer)){
                     new_point.x[(atEnd)?dim:dim-1] = stodn(buffer);
-     				dim++;
+     				        dim++;
                 }
             }else{
-            	c = (item == pos_class)?1:-1;
+            	  c = (item == pos_class)?1:-1;
                 new_point.y = c;
                 if(c == -1) stats.n_neg++; else stats.n_pos++;
 
@@ -796,16 +796,12 @@ Data Data::copy(){
     return *this;
 }
 
-Data Data::copyZero(){
-    Data cp;
-
-    cp.fnames = fnames;
-    cp.dim = dim;
-    cp.size = 0;
-    cp.is_empty = is_empty;
-    cp.normalized = normalized;
-
-    return cp;
+void Data::copyZero(const Data& other){
+    fnames = other.fnames;
+    dim = other.dim;
+    size = 0;
+    is_empty = other.is_empty;
+    normalized = other.normalized;
 }
 
 void Data::join(Data data){
@@ -920,7 +916,7 @@ bool Data::isEmpty(){
 }
 
 void Data::operator=(const Data& data){
-	points = data.points;
+	  points = data.points;
     fnames = data.fnames;
     index = data.index;
     size = data.size;

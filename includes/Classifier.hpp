@@ -3,6 +3,7 @@
 
 #include "../includes/Solution.hpp"
 #include "../includes/Data.hpp"
+#include "../includes/Timer.hpp"
 
 #define MIN_INC  1.001
 
@@ -30,6 +31,7 @@ class Classifier {
         int MAX_IT = 1E9;
         int MAX_UP = 1E9;
         int verbose = 1;
+        Timer timer;
     // Operations
     public :
         /**

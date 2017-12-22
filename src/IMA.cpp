@@ -249,8 +249,8 @@ bool IMApFixedMargin::train() {
 
     s = 0;
 
-    Timer::start();
-    while(Timer::end() - time <= 0)
+    timer.start();
+    while(timer.end() - time <= 0)
     {
         for(e = 0, i = 0; i < size; ++i)
         {

@@ -23,9 +23,8 @@ bool PerceptronPrimal::train(){
 
     if(w.size() == 0) w.resize(dim);
 
-
-    Timer::start();
-    while(Timer::end() - time <= 0){
+    timer.start();
+    while(timer.end() - time <= 0){
         for(e = 0, i = 0; i < size; ++i){
             idx = index[i];
             Point p = samples->getPoint(idx);
@@ -54,11 +53,6 @@ bool PerceptronPrimal::train(){
         if(e == 0) 		break;
         if(steps > MAX_IT) 	break;
         if(ctot > MAX_UP)	break;
-        #ifdef __unix__
-			cond = 100.0f*clock()/CLOCKS_PER_SEC-time <= 0;
-    	#elif _WIN32
-    		cond = 100.0f*clock()/CLOCKS_PER_SEC-time >= 0;
-    	#endif
     }
 
     solution.bias = bias;
@@ -100,8 +94,8 @@ bool PerceptronFixedMarginPrimal::train(){
     if(w.size() == 0) w.resize(dim);
     e = s = 0;
 
-    Timer::start();
-    while(Timer::end() - time <= 0){
+    timer.start();
+    while(timer.end() - time <= 0){
         for(e = 0, i = 0; i < size; ++i){
             idx = index[i];
             p = samples->getPoint(idx);
@@ -189,12 +183,6 @@ bool PerceptronFixedMarginPrimal::train(){
         if(e == 0) 		break;
         if(steps > MAX_IT)	break;
         if(ctot > MAX_UP)	break;
-
-        #ifdef __unix__
-			cond = 100.0f*clock()/CLOCKS_PER_SEC-time <= 0;
-    	#elif _WIN32
-    		cond = 100.0f*clock()/CLOCKS_PER_SEC-time >= 0;
-    	#endif
     }
 
     solution.norm = norm;
@@ -243,8 +231,8 @@ bool PerceptronDual::train(){
 
     e = 1;
 
-    Timer::start();
-    while(Timer::end() - time <= 0){
+    timer.start();
+    while(timer.end() - time <= 0){
         for(e = 0, i = 0; i < size; ++i){
             idx = index[i];
             y = points[idx].y;
@@ -324,8 +312,8 @@ bool PerceptronFixedMarginDual::train(){
 
     e = 1, s = 0;
 
-    Timer::start();
-    while(Timer::end() - time <= 0){
+    timer.start();
+    while(timer.end() - time <= 0){
         for(e = 0, i = 0; i < size; ++i){
             idx = index[i];
             y = points[idx].y;
@@ -360,12 +348,6 @@ bool PerceptronFixedMarginDual::train(){
         if(e == 0)     break;
         if(steps > MAX_IT) break;
         if(ctot > MAX_UP) break;
-
-        #ifdef __unix__
-            cond = 100.0f*clock()/CLOCKS_PER_SEC-time <= 0;
-        #elif _WIN32
-            cond = 100.0f*clock()/CLOCKS_PER_SEC-time >= 0;
-        #endif
     }
 
     solution.bias = bias;

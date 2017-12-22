@@ -41,6 +41,7 @@ void datasetMenu(void);
 void dataMenu(void);
 void visualisationMenu(void);
 void classifiersMenu(void);
+void validationMenu(void);
 
 //Functions to call the execution of the menus options
 void mainOption(int);
@@ -259,6 +260,8 @@ void classifiersMenu(){
 
     cout << "1 - Primal Classifiers" << endl;
     cout << "2 - Dual Classifiers" << endl;
+
+    cout << "3 - Validate a Classifier" << endl;
     cout << "0 - Back to the main menu" << endl;
 
     option = selector();
@@ -745,6 +748,12 @@ void classifiersOption(int option){
         opt = selector();
         dualClassifiersOption(opt);
         break;
+      case 3:
+          clear();
+          header();
+          validationMenu();
+          waitUserAction();
+          break;
     case 0:
         mainMenu();
         break;
@@ -753,6 +762,13 @@ void classifiersOption(int option){
         break;
     }
     classifiersMenu();
+}
+
+void validationMenu(){
+  IMAp imap(&data);
+  Validation validate(&data, &imap);
+
+  validate.kFold(3, 0);
 }
 
 void primalClassifiersOption(int option){

@@ -13,7 +13,8 @@ class Kernel {
     // Attributes
     private :
         /// Kernel type and parameter.
-        int type, param;
+        int type;
+        double param;
         /// Kernel matrix.
         dMatrix K;
     public :
@@ -36,6 +37,16 @@ class Kernel {
          * @param param parameter to be set.
          */
         void setParam(int param);
+        /**
+         * @brief getType Returns the kernel type used in the kernel computations.
+         * @return int.
+         */
+        int getType();
+        /**
+         * @brief getParam Returns the kernel parameter used in the kernel computations.
+         * @return double
+         */
+        double getParam();
         /**
          * @brief setKernelMatrix Set a pre computed kernel matrix.
          * @param K Kernel matrix to be set.

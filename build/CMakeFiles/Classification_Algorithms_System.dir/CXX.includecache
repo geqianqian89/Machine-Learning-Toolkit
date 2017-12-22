@@ -19,6 +19,8 @@ vector
 -
 string
 -
+memory
+-
 Point.hpp
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Point.hpp
 Statistics.hpp
@@ -89,6 +91,10 @@ Classifier.hpp
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Classifier.hpp
 
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Random.hpp
+random
+-
+functional
+-
 
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Solution.hpp
 vector
@@ -259,10 +265,16 @@ random
 -
 functional
 -
+memory
+-
+../includes/DualClassifier.hpp
+/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/DualClassifier.hpp
 ../includes/Validation.hpp
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Validation.hpp
 ../includes/Data.hpp
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Data.hpp
+../includes/Utils.hpp
+/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Utils.hpp
 ../includes/Point.hpp
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Point.hpp
 ../includes/Random.hpp

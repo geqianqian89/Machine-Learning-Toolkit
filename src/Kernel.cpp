@@ -12,6 +12,14 @@ Kernel::Kernel(dMatrix K){
     this->K = K;
 }
 
+int Kernel::getType(){
+    return type;
+}
+
+double Kernel::getParam(){
+    return param;
+}
+
 void Kernel::setType(int type){
     this->type = type;
 }

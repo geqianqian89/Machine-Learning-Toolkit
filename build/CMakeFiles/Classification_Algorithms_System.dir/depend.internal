@@ -98,6 +98,7 @@ CMakeFiles/Classification_Algorithms_System.dir/src/Utils.cpp.o
 CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.o
  /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Classifier.hpp
  /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Data.hpp
+ /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/DualClassifier.hpp
  /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Kernel.hpp
  /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Point.hpp
  /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Random.hpp

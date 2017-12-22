@@ -24,6 +24,8 @@ class DualClassifier : public Classifier {
          * @return Solution
          */
         Solution getSolution();
+        inline double getKernelParam(){ return kernel.getParam(); }
+        inline double getKernelType(){ return kernel.getType(); }
 };
 
 #endif

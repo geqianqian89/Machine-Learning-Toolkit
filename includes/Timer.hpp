@@ -3,21 +3,23 @@
 
 #include <chrono>
 
-namespace Timer{
-  std::chrono::steady_clock::time_point start_time;
-  std::chrono::steady_clock::time_point end_time;
+class Timer{
+private:
+  std::chrono::steady_clock::time_point m_init_time;
+  std::chrono::steady_clock::time_point m_end_time;
 
-  void start(){ 
-  	start_time = std::chrono::steady_clock::now(); 
+public:
+  void start(){
+  	m_init_time = std::chrono::steady_clock::now();
   }
-  
-  double count(){ 
-  	return std::chrono::duration_cast<std::chrono::duration<double, std::chrono::seconds::period>>(end_time - start_time).count(); 
+
+  double count(){
+  	return std::chrono::duration_cast<std::chrono::duration<double, std::chrono::seconds::period>>(m_end_time - m_init_time).count();
   }
-  
-  double end(){ 
-  	end_time = std::chrono::steady_clock::now(); return count();
+
+  double end(){
+  	m_end_time = std::chrono::steady_clock::now(); return count();
   }
-}
+};
 
 #endif

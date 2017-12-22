@@ -30,6 +30,8 @@
 
 #include <vector>
 #include <string>
+#include <memory>
+
 #include "Point.hpp"
 #include "Statistics.hpp"
 
@@ -211,7 +213,7 @@ class Data {
          * \brief Returns a copy of the data with zero points.
          * \return Data
          */
-        Data copyZero ();
+        void copyZero (const Data& other);
         /**
          * \brief Merge one dataset with another.
          * \param data (???) Dataset to be joined.

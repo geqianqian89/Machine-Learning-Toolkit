@@ -97,6 +97,7 @@ CMakeFiles/Classification_Algorithms_System.dir/src/Utils.cpp.o: ../src/Utils.cp
 
 CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.o: ../includes/Classifier.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.o: ../includes/Data.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.o: ../includes/DualClassifier.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.o: ../includes/Kernel.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.o: ../includes/Point.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.o: ../includes/Random.hpp

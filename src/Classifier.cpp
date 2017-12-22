@@ -39,7 +39,7 @@ int Classifier::getCtot() {
 }
 
 double Classifier::getElapsedTime(){
-  return this->timer.count();
+  return timer.count();
 }
 
 void Classifier::setSteps(int steps) {
