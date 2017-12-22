@@ -275,6 +275,8 @@ memory
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Point.hpp
 ../includes/Random.hpp
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Random.hpp
+../includes/Kernel.hpp
+/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Kernel.hpp
 
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Visualisation.cpp
 ../includes/Visualisation.hpp

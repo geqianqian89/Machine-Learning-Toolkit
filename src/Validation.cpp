@@ -6,6 +6,7 @@
 #include "../includes/Utils.hpp"
 #include "../includes/Point.hpp"
 #include "../includes/Random.hpp"
+#include "../includes/Kernel.hpp"
 
 using namespace std;
 
@@ -70,7 +71,8 @@ double Validation::kFold (int fold, int seed){
   vector<double> w;
   dMatrix matrix;
   vector<int> error_arr(fold);
-  unique_ptr<Data> sample_pos(new Data), sample_neg(new Data), train_sample(new Data), test_sample(new Data), traintest_sample;
+  unique_ptr<Data> sample_pos(new Data), sample_neg(new Data), train_sample(new Data),
+  test_sample(new Data), traintest_sample(new Data);
   vector<unique_ptr<Data> > vet_sample_pos(fold), vet_sample_neg(fold), vet_sample_final(fold);
   bool isPrimal = false;
 
@@ -208,12 +210,30 @@ double Validation::kFold (int fold, int seed){
 				}
 			}
     }else{
-      //Falta o dual
+      DualClassifier *dual = dynamic_cast<DualClassifier*>(classifier);
+      Kernel K(dual->getKernelType(), dual->getKernelParam());
+      dMatrix matrix = K.getKernelMatrix();
+
+      *traintest_sample = test_sample->copy();
+      traintest_sample->join(*train_sample);
+
+      for(i = 0; i < test_sample->getSize(); ++i){
+  			for(func = s.bias, k = 0; k < train_sample->getSize(); ++k)
+  				func += train_sample->getPtrToPoint(k)->alpha * train_sample->getPtrToPoint(k)->y * matrix[k+test_sample->getSize()][i];
+
+        if(test_sample->getPtrToPoint(i)->y * func <= 0){
+					if(verbose > 1)
+						cerr << "[" << i+1 << "x] function: " << func << ", y: " << test_sample->getPtrToPoint(i)->y << endl;
+					error_arr[j]++;
+				}else{
+					if(verbose > 1)
+						cerr << "[" << i+1 << "] function: " << func << ", y: " << test_sample->getPtrToPoint(i)->y << endl;
+				}
+  		}
     }
     if(verbose) cout << "Error " << j + 1 << ": " << error_arr[j] << " -- " << ((double)error_arr[j]/(double)vet_sample_final[j]->getSize())*100.0f << "%";
 		error += ((double)error_arr[j]/(double)vet_sample_final[j]->getSize())*100.0f;
 
-    w.clear();
     train_sample.reset(new Data);
     test_sample.reset(new Data);
   }

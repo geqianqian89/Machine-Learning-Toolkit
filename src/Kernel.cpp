@@ -4,12 +4,13 @@
 
 using namespace std;
 
-Kernel::Kernel(){
-
+Kernel::Kernel(int type, double param){
+  this->type = type;
+  this->param = param;
 }
 
-Kernel::Kernel(dMatrix K){
-    this->K = K;
+Kernel::Kernel(dMatrix kernel_matrix){
+    this->K = kernel_matrix;
 }
 
 int Kernel::getType(){

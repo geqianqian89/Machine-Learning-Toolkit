@@ -21,12 +21,12 @@ class Kernel {
     	/**
     	 * @brief Class constructor.
     	 */
-        Kernel();
+        Kernel(int type = 0, double param = 0);
         /**
     	 * @brief Class constructor.
     	 * @param K Kernel matrix to be set in initialization.
     	 */
-        Kernel(dMatrix K);
+        Kernel(dMatrix kernel_matrix);
         /**
          * @brief setType Set the kernel type used in the kernel computations.
          * @param type Kernel type.
