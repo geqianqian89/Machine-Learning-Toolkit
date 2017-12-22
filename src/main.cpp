@@ -768,7 +768,7 @@ void validationMenu(){
   IMAp imap(&data);
   Validation validate(&data, &imap);
 
-  validate.kFold(3, 0);
+  cout << validate.kFold(3, 0) << endl;
 }
 
 void primalClassifiersOption(int option){

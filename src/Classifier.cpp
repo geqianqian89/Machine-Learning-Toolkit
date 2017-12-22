@@ -57,3 +57,7 @@ int Classifier::getUpdates(){
 void Classifier::setSolution(Solution solution){
   this->solution = solution;
 }
+
+Solution Classifier::getSolution(){
+    return solution;
+}

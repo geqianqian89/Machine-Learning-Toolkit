@@ -19,11 +19,6 @@ class DualClassifier : public Classifier {
          * @param q Norm that will be used by the classifier.
          */
         void setKernel(Kernel K);
-        /**
-         * @brief getSolution Returns the solution of the primal classifier.
-         * @return Solution
-         */
-        Solution getSolution();
         inline double getKernelParam(){ return kernel.getParam(); }
         inline double getKernelType(){ return kernel.getType(); }
 };

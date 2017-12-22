@@ -1,5 +1,3 @@
-#include <random>
-#include <functional>
 #include <memory>
 
 #include "../includes/DualClassifier.hpp"
@@ -12,8 +10,10 @@
 using namespace std;
 
 Validation::Validation(Data *sample, Classifier *classifier){
-    this->sample = sample;
-    this->classifier = classifier;
+  Random::init();
+
+  this->sample = sample;
+  this->classifier = classifier;
 }
 
 void Validation::partTrainTest(int fold, unsigned int seed){
@@ -36,17 +36,14 @@ void Validation::partTrainTest(int fold, unsigned int seed){
     npos = sample_pos.getSize();
     nneg = sample_neg.getSize();
 
-    auto dice_pos = bind(uniform_int_distribution<int>(0,npos-1), mt19937(seed));
-    auto dice_neg = bind(uniform_int_distribution<int>(0,nneg-1), mt19937(seed));
-
     for(i = 0; i < npos; i++){
-        j = dice_pos();
+        j = Random::intInRange(0, npos-1);
         aux = sample_pos.getPoint(i);
         sample_pos.setPoint(i, sample_pos.getPoint(j));
         sample_pos.setPoint(j, aux);
     }
     for(i = 0; i < nneg; i++){
-        j = dice_neg();
+        j = Random::intInRange(0, nneg-1);
         aux = sample_neg.getPoint(i);
         sample_neg.setPoint(i, sample_neg.getPoint(j));
         sample_neg.setPoint(j, aux);
@@ -73,13 +70,13 @@ double Validation::kFold (int fold, int seed){
   vector<double> w;
   dMatrix matrix;
   vector<int> error_arr(fold);
-  unique_ptr<Data> sample_pos(new Data), sample_neg(new Data), train_sample, test_sample, traintest_sample;
+  unique_ptr<Data> sample_pos(new Data), sample_neg(new Data), train_sample(new Data), test_sample(new Data), traintest_sample;
   vector<unique_ptr<Data> > vet_sample_pos(fold), vet_sample_neg(fold), vet_sample_final(fold);
+  bool isPrimal = false;
 
-/*  if(dynamic_cast<DualClassifier*>(classifier) != nullptr){
-    kernel_type = classifier->getType();
-    kernel_param = classifier->getParam();
-  }*/
+  if(dynamic_cast<DualClassifier*>(classifier) == nullptr){
+    isPrimal = true;
+  }
 
   sample_neg->copyZero(*sample);
   sample_pos->copyZero(*sample);
@@ -91,15 +88,16 @@ double Validation::kFold (int fold, int seed){
 		else
 			sample_neg->insertPoint(*p);
   }
-  cout << *sample_neg << "\n" << *sample_pos << endl;
+
   qtdpos = sample_pos->getSize();
 	qtdneg = sample_neg->getSize();
 
-	cout << "\nTotal of points: " << sample->getSize() << endl;
-	cout << "Qtd of positive: " << qtdpos << endl;
-	cout << "Qtd of negative: " << qtdneg << endl;
+  if(verbose){
+  	cout << "\nTotal of points: " << sample->getSize() << endl;
+  	cout << "Qtd of positive: " << qtdpos << endl;
+  	cout << "Qtd of negative: " << qtdneg << endl;
+  }
 
-  Random::init();
 	//randomize
 	for(i = 0; i < qtdpos; ++i){
 		Point aux;
@@ -118,7 +116,6 @@ double Validation::kFold (int fold, int seed){
 		*sample_neg->getPtrToPoint(i) = *sample_neg->getPtrToPoint(j);
 		*sample_neg->getPtrToPoint(j) = aux;
 	}
-
 
 	for(i = 0; i < fold; ++i){
     vet_sample_pos[i].reset(new Data);
@@ -167,8 +164,61 @@ double Validation::kFold (int fold, int seed){
 	vet_sample_pos.clear();
 	vet_sample_neg.clear();
 
+  //Start cross-validation
+	for(j = 0; j < fold; ++j){
+		*test_sample = vet_sample_final[j]->copy();
+		train_sample->copyZero(*sample);
 
+		for(i = 0; i < fold; ++i){
+			if(i != j)
+				for(k = 0; k < vet_sample_final[i]->getSize(); ++k)
+					train_sample->insertPoint(*vet_sample_final[i], k);
+		}
 
+    if(verbose){
+  		cout << "\nCross-Validation " << j + 1 << ": \n";
+  		cout << "Train points: " << train_sample->getSize() << endl;
+  		cout << "Test points: " << test_sample->getSize() << endl;
+    }
+
+    //training
+    classifier->setSamples(sample);
+    classifier->setVerbose(0);
+  	if(!classifier->train()){
+      if(verbose)
+        cerr << "Error at " << fold << "-fold: The convergency wasn't reached at the set " << j+1 << "!\n";
+      continue;
+    }
+
+    Solution s = classifier->getSolution();
+
+    if(isPrimal){
+      for(i = 0; i < test_sample->getSize(); ++i){
+        Point *p = test_sample->getPtrToPoint(i);
+        for(func = s.bias, k = 0; k < train_sample->getDim(); ++k)
+					func += s.w[k] * p->x[k];
+
+				if(p->y * func <= 0){
+					if(verbose > 1)
+						cerr << "[" << i+1 << "x] function: " << func << ", y: " << p->y << endl;
+					error_arr[j]++;
+				}else{
+					if(verbose > 1)
+						cerr << "[" << i+1 << "] function: " << func << ", y: " << p->y << endl;
+				}
+			}
+    }else{
+      //Falta o dual
+    }
+    if(verbose) cout << "Error " << j + 1 << ": " << error_arr[j] << " -- " << ((double)error_arr[j]/(double)vet_sample_final[j]->getSize())*100.0f << "%";
+		error += ((double)error_arr[j]/(double)vet_sample_final[j]->getSize())*100.0f;
+
+    w.clear();
+    train_sample.reset(new Data);
+    test_sample.reset(new Data);
+  }
+
+  return (((double)error)/(double)fold);
 }
 
 void Validation::validation(int fold, int qtde){

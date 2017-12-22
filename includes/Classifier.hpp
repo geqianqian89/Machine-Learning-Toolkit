@@ -65,6 +65,11 @@ class Classifier {
          * \param max_time Maximum time.
          */
         void setSolution(Solution solution);
+        /**
+         * @brief getSolution Returns the solution of the primal classifier.
+         * @return Solution
+         */
+        Solution getSolution();
         void setMaxTime(double max_time);
         /**
          * \brief setEPS Set the precision of the classifier.
