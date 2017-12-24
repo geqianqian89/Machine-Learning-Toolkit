@@ -31,7 +31,7 @@ bool IMAp::train() {
     double min = 0.0, max = 0.0, norm = 1.0, maiorw = 0.0;
     vector<double> w_saved, func;
     vector<int> index = samples->getIndex(), fnames = samples->getFeaturesNames();
-    vector<Point> points = samples->getPoints();
+    vector<shared_ptr<Point> > points = samples->getPoints();
     IMApFixedMargin imapFixMargin(samples, gamma);
     Solution tempSol;
 
@@ -64,9 +64,9 @@ bool IMAp::train() {
         int flag = 0;
 
         for (min = DBL_MAX, max = -DBL_MAX, i = 0; i < size; ++i) {
-            y = points[i].y;
+            y = points[i]->y;
             for (func[i] = 0, j = 0; j < dim; ++j)
-                func[i] += w[j] * points[i].x[j];
+                func[i] += w[j] * points[i]->x[j];
             if (y == 1 && func[i] < min) min = func[i];
             else if (y == -1 && func[i] > max) max = func[i];
         }
@@ -74,9 +74,9 @@ bool IMAp::train() {
         solution.bias = -(min + max) / 2.0;
 
         for (min = DBL_MAX, max = -DBL_MAX, i = 0; i < size; ++i) {
-            y = points[i].y;
+            y = points[i]->y;
             for (func[i] = solution.bias, j = 0; j < dim; ++j)
-                func[i] += w[j] * points[i].x[j];
+                func[i] += w[j] * points[i]->x[j];
             if (func[i] * y < 0) flag++;
             if (y == 1 && func[i] < min) min = func[i];
             else if (y == -1 && func[i] > max) max = func[i];
@@ -105,7 +105,7 @@ bool IMAp::train() {
 
     //Initializing w_saved and func
     for(i = 0; i <  dim; ++i) w_saved[i] = 0.0;
-    for(i = 0; i < size; ++i) { func[i] = 0.0; points[i].alpha = 0.0; }
+    for(i = 0; i < size; ++i) { func[i] = 0.0; points[i]->alpha = 0.0; }
 
     if(verbose)
     {
@@ -138,8 +138,8 @@ bool IMAp::train() {
 
         for(min = DBL_MAX, max = -DBL_MAX, i = 0; i < size; ++i)
         {
-            y = points[i].y;
-            alpha = samples->getPtrToPoint(i)->alpha;
+            y = points[i]->y;
+            alpha = samples->getPoint(i)->alpha;
             if((func[i] + y*alpha*flexible) >= 0 && min > (func[i] + y*alpha*flexible)/norm) min = (func[i] + y*alpha*flexible)/norm;
             else if((func[i] + y*alpha*flexible) <  0 && max < (func[i] + y*alpha*flexible)/norm) max = (func[i] + y*alpha*flexible)/norm;
         }
@@ -245,7 +245,7 @@ bool IMApFixedMargin::train() {
     bool cond;
     vector<double> x, func(size, 0.0);
     vector<int> index = samples->getIndex();
-    vector<Point> points = samples->getPoints();
+    vector<shared_ptr<Point> > points = samples->getPoints();
 
     s = 0;
 
@@ -256,19 +256,19 @@ bool IMApFixedMargin::train() {
         {
             //shuffling data r = i + rand()%(size-i); j = index[i]; idx = index[i] = index[r]; index[r] = j;
             idx = index[i];
-            x = points[idx].x;
-            y = points[idx].y;
+            x = points[idx]->x;
+            y = points[idx]->y;
 
             //calculating function
             for(func[idx] = bias, j = 0; j < dim; ++j)
                 func[idx] += w[j] * x[j];
 
             //Checking if the point is a mistake
-            if(y*func[idx] <= gamma*norm - points[idx].alpha*flexible)
+            if(y*func[idx] <= gamma*norm - points[idx]->alpha*flexible)
             {
                 lambda = (norm) ? (1-rate*gamma/norm) : 1;
                 for(r = 0; r < size; ++r){
-                    samples->getPtrToPoint(r)->alpha *= lambda;
+                    samples->getPoint(r)->alpha *= lambda;
                 }
 
                 if(q != -1)
@@ -314,7 +314,7 @@ bool IMApFixedMargin::train() {
                     if(n > maiorn) maiorn = n;
                 }
                 bias += rate * y;
-                points[idx].alpha += rate;
+                points[idx]->alpha += rate;
 
                 k = (i > s) ? s++ : e;
                 j = index[k];

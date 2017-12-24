@@ -9,6 +9,7 @@
 #include <sstream>
 #include <iterator>
 #include <fstream>
+#include <utility>
 #include <ctime>
 #include <cmath>
 #include <cstdio>
@@ -172,13 +173,13 @@ bool Data::load_csv(string path){
 
     //Read sample (line) from file
     while(getline(input, str)){
-        Point new_point;
+        shared_ptr<Point> new_point = make_shared<Point>();
 
         ss.str(str);
         dim = -1;
 
         //reserve memory for x array
-        new_point.x.resize(this->dim, 0.0);
+        new_point->x.resize(this->dim, 0.0);
 
         //Read features from line
         while(getline(ss, item, deli)){
@@ -189,7 +190,7 @@ bool Data::load_csv(string path){
 
             if(cond){
                 if(is_number(item))
-                    new_point.x[(!atEnd)?dim:dim+1] = stodn(item);
+                    new_point->x[(!atEnd)?dim:dim+1] = stodn(item);
             }else{
                 int c;
                 if(is_number(item)){
@@ -202,13 +203,13 @@ bool Data::load_csv(string path){
                     }
                 }
                 if(c == -1) stats.n_neg++; else stats.n_pos++;
-                new_point.y = c;
+                new_point->y = c;
             }
             dim++;
         }
 
-        points[size++] = new_point;
-        points[size-1].id = size;
+        points[size++] = std::move(new_point);
+        points[size-1]->id = size;
         ss.clear();
     }
 
@@ -289,12 +290,12 @@ bool Data::load_data(string path){
 
     //get lines from file
     while(getline(input, str)){
-        Point new_point;
+        shared_ptr<Point> new_point = make_shared<Point>();
 
         ss.str(str);
 
         dim = 0;
-        new_point.x.resize(this->dim, 0.0);
+        new_point->x.resize(this->dim, 0.0);
 
         //Read features from line
         while(getline(ss, item, ' ')){
@@ -327,19 +328,19 @@ bool Data::load_data(string path){
                 }
 
                 if(is_number(buffer)){
-                    new_point.x[(atEnd)?dim:dim-1] = stodn(buffer);
+                    new_point->x[(atEnd)?dim:dim-1] = stodn(buffer);
      				        dim++;
                 }
             }else{
             	  c = (item == pos_class)?1:-1;
-                new_point.y = c;
+                new_point->y = c;
                 if(c == -1) stats.n_neg++; else stats.n_pos++;
 
                 if(!atEnd) dim++;
             }
         }
-        points[size++] = new_point;
-        points[size-1].id = size;
+        points[size++] = std::move(new_point);
+        points[size-1]->id = size;
         ss.clear();
     }
 
@@ -420,12 +421,12 @@ bool Data::load_arff(string path){
 
     //Read line (sample) from file
     while(getline(input, str)){
-        Point new_point;
+        shared_ptr<Point> new_point = make_shared<Point>();
         dim = -1;
         ss.str(str);
 
         //reserve memory for features
-        new_point.x.assign(this->dim, 0.0);
+        new_point->x.assign(this->dim, 0.0);
 
         //Read features from line
         while(getline(ss, item, ',')){
@@ -435,7 +436,7 @@ bool Data::load_arff(string path){
                 cond = !(dim == 0);
             if(cond){
                 if(is_number(item)){
-                    new_point.x[dim + 1] = stodn(item);
+                    new_point->x[dim + 1] = stodn(item);
                 }
             }else{
                 if(is_number(item)){
@@ -448,13 +449,13 @@ bool Data::load_arff(string path){
                     }
                 }
                 if(c == -1) stats.n_neg++; else stats.n_pos++;
-                new_point.y = c;
+                new_point->y = c;
             }
             dim++;
         }
 
-        points[size++] = new_point;
-        points[size-1].id = size;
+        points[size++] = std::move(new_point);
+        points[size-1]->id = size;
         ss.clear();
     }
 
@@ -520,10 +521,10 @@ bool Data::load_txt(string path){
 
     //get line from file (sample)
     while(getline(input, str)){
-        Point new_point;
+        shared_ptr<Point> new_point = make_shared<Point>();
 
         //Allocate memory for features
-        new_point.x.resize(dim, 0.0);
+        new_point->x.resize(dim, 0.0);
         ss.str(str);
         n = 0;
 
@@ -531,15 +532,15 @@ bool Data::load_txt(string path){
         while(getline(ss, item, ' ')){
             if(n >= 2){
                 if(is_number(item))
-                    new_point.x[n - 2] = stoin(item);
+                    new_point->x[n - 2] = stoin(item);
                 else{ clog << "Warning: point[" << size  << "] " << n-2 << " feature is not a number." << endl; }
-                new_point.y = 0;
+                new_point->y = 0;
             }
             n++;
         }
 
-        points[size++] = new_point;
-        points[size-1].id = size;
+        points[size++] = std::move(new_point);
+        points[size-1]->id = size;
         ss.clear();
     }
 
@@ -553,7 +554,7 @@ bool Data::removePoint(int pid){
 
     if(size == 1){ cout << "Error: RemovePoint, only one point left\n"; return false; }
     //Ids bound verification
-    if(pid > points[size-1].id || pid <= 0) return false;
+    if(pid > points[size-1]->id || pid <= 0) return false;
 
     if(index.size() != 0){
         index.resize(size);
@@ -567,10 +568,10 @@ bool Data::removePoint(int pid){
 
     //Find the point by its id and erase it
     for(i = 0; i < size; i++){
-        if(points[i].id == pid){
+        if(points[i]->id == pid){
             if(stats.n_pos > 0 || stats.n_neg > 0){
-                if(points[i].y == 1) stats.n_pos--;
-                else if(points[i].y == -1) stats.n_neg--;
+                if(points[i]->y == 1) stats.n_pos--;
+                else if(points[i]->y == -1) stats.n_neg--;
             }
             points.erase(points.begin() + i);
             break;
@@ -593,19 +594,19 @@ void Data::write(string fname, string ext){
     }
 
     for(i = 0; i < size; i++){
-        outstream << points[i].y << " ";
+        outstream << points[i]->y << " ";
 
         if(ext == "plt"){
             for(j = 0; j < dim-1; j++){
-                outstream << points[i].x[j] << " ";
+                outstream << points[i]->x[j] << " ";
             }
-            outstream << points[i].x[j] << endl;
+            outstream << points[i]->x[j] << endl;
         }else if(ext == "data"){
 
             for(j = 0; j < dim-1; j++){
-                outstream << fnames[j] << ":" << points[i].x[j] << " ";
+                outstream << fnames[j] << ":" << points[i]->x[j] << " ";
             }
-            outstream << fnames[j] << ":" << points[i].x[j] << "\n";
+            outstream << fnames[j] << ":" << points[i]->x[j] << "\n";
         }
     }
 
@@ -615,15 +616,15 @@ void Data::write(string fname, string ext){
 vector<bool> Data::removePoints(vector<int> ids){
     int idsize = ids.size(), i;
     bool save;
-    Point po;
-    vector<Point>::iterator p = points.begin();
+    shared_ptr<Point> po;
+    vector<shared_ptr<Point> >::iterator p = points.begin();
     vector<bool> notFound(idsize, true);
 
     for(; p != points.end();){
         save = true;
         po = (*p);
         for(i = 0; i < idsize; i++){
-            if(po.id == ids[i]){
+            if(po->id == ids[i]){
                 save = false;
                 notFound[i] = false;
                 break;
@@ -635,8 +636,8 @@ vector<bool> Data::removePoints(vector<int> ids){
             p = points.erase(p);
             //Size verification.
             if(size == 1){ clog << "Error: RemovePoint, only one point left." << endl; break;}
-            if(po.y == 1) stats.n_pos--;
-            else if(po.y == -1) stats.n_neg--;
+            if(po->y == 1) stats.n_pos--;
+            else if(po->y == -1) stats.n_neg--;
             size--;
         }
     }
@@ -648,7 +649,7 @@ Data Data::insertFeatures(std::vector<int> ins_feat){
     int i, j, s, offset = 0, fsize = ins_feat.size();
     bool saveflag;
     vector<int> new_fnames(fsize, 0);
-    Point p;
+    shared_ptr<Point> p;
     Data smout;
 
     if(fsize == 0) return *this;
@@ -660,10 +661,10 @@ Data Data::insertFeatures(std::vector<int> ins_feat){
 
     //Copying information to new data array
     for(i = 0; i < size; i++){
-        p.x.resize(fsize, 0);
-        p.y = points[i].y;
-        p.alpha = points[i].alpha;
-        p.id = points[i].id;
+        p->x.resize(fsize, 0);
+        p->x = points[i]->x;
+        p->alpha = points[i]->alpha;
+        p->id = points[i]->id;
 
         //Copying features
         s = 0, offset = 0;
@@ -674,7 +675,7 @@ Data Data::insertFeatures(std::vector<int> ins_feat){
             }
 
             if(saveflag){
-                p.x[s] = points[i].x[j];
+                p->x[s] = points[i]->x[j];
                 new_fnames[s] = fnames[j];
                 s++;
                 saveflag = false;
@@ -713,11 +714,11 @@ bool Data::removeFeatures(std::vector<int> feats){
 
     //Remove features from each point
     for(i = 0; i < psize; i++){
-        for(itr = points[i].x.begin(),k = 0, j = 0; itr != points[i].x.end();){
+        for(itr = points[i]->x.begin(),k = 0, j = 0; itr != points[i]->x.end();){
             if(k == rsize) break;
             if(fnames[j] == feats[k]){
                 if(i == 0)  dim--;
-                itr = points[i].x.erase(itr);
+                itr = points[i]->x.erase(itr);
                 k++;
             }else itr++;
             j++;
@@ -749,49 +750,49 @@ bool Data::insertPoint(Data sample, int index){
     return true;
 }
 
-bool Data::insertPoint(Point p){
+bool Data::insertPoint(shared_ptr<Point> p){
     //Dimension verification
-    if(int(p.x.size()) > dim){
+    if(int(p->x.size()) > dim){
         cerr << "Point with dimension different from the data. (insertPoint)" << endl;
-        cerr << "Point dim = " << p.x.size() << " dim = " << dim << endl;
+        cerr << "Point dim = " << p->x.size() << " dim = " << dim << endl;
         return false;
     }
 
     //Insert the point p at the end of the points vector
-    points.insert(points.end(), p);
+    points.insert(points.end(), std::move(p));
     size++;
     if(is_empty) is_empty = false;
 
-    if(p.y > 0)
+    if(points[size-1]->y > 0)
         stats.n_pos++;
     else stats.n_neg++;
 
     //Give a new id to the point equal to the previous point id plus 1
-    points[size-1].id = size;
+    points[size-1]->id = size;
 
     return true;
 }
 
 void Data::changeXVector(vector<int> index){
     int i, j;
-    vector<Point> nPoints(size, Point(dim));
+    vector<shared_ptr<Point> > nPoints(size);
 
     //Copy features and classes of the points making the changes
     for(i = 0; i < size; i++){
-        nPoints[i].x = points[index[i]].x;
-        nPoints[i].y = points[index[i]].y;
+        nPoints[i]->x = points[index[i]]->x;
+        nPoints[i]->x = points[index[i]]->x;
     }
 
     //Save changes in the class
     points = nPoints;
 }
 
-Point Data::getPoint(int index){
+shared_ptr<Point> Data::getPoint(int index){
     return points[index];
 }
 
-void Data::setPoint(int index, Point p){
-    points[index] = p;
+void Data::setPoint(int index, shared_ptr<Point> p){
+    points[index] = std::move(p);
 }
 
 Data Data::copy(){
@@ -809,7 +810,7 @@ void Data::copyZero(const Data& other){
 void Data::join(Data data){
     int i, j, dim1 = data.getDim(), antsize = size, size1 = data.getSize();
     vector<int> index1 = data.getIndex(), antindex = index;
-    vector<Point> points1 = data.getPoints();
+    vector<shared_ptr<Point> > points1 = data.getPoints();
 
     if(dim > dim1){
         cerr << "Error: sample1 dimension must be less or equal to sample2\n";
@@ -828,8 +829,8 @@ void Data::join(Data data){
 
     for(i = antsize, j = 0; i < size && j < size1; i++, j++){
         points[i] = points1[j];
-        if(points1[j].y == 1) stats.n_pos++;
-        else if(points1[j].y == -1) stats.n_neg++;
+        if(points1[j]->y == 1) stats.n_pos++;
+        else if(points1[j]->y == -1) stats.n_neg++;
     }
 
 }
@@ -840,11 +841,11 @@ void Data::normalize(double p){
 
     for(i = 0; i < size; ++i){
         for(norm = 0, j = 0; j < dim; ++j){
-            norm += pow(fabs(points[i].x[j]),p);
+            norm += pow(fabs(points[i]->x[j]),p);
         }
         norm = pow(norm, 1.0/p);
         for(j = 0; j < dim; ++j){
-            points[i].x[j] /= norm;
+            points[i]->x[j] /= norm;
         }
     }
 
@@ -884,12 +885,8 @@ void Data::setFeaturesNames(std::vector<int> fnames){
     this->fnames = fnames;
 }
 
-vector<Point> Data::getPoints(){
+vector<shared_ptr<Point> > Data::getPoints(){
     return points;
-}
-
-Point* Data::getPtrToPoint(int id){
-    return &points[id];
 }
 
 vector<int> Data::getIndex(){
@@ -931,8 +928,8 @@ void Data::operator=(const Data& data){
 }
 
 ostream &operator<<( ostream &output, const Data &data ){
-    for(Point p : data.points){
-        output << p << endl;
+    for(shared_ptr<Point> p : data.points){
+        output << *p << endl;
     }
 
     return output;

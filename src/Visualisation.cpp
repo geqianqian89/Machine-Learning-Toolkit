@@ -32,21 +32,21 @@ void Visualisation::createPosNegTemps(){
     ofstream neg_file("temp/neg.plt"), pos_file("temp/pos.plt"), und_file("temp/und.plt");
 
     for(i = 0; i < size; i++){
-        if(samples->getPoint(i).y == 1){
+        if(samples->getPoint(i)->y == 1){
             for(j = 0; j < dim-1; j++){
-                pos_file << samples->getPoint(i).x[j] << " ";
+                pos_file << samples->getPoint(i)->x[j] << " ";
             }
-            pos_file << samples->getPoint(i).x[j] << endl;
-        }else if(samples->getPoint(i).y == -1){
+            pos_file << samples->getPoint(i)->x[j] << endl;
+        }else if(samples->getPoint(i)->y == -1){
             for(j = 0; j < dim-1; j++){
-                neg_file << samples->getPoint(i).x[j] << " ";
+                neg_file << samples->getPoint(i)->x[j] << " ";
             }
-            neg_file << samples->getPoint(i).x[j] << endl;
+            neg_file << samples->getPoint(i)->x[j] << endl;
         }else{
             for(j = 0; j < dim-1; j++){
-                und_file << samples->getPoint(i).x[j] << " ";
+                und_file << samples->getPoint(i)->x[j] << " ";
             }
-            und_file << samples->getPoint(i).x[j] << endl;
+            und_file << samples->getPoint(i)->x[j] << endl;
         }
     }
     pos_file.close();
@@ -192,5 +192,3 @@ Visualisation::~Visualisation(){
     #endif
     removeTempFiles();
 }
-
-

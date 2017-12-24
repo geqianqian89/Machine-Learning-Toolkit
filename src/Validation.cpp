@@ -19,7 +19,7 @@ Validation::Validation(Data *sample, Classifier *classifier){
 
 void Validation::partTrainTest(int fold, unsigned int seed){
     int i, j, npos, nneg, size = sample->getSize();
-    Point p, aux;
+    shared_ptr<Point> p, aux;
     Data sample_pos, sample_neg;
 
     sample_pos.copyZero(*sample);
@@ -27,7 +27,7 @@ void Validation::partTrainTest(int fold, unsigned int seed){
 
     for(i = 0; i < size; i++){
         p = sample->getPoint(i);
-        if(p.y == 1){
+        if(p->y == 1){
             sample_pos.insertPoint(*sample, i);
         }else{
             sample_neg.insertPoint(*sample, i);
@@ -84,11 +84,11 @@ double Validation::kFold (int fold, int seed){
   sample_pos->copyZero(*sample);
 
   for(i = 0; i < size; i++){
-    Point *p = sample->getPtrToPoint(i);
+    shared_ptr<Point> p = sample->getPoint(i);
     if(p->y == 1)
-			sample_pos->insertPoint(*p);
+			sample_pos->insertPoint(p);
 		else
-			sample_neg->insertPoint(*p);
+			sample_neg->insertPoint(p);
   }
 
   qtdpos = sample_pos->getSize();
@@ -102,27 +102,27 @@ double Validation::kFold (int fold, int seed){
 
 	//randomize
 	for(i = 0; i < qtdpos; ++i){
-		Point aux;
+		shared_ptr<Point> aux;
 
 		j = Random::intInRange(0, sample_pos->getSize()-1);
-		aux = *sample_pos->getPtrToPoint(i);
-		*sample_pos->getPtrToPoint(i) = *sample_pos->getPtrToPoint(j);
-		*sample_pos->getPtrToPoint(j) = aux;
+		aux = sample_pos->getPoint(i);
+		sample_pos->setPoint(i, sample_pos->getPoint(j));
+		sample_pos->setPoint(j, aux);
 	}
 
 	for(i = 0; i < qtdneg; ++i){
-		Point aux;
+		shared_ptr<Point> aux;
 
 		j = Random::intInRange(0, sample_neg->getSize()-1);
-		aux = *sample_neg->getPtrToPoint(i);
-		*sample_neg->getPtrToPoint(i) = *sample_neg->getPtrToPoint(j);
-		*sample_neg->getPtrToPoint(j) = aux;
+		aux = sample_neg->getPoint(i);
+		sample_neg->setPoint(i, sample_neg->getPoint(j));
+		sample_neg->setPoint(j, aux);
 	}
 
 	for(i = 0; i < fold; ++i){
-    vet_sample_pos[i].reset(new Data);
-		vet_sample_neg[i].reset(new Data);
-		vet_sample_final[i].reset(new Data);
+    vet_sample_pos[i] = make_unique<Data>();
+		vet_sample_neg[i] = make_unique<Data>();
+		vet_sample_final[i] = make_unique<Data>();
 
     vet_sample_pos[i]->copyZero(*sample);
 		vet_sample_neg[i]->copyZero(*sample);
@@ -196,7 +196,7 @@ double Validation::kFold (int fold, int seed){
 
     if(isPrimal){
       for(i = 0; i < test_sample->getSize(); ++i){
-        Point *p = test_sample->getPtrToPoint(i);
+        shared_ptr<Point> p = test_sample->getPoint(i);
         for(func = s.bias, k = 0; k < train_sample->getDim(); ++k)
 					func += s.w[k] * p->x[k];
 
@@ -219,23 +219,23 @@ double Validation::kFold (int fold, int seed){
 
       for(i = 0; i < test_sample->getSize(); ++i){
   			for(func = s.bias, k = 0; k < train_sample->getSize(); ++k)
-  				func += train_sample->getPtrToPoint(k)->alpha * train_sample->getPtrToPoint(k)->y * matrix[k+test_sample->getSize()][i];
+  				func += train_sample->getPoint(k)->alpha * train_sample->getPoint(k)->y * matrix[k+test_sample->getSize()][i];
 
-        if(test_sample->getPtrToPoint(i)->y * func <= 0){
+        if(test_sample->getPoint(i)->y * func <= 0){
 					if(verbose > 1)
-						cerr << "[" << i+1 << "x] function: " << func << ", y: " << test_sample->getPtrToPoint(i)->y << endl;
+						cerr << "[" << i+1 << "x] function: " << func << ", y: " << test_sample->getPoint(i)->y << endl;
 					error_arr[j]++;
 				}else{
 					if(verbose > 1)
-						cerr << "[" << i+1 << "] function: " << func << ", y: " << test_sample->getPtrToPoint(i)->y << endl;
+						cerr << "[" << i+1 << "] function: " << func << ", y: " << test_sample->getPoint(i)->y << endl;
 				}
   		}
     }
     if(verbose) cout << "Error " << j + 1 << ": " << error_arr[j] << " -- " << ((double)error_arr[j]/(double)vet_sample_final[j]->getSize())*100.0f << "%";
 		error += ((double)error_arr[j]/(double)vet_sample_final[j]->getSize())*100.0f;
 
-    train_sample.reset(new Data);
-    test_sample.reset(new Data);
+    train_sample = make_unique<Data>();
+    test_sample = make_unique<Data>();
   }
 
   return (((double)error)/(double)fold);

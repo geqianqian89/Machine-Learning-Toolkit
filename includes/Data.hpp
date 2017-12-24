@@ -26,7 +26,7 @@
 */
 #ifndef DATA__HPP
 #define DATA__HPP
-
+#pragma pack(1)
 #include <vector>
 #include <string>
 #include <memory>
@@ -45,7 +45,7 @@ class Data {
     // Attributes
     private :
         /// Set of points.
-        std::vector<Point> points;
+        std::vector<std::shared_ptr<Point> > points;
         /// Features names.
         std::vector<int> fnames;
         /// Points indexes.
@@ -133,19 +133,18 @@ class Data {
          * \param index    Position of a point in the points array.
          * \return std::vector<Points>
          */
-        Point getPoint (int index);
+        std::shared_ptr<Point> getPoint (int index);
         /**
          * \brief setPoint Set the point in a position of the data.
          * \param index (???) Index of the point that will be set.
          * \param p (???) Point to be set.
          */
-        void setPoint (int index, Point p);
+        void setPoint (int index, std::shared_ptr<Point> p);
         /**
          * \brief Returns the vector of Points of the sample.
          * \return std::vector<Points>
          */
-        std::vector<Point> getPoints ();
-        Point* getPtrToPoint(int id);
+        std::vector<std::shared_ptr<Point> > getPoints ();
         /**
          * \brief Returns the features names.
          * \return std::vector<int>
@@ -231,7 +230,7 @@ class Data {
          * \param p (???) Point to be inserted.
          * \return bool
          */
-        bool insertPoint (Point p);
+        bool insertPoint (std::shared_ptr<Point> p);
         /**
          * \brief Remove several points from the sample.
          * \param ids (???) Ids of the points to be removed (must be sorted).

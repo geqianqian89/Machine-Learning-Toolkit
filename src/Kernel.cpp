@@ -41,7 +41,7 @@ dMatrix Kernel::getKernelMatrix(){
 
 void Kernel::compute(Data samples){
     int i, j, size = samples.getSize(), dim = samples.getDim();
-    vector<Point> points = samples.getPoints();
+    vector<shared_ptr<Point> > points = samples.getPoints();
 
     K.assign(size, vector<double>(size, 0.0));
 
@@ -54,10 +54,10 @@ void Kernel::compute(Data samples){
     }
 }
 
-double Kernel::function(Point one, Point two, int dim){
+double Kernel::function(shared_ptr<Point> one, shared_ptr<Point> two, int dim){
     int i = 0;
     double t, sum = 0.0;
-    vector<double> a = one.x, b = two.x;
+    vector<double> a = one->x, b = two->x;
 
    // a.erase(a.end());
     //b.erase(b.end());
@@ -91,14 +91,14 @@ double Kernel::function(Point one, Point two, int dim){
 double Kernel::norm(Data data){
     int i, j, size = data.getSize();
     double sum, sum1;
-    vector<Point> points = data.getPoints();
+    vector<shared_ptr<Point> > points = data.getPoints();
 
     sum = sum1 = 0;
 
     for(i = 0; i < size; ++i){
         for(j = 0; j < size; j++){
-            sum1 += points[j].alpha * points[j].y * K[i][j];
-            sum += points[i].y * points[i].alpha * sum1;
+            sum1 += points[j]->alpha * points[j]->y * K[i][j];
+            sum += points[i]->y * points[i]->alpha * sum1;
         }
     }
 

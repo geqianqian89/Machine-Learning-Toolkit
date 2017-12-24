@@ -27,9 +27,9 @@ bool PerceptronPrimal::train(){
     while(timer.end() - time <= 0){
         for(e = 0, i = 0; i < size; ++i){
             idx = index[i];
-            Point p = samples->getPoint(idx);
-            x = p.x;
-            y = p.y;
+            shared_ptr<Point> p = samples->getPoint(idx);
+            x = p->x;
+            y = p->y;
 
             //calculating function
             for(func[idx] = bias, j = 0; j < dim; ++j)
@@ -89,7 +89,7 @@ bool PerceptronFixedMarginPrimal::train(){
     bool cond;
     vector<double> func(size, 0.0), w = solution.w, x;
     vector<int> index = samples->getIndex();
-    Point p;
+    shared_ptr<Point> p;
 
     if(w.size() == 0) w.resize(dim);
     e = s = 0;
@@ -99,8 +99,8 @@ bool PerceptronFixedMarginPrimal::train(){
         for(e = 0, i = 0; i < size; ++i){
             idx = index[i];
             p = samples->getPoint(idx);
-            x = p.x;
-            y = p.y;
+            x = p->x;
+            y = p->y;
 
             //calculating function
             for(func[idx] = bias, j = 0; j < dim; ++j){
@@ -108,11 +108,11 @@ bool PerceptronFixedMarginPrimal::train(){
             }
 
             //Checking if the point is a mistake
-            if(y*func[idx] <= gamma*norm - samples->getPoint(idx).alpha*flexible){
+            if(y*func[idx] <= gamma*norm - samples->getPoint(idx)->alpha*flexible){
                 lambda = (norm) ? (1-rate*gamma/norm) : 1;
                 for(r = 0; r < size; ++r){
-                    Point b = samples->getPoint(r);
-                    b.alpha *= lambda;
+                    shared_ptr<Point> b = samples->getPoint(r);
+                    b->alpha *= lambda;
                     samples->setPoint(r, b);
                 }
 
@@ -167,7 +167,7 @@ bool PerceptronFixedMarginPrimal::train(){
                     norm = pow(sumnorm, 1.0/q);
                 }
                 bias += rate * y;
-                p.alpha += rate;
+                p->alpha += rate;
                 samples->setPoint(idx, p);
 
                 k = (i > s) ? s++ : e;
@@ -222,7 +222,7 @@ bool PerceptronDual::train(){
     bool cond;
     vector<int> index = samples->getIndex();
     vector<double> func(size, 0.0), Kv;
-    vector<Point> points = samples->getPoints();
+    vector<shared_ptr<Point> > points = samples->getPoints();
     dMatrix K = kernel.getKernelMatrix();
 
     if(alpha.size() == 0){
@@ -235,19 +235,19 @@ bool PerceptronDual::train(){
     while(timer.end() - time <= 0){
         for(e = 0, i = 0; i < size; ++i){
             idx = index[i];
-            y = points[idx].y;
+            y = points[idx]->y;
 
             Kv = K[idx];
             double f;
 
             //Calculating function
             for(f = bias, r = 0; r < size; ++r)
-                f += alpha[r] * points[index[r]].y*Kv[index[r]];
+                f += alpha[r] * points[index[r]]->y*Kv[index[r]];
             func[idx] = f;
 
             //Checking if the point is a mistake
             if(y * f <= 0.0){
-                norm = sqrt(norm * norm + tworate*points[idx].y*func[idx] - bias + sqrate*Kv[idx]);
+                norm = sqrt(norm * norm + tworate*points[idx]->y*func[idx] - bias + sqrate*Kv[idx]);
                 alpha[i] += rate;
                 bias += rate * y;
                 ++ctot, ++e;
@@ -273,7 +273,7 @@ bool PerceptronDual::train(){
     solution.w.resize(dim);
     for(i = 0; i < dim; i++){
         for(j = 0; j < size; j++){
-            solution.w[i] += alpha[j]*points[j].y*points[j].x[i];
+            solution.w[i] += alpha[j]*points[j]->y*points[j]->x[i];
         }
     }
     return (e == 0);
@@ -303,7 +303,7 @@ bool PerceptronFixedMarginDual::train(){
     bool cond;
     vector<int> index = samples->getIndex();
     vector<double> func(size, 0.0), Kv;
-    vector<Point> points = samples->getPoints();
+    vector<shared_ptr<Point> > points = samples->getPoints();
     dMatrix K = kernel.getKernelMatrix();
 
     if(alpha.size() == 0){
@@ -316,7 +316,7 @@ bool PerceptronFixedMarginDual::train(){
     while(timer.end() - time <= 0){
         for(e = 0, i = 0; i < size; ++i){
             idx = index[i];
-            y = points[idx].y;
+            y = points[idx]->y;
 
             //Checking if the point is a mistake
             if(y*func[idx] - gamma*norm <= 0){
@@ -330,7 +330,7 @@ bool PerceptronFixedMarginDual::train(){
                     func[r]           = lambda * func[r] + rate*y*(Kv[r]+1) + bias*(1-lambda);
                 }
 
-                norm = sqrt(norm*norm + tworate*points[idx].y*lambda*(func[idx]-bias) + sqrate*Kv[idx]);
+                norm = sqrt(norm*norm + tworate*points[idx]->y*lambda*(func[idx]-bias) + sqrate*Kv[idx]);
                 alpha[idx] += rate;
                 bias += rate * y;
 
@@ -356,7 +356,7 @@ bool PerceptronFixedMarginDual::train(){
     solution.w.resize(dim);
     for(i = 0; i < dim; i++){
         for(j = 0; j < size; j++){
-            solution.w[i] += alpha[j]*points[j].y*points[j].x[i];
+            solution.w[i] += alpha[j]*points[j]->y*points[j]->x[i];
         }
     }
 

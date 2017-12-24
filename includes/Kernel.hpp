@@ -2,6 +2,7 @@
 #define KERNEL__HPP
 
 #include <vector>
+#include <memory>
 
 #include "../includes/Data.hpp"
 #include "../includes/Utils.hpp"
@@ -69,7 +70,7 @@ class Kernel {
          * @param dim Dimension of the points.
          * @return double
          */
-        double function(Point one, Point two, int dim);
+        double function(std::shared_ptr<Point> one, std::shared_ptr<Point> two, int dim);
         /**
          * @brief norm Computes norm in dual variables.
          * @param data Dataset to compute norm.
