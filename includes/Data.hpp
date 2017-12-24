@@ -24,7 +24,6 @@
            A Buddha statue to bless your
                code to be bug free
 */
-
 #ifndef DATA__HPP
 #define DATA__HPP
 

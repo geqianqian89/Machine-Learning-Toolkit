@@ -2,7 +2,6 @@
   \brief Implementation of the Data class methods.
   \file Data.cpp
 */
-
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -91,6 +90,7 @@ bool Data::load(string file){
 
 bool Data::load_csv(string path){
     ifstream input(path.c_str());
+    stringstream ss;
     string str, item;
     int dim, ldim, size, ssize;
     char deli;
@@ -106,9 +106,9 @@ bool Data::load_csv(string path){
 
     //Verify if the class is at the begining or at the end and error check
     while(getline(input, str)){
-        istringstream ss(str);
         ssize = str.size();
         dim = -1;
+        ss.str(str);
 
         //Define csv file delimitator
         if(size == 0){
@@ -150,6 +150,7 @@ bool Data::load_csv(string path){
 
         ldim = dim;
         size++;
+        ss.clear();
     }
 
     input.clear();
@@ -167,14 +168,13 @@ bool Data::load_csv(string path){
 
     //reserve memory for points array
     points.resize(size);
-
     size = 0;
 
     //Read sample (line) from file
     while(getline(input, str)){
         Point new_point;
-        istringstream ss(str);
 
+        ss.str(str);
         dim = -1;
 
         //reserve memory for x array
@@ -209,17 +209,17 @@ bool Data::load_csv(string path){
 
         points[size++] = new_point;
         points[size-1].id = size;
+        ss.clear();
     }
 
     is_empty = false;
-    input.clear();
-    input.close();
 
     return true;
 }
 
 bool Data::load_data(string path){
     ifstream input(path.c_str());
+    stringstream ss;
     string str, item, buffer;
     int dim, ldim, c, size;
     bool flag, atEnd = false, cond;
@@ -234,8 +234,9 @@ bool Data::load_data(string path){
 
     //get dimension of the points
     while(getline(input, str)){
-        stringstream ss(str);
         dim = -1;
+
+        ss.str(str);
 
         while(getline(ss, item, ' ')){
 
@@ -265,6 +266,7 @@ bool Data::load_data(string path){
 
         ldim = dim;
         size++;
+        ss.clear();
     }
 
     input.clear();
@@ -288,7 +290,8 @@ bool Data::load_data(string path){
     //get lines from file
     while(getline(input, str)){
         Point new_point;
-        stringstream ss(str);
+
+        ss.str(str);
 
         dim = 0;
         new_point.x.resize(this->dim, 0.0);
@@ -337,17 +340,17 @@ bool Data::load_data(string path){
         }
         points[size++] = new_point;
         points[size-1].id = size;
+        ss.clear();
     }
 
     is_empty = false;
-    input.clear();
-    input.close();
 
     return true;
 }
 
 bool Data::load_arff(string path){
     ifstream input(path.c_str());
+    istringstream ss;
     string str, item;
     int dim, ldim, size, c;
     bool atEnd, atBegin, flag, cond;
@@ -362,8 +365,8 @@ bool Data::load_arff(string path){
 
     //Verify if the class is at the begining or at the end and error check
     while(getline(input, str)){
-        istringstream ss(str);
         dim = 0;
+        ss.str();
 
         while(getline(ss, item, ',')){
             //check for invalid feature or class
@@ -393,6 +396,7 @@ bool Data::load_arff(string path){
 
         ldim = dim;
         size++;
+        ss.clear();
     }
 
     input.clear();
@@ -416,9 +420,9 @@ bool Data::load_arff(string path){
 
     //Read line (sample) from file
     while(getline(input, str)){
-        istringstream ss(str);
         Point new_point;
         dim = -1;
+        ss.str(str);
 
         //reserve memory for features
         new_point.x.assign(this->dim, 0.0);
@@ -451,16 +455,17 @@ bool Data::load_arff(string path){
 
         points[size++] = new_point;
         points[size-1].id = size;
+        ss.clear();
     }
 
     is_empty = false;
-    input.clear();
-    input.close();
+
     return true;
 }
 
 bool Data::load_txt(string path){
     ifstream input(path.c_str());
+    istringstream ss;
     string str, item;
     int n, dim, n1, d, size;
 
@@ -473,7 +478,7 @@ bool Data::load_txt(string path){
 
     //error check
     while(getline(input, str)){
-        istringstream ss(str);
+        ss.str(str);
         n1 = 0;
         dim = 0;
 
@@ -492,6 +497,7 @@ bool Data::load_txt(string path){
 
         d = dim;
         size++;
+        ss.clear();
     }
 
     //Initialize size and dim
@@ -515,14 +521,11 @@ bool Data::load_txt(string path){
     //get line from file (sample)
     while(getline(input, str)){
         Point new_point;
-        istringstream ss(str);
-        n = 0;
-
-        ss.clear();
-        ss.str(str);
 
         //Allocate memory for features
         new_point.x.resize(dim, 0.0);
+        ss.str(str);
+        n = 0;
 
         //read features from line
         while(getline(ss, item, ' ')){
@@ -537,11 +540,10 @@ bool Data::load_txt(string path){
 
         points[size++] = new_point;
         points[size-1].id = size;
+        ss.clear();
     }
 
     is_empty = false;
-    input.clear();
-    input.close();
 
     return true;
 }
