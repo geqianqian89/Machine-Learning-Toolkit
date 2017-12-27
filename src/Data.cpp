@@ -246,7 +246,7 @@ bool Data::load_data(string path){
           }
             //Verify if the class is at the beggining or at the end
           if(dim == -1 && !flag){
-             if(!(item == pos_class) || (item == neg_class)){
+             if(!((item == pos_class) || (item == neg_class))){
                  atEnd = true;
                  flag = true;
              }
@@ -286,7 +286,7 @@ bool Data::load_data(string path){
     points.resize(size);
 
     size = 0;
-
+    cout << atEnd << endl;
     //get lines from file
     while(getline(input, str)){
         auto new_point = make_shared<Point>();
@@ -301,7 +301,7 @@ bool Data::load_data(string path){
         	//Verify if the class is at the beggining or at the end
         	if(atEnd)
                 cond = (!ss.eof() && atEnd);
-            else
+          else
                 cond = !(dim == 0);
 
             if(cond){
