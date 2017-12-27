@@ -61,3 +61,7 @@ void Classifier::setSolution(Solution solution){
 Solution Classifier::getSolution(){
     return solution;
 }
+
+void Classifier::setLearningRate(double rate){
+  this->rate = rate;
+}

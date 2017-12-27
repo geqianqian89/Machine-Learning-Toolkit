@@ -25,7 +25,7 @@ IMAp::IMAp(Data *samples, double margin,  Solution *initial_solution) {
 
 bool IMAp::train() {
     unsigned int tMax = 0;
-    int i, j, n, maiorn = 0, flagNao1aDim = 0, y, it;
+    int i, j, n, maiorn = 0, flagNao1aDim = 0, y, it, sign = 1;
     int size = samples->getSize(), dim = samples->getDim(), t1=1, t3=1;
     double gamma, secs, bias = 0.0, alpha, rmargin = margin, inc;
     double min = 0.0, max = 0.0, norm = 1.0, maiorw = 0.0;
@@ -103,9 +103,8 @@ bool IMAp::train() {
     }
     samples->setIndex(index);
 
-    //Initializing w_saved and func
-    for(i = 0; i <  dim; ++i) w_saved[i] = 0.0;
-    for(i = 0; i < size; ++i) { func[i] = 0.0; points[i]->alpha = 0.0; }
+    //Initializing alpha
+    for(i = 0; i < size; ++i) { points[i]->alpha = 0.0; }
 
     if(verbose)
     {
@@ -123,8 +122,11 @@ bool IMAp::train() {
     imapFixMargin.setqNorm(q);
     imapFixMargin.setSteps(steps);
     imapFixMargin.setGamma(gamma);
+    imapFixMargin.setFlexible(flexible);
+    imapFixMargin.setLearningRate(rate);
 
     *imapFixMargin.getFlagNot1aDim() = flagNao1aDim;
+
     while(imapFixMargin.train())
     {
         ctot = imapFixMargin.getCtot();
@@ -139,22 +141,24 @@ bool IMAp::train() {
         for(min = DBL_MAX, max = -DBL_MAX, i = 0; i < size; ++i)
         {
             y = points[i]->y;
-            alpha = samples->getPoint(i)->alpha;
+            alpha = points[i]->alpha;
             if((func[i] + y*alpha*flexible) >= 0 && min > (func[i] + y*alpha*flexible)/norm) min = (func[i] + y*alpha*flexible)/norm;
             else if((func[i] + y*alpha*flexible) <  0 && max < (func[i] + y*alpha*flexible)/norm) max = (func[i] + y*alpha*flexible)/norm;
         }
         //Saving good weights
         for(i = 0; i < dim; i++) w_saved[i] = tempSol.w[i];
-
         //Obtaining real margin
         rmargin = (fabs(min) > fabs(max)) ? fabs(max) : fabs(min);
 
         //Shift no bias
         double mmargin = (fabs(max) + fabs(min)) / 2.0;
+        double dmargin = (mmargin - rmargin);
+        sign = (dmargin < 0)?-1:1;
+        dmargin *= sign;
         if(fabs(max) > fabs(min))
-            tempSol.bias += fabs(mmargin - rmargin);
+            tempSol.bias += dmargin;
         else
-            tempSol.bias -= fabs(mmargin - rmargin);
+            tempSol.bias -= dmargin;
 
         //Obtaining new gamma_f
         gamma = (min-max)/2.0;
@@ -174,7 +178,7 @@ bool IMAp::train() {
         else if(it == 1 && verbose)
             cout << "RATE: " << rate << "\n";
 
-        secs = imapFixMargin.getElapsedTime();
+        secs = imapFixMargin.getElapsedTime()/1000;
 
         if(verbose) cout << " " << it+1 << "        " << steps << "           " << ctot << "              " << rmargin << "            " << norm << "        " << secs << " ";
 
@@ -184,7 +188,9 @@ bool IMAp::train() {
         imapFixMargin.setSteps(steps);
         imapFixMargin.setGamma(gamma);
         imapFixMargin.setSolution(tempSol);
+        imapFixMargin.setLearningRate(rate);
 
+      //  break;
         if(flagNao1aDim) break;
     }
 
@@ -237,7 +243,7 @@ bool IMApFixedMargin::train() {
     int c, e, i, k, s, j;
     int t, idx, r;
     int size = samples->getSize(), dim = samples->getDim();
-    double norm = (solution.norm == 0)?1:solution.norm , bias = solution.bias, lambda = 1, y, time = start_time+max_time;
+    double norm = solution.norm , bias = solution.bias, lambda = 1, y, time = start_time+max_time;
     register double sumnorm = 0; //soma das normas para o calculo posterior (nao mais sqrt)
     double maiorw_temp = 0;
     int n_temp, sign= 1;
@@ -247,13 +253,13 @@ bool IMApFixedMargin::train() {
     vector<shared_ptr<Point> > points = samples->getPoints();
 
     e = 1,s = 0;
-    /*for(i = 0; i < w.size(); i++){
-      cout << w[i] << " ";
-    }
-    cout << endl;*/
+
     timer.start();
     while(timer.end() - time <= 0)
     {
+
+        //cout << bias << endl;
+        //cout << endl;
         for(e = 0, i = 0; i < size; ++i)
         {
             //shuffling data r = i + rand()%(size-i); j = index[i]; idx = index[i] = index[r]; index[r] = j;
@@ -333,7 +339,7 @@ bool IMApFixedMargin::train() {
                      sumnorm += pow(fabs(w[j]), q);
                  }
                  norm = pow(sumnorm, 1.0/q);
-             }
+            }
             bias += rate * y;
             points[idx]->alpha += rate;
 

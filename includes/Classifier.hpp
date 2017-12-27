@@ -21,7 +21,7 @@ class Classifier {
         /// Initial time.
         double start_time = 0.0f;
         /// Maximum time of training.
-        double max_time = 100.0f;
+        long int max_time = 100;
         /// Number of steps in the data.
         int steps = 0;
         /// Number of updates of the weights.
@@ -96,6 +96,7 @@ class Classifier {
          * \return int
          */
         int getUpdates();
+        void setLearningRate(double rate);
 };
 
 #endif
