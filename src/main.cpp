@@ -858,7 +858,6 @@ void primalClassifiersOption(int option){
             }
           }
           cout << endl;
-
           cout << "Flexibilization value [0 - no flexibilization]: ";
           cin >> flexible;
           cout << endl;

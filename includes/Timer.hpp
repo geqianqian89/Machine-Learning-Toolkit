@@ -14,7 +14,7 @@ public:
   }
 
   double count(){
-  	return std::chrono::duration_cast<std::chrono::duration<double, std::chrono::seconds::period>>(m_end_time - m_init_time).count();
+  	return std::chrono::duration_cast<std::chrono::duration<double, std::chrono::milliseconds::period>>(m_end_time - m_init_time).count();
   }
 
   double end(){

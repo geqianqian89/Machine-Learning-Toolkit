@@ -173,7 +173,7 @@ bool Data::load_csv(string path){
 
     //Read sample (line) from file
     while(getline(input, str)){
-        shared_ptr<Point> new_point = make_shared<Point>();
+        auto new_point = make_shared<Point>();
 
         ss.str(str);
         dim = -1;
@@ -240,24 +240,23 @@ bool Data::load_data(string path){
         ss.str(str);
 
         while(getline(ss, item, ' ')){
+          if(!is_number(item)){
+              clog << "Warning: point[" << size  << "] " << dim+1 << " feature is not a number." << endl;
+              dim--;
+          }
+            //Verify if the class is at the beggining or at the end
+          if(dim == -1 && !flag){
+             if(!(item == pos_class) || (item == neg_class)){
+                 atEnd = true;
+                 flag = true;
+             }
+          }else if(ss.eof() && !flag){
+             if(!((item == pos_class) || (item == neg_class))){
+                 flag = true;
+             }
+          }
 
-            if(!is_number(item)){
-                clog << "Warning: point[" << size  << "] " << dim+1 << " feature is not a number." << endl;
-                dim--;
-            }
-			//Verify if the class is at the beggining or at the end
-			if(dim == -1 && !flag){
-                if(!((item == pos_class) || (item == neg_class))){
-                    atEnd = true;
-                    flag = true;
-                }
-            }else if(ss.eof() && !flag){
-                if(!((item == pos_class) || (item == neg_class))){
-                    flag = true;
-                }
-            }
-
-            dim++;
+          dim++;
         }
 
         if(ldim != dim && ldim != 0){
@@ -290,7 +289,7 @@ bool Data::load_data(string path){
 
     //get lines from file
     while(getline(input, str)){
-        shared_ptr<Point> new_point = make_shared<Point>();
+        auto new_point = make_shared<Point>();
 
         ss.str(str);
 
@@ -521,7 +520,7 @@ bool Data::load_txt(string path){
 
     //get line from file (sample)
     while(getline(input, str)){
-        shared_ptr<Point> new_point = make_shared<Point>();
+        auto new_point = make_shared<Point>();
 
         //Allocate memory for features
         new_point->x.resize(dim, 0.0);
@@ -928,7 +927,7 @@ void Data::operator=(const Data& data){
 }
 
 ostream &operator<<( ostream &output, const Data &data ){
-    for(shared_ptr<Point> p : data.points){
+    for(auto p : data.points){
         output << *p << endl;
     }
 
