@@ -286,7 +286,6 @@ bool Data::load_data(string path){
     points.resize(size);
 
     size = 0;
-    cout << atEnd << endl;
     //get lines from file
     while(getline(input, str)){
         auto new_point = make_shared<Point>();
