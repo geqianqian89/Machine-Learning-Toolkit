@@ -11,8 +11,6 @@
 using namespace std;
 
 Validation::Validation(Data *sample, Classifier *classifier){
-  Random::init();
-
   this->sample = sample;
   this->classifier = classifier;
 }
@@ -21,6 +19,8 @@ void Validation::partTrainTest(int fold, unsigned int seed){
     int i, j, npos, nneg, size = sample->getSize();
     shared_ptr<Point> p, aux;
     Data sample_pos, sample_neg;
+
+    Random::init();
 
     sample_pos.copyZero(*sample);
     sample_neg.copyZero(*sample);
@@ -75,6 +75,8 @@ double Validation::kFold (int fold, int seed){
   test_sample(new Data), traintest_sample(new Data);
   vector<unique_ptr<Data> > vet_sample_pos(fold), vet_sample_neg(fold), vet_sample_final(fold);
   bool isPrimal = false;
+
+  Random::init();
 
   if(dynamic_cast<DualClassifier*>(classifier) == nullptr){
     isPrimal = true;
@@ -242,7 +244,99 @@ double Validation::kFold (int fold, int seed){
 }
 
 void Validation::validation(int fold, int qtde){
+  int i = 0, k = 0, erro = 0, svcount = 0, test_size = test_sample.getSize(),
+  train_size = train_sample.getSize(), train_dim = train_sample.getDim();
+	double error = 0, errocross = 0, func = 0.0, margin = 0, bias;
+  vector<double> w;
+  Data traintest_sample;
+  bool isPrimal = false;
 
+  if(dynamic_cast<DualClassifier*>(classifier) == nullptr){
+    isPrimal = true;
+  }
+
+  sample = &train_sample;
+
+  /*cross-validation*/
+  if(qtde > 0)
+  {
+      for(errocross = 0, i = 0; i < qtde; i++)
+      {
+          if(verbose) cout << "\nExecucao " << i + 1 << " / " << qtde << ":\n";
+          errocross += kFold(fold, i);
+      }
+      cout << "\nErro " << fold << "-Fold Cross Validation: " << errocross/qtde << "\n";
+  }
+
+  /*start final validation*/
+  if(verbose)
+  {
+      cout << "\nFinal Validation:\n";
+      cout << "Pts de Treino: " << train_sample.getSize() << "\n";
+      cout << "Pts de Teste:  " << test_sample.getSize() << "\n";
+  }
+
+  //training
+  classifier->setSamples(sample);
+  classifier->setVerbose(0);
+  if(!classifier->train()){
+    if(verbose)
+      cerr << "Validation error: The convergency wasn't reached in the training set!\n";
+  }
+
+  Solution s = classifier->getSolution();
+
+  w = s.w;
+  bias = s.bias;
+
+  if(isPrimal){
+    for(i = 0; i < test_size; ++i)
+    {
+      shared_ptr<Point> p = test_sample.getPoint(i);
+      for(func = bias, k = 0; k < train_dim; ++k)
+          func += w[k] * p->x[k];
+
+      if(p->y * func <= 0)
+      {
+          if(verbose > 1) cout << "["<< i+1 <<"x] function: " << func << ", y: " << p->y  << "\n";
+          erro++;
+      }
+      else
+      {
+          if(verbose > 1) cout << "["<< i+1 <<"x] function: " << func << ", y: " << p->y  << "\n";
+      }
+      if(verbose) cout.flush();
+    }
+  }else{
+    /*testing imadual and smo*/
+    DualClassifier *dual = dynamic_cast<DualClassifier*>(classifier);
+    Kernel K(dual->getKernelType(), dual->getKernelParam());
+    dMatrix matrix = K.getKernelMatrix();
+
+    traintest_sample.join(test_sample);
+    traintest_sample.join(train_sample);
+
+    for(i = 0; i < test_size; ++i)
+    {
+      shared_ptr<Point> p = test_sample.getPoint(i);
+      for(func = bias, k = 0; k < train_size; ++k)
+          func += train_sample.getPoint(k)->alpha * train_sample.getPoint(k)->y * matrix[k+test_size][i];
+
+      if(p->y * func <= 0)
+      {
+        if(verbose > 1) cout << "["<< i+1 <<"x] function: " << func << ", y: " << p->y  << "\n";
+        erro++;
+      }
+      else
+      {
+        if(verbose > 1) cout << "["<< i+1 <<"x] function: " << func << ", y: " << p->y  << "\n";
+      }
+      if(verbose) cout.flush();
+    }
+  }
+
+  cout << "Validation Error: " << erro << " -- " << (double)erro/(double)test_sample.getSize()*100.0f << "\n";
+  error += ((double)erro/(double)test_sample.getSize())*100.0f;
 }
 
 Data Validation::getTestSample(){

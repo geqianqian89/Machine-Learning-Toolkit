@@ -51,6 +51,7 @@ void visualisationOption(int);
 void classifiersOption(int);
 void primalClassifiersOption(int);
 void dualClassifiersOption(int);
+void validationOption(int);
 
 
 int main(int argc, char* argv[]){
@@ -765,10 +766,44 @@ void classifiersOption(int option){
 }
 
 void validationMenu(){
-  IMAp imap(&data);
-  Validation validate(&data, &imap);
+  int opt;
 
-  cout << validate.kFold(3, 0) << endl;
+  cout << "1 - IMAp" << endl;
+  cout << "0 - Back to classifiers menu." << endl;
+
+  opt = selector();
+  validationOption(opt);
+}
+
+void validationOption(int option){
+  int fold, qtde;
+
+  switch(option){
+    case 1:
+      if(!data.isEmpty()){
+        IMAp imap(&data);
+        Validation validate(&data, &imap);
+
+        cout << "Quantity of K-fold: ";
+        cin >> qtde;
+        cout << "Number of folds: ";
+        cin >> fold;
+
+        validate.partTrainTest(fold, 0);
+        validate.validation(fold, qtde);
+      }else{
+          cout << "Load a dataset first..." << endl;
+      }
+      waitUserAction();
+      break;
+    case 0:
+        classifiersMenu();
+        break;
+    default:
+      inva = true;
+      break;
+  }
+  classifiersOption(3);
 }
 
 void primalClassifiersOption(int option){
