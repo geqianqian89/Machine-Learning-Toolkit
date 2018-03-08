@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['maxabselement',['maxAbsElement',['../_utils_8hpp.html#a79ab62c544d771819865bec0eb8e5360',1,'Utils.hpp']]],
-  ['mean',['mean',['../class_statistics.html#ab121520f7556f75e295e04ff71f2af39',1,'Statistics']]]
+  ['kernel',['Kernel',['../class_kernel.html#ae60e072c58cdc16842a239bdd0761590',1,'Kernel::Kernel(int type=0, double param=0)'],['../class_kernel.html#adf23c1567adb8ddb5757931587320871',1,'Kernel::Kernel(dMatrix kernel_matrix)']]],
+  ['kfold',['kFold',['../class_validation.html#a3aae72caef37b12a57aaf5cdd862de3a',1,'Validation']]]
 ];

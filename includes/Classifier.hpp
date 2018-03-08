@@ -10,7 +10,9 @@
 class Classifier {
     // Attributes
     protected :
+        /// Inform if there's an initial solution.
         bool hasInitialSolution = false;
+        /// Samples used in the model training.
         Data* samples;
         /// Support vectors points.
         std::vector<Point> svs;
@@ -28,9 +30,12 @@ class Classifier {
         int ctot = 0;
         /// Max precision.
         double EPS = 1E-9;
+        /// Max number of iterations.
         int MAX_IT = 1E9;
+        /// Max number of updates.
         int MAX_UP = 1E9;
         int verbose = 1;
+        /// Timer used to measure the time elapsed in the execution of classifier.
         Timer timer;
     // Operations
     public :
@@ -50,11 +55,41 @@ class Classifier {
          * \param samples Samples to be used.
          */
         virtual void setSamples(Data *samples);
-        double getElapsedTime();
-        void setSteps(int steps);
+        /**
+         * @brief Get the elapsed time in the execution of the classifier.
+         * @return double
+         */
+        inline double getElapsedTime(){ return timer.count(); }
+        /**
+        * @brief Get the total number of updates of the classifier.
+        * @return int
+        */
+        inline int getCtot(){ return ctot; }
+        /**
+         * \brief getSteps Returns the number of steps through the data by the classifier.
+         * \return int
+         */
+        inline int getSteps(){ return steps; }
+        /**
+         * \brief getUpdates Returns the number of updates needed to get to the the solution.
+         * \return int
+         */
+        inline int getUpdates(){ return ctot; }
+        /**
+         * @brief Set the partial number of steps of the classifier.
+         * @param steps Number of steps.
+         */
+        inline void setSteps(int steps){ this->steps = steps; }
+        /**
+         * @brief Set the partial number of updates of the classifier.
+         * @param ctot Number of updates.
+         */
         void setCtot(int ctot);
+        /**
+         * @brief Set the level of verbose.
+         * @param verbose level of verbose.
+         */
         void setVerbose(int verbose);
-        int getCtot();
        	/**
          * \brief setStartTime Set the initial time of the classifier.
          * \param start_time Initial time.
@@ -70,6 +105,10 @@ class Classifier {
          * @return Solution
          */
         Solution getSolution();
+        /**
+         * @brief Set the max time of execution.
+         * @param max_time  Max time.
+         */
         void setMaxTime(double max_time);
         /**
          * \brief setEPS Set the precision of the classifier.
@@ -87,15 +126,9 @@ class Classifier {
          */
         void setMaxUpdates(int MAX_UP);
         /**
-         * \brief getSteps Returns the number of steps through the data by the classifier.
-         * \return int
+         * @brief Set the learning rate of the classifier.
+         * @param rate Learning rate.
          */
-        int getSteps();
-        /**
-         * \brief getUpdates Returns the number of updates needed to get to the the solution.
-         * \return int
-         */
-        int getUpdates();
         void setLearningRate(double rate);
 };
 

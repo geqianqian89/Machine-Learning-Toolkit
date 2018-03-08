@@ -71,8 +71,9 @@ double Validation::kFold (int fold, int seed){
   vector<double> w;
   dMatrix matrix;
   vector<int> error_arr(fold);
-  unique_ptr<Data> sample_pos(new Data), sample_neg(new Data), train_sample(new Data),
-  test_sample(new Data), traintest_sample(new Data);
+  unique_ptr<Data> sample_pos(make_unique<Data> ()), sample_neg(make_unique<Data> ()),
+  train_sample(make_unique<Data> ()), test_sample(make_unique<Data> ()),
+  traintest_sample(make_unique<Data> ());
   vector<unique_ptr<Data> > vet_sample_pos(fold), vet_sample_neg(fold), vet_sample_final(fold);
   bool isPrimal = false;
 

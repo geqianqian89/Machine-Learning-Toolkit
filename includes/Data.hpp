@@ -191,7 +191,7 @@ class Data {
          * \brief Returns if the dataset is normalized.
          * \return bool
          */
-        bool isNormalized();
+        inline bool isNormalized(){ return normalized; }
         /**
          * \brief Load a dataset from a file.
          * \param file (???) Path to dataset file.

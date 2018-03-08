@@ -1,8 +1,11 @@
 var searchData=
 [
-  ['data',['Data',['../class_data.html',1,'Data'],['../class_data.html#aa3ca35c963eec5a4734df23f88443077',1,'Data::Data(const char *pos_class=&quot;1&quot;, const char *neg_class=&quot;-1&quot;)'],['../class_data.html#a85afba1f115dce4b6d2a952326624dd4',1,'Data::Data(std::string dataset, const char *pos_class=&quot;1&quot;, const char *neg_class=&quot;-1&quot;)']]],
-  ['data_2ecpp',['Data.cpp',['../_data_8cpp.html',1,'']]],
-  ['dot',['dot',['../class_point.html#a9d8da6733d7e4110a62e8d0f82676761',1,'Point']]],
-  ['dtoa',['dtoa',['../_utils_8hpp.html#aa2e6553d01cd9d5839b137e33d17f256',1,'dtoa(double n):&#160;Utils.cpp'],['../_utils_8cpp.html#a275d36ee09955d83c3c2433d10088a04',1,'dtoa(double n):&#160;Utils.cpp']]],
-  ['dualclassifier',['DualClassifier',['../class_dual_classifier.html',1,'']]]
+  ['changexvector',['changeXVector',['../class_data.html#a3e66e3dce7675bf2a1eded906e3d7912',1,'Data']]],
+  ['classifier',['Classifier',['../class_classifier.html',1,'']]],
+  ['clear',['clear',['../class_data.html#a44b749f64ffa35e034f9503fdec4917e',1,'Data']]],
+  ['cmd',['cmd',['../class_gnuplot.html#a07607803ede8dd5416906df0a1924fc5',1,'Gnuplot']]],
+  ['compute',['compute',['../class_kernel.html#a5dfd3a6b535745eadd9e17dc086d87c6',1,'Kernel']]],
+  ['copy',['copy',['../class_data.html#afb7687021aa7d5f1ecae464eee601710',1,'Data']]],
+  ['copyzero',['copyZero',['../class_data.html#a6454e835f570d10e7614ac237d6fdf79',1,'Data']]],
+  ['ctot',['ctot',['../class_classifier.html#a99d9a7f504212bb3dc2726c10a2333c6',1,'Classifier']]]
 ];

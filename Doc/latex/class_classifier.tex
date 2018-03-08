@@ -25,33 +25,47 @@ virtual bool \hyperlink{class_classifier_a2306a5de27555ab093593ac9642bc7d9}{trai
 \begin{DoxyCompactList}\small\item\em Function that execute the training phase of a classification algorithm. \end{DoxyCompactList}\item 
 virtual double \hyperlink{class_classifier_ae8e9554823b85ddc2dcad2955da811d9}{evaluate} (\hyperlink{class_point}{Point} p)=0
 \begin{DoxyCompactList}\small\item\em Returns the class of a feature point based on the trained classifier. \end{DoxyCompactList}\item 
-virtual void \hyperlink{class_classifier_a4b16736670cba8f4c8397b6a90c8c799}{set\+Samples} (\hyperlink{class_data}{Data} $\ast$samples)
+virtual void \hyperlink{class_classifier_a4b16736670cba8f4c8397b6a90c8c799}{set\+Samples} (\hyperlink{class_data}{Data} $\ast$\hyperlink{class_classifier_a515c225d0da93df02ca79f9f87811d17}{samples})
 \begin{DoxyCompactList}\small\item\em set\+Samples Set the samples used in the classifier. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_classifier_a7f1cf3ac53b0593307a050368a912bb4}\label{class_classifier_a7f1cf3ac53b0593307a050368a912bb4}} 
-void {\bfseries set\+Start\+Time} (double \hyperlink{class_classifier_a4488a20bd7b4fc22d57244aaee57b002}{start\+\_\+time})
-\item 
-\mbox{\Hypertarget{class_classifier_a5da324a0de94b7171484f3b1f1f22fbd}\label{class_classifier_a5da324a0de94b7171484f3b1f1f22fbd}} 
-void {\bfseries set\+Max\+Time} (double \hyperlink{class_classifier_ae5ada7ce4d5436d1dcff3dff458107fd}{max\+\_\+time})
-\item 
-\mbox{\Hypertarget{class_classifier_a9cc5a1d92243f9d9b530347be1ac7367}\label{class_classifier_a9cc5a1d92243f9d9b530347be1ac7367}} 
-void {\bfseries set\+E\+PS} (double \hyperlink{class_classifier_ad7cd0cfea68461340df2adb0c132dc93}{E\+PS})
-\item 
-\mbox{\Hypertarget{class_classifier_a58540f77a22c0f1774d0089fac713498}\label{class_classifier_a58540f77a22c0f1774d0089fac713498}} 
-void {\bfseries set\+Max\+Iterations} (int M\+A\+X\+\_\+\+IT)
-\item 
-\mbox{\Hypertarget{class_classifier_ad8930d5e6002299bdb840d4542229f02}\label{class_classifier_ad8930d5e6002299bdb840d4542229f02}} 
-void {\bfseries set\+Max\+Updates} (int M\+A\+X\+\_\+\+UP)
-\item 
+double \hyperlink{class_classifier_ab47b67b061041193aa3ae2a7856f4980}{get\+Elapsed\+Time} ()
+\begin{DoxyCompactList}\small\item\em Get the elapsed time in the execution of the classifier. \end{DoxyCompactList}\item 
+int \hyperlink{class_classifier_ab80a78cd6a4efc59b16f5b80cd64dc63}{get\+Ctot} ()
+\begin{DoxyCompactList}\small\item\em Get the total number of updates of the classifier. \end{DoxyCompactList}\item 
 int \hyperlink{class_classifier_a1fb3e4dfd80c154e89603c8fa1b11b76}{get\+Steps} ()
 \begin{DoxyCompactList}\small\item\em get\+Steps Returns the number of steps through the data by the classifier. \end{DoxyCompactList}\item 
 int \hyperlink{class_classifier_a738c2fbed982db6cad02062edcc037e4}{get\+Updates} ()
-\begin{DoxyCompactList}\small\item\em get\+Updates Returns the number of updates needed to get to the the solution. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em get\+Updates Returns the number of updates needed to get to the the solution. \end{DoxyCompactList}\item 
+void \hyperlink{class_classifier_a779b6cac0351e272ee0573d919d5d060}{set\+Steps} (int \hyperlink{class_classifier_a1e4c9c9ba059d5aff1d4d81eb41725cb}{steps})
+\begin{DoxyCompactList}\small\item\em Set the partial number of steps of the classifier. \end{DoxyCompactList}\item 
+void \hyperlink{class_classifier_a3293d7d39c3934503a23b920f84f73e7}{set\+Ctot} (int \hyperlink{class_classifier_a99d9a7f504212bb3dc2726c10a2333c6}{ctot})
+\begin{DoxyCompactList}\small\item\em Set the partial number of updates of the classifier. \end{DoxyCompactList}\item 
+void \hyperlink{class_classifier_a073b94029512378ccfae3aa34aae0212}{set\+Verbose} (int verbose)
+\begin{DoxyCompactList}\small\item\em Set the level of verbose. \end{DoxyCompactList}\item 
+void \hyperlink{class_classifier_a7f1cf3ac53b0593307a050368a912bb4}{set\+Start\+Time} (double \hyperlink{class_classifier_a4488a20bd7b4fc22d57244aaee57b002}{start\+\_\+time})
+\begin{DoxyCompactList}\small\item\em set\+Start\+Time Set the initial time of the classifier. \end{DoxyCompactList}\item 
+void \hyperlink{class_classifier_aef6cb633eed60712f8948a404f630e82}{set\+Solution} (\hyperlink{class_solution}{Solution} \hyperlink{class_classifier_a8e70651d36fa396f55028847acd6ae50}{solution})
+\begin{DoxyCompactList}\small\item\em set\+Max\+Time Set the maximum time of the classifier. \end{DoxyCompactList}\item 
+\hyperlink{class_solution}{Solution} \hyperlink{class_classifier_afd2b54ada10af9f4be1c4d326b180dc7}{get\+Solution} ()
+\begin{DoxyCompactList}\small\item\em get\+Solution Returns the solution of the primal classifier. \end{DoxyCompactList}\item 
+void \hyperlink{class_classifier_a5da324a0de94b7171484f3b1f1f22fbd}{set\+Max\+Time} (double \hyperlink{class_classifier_a191089f044af0f4dd51f37aaff78d8f6}{max\+\_\+time})
+\begin{DoxyCompactList}\small\item\em Set the max time of execution. \end{DoxyCompactList}\item 
+void \hyperlink{class_classifier_a9cc5a1d92243f9d9b530347be1ac7367}{set\+E\+PS} (double \hyperlink{class_classifier_ad7cd0cfea68461340df2adb0c132dc93}{E\+PS})
+\begin{DoxyCompactList}\small\item\em set\+E\+PS Set the precision of the classifier. \end{DoxyCompactList}\item 
+void \hyperlink{class_classifier_a58540f77a22c0f1774d0089fac713498}{set\+Max\+Iterations} (int \hyperlink{class_classifier_a9cab88ab4489d771256bffb1717c1644}{M\+A\+X\+\_\+\+IT})
+\begin{DoxyCompactList}\small\item\em set\+Max\+Iterations Set the max number of iterations of the classifier. \end{DoxyCompactList}\item 
+void \hyperlink{class_classifier_ad8930d5e6002299bdb840d4542229f02}{set\+Max\+Updates} (int \hyperlink{class_classifier_abb8b95854801151e78a1d9f6a2173c22}{M\+A\+X\+\_\+\+UP})
+\begin{DoxyCompactList}\small\item\em set\+Max\+Iterations Set the max number of updates of the classifier. \end{DoxyCompactList}\item 
+void \hyperlink{class_classifier_a8f6818bd403afbb46d1bfd75c9731ab6}{set\+Learning\+Rate} (double \hyperlink{class_classifier_af9867e5919742de1303dd971a9a1c19a}{rate})
+\begin{DoxyCompactList}\small\item\em Set the learning rate of the classifier. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{class_classifier_a1de0c258e4a175ebf96a18ec7ee33381}\label{class_classifier_a1de0c258e4a175ebf96a18ec7ee33381}} 
+bool \hyperlink{class_classifier_a1de0c258e4a175ebf96a18ec7ee33381}{has\+Initial\+Solution} = false
+\begin{DoxyCompactList}\small\item\em Inform if there\textquotesingle{}s an initial solution. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_classifier_a515c225d0da93df02ca79f9f87811d17}\label{class_classifier_a515c225d0da93df02ca79f9f87811d17}} 
-\hyperlink{class_data}{Data} $\ast$ {\bfseries samples}
-\item 
+\hyperlink{class_data}{Data} $\ast$ \hyperlink{class_classifier_a515c225d0da93df02ca79f9f87811d17}{samples}
+\begin{DoxyCompactList}\small\item\em Samples used in the model training. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_classifier_ae9146fbbd020de483957a1ea68b614c7}\label{class_classifier_ae9146fbbd020de483957a1ea68b614c7}} 
 std\+::vector$<$ \hyperlink{class_point}{Point} $>$ \hyperlink{class_classifier_ae9146fbbd020de483957a1ea68b614c7}{svs}
 \begin{DoxyCompactList}\small\item\em Support vectors points. \end{DoxyCompactList}\item 
@@ -59,13 +73,13 @@ std\+::vector$<$ \hyperlink{class_point}{Point} $>$ \hyperlink{class_classifier_
 \hyperlink{class_solution}{Solution} \hyperlink{class_classifier_a8e70651d36fa396f55028847acd6ae50}{solution}
 \begin{DoxyCompactList}\small\item\em \hyperlink{class_classifier}{Classifier} solution. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_classifier_af9867e5919742de1303dd971a9a1c19a}\label{class_classifier_af9867e5919742de1303dd971a9a1c19a}} 
-double \hyperlink{class_classifier_af9867e5919742de1303dd971a9a1c19a}{rate} = 0.\+5
+double \hyperlink{class_classifier_af9867e5919742de1303dd971a9a1c19a}{rate} = 0.\+5f
 \begin{DoxyCompactList}\small\item\em Learning rate. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_classifier_a4488a20bd7b4fc22d57244aaee57b002}\label{class_classifier_a4488a20bd7b4fc22d57244aaee57b002}} 
-double \hyperlink{class_classifier_a4488a20bd7b4fc22d57244aaee57b002}{start\+\_\+time} = 0
+double \hyperlink{class_classifier_a4488a20bd7b4fc22d57244aaee57b002}{start\+\_\+time} = 0.\+0f
 \begin{DoxyCompactList}\small\item\em Initial time. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_classifier_ae5ada7ce4d5436d1dcff3dff458107fd}\label{class_classifier_ae5ada7ce4d5436d1dcff3dff458107fd}} 
-double \hyperlink{class_classifier_ae5ada7ce4d5436d1dcff3dff458107fd}{max\+\_\+time} = 200
+\mbox{\Hypertarget{class_classifier_a191089f044af0f4dd51f37aaff78d8f6}\label{class_classifier_a191089f044af0f4dd51f37aaff78d8f6}} 
+long int \hyperlink{class_classifier_a191089f044af0f4dd51f37aaff78d8f6}{max\+\_\+time} = 100
 \begin{DoxyCompactList}\small\item\em Maximum time of training. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_classifier_a1e4c9c9ba059d5aff1d4d81eb41725cb}\label{class_classifier_a1e4c9c9ba059d5aff1d4d81eb41725cb}} 
 int \hyperlink{class_classifier_a1e4c9c9ba059d5aff1d4d81eb41725cb}{steps} = 0
@@ -77,11 +91,17 @@ int \hyperlink{class_classifier_a99d9a7f504212bb3dc2726c10a2333c6}{ctot} = 0
 double \hyperlink{class_classifier_ad7cd0cfea68461340df2adb0c132dc93}{E\+PS} = 1\+E-\/9
 \begin{DoxyCompactList}\small\item\em Max precision. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_classifier_a9cab88ab4489d771256bffb1717c1644}\label{class_classifier_a9cab88ab4489d771256bffb1717c1644}} 
-int {\bfseries M\+A\+X\+\_\+\+IT} = 1\+E9
-\item 
+int \hyperlink{class_classifier_a9cab88ab4489d771256bffb1717c1644}{M\+A\+X\+\_\+\+IT} = 1\+E9
+\begin{DoxyCompactList}\small\item\em Max number of iterations. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_classifier_abb8b95854801151e78a1d9f6a2173c22}\label{class_classifier_abb8b95854801151e78a1d9f6a2173c22}} 
-int {\bfseries M\+A\+X\+\_\+\+UP} = 1\+E9
-\end{DoxyCompactItemize}
+int \hyperlink{class_classifier_abb8b95854801151e78a1d9f6a2173c22}{M\+A\+X\+\_\+\+UP} = 1\+E9
+\begin{DoxyCompactList}\small\item\em Max number of updates. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_classifier_a2b24f7f87ca8171ce07c888583646263}\label{class_classifier_a2b24f7f87ca8171ce07c888583646263}} 
+int {\bfseries verbose} = 1
+\item 
+\mbox{\Hypertarget{class_classifier_ae9d28253495ae8807d586faff951d46f}\label{class_classifier_ae9d28253495ae8807d586faff951d46f}} 
+\hyperlink{class_timer}{Timer} \hyperlink{class_classifier_ae9d28253495ae8807d586faff951d46f}{timer}
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_timer}{Timer} used to measure the time elapsed in the execution of classifier. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Member Function Documentation}
@@ -105,13 +125,52 @@ int
 \end{DoxyReturn}
 
 
-Implemented in \hyperlink{class_perceptron_fixed_margin_dual_a1370fdbc95bf728f82a83f219be32d23}{Perceptron\+Fixed\+Margin\+Dual}, \hyperlink{class_perceptron_dual_a3ed5554b85b4b1ec98f57acab3eeeaca}{Perceptron\+Dual}, \hyperlink{class_perceptron_fixed_margin_primal_af72c3dde96f1f1b803c7b522b5c1cc0f}{Perceptron\+Fixed\+Margin\+Primal}, and \hyperlink{class_perceptron_primal_ac8ce9ceffe2b35b5386e5367fb419b3b}{Perceptron\+Primal}.
+Implemented in \hyperlink{class_perceptron_fixed_margin_dual_a1370fdbc95bf728f82a83f219be32d23}{Perceptron\+Fixed\+Margin\+Dual}, \hyperlink{class_i_m_ap_fixed_margin_a230aae2c6ef3f70b2e1a704b5e4dff28}{I\+M\+Ap\+Fixed\+Margin}, \hyperlink{class_perceptron_dual_a3ed5554b85b4b1ec98f57acab3eeeaca}{Perceptron\+Dual}, \hyperlink{class_perceptron_fixed_margin_primal_af72c3dde96f1f1b803c7b522b5c1cc0f}{Perceptron\+Fixed\+Margin\+Primal}, \hyperlink{class_i_m_ap_aee497c8ff854b8d584c6c9df0c57ad57}{I\+M\+Ap}, and \hyperlink{class_perceptron_primal_ac8ce9ceffe2b35b5386e5367fb419b3b}{Perceptron\+Primal}.
 
+\mbox{\Hypertarget{class_classifier_ab80a78cd6a4efc59b16f5b80cd64dc63}\label{class_classifier_ab80a78cd6a4efc59b16f5b80cd64dc63}} 
+\index{Classifier@{Classifier}!get\+Ctot@{get\+Ctot}}
+\index{get\+Ctot@{get\+Ctot}!Classifier@{Classifier}}
+\subsubsection{\texorpdfstring{get\+Ctot()}{getCtot()}}
+{\footnotesize\ttfamily int Classifier\+::get\+Ctot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the total number of updates of the classifier. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_classifier_ab47b67b061041193aa3ae2a7856f4980}\label{class_classifier_ab47b67b061041193aa3ae2a7856f4980}} 
+\index{Classifier@{Classifier}!get\+Elapsed\+Time@{get\+Elapsed\+Time}}
+\index{get\+Elapsed\+Time@{get\+Elapsed\+Time}!Classifier@{Classifier}}
+\subsubsection{\texorpdfstring{get\+Elapsed\+Time()}{getElapsedTime()}}
+{\footnotesize\ttfamily double Classifier\+::get\+Elapsed\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the elapsed time in the execution of the classifier. 
+
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_classifier_afd2b54ada10af9f4be1c4d326b180dc7}\label{class_classifier_afd2b54ada10af9f4be1c4d326b180dc7}} 
+\index{Classifier@{Classifier}!get\+Solution@{get\+Solution}}
+\index{get\+Solution@{get\+Solution}!Classifier@{Classifier}}
+\subsubsection{\texorpdfstring{get\+Solution()}{getSolution()}}
+{\footnotesize\ttfamily \hyperlink{class_solution}{Solution} Classifier\+::get\+Solution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Solution Returns the solution of the primal classifier. 
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_solution}{Solution} 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_classifier_a1fb3e4dfd80c154e89603c8fa1b11b76}\label{class_classifier_a1fb3e4dfd80c154e89603c8fa1b11b76}} 
 \index{Classifier@{Classifier}!get\+Steps@{get\+Steps}}
 \index{get\+Steps@{get\+Steps}!Classifier@{Classifier}}
 \subsubsection{\texorpdfstring{get\+Steps()}{getSteps()}}
-{\footnotesize\ttfamily int Classifier\+::get\+Steps (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int Classifier\+::get\+Steps (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -124,7 +183,7 @@ int
 \index{Classifier@{Classifier}!get\+Updates@{get\+Updates}}
 \index{get\+Updates@{get\+Updates}!Classifier@{Classifier}}
 \subsubsection{\texorpdfstring{get\+Updates()}{getUpdates()}}
-{\footnotesize\ttfamily int Classifier\+::get\+Updates (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int Classifier\+::get\+Updates (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -133,6 +192,96 @@ get\+Updates Returns the number of updates needed to get to the the solution.
 \begin{DoxyReturn}{Returns}
 int 
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_classifier_a3293d7d39c3934503a23b920f84f73e7}\label{class_classifier_a3293d7d39c3934503a23b920f84f73e7}} 
+\index{Classifier@{Classifier}!set\+Ctot@{set\+Ctot}}
+\index{set\+Ctot@{set\+Ctot}!Classifier@{Classifier}}
+\subsubsection{\texorpdfstring{set\+Ctot()}{setCtot()}}
+{\footnotesize\ttfamily void Classifier\+::set\+Ctot (\begin{DoxyParamCaption}\item[{int}]{ctot }\end{DoxyParamCaption})}
+
+
+
+Set the partial number of updates of the classifier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ctot} & Number of updates. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_classifier_a9cc5a1d92243f9d9b530347be1ac7367}\label{class_classifier_a9cc5a1d92243f9d9b530347be1ac7367}} 
+\index{Classifier@{Classifier}!set\+E\+PS@{set\+E\+PS}}
+\index{set\+E\+PS@{set\+E\+PS}!Classifier@{Classifier}}
+\subsubsection{\texorpdfstring{set\+E\+P\+S()}{setEPS()}}
+{\footnotesize\ttfamily void Classifier\+::set\+E\+PS (\begin{DoxyParamCaption}\item[{double}]{E\+PS }\end{DoxyParamCaption})}
+
+
+
+set\+E\+PS Set the precision of the classifier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em E\+PS} & Precision. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_classifier_a8f6818bd403afbb46d1bfd75c9731ab6}\label{class_classifier_a8f6818bd403afbb46d1bfd75c9731ab6}} 
+\index{Classifier@{Classifier}!set\+Learning\+Rate@{set\+Learning\+Rate}}
+\index{set\+Learning\+Rate@{set\+Learning\+Rate}!Classifier@{Classifier}}
+\subsubsection{\texorpdfstring{set\+Learning\+Rate()}{setLearningRate()}}
+{\footnotesize\ttfamily void Classifier\+::set\+Learning\+Rate (\begin{DoxyParamCaption}\item[{double}]{rate }\end{DoxyParamCaption})}
+
+
+
+Set the learning rate of the classifier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rate} & Learning rate. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_classifier_a58540f77a22c0f1774d0089fac713498}\label{class_classifier_a58540f77a22c0f1774d0089fac713498}} 
+\index{Classifier@{Classifier}!set\+Max\+Iterations@{set\+Max\+Iterations}}
+\index{set\+Max\+Iterations@{set\+Max\+Iterations}!Classifier@{Classifier}}
+\subsubsection{\texorpdfstring{set\+Max\+Iterations()}{setMaxIterations()}}
+{\footnotesize\ttfamily void Classifier\+::set\+Max\+Iterations (\begin{DoxyParamCaption}\item[{int}]{M\+A\+X\+\_\+\+IT }\end{DoxyParamCaption})}
+
+
+
+set\+Max\+Iterations Set the max number of iterations of the classifier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em M\+A\+X\+\_\+\+IT} & Number max of iterations. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_classifier_a5da324a0de94b7171484f3b1f1f22fbd}\label{class_classifier_a5da324a0de94b7171484f3b1f1f22fbd}} 
+\index{Classifier@{Classifier}!set\+Max\+Time@{set\+Max\+Time}}
+\index{set\+Max\+Time@{set\+Max\+Time}!Classifier@{Classifier}}
+\subsubsection{\texorpdfstring{set\+Max\+Time()}{setMaxTime()}}
+{\footnotesize\ttfamily void Classifier\+::set\+Max\+Time (\begin{DoxyParamCaption}\item[{double}]{max\+\_\+time }\end{DoxyParamCaption})}
+
+
+
+Set the max time of execution. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em max\+\_\+time} & Max time. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_classifier_ad8930d5e6002299bdb840d4542229f02}\label{class_classifier_ad8930d5e6002299bdb840d4542229f02}} 
+\index{Classifier@{Classifier}!set\+Max\+Updates@{set\+Max\+Updates}}
+\index{set\+Max\+Updates@{set\+Max\+Updates}!Classifier@{Classifier}}
+\subsubsection{\texorpdfstring{set\+Max\+Updates()}{setMaxUpdates()}}
+{\footnotesize\ttfamily void Classifier\+::set\+Max\+Updates (\begin{DoxyParamCaption}\item[{int}]{M\+A\+X\+\_\+\+UP }\end{DoxyParamCaption})}
+
+
+
+set\+Max\+Iterations Set the max number of updates of the classifier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em M\+A\+X\+\_\+\+IT} & Number max of updates. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_classifier_a4b16736670cba8f4c8397b6a90c8c799}\label{class_classifier_a4b16736670cba8f4c8397b6a90c8c799}} 
 \index{Classifier@{Classifier}!set\+Samples@{set\+Samples}}
 \index{set\+Samples@{set\+Samples}!Classifier@{Classifier}}
@@ -146,6 +295,66 @@ set\+Samples Set the samples used in the classifier.
 
 \begin{DoxyParams}{Parameters}
 {\em samples} & Samples to be used. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_classifier_aef6cb633eed60712f8948a404f630e82}\label{class_classifier_aef6cb633eed60712f8948a404f630e82}} 
+\index{Classifier@{Classifier}!set\+Solution@{set\+Solution}}
+\index{set\+Solution@{set\+Solution}!Classifier@{Classifier}}
+\subsubsection{\texorpdfstring{set\+Solution()}{setSolution()}}
+{\footnotesize\ttfamily void Classifier\+::set\+Solution (\begin{DoxyParamCaption}\item[{\hyperlink{class_solution}{Solution}}]{solution }\end{DoxyParamCaption})}
+
+
+
+set\+Max\+Time Set the maximum time of the classifier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em max\+\_\+time} & Maximum time. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_classifier_a7f1cf3ac53b0593307a050368a912bb4}\label{class_classifier_a7f1cf3ac53b0593307a050368a912bb4}} 
+\index{Classifier@{Classifier}!set\+Start\+Time@{set\+Start\+Time}}
+\index{set\+Start\+Time@{set\+Start\+Time}!Classifier@{Classifier}}
+\subsubsection{\texorpdfstring{set\+Start\+Time()}{setStartTime()}}
+{\footnotesize\ttfamily void Classifier\+::set\+Start\+Time (\begin{DoxyParamCaption}\item[{double}]{start\+\_\+time }\end{DoxyParamCaption})}
+
+
+
+set\+Start\+Time Set the initial time of the classifier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+\_\+time} & Initial time. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_classifier_a779b6cac0351e272ee0573d919d5d060}\label{class_classifier_a779b6cac0351e272ee0573d919d5d060}} 
+\index{Classifier@{Classifier}!set\+Steps@{set\+Steps}}
+\index{set\+Steps@{set\+Steps}!Classifier@{Classifier}}
+\subsubsection{\texorpdfstring{set\+Steps()}{setSteps()}}
+{\footnotesize\ttfamily void Classifier\+::set\+Steps (\begin{DoxyParamCaption}\item[{int}]{steps }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the partial number of steps of the classifier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em steps} & Number of steps. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_classifier_a073b94029512378ccfae3aa34aae0212}\label{class_classifier_a073b94029512378ccfae3aa34aae0212}} 
+\index{Classifier@{Classifier}!set\+Verbose@{set\+Verbose}}
+\index{set\+Verbose@{set\+Verbose}!Classifier@{Classifier}}
+\subsubsection{\texorpdfstring{set\+Verbose()}{setVerbose()}}
+{\footnotesize\ttfamily void Classifier\+::set\+Verbose (\begin{DoxyParamCaption}\item[{int}]{verbose }\end{DoxyParamCaption})}
+
+
+
+Set the level of verbose. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em verbose} & level of verbose. \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{class_classifier_a2306a5de27555ab093593ac9642bc7d9}\label{class_classifier_a2306a5de27555ab093593ac9642bc7d9}} 
@@ -163,7 +372,7 @@ void
 \end{DoxyReturn}
 
 
-Implemented in \hyperlink{class_perceptron_fixed_margin_dual_aa095c90a3d04f70e1cf2e38e2afa769b}{Perceptron\+Fixed\+Margin\+Dual}, \hyperlink{class_perceptron_dual_a91b0bd1e86a6003b57b96199266cdc3e}{Perceptron\+Dual}, \hyperlink{class_perceptron_fixed_margin_primal_ad41c2a42c4a819c03bf9879110b0f99f}{Perceptron\+Fixed\+Margin\+Primal}, and \hyperlink{class_perceptron_primal_a17f817a72fc7d61d1686ea77f7f9e84d}{Perceptron\+Primal}.
+Implemented in \hyperlink{class_perceptron_fixed_margin_dual_aa095c90a3d04f70e1cf2e38e2afa769b}{Perceptron\+Fixed\+Margin\+Dual}, \hyperlink{class_i_m_ap_fixed_margin_ac43bc5733e6e749309277d3d99a86c11}{I\+M\+Ap\+Fixed\+Margin}, \hyperlink{class_perceptron_dual_a91b0bd1e86a6003b57b96199266cdc3e}{Perceptron\+Dual}, \hyperlink{class_perceptron_fixed_margin_primal_ad41c2a42c4a819c03bf9879110b0f99f}{Perceptron\+Fixed\+Margin\+Primal}, \hyperlink{class_i_m_ap_a6b6446fa6019518ae0336cb28af0b7f8}{I\+M\+Ap}, and \hyperlink{class_perceptron_primal_a17f817a72fc7d61d1686ea77f7f9e84d}{Perceptron\+Primal}.
 
 
 

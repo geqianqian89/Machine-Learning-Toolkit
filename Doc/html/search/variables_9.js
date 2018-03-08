@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['solution',['solution',['../class_classifier.html#a8e70651d36fa396f55028847acd6ae50',1,'Classifier']]],
-  ['start_5ftime',['start_time',['../class_classifier.html#a4488a20bd7b4fc22d57244aaee57b002',1,'Classifier']]],
-  ['steps',['steps',['../class_classifier.html#a1e4c9c9ba059d5aff1d4d81eb41725cb',1,'Classifier']]],
-  ['svs',['svs',['../class_classifier.html#ae9146fbbd020de483957a1ea68b614c7',1,'Classifier']]]
+  ['margin',['margin',['../class_solution.html#a3580af26a22d86e44df701f654165e0f',1,'Solution']]],
+  ['max_5fit',['MAX_IT',['../class_classifier.html#a9cab88ab4489d771256bffb1717c1644',1,'Classifier']]],
+  ['max_5ftime',['max_time',['../class_classifier.html#a191089f044af0f4dd51f37aaff78d8f6',1,'Classifier']]],
+  ['max_5fup',['MAX_UP',['../class_classifier.html#abb8b95854801151e78a1d9f6a2173c22',1,'Classifier']]]
 ];

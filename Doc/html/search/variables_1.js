@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ctot',['ctot',['../class_classifier.html#a99d9a7f504212bb3dc2726c10a2333c6',1,'Classifier']]]
+  ['bias',['bias',['../class_solution.html#ac0a589a77d238aecf14c91f55d1b8daa',1,'Solution']]]
 ];

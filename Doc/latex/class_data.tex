@@ -24,11 +24,11 @@ int \hyperlink{class_data_a0391940729a8023ea9b154132a854d35}{get\+Dim} ()
 \begin{DoxyCompactList}\small\item\em Returns the dimension of the dataset. \end{DoxyCompactList}\item 
 void \hyperlink{class_data_aeedfb7697a9b3e6fec681b991cb46daa}{set\+Dim} (int dim)
 \begin{DoxyCompactList}\small\item\em set\+Dim Set the dimension of the points. \end{DoxyCompactList}\item 
-\hyperlink{class_point}{Point} \hyperlink{class_data_a8cc66e410f7288913204585f215b786d}{get\+Point} (int index)
+std\+::shared\+\_\+ptr$<$ \hyperlink{class_point}{Point} $>$ \hyperlink{class_data_abd978f3708d705e972dc458b6e3fe791}{get\+Point} (int index)
 \begin{DoxyCompactList}\small\item\em Returns the point with the given index. \end{DoxyCompactList}\item 
-void \hyperlink{class_data_a9f34656f179b152407d51b04aab70748}{set\+Point} (int index, \hyperlink{class_point}{Point} p)
+void \hyperlink{class_data_ad1f5969b33170e908334bd1ad6163b54}{set\+Point} (int index, std\+::shared\+\_\+ptr$<$ \hyperlink{class_point}{Point} $>$ p)
 \begin{DoxyCompactList}\small\item\em set\+Point Set the point in a position of the data. \end{DoxyCompactList}\item 
-std\+::vector$<$ \hyperlink{class_point}{Point} $>$ \hyperlink{class_data_a8fe9ce813848765a7615b909c4654b55}{get\+Points} ()
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \hyperlink{class_point}{Point} $>$ $>$ \hyperlink{class_data_a9310e45321bca4335b8ab3031d343e16}{get\+Points} ()
 \begin{DoxyCompactList}\small\item\em Returns the vector of Points of the sample. \end{DoxyCompactList}\item 
 std\+::vector$<$ int $>$ \hyperlink{class_data_a2f6399baee6535e7f48250da54fbf00d}{get\+Features\+Names} ()
 \begin{DoxyCompactList}\small\item\em Returns the features names. \end{DoxyCompactList}\item 
@@ -38,6 +38,9 @@ void \hyperlink{class_data_a2702b6464d7299c3b62e4eb4390fecd6}{set\+Features\+Nam
 \begin{DoxyCompactList}\small\item\em Returns a class with the statistics info of the sample. \end{DoxyCompactList}\item 
 std\+::vector$<$ int $>$ \hyperlink{class_data_a16685ae631c5bedc22c974980bc74c05}{get\+Index} ()
 \begin{DoxyCompactList}\small\item\em Returns the vector of indexes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_data_ab2debdff651c70d26f84c9ac20f4dee6}\label{class_data_ab2debdff651c70d26f84c9ac20f4dee6}} 
+void {\bfseries set\+Index} (std\+::vector$<$ int $>$ index)
+\item 
 int \hyperlink{class_data_a45a39ab2144bcdd0ac1aa67d7d08a6cc}{get\+Number\+Positive\+Points} ()
 \begin{DoxyCompactList}\small\item\em Return the number of positive points. \end{DoxyCompactList}\item 
 int \hyperlink{class_data_a5166e74e946c2dbac75f383d63f018ea}{get\+Number\+Negative\+Points} ()
@@ -55,13 +58,13 @@ void \hyperlink{class_data_a44b749f64ffa35e034f9503fdec4917e}{clear} ()
 \begin{DoxyCompactList}\small\item\em clear Clear the data. \end{DoxyCompactList}\item 
 \hyperlink{class_data}{Data} \hyperlink{class_data_afb7687021aa7d5f1ecae464eee601710}{copy} ()
 \begin{DoxyCompactList}\small\item\em Returns a copy of the data. \end{DoxyCompactList}\item 
-\hyperlink{class_data}{Data} \hyperlink{class_data_ae9f7aeb470be537dc20c43b317dc6478}{copy\+Zero} ()
+void \hyperlink{class_data_a6454e835f570d10e7614ac237d6fdf79}{copy\+Zero} (const \hyperlink{class_data}{Data} \&other)
 \begin{DoxyCompactList}\small\item\em Returns a copy of the data with zero points. \end{DoxyCompactList}\item 
 void \hyperlink{class_data_a83c2a01ded98c4fad0b5b31538039046}{join} (\hyperlink{class_data}{Data} data)
 \begin{DoxyCompactList}\small\item\em Merge one dataset with another. \end{DoxyCompactList}\item 
 bool \hyperlink{class_data_abb6aade47d78a284301c32e82b2cbee2}{insert\+Point} (\hyperlink{class_data}{Data} sample, int id)
 \begin{DoxyCompactList}\small\item\em Insert a point to the data from another sample. \end{DoxyCompactList}\item 
-bool \hyperlink{class_data_a4694df7867fa112b219bbf6ed17880e9}{insert\+Point} (\hyperlink{class_point}{Point} p)
+bool \hyperlink{class_data_a4dcec7d15085d451cf46a0459fab9f46}{insert\+Point} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_point}{Point} $>$ p)
 \begin{DoxyCompactList}\small\item\em Insert a point to the end of vector points. \end{DoxyCompactList}\item 
 std\+::vector$<$ bool $>$ \hyperlink{class_data_a6cc376e614e5440061c66833e1c8d30a}{remove\+Points} (std\+::vector$<$ int $>$ ids)
 \begin{DoxyCompactList}\small\item\em Remove several points from the sample. \end{DoxyCompactList}\item 
@@ -165,11 +168,11 @@ Returns a copy of the data.
 \begin{DoxyReturn}{Returns}
 \hyperlink{class_data}{Data} 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_data_ae9f7aeb470be537dc20c43b317dc6478}\label{class_data_ae9f7aeb470be537dc20c43b317dc6478}} 
+\mbox{\Hypertarget{class_data_a6454e835f570d10e7614ac237d6fdf79}\label{class_data_a6454e835f570d10e7614ac237d6fdf79}} 
 \index{Data@{Data}!copy\+Zero@{copy\+Zero}}
 \index{copy\+Zero@{copy\+Zero}!Data@{Data}}
 \subsubsection{\texorpdfstring{copy\+Zero()}{copyZero()}}
-{\footnotesize\ttfamily \hyperlink{class_data}{Data} Data\+::copy\+Zero (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Data\+::copy\+Zero (\begin{DoxyParamCaption}\item[{const \hyperlink{class_data}{Data} \&}]{other }\end{DoxyParamCaption})}
 
 
 
@@ -243,11 +246,11 @@ Return the number of positive points.
 \begin{DoxyReturn}{Returns}
 int 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_data_a8cc66e410f7288913204585f215b786d}\label{class_data_a8cc66e410f7288913204585f215b786d}} 
+\mbox{\Hypertarget{class_data_abd978f3708d705e972dc458b6e3fe791}\label{class_data_abd978f3708d705e972dc458b6e3fe791}} 
 \index{Data@{Data}!get\+Point@{get\+Point}}
 \index{get\+Point@{get\+Point}!Data@{Data}}
 \subsubsection{\texorpdfstring{get\+Point()}{getPoint()}}
-{\footnotesize\ttfamily \hyperlink{class_point}{Point} Data\+::get\+Point (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily shared\+\_\+ptr$<$ \hyperlink{class_point}{Point} $>$ Data\+::get\+Point (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
 
 
 
@@ -261,11 +264,11 @@ Returns the point with the given index.
 \begin{DoxyReturn}{Returns}
 std\+::vector$<$\+Points$>$ 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_data_a8fe9ce813848765a7615b909c4654b55}\label{class_data_a8fe9ce813848765a7615b909c4654b55}} 
+\mbox{\Hypertarget{class_data_a9310e45321bca4335b8ab3031d343e16}\label{class_data_a9310e45321bca4335b8ab3031d343e16}} 
 \index{Data@{Data}!get\+Points@{get\+Points}}
 \index{get\+Points@{get\+Points}!Data@{Data}}
 \subsubsection{\texorpdfstring{get\+Points()}{getPoints()}}
-{\footnotesize\ttfamily vector$<$ \hyperlink{class_point}{Point} $>$ Data\+::get\+Points (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily vector$<$ shared\+\_\+ptr$<$ \hyperlink{class_point}{Point} $>$ $>$ Data\+::get\+Points (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -338,11 +341,11 @@ Insert a point to the data from another sample.
 \begin{DoxyReturn}{Returns}
 bool 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_data_a4694df7867fa112b219bbf6ed17880e9}\label{class_data_a4694df7867fa112b219bbf6ed17880e9}} 
+\mbox{\Hypertarget{class_data_a4dcec7d15085d451cf46a0459fab9f46}\label{class_data_a4dcec7d15085d451cf46a0459fab9f46}} 
 \index{Data@{Data}!insert\+Point@{insert\+Point}}
 \index{insert\+Point@{insert\+Point}!Data@{Data}}
 \subsubsection{\texorpdfstring{insert\+Point()}{insertPoint()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily bool Data\+::insert\+Point (\begin{DoxyParamCaption}\item[{\hyperlink{class_point}{Point}}]{p }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Data\+::insert\+Point (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \hyperlink{class_point}{Point} $>$}]{p }\end{DoxyParamCaption})}
 
 
 
@@ -373,7 +376,7 @@ bool
 \index{Data@{Data}!is\+Normalized@{is\+Normalized}}
 \index{is\+Normalized@{is\+Normalized}!Data@{Data}}
 \subsubsection{\texorpdfstring{is\+Normalized()}{isNormalized()}}
-{\footnotesize\ttfamily bool Data\+::is\+Normalized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Data\+::is\+Normalized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -551,11 +554,11 @@ set\+Features\+Names Set the name of the features of the data.
 {\em fnames} & (???) Name of the features. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_data_a9f34656f179b152407d51b04aab70748}\label{class_data_a9f34656f179b152407d51b04aab70748}} 
+\mbox{\Hypertarget{class_data_ad1f5969b33170e908334bd1ad6163b54}\label{class_data_ad1f5969b33170e908334bd1ad6163b54}} 
 \index{Data@{Data}!set\+Point@{set\+Point}}
 \index{set\+Point@{set\+Point}!Data@{Data}}
 \subsubsection{\texorpdfstring{set\+Point()}{setPoint()}}
-{\footnotesize\ttfamily void Data\+::set\+Point (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{\hyperlink{class_point}{Point}}]{p }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Data\+::set\+Point (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{std\+::shared\+\_\+ptr$<$ \hyperlink{class_point}{Point} $>$}]{p }\end{DoxyParamCaption})}
 
 
 

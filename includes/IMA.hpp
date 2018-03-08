@@ -10,6 +10,9 @@
 #include "DualClassifier.hpp"
 #include "MLToolkit.hpp"
 
+/**
+ * \brief Wrapper for the implementation of the Incremental Margin Algorithm primal.
+ */
 class IMAp : public PrimalClassifier {
 private:
     double margin;
@@ -23,6 +26,9 @@ public:
     double evaluate(Point p);
 };
 
+/**
+ * \brief Wrapper for the implementation of the Incremental Margin Algorithm primal with fixed margin.
+ */
 class IMApFixedMargin : public PrimalClassifier {
 private:
     int n, maiorn = 0, flagNao1aDim;

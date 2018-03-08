@@ -313,14 +313,6 @@ void datasetOption(int option){
                 string pos, neg;
                 string sid, path;
 
-                /*cout << "List all available datasets on DB folder?[y|n]" << endl;
-                cout << " > ";
-                cin >> sid;
-
-                if(sid == "y"){
-                    list = true;
-                }*/
-
                 files = list_datasets(true);
                 cout << endl;
                 cout << "Enter the number of the DB (must be in the DB folder): ";
@@ -379,6 +371,18 @@ void datasetOption(int option){
                     cout << test_sample.getNumberNegativePoints() << endl;
                     cout << "Positive points: ";
                     cout << test_sample.getNumberPositivePoints() << endl;
+                }
+
+                if(!train_sample.isEmpty()){
+                    cout << "\n\nTrain sample information\n\n";
+                    cout << "Number of features: ";
+                    cout << train_sample.getDim() << endl;
+                    cout << "Number of samples: ";
+                    cout << train_sample.getSize() << endl;
+                    cout << "Negative points: ";
+                    cout << train_sample.getNumberNegativePoints() << endl;
+                    cout << "Positive points: ";
+                    cout << train_sample.getNumberPositivePoints() << endl;
                 }
             }else cout << "Load a dataset first...\n\n";
 
@@ -777,17 +781,57 @@ void validationMenu(){
 
 void validationOption(int option){
   int fold, qtde;
+  int p, q, i, norm, flexible, svs;
+  double rate, gamma, alpha_prox;
 
   switch(option){
     case 1:
       if(!data.isEmpty()){
         IMAp imap(&data);
-        Validation validate(&data, &imap);
 
         cout << "Quantity of K-fold: ";
         cin >> qtde;
         cout << "Number of folds: ";
         cin >> fold;
+
+        cout << "[1]p or [2]q norm: ";
+        cin >> norm;
+        cout << endl;
+
+        if(norm == 1){
+          cout << "p-norm value: ";
+          cin >> p;
+          if(p == 1.0){
+            q = -1.0;
+          }else{
+            q = p/(p-1.0);
+          }
+        }else{
+          cout << "q-norm value: ";
+          cin >> q;
+          if(q == -1.0){
+            p = 1.0;
+          }else if(q == 1.0){
+            p = 100.0;
+          }else{
+            p = q/(q-1.0);
+          }
+        }
+        cout << endl;
+        cout << "Flexibilization value [0 - no flexibilization]: ";
+        cin >> flexible;
+        cout << endl;
+
+        cout << "Alpha aproximation value [1 - alpha]: ";
+        cin >> alpha_prox;
+        cout << endl;
+
+        imap.setpNorm(p);
+        imap.setqNorm(q);
+        imap.setFlexible(flexible);
+        imap.setAlphaAprox(alpha_prox);
+
+        Validation validate(&data, &imap);
 
         validate.partTrainTest(fold, 0);
         validate.validation(fold, qtde);

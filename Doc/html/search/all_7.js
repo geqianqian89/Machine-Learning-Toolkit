@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['join',['join',['../class_data.html#a83c2a01ded98c4fad0b5b31538039046',1,'Data']]]
+  ['hasinitialsolution',['hasInitialSolution',['../class_classifier.html#a1de0c258e4a175ebf96a18ec7ee33381',1,'Classifier']]]
 ];

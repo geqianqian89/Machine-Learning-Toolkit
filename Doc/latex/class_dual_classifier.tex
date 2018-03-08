@@ -23,8 +23,10 @@ Collaboration diagram for Dual\+Classifier\+:\nopagebreak
 \item 
 void \hyperlink{class_dual_classifier_a0cf616ad02cfcdd69cfd3d0b35001946}{set\+Kernel} (\hyperlink{class_kernel}{Kernel} K)
 \begin{DoxyCompactList}\small\item\em set\+Kernel Set the kernel used by the dual classifier. \end{DoxyCompactList}\item 
-\hyperlink{class_solution}{Solution} \hyperlink{class_dual_classifier_a1ecc7089dd9d5456f398e62506f37c14}{get\+Solution} ()
-\begin{DoxyCompactList}\small\item\em get\+Solution Returns the solution of the primal classifier. \end{DoxyCompactList}\end{DoxyCompactItemize}
+double \hyperlink{class_dual_classifier_a5738038f99450f5f3b7098d3125ffaae}{get\+Kernel\+Param} ()
+\begin{DoxyCompactList}\small\item\em Get the parameter of the kernel. \end{DoxyCompactList}\item 
+double \hyperlink{class_dual_classifier_a14b35e85dddac38e7927cd03037e2353}{get\+Kernel\+Type} ()
+\begin{DoxyCompactList}\small\item\em Get the type of the kernel. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -37,18 +39,31 @@ std\+::vector$<$ double $>$ \hyperlink{class_dual_classifier_a0ed1219ed410852620
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_dual_classifier_a1ecc7089dd9d5456f398e62506f37c14}\label{class_dual_classifier_a1ecc7089dd9d5456f398e62506f37c14}} 
-\index{Dual\+Classifier@{Dual\+Classifier}!get\+Solution@{get\+Solution}}
-\index{get\+Solution@{get\+Solution}!Dual\+Classifier@{Dual\+Classifier}}
-\subsubsection{\texorpdfstring{get\+Solution()}{getSolution()}}
-{\footnotesize\ttfamily \hyperlink{class_solution}{Solution} Dual\+Classifier\+::get\+Solution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{class_dual_classifier_a5738038f99450f5f3b7098d3125ffaae}\label{class_dual_classifier_a5738038f99450f5f3b7098d3125ffaae}} 
+\index{Dual\+Classifier@{Dual\+Classifier}!get\+Kernel\+Param@{get\+Kernel\+Param}}
+\index{get\+Kernel\+Param@{get\+Kernel\+Param}!Dual\+Classifier@{Dual\+Classifier}}
+\subsubsection{\texorpdfstring{get\+Kernel\+Param()}{getKernelParam()}}
+{\footnotesize\ttfamily double Dual\+Classifier\+::get\+Kernel\+Param (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-get\+Solution Returns the solution of the primal classifier. 
+Get the parameter of the kernel. 
 
 \begin{DoxyReturn}{Returns}
-\hyperlink{class_solution}{Solution} 
+double 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_dual_classifier_a14b35e85dddac38e7927cd03037e2353}\label{class_dual_classifier_a14b35e85dddac38e7927cd03037e2353}} 
+\index{Dual\+Classifier@{Dual\+Classifier}!get\+Kernel\+Type@{get\+Kernel\+Type}}
+\index{get\+Kernel\+Type@{get\+Kernel\+Type}!Dual\+Classifier@{Dual\+Classifier}}
+\subsubsection{\texorpdfstring{get\+Kernel\+Type()}{getKernelType()}}
+{\footnotesize\ttfamily double Dual\+Classifier\+::get\+Kernel\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the type of the kernel. 
+
+\begin{DoxyReturn}{Returns}
+double 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_dual_classifier_a0cf616ad02cfcdd69cfd3d0b35001946}\label{class_dual_classifier_a0cf616ad02cfcdd69cfd3d0b35001946}} 
 \index{Dual\+Classifier@{Dual\+Classifier}!set\+Kernel@{set\+Kernel}}

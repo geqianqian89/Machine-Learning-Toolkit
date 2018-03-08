@@ -21,8 +21,18 @@ Collaboration diagram for Primal\+Classifier\+:\nopagebreak
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{class_primal_classifier_aecd2369094119c294333bc12df419b16}{set\+Norm} (double \hyperlink{class_primal_classifier_a746ad2ff93fb77d82ae389f90dbdc89e}{q})
-\begin{DoxyCompactList}\small\item\em set\+Norm Set the norm used by the classifier. (Euclidean norm is the default) \end{DoxyCompactList}\item 
+void \hyperlink{class_primal_classifier_a22ca554e2a8d33d43c813b6b9b3e4a6a}{setq\+Norm} (double \hyperlink{class_primal_classifier_a746ad2ff93fb77d82ae389f90dbdc89e}{q})
+\begin{DoxyCompactList}\small\item\em setq\+Norm Set the q norm used by the classifier. (Euclidean norm is the default) \end{DoxyCompactList}\item 
+void \hyperlink{class_primal_classifier_a30cd3926ea5e7341920dcb5480567af1}{setp\+Norm} (double p)
+\begin{DoxyCompactList}\small\item\em setp\+Norm Set the p norm used by the classifier. (Euclidean norm is the default) \end{DoxyCompactList}\item 
+void \hyperlink{class_primal_classifier_a2d1443916a530c9b3729fb748097db50}{set\+Gamma} (double \hyperlink{class_primal_classifier_ab8c6099dda1468385b2c401cb65c1238}{gamma})
+\begin{DoxyCompactList}\small\item\em Set solution margin. \end{DoxyCompactList}\item 
+void \hyperlink{class_primal_classifier_acf3edea17de00a41c33d0fee4fabd4da}{set\+Flexible} (double \hyperlink{class_primal_classifier_af660bbc42f67792e3da8876671b1e9df}{flexible})
+\begin{DoxyCompactList}\small\item\em Set flexibity of the classifier. \end{DoxyCompactList}\item 
+void \hyperlink{class_primal_classifier_a49be3fca8d8383d98f9d671d1e1f27c7}{set\+Alpha\+Aprox} (double \hyperlink{class_primal_classifier_a1a432d06373100e176e116f995bdcd26}{alpha\+\_\+aprox})
+\begin{DoxyCompactList}\small\item\em Set the percentage of the aproximation. \end{DoxyCompactList}\item 
+double \hyperlink{class_primal_classifier_a320c67c29eeb85d5d05f7db1de7fde41}{get\+Gamma} ()
+\begin{DoxyCompactList}\small\item\em Get the margin of the solution. \end{DoxyCompactList}\item 
 \hyperlink{class_solution}{Solution} \hyperlink{class_primal_classifier_a1a3d9ba4e80c58418db0d8454168b910}{get\+Solution} ()
 \begin{DoxyCompactList}\small\item\em get\+Solution Returns the solution of the primal classifier. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
@@ -34,12 +44,34 @@ std\+::vector$<$ double $>$ \hyperlink{class_primal_classifier_ad6ad165a5ad30584
 \mbox{\Hypertarget{class_primal_classifier_a746ad2ff93fb77d82ae389f90dbdc89e}\label{class_primal_classifier_a746ad2ff93fb77d82ae389f90dbdc89e}} 
 double \hyperlink{class_primal_classifier_a746ad2ff93fb77d82ae389f90dbdc89e}{q} = 2
 \begin{DoxyCompactList}\small\item\em Norm used in the classification. (Euclidean Norm is the default) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_primal_classifier_abc5cd90a024d5acfe49ae8ea787204c9}\label{class_primal_classifier_abc5cd90a024d5acfe49ae8ea787204c9}} 
+double {\bfseries p} = 2
+\item 
 \mbox{\Hypertarget{class_primal_classifier_af660bbc42f67792e3da8876671b1e9df}\label{class_primal_classifier_af660bbc42f67792e3da8876671b1e9df}} 
 double \hyperlink{class_primal_classifier_af660bbc42f67792e3da8876671b1e9df}{flexible} = 0.\+0
-\begin{DoxyCompactList}\small\item\em Flexibilidade. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Flexibility. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_primal_classifier_ab8c6099dda1468385b2c401cb65c1238}\label{class_primal_classifier_ab8c6099dda1468385b2c401cb65c1238}} 
+double \hyperlink{class_primal_classifier_ab8c6099dda1468385b2c401cb65c1238}{gamma} = 0.\+0
+\begin{DoxyCompactList}\small\item\em Margin of the solution. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_primal_classifier_a1a432d06373100e176e116f995bdcd26}\label{class_primal_classifier_a1a432d06373100e176e116f995bdcd26}} 
+double \hyperlink{class_primal_classifier_a1a432d06373100e176e116f995bdcd26}{alpha\+\_\+aprox} = 0.\+0
+\begin{DoxyCompactList}\small\item\em Percentage of aproximation of the result. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_primal_classifier_a320c67c29eeb85d5d05f7db1de7fde41}\label{class_primal_classifier_a320c67c29eeb85d5d05f7db1de7fde41}} 
+\index{Primal\+Classifier@{Primal\+Classifier}!get\+Gamma@{get\+Gamma}}
+\index{get\+Gamma@{get\+Gamma}!Primal\+Classifier@{Primal\+Classifier}}
+\subsubsection{\texorpdfstring{get\+Gamma()}{getGamma()}}
+{\footnotesize\ttfamily double Primal\+Classifier\+::get\+Gamma (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the margin of the solution. 
+
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_primal_classifier_a1a3d9ba4e80c58418db0d8454168b910}\label{class_primal_classifier_a1a3d9ba4e80c58418db0d8454168b910}} 
 \index{Primal\+Classifier@{Primal\+Classifier}!get\+Solution@{get\+Solution}}
 \index{get\+Solution@{get\+Solution}!Primal\+Classifier@{Primal\+Classifier}}
@@ -53,15 +85,75 @@ get\+Solution Returns the solution of the primal classifier.
 \begin{DoxyReturn}{Returns}
 \hyperlink{class_solution}{Solution} 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_primal_classifier_aecd2369094119c294333bc12df419b16}\label{class_primal_classifier_aecd2369094119c294333bc12df419b16}} 
-\index{Primal\+Classifier@{Primal\+Classifier}!set\+Norm@{set\+Norm}}
-\index{set\+Norm@{set\+Norm}!Primal\+Classifier@{Primal\+Classifier}}
-\subsubsection{\texorpdfstring{set\+Norm()}{setNorm()}}
-{\footnotesize\ttfamily void Primal\+Classifier\+::set\+Norm (\begin{DoxyParamCaption}\item[{double}]{q }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{class_primal_classifier_a49be3fca8d8383d98f9d671d1e1f27c7}\label{class_primal_classifier_a49be3fca8d8383d98f9d671d1e1f27c7}} 
+\index{Primal\+Classifier@{Primal\+Classifier}!set\+Alpha\+Aprox@{set\+Alpha\+Aprox}}
+\index{set\+Alpha\+Aprox@{set\+Alpha\+Aprox}!Primal\+Classifier@{Primal\+Classifier}}
+\subsubsection{\texorpdfstring{set\+Alpha\+Aprox()}{setAlphaAprox()}}
+{\footnotesize\ttfamily void Primal\+Classifier\+::set\+Alpha\+Aprox (\begin{DoxyParamCaption}\item[{double}]{alpha\+\_\+aprox }\end{DoxyParamCaption})}
 
 
 
-set\+Norm Set the norm used by the classifier. (Euclidean norm is the default) 
+Set the percentage of the aproximation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em alpha\+\_\+aprox} & Aproximation. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_primal_classifier_acf3edea17de00a41c33d0fee4fabd4da}\label{class_primal_classifier_acf3edea17de00a41c33d0fee4fabd4da}} 
+\index{Primal\+Classifier@{Primal\+Classifier}!set\+Flexible@{set\+Flexible}}
+\index{set\+Flexible@{set\+Flexible}!Primal\+Classifier@{Primal\+Classifier}}
+\subsubsection{\texorpdfstring{set\+Flexible()}{setFlexible()}}
+{\footnotesize\ttfamily void Primal\+Classifier\+::set\+Flexible (\begin{DoxyParamCaption}\item[{double}]{flexible }\end{DoxyParamCaption})}
+
+
+
+Set flexibity of the classifier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flexible} & flexibility. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_primal_classifier_a2d1443916a530c9b3729fb748097db50}\label{class_primal_classifier_a2d1443916a530c9b3729fb748097db50}} 
+\index{Primal\+Classifier@{Primal\+Classifier}!set\+Gamma@{set\+Gamma}}
+\index{set\+Gamma@{set\+Gamma}!Primal\+Classifier@{Primal\+Classifier}}
+\subsubsection{\texorpdfstring{set\+Gamma()}{setGamma()}}
+{\footnotesize\ttfamily void Primal\+Classifier\+::set\+Gamma (\begin{DoxyParamCaption}\item[{double}]{gamma }\end{DoxyParamCaption})}
+
+
+
+Set solution margin. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gamma} & Margin. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_primal_classifier_a30cd3926ea5e7341920dcb5480567af1}\label{class_primal_classifier_a30cd3926ea5e7341920dcb5480567af1}} 
+\index{Primal\+Classifier@{Primal\+Classifier}!setp\+Norm@{setp\+Norm}}
+\index{setp\+Norm@{setp\+Norm}!Primal\+Classifier@{Primal\+Classifier}}
+\subsubsection{\texorpdfstring{setp\+Norm()}{setpNorm()}}
+{\footnotesize\ttfamily void Primal\+Classifier\+::setp\+Norm (\begin{DoxyParamCaption}\item[{double}]{p }\end{DoxyParamCaption})}
+
+
+
+setp\+Norm Set the p norm used by the classifier. (Euclidean norm is the default) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Norm that will be used by the classifier. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_primal_classifier_a22ca554e2a8d33d43c813b6b9b3e4a6a}\label{class_primal_classifier_a22ca554e2a8d33d43c813b6b9b3e4a6a}} 
+\index{Primal\+Classifier@{Primal\+Classifier}!setq\+Norm@{setq\+Norm}}
+\index{setq\+Norm@{setq\+Norm}!Primal\+Classifier@{Primal\+Classifier}}
+\subsubsection{\texorpdfstring{setq\+Norm()}{setqNorm()}}
+{\footnotesize\ttfamily void Primal\+Classifier\+::setq\+Norm (\begin{DoxyParamCaption}\item[{double}]{q }\end{DoxyParamCaption})}
+
+
+
+setq\+Norm Set the q norm used by the classifier. (Euclidean norm is the default) 
 
 
 \begin{DoxyParams}{Parameters}

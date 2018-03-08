@@ -76,28 +76,147 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a54a1ace2df11df3937c96cddd8b46f93"><td class="memItemLeft" align="right" valign="top"><a id="a54a1ace2df11df3937c96cddd8b46f93"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Validation</b> (<a class="el" href="class_data.html">Data</a> *sample, <a class="el" href="class_classifier.html">Classifier</a> *classifier=NULL)</td></tr>
+<tr class="memitem:ada040c6d31004cc277e2b74290eec266"><td class="memItemLeft" align="right" valign="top"><a id="ada040c6d31004cc277e2b74290eec266"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_validation.html#ada040c6d31004cc277e2b74290eec266">Validation</a> ()</td></tr>
+<tr class="memdesc:ada040c6d31004cc277e2b74290eec266"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. <br /></td></tr>
+<tr class="separator:ada040c6d31004cc277e2b74290eec266"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54a1ace2df11df3937c96cddd8b46f93"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_validation.html#a54a1ace2df11df3937c96cddd8b46f93">Validation</a> (<a class="el" href="class_data.html">Data</a> *sample, <a class="el" href="class_classifier.html">Classifier</a> *classifier=NULL)</td></tr>
+<tr class="memdesc:a54a1ace2df11df3937c96cddd8b46f93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor initializing the sample and classifier used.  <a href="#a54a1ace2df11df3937c96cddd8b46f93">More...</a><br /></td></tr>
 <tr class="separator:a54a1ace2df11df3937c96cddd8b46f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83b3cc552927fe8595f3cdd143d645c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_validation.html#a83b3cc552927fe8595f3cdd143d645c0">partTrainTest</a> (int fold, unsigned int seed)</td></tr>
-<tr class="memdesc:a83b3cc552927fe8595f3cdd143d645c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Divide sample into train and test.  <a href="#a83b3cc552927fe8595f3cdd143d645c0">More...</a><br /></td></tr>
+<tr class="memdesc:a83b3cc552927fe8595f3cdd143d645c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the Stratified K-fold algorithm.  <a href="#a83b3cc552927fe8595f3cdd143d645c0">More...</a><br /></td></tr>
 <tr class="separator:a83b3cc552927fe8595f3cdd143d645c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3aae72caef37b12a57aaf5cdd862de3a"><td class="memItemLeft" align="right" valign="top"><a id="a3aae72caef37b12a57aaf5cdd862de3a"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>kFold</b> (int fold, int seed)</td></tr>
+<tr class="memitem:a3aae72caef37b12a57aaf5cdd862de3a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_validation.html#a3aae72caef37b12a57aaf5cdd862de3a">kFold</a> (int fold, int seed)</td></tr>
+<tr class="memdesc:a3aae72caef37b12a57aaf5cdd862de3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the k.  <a href="#a3aae72caef37b12a57aaf5cdd862de3a">More...</a><br /></td></tr>
 <tr class="separator:a3aae72caef37b12a57aaf5cdd862de3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a166305aa3f117b119da69d54778286a0"><td class="memItemLeft" align="right" valign="top"><a id="a166305aa3f117b119da69d54778286a0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>validation</b> (int fold, int qtde)</td></tr>
+<tr class="memitem:a166305aa3f117b119da69d54778286a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_validation.html#a166305aa3f117b119da69d54778286a0">validation</a> (int fold, int qtde)</td></tr>
+<tr class="memdesc:a166305aa3f117b119da69d54778286a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the validation with several executions of the k fold algorithm.  <a href="#a166305aa3f117b119da69d54778286a0">More...</a><br /></td></tr>
 <tr class="separator:a166305aa3f117b119da69d54778286a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ef1b8600535a064b9a94507afdf849c"><td class="memItemLeft" align="right" valign="top"><a id="a6ef1b8600535a064b9a94507afdf849c"></a>
-<a class="el" href="class_data.html">Data</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getTestSample</b> ()</td></tr>
+<tr class="memitem:a6ef1b8600535a064b9a94507afdf849c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_data.html">Data</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_validation.html#a6ef1b8600535a064b9a94507afdf849c">getTestSample</a> ()</td></tr>
+<tr class="memdesc:a6ef1b8600535a064b9a94507afdf849c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the train sample used in the validation of the model.  <a href="#a6ef1b8600535a064b9a94507afdf849c">More...</a><br /></td></tr>
 <tr class="separator:a6ef1b8600535a064b9a94507afdf849c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a656f4919ec48a7f26063d046d583433a"><td class="memItemLeft" align="right" valign="top"><a id="a656f4919ec48a7f26063d046d583433a"></a>
-<a class="el" href="class_data.html">Data</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getTrainSample</b> ()</td></tr>
+<tr class="memitem:a656f4919ec48a7f26063d046d583433a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_data.html">Data</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_validation.html#a656f4919ec48a7f26063d046d583433a">getTrainSample</a> ()</td></tr>
+<tr class="memdesc:a656f4919ec48a7f26063d046d583433a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the train sample used in the validation of the model.  <a href="#a656f4919ec48a7f26063d046d583433a">More...</a><br /></td></tr>
 <tr class="separator:a656f4919ec48a7f26063d046d583433a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class of methods for the validation of ML algorithms. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a54a1ace2df11df3937c96cddd8b46f93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54a1ace2df11df3937c96cddd8b46f93">&#9670;&nbsp;</a></span>Validation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Validation::Validation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_data.html">Data</a> *&#160;</td>
+          <td class="paramname"><em>sample</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_classifier.html">Classifier</a> *&#160;</td>
+          <td class="paramname"><em>classifier</em> = <code>NULL</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor initializing the sample and classifier used. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sample</td><td>Sample to be used in the validation. </td></tr>
+    <tr><td class="paramname">classifier</td><td>Model to be validated. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6ef1b8600535a064b9a94507afdf849c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ef1b8600535a064b9a94507afdf849c">&#9670;&nbsp;</a></span>getTestSample()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_data.html">Data</a> Validation::getTestSample </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the train sample used in the validation of the model. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_data.html" title="Wrapper for the dataset data. ">Data</a> </dd></dl>
+
+</div>
+</div>
+<a id="a656f4919ec48a7f26063d046d583433a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a656f4919ec48a7f26063d046d583433a">&#9670;&nbsp;</a></span>getTrainSample()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_data.html">Data</a> Validation::getTrainSample </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the train sample used in the validation of the model. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_data.html" title="Wrapper for the dataset data. ">Data</a> </dd></dl>
+
+</div>
+</div>
+<a id="a3aae72caef37b12a57aaf5cdd862de3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3aae72caef37b12a57aaf5cdd862de3a">&#9670;&nbsp;</a></span>kFold()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Validation::kFold </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fold</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>seed</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Executes the k. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fold</td><td>Number of folds. </td></tr>
+    <tr><td class="paramname">seed</td><td>Seed to feed the pseudo random number generator. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a83b3cc552927fe8595f3cdd143d645c0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a83b3cc552927fe8595f3cdd143d645c0">&#9670;&nbsp;</a></span>partTrainTest()</h2>
 
@@ -124,11 +243,48 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>validation</b> (int f
       </table>
 </div><div class="memdoc">
 
-<p>Divide sample into train and test. </p>
+<p>Executes the Stratified K-fold algorithm. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">fold</td><td>Number of folds. </td></tr>
     <tr><td class="paramname">seed</td><td>Seed to feed the pseudo random number generator. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a166305aa3f117b119da69d54778286a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a166305aa3f117b119da69d54778286a0">&#9670;&nbsp;</a></span>validation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Validation::validation </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fold</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>qtde</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Executes the validation with several executions of the k fold algorithm. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fold</td><td>Number of folds. </td></tr>
+    <tr><td class="paramname">qtde</td><td>Number of executions. </td></tr>
   </table>
   </dd>
 </dl>

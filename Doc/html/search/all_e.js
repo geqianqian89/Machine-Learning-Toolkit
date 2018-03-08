@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['q',['q',['../class_primal_classifier.html#a746ad2ff93fb77d82ae389f90dbdc89e',1,'PrimalClassifier']]]
+  ['operator_3c_3c',['operator&lt;&lt;',['../class_gnuplot.html#afb69631c7a498077e378a3cbb56f38c8',1,'Gnuplot']]]
 ];

@@ -101,35 +101,64 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae8e9554823b85ddc2dcad2955da811d9"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#ae8e9554823b85ddc2dcad2955da811d9">evaluate</a> (<a class="el" href="class_point.html">Point</a> p)=0</td></tr>
 <tr class="memdesc:ae8e9554823b85ddc2dcad2955da811d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the class of a feature point based on the trained classifier.  <a href="#ae8e9554823b85ddc2dcad2955da811d9">More...</a><br /></td></tr>
 <tr class="separator:ae8e9554823b85ddc2dcad2955da811d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b16736670cba8f4c8397b6a90c8c799"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a4b16736670cba8f4c8397b6a90c8c799">setSamples</a> (<a class="el" href="class_data.html">Data</a> *samples)</td></tr>
+<tr class="memitem:a4b16736670cba8f4c8397b6a90c8c799"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a4b16736670cba8f4c8397b6a90c8c799">setSamples</a> (<a class="el" href="class_data.html">Data</a> *<a class="el" href="class_classifier.html#a515c225d0da93df02ca79f9f87811d17">samples</a>)</td></tr>
 <tr class="memdesc:a4b16736670cba8f4c8397b6a90c8c799"><td class="mdescLeft">&#160;</td><td class="mdescRight">setSamples Set the samples used in the classifier.  <a href="#a4b16736670cba8f4c8397b6a90c8c799">More...</a><br /></td></tr>
 <tr class="separator:a4b16736670cba8f4c8397b6a90c8c799"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f1cf3ac53b0593307a050368a912bb4"><td class="memItemLeft" align="right" valign="top"><a id="a7f1cf3ac53b0593307a050368a912bb4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setStartTime</b> (double <a class="el" href="class_classifier.html#a4488a20bd7b4fc22d57244aaee57b002">start_time</a>)</td></tr>
-<tr class="separator:a7f1cf3ac53b0593307a050368a912bb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5da324a0de94b7171484f3b1f1f22fbd"><td class="memItemLeft" align="right" valign="top"><a id="a5da324a0de94b7171484f3b1f1f22fbd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaxTime</b> (double <a class="el" href="class_classifier.html#ae5ada7ce4d5436d1dcff3dff458107fd">max_time</a>)</td></tr>
-<tr class="separator:a5da324a0de94b7171484f3b1f1f22fbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cc5a1d92243f9d9b530347be1ac7367"><td class="memItemLeft" align="right" valign="top"><a id="a9cc5a1d92243f9d9b530347be1ac7367"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setEPS</b> (double <a class="el" href="class_classifier.html#ad7cd0cfea68461340df2adb0c132dc93">EPS</a>)</td></tr>
-<tr class="separator:a9cc5a1d92243f9d9b530347be1ac7367"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58540f77a22c0f1774d0089fac713498"><td class="memItemLeft" align="right" valign="top"><a id="a58540f77a22c0f1774d0089fac713498"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaxIterations</b> (int MAX_IT)</td></tr>
-<tr class="separator:a58540f77a22c0f1774d0089fac713498"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8930d5e6002299bdb840d4542229f02"><td class="memItemLeft" align="right" valign="top"><a id="ad8930d5e6002299bdb840d4542229f02"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaxUpdates</b> (int MAX_UP)</td></tr>
-<tr class="separator:ad8930d5e6002299bdb840d4542229f02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab47b67b061041193aa3ae2a7856f4980"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#ab47b67b061041193aa3ae2a7856f4980">getElapsedTime</a> ()</td></tr>
+<tr class="memdesc:ab47b67b061041193aa3ae2a7856f4980"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the elapsed time in the execution of the classifier.  <a href="#ab47b67b061041193aa3ae2a7856f4980">More...</a><br /></td></tr>
+<tr class="separator:ab47b67b061041193aa3ae2a7856f4980"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab80a78cd6a4efc59b16f5b80cd64dc63"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#ab80a78cd6a4efc59b16f5b80cd64dc63">getCtot</a> ()</td></tr>
+<tr class="memdesc:ab80a78cd6a4efc59b16f5b80cd64dc63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the total number of updates of the classifier.  <a href="#ab80a78cd6a4efc59b16f5b80cd64dc63">More...</a><br /></td></tr>
+<tr class="separator:ab80a78cd6a4efc59b16f5b80cd64dc63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1fb3e4dfd80c154e89603c8fa1b11b76"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a1fb3e4dfd80c154e89603c8fa1b11b76">getSteps</a> ()</td></tr>
 <tr class="memdesc:a1fb3e4dfd80c154e89603c8fa1b11b76"><td class="mdescLeft">&#160;</td><td class="mdescRight">getSteps Returns the number of steps through the data by the classifier.  <a href="#a1fb3e4dfd80c154e89603c8fa1b11b76">More...</a><br /></td></tr>
 <tr class="separator:a1fb3e4dfd80c154e89603c8fa1b11b76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a738c2fbed982db6cad02062edcc037e4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a738c2fbed982db6cad02062edcc037e4">getUpdates</a> ()</td></tr>
 <tr class="memdesc:a738c2fbed982db6cad02062edcc037e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">getUpdates Returns the number of updates needed to get to the the solution.  <a href="#a738c2fbed982db6cad02062edcc037e4">More...</a><br /></td></tr>
 <tr class="separator:a738c2fbed982db6cad02062edcc037e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a779b6cac0351e272ee0573d919d5d060"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a779b6cac0351e272ee0573d919d5d060">setSteps</a> (int <a class="el" href="class_classifier.html#a1e4c9c9ba059d5aff1d4d81eb41725cb">steps</a>)</td></tr>
+<tr class="memdesc:a779b6cac0351e272ee0573d919d5d060"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the partial number of steps of the classifier.  <a href="#a779b6cac0351e272ee0573d919d5d060">More...</a><br /></td></tr>
+<tr class="separator:a779b6cac0351e272ee0573d919d5d060"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3293d7d39c3934503a23b920f84f73e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a3293d7d39c3934503a23b920f84f73e7">setCtot</a> (int <a class="el" href="class_classifier.html#a99d9a7f504212bb3dc2726c10a2333c6">ctot</a>)</td></tr>
+<tr class="memdesc:a3293d7d39c3934503a23b920f84f73e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the partial number of updates of the classifier.  <a href="#a3293d7d39c3934503a23b920f84f73e7">More...</a><br /></td></tr>
+<tr class="separator:a3293d7d39c3934503a23b920f84f73e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a073b94029512378ccfae3aa34aae0212"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a073b94029512378ccfae3aa34aae0212">setVerbose</a> (int verbose)</td></tr>
+<tr class="memdesc:a073b94029512378ccfae3aa34aae0212"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the level of verbose.  <a href="#a073b94029512378ccfae3aa34aae0212">More...</a><br /></td></tr>
+<tr class="separator:a073b94029512378ccfae3aa34aae0212"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f1cf3ac53b0593307a050368a912bb4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a7f1cf3ac53b0593307a050368a912bb4">setStartTime</a> (double <a class="el" href="class_classifier.html#a4488a20bd7b4fc22d57244aaee57b002">start_time</a>)</td></tr>
+<tr class="memdesc:a7f1cf3ac53b0593307a050368a912bb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">setStartTime Set the initial time of the classifier.  <a href="#a7f1cf3ac53b0593307a050368a912bb4">More...</a><br /></td></tr>
+<tr class="separator:a7f1cf3ac53b0593307a050368a912bb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef6cb633eed60712f8948a404f630e82"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#aef6cb633eed60712f8948a404f630e82">setSolution</a> (<a class="el" href="class_solution.html">Solution</a> <a class="el" href="class_classifier.html#a8e70651d36fa396f55028847acd6ae50">solution</a>)</td></tr>
+<tr class="memdesc:aef6cb633eed60712f8948a404f630e82"><td class="mdescLeft">&#160;</td><td class="mdescRight">setMaxTime Set the maximum time of the classifier.  <a href="#aef6cb633eed60712f8948a404f630e82">More...</a><br /></td></tr>
+<tr class="separator:aef6cb633eed60712f8948a404f630e82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd2b54ada10af9f4be1c4d326b180dc7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_solution.html">Solution</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#afd2b54ada10af9f4be1c4d326b180dc7">getSolution</a> ()</td></tr>
+<tr class="memdesc:afd2b54ada10af9f4be1c4d326b180dc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">getSolution Returns the solution of the primal classifier.  <a href="#afd2b54ada10af9f4be1c4d326b180dc7">More...</a><br /></td></tr>
+<tr class="separator:afd2b54ada10af9f4be1c4d326b180dc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5da324a0de94b7171484f3b1f1f22fbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a5da324a0de94b7171484f3b1f1f22fbd">setMaxTime</a> (double <a class="el" href="class_classifier.html#a191089f044af0f4dd51f37aaff78d8f6">max_time</a>)</td></tr>
+<tr class="memdesc:a5da324a0de94b7171484f3b1f1f22fbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the max time of execution.  <a href="#a5da324a0de94b7171484f3b1f1f22fbd">More...</a><br /></td></tr>
+<tr class="separator:a5da324a0de94b7171484f3b1f1f22fbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cc5a1d92243f9d9b530347be1ac7367"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a9cc5a1d92243f9d9b530347be1ac7367">setEPS</a> (double <a class="el" href="class_classifier.html#ad7cd0cfea68461340df2adb0c132dc93">EPS</a>)</td></tr>
+<tr class="memdesc:a9cc5a1d92243f9d9b530347be1ac7367"><td class="mdescLeft">&#160;</td><td class="mdescRight">setEPS Set the precision of the classifier.  <a href="#a9cc5a1d92243f9d9b530347be1ac7367">More...</a><br /></td></tr>
+<tr class="separator:a9cc5a1d92243f9d9b530347be1ac7367"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58540f77a22c0f1774d0089fac713498"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a58540f77a22c0f1774d0089fac713498">setMaxIterations</a> (int <a class="el" href="class_classifier.html#a9cab88ab4489d771256bffb1717c1644">MAX_IT</a>)</td></tr>
+<tr class="memdesc:a58540f77a22c0f1774d0089fac713498"><td class="mdescLeft">&#160;</td><td class="mdescRight">setMaxIterations Set the max number of iterations of the classifier.  <a href="#a58540f77a22c0f1774d0089fac713498">More...</a><br /></td></tr>
+<tr class="separator:a58540f77a22c0f1774d0089fac713498"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8930d5e6002299bdb840d4542229f02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#ad8930d5e6002299bdb840d4542229f02">setMaxUpdates</a> (int <a class="el" href="class_classifier.html#abb8b95854801151e78a1d9f6a2173c22">MAX_UP</a>)</td></tr>
+<tr class="memdesc:ad8930d5e6002299bdb840d4542229f02"><td class="mdescLeft">&#160;</td><td class="mdescRight">setMaxIterations Set the max number of updates of the classifier.  <a href="#ad8930d5e6002299bdb840d4542229f02">More...</a><br /></td></tr>
+<tr class="separator:ad8930d5e6002299bdb840d4542229f02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f6818bd403afbb46d1bfd75c9731ab6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a8f6818bd403afbb46d1bfd75c9731ab6">setLearningRate</a> (double <a class="el" href="class_classifier.html#af9867e5919742de1303dd971a9a1c19a">rate</a>)</td></tr>
+<tr class="memdesc:a8f6818bd403afbb46d1bfd75c9731ab6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the learning rate of the classifier.  <a href="#a8f6818bd403afbb46d1bfd75c9731ab6">More...</a><br /></td></tr>
+<tr class="separator:a8f6818bd403afbb46d1bfd75c9731ab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
+<tr class="memitem:a1de0c258e4a175ebf96a18ec7ee33381"><td class="memItemLeft" align="right" valign="top"><a id="a1de0c258e4a175ebf96a18ec7ee33381"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a1de0c258e4a175ebf96a18ec7ee33381">hasInitialSolution</a> = false</td></tr>
+<tr class="memdesc:a1de0c258e4a175ebf96a18ec7ee33381"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inform if there's an initial solution. <br /></td></tr>
+<tr class="separator:a1de0c258e4a175ebf96a18ec7ee33381"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a515c225d0da93df02ca79f9f87811d17"><td class="memItemLeft" align="right" valign="top"><a id="a515c225d0da93df02ca79f9f87811d17"></a>
-<a class="el" href="class_data.html">Data</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>samples</b></td></tr>
+<a class="el" href="class_data.html">Data</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a515c225d0da93df02ca79f9f87811d17">samples</a></td></tr>
+<tr class="memdesc:a515c225d0da93df02ca79f9f87811d17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Samples used in the model training. <br /></td></tr>
 <tr class="separator:a515c225d0da93df02ca79f9f87811d17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9146fbbd020de483957a1ea68b614c7"><td class="memItemLeft" align="right" valign="top"><a id="ae9146fbbd020de483957a1ea68b614c7"></a>
 std::vector&lt; <a class="el" href="class_point.html">Point</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#ae9146fbbd020de483957a1ea68b614c7">svs</a></td></tr>
@@ -140,17 +169,17 @@ std::vector&lt; <a class="el" href="class_point.html">Point</a> &gt;&#160;</td><
 <tr class="memdesc:a8e70651d36fa396f55028847acd6ae50"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_classifier.html">Classifier</a> solution. <br /></td></tr>
 <tr class="separator:a8e70651d36fa396f55028847acd6ae50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9867e5919742de1303dd971a9a1c19a"><td class="memItemLeft" align="right" valign="top"><a id="af9867e5919742de1303dd971a9a1c19a"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#af9867e5919742de1303dd971a9a1c19a">rate</a> = 0.5</td></tr>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#af9867e5919742de1303dd971a9a1c19a">rate</a> = 0.5f</td></tr>
 <tr class="memdesc:af9867e5919742de1303dd971a9a1c19a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Learning rate. <br /></td></tr>
 <tr class="separator:af9867e5919742de1303dd971a9a1c19a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4488a20bd7b4fc22d57244aaee57b002"><td class="memItemLeft" align="right" valign="top"><a id="a4488a20bd7b4fc22d57244aaee57b002"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a4488a20bd7b4fc22d57244aaee57b002">start_time</a> = 0</td></tr>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a4488a20bd7b4fc22d57244aaee57b002">start_time</a> = 0.0f</td></tr>
 <tr class="memdesc:a4488a20bd7b4fc22d57244aaee57b002"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial time. <br /></td></tr>
 <tr class="separator:a4488a20bd7b4fc22d57244aaee57b002"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5ada7ce4d5436d1dcff3dff458107fd"><td class="memItemLeft" align="right" valign="top"><a id="ae5ada7ce4d5436d1dcff3dff458107fd"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#ae5ada7ce4d5436d1dcff3dff458107fd">max_time</a> = 200</td></tr>
-<tr class="memdesc:ae5ada7ce4d5436d1dcff3dff458107fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum time of training. <br /></td></tr>
-<tr class="separator:ae5ada7ce4d5436d1dcff3dff458107fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a191089f044af0f4dd51f37aaff78d8f6"><td class="memItemLeft" align="right" valign="top"><a id="a191089f044af0f4dd51f37aaff78d8f6"></a>
+long int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a191089f044af0f4dd51f37aaff78d8f6">max_time</a> = 100</td></tr>
+<tr class="memdesc:a191089f044af0f4dd51f37aaff78d8f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum time of training. <br /></td></tr>
+<tr class="separator:a191089f044af0f4dd51f37aaff78d8f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e4c9c9ba059d5aff1d4d81eb41725cb"><td class="memItemLeft" align="right" valign="top"><a id="a1e4c9c9ba059d5aff1d4d81eb41725cb"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a1e4c9c9ba059d5aff1d4d81eb41725cb">steps</a> = 0</td></tr>
 <tr class="memdesc:a1e4c9c9ba059d5aff1d4d81eb41725cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of steps in the data. <br /></td></tr>
@@ -164,11 +193,20 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <tr class="memdesc:ad7cd0cfea68461340df2adb0c132dc93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max precision. <br /></td></tr>
 <tr class="separator:ad7cd0cfea68461340df2adb0c132dc93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9cab88ab4489d771256bffb1717c1644"><td class="memItemLeft" align="right" valign="top"><a id="a9cab88ab4489d771256bffb1717c1644"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_IT</b> = 1E9</td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a9cab88ab4489d771256bffb1717c1644">MAX_IT</a> = 1E9</td></tr>
+<tr class="memdesc:a9cab88ab4489d771256bffb1717c1644"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max number of iterations. <br /></td></tr>
 <tr class="separator:a9cab88ab4489d771256bffb1717c1644"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb8b95854801151e78a1d9f6a2173c22"><td class="memItemLeft" align="right" valign="top"><a id="abb8b95854801151e78a1d9f6a2173c22"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_UP</b> = 1E9</td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#abb8b95854801151e78a1d9f6a2173c22">MAX_UP</a> = 1E9</td></tr>
+<tr class="memdesc:abb8b95854801151e78a1d9f6a2173c22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max number of updates. <br /></td></tr>
 <tr class="separator:abb8b95854801151e78a1d9f6a2173c22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b24f7f87ca8171ce07c888583646263"><td class="memItemLeft" align="right" valign="top"><a id="a2b24f7f87ca8171ce07c888583646263"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>verbose</b> = 1</td></tr>
+<tr class="separator:a2b24f7f87ca8171ce07c888583646263"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9d28253495ae8807d586faff951d46f"><td class="memItemLeft" align="right" valign="top"><a id="ae9d28253495ae8807d586faff951d46f"></a>
+<a class="el" href="class_timer.html">Timer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#ae9d28253495ae8807d586faff951d46f">timer</a></td></tr>
+<tr class="memdesc:ae9d28253495ae8807d586faff951d46f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_timer.html">Timer</a> used to measure the time elapsed in the execution of classifier. <br /></td></tr>
+<tr class="separator:ae9d28253495ae8807d586faff951d46f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ae8e9554823b85ddc2dcad2955da811d9"></a>
@@ -204,7 +242,83 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_UP</b> = 1E9</td><
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
 
-<p>Implemented in <a class="el" href="class_perceptron_fixed_margin_dual.html#a1370fdbc95bf728f82a83f219be32d23">PerceptronFixedMarginDual</a>, <a class="el" href="class_perceptron_dual.html#a3ed5554b85b4b1ec98f57acab3eeeaca">PerceptronDual</a>, <a class="el" href="class_perceptron_fixed_margin_primal.html#af72c3dde96f1f1b803c7b522b5c1cc0f">PerceptronFixedMarginPrimal</a>, and <a class="el" href="class_perceptron_primal.html#ac8ce9ceffe2b35b5386e5367fb419b3b">PerceptronPrimal</a>.</p>
+<p>Implemented in <a class="el" href="class_perceptron_fixed_margin_dual.html#a1370fdbc95bf728f82a83f219be32d23">PerceptronFixedMarginDual</a>, <a class="el" href="class_i_m_ap_fixed_margin.html#a230aae2c6ef3f70b2e1a704b5e4dff28">IMApFixedMargin</a>, <a class="el" href="class_perceptron_dual.html#a3ed5554b85b4b1ec98f57acab3eeeaca">PerceptronDual</a>, <a class="el" href="class_perceptron_fixed_margin_primal.html#af72c3dde96f1f1b803c7b522b5c1cc0f">PerceptronFixedMarginPrimal</a>, <a class="el" href="class_i_m_ap.html#aee497c8ff854b8d584c6c9df0c57ad57">IMAp</a>, and <a class="el" href="class_perceptron_primal.html#ac8ce9ceffe2b35b5386e5367fb419b3b">PerceptronPrimal</a>.</p>
+
+</div>
+</div>
+<a id="ab80a78cd6a4efc59b16f5b80cd64dc63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab80a78cd6a4efc59b16f5b80cd64dc63">&#9670;&nbsp;</a></span>getCtot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Classifier::getCtot </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the total number of updates of the classifier. </p>
+<dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
+
+</div>
+</div>
+<a id="ab47b67b061041193aa3ae2a7856f4980"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab47b67b061041193aa3ae2a7856f4980">&#9670;&nbsp;</a></span>getElapsedTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Classifier::getElapsedTime </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the elapsed time in the execution of the classifier. </p>
+<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
+
+</div>
+</div>
+<a id="afd2b54ada10af9f4be1c4d326b180dc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd2b54ada10af9f4be1c4d326b180dc7">&#9670;&nbsp;</a></span>getSolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_solution.html">Solution</a> Classifier::getSolution </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getSolution Returns the solution of the primal classifier. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_solution.html">Solution</a> </dd></dl>
 
 </div>
 </div>
@@ -213,6 +327,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_UP</b> = 1E9</td><
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int Classifier::getSteps </td>
@@ -221,6 +338,11 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_UP</b> = 1E9</td><
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>getSteps Returns the number of steps through the data by the classifier. </p>
@@ -233,6 +355,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_UP</b> = 1E9</td><
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int Classifier::getUpdates </td>
@@ -241,10 +366,171 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_UP</b> = 1E9</td><
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>getUpdates Returns the number of updates needed to get to the the solution. </p>
 <dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
+
+</div>
+</div>
+<a id="a3293d7d39c3934503a23b920f84f73e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3293d7d39c3934503a23b920f84f73e7">&#9670;&nbsp;</a></span>setCtot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Classifier::setCtot </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ctot</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the partial number of updates of the classifier. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctot</td><td>Number of updates. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9cc5a1d92243f9d9b530347be1ac7367"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cc5a1d92243f9d9b530347be1ac7367">&#9670;&nbsp;</a></span>setEPS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Classifier::setEPS </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>EPS</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>setEPS Set the precision of the classifier. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">EPS</td><td>Precision. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8f6818bd403afbb46d1bfd75c9731ab6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f6818bd403afbb46d1bfd75c9731ab6">&#9670;&nbsp;</a></span>setLearningRate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Classifier::setLearningRate </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>rate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the learning rate of the classifier. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rate</td><td>Learning rate. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a58540f77a22c0f1774d0089fac713498"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58540f77a22c0f1774d0089fac713498">&#9670;&nbsp;</a></span>setMaxIterations()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Classifier::setMaxIterations </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>MAX_IT</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>setMaxIterations Set the max number of iterations of the classifier. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">MAX_IT</td><td>Number max of iterations. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5da324a0de94b7171484f3b1f1f22fbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5da324a0de94b7171484f3b1f1f22fbd">&#9670;&nbsp;</a></span>setMaxTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Classifier::setMaxTime </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>max_time</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the max time of execution. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">max_time</td><td>Max time. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad8930d5e6002299bdb840d4542229f02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8930d5e6002299bdb840d4542229f02">&#9670;&nbsp;</a></span>setMaxUpdates()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Classifier::setMaxUpdates </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>MAX_UP</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>setMaxIterations Set the max number of updates of the classifier. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">MAX_IT</td><td>Number max of updates. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -282,6 +568,118 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_UP</b> = 1E9</td><
 
 </div>
 </div>
+<a id="aef6cb633eed60712f8948a404f630e82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef6cb633eed60712f8948a404f630e82">&#9670;&nbsp;</a></span>setSolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Classifier::setSolution </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_solution.html">Solution</a>&#160;</td>
+          <td class="paramname"><em>solution</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>setMaxTime Set the maximum time of the classifier. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">max_time</td><td>Maximum time. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7f1cf3ac53b0593307a050368a912bb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f1cf3ac53b0593307a050368a912bb4">&#9670;&nbsp;</a></span>setStartTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Classifier::setStartTime </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>start_time</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>setStartTime Set the initial time of the classifier. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start_time</td><td>Initial time. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a779b6cac0351e272ee0573d919d5d060"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a779b6cac0351e272ee0573d919d5d060">&#9670;&nbsp;</a></span>setSteps()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Classifier::setSteps </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>steps</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the partial number of steps of the classifier. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">steps</td><td>Number of steps. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a073b94029512378ccfae3aa34aae0212"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a073b94029512378ccfae3aa34aae0212">&#9670;&nbsp;</a></span>setVerbose()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Classifier::setVerbose </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>verbose</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the level of verbose. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">verbose</td><td>level of verbose. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a2306a5de27555ab093593ac9642bc7d9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2306a5de27555ab093593ac9642bc7d9">&#9670;&nbsp;</a></span>train()</h2>
 
@@ -308,7 +706,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_UP</b> = 1E9</td><
 <p>Function that execute the training phase of a classification algorithm. </p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Implemented in <a class="el" href="class_perceptron_fixed_margin_dual.html#aa095c90a3d04f70e1cf2e38e2afa769b">PerceptronFixedMarginDual</a>, <a class="el" href="class_perceptron_dual.html#a91b0bd1e86a6003b57b96199266cdc3e">PerceptronDual</a>, <a class="el" href="class_perceptron_fixed_margin_primal.html#ad41c2a42c4a819c03bf9879110b0f99f">PerceptronFixedMarginPrimal</a>, and <a class="el" href="class_perceptron_primal.html#a17f817a72fc7d61d1686ea77f7f9e84d">PerceptronPrimal</a>.</p>
+<p>Implemented in <a class="el" href="class_perceptron_fixed_margin_dual.html#aa095c90a3d04f70e1cf2e38e2afa769b">PerceptronFixedMarginDual</a>, <a class="el" href="class_i_m_ap_fixed_margin.html#ac43bc5733e6e749309277d3d99a86c11">IMApFixedMargin</a>, <a class="el" href="class_perceptron_dual.html#a91b0bd1e86a6003b57b96199266cdc3e">PerceptronDual</a>, <a class="el" href="class_perceptron_fixed_margin_primal.html#ad41c2a42c4a819c03bf9879110b0f99f">PerceptronFixedMarginPrimal</a>, <a class="el" href="class_i_m_ap.html#a6b6446fa6019518ae0336cb28af0b7f8">IMAp</a>, and <a class="el" href="class_perceptron_primal.html#a17f817a72fc7d61d1686ea77f7f9e84d">PerceptronPrimal</a>.</p>
 
 </div>
 </div>

@@ -24,7 +24,7 @@ class Solution {
         /// Number of support Vectors
         unsigned int svs = 0;
 
-        void operator=(const Solution& other){
+        Solution& operator=(const Solution& other){
           w = other.w;
           func = other.func;
           K = other.K;

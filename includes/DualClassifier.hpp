@@ -19,7 +19,15 @@ class DualClassifier : public Classifier {
          * @param q Norm that will be used by the classifier.
          */
         void setKernel(Kernel K);
+        /**
+         * @brief Get the parameter of the kernel.
+         * @return double
+         */
         inline double getKernelParam(){ return kernel.getParam(); }
+        /**
+         * @brief Get the type of the kernel.
+         * @return double
+         */
         inline double getKernelType(){ return kernel.getType(); }
 };
 

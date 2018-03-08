@@ -1,6 +1,11 @@
 #ifndef TIMER_H_INCLUDED
 #define TIMER_H_INCLUDED
 
+/*! Timer class
+   \file Timer.hpp
+   \author Mateus Coutinho Marim
+*/
+
 #include <chrono>
 
 class Timer{
