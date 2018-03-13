@@ -251,9 +251,9 @@ bool IMApFixedMargin::train() {
     vector<double> x, func(size, 0.0);
     vector<int> index = samples->getIndex();
     vector<shared_ptr<Point> > points = samples->getPoints();
-
     e = 1,s = 0;
 
+    timer = Timer();
     timer.start();
     while(timer.end() - time <= 0)
     {

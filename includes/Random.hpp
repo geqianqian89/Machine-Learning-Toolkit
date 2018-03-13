@@ -17,8 +17,8 @@ namespace Random {
   std::mt19937 m_gen;
   unsigned int m_seed;
 
-  auto init() {
-      m_seed = std::random_device {} ();
+  auto init(unsigned int seed = 666) {
+      m_seed = (seed != 666)?std::random_device {} (): seed;
       m_gen.seed(m_seed);
 
       return m_seed;

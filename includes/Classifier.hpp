@@ -23,7 +23,7 @@ class Classifier {
         /// Initial time.
         double start_time = 0.0f;
         /// Maximum time of training.
-        long int max_time = 100;
+        long int max_time = 200;
         /// Number of steps in the data.
         int steps = 0;
         /// Number of updates of the weights.

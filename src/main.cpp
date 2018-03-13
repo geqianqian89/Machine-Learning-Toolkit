@@ -12,6 +12,7 @@
 #include "../includes/MLToolkit.hpp"
 #include "../includes/Perceptron.hpp"
 #include "../includes/IMA.hpp"
+#include "../includes/Timer.hpp"
 
 using namespace std;
 
@@ -193,6 +194,7 @@ void mainMenu(){
     cout << "2 - Data" << endl;
     cout << "3 - Data Visualisation" << endl;
     cout << "4 - Classifiers" << endl;
+    cout << "5 - Validation" << endl;
     cout << "0 - Exit" << endl;
 
     option = selector();
@@ -411,7 +413,6 @@ void datasetOption(int option){
             if(!data.isEmpty()){
                 int fold;
                 unsigned int seed;
-                Validation valid(&data);
 
                 if(test_sample.isEmpty()){
                     cout << "K-Fold: ";
@@ -419,8 +420,10 @@ void datasetOption(int option){
                     cout << "Seed for timestamps: ";
                     cin >> seed;
 
+                    Validation valid(&data, nullptr, seed);
+
                     clock_t begin = clock();
-                    valid.partTrainTest(fold, seed);
+                    valid.partTrainTest(fold);
                     test_sample = valid.getTestSample();
                     train_sample = valid.getTrainSample();
                     clock_t end = clock();
@@ -732,6 +735,7 @@ void visualisationOption(int opt){
 
 void classifiersOption(int option){
     int opt;
+    Timer timer;
 
     switch (option) {
     case 1:
@@ -742,13 +746,17 @@ void classifiersOption(int option){
         cout << "3 - Incremental Margin Algorithm Primal (IMAp)" << endl;
         cout << "0 - Back to classifiers menu" << endl;
         opt = selector();
+            timer.start();
         primalClassifiersOption(opt);
+            timer.end();
+            cout << timer.count() << endl;
         break;
     case 2:
         clear();
         header();
         cout << "1 - Perceptron Dual" << endl;
         cout << "2 - Perceptron Dual with fixed margin" << endl;
+
         cout << "0 - Back to classifiers menu" << endl;
         opt = selector();
         dualClassifiersOption(opt);
@@ -826,14 +834,15 @@ void validationOption(int option){
         cin >> alpha_prox;
         cout << endl;
 
+        imap.setMaxTime(max_time);
         imap.setpNorm(p);
         imap.setqNorm(q);
         imap.setFlexible(flexible);
         imap.setAlphaAprox(alpha_prox);
 
-        Validation validate(&data, &imap);
+        Validation validate(&data, &imap, 0);
 
-        validate.partTrainTest(fold, 0);
+        validate.partTrainTest(fold);
         validate.validation(fold, qtde);
       }else{
           cout << "Load a dataset first..." << endl;
@@ -947,6 +956,7 @@ void primalClassifiersOption(int option){
 
           IMAp imap(&data);
 
+          imap.setMaxTime(max_time);
           imap.setpNorm(p);
           imap.setqNorm(q);
           imap.setFlexible(flexible);

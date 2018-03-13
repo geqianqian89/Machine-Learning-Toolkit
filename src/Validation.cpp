@@ -10,17 +10,18 @@
 
 using namespace std;
 
-Validation::Validation(Data *sample, Classifier *classifier){
+Validation::Validation(Data *sample, Classifier *classifier, unsigned int seed){
   this->sample = sample;
   this->classifier = classifier;
+
+    Random::init(seed);
+    seed = Random::getSeed();
 }
 
-void Validation::partTrainTest(int fold, unsigned int seed){
+void Validation::partTrainTest(int fold){
     int i, j, npos, nneg, size = sample->getSize();
     shared_ptr<Point> p, aux;
     Data sample_pos, sample_neg;
-
-    Random::init();
 
     sample_pos.copyZero(*sample);
     sample_neg.copyZero(*sample);
@@ -66,7 +67,7 @@ void Validation::partTrainTest(int fold, unsigned int seed){
 
 double Validation::kFold (int fold, int seed){
   int i = 0, j = 0, k = 0, size = sample->getSize();
-	double error = 0.0, func = 0.0, margin = 0.0;
+    double error = 0.0, func = 0.0, margin = 0.0;
 	int qtdpos = 0, qtdneg = 0, cost_pos = 0, cost_neg = 0, svcount = 0;
   vector<double> w;
   dMatrix matrix;
@@ -244,7 +245,7 @@ double Validation::kFold (int fold, int seed){
   return (((double)error)/(double)fold);
 }
 
-void Validation::validation(int fold, int qtde){
+double Validation::validation(int fold, int qtde){
   int i = 0, k = 0, erro = 0, svcount = 0, test_size = test_sample.getSize(),
   train_size = train_sample.getSize(), train_dim = train_sample.getDim();
 	double error = 0, errocross = 0, func = 0.0, margin = 0, bias;
@@ -266,7 +267,7 @@ void Validation::validation(int fold, int qtde){
           if(verbose) cout << "\nExecucao " << i + 1 << " / " << qtde << ":\n";
           errocross += kFold(fold, i);
       }
-      cout << "\nErro " << fold << "-Fold Cross Validation: " << errocross/qtde << "\n";
+      cout << "\n\nErro " << fold << "-Fold Cross Validation: " << errocross/qtde << "\n";
   }
 
   /*start final validation*/
