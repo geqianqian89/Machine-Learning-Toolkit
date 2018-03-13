@@ -190,7 +190,7 @@ bool IMAp::train() {
         imapFixMargin.setSolution(tempSol);
         imapFixMargin.setLearningRate(rate);
 
-      //  break;
+        //  break;
         if(flagNao1aDim) break;
     }
 
@@ -274,81 +274,81 @@ bool IMApFixedMargin::train() {
             //Checking if the point is a mistake
             if(y*func[idx] <= gamma*norm - points[idx]->alpha*flexible)
             {
-              lambda = (norm) ? (1-rate*gamma/norm) : 1;
-              for(r = 0; r < size; ++r)
-                  points[r]->alpha *= lambda;
+                lambda = (norm) ? (1-rate*gamma/norm) : 1;
+                for(r = 0; r < size; ++r)
+                    points[r]->alpha *= lambda;
 
-              if(q == 1.0) //Linf
-              {
-                  for(sumnorm = 0, j = 0; j < dim; ++j)
-                  {
-                      sign = 1; if(w[j] < 0) sign = -1;
-                      lambda = (norm > 0 && w[j] != 0) ? gamma * sign: 0;
-                      w[j] += rate * (y * x[j] - lambda);
-                      sumnorm += fabs(w[j]);
-                  }
-                  norm = sumnorm;
-              }
-              else if(q == 2.0) //L2
-              {
-                  for(sumnorm = 0, j = 0; j < dim; ++j)
-                  {
-                      lambda = (norm > 0 && w[j] != 0) ? w[j] * gamma / norm : 0;
-                      w[j] += rate * (y * x[j] - lambda);
-                      sumnorm += w[j] * w[j];
-                  }
-                  norm = sqrt(sumnorm);
-              }
-              else if(q == -1.0) //L1
-              {
-                  maiorw_temp = fabs(w[0]);
-                  n_temp = 1;
-                  for(j = 0; j < dim; ++j)
-                  {
-                      if(maiorw == 0 || fabs(maiorw - fabs(w[j]))/maiorw < EPS)
-                      {
-                          sign = 1; if(w[j] < 0) sign = -1;
-                          lambda = (norm > 0 && w[j] != 0) ? gamma * sign / n : 0;
-                          w[j] += rate * (y * x[j] - lambda);
-                      }
-                      else
-                          w[j] += rate * (y * x[j]);
+                if(q == 1.0) //Linf
+                {
+                    for(sumnorm = 0, j = 0; j < dim; ++j)
+                    {
+                        sign = 1; if(w[j] < 0) sign = -1;
+                        lambda = (norm > 0 && w[j] != 0) ? gamma * sign: 0;
+                        w[j] += rate * (y * x[j] - lambda);
+                        sumnorm += fabs(w[j]);
+                    }
+                    norm = sumnorm;
+                }
+                else if(q == 2.0) //L2
+                {
+                    for(sumnorm = 0, j = 0; j < dim; ++j)
+                    {
+                        lambda = (norm > 0 && w[j] != 0) ? w[j] * gamma / norm : 0;
+                        w[j] += rate * (y * x[j] - lambda);
+                        sumnorm += w[j] * w[j];
+                    }
+                    norm = sqrt(sumnorm);
+                }
+                else if(q == -1.0) //L1
+                {
+                    maiorw_temp = fabs(w[0]);
+                    n_temp = 1;
+                    for(j = 0; j < dim; ++j)
+                    {
+                        if(maiorw == 0 || fabs(maiorw - fabs(w[j]))/maiorw < EPS)
+                        {
+                            sign = 1; if(w[j] < 0) sign = -1;
+                            lambda = (norm > 0 && w[j] != 0) ? gamma * sign / n : 0;
+                            w[j] += rate * (y * x[j] - lambda);
+                        }
+                        else
+                            w[j] += rate * (y * x[j]);
 
-                      if(j > 0)
-                      {
-                          if(fabs(maiorw_temp - fabs(w[j]))/maiorw_temp < EPS)
-                              n_temp++;
-                          else if(fabs(w[j]) > maiorw_temp)
-                          {
-                              maiorw_temp = fabs(w[j]);
-                              n_temp = 1;
-                          }
-                      }
-                  }
-                  maiorw = maiorw_temp;
-                  n = n_temp;
-                  norm = maiorw;
-                  if(n > maiorn) maiorn = n;
-            }
-            else //outras formula\E7\F5es - Lp
-            {
-                 for(sumnorm = 0, j = 0; j < dim; ++j)
-                 {
-                     lambda = (norm > 0 && w[j] != 0) ? w[j] * gamma * pow(fabs(w[j]), q-2.0) * pow(norm, 1.0-q) : 0;
-                     w[j] += rate * (y * x[j] - lambda);
-                     sumnorm += pow(fabs(w[j]), q);
-                 }
-                 norm = pow(sumnorm, 1.0/q);
-            }
-            bias += rate * y;
-            points[idx]->alpha += rate;
+                        if(j > 0)
+                        {
+                            if(fabs(maiorw_temp - fabs(w[j]))/maiorw_temp < EPS)
+                                n_temp++;
+                            else if(fabs(w[j]) > maiorw_temp)
+                            {
+                                maiorw_temp = fabs(w[j]);
+                                n_temp = 1;
+                            }
+                        }
+                    }
+                    maiorw = maiorw_temp;
+                    n = n_temp;
+                    norm = maiorw;
+                    if(n > maiorn) maiorn = n;
+                }
+                else //outras formula\E7\F5es - Lp
+                {
+                    for(sumnorm = 0, j = 0; j < dim; ++j)
+                    {
+                        lambda = (norm > 0 && w[j] != 0) ? w[j] * gamma * pow(fabs(w[j]), q-2.0) * pow(norm, 1.0-q) : 0;
+                        w[j] += rate * (y * x[j] - lambda);
+                        sumnorm += pow(fabs(w[j]), q);
+                    }
+                    norm = pow(sumnorm, 1.0/q);
+                }
+                bias += rate * y;
+                points[idx]->alpha += rate;
 
-            k = (i > s) ? s++ : e;
-            j = index[k];
-            index[k] = idx;
-            index[i] = j;
-            ctot++; e++;
-          }else if(t > 0 && e > 1 && i > s) break;
+                k = (i > s) ? s++ : e;
+                j = index[k];
+                index[k] = idx;
+                index[i] = j;
+                ctot++; e++;
+            }else if(t > 0 && e > 1 && i > s) break;
         }
         steps++; //Number of iterations update
         //stop criterion

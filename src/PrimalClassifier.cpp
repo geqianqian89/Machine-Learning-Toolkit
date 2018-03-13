@@ -21,7 +21,7 @@ double PrimalClassifier::getGamma() {
 }
 
 void PrimalClassifier::setFlexible(double flexible){
-  this->flexible = flexible;
+    this->flexible = flexible;
 }
 
 void PrimalClassifier::setAlphaAprox(double alpha_aprox) {

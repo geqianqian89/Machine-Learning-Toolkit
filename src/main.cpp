@@ -1,7 +1,7 @@
 #ifdef __unix__
-    #include <dirent.h>
+#include <dirent.h>
 #elif _WIN32
-    #include <windows.h>
+#include <windows.h>
 #endif
 #include <iostream>
 #include <vector>
@@ -92,29 +92,29 @@ bool valid_file(string file){
 vector<string> list_datasets(bool list){
     vector<string> files;
 
-    #ifdef __unix__
-        DIR *dpdf;
-        struct dirent *epdf;
+#ifdef __unix__
+    DIR *dpdf;
+    struct dirent *epdf;
 
-        string temp = data_folder;
-        temp.erase(temp.begin() + temp.size()-1);
-        string path = "./" + data_folder;
+    string temp = data_folder;
+    temp.erase(temp.begin() + temp.size()-1);
+    string path = "./" + data_folder;
 
-        dpdf = opendir(path.c_str());
-        if(dpdf != NULL){
-            while((epdf = readdir(dpdf))){
-                string file = string(epdf->d_name);
-                if(valid_file(file) && !file.empty()){
+    dpdf = opendir(path.c_str());
+    if(dpdf != NULL){
+        while((epdf = readdir(dpdf))){
+            string file = string(epdf->d_name);
+            if(valid_file(file) && !file.empty()){
 
-                    if(list) cout << "[" << files.size() << "] " << file << endl;
-                    files.push_back(file);
-                }
+                if(list) cout << "[" << files.size() << "] " << file << endl;
+                files.push_back(file);
             }
         }
+    }
 
-        closedir(dpdf);
-    #elif _WIN32
-        HANDLE hFind;
+    closedir(dpdf);
+#elif _WIN32
+    HANDLE hFind;
         WIN32_FIND_DATA data;
         string path = ".\\" + data_folder + "\\*.*";
 
@@ -131,21 +131,21 @@ vector<string> list_datasets(bool list){
         }
     #else
         cout << "This system is not supported for this function..." << endl;
-    #endif
+#endif
 
     return files;
 }
 
 void clear(void){
-    #ifdef __unix__
-        system("clear");
-    #elif _WIN32
-        system("CLS");
+#ifdef __unix__
+    system("clear");
+#elif _WIN32
+    system("CLS");
     #else
         int n;
         for (n = 0; n < 10; n++)
           printf( "\n\n\n\n\n\n\n\n\n\n" );
-    #endif
+#endif
 }
 
 void exitProgram(void){
@@ -299,7 +299,7 @@ void mainOption(int option){
             break;
         default:
             inva = true;
-        break;
+            break;
     }
     mainMenu();
 }
@@ -464,7 +464,7 @@ void datasetOption(int option){
             break;
         default:
             inva = true;
-        break;
+            break;
     }
     datasetMenu();
 }
@@ -562,7 +562,7 @@ void dataOption(int option){
                 cin >> i;
 
                 if(i < 0){
-                   break;
+                    break;
                 }
 
                 data.removePoint(i);
@@ -669,7 +669,7 @@ void dataOption(int option){
             break;
         default:
             inva = true;
-        break;
+            break;
     }
     dataMenu();
 }
@@ -678,57 +678,57 @@ void visualisationOption(int opt){
     int x, y, z;
 
     switch (opt) {
-    case 1:
-        cout << "Enter the feature to plot in the x-axis: ";
-        cin >> x;
-        cout << "Enter the feature to plot in the y-axis: ";
-        cin >> y;
+        case 1:
+            cout << "Enter the feature to plot in the x-axis: ";
+            cin >> x;
+            cout << "Enter the feature to plot in the y-axis: ";
+            cin >> y;
 
-        plot.plot2D(x, y);
-        break;
-    case 2:
-        cout << "Enter the feature to plot in the x-axis: ";
-        cin >> x;
-        cout << "Enter the feature to plot in the y-axis: ";
-        cin >> y;
-        cout << "Enter the feature to plot in the z-axis: ";
-        cin >> z;
-        plot.plot3D(x, y, z);
-        break;
-    case 3:
-        if(sol.w.size() == 0){
-            cout << "Run a classifier in the data first." << endl;
-            waitUserAction();
+            plot.plot2D(x, y);
             break;
-        }
-        cout << "Enter the feature to plot in the x-axis: ";
-        cin >> x;
-        cout << "Enter the feature to plot in the y-axis: ";
-        cin >> y;
-
-        plot.plot2DwithHyperplane(x, y, sol);
-        break;
-    case 4:
-        if(sol.w.size() == 0){
-            cout << "Run a classifier in the data first." << endl;
-            waitUserAction();
+        case 2:
+            cout << "Enter the feature to plot in the x-axis: ";
+            cin >> x;
+            cout << "Enter the feature to plot in the y-axis: ";
+            cin >> y;
+            cout << "Enter the feature to plot in the z-axis: ";
+            cin >> z;
+            plot.plot3D(x, y, z);
             break;
-        }
-        cout << "Enter the feature to plot in the x-axis: ";
-        cin >> x;
-        cout << "Enter the feature to plot in the y-axis: ";
-        cin >> y;
-        cout << "Enter the feature to plot in the z-axis: ";
-        cin >> z;
+        case 3:
+            if(sol.w.size() == 0){
+                cout << "Run a classifier in the data first." << endl;
+                waitUserAction();
+                break;
+            }
+            cout << "Enter the feature to plot in the x-axis: ";
+            cin >> x;
+            cout << "Enter the feature to plot in the y-axis: ";
+            cin >> y;
 
-        plot.plot3DwithHyperplane(x, y, z, sol);
-        break;
-    case 0:
-        mainMenu();
-        break;
-    default:
-        inva = true;
-        break;
+            plot.plot2DwithHyperplane(x, y, sol);
+            break;
+        case 4:
+            if(sol.w.size() == 0){
+                cout << "Run a classifier in the data first." << endl;
+                waitUserAction();
+                break;
+            }
+            cout << "Enter the feature to plot in the x-axis: ";
+            cin >> x;
+            cout << "Enter the feature to plot in the y-axis: ";
+            cin >> y;
+            cout << "Enter the feature to plot in the z-axis: ";
+            cin >> z;
+
+            plot.plot3DwithHyperplane(x, y, z, sol);
+            break;
+        case 0:
+            mainMenu();
+            break;
+        default:
+            inva = true;
+            break;
     }
     visualisationMenu();
 }
@@ -738,125 +738,125 @@ void classifiersOption(int option){
     Timer timer;
 
     switch (option) {
-    case 1:
-        clear();
-        header();
-        cout << "1 - Perceptron Primal" << endl;
-        cout << "2 - Perceptron Primal with fixed margin" << endl;
-        cout << "3 - Incremental Margin Algorithm Primal (IMAp)" << endl;
-        cout << "0 - Back to classifiers menu" << endl;
-        opt = selector();
+        case 1:
+            clear();
+            header();
+            cout << "1 - Perceptron Primal" << endl;
+            cout << "2 - Perceptron Primal with fixed margin" << endl;
+            cout << "3 - Incremental Margin Algorithm Primal (IMAp)" << endl;
+            cout << "0 - Back to classifiers menu" << endl;
+            opt = selector();
             timer.start();
-        primalClassifiersOption(opt);
+            primalClassifiersOption(opt);
             timer.end();
             cout << timer.count() << endl;
-        break;
-    case 2:
-        clear();
-        header();
-        cout << "1 - Perceptron Dual" << endl;
-        cout << "2 - Perceptron Dual with fixed margin" << endl;
+            break;
+        case 2:
+            clear();
+            header();
+            cout << "1 - Perceptron Dual" << endl;
+            cout << "2 - Perceptron Dual with fixed margin" << endl;
 
-        cout << "0 - Back to classifiers menu" << endl;
-        opt = selector();
-        dualClassifiersOption(opt);
-        break;
-      case 3:
-          clear();
-          header();
-          validationMenu();
-          waitUserAction();
-          break;
-    case 0:
-        mainMenu();
-        break;
-    default:
-        inva = true;
-        break;
+            cout << "0 - Back to classifiers menu" << endl;
+            opt = selector();
+            dualClassifiersOption(opt);
+            break;
+        case 3:
+            clear();
+            header();
+            validationMenu();
+            waitUserAction();
+            break;
+        case 0:
+            mainMenu();
+            break;
+        default:
+            inva = true;
+            break;
     }
     classifiersMenu();
 }
 
 void validationMenu(){
-  int opt;
+    int opt;
 
-  cout << "1 - IMAp" << endl;
-  cout << "0 - Back to classifiers menu." << endl;
+    cout << "1 - IMAp" << endl;
+    cout << "0 - Back to classifiers menu." << endl;
 
-  opt = selector();
-  validationOption(opt);
+    opt = selector();
+    validationOption(opt);
 }
 
 void validationOption(int option){
-  int fold, qtde;
-  int p, q, i, norm, flexible, svs;
-  double rate, gamma, alpha_prox;
+    int fold, qtde;
+    int p, q, i, norm, flexible, svs;
+    double rate, gamma, alpha_prox;
 
-  switch(option){
-    case 1:
-      if(!data.isEmpty()){
-        IMAp imap(&data);
+    switch(option){
+        case 1:
+            if(!data.isEmpty()){
+                IMAp imap(&data);
 
-        cout << "Quantity of K-fold: ";
-        cin >> qtde;
-        cout << "Number of folds: ";
-        cin >> fold;
+                cout << "Quantity of K-fold: ";
+                cin >> qtde;
+                cout << "Number of folds: ";
+                cin >> fold;
 
-        cout << "[1]p or [2]q norm: ";
-        cin >> norm;
-        cout << endl;
+                cout << "[1]p or [2]q norm: ";
+                cin >> norm;
+                cout << endl;
 
-        if(norm == 1){
-          cout << "p-norm value: ";
-          cin >> p;
-          if(p == 1.0){
-            q = -1.0;
-          }else{
-            q = p/(p-1.0);
-          }
-        }else{
-          cout << "q-norm value: ";
-          cin >> q;
-          if(q == -1.0){
-            p = 1.0;
-          }else if(q == 1.0){
-            p = 100.0;
-          }else{
-            p = q/(q-1.0);
-          }
-        }
-        cout << endl;
-        cout << "Flexibilization value [0 - no flexibilization]: ";
-        cin >> flexible;
-        cout << endl;
+                if(norm == 1){
+                    cout << "p-norm value: ";
+                    cin >> p;
+                    if(p == 1.0){
+                        q = -1.0;
+                    }else{
+                        q = p/(p-1.0);
+                    }
+                }else{
+                    cout << "q-norm value: ";
+                    cin >> q;
+                    if(q == -1.0){
+                        p = 1.0;
+                    }else if(q == 1.0){
+                        p = 100.0;
+                    }else{
+                        p = q/(q-1.0);
+                    }
+                }
+                cout << endl;
+                cout << "Flexibilization value [0 - no flexibilization]: ";
+                cin >> flexible;
+                cout << endl;
 
-        cout << "Alpha aproximation value [1 - alpha]: ";
-        cin >> alpha_prox;
-        cout << endl;
+                cout << "Alpha aproximation value [1 - alpha]: ";
+                cin >> alpha_prox;
+                cout << endl;
 
-        imap.setMaxTime(max_time);
-        imap.setpNorm(p);
-        imap.setqNorm(q);
-        imap.setFlexible(flexible);
-        imap.setAlphaAprox(alpha_prox);
+                imap.setMaxTime(max_time);
+                imap.setpNorm(p);
+                imap.setqNorm(q);
+                imap.setFlexible(flexible);
+                imap.setAlphaAprox(alpha_prox);
 
-        Validation validate(&data, &imap, 0);
+                Validation validate(&data, &imap, 10);
 
-        validate.partTrainTest(fold);
-        validate.validation(fold, qtde);
-      }else{
-          cout << "Load a dataset first..." << endl;
-      }
-      waitUserAction();
-      break;
-    case 0:
-        classifiersMenu();
-        break;
-    default:
-      inva = true;
-      break;
-  }
-  classifiersOption(3);
+                validate.partTrainTest(fold);
+                validate.validation(fold, qtde);
+            }else{
+                cout << "Load a dataset first..." << endl;
+            }
+            waitUserAction();
+            break;
+        case 0:
+            classifiersMenu();
+            break;
+        default:
+            inva = true;
+            break;
+    }
+    classifiersOption(3);
 }
 
 void primalClassifiersOption(int option){
@@ -864,129 +864,129 @@ void primalClassifiersOption(int option){
     double rate, gamma, alpha_prox;
 
     switch (option) {
-    case 1:
-        if(!data.isEmpty()){
-            cout << "Value of the learning rate: ";
-            cin >> rate;
-            cout << "Value of the q norm: ";
-            cin >> q;
-            cout << endl;
+        case 1:
+            if(!data.isEmpty()){
+                cout << "Value of the learning rate: ";
+                cin >> rate;
+                cout << "Value of the q norm: ";
+                cin >> q;
+                cout << endl;
 
-            PerceptronPrimal perc(&data, q, rate);
+                PerceptronPrimal perc(&data, q, rate);
 
-            perc.train();
-            sol = perc.getSolution();
+                perc.train();
+                sol = perc.getSolution();
 
-            cout << "Number of steps through data: " << perc.getSteps() << endl;
-            cout << "Number of updates: " << perc.getUpdates() << endl;
-            cout << "Weights vector:" << endl;
-            cout << "[";
-            for(i = 0; i < sol.w.size(); i++){
-                cout << sol.w[i] << ", ";
-            }
-            cout << sol.bias <<  "]" << endl;
-            cout << endl;
-            waitUserAction();
-        }else{
-            cout << "Load a dataset first..." << endl;
-        }
-        break;
-    case 2:
-        if(!data.isEmpty()){
-            cout << "Value of the learning rate: ";
-            cin >> rate;
-            cout << "Value of the q norm: ";
-            cin >> q;
-            cout << "Gamma value: ";
-            cin >> gamma;
-            cout << endl;
-
-            PerceptronFixedMarginPrimal perc(&data, gamma, q, rate);
-
-            perc.train();
-            sol = perc.getSolution();
-
-            cout << "Number of steps through data: " << perc.getSteps() << endl;
-            cout << "Number of updates: " << perc.getUpdates() << endl;
-            cout << "Weights vector:" << endl;
-            cout << "[";
-            for(i = 0; i < sol.w.size(); i++){
-                cout << sol.w[i] << ", ";
-            }
-            cout << sol.bias <<  "]" << endl;
-            cout << endl;
-            waitUserAction();
-        }else{
-            cout << "Load a dataset first..." << endl;
-        }
-        break;
-    case 3:
-        if(!data.isEmpty()){
-          cout << "[1]p or [2]q norm: ";
-          cin >> norm;
-          cout << endl;
-
-          if(norm == 1){
-            cout << "p-norm value: ";
-            cin >> p;
-            if(p == 1.0){
-              q = -1.0;
+                cout << "Number of steps through data: " << perc.getSteps() << endl;
+                cout << "Number of updates: " << perc.getUpdates() << endl;
+                cout << "Weights vector:" << endl;
+                cout << "[";
+                for(i = 0; i < sol.w.size(); i++){
+                    cout << sol.w[i] << ", ";
+                }
+                cout << sol.bias <<  "]" << endl;
+                cout << endl;
+                waitUserAction();
             }else{
-              q = p/(p-1.0);
+                cout << "Load a dataset first..." << endl;
             }
-          }else{
-            cout << "q-norm value: ";
-            cin >> q;
-            if(q == -1.0){
-              p = 1.0;
-            }else if(q == 1.0){
-              p = 100.0;
+            break;
+        case 2:
+            if(!data.isEmpty()){
+                cout << "Value of the learning rate: ";
+                cin >> rate;
+                cout << "Value of the q norm: ";
+                cin >> q;
+                cout << "Gamma value: ";
+                cin >> gamma;
+                cout << endl;
+
+                PerceptronFixedMarginPrimal perc(&data, gamma, q, rate);
+
+                perc.train();
+                sol = perc.getSolution();
+
+                cout << "Number of steps through data: " << perc.getSteps() << endl;
+                cout << "Number of updates: " << perc.getUpdates() << endl;
+                cout << "Weights vector:" << endl;
+                cout << "[";
+                for(i = 0; i < sol.w.size(); i++){
+                    cout << sol.w[i] << ", ";
+                }
+                cout << sol.bias <<  "]" << endl;
+                cout << endl;
+                waitUserAction();
             }else{
-              p = q/(q-1.0);
+                cout << "Load a dataset first..." << endl;
             }
-          }
-          cout << endl;
-          cout << "Flexibilization value [0 - no flexibilization]: ";
-          cin >> flexible;
-          cout << endl;
+            break;
+        case 3:
+            if(!data.isEmpty()){
+                cout << "[1]p or [2]q norm: ";
+                cin >> norm;
+                cout << endl;
 
-          cout << "Alpha aproximation value [1 - alpha]: ";
-          cin >> alpha_prox;
-          cout << endl;
+                if(norm == 1){
+                    cout << "p-norm value: ";
+                    cin >> p;
+                    if(p == 1.0){
+                        q = -1.0;
+                    }else{
+                        q = p/(p-1.0);
+                    }
+                }else{
+                    cout << "q-norm value: ";
+                    cin >> q;
+                    if(q == -1.0){
+                        p = 1.0;
+                    }else if(q == 1.0){
+                        p = 100.0;
+                    }else{
+                        p = q/(q-1.0);
+                    }
+                }
+                cout << endl;
+                cout << "Flexibilization value [0 - no flexibilization]: ";
+                cin >> flexible;
+                cout << endl;
 
-          IMAp imap(&data);
+                cout << "Alpha aproximation value [1 - alpha]: ";
+                cin >> alpha_prox;
+                cout << endl;
 
-          imap.setMaxTime(max_time);
-          imap.setpNorm(p);
-          imap.setqNorm(q);
-          imap.setFlexible(flexible);
-          imap.setAlphaAprox(alpha_prox);
+                IMAp imap(&data);
 
-          clock_t begin = clock();
+                imap.setMaxTime(max_time);
+                imap.setpNorm(p);
+                imap.setqNorm(q);
+                imap.setFlexible(flexible);
+                imap.setAlphaAprox(alpha_prox);
 
-          if(imap.train()){
-            sol = imap.getSolution();
-            cout << "Training successful..." << endl;
-            cout << "\nMargin = " << sol.margin << ", Support Vectors = " << sol.svs << "\n" << endl;
-          }
+                clock_t begin = clock();
 
-          clock_t end = clock();
+                if(imap.train()){
+                    sol = imap.getSolution();
+                    cout << "Training successful..." << endl;
+                    cout << "\nMargin = " << sol.margin << ", Support Vectors = " << sol.svs << "\n" << endl;
+                }
 
-          double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
-          cout << endl;
-          cout << elapsed_secs << " seconds to compute.\n";
+                clock_t end = clock();
 
-          waitUserAction();
-        }else{
-            cout << "Load a dataset first..." << endl;
-        }
-        break;
-    case 0:
-        classifiersMenu();
-        break;
-    default:
-        inva = true;
-        break;
+                double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+                cout << endl;
+                cout << elapsed_secs << " seconds to compute.\n";
+
+                waitUserAction();
+            }else{
+                cout << "Load a dataset first..." << endl;
+            }
+            break;
+        case 0:
+            classifiersMenu();
+            break;
+        default:
+            inva = true;
+            break;
     }
     classifiersOption(1);
 }
@@ -997,103 +997,103 @@ void dualClassifiersOption(int option){
     Kernel K;
 
     switch (option) {
-    case 1:
-        if(!data.isEmpty()){
-            cout << "Learning rate: ";
-            cin >> rate;
-            cout << "Kernel [0]Inner Product [1]Polynomial [2]Gaussian: ";
-            cin >> kernel_type;
+        case 1:
+            if(!data.isEmpty()){
+                cout << "Learning rate: ";
+                cin >> rate;
+                cout << "Kernel [0]Inner Product [1]Polynomial [2]Gaussian: ";
+                cin >> kernel_type;
 
-            if(kernel_type != 0){
-                if(kernel_type == 1){
-                    cout << "Polynomial degree: ";
-                }else{
-                    cout << "Gaussian gamma: ";
+                if(kernel_type != 0){
+                    if(kernel_type == 1){
+                        cout << "Polynomial degree: ";
+                    }else{
+                        cout << "Gaussian gamma: ";
+                    }
+                    cin >> kernel_param;
                 }
-                cin >> kernel_param;
-            }
 
-            K.setType(kernel_type);
-            K.setParam(kernel_param);
-            K.compute(data);
+                K.setType(kernel_type);
+                K.setParam(kernel_param);
+                K.compute(data);
 
-            PerceptronDual perc_dual(&data, rate, &K);
-            perc_dual.train();
+                PerceptronDual perc_dual(&data, rate, &K);
+                perc_dual.train();
 
-            sol = perc_dual.getSolution();
-            cout << endl;
-            cout << "Alpha vector:" << endl;
-            cout << "[";
-            for(i = 0; i < sol.alpha.size(); i++){
-                cout << sol.alpha[i] << ", ";
-            }
-            cout << sol.bias <<  "]" << endl;
-            cout << endl;
-            cout << "Weights vector:" << endl;
-            cout << "[";
-            for(i = 0; i < sol.w.size(); i++){
-                cout << sol.w[i] << ", ";
-            }
-            cout << sol.bias <<  "]" << endl;
-            cout << endl;
-        }else{
-            cout << "Load a dataset first..." << endl;
-        }
-        waitUserAction();
-        break;
-    case 2:
-        if(!data.isEmpty()){
-            double gamma;
-            cout << "Learning rate: ";
-            cin >> rate;
-            cout << "Gamma value: ";
-            cin >> gamma;
-            cout << "Kernel [0]Inner Product [1]Polynomial [2]Gaussian: ";
-            cin >> kernel_type;
-
-            if(kernel_type != 0){
-                if(kernel_type == 1){
-                    cout << "Polynomial degree: ";
-                }else{
-                    cout << "Gaussian gamma: ";
+                sol = perc_dual.getSolution();
+                cout << endl;
+                cout << "Alpha vector:" << endl;
+                cout << "[";
+                for(i = 0; i < sol.alpha.size(); i++){
+                    cout << sol.alpha[i] << ", ";
                 }
-                cin >> kernel_param;
+                cout << sol.bias <<  "]" << endl;
+                cout << endl;
+                cout << "Weights vector:" << endl;
+                cout << "[";
+                for(i = 0; i < sol.w.size(); i++){
+                    cout << sol.w[i] << ", ";
+                }
+                cout << sol.bias <<  "]" << endl;
+                cout << endl;
+            }else{
+                cout << "Load a dataset first..." << endl;
             }
+            waitUserAction();
+            break;
+        case 2:
+            if(!data.isEmpty()){
+                double gamma;
+                cout << "Learning rate: ";
+                cin >> rate;
+                cout << "Gamma value: ";
+                cin >> gamma;
+                cout << "Kernel [0]Inner Product [1]Polynomial [2]Gaussian: ";
+                cin >> kernel_type;
 
-            K.setType(kernel_type);
-            K.setParam(kernel_param);
-            K.compute(data);
+                if(kernel_type != 0){
+                    if(kernel_type == 1){
+                        cout << "Polynomial degree: ";
+                    }else{
+                        cout << "Gaussian gamma: ";
+                    }
+                    cin >> kernel_param;
+                }
 
-            PerceptronFixedMarginDual perc_fixmargin_dual(&data, gamma, rate, &K);
-            perc_fixmargin_dual.train();
+                K.setType(kernel_type);
+                K.setParam(kernel_param);
+                K.compute(data);
 
-            sol = perc_fixmargin_dual.getSolution();
-            cout << endl;
-            cout << "Alpha vector:" << endl;
-            cout << "[";
-            for(i = 0; i < sol.alpha.size(); i++){
-                cout << sol.alpha[i] << ", ";
+                PerceptronFixedMarginDual perc_fixmargin_dual(&data, gamma, rate, &K);
+                perc_fixmargin_dual.train();
+
+                sol = perc_fixmargin_dual.getSolution();
+                cout << endl;
+                cout << "Alpha vector:" << endl;
+                cout << "[";
+                for(i = 0; i < sol.alpha.size(); i++){
+                    cout << sol.alpha[i] << ", ";
+                }
+                cout << sol.bias <<  "]" << endl;
+                cout << endl;
+
+                cout << "Weights vector:" << endl;
+                cout << "[";
+                for(i = 0; i < sol.w.size(); i++){
+                    cout << sol.w[i] << ", ";
+                }
+                cout << sol.bias <<  "]" << endl;
+                cout << endl;
+            }else{
+                cout << "Load a dataset first..." << endl;
             }
-            cout << sol.bias <<  "]" << endl;
-            cout << endl;
-
-            cout << "Weights vector:" << endl;
-            cout << "[";
-            for(i = 0; i < sol.w.size(); i++){
-                cout << sol.w[i] << ", ";
-            }
-            cout << sol.bias <<  "]" << endl;
-            cout << endl;
-        }else{
-            cout << "Load a dataset first..." << endl;
-        }
-        waitUserAction();
-        break;
-    case 0:
-        classifiersMenu();
-        break;
-    default:
-        break;
+            waitUserAction();
+            break;
+        case 0:
+            classifiersMenu();
+            break;
+        default:
+            break;
     }
     classifiersOption(2);
 }

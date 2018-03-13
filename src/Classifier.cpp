@@ -35,7 +35,7 @@ void Classifier::setCtot(int ctot) {
 }
 
 void Classifier::setSolution(Solution solution){
-  this->solution = solution;
+    this->solution = solution;
 }
 
 Solution Classifier::getSolution(){
@@ -43,5 +43,5 @@ Solution Classifier::getSolution(){
 }
 
 void Classifier::setLearningRate(double rate){
-  this->rate = rate;
+    this->rate = rate;
 }
