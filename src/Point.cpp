@@ -45,16 +45,16 @@ double Point::norm(int p){
 }
 
 ostream &operator<<( ostream &output,
-     const Point &p ) {
-     int i, dim = p.x.size();
+                     const Point &p ) {
+    int i, dim = p.x.size();
 
-     output << p.id << ":[";
-     for(i = 0; i < dim; ++i){
+    output << p.id << ":[";
+    for(i = 0; i < dim; ++i){
         output << p.x[i] << ", ";
-     }
-     output << p.y << "]";
+    }
+    output << p.y << "]";
 
-     return output;
+    return output;
 }
 
 Point::~Point(){

@@ -168,7 +168,7 @@ string dtoa(double n){
         // set up for scientific notation
         if (useExp) {
             if (m < 0)
-               m -= 1.0;
+                m -= 1.0;
             n = n / pow(10.0, m);
             m1 = m;
             m = 0;

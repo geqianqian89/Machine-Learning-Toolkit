@@ -260,11 +260,11 @@ bool PerceptronDual::train(){
         if(steps > MAX_IT) break;
         if(ctot > MAX_UP) break;
 
-        #ifdef __unix__
-            cond = 100.0f*clock()/CLOCKS_PER_SEC-time <= 0;
-        #elif _WIN32
-            cond = 100.0f*clock()/CLOCKS_PER_SEC-time >= 0;
-        #endif
+#ifdef __unix__
+        cond = 100.0f*clock()/CLOCKS_PER_SEC-time <= 0;
+#elif _WIN32
+        cond = 100.0f*clock()/CLOCKS_PER_SEC-time >= 0;
+#endif
     }
 
     solution.bias = bias;

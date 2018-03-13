@@ -49,10 +49,10 @@
  #define GP_MAX_TMP_FILES  27   // 27 temporary files it's Microsoft restriction
 #elif defined(unix) || defined(__unix) || defined(__unix__) || defined(__APPLE__)
 //all UNIX-like OSs (Linux, *BSD, MacOSX, Solaris, ...)
- #include <unistd.h>            // for access(), mkstemp()
- #define GP_MAX_TMP_FILES  64
+#include <unistd.h>            // for access(), mkstemp()
+#define GP_MAX_TMP_FILES  64
 #else
- #error unsupported or unknown operating system
+#error unsupported or unknown operating system
 #endif
 
 //declare classes in global namespace
@@ -60,164 +60,164 @@
 
 class GnuplotException : public std::runtime_error
 {
-    public:
-        GnuplotException(const std::string &msg) : std::runtime_error(msg){}
+public:
+    GnuplotException(const std::string &msg) : std::runtime_error(msg){}
 };
 
 
 
 class Gnuplot
 {
-    private:
+private:
 
     //----------------------------------------------------------------------------------
     // member data
-	///\brief pointer to the stream that can be used to write to the pipe
-        FILE                    *gnucmd;
-	///\brief validation of gnuplot session
-        bool                     valid;
-	///\brief true = 2d, false = 3d
-        bool                     two_dim;
-	///\brief number of plots in session
-        int                      nplots;
-  	///\brief functions and data are displayed in a defined styles
-        std::string              pstyle;
-  	///\brief interpolate and approximate data in defined styles (e.g. spline)
-        std::string              smooth;
-  	///\brief list of created tmpfiles
-        std::vector<std::string> tmpfile_list;
+    ///\brief pointer to the stream that can be used to write to the pipe
+    FILE                    *gnucmd;
+    ///\brief validation of gnuplot session
+    bool                     valid;
+    ///\brief true = 2d, false = 3d
+    bool                     two_dim;
+    ///\brief number of plots in session
+    int                      nplots;
+    ///\brief functions and data are displayed in a defined styles
+    std::string              pstyle;
+    ///\brief interpolate and approximate data in defined styles (e.g. spline)
+    std::string              smooth;
+    ///\brief list of created tmpfiles
+    std::vector<std::string> tmpfile_list;
 
     //----------------------------------------------------------------------------------
     // static data
-	///\brief number of all tmpfiles (number of tmpfiles restricted)
-        static int               tmpfile_num;
-	///\brief name of executed GNUPlot file
-        static std::string       m_sGNUPlotFileName;
-	///\brief gnuplot path
-        static std::string       m_sGNUPlotPath;
-	///\brief standart terminal, used by showonscreen
-        static std::string       terminal_std;
+    ///\brief number of all tmpfiles (number of tmpfiles restricted)
+    static int               tmpfile_num;
+    ///\brief name of executed GNUPlot file
+    static std::string       m_sGNUPlotFileName;
+    ///\brief gnuplot path
+    static std::string       m_sGNUPlotPath;
+    ///\brief standart terminal, used by showonscreen
+    static std::string       terminal_std;
 
     //----------------------------------------------------------------------------------
     // member functions (auxiliary functions)
-	// ---------------------------------------------------
-	///\brief get_program_path(); and popen();
-	///
-	/// \param --> void
-	///
-	/// \return <-- void
-	// ---------------------------------------------------
-        void           init();
-	// ---------------------------------------------------
-	///\brief creates tmpfile and returns its name
-	///
-	/// \param tmp --> points to the tempfile
-	///
-	/// \return <-- the name of the tempfile
-	// ---------------------------------------------------
-        std::string    create_tmpfile(std::ofstream &tmp);
+    // ---------------------------------------------------
+    ///\brief get_program_path(); and popen();
+    ///
+    /// \param --> void
+    ///
+    /// \return <-- void
+    // ---------------------------------------------------
+    void           init();
+    // ---------------------------------------------------
+    ///\brief creates tmpfile and returns its name
+    ///
+    /// \param tmp --> points to the tempfile
+    ///
+    /// \return <-- the name of the tempfile
+    // ---------------------------------------------------
+    std::string    create_tmpfile(std::ofstream &tmp);
 
     //----------------------------------------------------------------------------------
-	///\brief gnuplot path found?
-	///
-	/// \param ---
-	///
-	/// \return <-- found the gnuplot path (yes == true, no == false)
-	// ---------------------------------------------------------------------------------
+    ///\brief gnuplot path found?
+    ///
+    /// \param ---
+    ///
+    /// \return <-- found the gnuplot path (yes == true, no == false)
+    // ---------------------------------------------------------------------------------
     static bool    get_program_path();
 
-	// ---------------------------------------------------------------------------------
-	///\brief checks if file is available
-	///
-	/// \param filename --> the filename
-	/// \param mode 	--> the mode [optional,default value = 0]
-	///
-	/// \return file exists (yes == true, no == false)
-	// ---------------------------------------------------------------------------------
+    // ---------------------------------------------------------------------------------
+    ///\brief checks if file is available
+    ///
+    /// \param filename --> the filename
+    /// \param mode 	--> the mode [optional,default value = 0]
+    ///
+    /// \return file exists (yes == true, no == false)
+    // ---------------------------------------------------------------------------------
     bool file_available(const std::string &filename);
 
-	// ---------------------------------------------------------------------------------
-	///\brief checks if file exists
-	///
-	/// \param filename --> the filename
-	/// \param mode 	--> the mode [optional,default value = 0]
-	///
-	/// \return file exists (yes == true, no == false)
-	// ---------------------------------------------------------------------------------
+    // ---------------------------------------------------------------------------------
+    ///\brief checks if file exists
+    ///
+    /// \param filename --> the filename
+    /// \param mode 	--> the mode [optional,default value = 0]
+    ///
+    /// \return file exists (yes == true, no == false)
+    // ---------------------------------------------------------------------------------
     static bool    file_exists(const std::string &filename, int mode=0);
 
-    public:
+public:
 
-		// ----------------------------------------------------------------------------
-        /// \brief optional function: set Gnuplot path manual
-        /// attention:  for windows: path with slash '/' not backslash '\'
-		///
-		/// \param path --> the gnuplot path
-		///
-		/// \return true on success, false otherwise
-		// ----------------------------------------------------------------------------
-        static bool set_GNUPlotPath(const std::string &path);
-
-
-		// ----------------------------------------------------------------------------
-        /// optional: set standart terminal, used by showonscreen
-        ///   defaults: Windows - win, Linux - x11, Mac - aqua
-		///
-		/// \param type --> the terminal type
-		///
-		/// \return ---
-		// ----------------------------------------------------------------------------
-        static void set_terminal_std(const std::string &type);
-
-    	//-----------------------------------------------------------------------------
-    	// constructors
-		// ----------------------------------------------------------------------------
+    // ----------------------------------------------------------------------------
+    /// \brief optional function: set Gnuplot path manual
+    /// attention:  for windows: path with slash '/' not backslash '\'
+    ///
+    /// \param path --> the gnuplot path
+    ///
+    /// \return true on success, false otherwise
+    // ----------------------------------------------------------------------------
+    static bool set_GNUPlotPath(const std::string &path);
 
 
-	    ///\brief set a style during construction
-        Gnuplot(const std::string &style = "points");
+    // ----------------------------------------------------------------------------
+    /// optional: set standart terminal, used by showonscreen
+    ///   defaults: Windows - win, Linux - x11, Mac - aqua
+    ///
+    /// \param type --> the terminal type
+    ///
+    /// \return ---
+    // ----------------------------------------------------------------------------
+    static void set_terminal_std(const std::string &type);
 
-        /// plot a single std::vector at one go
-        Gnuplot(const std::vector<double> &x,
-                const std::string &title = "",
-                const std::string &style = "points",
-                const std::string &labelx = "x",
-                const std::string &labely = "y");
+    //-----------------------------------------------------------------------------
+    // constructors
+    // ----------------------------------------------------------------------------
 
-         /// plot pairs std::vector at one go
-        Gnuplot(const std::vector<double> &x,
-                const std::vector<double> &y,
-                const std::string &title = "",
-                const std::string &style = "points",
-                const std::string &labelx = "x",
-                const std::string &labely = "y");
 
-         /// plot triples std::vector at one go
-        Gnuplot(const std::vector<double> &x,
-                const std::vector<double> &y,
-                const std::vector<double> &z,
-                const std::string &title = "",
-                const std::string &style = "points",
-                const std::string &labelx = "x",
-                const std::string &labely = "y",
-                const std::string &labelz = "z");
+    ///\brief set a style during construction
+    Gnuplot(const std::string &style = "points");
 
-         /// destructor: needed to delete temporary files
-        ~Gnuplot();
+    /// plot a single std::vector at one go
+    Gnuplot(const std::vector<double> &x,
+            const std::string &title = "",
+            const std::string &style = "points",
+            const std::string &labelx = "x",
+            const std::string &labely = "y");
+
+    /// plot pairs std::vector at one go
+    Gnuplot(const std::vector<double> &x,
+            const std::vector<double> &y,
+            const std::string &title = "",
+            const std::string &style = "points",
+            const std::string &labelx = "x",
+            const std::string &labely = "y");
+
+    /// plot triples std::vector at one go
+    Gnuplot(const std::vector<double> &x,
+            const std::vector<double> &y,
+            const std::vector<double> &z,
+            const std::string &title = "",
+            const std::string &style = "points",
+            const std::string &labelx = "x",
+            const std::string &labely = "y",
+            const std::string &labelz = "z");
+
+    /// destructor: needed to delete temporary files
+    ~Gnuplot();
 
 
     //----------------------------------------------------------------------------------
 
     /// send a command to gnuplot
-        Gnuplot& cmd(const std::string &cmdstr);
-	// ---------------------------------------------------------------------------------
-	///\brief Sends a command to an active gnuplot session, identical to cmd()
-	/// send a command to gnuplot using the <<  operator
-	///
-	/// \param cmdstr --> the command string
-	///
-	/// \return <-- a reference to the gnuplot object
-	// ---------------------------------------------------------------------------------
+    Gnuplot& cmd(const std::string &cmdstr);
+    // ---------------------------------------------------------------------------------
+    ///\brief Sends a command to an active gnuplot session, identical to cmd()
+    /// send a command to gnuplot using the <<  operator
+    ///
+    /// \param cmdstr --> the command string
+    ///
+    /// \return <-- a reference to the gnuplot object
+    // ---------------------------------------------------------------------------------
     inline Gnuplot& operator<<(const std::string &cmdstr){
         cmd(cmdstr);
         return(*this);

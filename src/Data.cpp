@@ -43,20 +43,20 @@ Type Data::identifyFileType(string file){
                     if(j == 0 && types[i][j] == file[k-l]){
                         switch(i){
                             case 0:
-                                    return Type::TYPE_DATA;
-                                    break;
+                                return Type::TYPE_DATA;
+                                break;
                             case 1:
-                                    return Type::TYPE_CSV;
-                                    break;
+                                return Type::TYPE_CSV;
+                                break;
                             case 2:
-                                    return Type::TYPE_ARFF;
-                                    break;
+                                return Type::TYPE_ARFF;
+                                break;
                             case 3:
-                                    return Type::TYPE_TXT;
-                                    break;
+                                return Type::TYPE_TXT;
+                                break;
                             default:
-                                    return Type::TYPE_INVALID;
-                                    break;
+                                return Type::TYPE_INVALID;
+                                break;
                         }
                     }else if(types[i][j] != file[k-l]){
                         break;
@@ -240,23 +240,23 @@ bool Data::load_data(string path){
         ss.str(str);
 
         while(getline(ss, item, ' ')){
-          if(!is_number(item)){
-              clog << "Warning: point[" << size  << "] " << dim+1 << " feature is not a number." << endl;
-              dim--;
-          }
+            if(!is_number(item)){
+                clog << "Warning: point[" << size  << "] " << dim+1 << " feature is not a number." << endl;
+                dim--;
+            }
             //Verify if the class is at the beggining or at the end
-          if(dim == -1 && !flag){
-             if(!((item == pos_class) || (item == neg_class))){
-                 atEnd = true;
-                 flag = true;
-             }
-          }else if(ss.eof() && !flag){
-             if(!((item == pos_class) || (item == neg_class))){
-                 flag = true;
-             }
-          }
+            if(dim == -1 && !flag){
+                if(!((item == pos_class) || (item == neg_class))){
+                    atEnd = true;
+                    flag = true;
+                }
+            }else if(ss.eof() && !flag){
+                if(!((item == pos_class) || (item == neg_class))){
+                    flag = true;
+                }
+            }
 
-          dim++;
+            dim++;
         }
 
         if(ldim != dim && ldim != 0){
@@ -297,14 +297,14 @@ bool Data::load_data(string path){
 
         //Read features from line
         while(getline(ss, item, ' ')){
-        	//Verify if the class is at the beggining or at the end
-        	if(atEnd)
+            //Verify if the class is at the beggining or at the end
+            if(atEnd)
                 cond = (!ss.eof() && atEnd);
-          else
+            else
                 cond = !(dim == 0);
 
             if(cond){
-            	buffer.clear();
+                buffer.clear();
 
                 flag = false; //Verify if it's including value or fname
 
@@ -327,10 +327,10 @@ bool Data::load_data(string path){
 
                 if(is_number(buffer)){
                     new_point->x[(atEnd)?dim:dim-1] = stodn(buffer);
-     				        dim++;
+                    dim++;
                 }
             }else{
-            	  c = (item == pos_class)?1:-1;
+                c = (item == pos_class)?1:-1;
                 new_point->y = c;
                 if(c == -1) stats.n_neg++; else stats.n_pos++;
 
@@ -913,7 +913,7 @@ bool Data::isEmpty(){
 }
 
 void Data::operator=(const Data& data){
-	  points = data.points;
+    points = data.points;
     fnames = data.fnames;
     index = data.index;
     size = data.size;

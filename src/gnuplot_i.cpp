@@ -59,7 +59,7 @@ std::string Gnuplot::terminal_std = "aqua";
 // constructor: set a style during construction
 //
 Gnuplot::Gnuplot(const std::string &style)
-			   :gnucmd(NULL) ,valid(false) ,two_dim(false) ,nplots(0)
+        :gnucmd(NULL) ,valid(false) ,two_dim(false) ,nplots(0)
 
 {
     init();
@@ -75,7 +75,7 @@ Gnuplot::Gnuplot(const std::vector<double> &x,
                  const std::string &style,
                  const std::string &labelx,
                  const std::string &labely)
-			   :gnucmd(NULL) ,valid(false) ,two_dim(false) ,nplots(0)
+        :gnucmd(NULL) ,valid(false) ,two_dim(false) ,nplots(0)
 {
     init();
 
@@ -97,7 +97,7 @@ Gnuplot::Gnuplot(const std::vector<double> &x,
                  const std::string &style,
                  const std::string &labelx,
                  const std::string &labely)
-			   :gnucmd(NULL) ,valid(false) ,two_dim(false) ,nplots(0)
+        :gnucmd(NULL) ,valid(false) ,two_dim(false) ,nplots(0)
 {
     init();
 
@@ -121,7 +121,7 @@ Gnuplot::Gnuplot(const std::vector<double> &x,
                  const std::string &labelx,
                  const std::string &labely,
                  const std::string &labelz)
-			   :gnucmd(NULL) ,valid(false) ,two_dim(false) ,nplots(0)
+        :gnucmd(NULL) ,valid(false) ,two_dim(false) ,nplots(0)
 {
     init();
 
@@ -356,7 +356,7 @@ void stringtok (Container &container,
                 const char * const delimiters = " \t\n")
 {
     const std::string::size_type len = in.length();
-          std::string::size_type i = 0;
+    std::string::size_type i = 0;
 
     while ( i < len )
     {
@@ -396,7 +396,7 @@ Gnuplot::~Gnuplot()
 
     // A stream opened by popen() should be closed by pclose()
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__TOS_WIN__)
- //   if (_pclose(gnucmd) == -1)
+    //   if (_pclose(gnucmd) == -1)
 #elif defined(unix) || defined(__unix) || defined(__unix__) || defined(__APPLE__)
     if (pclose(gnucmd) == -1)
 #endif
@@ -1048,7 +1048,7 @@ Gnuplot& Gnuplot::plot_image(const unsigned char * ucPicBuf,
     int iIndex = 0;
     for(int iRow = 0; iRow < (int)iHeight; iRow++)
     {
-      for(int iColumn = 0; iColumn < (int)iWidth; iColumn++)
+        for(int iColumn = 0; iColumn < (int)iWidth; iColumn++)
         {
             tmp << iColumn << " " << iRow  << " "
                 << static_cast<float>(ucPicBuf[iIndex++]) << std::endl;
@@ -1161,7 +1161,7 @@ void Gnuplot::init()
     // open pipe
     //
     std::string tmp = Gnuplot::m_sGNUPlotPath + "/" +
-        Gnuplot::m_sGNUPlotFileName;
+                      Gnuplot::m_sGNUPlotFileName;
 
     // FILE *popen(const char *command, const char *mode);
     // The popen() function shall execute the command specified by the string
@@ -1204,7 +1204,7 @@ bool Gnuplot::get_program_path()
     // first look in m_sGNUPlotPath for Gnuplot
     //
     std::string tmp = Gnuplot::m_sGNUPlotPath + "/" +
-        Gnuplot::m_sGNUPlotFileName;
+                      Gnuplot::m_sGNUPlotFileName;
 
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__TOS_WIN__)
     if ( Gnuplot::file_exists(tmp,0) ) // check existence
@@ -1242,7 +1242,7 @@ bool Gnuplot::get_program_path()
 
         // scan list for Gnuplot program files
         for (std::list<std::string>::const_iterator i = ls.begin();
-                i != ls.end(); ++i)
+             i != ls.end(); ++i)
         {
             tmp = (*i) + "/" + Gnuplot::m_sGNUPlotFileName;
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__TOS_WIN__)
@@ -1257,7 +1257,7 @@ bool Gnuplot::get_program_path()
         }
 
         tmp = "Can't find gnuplot neither in PATH nor in \"" +
-            Gnuplot::m_sGNUPlotPath + "\"";
+              Gnuplot::m_sGNUPlotPath + "\"";
         throw GnuplotException(tmp);
 
         Gnuplot::m_sGNUPlotPath = "";

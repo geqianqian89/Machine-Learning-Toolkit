@@ -5,8 +5,8 @@
 using namespace std;
 
 Kernel::Kernel(int type, double param){
-  this->type = type;
-  this->param = param;
+    this->type = type;
+    this->param = param;
 }
 
 Kernel::Kernel(dMatrix kernel_matrix){
@@ -59,7 +59,7 @@ double Kernel::function(shared_ptr<Point> one, shared_ptr<Point> two, int dim){
     double t, sum = 0.0;
     vector<double> a = one->x, b = two->x;
 
-   // a.erase(a.end());
+    // a.erase(a.end());
     //b.erase(b.end());
 
     switch(type)
@@ -71,7 +71,7 @@ double Kernel::function(shared_ptr<Point> one, shared_ptr<Point> two, int dim){
         case 1: //Polinomial
             for(i = 0; i < dim; ++i)
                 sum += a[i] * b[i];
-        //    sum = (param > 1) ? pow(sum+1, param) : sum;
+            //    sum = (param > 1) ? pow(sum+1, param) : sum;
             sum = (param > 1) ? pow(sum, param) : sum;
             break;
 
