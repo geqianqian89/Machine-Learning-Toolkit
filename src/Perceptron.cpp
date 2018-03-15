@@ -270,17 +270,20 @@ bool PerceptronDual::train(){
     solution.bias = bias;
     solution.norm = norm;
     solution.alpha = alpha;
+    solution.margin = 0.0;
     solution.w.resize(dim);
+
     for(i = 0; i < dim; i++){
         for(j = 0; j < size; j++){
             solution.w[i] += alpha[j]*points[j]->y*points[j]->x[i];
         }
     }
+
     return (e == 0);
 }
 
 double PerceptronDual::evaluate(Point p){
-
+    return p.dot(solution.w);
 }
 
 PerceptronFixedMarginDual::PerceptronFixedMarginDual(Data *samples, double gamma, double rate, Kernel *K, Solution *initial_solution){

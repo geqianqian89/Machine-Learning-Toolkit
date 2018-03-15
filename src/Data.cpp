@@ -365,7 +365,7 @@ bool Data::load_arff(string path){
     //Verify if the class is at the begining or at the end and error check
     while(getline(input, str)){
         dim = 0;
-        ss.str();
+        ss.str(str);
 
         while(getline(ss, item, ',')){
             //check for invalid feature or class
@@ -397,7 +397,6 @@ bool Data::load_arff(string path){
         size++;
         ss.clear();
     }
-
     input.clear();
     input.seekg(0, ios::beg);
 
@@ -432,10 +431,12 @@ bool Data::load_arff(string path){
                 cond = (!ss.eof() && atEnd);
             else
                 cond = !(dim == 0);
+
             if(cond){
                 if(is_number(item)){
                     new_point->x[dim + 1] = stodn(item);
                 }
+
             }else{
                 if(is_number(item)){
                     c = (stoin(item) == stoin(pos_class))?1:-1;

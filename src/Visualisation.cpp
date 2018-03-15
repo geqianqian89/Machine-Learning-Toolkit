@@ -156,12 +156,15 @@ void Visualisation::plot3D(int x, int y, int z){
 }
 
 void Visualisation::plot2DwithHyperplane(int x, int y, Solution s){
+    if(s.norm != s.norm) s.norm = 0.0;
+
     string feats = itos(x) + ":" + itos(y);
     string fx = "f(x) = "+dtoa(s.w[x-1]/-s.w[y-1])+"*x + "+dtoa(s.bias/-s.w[y-1]);
     string gx = "g(x) = "+dtoa(s.w[x-1]/-s.w[y-1])+"*x + "+dtoa((s.bias + s.margin*s.norm)/-s.w[y-1]);
     string hx = "h(x) = "+dtoa(s.w[x-1]/-s.w[y-1])+"*x + "+dtoa((s.bias - s.margin*s.norm)/-s.w[y-1]);
     string cmd = fx + "; "+ gx +"; "+ hx +"; plot 'temp/pos.plt' using "+feats+" title '+1' with points, 'temp/neg.plt' using "+feats+" title '-1' with points, f(x) notitle with lines ls 1, g(x) notitle with lines ls 2, h(x) notitle with lines ls 2";
     createPosNegTemps();
+
     #ifdef __unix__
     	cmd = "set terminal qt; " + cmd;
         g.cmd(cmd);

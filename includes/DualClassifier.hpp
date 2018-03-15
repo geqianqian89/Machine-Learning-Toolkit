@@ -14,6 +14,8 @@ protected:
     /// Object for kernel computations.
     Kernel kernel;
 public:
+    inline std::string classifierType(){ return "Dual"; }
+
     /**
      * @brief setKernel Set the kernel used by the dual classifier.
      * @param q Norm that will be used by the classifier.

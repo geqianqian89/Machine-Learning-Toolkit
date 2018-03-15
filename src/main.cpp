@@ -194,7 +194,7 @@ void mainMenu(){
     cout << "2 - Data" << endl;
     cout << "3 - Data Visualisation" << endl;
     cout << "4 - Classifiers" << endl;
-    cout << "5 - Validation" << endl;
+    cout << "8 - Validation" << endl;
     cout << "0 - Exit" << endl;
 
     option = selector();
@@ -263,13 +263,25 @@ void classifiersMenu(){
 
     cout << "1 - Primal Classifiers" << endl;
     cout << "2 - Dual Classifiers" << endl;
-
-    cout << "3 - Validate a Classifier" << endl;
     cout << "0 - Back to the main menu" << endl;
 
     option = selector();
     classifiersOption(option);
 }
+
+void validationMenu(){
+    int opt;
+
+    clear();
+    header();
+
+    cout << "1 - IMAp" << endl;
+    cout << "0 - Back to classifiers menu." << endl;
+
+    opt = selector();
+    validationOption(opt);
+}
+
 
 void mainOption(int option){
     switch(option){
@@ -293,6 +305,12 @@ void mainOption(int option){
             break;
         case 7:
             //utilsMenu();
+            break;
+        case 8:
+            clear();
+            header();
+            validationMenu();
+            waitUserAction();
             break;
         case 0:
             exitProgram();
@@ -735,37 +753,30 @@ void visualisationOption(int opt){
 
 void classifiersOption(int option){
     int opt;
-    Timer timer;
 
     switch (option) {
         case 1:
             clear();
             header();
+
             cout << "1 - Perceptron Primal" << endl;
             cout << "2 - Perceptron Primal with fixed margin" << endl;
             cout << "3 - Incremental Margin Algorithm Primal (IMAp)" << endl;
             cout << "0 - Back to classifiers menu" << endl;
+
             opt = selector();
-            timer.start();
             primalClassifiersOption(opt);
-            timer.end();
-            cout << timer.count() << endl;
             break;
         case 2:
             clear();
             header();
+
             cout << "1 - Perceptron Dual" << endl;
             cout << "2 - Perceptron Dual with fixed margin" << endl;
-
             cout << "0 - Back to classifiers menu" << endl;
+
             opt = selector();
             dualClassifiersOption(opt);
-            break;
-        case 3:
-            clear();
-            header();
-            validationMenu();
-            waitUserAction();
             break;
         case 0:
             mainMenu();
@@ -775,16 +786,6 @@ void classifiersOption(int option){
             break;
     }
     classifiersMenu();
-}
-
-void validationMenu(){
-    int opt;
-
-    cout << "1 - IMAp" << endl;
-    cout << "0 - Back to classifiers menu." << endl;
-
-    opt = selector();
-    validationOption(opt);
 }
 
 void validationOption(int option){
@@ -837,11 +838,13 @@ void validationOption(int option){
                 imap.setMaxTime(max_time);
                 imap.setpNorm(p);
                 imap.setqNorm(q);
+                imap.setVerbose(1);
                 imap.setFlexible(flexible);
                 imap.setAlphaAprox(alpha_prox);
 
                 Validation validate(&data, &imap, 10);
 
+                validate.setVerbose(2);
                 validate.partTrainTest(fold);
                 validate.validation(fold, qtde);
             }else{
@@ -1021,19 +1024,24 @@ void dualClassifiersOption(int option){
                 perc_dual.train();
 
                 sol = perc_dual.getSolution();
+
                 cout << endl;
                 cout << "Alpha vector:" << endl;
                 cout << "[";
+
                 for(i = 0; i < sol.alpha.size(); i++){
                     cout << sol.alpha[i] << ", ";
                 }
+
                 cout << sol.bias <<  "]" << endl;
                 cout << endl;
                 cout << "Weights vector:" << endl;
                 cout << "[";
+
                 for(i = 0; i < sol.w.size(); i++){
                     cout << sol.w[i] << ", ";
                 }
+
                 cout << sol.bias <<  "]" << endl;
                 cout << endl;
             }else{

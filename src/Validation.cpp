@@ -76,13 +76,9 @@ double Validation::kFold (int fold, int seed){
             train_sample(make_unique<Data> ()), test_sample(make_unique<Data> ()),
             traintest_sample(make_unique<Data> ());
     vector<unique_ptr<Data> > vet_sample_pos(fold), vet_sample_neg(fold), vet_sample_final(fold);
-    bool isPrimal = false;
+    bool isPrimal = (classifier->classifierType() == "Primal")?true:false;
 
     Random::init(seed);
-
-    if(dynamic_cast<DualClassifier*>(classifier) == nullptr){
-        isPrimal = true;
-    }
 
     sample_neg->copyZero(*sample);
     sample_pos->copyZero(*sample);
@@ -185,15 +181,14 @@ double Validation::kFold (int fold, int seed){
             cout << "\nCross-Validation " << j + 1 << ": \n";
             cout << "Train points: " << train_sample->getSize() << endl;
             cout << "Test points: " << test_sample->getSize() << endl;
+            cout << endl;
         }
 
         //training
         classifier->setSamples(sample);
-        classifier->setVerbose(0);
         if(!classifier->train()){
             if(verbose)
                 cerr << "Error at " << fold << "-fold: The convergency wasn't reached at the set " << j+1 << "!\n";
-            continue;
         }
 
         Solution s = classifier->getSolution();
@@ -213,6 +208,7 @@ double Validation::kFold (int fold, int seed){
                         cerr << "[" << i+1 << "] function: " << func << ", y: " << p->y << endl;
                 }
             }
+            cout << endl;
         }else{
             DualClassifier *dual = dynamic_cast<DualClassifier*>(classifier);
             Kernel K(dual->getKernelType(), dual->getKernelParam());
@@ -234,6 +230,7 @@ double Validation::kFold (int fold, int seed){
                         cerr << "[" << i+1 << "] function: " << func << ", y: " << test_sample->getPoint(i)->y << endl;
                 }
             }
+            cout << endl;
         }
         if(verbose) cout << "Error " << j + 1 << ": " << error_arr[j] << " -- " << ((double)error_arr[j]/(double)vet_sample_final[j]->getSize())*100.0f << "%";
         error += ((double)error_arr[j]/(double)vet_sample_final[j]->getSize())*100.0f;
@@ -251,11 +248,7 @@ double Validation::validation(int fold, int qtde){
     double error = 0, errocross = 0, func = 0.0, margin = 0, bias;
     vector<double> w;
     Data traintest_sample;
-    bool isPrimal = false;
-
-    if(dynamic_cast<DualClassifier*>(classifier) == nullptr){
-        isPrimal = true;
-    }
+    bool isPrimal = (classifier->classifierType() == "Primal")?true:false;
 
     sample = &train_sample;
 
@@ -267,7 +260,7 @@ double Validation::validation(int fold, int qtde){
             if(verbose) cout << "\nExecucao " << i + 1 << " / " << qtde << ":\n";
             errocross += kFold(fold, i);
         }
-        cout << "\n\nErro " << fold << "-Fold Cross Validation: " << errocross/qtde << "\n";
+        cout << "\n\nErro " << fold << "-Fold Cross Validation: " << errocross/qtde << "%\n";
     }
 
     /*start final validation*/
@@ -281,6 +274,7 @@ double Validation::validation(int fold, int qtde){
     //training
     classifier->setSamples(sample);
     classifier->setVerbose(0);
+
     if(!classifier->train()){
         if(verbose)
             cerr << "Validation error: The convergency wasn't reached in the training set!\n";
@@ -337,7 +331,7 @@ double Validation::validation(int fold, int qtde){
         }
     }
 
-    cout << "Validation Error: " << erro << " -- " << (double)erro/(double)test_sample.getSize()*100.0f << "\n";
+    cout << "Validation Error: " << erro << " -- " << (double)erro/(double)test_sample.getSize()*100.0f << "%\n";
     error += ((double)erro/(double)test_sample.getSize())*100.0f;
 }
 
