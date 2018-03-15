@@ -198,7 +198,7 @@ bool IMAp::train() {
     solution.margin = rmargin;
     solution.norm = norm;
     solution.bias = bias;
-
+    cout << verbose << endl;
     if(verbose)
     {
         cout << "\n----------------------------------------------------------------------\n";
@@ -207,7 +207,7 @@ bool IMAp::train() {
         cout << "Numero de atualizacoes: " << ctot << "\n";
         cout << "Margem encontrada: " << rmargin << "\n";
         cout << "Min: " << fabs(min) << " / Max: " << fabs(max) << "\n\n";
-        if(verbose > 1)
+        if(verbose == 3)
         {
             for(i = 0; i < dim; ++i) cout << "W[" << fnames[i] << "]: " << w_saved[i] << "\n";
             cout << "Bias: " << solution.bias << "\n\n";

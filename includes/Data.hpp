@@ -129,7 +129,12 @@ public :
      */
     void setDim(int dim);
     /**
-     * \brief Returns the point with the given index.
+     * \brief Returns a shared pointer to the vector of Points of the sample.
+     * \return std::vector<std::shared_ptr<Point> >
+     */
+    std::vector<std::shared_ptr<Point> > getPoints ();
+    /**
+     * \brief Returns a shared pointer to the point with the given index.
      * \param index    Position of a point in the points array.
      * \return std::vector<Points>
      */
@@ -140,11 +145,6 @@ public :
      * \param p (???) Point to be set.
      */
     void setPoint (int index, std::shared_ptr<Point> p);
-    /**
-     * \brief Returns the vector of Points of the sample.
-     * \return std::vector<Points>
-     */
-    std::vector<std::shared_ptr<Point> > getPoints ();
     /**
      * \brief Returns the features names.
      * \return std::vector<int>

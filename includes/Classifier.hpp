@@ -39,6 +39,7 @@ protected :
     Timer timer;
     // Operations
 public :
+    virtual std::string classifierType() = 0;
     /**
      * \brief Function that execute the training phase of a classification algorithm.
      * \return void
