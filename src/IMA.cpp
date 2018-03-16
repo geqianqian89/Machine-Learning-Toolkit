@@ -113,11 +113,8 @@ bool IMAp::train() {
         cout << "----------------------------------------------------------------------\n";
     }
 
-    it = 0; ctot = 0; steps = 0; gamma = 0.0; //gammaf1 = 0.0; t1 = 0; gammaf2 = 0.0; t2 = 0; gammaf3 = 0.0; t3 = 0; Cmedia = 0.0;
-    //srand(0); //zerar a semente pros resultados serem sempre iguais
-    start_time = 100.0f*clock()/CLOCKS_PER_SEC;
+    it = 0; ctot = 0; steps = 0; gamma = 0.0;
 
-    //Parei aqui
     imapFixMargin.setCtot(ctot);
     imapFixMargin.setqNorm(q);
     imapFixMargin.setSteps(steps);
@@ -147,18 +144,15 @@ bool IMAp::train() {
         }
         //Saving good weights
         for(i = 0; i < dim; i++) w_saved[i] = tempSol.w[i];
-        //Obtaining real margin
+        //Compute real margin
         rmargin = (fabs(min) > fabs(max)) ? fabs(max) : fabs(min);
 
         //Shift no bias
         double mmargin = (fabs(max) + fabs(min)) / 2.0;
-        double dmargin = (mmargin - rmargin);
-        sign = (dmargin < 0)?-1:1;
-        dmargin *= sign;
         if(fabs(max) > fabs(min))
-            tempSol.bias += dmargin;
+            tempSol.bias += fabs(mmargin - rmargin);
         else
-            tempSol.bias -= dmargin;
+            tempSol.bias -= fabs(mmargin - rmargin);
 
         //Obtaining new gamma_f
         gamma = (min-max)/2.0;
@@ -176,10 +170,9 @@ bool IMAp::train() {
             if(verbose) cout << "RATE: " << rate << "\n";
         }
         else if(it == 1 && verbose)
-            cout << "RATE: " << rate << "\n";
+            if(verbose) cout << "RATE: " << rate << "\n";
 
         secs = imapFixMargin.getElapsedTime()/1000;
-
         if(verbose) cout << " " << it+1 << "        " << steps << "           " << ctot << "              " << rmargin << "            " << norm << "        " << secs << " ";
 
         ++it; //IMA iteration increment
@@ -198,7 +191,7 @@ bool IMAp::train() {
     solution.margin = rmargin;
     solution.norm = norm;
     solution.bias = bias;
-    cout << verbose << endl;
+
     if(verbose)
     {
         cout << "\n----------------------------------------------------------------------\n";
@@ -243,7 +236,7 @@ bool IMApFixedMargin::train() {
     int c, e, i, k, s, j;
     int t, idx, r;
     int size = samples->getSize(), dim = samples->getDim();
-    double norm = solution.norm , bias = solution.bias, lambda = 1, y, time = start_time+max_time;
+    double norm = solution.norm , bias = solution.bias, lambda = 1, y, time = max_time;
     register double sumnorm = 0; //soma das normas para o calculo posterior (nao mais sqrt)
     double maiorw_temp = 0;
     int n_temp, sign= 1;
@@ -253,13 +246,9 @@ bool IMApFixedMargin::train() {
     vector<shared_ptr<Point> > points = samples->getPoints();
     e = 1,s = 0;
 
-    timer = Timer();
-    timer.start();
-    while(timer.end() - time <= 0)
+    timer.Reset();
+    while(timer.Elapsed() - time <= 0)
     {
-
-        //cout << bias << endl;
-        //cout << endl;
         for(e = 0, i = 0; i < size; ++i)
         {
             //shuffling data r = i + rand()%(size-i); j = index[i]; idx = index[i] = index[r]; index[r] = j;
@@ -348,6 +337,7 @@ bool IMApFixedMargin::train() {
                 index[k] = idx;
                 index[i] = j;
                 ctot++; e++;
+
             }else if(t > 0 && e > 1 && i > s) break;
         }
         steps++; //Number of iterations update

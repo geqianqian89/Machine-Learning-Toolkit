@@ -96,15 +96,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aeedfb7697a9b3e6fec681b991cb46daa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data.html#aeedfb7697a9b3e6fec681b991cb46daa">setDim</a> (int dim)</td></tr>
 <tr class="memdesc:aeedfb7697a9b3e6fec681b991cb46daa"><td class="mdescLeft">&#160;</td><td class="mdescRight">setDim Set the dimension of the points.  <a href="#aeedfb7697a9b3e6fec681b991cb46daa">More...</a><br /></td></tr>
 <tr class="separator:aeedfb7697a9b3e6fec681b991cb46daa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9310e45321bca4335b8ab3031d343e16"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_point.html">Point</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data.html#a9310e45321bca4335b8ab3031d343e16">getPoints</a> ()</td></tr>
+<tr class="memdesc:a9310e45321bca4335b8ab3031d343e16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a shared pointer to the vector of Points of the sample.  <a href="#a9310e45321bca4335b8ab3031d343e16">More...</a><br /></td></tr>
+<tr class="separator:a9310e45321bca4335b8ab3031d343e16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd978f3708d705e972dc458b6e3fe791"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_point.html">Point</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data.html#abd978f3708d705e972dc458b6e3fe791">getPoint</a> (int index)</td></tr>
-<tr class="memdesc:abd978f3708d705e972dc458b6e3fe791"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the point with the given index.  <a href="#abd978f3708d705e972dc458b6e3fe791">More...</a><br /></td></tr>
+<tr class="memdesc:abd978f3708d705e972dc458b6e3fe791"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a shared pointer to the point with the given index.  <a href="#abd978f3708d705e972dc458b6e3fe791">More...</a><br /></td></tr>
 <tr class="separator:abd978f3708d705e972dc458b6e3fe791"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1f5969b33170e908334bd1ad6163b54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data.html#ad1f5969b33170e908334bd1ad6163b54">setPoint</a> (int index, std::shared_ptr&lt; <a class="el" href="class_point.html">Point</a> &gt; p)</td></tr>
 <tr class="memdesc:ad1f5969b33170e908334bd1ad6163b54"><td class="mdescLeft">&#160;</td><td class="mdescRight">setPoint Set the point in a position of the data.  <a href="#ad1f5969b33170e908334bd1ad6163b54">More...</a><br /></td></tr>
 <tr class="separator:ad1f5969b33170e908334bd1ad6163b54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9310e45321bca4335b8ab3031d343e16"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_point.html">Point</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data.html#a9310e45321bca4335b8ab3031d343e16">getPoints</a> ()</td></tr>
-<tr class="memdesc:a9310e45321bca4335b8ab3031d343e16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the vector of Points of the sample.  <a href="#a9310e45321bca4335b8ab3031d343e16">More...</a><br /></td></tr>
-<tr class="separator:a9310e45321bca4335b8ab3031d343e16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f6399baee6535e7f48250da54fbf00d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data.html#a2f6399baee6535e7f48250da54fbf00d">getFeaturesNames</a> ()</td></tr>
 <tr class="memdesc:a2f6399baee6535e7f48250da54fbf00d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the features names.  <a href="#a2f6399baee6535e7f48250da54fbf00d">More...</a><br /></td></tr>
 <tr class="separator:a2f6399baee6535e7f48250da54fbf00d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -460,7 +460,7 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
       </table>
 </div><div class="memdoc">
 
-<p>Returns the point with the given index. </p>
+<p>Returns a shared pointer to the point with the given index. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">index</td><td>Position of a point in the points array. </td></tr>
@@ -486,8 +486,8 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
       </table>
 </div><div class="memdoc">
 
-<p>Returns the vector of Points of the sample. </p>
-<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Points&gt; </dd></dl>
+<p>Returns a shared pointer to the vector of Points of the sample. </p>
+<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;std::shared_ptr&lt;Point&gt; &gt; </dd></dl>
 
 </div>
 </div>

@@ -20,7 +20,7 @@ public:
      * @brief setKernel Set the kernel used by the dual classifier.
      * @param q Norm that will be used by the classifier.
      */
-    void setKernel(Kernel K);
+    inline void setKernel(Kernel K){ this->kernel = K; }
     /**
      * @brief Get the parameter of the kernel.
      * @return double

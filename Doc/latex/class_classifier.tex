@@ -21,6 +21,8 @@ Collaboration diagram for Classifier\+:\nopagebreak
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+virtual std\+::string \hyperlink{class_classifier_a7bfe7cc88b851b4a7e7ec55b30dd844e}{classifier\+Type} ()=0
+\begin{DoxyCompactList}\small\item\em Returns the type of the classifier. \end{DoxyCompactList}\item 
 virtual bool \hyperlink{class_classifier_a2306a5de27555ab093593ac9642bc7d9}{train} ()=0
 \begin{DoxyCompactList}\small\item\em Function that execute the training phase of a classification algorithm. \end{DoxyCompactList}\item 
 virtual double \hyperlink{class_classifier_ae8e9554823b85ddc2dcad2955da811d9}{evaluate} (\hyperlink{class_point}{Point} p)=0
@@ -79,7 +81,7 @@ double \hyperlink{class_classifier_af9867e5919742de1303dd971a9a1c19a}{rate} = 0.
 double \hyperlink{class_classifier_a4488a20bd7b4fc22d57244aaee57b002}{start\+\_\+time} = 0.\+0f
 \begin{DoxyCompactList}\small\item\em Initial time. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_classifier_a191089f044af0f4dd51f37aaff78d8f6}\label{class_classifier_a191089f044af0f4dd51f37aaff78d8f6}} 
-long int \hyperlink{class_classifier_a191089f044af0f4dd51f37aaff78d8f6}{max\+\_\+time} = 100
+long int \hyperlink{class_classifier_a191089f044af0f4dd51f37aaff78d8f6}{max\+\_\+time} = 200
 \begin{DoxyCompactList}\small\item\em Maximum time of training. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_classifier_a1e4c9c9ba059d5aff1d4d81eb41725cb}\label{class_classifier_a1e4c9c9ba059d5aff1d4d81eb41725cb}} 
 int \hyperlink{class_classifier_a1e4c9c9ba059d5aff1d4d81eb41725cb}{steps} = 0
@@ -105,6 +107,23 @@ int {\bfseries verbose} = 1
 
 
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_classifier_a7bfe7cc88b851b4a7e7ec55b30dd844e}\label{class_classifier_a7bfe7cc88b851b4a7e7ec55b30dd844e}} 
+\index{Classifier@{Classifier}!classifier\+Type@{classifier\+Type}}
+\index{classifier\+Type@{classifier\+Type}!Classifier@{Classifier}}
+\subsubsection{\texorpdfstring{classifier\+Type()}{classifierType()}}
+{\footnotesize\ttfamily virtual std\+::string Classifier\+::classifier\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns the type of the classifier. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_primal_classifier_af5117ae286ed7f06430b98f433e9bf62}{Primal\+Classifier}, and \hyperlink{class_dual_classifier_afbede25a3e30b87503c0c6555d52f358}{Dual\+Classifier}.
+
 \mbox{\Hypertarget{class_classifier_ae8e9554823b85ddc2dcad2955da811d9}\label{class_classifier_ae8e9554823b85ddc2dcad2955da811d9}} 
 \index{Classifier@{Classifier}!evaluate@{evaluate}}
 \index{evaluate@{evaluate}!Classifier@{Classifier}}

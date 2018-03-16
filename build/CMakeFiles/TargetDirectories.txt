@@ -1,3 +1,0 @@
-/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build/CMakeFiles/rebuild_cache.dir
-/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build/CMakeFiles/Classification_Algorithms_System.dir
-/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/build/CMakeFiles/edit_cache.dir
