@@ -165,6 +165,10 @@ public :
      * \return std::vector<int>
      */
     std::vector<int> getIndex();
+    /**
+     * @brief Set the index vector for the data.
+     * @param index Index vector.
+     */
     void setIndex(std::vector<int> index);
     /**
      * \brief Return the number of positive points.

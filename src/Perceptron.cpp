@@ -23,8 +23,8 @@ bool PerceptronPrimal::train(){
 
     if(w.size() == 0) w.resize(dim);
 
-    timer.start();
-    while(timer.end() - time <= 0){
+    timer.Reset();
+    while(timer.Elapsed() - time <= 0){
         for(e = 0, i = 0; i < size; ++i){
             idx = index[i];
             shared_ptr<Point> p = samples->getPoint(idx);
@@ -94,8 +94,8 @@ bool PerceptronFixedMarginPrimal::train(){
     if(w.size() == 0) w.resize(dim);
     e = s = 0;
 
-    timer.start();
-    while(timer.end() - time <= 0){
+    timer.Reset();
+    while(timer.Elapsed() - time <= 0){
         for(e = 0, i = 0; i < size; ++i){
             idx = index[i];
             p = samples->getPoint(idx);
@@ -188,7 +188,6 @@ bool PerceptronFixedMarginPrimal::train(){
     solution.norm = norm;
     solution.bias = bias;
     solution.w = w;
-
     return (e == 0);
 }
 
@@ -231,8 +230,8 @@ bool PerceptronDual::train(){
 
     e = 1;
 
-    timer.start();
-    while(timer.end() - time <= 0){
+    timer.Reset();
+    while(timer.Elapsed() - time <= 0){
         for(e = 0, i = 0; i < size; ++i){
             idx = index[i];
             y = points[idx]->y;
@@ -315,8 +314,8 @@ bool PerceptronFixedMarginDual::train(){
 
     e = 1, s = 0;
 
-    timer.start();
-    while(timer.end() - time <= 0){
+    timer.Reset();
+    while(timer.Elapsed() - time <= 0){
         for(e = 0, i = 0; i < size; ++i){
             idx = index[i];
             y = points[idx]->y;

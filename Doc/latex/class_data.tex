@@ -24,12 +24,12 @@ int \hyperlink{class_data_a0391940729a8023ea9b154132a854d35}{get\+Dim} ()
 \begin{DoxyCompactList}\small\item\em Returns the dimension of the dataset. \end{DoxyCompactList}\item 
 void \hyperlink{class_data_aeedfb7697a9b3e6fec681b991cb46daa}{set\+Dim} (int dim)
 \begin{DoxyCompactList}\small\item\em set\+Dim Set the dimension of the points. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \hyperlink{class_point}{Point} $>$ $>$ \hyperlink{class_data_a9310e45321bca4335b8ab3031d343e16}{get\+Points} ()
+\begin{DoxyCompactList}\small\item\em Returns a shared pointer to the vector of Points of the sample. \end{DoxyCompactList}\item 
 std\+::shared\+\_\+ptr$<$ \hyperlink{class_point}{Point} $>$ \hyperlink{class_data_abd978f3708d705e972dc458b6e3fe791}{get\+Point} (int index)
-\begin{DoxyCompactList}\small\item\em Returns the point with the given index. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Returns a shared pointer to the point with the given index. \end{DoxyCompactList}\item 
 void \hyperlink{class_data_ad1f5969b33170e908334bd1ad6163b54}{set\+Point} (int index, std\+::shared\+\_\+ptr$<$ \hyperlink{class_point}{Point} $>$ p)
 \begin{DoxyCompactList}\small\item\em set\+Point Set the point in a position of the data. \end{DoxyCompactList}\item 
-std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \hyperlink{class_point}{Point} $>$ $>$ \hyperlink{class_data_a9310e45321bca4335b8ab3031d343e16}{get\+Points} ()
-\begin{DoxyCompactList}\small\item\em Returns the vector of Points of the sample. \end{DoxyCompactList}\item 
 std\+::vector$<$ int $>$ \hyperlink{class_data_a2f6399baee6535e7f48250da54fbf00d}{get\+Features\+Names} ()
 \begin{DoxyCompactList}\small\item\em Returns the features names. \end{DoxyCompactList}\item 
 void \hyperlink{class_data_a2702b6464d7299c3b62e4eb4390fecd6}{set\+Features\+Names} (std\+::vector$<$ int $>$ fnames)
@@ -254,7 +254,7 @@ int
 
 
 
-Returns the point with the given index. 
+Returns a shared pointer to the point with the given index. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -272,10 +272,10 @@ std\+::vector$<$\+Points$>$
 
 
 
-Returns the vector of Points of the sample. 
+Returns a shared pointer to the vector of Points of the sample. 
 
 \begin{DoxyReturn}{Returns}
-std\+::vector$<$\+Points$>$ 
+std\+::vector$<$std\+::shared\+\_\+ptr$<$\+Point$>$ $>$ 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_data_abfd7c7cca66a186ff45efa430bcb2f1e}\label{class_data_abfd7c7cca66a186ff45efa430bcb2f1e}} 
 \index{Data@{Data}!get\+Size@{get\+Size}}

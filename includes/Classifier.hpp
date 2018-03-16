@@ -23,7 +23,7 @@ protected :
     /// Initial time.
     double start_time = 0.0f;
     /// Maximum time of training.
-    long int max_time = 200;
+    long int max_time = 100;
     /// Number of steps in the data.
     int steps = 0;
     /// Number of updates of the weights.
@@ -39,6 +39,10 @@ protected :
     Timer timer;
     // Operations
 public :
+    /**
+     * @brief Returns the type of the classifier.
+     * @return std::string
+     */
     virtual std::string classifierType() = 0;
     /**
      * \brief Function that execute the training phase of a classification algorithm.
@@ -56,11 +60,12 @@ public :
      * \param samples Samples to be used.
      */
     virtual void setSamples(Data *samples);
+    void setTimer(Timer timer){ this->timer = timer; }
     /**
      * @brief Get the elapsed time in the execution of the classifier.
      * @return double
      */
-    inline double getElapsedTime(){ return timer.count(); }
+    inline double getElapsedTime(){ return timer.Elapsed(); }
     /**
     * @brief Get the total number of updates of the classifier.
     * @return int
@@ -92,9 +97,9 @@ public :
      */
     void setVerbose(int verbose);
     /**
-  * \brief setStartTime Set the initial time of the classifier.
-  * \param start_time Initial time.
-  */
+     * \brief setStartTime Set the initial time of the classifier.
+     * \param start_time Initial time.
+     */
     void setStartTime(double start_time);
     /**
      * \brief setMaxTime Set the maximum time of the classifier.

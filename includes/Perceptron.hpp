@@ -11,7 +11,7 @@
 
 class PerceptronPrimal : public PrimalClassifier {
 public:
-    PerceptronPrimal(Data *samples = NULL, double q = 2, double rate = 0.5, Solution *initial_solution = NULL);
+    explicit PerceptronPrimal(Data *samples = NULL, double q = 2, double rate = 0.5, Solution *initial_solution = NULL);
     bool train();
     double evaluate(Point p);
 };
@@ -24,7 +24,7 @@ private:
     double gamma;
 
 public:
-    PerceptronFixedMarginPrimal(Data *samples = NULL, double gamma = 1.0, double q = 2, double rate = 0.5, Solution *initial_solution = NULL);
+    explicit PerceptronFixedMarginPrimal(Data *samples = NULL, double gamma = 1.0, double q = 2, double rate = 0.5, Solution *initial_solution = NULL);
     bool train();
     double evaluate(Point p);
 };
@@ -34,7 +34,7 @@ public:
  */
 class PerceptronDual : public DualClassifier {
 public:
-    PerceptronDual(Data *samples = NULL, double rate = 0.5, Kernel *K = NULL, Solution *initial_solution = NULL);
+    explicit PerceptronDual(Data *samples = NULL, double rate = 0.5, Kernel *K = NULL, Solution *initial_solution = NULL);
     bool train();
     double evaluate(Point p);
 };
@@ -46,7 +46,7 @@ class PerceptronFixedMarginDual : public DualClassifier {
 private:
     double gamma;
 public:
-    PerceptronFixedMarginDual(Data *samples = NULL, double gamma = 1.0, double rate = 0.5, Kernel *K = NULL, Solution *initial_solution = NULL);
+    explicit PerceptronFixedMarginDual(Data *samples = NULL, double gamma = 1.0, double rate = 0.5, Kernel *K = NULL, Solution *initial_solution = NULL);
     bool train();
     double evaluate(Point p);
 };

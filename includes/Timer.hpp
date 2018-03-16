@@ -8,31 +8,14 @@
 
 #include <chrono>
 
-class Timer{
-private:
-    std::chrono::system_clock::time_point m_init_time;
-    std::chrono::system_clock::time_point m_end_time;
-    long int m_max_time;
+class Timer {
 public:
-    void start(){
-        m_init_time = std::chrono::system_clock::now();
-    }
+    typedef std::chrono::high_resolution_clock Clock;
+    typedef std::chrono::milliseconds ms;
 
-    double end(){
-        m_end_time = std::chrono::system_clock::now(); return count();
-    }
-
-    double count(){
-        return std::chrono::duration_cast<std::chrono::duration<double, std::chrono::milliseconds::period>>(m_end_time - m_init_time).count();
-    }
-
-    double getDeltaTime(){
-        return count() - m_max_time;
-    }
-
-    void setMaxTime(long int max_time){
-        m_max_time = max_time;
-    }
+    inline void Reset(){ epoch = Clock::now(); }
+    inline double Elapsed() const { return std::chrono::duration_cast<ms>(Clock::now() - epoch).count(); }
+private:
+    Clock::time_point epoch;
 };
-
 #endif

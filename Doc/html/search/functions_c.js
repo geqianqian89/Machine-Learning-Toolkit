@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['parttraintest',['partTrainTest',['../class_validation.html#a83b3cc552927fe8595f3cdd143d645c0',1,'Validation']]],
+  ['parttraintest',['partTrainTest',['../class_validation.html#afc2e7f15bc873853b70e2cc3c47eecdc',1,'Validation']]],
   ['plot2d',['plot2D',['../class_visualisation.html#a7569c77520391e6adf7e285410f4b358',1,'Visualisation']]],
   ['plot2dwithhyperplane',['plot2DwithHyperplane',['../class_visualisation.html#a39b7bd29878bfc2d21fc4219803fd99d',1,'Visualisation']]],
   ['plot3d',['plot3D',['../class_visualisation.html#a39cf83c146a4c92a32782bfdf6168594',1,'Visualisation']]],

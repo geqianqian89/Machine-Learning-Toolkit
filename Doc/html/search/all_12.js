@@ -55,7 +55,7 @@ var searchData=
   ['setstyle',['setStyle',['../class_visualisation.html#a2d29fee9180bcb2fd5cb6fc78253ac5b',1,'Visualisation']]],
   ['settitle',['setTitle',['../class_visualisation.html#ac217fcae4984edeb003bfcd208a253de',1,'Visualisation']]],
   ['settype',['setType',['../class_kernel.html#ad01e209470accf44ea240078f39fb127',1,'Kernel']]],
-  ['setverbose',['setVerbose',['../class_classifier.html#a073b94029512378ccfae3aa34aae0212',1,'Classifier']]],
+  ['setverbose',['setVerbose',['../class_classifier.html#a073b94029512378ccfae3aa34aae0212',1,'Classifier::setVerbose()'],['../class_validation.html#ac402fbabbd6148d7c2ac0c7c9a854177',1,'Validation::setVerbose()']]],
   ['showonscreen',['showonscreen',['../class_gnuplot.html#a356d2faaa79f08d13fec9718b776b28d',1,'Gnuplot']]],
   ['solution',['Solution',['../class_solution.html',1,'Solution'],['../class_classifier.html#a8e70651d36fa396f55028847acd6ae50',1,'Classifier::solution()']]],
   ['start_5ftime',['start_time',['../class_classifier.html#a4488a20bd7b4fc22d57244aaee57b002',1,'Classifier']]],
