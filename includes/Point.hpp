@@ -40,6 +40,10 @@ public :
 
     friend std::ostream &operator<<( std::ostream &output, const Point &p );
 
+    bool operator==(const Point &rhs) const;
+
+    bool operator!=(const Point &rhs) const;
+
     ~Point();
 };
 #endif

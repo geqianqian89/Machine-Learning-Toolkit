@@ -2,20 +2,22 @@
 \label{class_dual_classifier}\index{Dual\+Classifier@{Dual\+Classifier}}
 
 
-Inheritance diagram for Dual\+Classifier\+:\nopagebreak
+Inheritance diagram for Dual\+Classifier\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=320pt]{class_dual_classifier__inherit__graph}
+\includegraphics[width=350pt]{class_dual_classifier__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Collaboration diagram for Dual\+Classifier\+:\nopagebreak
+Collaboration diagram for Dual\+Classifier\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=246pt]{class_dual_classifier__coll__graph}
+\includegraphics[width=239pt]{class_dual_classifier__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
@@ -23,20 +25,32 @@ Collaboration diagram for Dual\+Classifier\+:\nopagebreak
 \item 
 std\+::string \hyperlink{class_dual_classifier_afbede25a3e30b87503c0c6555d52f358}{classifier\+Type} ()
 \begin{DoxyCompactList}\small\item\em Returns the type of the classifier. \end{DoxyCompactList}\item 
-void \hyperlink{class_dual_classifier_a0cf616ad02cfcdd69cfd3d0b35001946}{set\+Kernel} (\hyperlink{class_kernel}{Kernel} K)
+void \hyperlink{class_dual_classifier_a2ff6033df59ac6071300e603d0dcb7e1}{set\+Kernel} (\hyperlink{class_kernel}{Kernel} $\ast$K)
 \begin{DoxyCompactList}\small\item\em set\+Kernel Set the kernel used by the dual classifier. \end{DoxyCompactList}\item 
 double \hyperlink{class_dual_classifier_a5738038f99450f5f3b7098d3125ffaae}{get\+Kernel\+Param} ()
 \begin{DoxyCompactList}\small\item\em Get the parameter of the kernel. \end{DoxyCompactList}\item 
 double \hyperlink{class_dual_classifier_a14b35e85dddac38e7927cd03037e2353}{get\+Kernel\+Type} ()
-\begin{DoxyCompactList}\small\item\em Get the type of the kernel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Get the type of the kernel. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_dual_classifier_aa703a5fa36da53059f9f4cc392ea4ed4}\label{class_dual_classifier_aa703a5fa36da53059f9f4cc392ea4ed4}} 
+void {\bfseries set\+Kernel\+Type} (int type)
+\item 
+\mbox{\Hypertarget{class_dual_classifier_a4965a8a7c9c696b00ba22e393939bb0d}\label{class_dual_classifier_a4965a8a7c9c696b00ba22e393939bb0d}} 
+void {\bfseries set\+Kernel\+Param} (double param)
+\item 
+\mbox{\Hypertarget{class_dual_classifier_a27e6bfc3812d2d2206853697c3e09b35}\label{class_dual_classifier_a27e6bfc3812d2d2206853697c3e09b35}} 
+void {\bfseries get\+Dual\+Weight} ()
+\item 
+\mbox{\Hypertarget{class_dual_classifier_a78f8b307852dfc630bb2b38afda50ce3}\label{class_dual_classifier_a78f8b307852dfc630bb2b38afda50ce3}} 
+void {\bfseries get\+Dual\+Weight\+Prod\+Int} (\hyperlink{class_data}{Data} \hyperlink{class_classifier_aad6a4fcea8f44339d7a6302f530852ca}{samples})
+\end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{class_dual_classifier_a0ed1219ed410852620b844934a8c70a0}\label{class_dual_classifier_a0ed1219ed410852620b844934a8c70a0}} 
 std\+::vector$<$ double $>$ \hyperlink{class_dual_classifier_a0ed1219ed410852620b844934a8c70a0}{alpha}
 \begin{DoxyCompactList}\small\item\em Alphas vector. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_dual_classifier_a710addb26d481a0b7b60e37e537c2290}\label{class_dual_classifier_a710addb26d481a0b7b60e37e537c2290}} 
-\hyperlink{class_kernel}{Kernel} \hyperlink{class_dual_classifier_a710addb26d481a0b7b60e37e537c2290}{kernel}
+\mbox{\Hypertarget{class_dual_classifier_ae9366ad5c46f618a8a6e62f99a19c84f}\label{class_dual_classifier_ae9366ad5c46f618a8a6e62f99a19c84f}} 
+\hyperlink{class_kernel}{Kernel} $\ast$ \hyperlink{class_dual_classifier_ae9366ad5c46f618a8a6e62f99a19c84f}{kernel}
 \begin{DoxyCompactList}\small\item\em Object for kernel computations. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -84,11 +98,11 @@ Get the type of the kernel.
 \begin{DoxyReturn}{Returns}
 double 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_dual_classifier_a0cf616ad02cfcdd69cfd3d0b35001946}\label{class_dual_classifier_a0cf616ad02cfcdd69cfd3d0b35001946}} 
+\mbox{\Hypertarget{class_dual_classifier_a2ff6033df59ac6071300e603d0dcb7e1}\label{class_dual_classifier_a2ff6033df59ac6071300e603d0dcb7e1}} 
 \index{Dual\+Classifier@{Dual\+Classifier}!set\+Kernel@{set\+Kernel}}
 \index{set\+Kernel@{set\+Kernel}!Dual\+Classifier@{Dual\+Classifier}}
 \subsubsection{\texorpdfstring{set\+Kernel()}{setKernel()}}
-{\footnotesize\ttfamily void Dual\+Classifier\+::set\+Kernel (\begin{DoxyParamCaption}\item[{\hyperlink{class_kernel}{Kernel}}]{K }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily void Dual\+Classifier\+::set\+Kernel (\begin{DoxyParamCaption}\item[{\hyperlink{class_kernel}{Kernel} $\ast$}]{K }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 

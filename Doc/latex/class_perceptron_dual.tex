@@ -20,22 +20,23 @@ Inheritance diagram for Perceptron\+Dual\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Perceptron\+Dual\+:\nopagebreak
+Collaboration diagram for Perceptron\+Dual\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=249pt]{class_perceptron_dual__coll__graph}
+\includegraphics[width=242pt]{class_perceptron_dual__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_perceptron_dual_a77604012ef519c2f4e0e32bc8387b459}\label{class_perceptron_dual_a77604012ef519c2f4e0e32bc8387b459}} 
-{\bfseries Perceptron\+Dual} (\hyperlink{class_data}{Data} $\ast$\hyperlink{class_classifier_a515c225d0da93df02ca79f9f87811d17}{samples}=N\+U\+LL, double \hyperlink{class_classifier_af9867e5919742de1303dd971a9a1c19a}{rate}=0.\+5, \hyperlink{class_kernel}{Kernel} $\ast$K=N\+U\+LL, \hyperlink{class_solution}{Solution} $\ast$initial\+\_\+solution=N\+U\+LL)
+\mbox{\Hypertarget{class_perceptron_dual_a7f1955774c5758e55232b88c2d8a048a}\label{class_perceptron_dual_a7f1955774c5758e55232b88c2d8a048a}} 
+{\bfseries Perceptron\+Dual} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_data}{Data} $>$ \hyperlink{class_classifier_aad6a4fcea8f44339d7a6302f530852ca}{samples}=nullptr, double \hyperlink{class_classifier_af9867e5919742de1303dd971a9a1c19a}{rate}=0.\+5, \hyperlink{class_kernel}{Kernel} $\ast$K=nullptr, \hyperlink{class_solution}{Solution} $\ast$initial\+\_\+solution=nullptr)
 \item 
-bool \hyperlink{class_perceptron_dual_a91b0bd1e86a6003b57b96199266cdc3e}{train} ()
+bool \hyperlink{class_perceptron_dual_a67acd9361cba43bbe2d682c4acd4ecaf}{train} () override
 \begin{DoxyCompactList}\small\item\em Function that execute the training phase of a classification algorithm. \end{DoxyCompactList}\item 
-double \hyperlink{class_perceptron_dual_a3ed5554b85b4b1ec98f57acab3eeeaca}{evaluate} (\hyperlink{class_point}{Point} p)
+double \hyperlink{class_perceptron_dual_af45407197f22fd513296f7a80e7683d9}{evaluate} (\hyperlink{class_point}{Point} p) override
 \begin{DoxyCompactList}\small\item\em Returns the class of a feature point based on the trained classifier. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
@@ -44,11 +45,11 @@ double \hyperlink{class_perceptron_dual_a3ed5554b85b4b1ec98f57acab3eeeaca}{evalu
 Wrapper for the implementation of the Perceptron dual algorithm. 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_perceptron_dual_a3ed5554b85b4b1ec98f57acab3eeeaca}\label{class_perceptron_dual_a3ed5554b85b4b1ec98f57acab3eeeaca}} 
+\mbox{\Hypertarget{class_perceptron_dual_af45407197f22fd513296f7a80e7683d9}\label{class_perceptron_dual_af45407197f22fd513296f7a80e7683d9}} 
 \index{Perceptron\+Dual@{Perceptron\+Dual}!evaluate@{evaluate}}
 \index{evaluate@{evaluate}!Perceptron\+Dual@{Perceptron\+Dual}}
 \subsubsection{\texorpdfstring{evaluate()}{evaluate()}}
-{\footnotesize\ttfamily double Perceptron\+Dual\+::evaluate (\begin{DoxyParamCaption}\item[{\hyperlink{class_point}{Point}}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily double Perceptron\+Dual\+::evaluate (\begin{DoxyParamCaption}\item[{\hyperlink{class_point}{Point}}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -66,11 +67,11 @@ int
 
 Implements \hyperlink{class_classifier_ae8e9554823b85ddc2dcad2955da811d9}{Classifier}.
 
-\mbox{\Hypertarget{class_perceptron_dual_a91b0bd1e86a6003b57b96199266cdc3e}\label{class_perceptron_dual_a91b0bd1e86a6003b57b96199266cdc3e}} 
+\mbox{\Hypertarget{class_perceptron_dual_a67acd9361cba43bbe2d682c4acd4ecaf}\label{class_perceptron_dual_a67acd9361cba43bbe2d682c4acd4ecaf}} 
 \index{Perceptron\+Dual@{Perceptron\+Dual}!train@{train}}
 \index{train@{train}!Perceptron\+Dual@{Perceptron\+Dual}}
 \subsubsection{\texorpdfstring{train()}{train()}}
-{\footnotesize\ttfamily bool Perceptron\+Dual\+::train (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily bool Perceptron\+Dual\+::train (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 

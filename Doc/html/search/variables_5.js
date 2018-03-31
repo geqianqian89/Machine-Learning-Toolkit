@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gamma',['gamma',['../class_primal_classifier.html#ab8c6099dda1468385b2c401cb65c1238',1,'PrimalClassifier']]]
+  ['hasinitialsolution',['hasInitialSolution',['../class_classifier.html#a1de0c258e4a175ebf96a18ec7ee33381',1,'Classifier']]]
 ];

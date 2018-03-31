@@ -351,3 +351,7 @@ std::shared_ptr<Data> Validation::getTrainSample(){
 }
 
 Validation::Validation() : sample(std::make_shared<Data>()), train_sample(std::make_shared<Data>()), test_sample(std::make_shared<Data>()), classifier(nullptr) {}
+
+void Validation::setSeed(unsigned int seed) {
+    Validation::seed = seed;
+}

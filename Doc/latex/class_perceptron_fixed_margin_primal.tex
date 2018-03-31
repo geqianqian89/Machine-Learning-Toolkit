@@ -20,7 +20,8 @@ Inheritance diagram for Perceptron\+Fixed\+Margin\+Primal\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Perceptron\+Fixed\+Margin\+Primal\+:\nopagebreak
+Collaboration diagram for Perceptron\+Fixed\+Margin\+Primal\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -30,12 +31,12 @@ Collaboration diagram for Perceptron\+Fixed\+Margin\+Primal\+:\nopagebreak
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_perceptron_fixed_margin_primal_a2128977635875acf812b693df741baf8}\label{class_perceptron_fixed_margin_primal_a2128977635875acf812b693df741baf8}} 
-{\bfseries Perceptron\+Fixed\+Margin\+Primal} (\hyperlink{class_data}{Data} $\ast$\hyperlink{class_classifier_a515c225d0da93df02ca79f9f87811d17}{samples}=N\+U\+LL, double gamma=1.\+0, double \hyperlink{class_primal_classifier_a746ad2ff93fb77d82ae389f90dbdc89e}{q}=2, double \hyperlink{class_classifier_af9867e5919742de1303dd971a9a1c19a}{rate}=0.\+5, \hyperlink{class_solution}{Solution} $\ast$initial\+\_\+solution=N\+U\+LL)
+\mbox{\Hypertarget{class_perceptron_fixed_margin_primal_a0a0e3e5d302d640f7a66701e7166304d}\label{class_perceptron_fixed_margin_primal_a0a0e3e5d302d640f7a66701e7166304d}} 
+{\bfseries Perceptron\+Fixed\+Margin\+Primal} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_data}{Data} $>$ \hyperlink{class_classifier_aad6a4fcea8f44339d7a6302f530852ca}{samples}=nullptr, double gamma=1.\+0, double \hyperlink{class_primal_classifier_a746ad2ff93fb77d82ae389f90dbdc89e}{q}=2, double \hyperlink{class_classifier_af9867e5919742de1303dd971a9a1c19a}{rate}=0.\+5, \hyperlink{class_solution}{Solution} $\ast$initial\+\_\+solution=nullptr)
 \item 
-bool \hyperlink{class_perceptron_fixed_margin_primal_ad41c2a42c4a819c03bf9879110b0f99f}{train} ()
+bool \hyperlink{class_perceptron_fixed_margin_primal_ad013cf0293dd8cda3ac751216b5a7f89}{train} () override
 \begin{DoxyCompactList}\small\item\em Function that execute the training phase of a classification algorithm. \end{DoxyCompactList}\item 
-double \hyperlink{class_perceptron_fixed_margin_primal_af72c3dde96f1f1b803c7b522b5c1cc0f}{evaluate} (\hyperlink{class_point}{Point} p)
+double \hyperlink{class_perceptron_fixed_margin_primal_aa24b3bd358a438797c62fa13ef7b8872}{evaluate} (\hyperlink{class_point}{Point} p) override
 \begin{DoxyCompactList}\small\item\em Returns the class of a feature point based on the trained classifier. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
@@ -44,11 +45,11 @@ double \hyperlink{class_perceptron_fixed_margin_primal_af72c3dde96f1f1b803c7b522
 Wrapper for the implementation of the Perceptron primal with fixed margin algorithm. 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_perceptron_fixed_margin_primal_af72c3dde96f1f1b803c7b522b5c1cc0f}\label{class_perceptron_fixed_margin_primal_af72c3dde96f1f1b803c7b522b5c1cc0f}} 
+\mbox{\Hypertarget{class_perceptron_fixed_margin_primal_aa24b3bd358a438797c62fa13ef7b8872}\label{class_perceptron_fixed_margin_primal_aa24b3bd358a438797c62fa13ef7b8872}} 
 \index{Perceptron\+Fixed\+Margin\+Primal@{Perceptron\+Fixed\+Margin\+Primal}!evaluate@{evaluate}}
 \index{evaluate@{evaluate}!Perceptron\+Fixed\+Margin\+Primal@{Perceptron\+Fixed\+Margin\+Primal}}
 \subsubsection{\texorpdfstring{evaluate()}{evaluate()}}
-{\footnotesize\ttfamily double Perceptron\+Fixed\+Margin\+Primal\+::evaluate (\begin{DoxyParamCaption}\item[{\hyperlink{class_point}{Point}}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily double Perceptron\+Fixed\+Margin\+Primal\+::evaluate (\begin{DoxyParamCaption}\item[{\hyperlink{class_point}{Point}}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -66,11 +67,11 @@ int
 
 Implements \hyperlink{class_classifier_ae8e9554823b85ddc2dcad2955da811d9}{Classifier}.
 
-\mbox{\Hypertarget{class_perceptron_fixed_margin_primal_ad41c2a42c4a819c03bf9879110b0f99f}\label{class_perceptron_fixed_margin_primal_ad41c2a42c4a819c03bf9879110b0f99f}} 
+\mbox{\Hypertarget{class_perceptron_fixed_margin_primal_ad013cf0293dd8cda3ac751216b5a7f89}\label{class_perceptron_fixed_margin_primal_ad013cf0293dd8cda3ac751216b5a7f89}} 
 \index{Perceptron\+Fixed\+Margin\+Primal@{Perceptron\+Fixed\+Margin\+Primal}!train@{train}}
 \index{train@{train}!Perceptron\+Fixed\+Margin\+Primal@{Perceptron\+Fixed\+Margin\+Primal}}
 \subsubsection{\texorpdfstring{train()}{train()}}
-{\footnotesize\ttfamily bool Perceptron\+Fixed\+Margin\+Primal\+::train (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily bool Perceptron\+Fixed\+Margin\+Primal\+::train (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 

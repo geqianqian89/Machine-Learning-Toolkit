@@ -912,6 +912,7 @@ void Data::operator=(const Data& data){
     index = data.index;
     size = data.size;
     dim = data.dim;
+    time_mult = data.time_mult;
     pos_class = data.pos_class;
     neg_class = data.neg_class;
     is_empty = data.is_empty;
@@ -951,4 +952,25 @@ void Data::setIndex(std::vector<int> index) {
 void Data::resetIndex(){
     index.assign(size, 0);
     iota(index.begin(), index.end(), 0);
+}
+
+double Data::getTime_mult() const {
+    return time_mult;
+}
+
+bool Data::operator==(const Data &rhs) const {
+    return points == rhs.points &&
+           fnames == rhs.fnames &&
+           index == rhs.index &&
+           size == rhs.size &&
+           dim == rhs.dim &&
+           time_mult == rhs.time_mult &&
+           pos_class == rhs.pos_class &&
+           neg_class == rhs.neg_class &&
+           is_empty == rhs.is_empty &&
+           normalized == rhs.normalized;
+}
+
+bool Data::operator!=(const Data &rhs) const {
+    return !(rhs == *this);
 }

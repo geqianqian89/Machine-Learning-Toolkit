@@ -1,7 +1,7 @@
 <map id="PerceptronFixedMarginDual" name="PerceptronFixedMarginDual">
-<area shape="rect" id="node2" href="$class_dual_classifier.html" title="DualClassifier" alt="" coords="123,260,227,287"/>
-<area shape="rect" id="node3" href="$class_classifier.html" title="Classifier" alt="" coords="76,184,153,211"/>
-<area shape="rect" id="node4" href="$class_data.html" title="Wrapper for the dataset data. " alt="" coords="5,95,56,121"/>
-<area shape="rect" id="node5" href="$class_solution.html" title="Solution" alt="" coords="84,95,153,121"/>
-<area shape="rect" id="node6" href="$class_kernel.html" title="Class for the kernel computations. " alt="" coords="137,5,196,32"/>
+<area shape="rect" id="node2" href="$class_dual_classifier.html" title="DualClassifier" alt="" coords="45,260,149,287"/>
+<area shape="rect" id="node3" href="$class_classifier.html" title="Classifier" alt="" coords="107,184,185,211"/>
+<area shape="rect" id="node4" href="$class_solution.html" title="Solution" alt="" coords="107,95,177,121"/>
+<area shape="rect" id="node5" href="$class_kernel.html" title="Class for the kernel computations. " alt="" coords="69,5,127,32"/>
+<area shape="rect" id="node6" href="$class_timer.html" title="Timer" alt="" coords="201,95,256,121"/>
 </map>
