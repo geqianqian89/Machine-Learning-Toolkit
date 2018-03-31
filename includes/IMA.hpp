@@ -42,10 +42,9 @@ public:
     explicit IMApFixedMargin(Data *samples = nullptr, double gamma = 0, Solution *initial_solution = nullptr);
 
     bool train() override;
+    double evaluate(Point p) override;
     inline int* getFlagNot1aDim() {return &flagNao1aDim; }
     inline unsigned long* gettMax(){ return &tMax; }
-    double evaluate(Point p) override;
-    void setNorm(double norm){ solution.norm = norm; }
 };
 
 class IMADual : public DualClassifier {

@@ -86,7 +86,7 @@ public :
      * @param steps Number of steps.
      */
     inline void setSteps(int steps){ this->steps = steps; }
-    void setGamma(double gamma);
+    inline void setGamma(double gamma){ this->gamma = gamma;}
     /**
      * @brief Set the partial number of updates of the classifier.
      * @param ctot Number of updates.

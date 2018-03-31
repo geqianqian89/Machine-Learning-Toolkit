@@ -12,8 +12,6 @@ protected :
     double q = 2, p = 2;
     /// Flexibility.
     double flexible = 0.0;
-    /// Margin of the solution.
-    double gamma = 0.0;
     /// Percentage of aproximation of the result.
     double alpha_aprox = 0.0;
 public:
@@ -39,16 +37,7 @@ public:
      * @param alpha_aprox Aproximation.
      */
     void setAlphaAprox(double alpha_aprox);
-    /**
-     * @brief Get the margin of the solution.
-     * @return double
-     */
-    double getGamma();
-    /**
-     * @brief getSolution Returns the solution of the primal classifier.
-     * @return Solution
-     */
-    Solution getSolution();
+
 };
 
 #endif

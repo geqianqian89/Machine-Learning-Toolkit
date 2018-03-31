@@ -954,3 +954,7 @@ Data::~Data(){}
 void Data::setIndex(std::vector<int> index) {
     this->index = index;
 }
+
+void Data::resetIndex(){
+    iota(index.begin(), index.end(), 0);
+}
