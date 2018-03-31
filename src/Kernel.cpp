@@ -1,5 +1,5 @@
 #include <cmath>
-
+#include <utility>
 #include "../includes/Kernel.hpp"
 
 using namespace std;
@@ -10,7 +10,7 @@ Kernel::Kernel(int type, double param){
 }
 
 Kernel::Kernel(dMatrix kernel_matrix){
-    this->K = kernel_matrix;
+    this->K = std::move(kernel_matrix);
 }
 
 int Kernel::getType(){
@@ -44,7 +44,7 @@ dMatrix* Kernel::getKernelMatrixPointer(){
 }
 
 void Kernel::compute(Data samples){
-    int i, j, size = samples.getSize(), dim = samples.getDim();
+    size_t i, j, size = samples.getSize(), dim = samples.getDim();
     vector<shared_ptr<Point> > points = samples.getPoints();
 
     K.assign(size, vector<double>(size, 0.0));
@@ -93,7 +93,7 @@ double Kernel::function(shared_ptr<Point> one, shared_ptr<Point> two, int dim){
 }
 
 double Kernel::norm(Data data){
-    int i, j, size = data.getSize();
+    size_t i, j, size = data.getSize();
     double sum, sum1;
     vector<shared_ptr<Point> > points = data.getPoints();
 

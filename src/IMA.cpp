@@ -11,7 +11,7 @@
 
 using namespace std;
 
-IMAp::IMAp(Data *samples, double margin,  Solution *initial_solution) {
+IMAp::IMAp(std::shared_ptr<Data> samples, double margin,  Solution *initial_solution) {
     this->samples = samples;
     this->margin = margin;
 
@@ -221,7 +221,7 @@ double IMAp::evaluate(Point p) {
     return 0;
 }
 
-IMApFixedMargin::IMApFixedMargin(Data *samples, double gamma, Solution *initial_solution) {
+IMApFixedMargin::IMApFixedMargin(std::shared_ptr<Data> samples, double gamma, Solution *initial_solution) {
     this->gamma = gamma;
     this->samples = samples;
 
@@ -367,7 +367,7 @@ double IMApFixedMargin::evaluate(Point p) {
     return 0;
 }
 
-IMADual::IMADual(Data *samples, Kernel *k, double rate, Solution *initial_solution) {
+IMADual::IMADual(std::shared_ptr<Data> samples, Kernel *k, double rate, Solution *initial_solution) {
     this->samples = samples;
     this->kernel = k;
     this->rate = rate;
@@ -476,8 +476,7 @@ bool IMADual::train() {
             cout << endl;
            // w_saved = utils_get_dualweight_prodint(sample);
         else
-            cout <<"i" <<endl;
-            //w_saved = utils_get_dualweight(sample);
+            getDualWeight();
         if(it) Data::normalize(solution.w, 2);
     }
 

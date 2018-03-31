@@ -35,6 +35,19 @@ public:
     inline void setKernelType(int type){ kernel->setType(type); }
 
     inline void setKernelParam(double param){ kernel->setType(param); }
+
+    void getDualWeight(){
+        size_t i, j;
+        size_t dim = samples->getDim(), size = samples->getSize();
+
+        solution.w.resize(dim);
+
+        for(j = 0; j < dim; ++j)
+            for(solution.w[j] = 0, i = 0; i < size; ++i)
+                solution.w[j] += samples->getPoint(i)->alpha * samples->getPoint(i)->y * samples->getPoint(i)->x[j];
+    }
+
+    void getDualWeightProdInt(Data samples);
 };
 
 #endif

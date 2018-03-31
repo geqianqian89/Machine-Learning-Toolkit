@@ -5,7 +5,7 @@
 
 using namespace std;
 
-PerceptronPrimal::PerceptronPrimal(Data *samples, double q, double rate, Solution *initial_solution){
+PerceptronPrimal::PerceptronPrimal(std::shared_ptr<Data> samples, double q, double rate, Solution *initial_solution){
     this->samples = samples;
     this->q = q;
     this->rate = rate;
@@ -72,7 +72,7 @@ double PerceptronPrimal::evaluate(Point p){
     }
 }
 
-PerceptronFixedMarginPrimal::PerceptronFixedMarginPrimal(Data *samples, double gamma, double q, double rate, Solution *initial_solution){
+PerceptronFixedMarginPrimal::PerceptronFixedMarginPrimal(std::shared_ptr<Data> samples, double gamma, double q, double rate, Solution *initial_solution){
     this->samples = samples;
     this->q = q;
     this->rate = rate;
@@ -201,7 +201,7 @@ double PerceptronFixedMarginPrimal::evaluate(Point p){
     }
 }
 
-PerceptronDual::PerceptronDual(Data *samples, double rate, Kernel *K, Solution *initial_solution){
+PerceptronDual::PerceptronDual(std::shared_ptr<Data> samples, double rate, Kernel *K, Solution *initial_solution){
     this->samples = samples;
     if(initial_solution){
         this->solution = *initial_solution;
@@ -278,7 +278,7 @@ double PerceptronDual::evaluate(Point p){
     return p.dot(solution.w);
 }
 
-PerceptronFixedMarginDual::PerceptronFixedMarginDual(Data *samples, double gamma, double rate, Kernel *K, Solution *initial_solution){
+PerceptronFixedMarginDual::PerceptronFixedMarginDual(std::shared_ptr<Data> samples, double gamma, double rate, Kernel *K, Solution *initial_solution){
     this->samples = samples;
     //this->solution = *initial_solution;
     this->rate = rate;
@@ -294,7 +294,7 @@ PerceptronFixedMarginDual::PerceptronFixedMarginDual(Data *samples, double gamma
 }
 
 bool PerceptronFixedMarginDual::train(){
-    int e, i, j, k, s, idx, r, size = samples->getSize(), dim = samples->getDim();
+    size_t e, i, j, k, s, idx, r, size = samples->getSize(), dim = samples->getDim();
     double y, lambda, norm = solution.norm, time = start_time+max_time;
     double bias = solution.bias;
     const double sqrate  = rate*rate;

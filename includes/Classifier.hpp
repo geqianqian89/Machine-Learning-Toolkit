@@ -11,7 +11,7 @@ protected :
     /// Inform if there's an initial solution.
     bool hasInitialSolution = false;
     /// Samples used in the model training.
-    Data* samples;
+    std::shared_ptr<Data> samples;
     /// Support vectors points.
     std::vector<Point> svs;
     /// Classifier solution.
@@ -59,7 +59,7 @@ public :
      * \brief setSamples Set the samples used in the classifier.
      * \param samples Samples to be used.
      */
-    virtual void setSamples(Data *samples);
+    virtual void setSamples(std::shared_ptr<Data> samples);
     void setTimer(Timer timer){ this->timer = timer; }
     /**
      * @brief Get the elapsed time in the execution of the classifier.

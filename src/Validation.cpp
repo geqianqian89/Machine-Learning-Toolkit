@@ -10,16 +10,18 @@
 
 using namespace std;
 
-Validation::Validation(Data *sample, Classifier *classifier, unsigned int seed){
+Validation::Validation(std::shared_ptr<Data> sample, Classifier *classifier, unsigned int seed){
     this->sample = sample;
     this->classifier = classifier;
+    train_sample = std::make_shared<Data>();
+    test_sample = std::make_shared<Data>();
 
     Random::init(seed);
     seed = Random::getSeed();
 }
 
 void Validation::partTrainTest(int fold){
-    int i, j, npos, nneg, size = sample->getSize();
+    size_t i, j, npos, nneg, size = sample->getSize();
     shared_ptr<Point> p, aux;
     Data sample_pos, sample_neg;
 
@@ -51,32 +53,32 @@ void Validation::partTrainTest(int fold){
         sample_neg.setPoint(j, aux);
     }
 
-    train_sample.copyZero(sample_pos);
-    test_sample.copyZero(sample_pos);
+    train_sample->copyZero(sample_pos);
+    test_sample->copyZero(sample_pos);
 
     for(j = 0; j < npos*(fold-1)/fold; j++)
-        train_sample.insertPoint(sample_pos, j);
+        train_sample->insertPoint(sample_pos, j);
     for(; j < npos; j++)
-        test_sample.insertPoint(sample_pos, j);
+        test_sample->insertPoint(sample_pos, j);
 
     for(j = 0; j < nneg/fold; j++)
-        test_sample.insertPoint(sample_neg, j);
+        test_sample->insertPoint(sample_neg, j);
     for(; j < nneg; j++)
-        train_sample.insertPoint(sample_neg, j);
+        train_sample->insertPoint(sample_neg, j);
 }
 
 double Validation::kFold (int fold, int seed){
-    int i = 0, j = 0, k = 0, size = sample->getSize();
+    size_t i = 0, j = 0, k = 0, size = sample->getSize();
+    size_t qtdpos = 0, qtdneg = 0, cost_pos = 0, cost_neg = 0, svcount = 0;
     double error = 0.0, func = 0.0, margin = 0.0;
-    int qtdpos = 0, qtdneg = 0, cost_pos = 0, cost_neg = 0, svcount = 0;
     vector<double> w;
     dMatrix matrix;
     vector<int> error_arr(fold);
-    unique_ptr<Data> sample_pos(make_unique<Data> ()), sample_neg(make_unique<Data> ()),
-            train_sample(make_unique<Data> ()), test_sample(make_unique<Data> ()),
+    unique_ptr<Data> sample_pos(make_unique<Data> ()), sample_neg(make_unique<Data> ()), test_sample(make_unique<Data> ()),
             traintest_sample(make_unique<Data> ());
-    vector<unique_ptr<Data> > vet_sample_pos(fold), vet_sample_neg(fold), vet_sample_final(fold);
-    bool isPrimal = (classifier->classifierType() == "Primal")?true:false;
+    shared_ptr<Data>  train_sample(make_shared<Data> ());
+    vector<std::unique_ptr<Data> > vet_sample_pos(fold), vet_sample_neg(fold), vet_sample_final(fold);
+    bool isPrimal = classifier->classifierType() == "Primal";
 
     Random::init(seed);
 
@@ -185,7 +187,8 @@ double Validation::kFold (int fold, int seed){
         }
 
         //training
-        classifier->setSamples(sample);
+
+        classifier->setSamples(train_sample);
         if(!classifier->train()){
             if(verbose)
                 cerr << "Error at " << fold << "-fold: The convergency wasn't reached at the set " << j+1 << "!\n";
@@ -212,10 +215,12 @@ double Validation::kFold (int fold, int seed){
         }else{
             DualClassifier *dual = dynamic_cast<DualClassifier*>(classifier);
             Kernel K(dual->getKernelType(), dual->getKernelParam());
-            dMatrix matrix = K.getKernelMatrix();
+            dMatrix matrix;
 
             *traintest_sample = test_sample->copy();
-            traintest_sample->join(*train_sample);
+            traintest_sample->join(train_sample);
+            K.compute(*traintest_sample);
+            matrix = K.getKernelMatrix();
 
             for(i = 0; i < test_sample->getSize(); ++i){
                 for(func = s.bias, k = 0; k < train_sample->getSize(); ++k)
@@ -235,7 +240,7 @@ double Validation::kFold (int fold, int seed){
         if(verbose) cout << "Error " << j + 1 << ": " << error_arr[j] << " -- " << ((double)error_arr[j]/(double)vet_sample_final[j]->getSize())*100.0f << "%";
         error += ((double)error_arr[j]/(double)vet_sample_final[j]->getSize())*100.0f;
 
-        train_sample = make_unique<Data>();
+        train_sample = make_shared<Data>();
         test_sample = make_unique<Data>();
     }
 
@@ -243,14 +248,14 @@ double Validation::kFold (int fold, int seed){
 }
 
 double Validation::validation(int fold, int qtde){
-    int i = 0, k = 0, erro = 0, svcount = 0, test_size = test_sample.getSize(),
-            train_size = train_sample.getSize(), train_dim = train_sample.getDim();
+    int i = 0, k = 0, erro = 0, svcount = 0, test_size = test_sample->getSize(),
+            train_size = train_sample->getSize(), train_dim = train_sample->getDim();
     double error = 0, errocross = 0, func = 0.0, margin = 0, bias;
     vector<double> w;
     Data traintest_sample;
-    bool isPrimal = (classifier->classifierType() == "Primal")?true:false;
+    bool isPrimal = (classifier->classifierType() == "Primal");
 
-    sample = &train_sample;
+    sample = train_sample;
 
     /*cross-validation*/
     if(qtde > 0)
@@ -267,12 +272,12 @@ double Validation::validation(int fold, int qtde){
     if(verbose)
     {
         cout << "\nFinal Validation:\n";
-        cout << "Pts de Treino: " << train_sample.getSize() << "\n";
-        cout << "Pts de Teste:  " << test_sample.getSize() << "\n";
+        cout << "Pts de Treino: " << train_sample->getSize() << "\n";
+        cout << "Pts de Teste:  " << test_sample->getSize() << "\n";
     }
 
     //training
-    classifier->setSamples(sample);
+    classifier->setSamples(train_sample);
     classifier->setVerbose(0);
 
     if(!classifier->train()){
@@ -288,7 +293,7 @@ double Validation::validation(int fold, int qtde){
     if(isPrimal){
         for(i = 0; i < test_size; ++i)
         {
-            shared_ptr<Point> p = test_sample.getPoint(i);
+            shared_ptr<Point> p = test_sample->getPoint(i);
             for(func = bias, k = 0; k < train_dim; ++k)
                 func += w[k] * p->x[k];
 
@@ -307,16 +312,18 @@ double Validation::validation(int fold, int qtde){
         /*testing imadual and smo*/
         DualClassifier *dual = dynamic_cast<DualClassifier*>(classifier);
         Kernel K(dual->getKernelType(), dual->getKernelParam());
-        dMatrix matrix = K.getKernelMatrix();
+        dMatrix matrix;
 
         traintest_sample.join(test_sample);
         traintest_sample.join(train_sample);
+        K.compute(traintest_sample);
+        matrix = K.getKernelMatrix();
 
         for(i = 0; i < test_size; ++i)
         {
-            shared_ptr<Point> p = test_sample.getPoint(i);
+            shared_ptr<Point> p = test_sample->getPoint(i);
             for(func = bias, k = 0; k < train_size; ++k)
-                func += train_sample.getPoint(k)->alpha * train_sample.getPoint(k)->y * matrix[k+test_size][i];
+                func += train_sample->getPoint(k)->alpha * train_sample->getPoint(k)->y * matrix[k+test_size][i];
 
             if(p->y * func <= 0)
             {
@@ -331,14 +338,16 @@ double Validation::validation(int fold, int qtde){
         }
     }
 
-    cout << "Validation Error: " << erro << " -- " << (double)erro/(double)test_sample.getSize()*100.0f << "%\n";
-    error += ((double)erro/(double)test_sample.getSize())*100.0f;
+    cout << "Validation Error: " << erro << " -- " << (double)erro/(double)test_sample->getSize()*100.0f << "%\n";
+    error += ((double)erro/(double)test_sample->getSize())*100.0f;
 }
 
-Data Validation::getTestSample(){
+std::shared_ptr<Data> Validation::getTestSample(){
     return test_sample;
 }
 
-Data Validation::getTrainSample(){
+std::shared_ptr<Data> Validation::getTrainSample(){
     return train_sample;
 }
+
+Validation::Validation() : sample(std::make_shared<Data>()), train_sample(std::make_shared<Data>()), test_sample(std::make_shared<Data>()), classifier(nullptr) {}
