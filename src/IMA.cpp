@@ -129,7 +129,6 @@ bool IMAp::train() {
     {
         ctot = imapFixMargin.getCtot();
         steps = imapFixMargin.getSteps();
-        gamma = imapFixMargin.getGamma();
         //Finding minimum and maximum functional values
         tempSol = imapFixMargin.getSolution();
         norm  = tempSol.norm;
@@ -208,6 +207,8 @@ bool IMAp::train() {
         }
     }
 
+    samples->resetIndex();
+
     if(!it)
     {
         if(verbose) cout << "FMP convergency wasn't reached!\n";
@@ -230,6 +231,7 @@ IMApFixedMargin::IMApFixedMargin(Data *samples, double gamma, Solution *initial_
         solution.norm = initial_solution->norm;
     }else{
         w.resize(samples->getDim());
+        solution.func.resize(samples->getSize());
     }
 }
 
@@ -351,6 +353,7 @@ bool IMApFixedMargin::train() {
         if(flagNao1aDim) if(ctot > tMax) break;
     }
 
+    samples->setIndex(index);
     solution.norm = norm;
     solution.bias = bias;
     solution.w = w;

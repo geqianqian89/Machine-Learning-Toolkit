@@ -283,6 +283,8 @@ public :
      */
     static void normalize(std::vector<double> &p, double q);
 
+    void resetIndex();
+
     /*********************************************
      *  Overloaded operators for the Data class. *
      *********************************************/

@@ -8,14 +8,6 @@ void PrimalClassifier::setpNorm(double p){
     this->p = p;
 }
 
-Solution PrimalClassifier::getSolution(){
-    return solution;
-}
-
-double PrimalClassifier::getGamma() {
-    return gamma;
-}
-
 void PrimalClassifier::setFlexible(double flexible){
     this->flexible = flexible;
 }
