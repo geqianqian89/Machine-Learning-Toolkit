@@ -14,9 +14,9 @@ private :
     /// Model to be validated.
     Classifier *classifier;
     /// Sample used in the validation.
-    Data *sample;
+    std::shared_ptr<Data> sample;
     /// Train and test sample used.
-    Data train_sample, test_sample;
+    std::shared_ptr<Data> train_sample, test_sample;
     double initial_error, limit_error, actual_error;
     /// Parameter used in the kernel in case of Dual classifiers.
     double kernel_param;
@@ -33,14 +33,14 @@ public :
     /**
      * \brief Default constructor.
      */
-    Validation () {};
+    Validation ();
     /**
      * @brief Constructor initializing the sample and classifier used.
      * @param sample Sample to be used in the validation.
      * @param classifier Model to be validated.
      * @param seed  Seed to feed the pseudo random number generator.
      */
-    explicit Validation (Data *sample, Classifier *classifier = NULL, unsigned int seed = 666);
+    explicit Validation (std::shared_ptr<Data> sample = std::make_shared<Data>(), Classifier *classifier = nullptr, unsigned int seed = 666);
     /**
      * \brief Executes the Stratified K-fold algorithm
      * \param fold Number of folds.
@@ -63,12 +63,12 @@ public :
      * @brief Get the train sample used in the validation of the model.
      * @return Data
      */
-    Data getTestSample ();
+    std::shared_ptr<Data> getTestSample ();
     /**
      * @brief Get the train sample used in the validation of the model.
      * @return Data
      */
-    Data getTrainSample ();
+    std::shared_ptr<Data> getTrainSample ();
     /**
      * @brief Set the verbose.
      * @param verbose Verbose level.

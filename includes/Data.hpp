@@ -57,9 +57,9 @@ private :
     /// Points indexes.
     std::vector<int> index;
     /// Number of points in the dataset.
-    int size = 0;
+    size_t size = 0;
     /// Dataset points dimension.
-    int dim = 0;
+    size_t dim = 0;
     /// Positive and negative classes. (1, -1 are the default classes)
     std::string pos_class, neg_class;
     /// Verify if there's some data loaded.
@@ -123,17 +123,17 @@ public :
      * \brief Returns the size of the dataset.
      * \return int
      */
-    int getSize ();
+    inline size_t getSize (){ return size;}
     /**
      * \brief Returns the dimension of the dataset.
      * \return int
      */
-    int getDim ();
+    inline size_t getDim (){ return dim; }
     /**
      * \brief setDim Set the dimension of the points.
      * \param dim (???) Dimension to be set.
      */
-    void setDim(int dim);
+    void setDim(size_t dim);
     /**
      * \brief Returns a shared pointer to the vector of Points of the sample.
      * \return std::vector<std::shared_ptr<Point> >
@@ -227,7 +227,7 @@ public :
      * \param data (???) Dataset to be joined.
      * \return bool
      */
-    void join(Data data);
+    void join(std::shared_ptr<Data> data);
     /**
      * \brief Insert a point to the data from another sample.
      * \param sample (???) Sample with the point to be added.
@@ -258,7 +258,7 @@ public :
      * @param ins_feat (???) Array with features that will be in the Data object.
      * @return Data If the object is empty something wrong happened.
      */
-    Data insertFeatures(std::vector<int> ins_feat);
+    Data* insertFeatures(std::vector<int> ins_feat);
     /**
      * \brief Remove several features from the sample.
      * \param feats (???) Names of the features to be removed (must be sorted).

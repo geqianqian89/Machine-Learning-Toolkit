@@ -616,7 +616,7 @@ vector<bool> Data::removePoints(vector<int> ids){
     int idsize = ids.size(), i;
     bool save;
     shared_ptr<Point> po;
-    vector<shared_ptr<Point> >::iterator p = points.begin();
+    auto p = points.begin();
     vector<bool> notFound(idsize, true);
 
     for(; p != points.end();){
@@ -644,19 +644,19 @@ vector<bool> Data::removePoints(vector<int> ids){
     return notFound;
 }
 
-Data Data::insertFeatures(std::vector<int> ins_feat){
-    int i, j, s, offset = 0, fsize = ins_feat.size();
+Data* Data::insertFeatures(std::vector<int> ins_feat){
+    size_t i, j, s, offset = 0, fsize = ins_feat.size();
     bool saveflag;
     vector<int> new_fnames(fsize, 0);
     shared_ptr<Point> p;
-    Data smout;
+    Data *smout;
 
-    if(fsize == 0) return *this;
+    if(fsize == 0) return this;
     sort(ins_feat.begin(), ins_feat.end());
 
     //error check
     if(fsize > dim){ cerr << "Error: InsertFeature, fsize(" << ins_feat.size() << ")>dim(" << dim << ")\n"; return smout; }
-    smout.setDim(fsize);
+    smout->setDim(fsize);
 
     //Copying information to new data array
     for(i = 0; i < size; i++){
@@ -684,18 +684,18 @@ Data Data::insertFeatures(std::vector<int> ins_feat){
         if(s != fsize){
             cerr << "Error: Something went wrong on InsertFeature\n";
             cerr << "s = " << s << ", dim = " << dim << ", fsize = " << fsize << endl;
-            smout.clear();
+            smout->clear();
             return smout;
         }
-        smout.insertPoint(p);
+        smout->insertPoint(p);
     }
-    smout.setFeaturesNames(new_fnames);
+    smout->setFeaturesNames(new_fnames);
 
     return smout;
 }
 
 bool Data::removeFeatures(std::vector<int> feats){
-    int i, j, k, psize = points.size(), rsize = feats.size();
+    size_t i, j, k, psize = points.size(), rsize = feats.size();
     vector<double>::iterator itr;
     vector<int>::iterator fitr;
 
@@ -768,6 +768,7 @@ bool Data::insertPoint(shared_ptr<Point> p){
 
     //Give a new id to the point equal to the previous point id plus 1
     points[size-1]->id = size;
+    index.push_back(size-1);
 
     return true;
 }
@@ -806,10 +807,10 @@ void Data::copyZero(const Data& other){
     normalized = other.normalized;
 }
 
-void Data::join(Data data){
-    int i, j, dim1 = data.getDim(), antsize = size, size1 = data.getSize();
-    vector<int> index1 = data.getIndex(), antindex = index;
-    vector<shared_ptr<Point> > points1 = data.getPoints();
+void Data::join(std::shared_ptr<Data> data){
+    size_t i, j, dim1 = data->getDim(), antsize = size, size1 = data->getSize();
+    vector<int> index1 = data->getIndex(), antindex = index;
+    vector<shared_ptr<Point> > points1 = data->getPoints();
 
     if(dim > dim1){
         cerr << "Error: sample1 dimension must be less or equal to sample2\n";
@@ -818,7 +819,7 @@ void Data::join(Data data){
 
     size += size1;
 
-    if(index.size() != 0 && index1.size() != 0){
+    if(!index.empty() && !index1.empty()){
         index.resize(size, 0);
         for(i = 0; i < antsize; i++) index[i] = antindex[i];
         for(i = 0; i < size1; i++) index[i + antsize] = index1[i];
@@ -852,7 +853,7 @@ void Data::normalize(double p){
 }
 
 void Data::normalize(vector<double> &v, double q){
-    int i = 0, dim = v.size();
+    size_t i = 0, dim = v.size();
     double norm = 0.0;
 
     for(i = 0; i < dim; ++i)
@@ -864,16 +865,8 @@ void Data::normalize(vector<double> &v, double q){
         v[i] /= norm;
 }
 
-int Data::getDim(){
-    return dim;
-}
-
-void Data::setDim(int dim){
+void Data::setDim(size_t dim){
     this->dim = dim;
-}
-
-int Data::getSize(){
-    return size;
 }
 
 vector<int> Data::getFeaturesNames(){
@@ -881,7 +874,7 @@ vector<int> Data::getFeaturesNames(){
 }
 
 void Data::setFeaturesNames(std::vector<int> fnames){
-    this->fnames = fnames;
+    this->fnames = std::move(fnames);
 }
 
 vector<shared_ptr<Point> > Data::getPoints(){
@@ -905,8 +898,8 @@ Statistics Data::getStatistics(){
 }
 
 void Data::setClasses(string pos, string neg){
-    pos_class = pos;
-    neg_class = neg;
+    pos_class = std::move(pos);
+    neg_class = std::move(neg);
 }
 
 bool Data::isEmpty(){
@@ -956,5 +949,6 @@ void Data::setIndex(std::vector<int> index) {
 }
 
 void Data::resetIndex(){
+    index.assign(size, 0);
     iota(index.begin(), index.end(), 0);
 }

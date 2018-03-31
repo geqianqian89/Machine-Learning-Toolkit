@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void Classifier::setSamples(Data *samples){
+void Classifier::setSamples(std::shared_ptr<Data> samples){
     this->samples = samples;
 }
 

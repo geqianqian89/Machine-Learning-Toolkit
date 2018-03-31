@@ -37,7 +37,6 @@ public:
      * @param alpha_aprox Aproximation.
      */
     void setAlphaAprox(double alpha_aprox);
-
 };
 
 #endif

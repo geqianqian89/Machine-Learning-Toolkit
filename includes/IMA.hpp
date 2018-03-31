@@ -20,7 +20,7 @@ private:
     std::vector<int> svs;
 
 public:
-    explicit IMAp(Data *samples = nullptr, double margin = 0.0, Solution *initial_solution = nullptr);
+    explicit IMAp(std::shared_ptr<Data> samples = nullptr, double margin = 0.0, Solution *initial_solution = nullptr);
 
     bool train() override;
     double evaluate(Point p) override;
@@ -39,7 +39,7 @@ private:
     std::vector<int> svs;
 
 public:
-    explicit IMApFixedMargin(Data *samples = nullptr, double gamma = 0, Solution *initial_solution = nullptr);
+    explicit IMApFixedMargin(std::shared_ptr<Data> samples = nullptr, double gamma = 0, Solution *initial_solution = nullptr);
 
     bool train() override;
     double evaluate(Point p) override;
@@ -51,7 +51,7 @@ class IMADual : public DualClassifier {
 private:
     double margin = 0;
 public:
-    explicit IMADual(Data *samples = nullptr, Kernel *k = nullptr, double rate = 1, Solution *initial_solution = nullptr);
+    explicit IMADual(std::shared_ptr<Data> samples = nullptr, Kernel *k = nullptr, double rate = 1, Solution *initial_solution = nullptr);
     bool train() override;
     double evaluate(Point p) override;
 };

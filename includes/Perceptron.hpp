@@ -16,7 +16,7 @@
 
 class PerceptronPrimal : public PrimalClassifier {
 public:
-    explicit PerceptronPrimal(Data *samples = nullptr, double q = 2, double rate = 0.5, Solution *initial_solution = nullptr);
+    explicit PerceptronPrimal(std::shared_ptr<Data> samples = nullptr, double q = 2, double rate = 0.5, Solution *initial_solution = nullptr);
     bool train() override;
     double evaluate(Point p) override;
 };
@@ -26,7 +26,7 @@ public:
  */
 class PerceptronFixedMarginPrimal : public PrimalClassifier {
 public:
-    explicit PerceptronFixedMarginPrimal(Data *samples = nullptr, double gamma = 1.0, double q = 2, double rate = 0.5, Solution *initial_solution = nullptr);
+    explicit PerceptronFixedMarginPrimal(std::shared_ptr<Data> samples = nullptr, double gamma = 1.0, double q = 2, double rate = 0.5, Solution *initial_solution = nullptr);
     bool train() override;
     double evaluate(Point p) override;
 };
@@ -36,7 +36,7 @@ public:
  */
 class PerceptronDual : public DualClassifier {
 public:
-    explicit PerceptronDual(Data *samples = nullptr, double rate = 0.5, Kernel *K = nullptr, Solution *initial_solution = nullptr);
+    explicit PerceptronDual(std::shared_ptr<Data> samples = nullptr, double rate = 0.5, Kernel *K = nullptr, Solution *initial_solution = nullptr);
     bool train() override;
     double evaluate(Point p) override;
 };
@@ -46,7 +46,7 @@ public:
  */
 class PerceptronFixedMarginDual : public DualClassifier {
 public:
-    explicit PerceptronFixedMarginDual(Data *samples = nullptr, double gamma = 1.0, double rate = 0.5, Kernel *K = nullptr, Solution *initial_solution = nullptr);
+    explicit PerceptronFixedMarginDual(std::shared_ptr<Data> samples = nullptr, double gamma = 1.0, double rate = 0.5, Kernel *K = nullptr, Solution *initial_solution = nullptr);
     bool train() override;
     double evaluate(Point p) override;
 };

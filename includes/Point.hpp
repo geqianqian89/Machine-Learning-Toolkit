@@ -17,7 +17,7 @@ public :
     /// Point classification.
     double y = 0, alpha = 0.0;
     /// Point identification.
-    int id = 0;
+    size_t id = 0;
     // Operations
     Point();
     Point(int dim, int val = 0);
