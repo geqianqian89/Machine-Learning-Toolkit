@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['k',['K',['../class_solution.html#af63bb12412227102794729af7491e9db',1,'Solution']]],
-  ['kernel',['kernel',['../class_dual_classifier.html#a710addb26d481a0b7b60e37e537c2290',1,'DualClassifier']]]
+  ['margin',['margin',['../class_solution.html#a3580af26a22d86e44df701f654165e0f',1,'Solution']]],
+  ['max_5fit',['MAX_IT',['../class_classifier.html#a9cab88ab4489d771256bffb1717c1644',1,'Classifier']]],
+  ['max_5ftime',['max_time',['../class_classifier.html#a191089f044af0f4dd51f37aaff78d8f6',1,'Classifier']]],
+  ['max_5fup',['MAX_UP',['../class_classifier.html#abb8b95854801151e78a1d9f6a2173c22',1,'Classifier']]]
 ];

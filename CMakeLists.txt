@@ -6,4 +6,4 @@ file(GLOB SOURCES
     src/*.cpp
 )
 
-add_executable(${PROJECT_NAME} ${SOURCES})
+add_executable(${PROJECT_NAME} ${SOURCES} includes/RFE.hpp src/RFE.cpp)

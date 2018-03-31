@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['q',['q',['../class_primal_classifier.html#a746ad2ff93fb77d82ae389f90dbdc89e',1,'PrimalClassifier']]]
+  ['rate',['rate',['../class_classifier.html#af9867e5919742de1303dd971a9a1c19a',1,'Classifier']]]
 ];

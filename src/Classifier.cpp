@@ -45,3 +45,7 @@ Solution Classifier::getSolution(){
 void Classifier::setLearningRate(double rate){
     this->rate = rate;
 }
+
+double Classifier::getMax_time() const {
+    return max_time;
+}

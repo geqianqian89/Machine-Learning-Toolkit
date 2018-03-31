@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['norm',['norm',['../class_solution.html#acbc0610c1c2e2d7bb5c39af33b7eb99c',1,'Solution']]]
+  ['q',['q',['../class_primal_classifier.html#a746ad2ff93fb77d82ae389f90dbdc89e',1,'PrimalClassifier']]]
 ];

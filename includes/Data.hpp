@@ -60,6 +60,11 @@ private :
     size_t size = 0;
     /// Dataset points dimension.
     size_t dim = 0;
+    double time_mult;
+public:
+    double getTime_mult() const;
+
+private:
     /// Positive and negative classes. (1, -1 are the default classes)
     std::string pos_class, neg_class;
     /// Verify if there's some data loaded.
@@ -290,6 +295,11 @@ public :
      *********************************************/
 
     void operator=(const Data&);
+
+    bool operator==(const Data &rhs) const;
+
+    bool operator!=(const Data &rhs) const;
+
     friend std::ostream &operator<<( std::ostream &output, const Data &data );
 
     ~Data();

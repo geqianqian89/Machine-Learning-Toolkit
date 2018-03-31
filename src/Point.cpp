@@ -60,3 +60,14 @@ ostream &operator<<( ostream &output,
 Point::~Point(){
 
 }
+
+bool Point::operator==(const Point &rhs) const {
+    return x == rhs.x &&
+           y == rhs.y &&
+           alpha == rhs.alpha &&
+           id == rhs.id;
+}
+
+bool Point::operator!=(const Point &rhs) const {
+    return !(rhs == *this);
+}

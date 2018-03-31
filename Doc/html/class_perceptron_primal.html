@@ -87,25 +87,25 @@ Collaboration diagram for PerceptronPrimal:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_perceptron_primal__coll__graph.png" border="0" usemap="#_perceptron_primal_coll__map" alt="Collaboration graph"/></div>
 <map name="_perceptron_primal_coll__map" id="_perceptron_primal_coll__map">
-<area shape="rect" id="node2" href="class_primal_classifier.html" title="PrimalClassifier" alt="" coords="15,260,129,287"/>
-<area shape="rect" id="node3" href="class_classifier.html" title="Classifier" alt="" coords="33,184,111,211"/>
-<area shape="rect" id="node4" href="class_data.html" title="Wrapper for the dataset data. " alt="" coords="5,95,56,121"/>
-<area shape="rect" id="node5" href="class_solution.html" title="Solution" alt="" coords="80,95,149,121"/>
-<area shape="rect" id="node6" href="class_kernel.html" title="Class for the kernel computations. " alt="" coords="85,5,144,32"/>
+<area shape="rect" id="node2" href="class_primal_classifier.html" title="PrimalClassifier" alt="" coords="28,260,143,287"/>
+<area shape="rect" id="node3" href="class_classifier.html" title="Classifier" alt="" coords="47,184,124,211"/>
+<area shape="rect" id="node4" href="class_solution.html" title="Solution" alt="" coords="5,95,75,121"/>
+<area shape="rect" id="node5" href="class_kernel.html" title="Class for the kernel computations. " alt="" coords="11,5,69,32"/>
+<area shape="rect" id="node6" href="class_timer.html" title="Timer" alt="" coords="99,95,154,121"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3c182ca6be41096ac89aebcb45761660"><td class="memItemLeft" align="right" valign="top"><a id="a3c182ca6be41096ac89aebcb45761660"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PerceptronPrimal</b> (<a class="el" href="class_data.html">Data</a> *<a class="el" href="class_classifier.html#a515c225d0da93df02ca79f9f87811d17">samples</a>=NULL, double <a class="el" href="class_primal_classifier.html#a746ad2ff93fb77d82ae389f90dbdc89e">q</a>=2, double <a class="el" href="class_classifier.html#af9867e5919742de1303dd971a9a1c19a">rate</a>=0.5, <a class="el" href="class_solution.html">Solution</a> *initial_solution=NULL)</td></tr>
-<tr class="separator:a3c182ca6be41096ac89aebcb45761660"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17f817a72fc7d61d1686ea77f7f9e84d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_perceptron_primal.html#a17f817a72fc7d61d1686ea77f7f9e84d">train</a> ()</td></tr>
-<tr class="memdesc:a17f817a72fc7d61d1686ea77f7f9e84d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that execute the training phase of a classification algorithm.  <a href="#a17f817a72fc7d61d1686ea77f7f9e84d">More...</a><br /></td></tr>
-<tr class="separator:a17f817a72fc7d61d1686ea77f7f9e84d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8ce9ceffe2b35b5386e5367fb419b3b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_perceptron_primal.html#ac8ce9ceffe2b35b5386e5367fb419b3b">evaluate</a> (<a class="el" href="class_point.html">Point</a> p)</td></tr>
-<tr class="memdesc:ac8ce9ceffe2b35b5386e5367fb419b3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the class of a feature point based on the trained classifier.  <a href="#ac8ce9ceffe2b35b5386e5367fb419b3b">More...</a><br /></td></tr>
-<tr class="separator:ac8ce9ceffe2b35b5386e5367fb419b3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5440d7d451546d245a50c54ca4b424c"><td class="memItemLeft" align="right" valign="top"><a id="ae5440d7d451546d245a50c54ca4b424c"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>PerceptronPrimal</b> (std::shared_ptr&lt; <a class="el" href="class_data.html">Data</a> &gt; <a class="el" href="class_classifier.html#aad6a4fcea8f44339d7a6302f530852ca">samples</a>=nullptr, double <a class="el" href="class_primal_classifier.html#a746ad2ff93fb77d82ae389f90dbdc89e">q</a>=2, double <a class="el" href="class_classifier.html#af9867e5919742de1303dd971a9a1c19a">rate</a>=0.5, <a class="el" href="class_solution.html">Solution</a> *initial_solution=nullptr)</td></tr>
+<tr class="separator:ae5440d7d451546d245a50c54ca4b424c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea1195af5503b2dfb086aacc92acfdc9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_perceptron_primal.html#aea1195af5503b2dfb086aacc92acfdc9">train</a> () override</td></tr>
+<tr class="memdesc:aea1195af5503b2dfb086aacc92acfdc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that execute the training phase of a classification algorithm.  <a href="#aea1195af5503b2dfb086aacc92acfdc9">More...</a><br /></td></tr>
+<tr class="separator:aea1195af5503b2dfb086aacc92acfdc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84b0d3d9627cc21fe9a7770d686e38ea"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_perceptron_primal.html#a84b0d3d9627cc21fe9a7770d686e38ea">evaluate</a> (<a class="el" href="class_point.html">Point</a> p) override</td></tr>
+<tr class="memdesc:a84b0d3d9627cc21fe9a7770d686e38ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the class of a feature point based on the trained classifier.  <a href="#a84b0d3d9627cc21fe9a7770d686e38ea">More...</a><br /></td></tr>
+<tr class="separator:a84b0d3d9627cc21fe9a7770d686e38ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_primal_classifier"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_primal_classifier')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_primal_classifier.html">PrimalClassifier</a></td></tr>
 <tr class="memitem:af5117ae286ed7f06430b98f433e9bf62 inherit pub_methods_class_primal_classifier"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_primal_classifier.html#af5117ae286ed7f06430b98f433e9bf62">classifierType</a> ()</td></tr>
 <tr class="memdesc:af5117ae286ed7f06430b98f433e9bf62 inherit pub_methods_class_primal_classifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the type of the classifier.  <a href="class_primal_classifier.html#af5117ae286ed7f06430b98f433e9bf62">More...</a><br /></td></tr>
@@ -116,25 +116,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a30cd3926ea5e7341920dcb5480567af1 inherit pub_methods_class_primal_classifier"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_primal_classifier.html#a30cd3926ea5e7341920dcb5480567af1">setpNorm</a> (double p)</td></tr>
 <tr class="memdesc:a30cd3926ea5e7341920dcb5480567af1 inherit pub_methods_class_primal_classifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">setpNorm Set the p norm used by the classifier. (Euclidean norm is the default)  <a href="class_primal_classifier.html#a30cd3926ea5e7341920dcb5480567af1">More...</a><br /></td></tr>
 <tr class="separator:a30cd3926ea5e7341920dcb5480567af1 inherit pub_methods_class_primal_classifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d1443916a530c9b3729fb748097db50 inherit pub_methods_class_primal_classifier"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_primal_classifier.html#a2d1443916a530c9b3729fb748097db50">setGamma</a> (double <a class="el" href="class_primal_classifier.html#ab8c6099dda1468385b2c401cb65c1238">gamma</a>)</td></tr>
-<tr class="memdesc:a2d1443916a530c9b3729fb748097db50 inherit pub_methods_class_primal_classifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set solution margin.  <a href="class_primal_classifier.html#a2d1443916a530c9b3729fb748097db50">More...</a><br /></td></tr>
-<tr class="separator:a2d1443916a530c9b3729fb748097db50 inherit pub_methods_class_primal_classifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf3edea17de00a41c33d0fee4fabd4da inherit pub_methods_class_primal_classifier"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_primal_classifier.html#acf3edea17de00a41c33d0fee4fabd4da">setFlexible</a> (double <a class="el" href="class_primal_classifier.html#af660bbc42f67792e3da8876671b1e9df">flexible</a>)</td></tr>
 <tr class="memdesc:acf3edea17de00a41c33d0fee4fabd4da inherit pub_methods_class_primal_classifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set flexibity of the classifier.  <a href="class_primal_classifier.html#acf3edea17de00a41c33d0fee4fabd4da">More...</a><br /></td></tr>
 <tr class="separator:acf3edea17de00a41c33d0fee4fabd4da inherit pub_methods_class_primal_classifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49be3fca8d8383d98f9d671d1e1f27c7 inherit pub_methods_class_primal_classifier"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_primal_classifier.html#a49be3fca8d8383d98f9d671d1e1f27c7">setAlphaAprox</a> (double <a class="el" href="class_primal_classifier.html#a1a432d06373100e176e116f995bdcd26">alpha_aprox</a>)</td></tr>
 <tr class="memdesc:a49be3fca8d8383d98f9d671d1e1f27c7 inherit pub_methods_class_primal_classifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the percentage of the aproximation.  <a href="class_primal_classifier.html#a49be3fca8d8383d98f9d671d1e1f27c7">More...</a><br /></td></tr>
 <tr class="separator:a49be3fca8d8383d98f9d671d1e1f27c7 inherit pub_methods_class_primal_classifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a320c67c29eeb85d5d05f7db1de7fde41 inherit pub_methods_class_primal_classifier"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_primal_classifier.html#a320c67c29eeb85d5d05f7db1de7fde41">getGamma</a> ()</td></tr>
-<tr class="memdesc:a320c67c29eeb85d5d05f7db1de7fde41 inherit pub_methods_class_primal_classifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the margin of the solution.  <a href="class_primal_classifier.html#a320c67c29eeb85d5d05f7db1de7fde41">More...</a><br /></td></tr>
-<tr class="separator:a320c67c29eeb85d5d05f7db1de7fde41 inherit pub_methods_class_primal_classifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a3d9ba4e80c58418db0d8454168b910 inherit pub_methods_class_primal_classifier"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_solution.html">Solution</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_primal_classifier.html#a1a3d9ba4e80c58418db0d8454168b910">getSolution</a> ()</td></tr>
-<tr class="memdesc:a1a3d9ba4e80c58418db0d8454168b910 inherit pub_methods_class_primal_classifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">getSolution Returns the solution of the primal classifier.  <a href="class_primal_classifier.html#a1a3d9ba4e80c58418db0d8454168b910">More...</a><br /></td></tr>
-<tr class="separator:a1a3d9ba4e80c58418db0d8454168b910 inherit pub_methods_class_primal_classifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_classifier"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_classifier')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_classifier.html">Classifier</a></td></tr>
-<tr class="memitem:a4b16736670cba8f4c8397b6a90c8c799 inherit pub_methods_class_classifier"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a4b16736670cba8f4c8397b6a90c8c799">setSamples</a> (<a class="el" href="class_data.html">Data</a> *<a class="el" href="class_classifier.html#a515c225d0da93df02ca79f9f87811d17">samples</a>)</td></tr>
-<tr class="memdesc:a4b16736670cba8f4c8397b6a90c8c799 inherit pub_methods_class_classifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">setSamples Set the samples used in the classifier.  <a href="class_classifier.html#a4b16736670cba8f4c8397b6a90c8c799">More...</a><br /></td></tr>
-<tr class="separator:a4b16736670cba8f4c8397b6a90c8c799 inherit pub_methods_class_classifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cbc0189f7fcd1afe68096af8f24c58a inherit pub_methods_class_classifier"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a6cbc0189f7fcd1afe68096af8f24c58a">setSamples</a> (std::shared_ptr&lt; <a class="el" href="class_data.html">Data</a> &gt; <a class="el" href="class_classifier.html#aad6a4fcea8f44339d7a6302f530852ca">samples</a>)</td></tr>
+<tr class="memdesc:a6cbc0189f7fcd1afe68096af8f24c58a inherit pub_methods_class_classifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">setSamples Set the samples used in the classifier.  <a href="class_classifier.html#a6cbc0189f7fcd1afe68096af8f24c58a">More...</a><br /></td></tr>
+<tr class="separator:a6cbc0189f7fcd1afe68096af8f24c58a inherit pub_methods_class_classifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeadfa75f26ea79e525db5767a965da6e inherit pub_methods_class_classifier"><td class="memItemLeft" align="right" valign="top"><a id="aeadfa75f26ea79e525db5767a965da6e"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setTimer</b> (<a class="el" href="class_timer.html">Timer</a> <a class="el" href="class_classifier.html#ae9d28253495ae8807d586faff951d46f">timer</a>)</td></tr>
 <tr class="separator:aeadfa75f26ea79e525db5767a965da6e inherit pub_methods_class_classifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -153,6 +144,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setTimer</b> (<a clas
 <tr class="memitem:a779b6cac0351e272ee0573d919d5d060 inherit pub_methods_class_classifier"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a779b6cac0351e272ee0573d919d5d060">setSteps</a> (int <a class="el" href="class_classifier.html#a1e4c9c9ba059d5aff1d4d81eb41725cb">steps</a>)</td></tr>
 <tr class="memdesc:a779b6cac0351e272ee0573d919d5d060 inherit pub_methods_class_classifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the partial number of steps of the classifier.  <a href="class_classifier.html#a779b6cac0351e272ee0573d919d5d060">More...</a><br /></td></tr>
 <tr class="separator:a779b6cac0351e272ee0573d919d5d060 inherit pub_methods_class_classifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa802b07331c79ff9621b6a802adbbc91 inherit pub_methods_class_classifier"><td class="memItemLeft" align="right" valign="top"><a id="aa802b07331c79ff9621b6a802adbbc91"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setGamma</b> (double gamma)</td></tr>
+<tr class="separator:aa802b07331c79ff9621b6a802adbbc91 inherit pub_methods_class_classifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3293d7d39c3934503a23b920f84f73e7 inherit pub_methods_class_classifier"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a3293d7d39c3934503a23b920f84f73e7">setCtot</a> (int <a class="el" href="class_classifier.html#a99d9a7f504212bb3dc2726c10a2333c6">ctot</a>)</td></tr>
 <tr class="memdesc:a3293d7d39c3934503a23b920f84f73e7 inherit pub_methods_class_classifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the partial number of updates of the classifier.  <a href="class_classifier.html#a3293d7d39c3934503a23b920f84f73e7">More...</a><br /></td></tr>
 <tr class="separator:a3293d7d39c3934503a23b920f84f73e7 inherit pub_methods_class_classifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -202,10 +196,6 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>p</b> = 2</td></tr>
 double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_primal_classifier.html#af660bbc42f67792e3da8876671b1e9df">flexible</a> = 0.0</td></tr>
 <tr class="memdesc:af660bbc42f67792e3da8876671b1e9df inherit pro_attribs_class_primal_classifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flexibility. <br /></td></tr>
 <tr class="separator:af660bbc42f67792e3da8876671b1e9df inherit pro_attribs_class_primal_classifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8c6099dda1468385b2c401cb65c1238 inherit pro_attribs_class_primal_classifier"><td class="memItemLeft" align="right" valign="top"><a id="ab8c6099dda1468385b2c401cb65c1238"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_primal_classifier.html#ab8c6099dda1468385b2c401cb65c1238">gamma</a> = 0.0</td></tr>
-<tr class="memdesc:ab8c6099dda1468385b2c401cb65c1238 inherit pro_attribs_class_primal_classifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Margin of the solution. <br /></td></tr>
-<tr class="separator:ab8c6099dda1468385b2c401cb65c1238 inherit pro_attribs_class_primal_classifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a432d06373100e176e116f995bdcd26 inherit pro_attribs_class_primal_classifier"><td class="memItemLeft" align="right" valign="top"><a id="a1a432d06373100e176e116f995bdcd26"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_primal_classifier.html#a1a432d06373100e176e116f995bdcd26">alpha_aprox</a> = 0.0</td></tr>
 <tr class="memdesc:a1a432d06373100e176e116f995bdcd26 inherit pro_attribs_class_primal_classifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Percentage of aproximation of the result. <br /></td></tr>
@@ -215,10 +205,10 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a1de0c258e4a175ebf96a18ec7ee33381">hasInitialSolution</a> = false</td></tr>
 <tr class="memdesc:a1de0c258e4a175ebf96a18ec7ee33381 inherit pro_attribs_class_classifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inform if there's an initial solution. <br /></td></tr>
 <tr class="separator:a1de0c258e4a175ebf96a18ec7ee33381 inherit pro_attribs_class_classifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a515c225d0da93df02ca79f9f87811d17 inherit pro_attribs_class_classifier"><td class="memItemLeft" align="right" valign="top"><a id="a515c225d0da93df02ca79f9f87811d17"></a>
-<a class="el" href="class_data.html">Data</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a515c225d0da93df02ca79f9f87811d17">samples</a></td></tr>
-<tr class="memdesc:a515c225d0da93df02ca79f9f87811d17 inherit pro_attribs_class_classifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Samples used in the model training. <br /></td></tr>
-<tr class="separator:a515c225d0da93df02ca79f9f87811d17 inherit pro_attribs_class_classifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad6a4fcea8f44339d7a6302f530852ca inherit pro_attribs_class_classifier"><td class="memItemLeft" align="right" valign="top"><a id="aad6a4fcea8f44339d7a6302f530852ca"></a>
+std::shared_ptr&lt; <a class="el" href="class_data.html">Data</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#aad6a4fcea8f44339d7a6302f530852ca">samples</a></td></tr>
+<tr class="memdesc:aad6a4fcea8f44339d7a6302f530852ca inherit pro_attribs_class_classifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Samples used in the model training. <br /></td></tr>
+<tr class="separator:aad6a4fcea8f44339d7a6302f530852ca inherit pro_attribs_class_classifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9146fbbd020de483957a1ea68b614c7 inherit pro_attribs_class_classifier"><td class="memItemLeft" align="right" valign="top"><a id="ae9146fbbd020de483957a1ea68b614c7"></a>
 std::vector&lt; <a class="el" href="class_point.html">Point</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#ae9146fbbd020de483957a1ea68b614c7">svs</a></td></tr>
 <tr class="memdesc:ae9146fbbd020de483957a1ea68b614c7 inherit pro_attribs_class_classifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Support vectors points. <br /></td></tr>
@@ -231,6 +221,9 @@ std::vector&lt; <a class="el" href="class_point.html">Point</a> &gt;&#160;</td><
 double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#af9867e5919742de1303dd971a9a1c19a">rate</a> = 0.5f</td></tr>
 <tr class="memdesc:af9867e5919742de1303dd971a9a1c19a inherit pro_attribs_class_classifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Learning rate. <br /></td></tr>
 <tr class="separator:af9867e5919742de1303dd971a9a1c19a inherit pro_attribs_class_classifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa59756e61811482841d1346249ca8985 inherit pro_attribs_class_classifier"><td class="memItemLeft" align="right" valign="top"><a id="aa59756e61811482841d1346249ca8985"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>gamma</b> = 0</td></tr>
+<tr class="separator:aa59756e61811482841d1346249ca8985 inherit pro_attribs_class_classifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4488a20bd7b4fc22d57244aaee57b002 inherit pro_attribs_class_classifier"><td class="memItemLeft" align="right" valign="top"><a id="a4488a20bd7b4fc22d57244aaee57b002"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a4488a20bd7b4fc22d57244aaee57b002">start_time</a> = 0.0f</td></tr>
 <tr class="memdesc:a4488a20bd7b4fc22d57244aaee57b002 inherit pro_attribs_class_classifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial time. <br /></td></tr>
@@ -251,6 +244,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#ad7cd0cfea68461340df2adb0c132dc93">EPS</a> = 1E-9</td></tr>
 <tr class="memdesc:ad7cd0cfea68461340df2adb0c132dc93 inherit pro_attribs_class_classifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max precision. <br /></td></tr>
 <tr class="separator:ad7cd0cfea68461340df2adb0c132dc93 inherit pro_attribs_class_classifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c076c51bde0651f2c2c8ad674db1da0 inherit pro_attribs_class_classifier"><td class="memItemLeft" align="right" valign="top"><a id="a6c076c51bde0651f2c2c8ad674db1da0"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>MIN_INC</b> = 1.001</td></tr>
+<tr class="separator:a6c076c51bde0651f2c2c8ad674db1da0 inherit pro_attribs_class_classifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9cab88ab4489d771256bffb1717c1644 inherit pro_attribs_class_classifier"><td class="memItemLeft" align="right" valign="top"><a id="a9cab88ab4489d771256bffb1717c1644"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classifier.html#a9cab88ab4489d771256bffb1717c1644">MAX_IT</a> = 1E9</td></tr>
 <tr class="memdesc:a9cab88ab4489d771256bffb1717c1644 inherit pro_attribs_class_classifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max number of iterations. <br /></td></tr>
@@ -270,8 +266,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>verbose</b> = 1</td></
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Wrapper for the implementation of the Perceptron primal algorithm. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ac8ce9ceffe2b35b5386e5367fb419b3b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8ce9ceffe2b35b5386e5367fb419b3b">&#9670;&nbsp;</a></span>evaluate()</h2>
+<a id="a84b0d3d9627cc21fe9a7770d686e38ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84b0d3d9627cc21fe9a7770d686e38ea">&#9670;&nbsp;</a></span>evaluate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -289,7 +285,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>verbose</b> = 1</td></
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -307,8 +303,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>verbose</b> = 1</td></
 
 </div>
 </div>
-<a id="a17f817a72fc7d61d1686ea77f7f9e84d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17f817a72fc7d61d1686ea77f7f9e84d">&#9670;&nbsp;</a></span>train()</h2>
+<a id="aea1195af5503b2dfb086aacc92acfdc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea1195af5503b2dfb086aacc92acfdc9">&#9670;&nbsp;</a></span>train()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -325,7 +321,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>verbose</b> = 1</td></
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

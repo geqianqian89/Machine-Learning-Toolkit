@@ -11,11 +11,12 @@ Inheritance diagram for Primal\+Classifier\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Primal\+Classifier\+:\nopagebreak
+Collaboration diagram for Primal\+Classifier\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=188pt]{class_primal_classifier__coll__graph}
+\includegraphics[width=192pt]{class_primal_classifier__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
@@ -27,16 +28,10 @@ void \hyperlink{class_primal_classifier_a22ca554e2a8d33d43c813b6b9b3e4a6a}{setq\
 \begin{DoxyCompactList}\small\item\em setq\+Norm Set the q norm used by the classifier. (Euclidean norm is the default) \end{DoxyCompactList}\item 
 void \hyperlink{class_primal_classifier_a30cd3926ea5e7341920dcb5480567af1}{setp\+Norm} (double p)
 \begin{DoxyCompactList}\small\item\em setp\+Norm Set the p norm used by the classifier. (Euclidean norm is the default) \end{DoxyCompactList}\item 
-void \hyperlink{class_primal_classifier_a2d1443916a530c9b3729fb748097db50}{set\+Gamma} (double \hyperlink{class_primal_classifier_ab8c6099dda1468385b2c401cb65c1238}{gamma})
-\begin{DoxyCompactList}\small\item\em Set solution margin. \end{DoxyCompactList}\item 
 void \hyperlink{class_primal_classifier_acf3edea17de00a41c33d0fee4fabd4da}{set\+Flexible} (double \hyperlink{class_primal_classifier_af660bbc42f67792e3da8876671b1e9df}{flexible})
 \begin{DoxyCompactList}\small\item\em Set flexibity of the classifier. \end{DoxyCompactList}\item 
 void \hyperlink{class_primal_classifier_a49be3fca8d8383d98f9d671d1e1f27c7}{set\+Alpha\+Aprox} (double \hyperlink{class_primal_classifier_a1a432d06373100e176e116f995bdcd26}{alpha\+\_\+aprox})
-\begin{DoxyCompactList}\small\item\em Set the percentage of the aproximation. \end{DoxyCompactList}\item 
-double \hyperlink{class_primal_classifier_a320c67c29eeb85d5d05f7db1de7fde41}{get\+Gamma} ()
-\begin{DoxyCompactList}\small\item\em Get the margin of the solution. \end{DoxyCompactList}\item 
-\hyperlink{class_solution}{Solution} \hyperlink{class_primal_classifier_a1a3d9ba4e80c58418db0d8454168b910}{get\+Solution} ()
-\begin{DoxyCompactList}\small\item\em get\+Solution Returns the solution of the primal classifier. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Set the percentage of the aproximation. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -52,9 +47,6 @@ double {\bfseries p} = 2
 \mbox{\Hypertarget{class_primal_classifier_af660bbc42f67792e3da8876671b1e9df}\label{class_primal_classifier_af660bbc42f67792e3da8876671b1e9df}} 
 double \hyperlink{class_primal_classifier_af660bbc42f67792e3da8876671b1e9df}{flexible} = 0.\+0
 \begin{DoxyCompactList}\small\item\em Flexibility. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_primal_classifier_ab8c6099dda1468385b2c401cb65c1238}\label{class_primal_classifier_ab8c6099dda1468385b2c401cb65c1238}} 
-double \hyperlink{class_primal_classifier_ab8c6099dda1468385b2c401cb65c1238}{gamma} = 0.\+0
-\begin{DoxyCompactList}\small\item\em Margin of the solution. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_primal_classifier_a1a432d06373100e176e116f995bdcd26}\label{class_primal_classifier_a1a432d06373100e176e116f995bdcd26}} 
 double \hyperlink{class_primal_classifier_a1a432d06373100e176e116f995bdcd26}{alpha\+\_\+aprox} = 0.\+0
 \begin{DoxyCompactList}\small\item\em Percentage of aproximation of the result. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -78,32 +70,6 @@ std\+::string
 
 Implements \hyperlink{class_classifier_a7bfe7cc88b851b4a7e7ec55b30dd844e}{Classifier}.
 
-\mbox{\Hypertarget{class_primal_classifier_a320c67c29eeb85d5d05f7db1de7fde41}\label{class_primal_classifier_a320c67c29eeb85d5d05f7db1de7fde41}} 
-\index{Primal\+Classifier@{Primal\+Classifier}!get\+Gamma@{get\+Gamma}}
-\index{get\+Gamma@{get\+Gamma}!Primal\+Classifier@{Primal\+Classifier}}
-\subsubsection{\texorpdfstring{get\+Gamma()}{getGamma()}}
-{\footnotesize\ttfamily double Primal\+Classifier\+::get\+Gamma (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Get the margin of the solution. 
-
-\begin{DoxyReturn}{Returns}
-double 
-\end{DoxyReturn}
-\mbox{\Hypertarget{class_primal_classifier_a1a3d9ba4e80c58418db0d8454168b910}\label{class_primal_classifier_a1a3d9ba4e80c58418db0d8454168b910}} 
-\index{Primal\+Classifier@{Primal\+Classifier}!get\+Solution@{get\+Solution}}
-\index{get\+Solution@{get\+Solution}!Primal\+Classifier@{Primal\+Classifier}}
-\subsubsection{\texorpdfstring{get\+Solution()}{getSolution()}}
-{\footnotesize\ttfamily \hyperlink{class_solution}{Solution} Primal\+Classifier\+::get\+Solution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-get\+Solution Returns the solution of the primal classifier. 
-
-\begin{DoxyReturn}{Returns}
-\hyperlink{class_solution}{Solution} 
-\end{DoxyReturn}
 \mbox{\Hypertarget{class_primal_classifier_a49be3fca8d8383d98f9d671d1e1f27c7}\label{class_primal_classifier_a49be3fca8d8383d98f9d671d1e1f27c7}} 
 \index{Primal\+Classifier@{Primal\+Classifier}!set\+Alpha\+Aprox@{set\+Alpha\+Aprox}}
 \index{set\+Alpha\+Aprox@{set\+Alpha\+Aprox}!Primal\+Classifier@{Primal\+Classifier}}
@@ -132,21 +98,6 @@ Set flexibity of the classifier.
 
 \begin{DoxyParams}{Parameters}
 {\em flexible} & flexibility. \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{class_primal_classifier_a2d1443916a530c9b3729fb748097db50}\label{class_primal_classifier_a2d1443916a530c9b3729fb748097db50}} 
-\index{Primal\+Classifier@{Primal\+Classifier}!set\+Gamma@{set\+Gamma}}
-\index{set\+Gamma@{set\+Gamma}!Primal\+Classifier@{Primal\+Classifier}}
-\subsubsection{\texorpdfstring{set\+Gamma()}{setGamma()}}
-{\footnotesize\ttfamily void Primal\+Classifier\+::set\+Gamma (\begin{DoxyParamCaption}\item[{double}]{gamma }\end{DoxyParamCaption})}
-
-
-
-Set solution margin. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em gamma} & Margin. \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{class_primal_classifier_a30cd3926ea5e7341920dcb5480567af1}\label{class_primal_classifier_a30cd3926ea5e7341920dcb5480567af1}} 

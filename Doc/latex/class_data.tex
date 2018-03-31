@@ -18,11 +18,11 @@ Wrapper for the dataset data.
 \begin{DoxyCompactList}\small\item\em \hyperlink{class_data}{Data} constructor to load a dataset from a file. \end{DoxyCompactList}\item 
 void \hyperlink{class_data_a6550f72555320ae9225ba216a9f4e7b3}{write} (std\+::string fname, std\+::string ext)
 \begin{DoxyCompactList}\small\item\em write Write the data to a file with the given extention. \end{DoxyCompactList}\item 
-int \hyperlink{class_data_abfd7c7cca66a186ff45efa430bcb2f1e}{get\+Size} ()
+size\+\_\+t \hyperlink{class_data_a269f9d89ef47b9cf30454cd88c8ccf65}{get\+Size} ()
 \begin{DoxyCompactList}\small\item\em Returns the size of the dataset. \end{DoxyCompactList}\item 
-int \hyperlink{class_data_a0391940729a8023ea9b154132a854d35}{get\+Dim} ()
+size\+\_\+t \hyperlink{class_data_a7aba855040506ff3c7ce6ffb2b2773b4}{get\+Dim} ()
 \begin{DoxyCompactList}\small\item\em Returns the dimension of the dataset. \end{DoxyCompactList}\item 
-void \hyperlink{class_data_aeedfb7697a9b3e6fec681b991cb46daa}{set\+Dim} (int dim)
+void \hyperlink{class_data_a940307fd855d626c6f18573b3eaf7009}{set\+Dim} (size\+\_\+t dim)
 \begin{DoxyCompactList}\small\item\em set\+Dim Set the dimension of the points. \end{DoxyCompactList}\item 
 std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \hyperlink{class_point}{Point} $>$ $>$ \hyperlink{class_data_a9310e45321bca4335b8ab3031d343e16}{get\+Points} ()
 \begin{DoxyCompactList}\small\item\em Returns a shared pointer to the vector of Points of the sample. \end{DoxyCompactList}\item 
@@ -59,7 +59,7 @@ void \hyperlink{class_data_a44b749f64ffa35e034f9503fdec4917e}{clear} ()
 \begin{DoxyCompactList}\small\item\em Returns a copy of the data. \end{DoxyCompactList}\item 
 void \hyperlink{class_data_a6454e835f570d10e7614ac237d6fdf79}{copy\+Zero} (const \hyperlink{class_data}{Data} \&other)
 \begin{DoxyCompactList}\small\item\em Returns a copy of the data with zero points. \end{DoxyCompactList}\item 
-void \hyperlink{class_data_a83c2a01ded98c4fad0b5b31538039046}{join} (\hyperlink{class_data}{Data} data)
+void \hyperlink{class_data_a89252c083e4dde3ea403e27604db53ea}{join} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_data}{Data} $>$ data)
 \begin{DoxyCompactList}\small\item\em Merge one dataset with another. \end{DoxyCompactList}\item 
 bool \hyperlink{class_data_abb6aade47d78a284301c32e82b2cbee2}{insert\+Point} (\hyperlink{class_data}{Data} sample, int id)
 \begin{DoxyCompactList}\small\item\em Insert a point to the data from another sample. \end{DoxyCompactList}\item 
@@ -69,7 +69,7 @@ std\+::vector$<$ bool $>$ \hyperlink{class_data_a6cc376e614e5440061c66833e1c8d30
 \begin{DoxyCompactList}\small\item\em Remove several points from the sample. \end{DoxyCompactList}\item 
 bool \hyperlink{class_data_ad927494a13a5018ff3644212d7234a03}{remove\+Point} (int pid)
 \begin{DoxyCompactList}\small\item\em Remove a point from the data. \end{DoxyCompactList}\item 
-\hyperlink{class_data}{Data} \hyperlink{class_data_a90e4e972afe7cfd622d4935299def743}{insert\+Features} (std\+::vector$<$ int $>$ ins\+\_\+feat)
+\hyperlink{class_data}{Data} $\ast$ \hyperlink{class_data_a5eb92a397e4eafb02f3c012658c78b37}{insert\+Features} (std\+::vector$<$ int $>$ ins\+\_\+feat)
 \begin{DoxyCompactList}\small\item\em insert\+Features Returns \hyperlink{class_data}{Data} object with only features in array. \end{DoxyCompactList}\item 
 bool \hyperlink{class_data_a0e0136f31687452ff10b489f8804ceb8}{remove\+Features} (std\+::vector$<$ int $>$ feats)
 \begin{DoxyCompactList}\small\item\em Remove several features from the sample. \end{DoxyCompactList}\item 
@@ -77,6 +77,9 @@ void \hyperlink{class_data_a3e66e3dce7675bf2a1eded906e3d7912}{change\+X\+Vector}
 \begin{DoxyCompactList}\small\item\em Change the x vector of a sample. \end{DoxyCompactList}\item 
 void \hyperlink{class_data_a38bbab57bd9d871bd78771df47529d6b}{normalize} (double p=2)
 \begin{DoxyCompactList}\small\item\em normalize Normalize the dataset using a Lp-\/norm. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_data_a92a70787d983df3d92b3b93a947aea8c}\label{class_data_a92a70787d983df3d92b3b93a947aea8c}} 
+void {\bfseries reset\+Index} ()
+\item 
 \mbox{\Hypertarget{class_data_a02affbc0f8564106c84dc59f34666912}\label{class_data_a02affbc0f8564106c84dc59f34666912}} 
 void {\bfseries operator=} (const \hyperlink{class_data}{Data} \&)
 \end{DoxyCompactItemize}
@@ -180,11 +183,11 @@ Returns a copy of the data with zero points.
 \begin{DoxyReturn}{Returns}
 \hyperlink{class_data}{Data} 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_data_a0391940729a8023ea9b154132a854d35}\label{class_data_a0391940729a8023ea9b154132a854d35}} 
+\mbox{\Hypertarget{class_data_a7aba855040506ff3c7ce6ffb2b2773b4}\label{class_data_a7aba855040506ff3c7ce6ffb2b2773b4}} 
 \index{Data@{Data}!get\+Dim@{get\+Dim}}
 \index{get\+Dim@{get\+Dim}!Data@{Data}}
 \subsubsection{\texorpdfstring{get\+Dim()}{getDim()}}
-{\footnotesize\ttfamily int Data\+::get\+Dim (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily size\+\_\+t Data\+::get\+Dim (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -276,11 +279,11 @@ Returns a shared pointer to the vector of Points of the sample.
 \begin{DoxyReturn}{Returns}
 std\+::vector$<$std\+::shared\+\_\+ptr$<$\+Point$>$ $>$ 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_data_abfd7c7cca66a186ff45efa430bcb2f1e}\label{class_data_abfd7c7cca66a186ff45efa430bcb2f1e}} 
+\mbox{\Hypertarget{class_data_a269f9d89ef47b9cf30454cd88c8ccf65}\label{class_data_a269f9d89ef47b9cf30454cd88c8ccf65}} 
 \index{Data@{Data}!get\+Size@{get\+Size}}
 \index{get\+Size@{get\+Size}!Data@{Data}}
 \subsubsection{\texorpdfstring{get\+Size()}{getSize()}}
-{\footnotesize\ttfamily int Data\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily size\+\_\+t Data\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -302,11 +305,11 @@ Returns a class with the statistics info of the sample.
 \begin{DoxyReturn}{Returns}
 \hyperlink{class_statistics}{Statistics} 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_data_a90e4e972afe7cfd622d4935299def743}\label{class_data_a90e4e972afe7cfd622d4935299def743}} 
+\mbox{\Hypertarget{class_data_a5eb92a397e4eafb02f3c012658c78b37}\label{class_data_a5eb92a397e4eafb02f3c012658c78b37}} 
 \index{Data@{Data}!insert\+Features@{insert\+Features}}
 \index{insert\+Features@{insert\+Features}!Data@{Data}}
 \subsubsection{\texorpdfstring{insert\+Features()}{insertFeatures()}}
-{\footnotesize\ttfamily \hyperlink{class_data}{Data} Data\+::insert\+Features (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$}]{ins\+\_\+feat }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \hyperlink{class_data}{Data} $\ast$ Data\+::insert\+Features (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$}]{ins\+\_\+feat }\end{DoxyParamCaption})}
 
 
 
@@ -384,11 +387,11 @@ Returns if the dataset is normalized.
 \begin{DoxyReturn}{Returns}
 bool 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_data_a83c2a01ded98c4fad0b5b31538039046}\label{class_data_a83c2a01ded98c4fad0b5b31538039046}} 
+\mbox{\Hypertarget{class_data_a89252c083e4dde3ea403e27604db53ea}\label{class_data_a89252c083e4dde3ea403e27604db53ea}} 
 \index{Data@{Data}!join@{join}}
 \index{join@{join}!Data@{Data}}
 \subsubsection{\texorpdfstring{join()}{join()}}
-{\footnotesize\ttfamily void Data\+::join (\begin{DoxyParamCaption}\item[{\hyperlink{class_data}{Data}}]{data }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Data\+::join (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \hyperlink{class_data}{Data} $>$}]{data }\end{DoxyParamCaption})}
 
 
 
@@ -523,11 +526,11 @@ set\+Classes Set the classes of the dataset.
 {\em neg} & Negative class. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_data_aeedfb7697a9b3e6fec681b991cb46daa}\label{class_data_aeedfb7697a9b3e6fec681b991cb46daa}} 
+\mbox{\Hypertarget{class_data_a940307fd855d626c6f18573b3eaf7009}\label{class_data_a940307fd855d626c6f18573b3eaf7009}} 
 \index{Data@{Data}!set\+Dim@{set\+Dim}}
 \index{set\+Dim@{set\+Dim}!Data@{Data}}
 \subsubsection{\texorpdfstring{set\+Dim()}{setDim()}}
-{\footnotesize\ttfamily void Data\+::set\+Dim (\begin{DoxyParamCaption}\item[{int}]{dim }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Data\+::set\+Dim (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{dim }\end{DoxyParamCaption})}
 
 
 

@@ -20,22 +20,23 @@ Inheritance diagram for Perceptron\+Primal\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Perceptron\+Primal\+:\nopagebreak
+Collaboration diagram for Perceptron\+Primal\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=188pt]{class_perceptron_primal__coll__graph}
+\includegraphics[width=192pt]{class_perceptron_primal__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_perceptron_primal_a3c182ca6be41096ac89aebcb45761660}\label{class_perceptron_primal_a3c182ca6be41096ac89aebcb45761660}} 
-{\bfseries Perceptron\+Primal} (\hyperlink{class_data}{Data} $\ast$\hyperlink{class_classifier_a515c225d0da93df02ca79f9f87811d17}{samples}=N\+U\+LL, double \hyperlink{class_primal_classifier_a746ad2ff93fb77d82ae389f90dbdc89e}{q}=2, double \hyperlink{class_classifier_af9867e5919742de1303dd971a9a1c19a}{rate}=0.\+5, \hyperlink{class_solution}{Solution} $\ast$initial\+\_\+solution=N\+U\+LL)
+\mbox{\Hypertarget{class_perceptron_primal_ae5440d7d451546d245a50c54ca4b424c}\label{class_perceptron_primal_ae5440d7d451546d245a50c54ca4b424c}} 
+{\bfseries Perceptron\+Primal} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_data}{Data} $>$ \hyperlink{class_classifier_aad6a4fcea8f44339d7a6302f530852ca}{samples}=nullptr, double \hyperlink{class_primal_classifier_a746ad2ff93fb77d82ae389f90dbdc89e}{q}=2, double \hyperlink{class_classifier_af9867e5919742de1303dd971a9a1c19a}{rate}=0.\+5, \hyperlink{class_solution}{Solution} $\ast$initial\+\_\+solution=nullptr)
 \item 
-bool \hyperlink{class_perceptron_primal_a17f817a72fc7d61d1686ea77f7f9e84d}{train} ()
+bool \hyperlink{class_perceptron_primal_aea1195af5503b2dfb086aacc92acfdc9}{train} () override
 \begin{DoxyCompactList}\small\item\em Function that execute the training phase of a classification algorithm. \end{DoxyCompactList}\item 
-double \hyperlink{class_perceptron_primal_ac8ce9ceffe2b35b5386e5367fb419b3b}{evaluate} (\hyperlink{class_point}{Point} p)
+double \hyperlink{class_perceptron_primal_a84b0d3d9627cc21fe9a7770d686e38ea}{evaluate} (\hyperlink{class_point}{Point} p) override
 \begin{DoxyCompactList}\small\item\em Returns the class of a feature point based on the trained classifier. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
@@ -44,11 +45,11 @@ double \hyperlink{class_perceptron_primal_ac8ce9ceffe2b35b5386e5367fb419b3b}{eva
 Wrapper for the implementation of the Perceptron primal algorithm. 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_perceptron_primal_ac8ce9ceffe2b35b5386e5367fb419b3b}\label{class_perceptron_primal_ac8ce9ceffe2b35b5386e5367fb419b3b}} 
+\mbox{\Hypertarget{class_perceptron_primal_a84b0d3d9627cc21fe9a7770d686e38ea}\label{class_perceptron_primal_a84b0d3d9627cc21fe9a7770d686e38ea}} 
 \index{Perceptron\+Primal@{Perceptron\+Primal}!evaluate@{evaluate}}
 \index{evaluate@{evaluate}!Perceptron\+Primal@{Perceptron\+Primal}}
 \subsubsection{\texorpdfstring{evaluate()}{evaluate()}}
-{\footnotesize\ttfamily double Perceptron\+Primal\+::evaluate (\begin{DoxyParamCaption}\item[{\hyperlink{class_point}{Point}}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily double Perceptron\+Primal\+::evaluate (\begin{DoxyParamCaption}\item[{\hyperlink{class_point}{Point}}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -66,11 +67,11 @@ int
 
 Implements \hyperlink{class_classifier_ae8e9554823b85ddc2dcad2955da811d9}{Classifier}.
 
-\mbox{\Hypertarget{class_perceptron_primal_a17f817a72fc7d61d1686ea77f7f9e84d}\label{class_perceptron_primal_a17f817a72fc7d61d1686ea77f7f9e84d}} 
+\mbox{\Hypertarget{class_perceptron_primal_aea1195af5503b2dfb086aacc92acfdc9}\label{class_perceptron_primal_aea1195af5503b2dfb086aacc92acfdc9}} 
 \index{Perceptron\+Primal@{Perceptron\+Primal}!train@{train}}
 \index{train@{train}!Perceptron\+Primal@{Perceptron\+Primal}}
 \subsubsection{\texorpdfstring{train()}{train()}}
-{\footnotesize\ttfamily bool Perceptron\+Primal\+::train (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily bool Perceptron\+Primal\+::train (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
