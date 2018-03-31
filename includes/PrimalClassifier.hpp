@@ -30,11 +30,6 @@ public:
      */
     void setpNorm(double p);
     /**
-     * @brief Set solution margin.
-     * @param gamma Margin.
-     */
-    void setGamma(double gamma);
-    /**
      * @brief Set flexibity of the classifier.
      * @param flexible flexibility.
      */

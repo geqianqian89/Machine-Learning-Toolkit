@@ -7,6 +7,7 @@
 #include <float.h>
 #include "../includes/IMA.hpp"
 #include "../includes/Timer.hpp"
+#include "../includes/Perceptron.hpp"
 
 using namespace std;
 
@@ -108,9 +109,9 @@ bool IMAp::train() {
 
     if(verbose)
     {
-        cout << "----------------------------------------------------------------------\n";
-        cout << " pmf    passos     atualiz.        margem            norma        segs\n";
-        cout << "----------------------------------------------------------------------\n";
+        cout << "-----------------------------------------------------------------------------\n";
+        cout << " pmf    steps     updates              margin              norm          secs\n";
+        cout << "-----------------------------------------------------------------------------\n";
     }
 
     it = 0; ctot = 0; steps = 0; gamma = 0.0;
@@ -167,13 +168,13 @@ bool IMAp::train() {
         if(it > 1)
         {
             rate = sqrt(t1) / sqrt(t3);
-            if(verbose) cout << "RATE: " << rate << "\n";
+            if(verbose) cout << "\tRATE: " << rate << "\n";
         }
         else if(it == 1 && verbose)
-            if(verbose) cout << "RATE: " << rate << "\n";
+            if(verbose) cout << "\tRATE: " << rate << "\n";
 
         secs = imapFixMargin.getElapsedTime()/1000;
-        if(verbose) cout << " " << it+1 << "        " << steps << "           " << ctot << "              " << rmargin << "            " << norm << "        " << secs << " ";
+        if(verbose) cout << " " << it+1 << "        " << steps << "           " << ctot << "              " << rmargin << "            " << norm << "           " << secs << " ";
 
         ++it; //IMA iteration increment
 
@@ -194,11 +195,11 @@ bool IMAp::train() {
 
     if(verbose)
     {
-        cout << "\n----------------------------------------------------------------------\n";
-        cout << "Numero de vezes que o Perceptron de Margem Fixa foi chamado: " << it+1 << "\n";
-        cout << "Numero de passos atraves dos dados: " << steps <<"\n";
-        cout << "Numero de atualizacoes: " << ctot << "\n";
-        cout << "Margem encontrada: " << rmargin << "\n";
+        cout << "\n-----------------------------------------------------------------------------\n";
+        cout << "Number of times that the Fixed Margin Perceptron was called: " << it+1 << "\n";
+        cout << "Number of steps through data: " << steps <<"\n";
+        cout << "Number of updates: " << ctot << "\n";
+        cout << "Margin found: " << rmargin << "\n";
         cout << "Min: " << fabs(min) << " / Max: " << fabs(max) << "\n\n";
         if(verbose == 3)
         {
@@ -209,7 +210,7 @@ bool IMAp::train() {
 
     if(!it)
     {
-        if(verbose) cout << "Convergencia do FMP nao foi atingida!\n";
+        if(verbose) cout << "FMP convergency wasn't reached!\n";
         return 0;
     }
     return 1;
@@ -247,6 +248,8 @@ bool IMApFixedMargin::train() {
     e = 1,s = 0;
 
     timer.Reset();
+    start_time = timer.Elapsed();
+    time += start_time;
     while(timer.Elapsed() - time <= 0)
     {
         for(e = 0, i = 0; i < size; ++i)
@@ -358,5 +361,149 @@ bool IMApFixedMargin::train() {
 }
 
 double IMApFixedMargin::evaluate(Point p) {
+    return 0;
+}
+
+IMADual::IMADual(Data *samples, Kernel *k, double rate, Solution *initial_solution) {
+    this->samples = samples;
+    this->kernel = k;
+    this->rate = rate;
+
+    if(initial_solution){
+        solution.w = initial_solution->w;
+        solution.bias = initial_solution->bias;
+        hasInitialSolution = true;
+    }else{
+        solution.w.resize(samples->getDim());
+    }
+}
+
+bool IMADual::train() {
+    register int it;
+    double rmargin = 0, secs;
+
+    register int i, j;
+    int sv = 0, size = samples->getSize(), dim = samples->getDim();
+    double min, max, norm = 0;
+    dMatrix K;
+    vector<int> index = samples->getIndex();
+    vector<double> w_saved(dim), saved_alphas(size), func(size);
+    vector<shared_ptr<Point> > points = samples->getPoints();
+
+    //Allocating space for index
+    if(index.size() == 0)
+    {
+        index.resize(size);
+
+        //Initializing alpha and bias
+        for(i = 0; i < size; ++i) { index[i] = i; }
+    }
+    solution.bias = 0;
+
+    //Allocating space kernel matrix
+    kernel->compute(*samples);
+
+    if(verbose)
+    {
+        cout << "-------------------------------------------------------------------\n";
+        cout << "  steps      updates        margin          norm       svs     secs\n";
+        cout << "-------------------------------------------------------------------\n";
+    }
+
+    it = 0; ctot = 0; steps = 0; gamma = 0;
+    double start_time = 100.0f*clock()/CLOCKS_PER_SEC;
+
+    PerceptronFixedMarginDual percDual(samples, gamma, rate, kernel, nullptr);
+    Solution sol;
+
+    while(true){
+        if(!percDual.train()) break;
+
+        //Finding minimum and maximum functional values
+        ctot = percDual.getCtot();
+        steps = percDual.getSteps();
+        sol = percDual.getSolution();
+        norm = sol.norm;
+        solution.bias = sol.bias;
+        func = sol.func;
+
+        for(sv = 0, min = DBL_MAX, max = -DBL_MAX, i = 0; i < size; ++i)
+        {
+            if(points[i]->alpha > EPS*rate) { sv++; saved_alphas[i] = points[i]->alpha; }
+            else                           { saved_alphas[i] = 0.0; }
+            if(func[i] >= 0 && min > func[i]/norm) min = func[i]/norm;
+            else if(func[i] <  0 && max < func[i]/norm) max = func[i]/norm;
+        }
+
+        //Obtaining real margin
+        rmargin = (fabs(min) > fabs(max)) ? fabs(max) : fabs(min);
+
+        //Obtaining new gamma_f
+        gamma = (min-max)/2.0;
+        if(gamma < MIN_INC*rmargin) gamma = MIN_INC*rmargin;
+
+        percDual.setCtot(ctot);
+        percDual.setSteps(steps);
+        percDual.setGamma(gamma);
+        percDual.setSolution(sol);
+
+        secs = (100.0f*clock()/CLOCKS_PER_SEC-start_time)/100.0f;
+
+        if(verbose) cout << "    " << steps <<"         " << ctot << "          " << rmargin << "         " << norm << "     " << sv <<"     "<< secs << endl;
+        ++it; //IMA iteration increment
+    }
+
+    for(i = 0; i < size; ++i) points[i]->alpha = saved_alphas[i];
+
+    solution.norm = kernel->norm(*samples);
+
+    /*recuperando o vetor DJ -- "pesos" das componentes*/
+    int kernel_type = kernel->getType();
+    double kernel_param = kernel->getParam();
+
+    if(kernel_type == 0)
+        for(i = 0; i < dim; i++){
+            for(j = 0; j < size; j++){
+                solution.w[i] += alpha[j]*points[j]->y*points[j]->x[i];
+            }
+        }
+    else
+    {
+        if(kernel_type == 1 && kernel_param == 1)
+            cout << endl;
+           // w_saved = utils_get_dualweight_prodint(sample);
+        else
+            cout <<"i" <<endl;
+            //w_saved = utils_get_dualweight(sample);
+        if(it) Data::normalize(solution.w, 2);
+    }
+
+    solution.margin = rmargin;
+
+    if(verbose)
+    {
+        cout << "-------------------------------------------------------------------\n";
+        cout << "Number of times that the Fixed Margin Perceptron was called:: " << it+1 << endl;
+        cout << "Number of steps through data: " << steps << endl;
+        cout << "Number of updates: " << ctot << endl;
+        cout << "Number of support vectors: " << sv << endl;
+        cout << "Margin found: " << rmargin << "\n\n";
+        /*if(verbose > 1)
+        {
+            for(i = 0; i < dim; i++)
+                printf("W[%d]: %lf\n", sample->fnames[i], w_saved[i]);
+            printf("Bias: %lf\n\n", sample->bias);
+        }*/
+    }
+
+    if(!it)
+    {
+        if(verbose) cout << "FMP convergency wasn't reached!\n";
+        return 0;
+    }
+    return true;
+}
+
+double IMADual::evaluate(Point p) {
     return 0;
 }

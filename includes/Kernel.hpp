@@ -23,6 +23,7 @@ public :
      * @brief Class constructor.
      */
     Kernel(int type = 0, double param = 0);
+    dMatrix* getKernelMatrixPointer();
     /**
      * @brief Class constructor.
      * @param K Kernel matrix to be set in initialization.

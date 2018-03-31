@@ -299,7 +299,7 @@ double Validation::validation(int fold, int qtde){
             }
             else
             {
-                if(verbose > 1) cout << "["<< i+1 <<"x] function: " << func << ", y: " << p->y  << "\n";
+                if(verbose > 1) cout << "["<< i+1 <<"] function: " << func << ", y: " << p->y  << "\n";
             }
             if(verbose) cout.flush();
         }

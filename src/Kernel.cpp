@@ -39,6 +39,10 @@ dMatrix Kernel::getKernelMatrix(){
     return K;
 }
 
+dMatrix* Kernel::getKernelMatrixPointer(){
+    return &K;
+}
+
 void Kernel::compute(Data samples){
     int i, j, size = samples.getSize(), dim = samples.getDim();
     vector<shared_ptr<Point> > points = samples.getPoints();

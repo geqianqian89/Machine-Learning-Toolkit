@@ -24,6 +24,12 @@
            A Buddha statue to bless your
                code to be bug free
 */
+
+/*! Data manipulation class
+   \file Data.hpp
+   \author Mateus Coutinho Marim
+*/
+
 #ifndef DATA__HPP
 #define DATA__HPP
 #pragma pack(1)

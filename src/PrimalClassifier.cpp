@@ -12,10 +12,6 @@ Solution PrimalClassifier::getSolution(){
     return solution;
 }
 
-void PrimalClassifier::setGamma(double gamma) {
-    this->gamma = gamma;
-}
-
 double PrimalClassifier::getGamma() {
     return gamma;
 }
