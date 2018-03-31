@@ -36,18 +36,59 @@ public:
 
     inline void setKernelParam(double param){ kernel->setType(param); }
 
-    void getDualWeight(){
-        size_t i, j;
-        size_t dim = samples->getDim(), size = samples->getSize();
+    std::vector<double> getDualWeight(){
+        register int i = 0, j = 0, k = 0;
+        size_t size = samples->getSize(), dim = samples->getDim();
+        dMatrix H, Hk, matrixdif(size, std::vector<double>(size));
+        std::vector<double> alphaaux(size);
+
+        H = kernel->generateMatrixH(samples);
 
         solution.w.resize(dim);
 
-        for(j = 0; j < dim; ++j)
-            for(solution.w[j] = 0, i = 0; i < size; ++i)
-                solution.w[j] += samples->getPoint(i)->alpha * samples->getPoint(i)->y * samples->getPoint(i)->x[j];
+        for(k = 0; k < dim; ++k)
+        {
+            Hk = kernel->generateMatrixHwithoutDim(samples, k);
+
+            for(i = 0; i < size; ++i)
+                for(j = 0; j < size; ++j)
+                    matrixdif[i][j] = H[i][j] - Hk[i][j];
+
+            for(i = 0; i < size; ++i)
+                for(alphaaux[i] = 0, j = 0; j < size; ++j)
+                    alphaaux[i] += samples->getPoint(j)->alpha * matrixdif[i][j];
+
+            for(solution.w[k] = 0, i = 0; i < size; ++i)
+                solution.w[k] += alphaaux[i] * samples->getPoint(i)->alpha;
+        }
+
+        return solution.w;
     }
 
-    void getDualWeightProdInt(Data samples);
+    std::vector<double> getDualWeightProdInt(){
+        register int i = 0, j = 0, k = 0;
+        size_t size = samples->getSize(), dim = samples->getDim();
+        std::vector<double> alphaaux(size);
+        dMatrix H(size, std::vector<double>(size));
+
+        solution.w.resize(dim);
+
+        for(k = 0; k < dim; ++k)
+        {
+            for(i = 0; i < size; ++i)
+                for(j = 0; j < size; ++j)
+                    H[i][j] = samples->getPoint(i)->x[k] * samples->getPoint(j)->x[k] * samples->getPoint(i)->y * samples->getPoint(j)->y;
+
+            for(i = 0; i < size; ++i)
+                for(alphaaux[i] = 0, j = 0; j < size; ++j)
+                    alphaaux[i] += samples->getPoint(j)->alpha * H[i][j];
+
+            for(solution.w[k] = 0, i = 0; i < size; ++i)
+                solution.w[k] += alphaaux[i] * samples->getPoint(i)->alpha;
+        }
+
+        return solution.w;
+    }
 };
 
 #endif

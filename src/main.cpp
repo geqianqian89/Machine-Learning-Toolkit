@@ -1200,12 +1200,15 @@ void dualClassifiersOption(int option){
                 clock_t begin = clock();
                 IMADual ima_dual(data, &K, rate, nullptr);
 
+                ima_dual.setVerbose(2);
                 ima_dual.train();
                 clock_t end = clock();
 
                 double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
                 cout << endl;
                 cout << elapsed_secs << " seconds to compute.\n";
+
+                sol = ima_dual.getSolution();
             }else{
                 cout << "Load a dataset first..." << endl;
             }

@@ -108,3 +108,64 @@ double Kernel::norm(Data data){
 
     return sqrt(sum);
 }
+
+dMatrix Kernel::generateMatrixH(const std::shared_ptr<Data> samples) {
+    register int i = 0, j = 0;
+    size_t size = samples->getSize(), dim = samples->getDim();
+    dMatrix matrix(size, vector<double>(size));
+
+    /* Calculating Matrix */
+    for(i = 0; i < size; ++i)
+        for(j = i; j < size; ++j)
+        {
+            matrix[i][j] = function(samples->getPoint(i), samples->getPoint(j), dim) * samples->getPoint(i)->y * samples->getPoint(j)->y;
+            matrix[j][i] = matrix[i][j];
+        }
+    return matrix;
+}
+
+dMatrix Kernel::generateMatrixHwithoutDim(const std::shared_ptr<Data> samples, int dim) {
+    register int i = 0, j = 0;
+    size_t size = samples->getSize();
+    dMatrix matrix(size, vector<double>(size));
+
+    /* Calculating Matrix */
+    for(i = 0; i < size; ++i)
+        for(j = i; j < size; ++j)
+        {
+            matrix[i][j] = functionWithoutDim(samples->getPoint(i), samples->getPoint(j), dim, samples->getDim()) * samples->getPoint(i)->y * samples->getPoint(j)->y;
+            matrix[j][i] = matrix[i][j];
+        }
+    return matrix;
+}
+
+double Kernel::functionWithoutDim(std::shared_ptr<Point> one, std::shared_ptr<Point> two, int j, int dim) {
+    register int i = 0;
+    register double t, sum = 0.0;
+
+    switch(type)
+    {
+        case 0: //Produto Interno
+            for(i = 0; i < dim; ++i)
+                if(i != j)
+                    sum += one->x[i] * two->x[i];
+            break;
+
+        case 1: //Polinomial
+            for(i = 0; i < dim; ++i)
+                if(i != j)
+                    sum += one->x[i] * two->x[i];
+            sum = (param > 1) ? pow(sum+1, param) : sum;
+            break;
+
+        case 2: //Gaussiano
+            for(i = 0; i < dim; ++i)
+                if(i != j)
+                { t = one->x[i] - two->x[i]; sum += t * t; }
+            sum = exp(-1 * sum * param);
+            break;
+    }
+    /*The '+1' here accounts for the bias term "b" in SVM formulation since
+      <w,x> = \sum_i \alpha_i y_i k(x_i,x) + b and b=\sum_i \alpha_i y_i*/
+    return sum;// + 1.0f;
+}

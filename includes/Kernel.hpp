@@ -64,6 +64,8 @@ public :
      * @param samples Data used to compute the kernel matrix.
      */
     void compute(Data samples);
+    dMatrix generateMatrixH(std::shared_ptr<Data> samples);
+    dMatrix generateMatrixHwithoutDim(std::shared_ptr<Data> samples, int dim);
     /**
      * @brief function Compute the kernel function between two points.
      * @param one first point.
@@ -72,6 +74,8 @@ public :
      * @return double
      */
     double function(std::shared_ptr<Point> one, std::shared_ptr<Point> two, int dim);
+    double functionWithoutDim(std::shared_ptr<Point> one, std::shared_ptr<Point> two, int j, int dim);
+
     /**
      * @brief norm Computes norm in dual variables.
      * @param data Dataset to compute norm.
