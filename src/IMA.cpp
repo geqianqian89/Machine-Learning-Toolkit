@@ -456,6 +456,13 @@ bool IMADual::train() {
         ++it; //IMA iteration increment
     }
 
+    ctot = percDual.getCtot();
+    steps = percDual.getSteps();
+    sol = percDual.getSolution();
+    norm = sol.norm;
+    solution.bias = sol.bias;
+    func = sol.func;
+
     for(i = 0; i < size; ++i) points[i]->alpha = saved_alphas[i];
 
     solution.norm = kernel->norm(*samples);
@@ -473,8 +480,7 @@ bool IMADual::train() {
     else
     {
         if(kernel_type == 1 && kernel_param == 1)
-            cout << endl;
-           // w_saved = utils_get_dualweight_prodint(sample);
+            getDualWeightProdInt();
         else
             getDualWeight();
         if(it) Data::normalize(solution.w, 2);
@@ -490,12 +496,13 @@ bool IMADual::train() {
         cout << "Number of updates: " << ctot << endl;
         cout << "Number of support vectors: " << sv << endl;
         cout << "Margin found: " << rmargin << "\n\n";
-        /*if(verbose > 1)
+        if(verbose > 1)
         {
+            vector<int> fnames = samples->getFeaturesNames();
             for(i = 0; i < dim; i++)
-                printf("W[%d]: %lf\n", sample->fnames[i], w_saved[i]);
-            printf("Bias: %lf\n\n", sample->bias);
-        }*/
+                cout << "W[" << fnames[i] << "]: " << solution.w[i] << endl;
+            cout << "Bias: " << solution.bias << "\n\n";
+        }
     }
 
     if(!it)
