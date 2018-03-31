@@ -1,6 +1,11 @@
 #ifndef PERCEPTRONPRIMAL__HPP
 #define PERCEPTRONPRIMAL__HPP
 
+/*! Perceptron algorithm implementations
+   \file Perceptron.hpp
+   \author Mateus Coutinho Marim
+*/
+
 #include "PrimalClassifier.hpp"
 #include "DualClassifier.hpp"
 #include "MLToolkit.hpp"
@@ -11,22 +16,19 @@
 
 class PerceptronPrimal : public PrimalClassifier {
 public:
-    explicit PerceptronPrimal(Data *samples = NULL, double q = 2, double rate = 0.5, Solution *initial_solution = NULL);
-    bool train();
-    double evaluate(Point p);
+    explicit PerceptronPrimal(Data *samples = nullptr, double q = 2, double rate = 0.5, Solution *initial_solution = nullptr);
+    bool train() override;
+    double evaluate(Point p) override;
 };
 
 /**
  * \brief Wrapper for the implementation of the Perceptron primal with fixed margin algorithm.
  */
 class PerceptronFixedMarginPrimal : public PrimalClassifier {
-private:
-    double gamma;
-
 public:
-    explicit PerceptronFixedMarginPrimal(Data *samples = NULL, double gamma = 1.0, double q = 2, double rate = 0.5, Solution *initial_solution = NULL);
-    bool train();
-    double evaluate(Point p);
+    explicit PerceptronFixedMarginPrimal(Data *samples = nullptr, double gamma = 1.0, double q = 2, double rate = 0.5, Solution *initial_solution = nullptr);
+    bool train() override;
+    double evaluate(Point p) override;
 };
 
 /**
@@ -34,21 +36,19 @@ public:
  */
 class PerceptronDual : public DualClassifier {
 public:
-    explicit PerceptronDual(Data *samples = NULL, double rate = 0.5, Kernel *K = NULL, Solution *initial_solution = NULL);
-    bool train();
-    double evaluate(Point p);
+    explicit PerceptronDual(Data *samples = nullptr, double rate = 0.5, Kernel *K = nullptr, Solution *initial_solution = nullptr);
+    bool train() override;
+    double evaluate(Point p) override;
 };
 
 /**
  * \brief Wrapper for the implementation of the Perceptron dual with fixed margin algorithm.
  */
 class PerceptronFixedMarginDual : public DualClassifier {
-private:
-    double gamma;
 public:
-    explicit PerceptronFixedMarginDual(Data *samples = NULL, double gamma = 1.0, double rate = 0.5, Kernel *K = NULL, Solution *initial_solution = NULL);
-    bool train();
-    double evaluate(Point p);
+    explicit PerceptronFixedMarginDual(Data *samples = nullptr, double gamma = 1.0, double rate = 0.5, Kernel *K = nullptr, Solution *initial_solution = nullptr);
+    bool train() override;
+    double evaluate(Point p) override;
 };
 
 #endif

@@ -87,7 +87,7 @@ bool PerceptronFixedMarginPrimal::train(){
     double norm = solution.norm, lambda = 1.0, y, time = start_time + max_time;
     double sumnorm = 0.0, bias = solution.bias, largw = 0.0, largw_temp = 0.0;
     bool cond;
-    vector<double> func(size, 0.0), w = solution.w, x;
+    vector<double> func = solution.func, w = solution.w, x;
     vector<int> index = samples->getIndex();
     shared_ptr<Point> p;
 
@@ -209,7 +209,7 @@ PerceptronDual::PerceptronDual(Data *samples, double rate, Kernel *K, Solution *
     }
     this->rate = rate;
     if(K)
-        this->kernel = (*K);
+        this->kernel = K;
 }
 
 bool PerceptronDual::train(){
@@ -218,11 +218,10 @@ bool PerceptronDual::train(){
     double bias = solution.bias;
     const double sqrate = rate * rate;
     const double tworate = 2 * rate;
-    bool cond;
     vector<int> index = samples->getIndex();
     vector<double> func(size, 0.0), Kv;
     vector<shared_ptr<Point> > points = samples->getPoints();
-    dMatrix K = kernel.getKernelMatrix();
+    dMatrix K = kernel->getKernelMatrix();
 
     if(alpha.size() == 0){
         alpha.assign(size, 0.0);
@@ -258,12 +257,6 @@ bool PerceptronDual::train(){
         if(e == 0)	   break;
         if(steps > MAX_IT) break;
         if(ctot > MAX_UP) break;
-
-#ifdef __unix__
-        cond = 100.0f*clock()/CLOCKS_PER_SEC-time <= 0;
-#elif _WIN32
-        cond = 100.0f*clock()/CLOCKS_PER_SEC-time >= 0;
-#endif
     }
 
     solution.bias = bias;
@@ -290,10 +283,14 @@ PerceptronFixedMarginDual::PerceptronFixedMarginDual(Data *samples, double gamma
     //this->solution = *initial_solution;
     this->rate = rate;
     if(K)
-        this->kernel = *K;
+        this->kernel = K;
     this->gamma = gamma;
     if(initial_solution)
         this->alpha = (*initial_solution).alpha;
+    else{
+        alpha.resize(samples->getSize());
+        solution.func.resize(samples->getSize());
+    }
 }
 
 bool PerceptronFixedMarginDual::train(){
@@ -302,15 +299,10 @@ bool PerceptronFixedMarginDual::train(){
     double bias = solution.bias;
     const double sqrate  = rate*rate;
     const double tworate = 2*rate;
-    bool cond;
     vector<int> index = samples->getIndex();
-    vector<double> func(size, 0.0), Kv;
+    vector<double> func = solution.func, Kv;
     vector<shared_ptr<Point> > points = samples->getPoints();
-    dMatrix K = kernel.getKernelMatrix();
-
-    if(alpha.size() == 0){
-        alpha.assign(size, 0.0);
-    }
+    dMatrix *K = kernel->getKernelMatrixPointer();
 
     e = 1, s = 0;
 
@@ -321,19 +313,20 @@ bool PerceptronFixedMarginDual::train(){
             y = points[idx]->y;
 
             //Checking if the point is a mistake
+
             if(y*func[idx] - gamma*norm <= 0){
                 lambda = (gamma) ? (1-rate*gamma/norm) : 1;
-                Kv     = K[idx];
+                Kv     = (*K)[idx];
                 norm  *= lambda;
 
                 for(r = 0; r < size; ++r){
-                    alpha[r] *= lambda;
-                    cout << Kv[r] << endl;
-                    func[r]           = lambda * func[r] + rate*y*(Kv[r]+1) + bias*(1-lambda);
+                    points[r]->alpha *= lambda;
+                    func[r]  = lambda * func[r] + rate*y*(Kv[r]+1) + bias*(1-lambda);
                 }
 
                 norm = sqrt(norm*norm + tworate*points[idx]->y*lambda*(func[idx]-bias) + sqrate*Kv[idx]);
-                alpha[idx] += rate;
+                points[idx]->alpha += rate;
+
                 bias += rate * y;
 
                 k = (i > s) ? ++s : e;
@@ -345,20 +338,22 @@ bool PerceptronFixedMarginDual::train(){
         }
 
         ++steps; //Number of iterations update
-
         //stop criterion
         if(e == 0)     break;
         if(steps > MAX_IT) break;
         if(ctot > MAX_UP) break;
     }
 
+    samples->setIndex(index);
     solution.bias = bias;
     solution.norm = norm;
-    solution.alpha = alpha;
+    solution.func = func;
     solution.w.resize(dim);
+    solution.alpha.resize(size);
     for(i = 0; i < dim; i++){
         for(j = 0; j < size; j++){
-            solution.w[i] += alpha[j]*points[j]->y*points[j]->x[i];
+            solution.alpha[j] = points[j]->alpha;
+            solution.w[i] += points[j]->alpha * points[j]->y * points[j]->x[i];
         }
     }
 

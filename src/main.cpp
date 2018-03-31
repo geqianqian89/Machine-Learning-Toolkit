@@ -307,8 +307,6 @@ void mainOption(int option){
             //utilsMenu();
             break;
         case 8:
-            clear();
-            header();
             validationMenu();
             waitUserAction();
             break;
@@ -773,6 +771,7 @@ void classifiersOption(int option){
 
             cout << "1 - Perceptron Dual" << endl;
             cout << "2 - Perceptron Dual with fixed margin" << endl;
+            cout << "3 - Incremental Margin Algorithm Dual (IMA Dual)" << endl;
             cout << "0 - Back to classifiers menu" << endl;
 
             opt = selector();
@@ -859,7 +858,7 @@ void validationOption(int option){
             inva = true;
             break;
     }
-    classifiersOption(3);
+   mainOption(8);
 }
 
 void primalClassifiersOption(int option){
@@ -1092,6 +1091,33 @@ void dualClassifiersOption(int option){
                 }
                 cout << sol.bias <<  "]" << endl;
                 cout << endl;
+            }else{
+                cout << "Load a dataset first..." << endl;
+            }
+            waitUserAction();
+            break;
+        case 3:
+            if(!data.isEmpty()){
+                cout << "Learning rate: ";
+                cin >> rate;
+                cout << "Kernel [0]Inner Product [1]Polynomial [2]Gaussian: ";
+                cin >> kernel_type;
+
+                if(kernel_type != 0){
+                    if(kernel_type == 1){
+                        cout << "Polynomial degree: ";
+                    }else{
+                        cout << "Gaussian gamma: ";
+                    }
+                    cin >> kernel_param;
+                }
+
+                K.setType(kernel_type);
+                K.setParam(kernel_param);
+
+                IMADual ima_dual(&data, &K, rate, nullptr);
+
+                ima_dual.train();
             }else{
                 cout << "Load a dataset first..." << endl;
             }

@@ -45,3 +45,7 @@ Solution Classifier::getSolution(){
 void Classifier::setLearningRate(double rate){
     this->rate = rate;
 }
+
+void Classifier::setGamma(double gamma) {
+    this->gamma = gamma;
+}

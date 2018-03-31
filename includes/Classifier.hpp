@@ -5,8 +5,6 @@
 #include "../includes/Data.hpp"
 #include "../includes/Timer.hpp"
 
-#define MIN_INC  1.001
-
 class Classifier {
     // Attributes
 protected :
@@ -20,6 +18,7 @@ protected :
     Solution solution;
     /// Learning rate
     double rate = 0.5f;
+    double gamma = 0;
     /// Initial time.
     double start_time = 0.0f;
     /// Maximum time of training.
@@ -30,6 +29,7 @@ protected :
     int ctot = 0;
     /// Max precision.
     double EPS = 1E-9;
+    double MIN_INC = 1.001;
     /// Max number of iterations.
     int MAX_IT = 1E9;
     /// Max number of updates.
@@ -86,6 +86,7 @@ public :
      * @param steps Number of steps.
      */
     inline void setSteps(int steps){ this->steps = steps; }
+    void setGamma(double gamma);
     /**
      * @brief Set the partial number of updates of the classifier.
      * @param ctot Number of updates.

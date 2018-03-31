@@ -20,10 +20,10 @@ private:
     std::vector<int> svs;
 
 public:
-    IMAp(Data *samples = NULL, double margin = 0.0, Solution *initial_solution = NULL);
+    explicit IMAp(Data *samples = nullptr, double margin = 0.0, Solution *initial_solution = nullptr);
 
-    bool train();
-    double evaluate(Point p);
+    bool train() override;
+    double evaluate(Point p) override;
 };
 
 /**
@@ -39,13 +39,22 @@ private:
     std::vector<int> svs;
 
 public:
-    IMApFixedMargin(Data *samples = NULL, double gamma = 0, Solution *initial_solution = NULL);
+    explicit IMApFixedMargin(Data *samples = nullptr, double gamma = 0, Solution *initial_solution = nullptr);
 
-    bool train();
+    bool train() override;
     inline int* getFlagNot1aDim() {return &flagNao1aDim; }
     inline unsigned long* gettMax(){ return &tMax; }
-    double evaluate(Point p);
+    double evaluate(Point p) override;
     void setNorm(double norm){ solution.norm = norm; }
+};
+
+class IMADual : public DualClassifier {
+private:
+    double margin = 0;
+public:
+    explicit IMADual(Data *samples = nullptr, Kernel *k = nullptr, double rate = 1, Solution *initial_solution = nullptr);
+    bool train() override;
+    double evaluate(Point p) override;
 };
 
 #endif //CLASSIFICATION_ALGORITHMS_SYSTEM_IMAP_HPP

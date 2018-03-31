@@ -36,6 +36,7 @@ var searchData=
   ['setfeaturesnames',['setFeaturesNames',['../class_data.html#a2702b6464d7299c3b62e4eb4390fecd6',1,'Data']]],
   ['setflexible',['setFlexible',['../class_primal_classifier.html#acf3edea17de00a41c33d0fee4fabd4da',1,'PrimalClassifier']]],
   ['setgamma',['setGamma',['../class_primal_classifier.html#a2d1443916a530c9b3729fb748097db50',1,'PrimalClassifier']]],
+  ['setindex',['setIndex',['../class_data.html#ab2debdff651c70d26f84c9ac20f4dee6',1,'Data']]],
   ['setkernel',['setKernel',['../class_dual_classifier.html#a0cf616ad02cfcdd69cfd3d0b35001946',1,'DualClassifier']]],
   ['setkernelmatrix',['setKernelMatrix',['../class_kernel.html#a3801cee0d86f25f1500d202f43a84b65',1,'Kernel']]],
   ['setlearningrate',['setLearningRate',['../class_classifier.html#a8f6818bd403afbb46d1bfd75c9731ab6',1,'Classifier']]],
