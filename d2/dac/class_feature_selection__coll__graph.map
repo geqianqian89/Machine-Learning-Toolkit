@@ -1,7 +1,0 @@
-<map id="FeatureSelection" name="FeatureSelection">
-<area shape="rect" id="node2" href="$d6/dba/class_classifier.html" title="Classifier" alt="" coords="95,184,172,211"/>
-<area shape="rect" id="node3" href="$dd/d4f/class_solution.html" title="Solution" alt="" coords="5,95,75,121"/>
-<area shape="rect" id="node4" href="$db/de7/class_kernel.html" title="Class for the kernel computations. " alt="" coords="11,5,69,32"/>
-<area shape="rect" id="node5" href="$d8/d08/class_timer.html" title="Timer" alt="" coords="118,95,173,121"/>
-<area shape="rect" id="node6" href="$d1/d29/struct_validation_1_1_cross_validation.html" title="Validation::CrossValidation" alt="" coords="196,184,375,211"/>
-</map>

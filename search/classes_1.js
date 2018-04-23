@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['data',['Data',['../dc/d07/class_data.html',1,'']]],
-  ['dualclassifier',['DualClassifier',['../d1/dbb/class_dual_classifier.html',1,'']]]
+  ['data',['Data',['../class_data.html',1,'']]],
+  ['dualclassifier',['DualClassifier',['../class_dual_classifier.html',1,'']]]
 ];
