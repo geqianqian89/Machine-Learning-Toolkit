@@ -2,6 +2,83 @@
 \label{class_feature_selection}\index{Feature\+Selection@{Feature\+Selection}}
 
 
+Inheritance diagram for Feature\+Selection\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=170pt]{class_feature_selection__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Feature\+Selection\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_feature_selection__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_feature_selection_a499de83d5ceb877eece3909f0ad07ae8}\label{class_feature_selection_a499de83d5ceb877eece3909f0ad07ae8}} 
+virtual std\+::unique\+\_\+ptr$<$ \hyperlink{class_data}{Data} $>$ {\bfseries select\+Features} ()=0
+\item 
+\mbox{\Hypertarget{class_feature_selection_a2b18d898d233086bbb947df97745f102}\label{class_feature_selection_a2b18d898d233086bbb947df97745f102}} 
+void {\bfseries set\+Samples} (const std\+::shared\+\_\+ptr$<$ \hyperlink{class_data}{Data} $>$ \&samples)
+\item 
+\mbox{\Hypertarget{class_feature_selection_a4cbecbda1e052cd195bd398f4b28443b}\label{class_feature_selection_a4cbecbda1e052cd195bd398f4b28443b}} 
+void {\bfseries set\+Classifier} (\hyperlink{class_classifier}{Classifier} $\ast$classifier)
+\item 
+\mbox{\Hypertarget{class_feature_selection_a4857ba1521a7dd5028bfce8ad5dc6ebb}\label{class_feature_selection_a4857ba1521a7dd5028bfce8ad5dc6ebb}} 
+void {\bfseries set\+Solution} (const \hyperlink{class_solution}{Solution} \&solution)
+\item 
+\mbox{\Hypertarget{class_feature_selection_ad078d9693bee54329fd726c7806179b6}\label{class_feature_selection_ad078d9693bee54329fd726c7806179b6}} 
+void {\bfseries set\+Depth} (int depth)
+\item 
+\mbox{\Hypertarget{class_feature_selection_a5863e5062b8bd88747f076e87731a26d}\label{class_feature_selection_a5863e5062b8bd88747f076e87731a26d}} 
+void {\bfseries set\+Jump} (int jump)
+\item 
+\mbox{\Hypertarget{class_feature_selection_a3cb485bf5b4c578a2dec6b35c56298a4}\label{class_feature_selection_a3cb485bf5b4c578a2dec6b35c56298a4}} 
+void {\bfseries set\+Skip} (int skip)
+\item 
+\mbox{\Hypertarget{class_feature_selection_ae05a8cc9e39df71f62a3f3ad42a756e2}\label{class_feature_selection_ae05a8cc9e39df71f62a3f3ad42a756e2}} 
+void {\bfseries set\+Verbose} (int verbose)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_feature_selection_a4a0ac991f24cc098f22ad194a895e9d3}\label{class_feature_selection_a4a0ac991f24cc098f22ad194a895e9d3}} 
+std\+::shared\+\_\+ptr$<$ \hyperlink{class_data}{Data} $>$ {\bfseries samples}
+\item 
+\mbox{\Hypertarget{class_feature_selection_ac829cbbee343c8c376406e67cd6ee288}\label{class_feature_selection_ac829cbbee343c8c376406e67cd6ee288}} 
+\hyperlink{class_classifier}{Classifier} $\ast$ {\bfseries classifier}
+\item 
+\mbox{\Hypertarget{class_feature_selection_adc93dfa6122bc3c369c06321ad978095}\label{class_feature_selection_adc93dfa6122bc3c369c06321ad978095}} 
+\hyperlink{class_solution}{Solution} {\bfseries solution}
+\item 
+\mbox{\Hypertarget{class_feature_selection_a6f867268df53c3d21183800ad5194a7c}\label{class_feature_selection_a6f867268df53c3d21183800ad5194a7c}} 
+\hyperlink{struct_validation_1_1_cross_validation}{Validation\+::\+Cross\+Validation} $\ast$ {\bfseries cv}
+\item 
+\mbox{\Hypertarget{class_feature_selection_aee2d3b47761394fdb3bdd35f1ec09e1e}\label{class_feature_selection_aee2d3b47761394fdb3bdd35f1ec09e1e}} 
+int {\bfseries depth}
+\item 
+\mbox{\Hypertarget{class_feature_selection_af8daf46dc4ff1d2177500444968a8b80}\label{class_feature_selection_af8daf46dc4ff1d2177500444968a8b80}} 
+int {\bfseries jump}
+\item 
+\mbox{\Hypertarget{class_feature_selection_a87a16227b159a3b0bc255ec6b7c396b3}\label{class_feature_selection_a87a16227b159a3b0bc255ec6b7c396b3}} 
+int {\bfseries skip}
+\item 
+\mbox{\Hypertarget{class_feature_selection_a434787bfaa9ad03ce5e370fc07dc2bc8}\label{class_feature_selection_a434787bfaa9ad03ce5e370fc07dc2bc8}} 
+bool {\bfseries leave\+\_\+one\+\_\+out}
+\item 
+\mbox{\Hypertarget{class_feature_selection_ae531a07608a7b13051a16fb955be62fc}\label{class_feature_selection_ae531a07608a7b13051a16fb955be62fc}} 
+int {\bfseries verbose}
+\end{DoxyCompactItemize}
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
 includes/Feature\+Selection.\+hpp\end{DoxyCompactItemize}

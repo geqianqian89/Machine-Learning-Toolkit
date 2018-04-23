@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['solution',['Solution',['../class_solution.html',1,'']]],
-  ['statistics',['Statistics',['../class_statistics.html',1,'']]]
+  ['rfe',['RFE',['../class_r_f_e.html',1,'']]]
 ];

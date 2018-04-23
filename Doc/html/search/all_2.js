@@ -8,5 +8,6 @@ var searchData=
   ['compute',['compute',['../class_kernel.html#a5dfd3a6b535745eadd9e17dc086d87c6',1,'Kernel']]],
   ['copy',['copy',['../class_data.html#afb7687021aa7d5f1ecae464eee601710',1,'Data']]],
   ['copyzero',['copyZero',['../class_data.html#a6454e835f570d10e7614ac237d6fdf79',1,'Data']]],
+  ['crossvalidation',['CrossValidation',['../struct_validation_1_1_cross_validation.html',1,'Validation']]],
   ['ctot',['ctot',['../class_classifier.html#a99d9a7f504212bb3dc2726c10a2333c6',1,'Classifier']]]
 ];

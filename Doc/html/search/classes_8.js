@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['timer',['Timer',['../class_timer.html',1,'']]]
+  ['solution',['Solution',['../class_solution.html',1,'']]],
+  ['statistics',['Statistics',['../class_statistics.html',1,'']]]
 ];

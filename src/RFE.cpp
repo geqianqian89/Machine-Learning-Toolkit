@@ -101,6 +101,7 @@ std::unique_ptr<Data> RFE::selectFeatures() {
                 partial = 1;
                 //data_write(filename, stmp_parcial, 0);
                 weight.clear();
+
             }
             break;
         }

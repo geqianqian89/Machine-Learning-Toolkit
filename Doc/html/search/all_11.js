@@ -8,5 +8,6 @@ var searchData=
   ['removepoints',['removePoints',['../class_data.html#a6cc376e614e5440061c66833e1c8d30a',1,'Data']]],
   ['replot',['replot',['../class_gnuplot.html#a34c1b3e877d246a841a29f857a29f502',1,'Gnuplot']]],
   ['reset_5fall',['reset_all',['../class_gnuplot.html#a9aedfe8371083a1a3ac2b9493810049c',1,'Gnuplot']]],
-  ['reset_5fplot',['reset_plot',['../class_gnuplot.html#a6797761712d3c311e3685bcccba65dd4',1,'Gnuplot']]]
+  ['reset_5fplot',['reset_plot',['../class_gnuplot.html#a6797761712d3c311e3685bcccba65dd4',1,'Gnuplot']]],
+  ['rfe',['RFE',['../class_r_f_e.html',1,'']]]
 ];

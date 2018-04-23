@@ -1,0 +1,8 @@
+<map id="RFE" name="RFE">
+<area shape="rect" id="node2" href="$class_feature_selection.html" title="FeatureSelection" alt="" coords="73,273,193,300"/>
+<area shape="rect" id="node3" href="$class_classifier.html" title="Classifier" alt="" coords="95,184,172,211"/>
+<area shape="rect" id="node4" href="$class_solution.html" title="Solution" alt="" coords="5,95,75,121"/>
+<area shape="rect" id="node5" href="$class_kernel.html" title="Class for the kernel computations. " alt="" coords="11,5,69,32"/>
+<area shape="rect" id="node6" href="$class_timer.html" title="Timer" alt="" coords="118,95,173,121"/>
+<area shape="rect" id="node7" href="$struct_validation_1_1_cross_validation.html" title="Validation::CrossValidation" alt="" coords="196,184,375,211"/>
+</map>
