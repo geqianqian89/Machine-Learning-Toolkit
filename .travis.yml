@@ -1,5 +1,9 @@
 # This will run on Travis' 'new' container-based infrastructure
-sudo: false
+sudo: required
+dist: trusty
+language: cpp
+compiler: g++
+install: export CXX="g++-5"
 
 # Blacklist
 branches:
@@ -16,7 +20,10 @@ env:
 # Install dependencies
 addons:
   apt:
+  	sources:
+      - ubuntu-toolchain-r-test
     packages:
+      - g++-5
       - doxygen
       - doxygen-doc
       - doxygen-latex
