@@ -1,2 +1,2 @@
 all:
-	$(MAKE) -C cmake-build-debug
+	g++ src/* includes/* -o main
