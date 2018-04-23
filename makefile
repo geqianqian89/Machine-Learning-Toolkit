@@ -1,2 +1,4 @@
 all:
-	g++ src/* includes/* -o main --std=c++14
+    $(CXX) -std=c++14 src/* -I . -Os -Wall -Wextra -o Example
+clean:
+    rm Example*
