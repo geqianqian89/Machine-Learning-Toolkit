@@ -5,3 +5,5 @@ cmake-build-debug/DB/genomic.tar.gz
 cmake-build-debug/DB/genotype-transp.txt
 .Old_system/*
 Doc/*
+Doc/html/*
+Doc/latex/*
