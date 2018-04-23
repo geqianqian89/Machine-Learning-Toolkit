@@ -22,6 +22,8 @@ addons:
       - doxygen-latex
       - doxygen-gui
       - graphviz
+      
+before_install: sudo apt-get update -qq
 
 # Build your code e.g. by calling make
 script:
