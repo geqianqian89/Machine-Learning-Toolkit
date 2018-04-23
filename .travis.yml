@@ -1,5 +1,6 @@
 # This will run on Travis' 'new' container-based infrastructure
-sudo: false
+sudo: required
+dist: trusty
 language: c++
 
 # Blacklist
@@ -17,14 +18,17 @@ env:
 # Install dependencies
 addons:
   apt:
+  	sources:
+  	  - ubuntu-toolchain-r-test
     packages:
-      - g++-7
+      - gcc-5
+      - g++-5
       - doxygen
       - doxygen-doc
       - doxygen-latex
       - doxygen-gui
       - graphviz
-
+env: COMPILER=g++-5
 # Build your code e.g. by calling make
 script:
   - make
