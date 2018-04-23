@@ -1,0 +1,98 @@
+\hypertarget{class_i_m_ap_fixed_margin}{}\section{I\+M\+Ap\+Fixed\+Margin Class Reference}
+\label{class_i_m_ap_fixed_margin}\index{I\+M\+Ap\+Fixed\+Margin@{I\+M\+Ap\+Fixed\+Margin}}
+
+
+Wrapper for the implementation of the Incremental Margin Algorithm primal with fixed margin.  
+
+
+
+
+{\ttfamily \#include $<$I\+M\+A.\+hpp$>$}
+
+
+
+Inheritance diagram for I\+M\+Ap\+Fixed\+Margin\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=173pt]{class_i_m_ap_fixed_margin__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for I\+M\+Ap\+Fixed\+Margin\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{class_i_m_ap_fixed_margin__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_i_m_ap_fixed_margin_ac211e503f485e28c2d362d1184859c4e}\label{class_i_m_ap_fixed_margin_ac211e503f485e28c2d362d1184859c4e}} 
+{\bfseries I\+M\+Ap\+Fixed\+Margin} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_data}{Data} $>$ \hyperlink{class_classifier_aad6a4fcea8f44339d7a6302f530852ca}{samples}=nullptr, double gamma=0, \hyperlink{class_solution}{Solution} $\ast$initial\+\_\+solution=nullptr)
+\item 
+bool \hyperlink{class_i_m_ap_fixed_margin_a79fd9791d7c0998706f280d446ece5ee}{train} () override
+\begin{DoxyCompactList}\small\item\em Function that execute the training phase of a classification algorithm. \end{DoxyCompactList}\item 
+double \hyperlink{class_i_m_ap_fixed_margin_a97272623213a2bdac41c171fe0522302}{evaluate} (\hyperlink{class_point}{Point} p) override
+\begin{DoxyCompactList}\small\item\em Returns the class of a feature point based on the trained classifier. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_i_m_ap_fixed_margin_ab19fc4f2f6dfa772f279e74cd36553e3}\label{class_i_m_ap_fixed_margin_ab19fc4f2f6dfa772f279e74cd36553e3}} 
+int $\ast$ {\bfseries get\+Flag\+Not1a\+Dim} ()
+\item 
+\mbox{\Hypertarget{class_i_m_ap_fixed_margin_a542018e09de5ffdcee81844c2b82f22c}\label{class_i_m_ap_fixed_margin_a542018e09de5ffdcee81844c2b82f22c}} 
+unsigned long $\ast$ {\bfseries gett\+Max} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Wrapper for the implementation of the Incremental Margin Algorithm primal with fixed margin. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_i_m_ap_fixed_margin_a97272623213a2bdac41c171fe0522302}\label{class_i_m_ap_fixed_margin_a97272623213a2bdac41c171fe0522302}} 
+\index{I\+M\+Ap\+Fixed\+Margin@{I\+M\+Ap\+Fixed\+Margin}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!I\+M\+Ap\+Fixed\+Margin@{I\+M\+Ap\+Fixed\+Margin}}
+\subsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily double I\+M\+Ap\+Fixed\+Margin\+::evaluate (\begin{DoxyParamCaption}\item[{\hyperlink{class_point}{Point}}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the class of a feature point based on the trained classifier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{class_point}{Point}} & x (???) Features point to be evaluated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_classifier_ae8e9554823b85ddc2dcad2955da811d9}{Classifier}.
+
+\mbox{\Hypertarget{class_i_m_ap_fixed_margin_a79fd9791d7c0998706f280d446ece5ee}\label{class_i_m_ap_fixed_margin_a79fd9791d7c0998706f280d446ece5ee}} 
+\index{I\+M\+Ap\+Fixed\+Margin@{I\+M\+Ap\+Fixed\+Margin}!train@{train}}
+\index{train@{train}!I\+M\+Ap\+Fixed\+Margin@{I\+M\+Ap\+Fixed\+Margin}}
+\subsubsection{\texorpdfstring{train()}{train()}}
+{\footnotesize\ttfamily bool I\+M\+Ap\+Fixed\+Margin\+::train (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Function that execute the training phase of a classification algorithm. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_classifier_a2306a5de27555ab093593ac9642bc7d9}{Classifier}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+includes/I\+M\+A.\+hpp\item 
+src/I\+M\+A.\+cpp\end{DoxyCompactItemize}

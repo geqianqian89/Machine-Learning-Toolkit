@@ -100,7 +100,7 @@ std::unique_ptr<Data> RFE::selectFeatures() {
                 cout << "---------------\nTotal time: " << partial_time << "\n\n";
                 partial = 1;
                 //data_write(filename, stmp_parcial, 0);
-                //free(weight);
+                weight.clear();
             }
             break;
         }
