@@ -4,3 +4,4 @@ cmake-build-debug/Classification_Algorithms_System
 cmake-build-debug/DB/genomic.tar.gz
 cmake-build-debug/DB/genotype-transp.txt
 .Old_system/*
+Doc/*
