@@ -4,6 +4,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include <memory>
 #include "../includes/RFE.hpp"
 
 #define first_decay 0.25
