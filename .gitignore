@@ -1,4 +1,4 @@
 .idea/*
-cmake-build-debug/*
+cmake-build-debug/DB/genomic.tar.gz
 cmake-build-debug/DB/genotype-transp.txt
 .Old_system/*
