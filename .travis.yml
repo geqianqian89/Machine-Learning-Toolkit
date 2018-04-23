@@ -18,6 +18,7 @@ env:
 addons:
   apt:
     packages:
+      - g++-7
       - doxygen
       - doxygen-doc
       - doxygen-latex
