@@ -1,9 +1,6 @@
 # This will run on Travis' 'new' container-based infrastructure
 sudo: false
-dist: trusty
-language: cpp
-compiler: g++
-install: export CXX="g++-5"
+
 
 # Blacklist
 branches:
