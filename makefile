@@ -1,4 +1,4 @@
 all:
-	g++ -std=c++14 src/* -o Example
+	g++ -std=c++14 src/* -o main
 clean:
-	rm Example*
+	rm main*

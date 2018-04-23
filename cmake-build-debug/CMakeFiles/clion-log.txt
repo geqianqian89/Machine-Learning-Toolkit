@@ -1,4 +1,4 @@
-/snap/clion/16/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System"
+/snap/clion/12/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System"
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/cmake-build-debug
