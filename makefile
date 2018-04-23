@@ -1,2 +1,2 @@
 all:
-	g++ src/* includes/* -o main
+	g++ src/* includes/* -o main --std=c++14
