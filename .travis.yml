@@ -9,7 +9,7 @@ branches:
 # Environment variables
 env:
   global:
-    - GH_REPO_NAME: 
+    - GH_REPO_NAME: Machine-Learning-Toolkit	
     - DOXYFILE: $TRAVIS_BUILD_DIR/Doc/Doxyfile
     - GH_REPO_REF: https://github.com/mateus558/Machine-Learning-Toolkit.git
 
@@ -33,4 +33,4 @@ after_success:
   - chmod +x generateDocumentationAndDeploy.sh
   - ./generateDocumentationAndDeploy.sh
 
-# token: dc998add9cb4059ee341804d7986210334e84642
+
