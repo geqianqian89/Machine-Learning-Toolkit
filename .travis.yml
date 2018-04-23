@@ -1,7 +1,6 @@
 # This will run on Travis' 'new' container-based infrastructure
 sudo: false
 
-
 # Blacklist
 branches:
   except:
@@ -17,10 +16,7 @@ env:
 # Install dependencies
 addons:
   apt:
-  	sources:
-      - ubuntu-toolchain-r-test
     packages:
-      - g++-5
       - doxygen
       - doxygen-doc
       - doxygen-latex
@@ -28,7 +24,6 @@ addons:
       - graphviz
       
 before_install: sudo apt-get update -qq
-
 # Build your code e.g. by calling make
 script:
   - make
