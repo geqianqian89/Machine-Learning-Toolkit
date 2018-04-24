@@ -8,7 +8,7 @@ It's not intended to be just a collection of algorithms, but also to auxiliate a
 through a set of interconected modules that can be used in most ML projects.<br />
 
 ## Requirements
-To compile the framework these are the requirements:
+These are the requirements to build the project:
 * gnuplot >= 5.0
 * g++ >= 4.9.4 
 * cmake (To compile using the makefile in build folder)
