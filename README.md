@@ -27,3 +27,8 @@ You can find the documentation at the project page: [UFJF-MLTK](https://mateus55
 Mateus Coutinho Marim (mateus.marim@ice.ufjf.br) <br />
 Saulo Moraes Villela (saulo.moraes@ufjf.edu.br)<br />
 Alessandreia Marta de Oliveira Julio (alessandreia.oliveira@ice.ufjf.br)<br />
+
+<p align="center">
+  Universidade Federal de Juiz de Fora <br />
+  Departamento de Ciência da Computação
+</p>
