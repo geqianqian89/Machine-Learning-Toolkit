@@ -29,7 +29,7 @@ void Visualisation::setStyle(string style){
 
 void Visualisation::createPosNegTemps(){
     int i, j, size = samples->getSize(), dim = samples->getDim();
-    ofstream neg_file("temp/neg.plt"), pos_file("temp/pos.plt"), und_file("temp/und.plt");
+    ofstream neg_file("neg.plt"), pos_file("pos.plt"), und_file("und.plt");
 
     for(i = 0; i < size; i++){
         if(samples->getPoint(i)->y == 1){
@@ -124,14 +124,14 @@ void Visualisation::removeTempFiles(){
     temps = getTempFilesNames();
 
     for(string file : temps){
-        path = "temp/" + file;
+        path = file;
         remove(path.c_str());
     }
 }
 
 void Visualisation::plot2D(int x, int y){
     string dims = itos(x) + ":" + itos(y);
-    string cmd = "set terminal qt; plot 'temp/pos.plt' using " + dims + " title '+1' with points, 'temp/neg.plt' using " + dims + " title '-1' with points";
+    string cmd = "set terminal qt; plot 'pos.plt' using " + dims + " title '+1' with points, 'neg.plt' using " + dims + " title '-1' with points";
     createPosNegTemps();
     #ifdef __unix__
     	cmd = "set terminal qt; " + cmd;
@@ -144,7 +144,7 @@ void Visualisation::plot2D(int x, int y){
 
 void Visualisation::plot3D(int x, int y, int z){
     string dims = itos(x) + ":" + itos(y) + ":" + itos(z);
-    string cmd = "splot 'temp/pos.plt' using " + dims + " title '+1' with points, 'temp/neg.plt' using " + dims + " title '-1' with points";
+    string cmd = "splot 'pos.plt' using " + dims + " title '+1' with points, 'neg.plt' using " + dims + " title '-1' with points";
     createPosNegTemps();
     #ifdef __unix__
     	cmd = "set terminal qt; " + cmd;
@@ -162,7 +162,7 @@ void Visualisation::plot2DwithHyperplane(int x, int y, Solution s){
     string fx = "f(x) = "+dtoa(s.w[x-1]/-s.w[y-1])+"*x + "+dtoa(s.bias/-s.w[y-1]);
     string gx = "g(x) = "+dtoa(s.w[x-1]/-s.w[y-1])+"*x + "+dtoa((s.bias + s.margin*s.norm)/-s.w[y-1]);
     string hx = "h(x) = "+dtoa(s.w[x-1]/-s.w[y-1])+"*x + "+dtoa((s.bias - s.margin*s.norm)/-s.w[y-1]);
-    string cmd = fx + "; "+ gx +"; "+ hx +"; plot 'temp/pos.plt' using "+feats+" title '+1' with points, 'temp/neg.plt' using "+feats+" title '-1' with points, f(x) notitle with lines ls 1, g(x) notitle with lines ls 2, h(x) notitle with lines ls 2";
+    string cmd = fx + "; "+ gx +"; "+ hx +"; plot 'pos.plt' using "+feats+" title '+1' with points, 'neg.plt' using "+feats+" title '-1' with points, f(x) notitle with lines ls 1, g(x) notitle with lines ls 2, h(x) notitle with lines ls 2";
     createPosNegTemps();
 
     #ifdef __unix__
@@ -177,7 +177,7 @@ void Visualisation::plot2DwithHyperplane(int x, int y, Solution s){
 void Visualisation::plot3DwithHyperplane(int x, int y, int z, Solution s){
     string feats = itos(x) + ":" + itos(y) + ":" + itos(z);
     string fxy = "f(x,y) = "+dtoa(s.w[x-1]/-s.w[z-1])+"*x + "+dtoa(s.w[y-1]/-s.w[z-1])+"*y + "+dtoa(s.bias/-s.w[z-1]);
-    string cmd = fxy + "; splot 'temp/pos.plt' using "+ feats +" title '+1' with points, 'temp/neg.plt' using "+ feats +" title '-1' with points, f(x,y) notitle with lines ls 1";
+    string cmd = fxy + "; splot 'pos.plt' using "+ feats +" title '+1' with points, 'neg.plt' using "+ feats +" title '-1' with points, f(x,y) notitle with lines ls 1";
     createPosNegTemps();
     #ifdef __unix__
     	cmd = "set terminal qt; " + cmd;

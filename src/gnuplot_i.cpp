@@ -1161,7 +1161,7 @@ void Gnuplot::init()
     // open pipe
     //
     std::string tmp = Gnuplot::m_sGNUPlotPath + "/" +
-                      Gnuplot::m_sGNUPlotFileName;
+                      Gnuplot::m_sGNUPlotFileName + " -persist";
 
     // FILE *popen(const char *command, const char *mode);
     // The popen() function shall execute the command specified by the string
