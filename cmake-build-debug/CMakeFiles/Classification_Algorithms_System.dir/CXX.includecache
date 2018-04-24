@@ -227,9 +227,13 @@ float.h
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/IMA.hpp
 ../includes/Timer.hpp
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Timer.hpp
+../includes/Perceptron.hpp
+/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Perceptron.hpp
 
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Kernel.cpp
 cmath
+-
+utility
 -
 ../includes/Kernel.hpp
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Kernel.hpp
@@ -334,6 +338,8 @@ algorithm
 sstream
 -
 ctime
+-
+memory
 -
 ../includes/MLToolkit.hpp
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/MLToolkit.hpp

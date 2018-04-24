@@ -23,6 +23,7 @@ CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../includes/DualC
 CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../includes/IMA.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../includes/Kernel.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../includes/MLToolkit.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../includes/Perceptron.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../includes/Point.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../includes/PrimalClassifier.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../includes/Solution.hpp
