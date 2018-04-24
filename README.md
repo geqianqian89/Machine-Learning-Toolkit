@@ -21,7 +21,8 @@ To compile the framework these are the requirements:
 * Feature Selection - In development.
 
 ## Documentation
-You can find the documentation at the project page: [UFJF-MLTK](https://mateus558.github.io/Machine-Learning-Toolkit/index.html).
+You can find the documentation at the project page: [UFJF-MLTK](https://mateus558.github.io/Machine-Learning-Toolkit/index.html). <br />
+And for examples and other information you can access the [wiki](https://github.com/mateus558/Machine-Learning-Toolkit/wiki).
 
 ## Authors
 Mateus Coutinho Marim (mateus.marim@ice.ufjf.br) <br />
