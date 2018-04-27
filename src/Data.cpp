@@ -2,7 +2,6 @@
   \brief Implementation of the Data class methods.
   \file Data.cpp
 */
-#ifdef DATA__HPP
 
 #include <iostream>
 #include <vector>
@@ -245,6 +244,7 @@ bool Data< T >::load_data(string path){
         dim = -1;
 
         ss.str(str);
+        ss.clear();
 
         while(getline(ss, item, ' ')){
             if(!is_number(item)){
@@ -273,11 +273,11 @@ bool Data< T >::load_data(string path){
 
         ldim = dim;
         size++;
-        ss.clear();
     }
-    input.clear();
+	
+	input.clear();
     input.seekg(0, ios::beg);
-
+	    
     //initialize dim and size
     this->dim = dim;
     this->size = size;
@@ -297,7 +297,7 @@ bool Data< T >::load_data(string path){
         auto new_point = make_shared<Point< T > >();
 
         ss.str(str);
-
+		ss.clear();
         dim = 0;
         new_point->x.resize(this->dim, 0.0);
 
@@ -321,6 +321,7 @@ bool Data< T >::load_data(string path){
                         }else if(flag){
                             buffer.push_back(i);
                         }else if(i == ':' && i > 0 && this->size == 0){	//Get features names in the first running
+                        	cout << dim << endl;
                             fnames[dim] = stoin(buffer);
                             flag = true;
                             buffer.clear();
@@ -343,10 +344,10 @@ bool Data< T >::load_data(string path){
                 if(!atEnd) dim++;
             }
         }
-        cout << points[150] << endl;
+        //cout << points[150] << endl;
         points[size++] = std::move(new_point);
         points[size-1]->id = size;
-        ss.clear();
+
     }
 
     input.close();
@@ -710,7 +711,7 @@ Data< T >* Data< T >::insertFeatures(std::vector<int> ins_feat){
 template < typename T >
 bool Data< T >::removeFeatures(std::vector<int> feats){
     size_t i, j, k, psize = points.size(), rsize = feats.size();
-    vector<double>::iterator itr;
+    typename vector< T >::iterator itr;
     vector<int>::iterator fitr;
 
     if(fnames.size() == 1){
@@ -955,14 +956,6 @@ void Data< T >::operator=(const Data< T >& data){
     stats = data.stats;
 }
 
-template < typename T >
-ostream &operator<<( ostream &output, const Data< T > &data ){
-    for(auto p : data.points){
-        output << *p << endl;
-    }
-
-    return output;
-}
 
 template < typename T >
 void Data< T >::clear(){
@@ -1018,4 +1011,14 @@ bool Data< T >::operator!=(const Data< T > &rhs) const {
     return !(rhs == *this);
 }
 
-#endif
+template class Data<int>;
+template class Data<double>;
+template class Data<float>;
+template class Data<int8_t>;
+template class Data<char>;
+template class Data<long long int>;
+template class Data<short int>;
+template class Data<long double>;
+template class Data<unsigned char>;
+template class Data<unsigned int>;
+template class Data<unsigned short int>;

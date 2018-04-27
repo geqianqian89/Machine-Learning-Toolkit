@@ -54,9 +54,6 @@ enum  Type {TYPE_INVALID = -1, TYPE_DATA = 0, TYPE_CSV = 1, TYPE_ARFF = 2, TYPE_
  * \brief Wrapper for the dataset data.
  */
 
-template < typename T > class Data;
-template < typename T > std::ostream &operator<<( std::ostream &output, const Data< T > &data );
-
 template < typename T >
 class Data {
     // Associations
@@ -311,11 +308,20 @@ public :
     bool operator==(const Data< T > &rhs) const;
 
     bool operator!=(const Data< T > &rhs) const;
-
-    friend std::ostream &operator<< <>( std::ostream &output, const Data< T > &data );
+	
+	template< typename U >
+    friend std::ostream &operator<<( std::ostream &output, const Data< U > &data );
 
     ~Data();
 };
 
-#include "../src/Data.cpp"
+template < typename T >
+ostream &operator<<( ostream &output, const Data< T > &data ){
+    for(auto p : data.points){
+        output << *p << endl;
+    }
+
+    return output;
+}
+
 #endif

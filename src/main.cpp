@@ -4,8 +4,10 @@
 using namespace std;
 
 int main(){
-	Data<float> data;
-    data.load("iris.data");
-    cout << data << endl;
+	Point<double> p(3, 5);
+	
+	cout << p.norm() << endl;
+	cout << p.dot(Point<double>(3, 2).x) << endl;
+	cout << (p == Point<double> (3, 5)) << endl;
 }
 
