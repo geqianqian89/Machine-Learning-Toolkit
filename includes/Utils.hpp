@@ -6,8 +6,10 @@
    \author Mateus Coutinho Marim
 */
 
-#include <string>
 #include <vector>
+#include <string>
+#include <sstream>
+#include <iterator>
 #define INF 1E8
 
 enum NormType {NORM_LINF = 0, NORM_L1 = 1, NORM_L2 = 2};
@@ -49,5 +51,11 @@ std::string itos(int n);
  * \return string
  */
 std::string dtoa(double n);
+
+template<typename Out>
+void split(const std::string &s, char delim, Out result);
+
+std::vector<std::string> split(const std::string &s, char delim);
+
 
 #endif
