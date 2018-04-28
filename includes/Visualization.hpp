@@ -1,5 +1,5 @@
-#ifndef VISUALISATION__HPP
-#define VISUALISATION__HPP
+#ifndef VISUALIZATION__HPP
+#define VISUALIZATION__HPP
 #ifdef __unix__
 #include <dirent.h>
 #include "gnuplot_i.hpp"
@@ -15,11 +15,12 @@
 /**
  * \brief Class for visualize data using gnuplot.
  */
-class Visualisation {
+ template < typename T >
+class Visualization {
     // Attributes
 private :
     /// Sample to be visualized.
-    Data *samples;
+    Data< T > *samples;
     /// Interface to gnuplot.
 #ifdef __unix__
     Gnuplot g;
@@ -48,14 +49,14 @@ private :
     void removeTempFiles();
     // Operations
 public :
-    Visualisation ();
-    Visualisation (Data *sample);
+    Visualization ();
+    Visualization (Data< T > *sample);
     /**
      * \brief Set sample to be visualized.
-     * \param sample (???) Data to set for visualization.
+     * \param sample (???) Data< T > to set for visualization.
      * \return void
      */
-    void setSample (Data sample);
+    void setSample (Data< T > sample);
     /**
      * \brief Set plot title.
      * \param title (???) Plot title.
@@ -98,7 +99,7 @@ public :
      * \return void
      */
     void plot3DwithHyperplane(int x, int y, int z, Solution w);
-    ~Visualisation();
+    ~Visualization();
 };
 
 #endif

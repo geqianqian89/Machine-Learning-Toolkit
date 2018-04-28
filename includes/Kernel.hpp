@@ -96,45 +96,6 @@ public :
     double norm(Data< T > data);
 };
 
-Kernel::Kernel(int type, double param){
-    this->type = type;
-    this->param = param;
-}
-
-Kernel::Kernel(dMatrix kernel_matrix){
-    this->K = std::move(kernel_matrix);
-}
-
-int Kernel::getType(){
-    return type;
-}
-
-double Kernel::getParam(){
-    return param;
-}
-
-void Kernel::setType(int type){
-    this->type = type;
-}
-
-void Kernel::setParam(int param){
-    if(type > 0){
-        this->param = param;
-    }
-}
-
-void Kernel::setKernelMatrix(dMatrix K){
-    this->K = K;
-}
-
-dMatrix Kernel::getKernelMatrix(){
-    return K;
-}
-
-dMatrix* Kernel::getKernelMatrixPointer(){
-    return &K;
-}
-
 template < typename T >
 void Kernel::compute(Data< T > samples){
     size_t i, j, size = samples.getSize(), dim = samples.getDim();
@@ -267,5 +228,6 @@ double Kernel::norm(Data< T > data){
 
     return sqrt(sum);
 }
+
 
 #endif

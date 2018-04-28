@@ -39,10 +39,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/12/bin/cmake/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/12/bin/cmake/bin/cmake -E remove -f
+RM = /usr/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classificat
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/snap/clion/12/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -69,8 +69,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/snap/clion/12/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/cmake-gui -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -258,33 +258,6 @@ src/Perceptron.cpp.s:
 	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Perceptron.cpp.s
 .PHONY : src/Perceptron.cpp.s
 
-src/Point.o: src/Point.cpp.o
-
-.PHONY : src/Point.o
-
-# target to build an object file
-src/Point.cpp.o:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Point.cpp.o
-.PHONY : src/Point.cpp.o
-
-src/Point.i: src/Point.cpp.i
-
-.PHONY : src/Point.i
-
-# target to preprocess a source file
-src/Point.cpp.i:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Point.cpp.i
-.PHONY : src/Point.cpp.i
-
-src/Point.s: src/Point.cpp.s
-
-.PHONY : src/Point.s
-
-# target to generate assembly for a file
-src/Point.cpp.s:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Point.cpp.s
-.PHONY : src/Point.cpp.s
-
 src/PrimalClassifier.o: src/PrimalClassifier.cpp.o
 
 .PHONY : src/PrimalClassifier.o
@@ -338,33 +311,6 @@ src/RFE.s: src/RFE.cpp.s
 src/RFE.cpp.s:
 	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/RFE.cpp.s
 .PHONY : src/RFE.cpp.s
-
-src/Statistics.o: src/Statistics.cpp.o
-
-.PHONY : src/Statistics.o
-
-# target to build an object file
-src/Statistics.cpp.o:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Statistics.cpp.o
-.PHONY : src/Statistics.cpp.o
-
-src/Statistics.i: src/Statistics.cpp.i
-
-.PHONY : src/Statistics.i
-
-# target to preprocess a source file
-src/Statistics.cpp.i:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Statistics.cpp.i
-.PHONY : src/Statistics.cpp.i
-
-src/Statistics.s: src/Statistics.cpp.s
-
-.PHONY : src/Statistics.s
-
-# target to generate assembly for a file
-src/Statistics.cpp.s:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Statistics.cpp.s
-.PHONY : src/Statistics.cpp.s
 
 src/Utils.o: src/Utils.cpp.o
 
@@ -420,32 +366,32 @@ src/Validation.cpp.s:
 	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.s
 .PHONY : src/Validation.cpp.s
 
-src/Visualisation.o: src/Visualisation.cpp.o
+src/Visualization.o: src/Visualization.cpp.o
 
-.PHONY : src/Visualisation.o
+.PHONY : src/Visualization.o
 
 # target to build an object file
-src/Visualisation.cpp.o:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Visualisation.cpp.o
-.PHONY : src/Visualisation.cpp.o
+src/Visualization.cpp.o:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Visualization.cpp.o
+.PHONY : src/Visualization.cpp.o
 
-src/Visualisation.i: src/Visualisation.cpp.i
+src/Visualization.i: src/Visualization.cpp.i
 
-.PHONY : src/Visualisation.i
+.PHONY : src/Visualization.i
 
 # target to preprocess a source file
-src/Visualisation.cpp.i:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Visualisation.cpp.i
-.PHONY : src/Visualisation.cpp.i
+src/Visualization.cpp.i:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Visualization.cpp.i
+.PHONY : src/Visualization.cpp.i
 
-src/Visualisation.s: src/Visualisation.cpp.s
+src/Visualization.s: src/Visualization.cpp.s
 
-.PHONY : src/Visualisation.s
+.PHONY : src/Visualization.s
 
 # target to generate assembly for a file
-src/Visualisation.cpp.s:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Visualisation.cpp.s
-.PHONY : src/Visualisation.cpp.s
+src/Visualization.cpp.s:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Visualization.cpp.s
+.PHONY : src/Visualization.cpp.s
 
 src/gnuplot_i.o: src/gnuplot_i.cpp.o
 
@@ -501,6 +447,33 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/main_(copy).o: src/main_(copy).cpp.o
+
+.PHONY : src/main_(copy).o
+
+# target to build an object file
+src/main_(copy).cpp.o:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make "CMakeFiles/Classification_Algorithms_System.dir/src/main_(copy).cpp.o"
+.PHONY : src/main_(copy).cpp.o
+
+src/main_(copy).i: src/main_(copy).cpp.i
+
+.PHONY : src/main_(copy).i
+
+# target to preprocess a source file
+src/main_(copy).cpp.i:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make "CMakeFiles/Classification_Algorithms_System.dir/src/main_(copy).cpp.i"
+.PHONY : src/main_(copy).cpp.i
+
+src/main_(copy).s: src/main_(copy).cpp.s
+
+.PHONY : src/main_(copy).s
+
+# target to generate assembly for a file
+src/main_(copy).cpp.s:
+	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make "CMakeFiles/Classification_Algorithms_System.dir/src/main_(copy).cpp.s"
+.PHONY : src/main_(copy).cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -508,8 +481,8 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... edit_cache"
 	@echo "... Classification_Algorithms_System"
+	@echo "... edit_cache"
 	@echo "... src/Classifier.o"
 	@echo "... src/Classifier.i"
 	@echo "... src/Classifier.s"
@@ -525,33 +498,30 @@ help:
 	@echo "... src/Perceptron.o"
 	@echo "... src/Perceptron.i"
 	@echo "... src/Perceptron.s"
-	@echo "... src/Point.o"
-	@echo "... src/Point.i"
-	@echo "... src/Point.s"
 	@echo "... src/PrimalClassifier.o"
 	@echo "... src/PrimalClassifier.i"
 	@echo "... src/PrimalClassifier.s"
 	@echo "... src/RFE.o"
 	@echo "... src/RFE.i"
 	@echo "... src/RFE.s"
-	@echo "... src/Statistics.o"
-	@echo "... src/Statistics.i"
-	@echo "... src/Statistics.s"
 	@echo "... src/Utils.o"
 	@echo "... src/Utils.i"
 	@echo "... src/Utils.s"
 	@echo "... src/Validation.o"
 	@echo "... src/Validation.i"
 	@echo "... src/Validation.s"
-	@echo "... src/Visualisation.o"
-	@echo "... src/Visualisation.i"
-	@echo "... src/Visualisation.s"
+	@echo "... src/Visualization.o"
+	@echo "... src/Visualization.i"
+	@echo "... src/Visualization.s"
 	@echo "... src/gnuplot_i.o"
 	@echo "... src/gnuplot_i.i"
 	@echo "... src/gnuplot_i.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/main_(copy).o"
+	@echo "... src/main_(copy).i"
+	@echo "... src/main_(copy).s"
 .PHONY : help
 
 

@@ -1,4 +1,4 @@
-#include "../includes/Visualisation.hpp"
+#include "../includes/Visualization.hpp"
 #include <cstdio>
 #include <string>
 #include <sstream>
@@ -6,28 +6,33 @@
 
 using namespace std;
 
-Visualisation::Visualisation(){
+template < typename T >
+Visualization< T >::Visualization(){
 }
 
-Visualisation::Visualisation(Data *sample){
+template < typename T >
+Visualization< T >::Visualization(Data< T > *sample){
     samples = sample;
 }
 
-void Visualisation::setTitle(string title){
+template < typename T >
+void Visualization< T >::setTitle(string title){
 	#ifdef __unix__
 	    g.set_title(title);
 	#elif _WIN32
 	#endif
 }
 
-void Visualisation::setStyle(string style){
+template < typename T >
+void Visualization< T >::setStyle(string style){
     #ifdef __unix__
     	g.set_style(style);
     #elif _WIN32
     #endif
 }
 
-void Visualisation::createPosNegTemps(){
+template < typename T >
+void Visualization< T >::createPosNegTemps(){
     int i, j, size = samples->getSize(), dim = samples->getDim();
     ofstream neg_file("neg.plt"), pos_file("pos.plt"), und_file("und.plt");
 
@@ -54,7 +59,8 @@ void Visualisation::createPosNegTemps(){
     und_file.close();
 }
 
-bool Visualisation::valid_file(string file){
+template < typename T >
+bool Visualization< T >::valid_file(string file){
     int i;
     bool flag = false;
     string ext;
@@ -75,7 +81,8 @@ bool Visualisation::valid_file(string file){
     return flag;
 }
 
-vector<string> Visualisation::getTempFilesNames(){
+template < typename T >
+vector<string> Visualization< T >::getTempFilesNames(){
     vector<string> files;
 
     #ifdef __unix__
@@ -117,7 +124,8 @@ vector<string> Visualisation::getTempFilesNames(){
     return files;
 }
 
-void Visualisation::removeTempFiles(){
+template < typename T >
+void Visualization< T >::removeTempFiles(){
     string path;
     vector<string> temps;
 
@@ -129,7 +137,8 @@ void Visualisation::removeTempFiles(){
     }
 }
 
-void Visualisation::plot2D(int x, int y){
+template < typename T >
+void Visualization< T >::plot2D(int x, int y){
     string dims = itos(x) + ":" + itos(y);
     string cmd = "set terminal qt; plot 'pos.plt' using " + dims + " title '+1' with points, 'neg.plt' using " + dims + " title '-1' with points";
     createPosNegTemps();
@@ -142,7 +151,8 @@ void Visualisation::plot2D(int x, int y){
     #endif
 }
 
-void Visualisation::plot3D(int x, int y, int z){
+template < typename T >
+void Visualization< T >::plot3D(int x, int y, int z){
     string dims = itos(x) + ":" + itos(y) + ":" + itos(z);
     string cmd = "splot 'pos.plt' using " + dims + " title '+1' with points, 'neg.plt' using " + dims + " title '-1' with points";
     createPosNegTemps();
@@ -155,7 +165,8 @@ void Visualisation::plot3D(int x, int y, int z){
     #endif
 }
 
-void Visualisation::plot2DwithHyperplane(int x, int y, Solution s){
+template < typename T >
+void Visualization< T >::plot2DwithHyperplane(int x, int y, Solution s){
     if(s.norm != s.norm) s.norm = 0.0;
 
     string feats = itos(x) + ":" + itos(y);
@@ -174,7 +185,8 @@ void Visualisation::plot2DwithHyperplane(int x, int y, Solution s){
     #endif
 }
 
-void Visualisation::plot3DwithHyperplane(int x, int y, int z, Solution s){
+template < typename T >
+void Visualization< T >::plot3DwithHyperplane(int x, int y, int z, Solution s){
     string feats = itos(x) + ":" + itos(y) + ":" + itos(z);
     string fxy = "f(x,y) = "+dtoa(s.w[x-1]/-s.w[z-1])+"*x + "+dtoa(s.w[y-1]/-s.w[z-1])+"*y + "+dtoa(s.bias/-s.w[z-1]);
     string cmd = fxy + "; splot 'pos.plt' using "+ feats +" title '+1' with points, 'neg.plt' using "+ feats +" title '-1' with points, f(x,y) notitle with lines ls 1";
@@ -188,10 +200,23 @@ void Visualisation::plot3DwithHyperplane(int x, int y, int z, Solution s){
     #endif
 }
 
-Visualisation::~Visualisation(){
+template < typename T >
+Visualization< T >::~Visualization(){
 	#ifdef __unix__
 	    g.cmd("quit");
     #elif _WIN32
     #endif
     removeTempFiles();
 }
+
+template class Visualization<int>;
+template class Visualization<double>;
+template class Visualization<float>;
+template class Visualization<int8_t>;
+template class Visualization<char>;
+template class Visualization<long long int>;
+template class Visualization<short int>;
+template class Visualization<long double>;
+template class Visualization<unsigned char>;
+template class Visualization<unsigned int>;
+template class Visualization<unsigned short int>;
