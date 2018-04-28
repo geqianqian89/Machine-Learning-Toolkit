@@ -3,7 +3,8 @@
 
 #include "Classifier.hpp"
 
-class PrimalClassifier : public Classifier {
+template < typename T >
+class PrimalClassifier : public Classifier< T > {
     // Attributes
 protected :
     /// Weights vector.

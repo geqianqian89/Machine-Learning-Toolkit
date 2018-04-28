@@ -38,6 +38,8 @@ else()
   set(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 endif()
 
+set (CPACK_DEBIAN_PACKAGE_DEPENDS "gnuplot (>=5.0)")
+
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 file(WRITE "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"

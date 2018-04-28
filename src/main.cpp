@@ -2,6 +2,8 @@
 #include "../includes/Data.hpp"
 #include "../includes/Kernel.hpp"
 #include "../includes/Visualization.hpp"
+#include "../includes/Classifier.hpp"
+#include "../includes/PrimalClassifier.hpp"
 
 using namespace std;
 
@@ -10,7 +12,8 @@ int main(){
 	Data<float> data("cmake-build-debug/DB/test.data");
 	dMatrix *mat;
     Visualization<float> vis(&data);
-	k.compute(data);
+
+    k.compute(data);
 	mat = k.getKernelMatrixPointer();
 
 	for(int i = 0; i < data.getSize(); i++){

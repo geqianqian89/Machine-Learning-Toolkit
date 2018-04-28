@@ -14,7 +14,7 @@ protected :
     /// Samples used in the model training.
     std::shared_ptr<Data< T > > samples;
     /// Support vectors points.
-    template std::vector<Point< T > > svs;
+    std::vector<Point< T > > svs;
     /// Classifier solution.
     Solution solution;
     /// Learning rate
@@ -59,14 +59,12 @@ public :
      * \param Point< T >  x (???) Features point to be evaluated.
      * \return int
      */
-    template < typename T >
     virtual double evaluate (Point< T > p) = 0;
     /**
      * \brief setSamples Set the samples used in the classifier.
      * \param samples Samples to be used.
      */
-    template < typename T >
-    virtual void setSamples(std::shared_ptr<Data< T > > samples);
+    virtual void setSamples(std::shared_ptr<Data< T > > samples) {this->samples = samples;}
 
     void setTimer(Timer timer){ this->timer = timer; }
     /**
@@ -100,52 +98,52 @@ public :
      * @brief Set the partial number of updates of the classifier.
      * @param ctot Number of updates.
      */
-    void setCtot(int ctot);
+    void setCtot(int ctot){this->ctot = ctot;}
     /**
      * @brief Set the level of verbose.
      * @param verbose level of verbose.
      */
-    void setVerbose(int verbose);
+    void setVerbose(int verbose){this->verbose = verbose;}
     /**
      * \brief setStartTime Set the initial time of the classifier.
      * \param start_time Initial time.
      */
-    void setStartTime(double start_time);
+    void setStartTime(double start_time){ this->start_time = start_time;}
     /**
      * \brief setMaxTime Set the maximum time of the classifier.
      * \param max_time Maximum time.
      */
-    void setSolution(Solution solution);
+    void setSolution(Solution solution){this->solution = solution;}
     /**
      * @brief getSolution Returns the solution of the primal classifier.
      * @return Solution
      */
-    Solution getSolution();
+    Solution getSolution(){return solution;}
     /**
      * @brief Set the max time of execution.
      * @param max_time  Max time.
      */
-    void setMaxTime(double max_time);
+    void setMaxTime(double max_time){this->max_time = max_time;}
     /**
      * \brief setEPS Set the precision of the classifier.
      * \param EPS Precision.
      */
-    void setEPS(double EPS);
+    void setEPS(double EPS){this->EPS = EPS;}
     /**
      * \brief setMaxIterations Set the max number of iterations of the classifier.
      * \param MAX_IT Number max of iterations.
      */
-    void setMaxIterations(int MAX_IT);
+    void setMaxIterations(int MAX_IT){this->MAX_IT = MAX_IT;}
     /**
      * \brief setMaxIterations Set the max number of updates of the classifier.
      * \param MAX_IT Number max of updates.
      */
-    void setMaxUpdates(int MAX_UP);
+    void setMaxUpdates(int MAX_UP){this->MAX_UP = MAX_UP;}
     /**
      * @brief Set the learning rate of the classifier.
      * @param rate Learning rate.
      */
-    void setLearningRate(double rate);
+    void setLearningRate(double rate){this->rate = rate;}
 };
 
 #endif

@@ -32,7 +32,7 @@ CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../includes/Timer
 CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../includes/Utils.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../includes/Validation.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../includes/ValidationSolution.hpp
-CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../includes/Visualisation.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../includes/Visualization.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../includes/gnuplot_i.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o: ../src/IMA.cpp
 
@@ -57,13 +57,9 @@ CMakeFiles/Classification_Algorithms_System.dir/src/Perceptron.cpp.o: ../include
 CMakeFiles/Classification_Algorithms_System.dir/src/Perceptron.cpp.o: ../includes/Utils.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/Perceptron.cpp.o: ../includes/Validation.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/Perceptron.cpp.o: ../includes/ValidationSolution.hpp
-CMakeFiles/Classification_Algorithms_System.dir/src/Perceptron.cpp.o: ../includes/Visualisation.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/Perceptron.cpp.o: ../includes/Visualization.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/Perceptron.cpp.o: ../includes/gnuplot_i.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/Perceptron.cpp.o: ../src/Perceptron.cpp
-
-CMakeFiles/Classification_Algorithms_System.dir/src/Point.cpp.o: ../includes/Point.hpp
-CMakeFiles/Classification_Algorithms_System.dir/src/Point.cpp.o: ../includes/Utils.hpp
-CMakeFiles/Classification_Algorithms_System.dir/src/Point.cpp.o: ../src/Point.cpp
 
 CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.o: ../includes/Classifier.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/PrimalClassifier.cpp.o: ../includes/Data.hpp
@@ -90,12 +86,6 @@ CMakeFiles/Classification_Algorithms_System.dir/src/RFE.cpp.o: ../includes/Valid
 CMakeFiles/Classification_Algorithms_System.dir/src/RFE.cpp.o: ../includes/ValidationSolution.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/RFE.cpp.o: ../src/RFE.cpp
 
-CMakeFiles/Classification_Algorithms_System.dir/src/Statistics.cpp.o: ../includes/Data.hpp
-CMakeFiles/Classification_Algorithms_System.dir/src/Statistics.cpp.o: ../includes/Point.hpp
-CMakeFiles/Classification_Algorithms_System.dir/src/Statistics.cpp.o: ../includes/Statistics.hpp
-CMakeFiles/Classification_Algorithms_System.dir/src/Statistics.cpp.o: ../includes/Utils.hpp
-CMakeFiles/Classification_Algorithms_System.dir/src/Statistics.cpp.o: ../src/Statistics.cpp
-
 CMakeFiles/Classification_Algorithms_System.dir/src/Utils.cpp.o: ../includes/Utils.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/Utils.cpp.o: ../src/Utils.cpp
 
@@ -113,35 +103,45 @@ CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.o: ../include
 CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.o: ../includes/ValidationSolution.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.o: ../src/Validation.cpp
 
-CMakeFiles/Classification_Algorithms_System.dir/src/Visualisation.cpp.o: ../includes/Data.hpp
-CMakeFiles/Classification_Algorithms_System.dir/src/Visualisation.cpp.o: ../includes/Kernel.hpp
-CMakeFiles/Classification_Algorithms_System.dir/src/Visualisation.cpp.o: ../includes/Point.hpp
-CMakeFiles/Classification_Algorithms_System.dir/src/Visualisation.cpp.o: ../includes/Solution.hpp
-CMakeFiles/Classification_Algorithms_System.dir/src/Visualisation.cpp.o: ../includes/Statistics.hpp
-CMakeFiles/Classification_Algorithms_System.dir/src/Visualisation.cpp.o: ../includes/Utils.hpp
-CMakeFiles/Classification_Algorithms_System.dir/src/Visualisation.cpp.o: ../includes/Visualisation.hpp
-CMakeFiles/Classification_Algorithms_System.dir/src/Visualisation.cpp.o: ../includes/gnuplot_i.hpp
-CMakeFiles/Classification_Algorithms_System.dir/src/Visualisation.cpp.o: ../src/Visualisation.cpp
+CMakeFiles/Classification_Algorithms_System.dir/src/Visualization.cpp.o: ../includes/Data.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/Visualization.cpp.o: ../includes/Kernel.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/Visualization.cpp.o: ../includes/Point.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/Visualization.cpp.o: ../includes/Solution.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/Visualization.cpp.o: ../includes/Statistics.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/Visualization.cpp.o: ../includes/Utils.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/Visualization.cpp.o: ../includes/Visualization.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/Visualization.cpp.o: ../includes/gnuplot_i.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/Visualization.cpp.o: ../src/Visualization.cpp
 
 CMakeFiles/Classification_Algorithms_System.dir/src/gnuplot_i.cpp.o: ../includes/gnuplot_i.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/gnuplot_i.cpp.o: ../src/gnuplot_i.cpp
 
-CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/Classifier.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/Data.hpp
-CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/DualClassifier.hpp
-CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/IMA.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/Kernel.hpp
-CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/MLToolkit.hpp
-CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/Perceptron.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/Point.hpp
-CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/PrimalClassifier.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/Solution.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/Statistics.hpp
-CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/Timer.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/Utils.hpp
-CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/Validation.hpp
-CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/ValidationSolution.hpp
-CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/Visualisation.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/Visualization.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../includes/gnuplot_i.hpp
 CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o: ../src/main.cpp
+
+CMakeFiles/Classification_Algorithms_System.dir/src/main_(copy).cpp.o: ../includes/Classifier.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/main_(copy).cpp.o: ../includes/Data.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/main_(copy).cpp.o: ../includes/DualClassifier.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/main_(copy).cpp.o: ../includes/IMA.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/main_(copy).cpp.o: ../includes/Kernel.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/main_(copy).cpp.o: ../includes/MLToolkit.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/main_(copy).cpp.o: ../includes/Perceptron.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/main_(copy).cpp.o: ../includes/Point.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/main_(copy).cpp.o: ../includes/PrimalClassifier.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/main_(copy).cpp.o: ../includes/Solution.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/main_(copy).cpp.o: ../includes/Statistics.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/main_(copy).cpp.o: ../includes/Timer.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/main_(copy).cpp.o: ../includes/Utils.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/main_(copy).cpp.o: ../includes/Validation.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/main_(copy).cpp.o: ../includes/ValidationSolution.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/main_(copy).cpp.o: ../includes/Visualization.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/main_(copy).cpp.o: ../includes/gnuplot_i.hpp
+CMakeFiles/Classification_Algorithms_System.dir/src/main_(copy).cpp.o: ../src/main\ (copy).cpp
 
