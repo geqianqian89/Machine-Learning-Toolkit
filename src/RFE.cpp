@@ -11,7 +11,8 @@
 
 using namespace std;
 
-RFE::RFE(std::shared_ptr<Data> samples, Classifier *classifier, Validation::CrossValidation *cv, int depth, int skip, int jump, bool leave_one_out) {
+template < typename T >
+RFE< T >::RFE(std::shared_ptr<Data< T > > samples, Classifier< T > *classifier, Validation< T >::CrossValidation *cv, int depth, int skip, int jump, bool leave_one_out) {
     this->samples = samples;
     this->classifier = classifier;
     this->depth = depth;
@@ -21,7 +22,8 @@ RFE::RFE(std::shared_ptr<Data> samples, Classifier *classifier, Validation::Cros
     this->leave_one_out = leave_one_out;
 }
 
-std::unique_ptr<Data> RFE::selectFeatures() {
+template < typename T >
+std::unique_ptr<Data< T > > RFE< T >::selectFeatures() {
     int i = 0, j = 0;
     size_t dim = samples->getDim(), partial_dim = 0;
     vector<int> features(depth), partial_features, choosen_feats;
@@ -32,8 +34,8 @@ std::unique_ptr<Data> RFE::selectFeatures() {
     double max_time = classifier->getMax_time(), time_mult = samples->getTime_mult();
     double margin = 0, leave_oo = 0, kfolderror = 0, partial_time = 0, partial_margin = 0;
     double START_TIME = 100.0f * clock() / CLOCKS_PER_SEC;
-    unique_ptr<Data> stmp_partial, stmp(make_unique<Data>());
-    Validation validation(samples, classifier);
+    unique_ptr<Data< T > > stmp_partial, stmp(make_unique<Data< T > >());
+    Validation< T > validation(samples, classifier);
 
     *stmp = *samples;
     /*error check*/
@@ -113,7 +115,7 @@ std::unique_ptr<Data> RFE::selectFeatures() {
         partial_dim = dim-level;
 
         stmp_partial.reset();
-        stmp_partial = make_unique<Data>();
+        stmp_partial = make_unique<Data< T > >();
         *stmp_partial = *samples;
 
         partial_features.clear();
@@ -280,8 +282,21 @@ std::unique_ptr<Data> RFE::selectFeatures() {
 /*----------------------------------------------------------*
  * Returns 1 for a > b, -1 a < b, 0 if a = b                *
  *----------------------------------------------------------*/
-int RFE::compare_weight_greater(const select_weight &a, const select_weight &b) {
+template < typename T >
+int RFE< T >::compare_weight_greater(const select_weight &a, const select_weight &b) {
     /*                 V (greater)*/
     //printf("%d\n",(fabs(ia->w) > fabs(ib->w)) - (fabs(ia->w) < fabs(ib->w)));
     return (fabs(a.w) > fabs(b.w)) - (fabs(a.w) < fabs(b.w));
 }
+
+template class RFE<int>;
+template class RFE<double>;
+template class RFE<float>;
+template class RFE<int8_t>;
+template class RFE<char>;
+template class RFE<long long int>;
+template class RFE<short int>;
+template class RFE<long double>;
+template class RFE<unsigned char>;
+template class RFE<unsigned int>;
+template class RFE<unsigned short int>;

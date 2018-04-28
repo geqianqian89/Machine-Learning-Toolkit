@@ -1,11 +1,13 @@
 #include <iostream>
 #include <ctime>
 #include <cmath>
+
 #include "../includes/Perceptron.hpp"
 
 using namespace std;
 
-PerceptronPrimal::PerceptronPrimal(std::shared_ptr<Data> samples, double q, double rate, Solution *initial_solution){
+template < typename T >
+PerceptronPrimal< T >::PerceptronPrimal(std::shared_ptr<Data< T > > samples, double q, double rate, Solution *initial_solution){
     this->samples = samples;
     this->q = q;
     this->rate = rate;
@@ -13,12 +15,14 @@ PerceptronPrimal::PerceptronPrimal(std::shared_ptr<Data> samples, double q, doub
         this->solution = *initial_solution;
 }
 
-bool PerceptronPrimal::train(){
+template < typename T >
+bool PerceptronPrimal< T >::train(){
     int size = samples->getSize(), dim = samples->getDim();
     int i, j, e, idx;
     double norm, y, time = start_time + max_time, bias = 0;
     bool cond;
-    vector<double> func(size, 0), w(dim, 0), x;
+    vector<double> func(size, 0), w(dim, 0);
+    vector< T > x;
     vector<int> index = samples->getIndex();
 
     if(w.size() == 0) w.resize(dim);
@@ -27,7 +31,7 @@ bool PerceptronPrimal::train(){
     while(timer.Elapsed() - time <= 0){
         for(e = 0, i = 0; i < size; ++i){
             idx = index[i];
-            shared_ptr<Point> p = samples->getPoint(idx);
+            shared_ptr<Point< T > > p = samples->getPoint(idx);
             x = p->x;
             y = p->y;
 
@@ -62,7 +66,8 @@ bool PerceptronPrimal::train(){
     return (e == 0);
 }
 
-double PerceptronPrimal::evaluate(Point p){
+template < typename T >
+double PerceptronPrimal< T >::evaluate(Point< T > p){
     int i, dim = solution.w.size();
     double bias = solution.bias, func;
     vector<double> w = solution.w;
@@ -72,7 +77,8 @@ double PerceptronPrimal::evaluate(Point p){
     }
 }
 
-PerceptronFixedMarginPrimal::PerceptronFixedMarginPrimal(std::shared_ptr<Data> samples, double gamma, double q, double rate, Solution *initial_solution){
+template < typename T >
+PerceptronFixedMarginPrimal< T >::PerceptronFixedMarginPrimal(std::shared_ptr<PerceptronFixedMarginDual< T > > samples, double gamma, double q, double rate, Solution *initial_solution){
     this->samples = samples;
     this->q = q;
     this->rate = rate;
@@ -81,15 +87,17 @@ PerceptronFixedMarginPrimal::PerceptronFixedMarginPrimal(std::shared_ptr<Data> s
         this->solution = *initial_solution;
 }
 
-bool PerceptronFixedMarginPrimal::train(){
+template < typename T >
+bool PerceptronFixedMarginPrimal< T >::train(){
     int i, j, k, e, s, r, dim = samples->getDim();
     int idx, sign = 1, size = samples->getSize(), n = dim, n_temp = 0, largn = 0;
     double norm = solution.norm, lambda = 1.0, y, time = start_time + max_time;
     double sumnorm = 0.0, bias = solution.bias, largw = 0.0, largw_temp = 0.0;
     bool cond;
-    vector<double> func = solution.func, w = solution.w, x;
+    vector<double> func = solution.func, w = solution.w;
+    vector< T > x;
     vector<int> index = samples->getIndex();
-    shared_ptr<Point> p;
+    shared_ptr<Point< T > > p;
 
     if(w.size() == 0) w.resize(dim);
     e = s = 0;
@@ -111,7 +119,7 @@ bool PerceptronFixedMarginPrimal::train(){
             if(y*func[idx] <= gamma*norm - samples->getPoint(idx)->alpha*flexible){
                 lambda = (norm) ? (1-rate*gamma/norm) : 1;
                 for(r = 0; r < size; ++r){
-                    shared_ptr<Point> b = samples->getPoint(r);
+                    shared_ptr<Point< T > > b = samples->getPoint(r);
                     b->alpha *= lambda;
                     samples->setPoint(r, b);
                 }
@@ -191,7 +199,8 @@ bool PerceptronFixedMarginPrimal::train(){
     return (e == 0);
 }
 
-double PerceptronFixedMarginPrimal::evaluate(Point p){
+template < typename T >
+double PerceptronFixedMarginPrimal< T >::evaluate(Point< T > p){
     int i, dim = solution.w.size();
     double bias = solution.bias, func;
     vector<double> w = solution.w;
@@ -201,7 +210,8 @@ double PerceptronFixedMarginPrimal::evaluate(Point p){
     }
 }
 
-PerceptronDual::PerceptronDual(std::shared_ptr<Data> samples, double rate, Kernel *K, Solution *initial_solution){
+template < typename T >
+PerceptronDual< T >::PerceptronDual(std::shared_ptr<Data< T > > samples, double rate, Kernel *K, Solution *initial_solution){
     this->samples = samples;
     if(initial_solution){
         this->solution = *initial_solution;
@@ -212,7 +222,8 @@ PerceptronDual::PerceptronDual(std::shared_ptr<Data> samples, double rate, Kerne
         this->kernel = K;
 }
 
-bool PerceptronDual::train(){
+template < typename T >
+bool PerceptronDual< T > ::train(){
     int y, e, i, j, idx, r, size = samples->getSize(), dim = samples->getDim();
     double norm = solution.norm, time = start_time+max_time;
     double bias = solution.bias;
@@ -220,7 +231,7 @@ bool PerceptronDual::train(){
     const double tworate = 2 * rate;
     vector<int> index = samples->getIndex();
     vector<double> func(size, 0.0), Kv;
-    vector<shared_ptr<Point> > points = samples->getPoints();
+    vector<shared_ptr<Point< T > > > points = samples->getPoints();
     dMatrix K = kernel->getKernelMatrix();
 
     if(alpha.size() == 0){
@@ -274,11 +285,13 @@ bool PerceptronDual::train(){
     return (e == 0);
 }
 
-double PerceptronDual::evaluate(Point p){
+template < typename T >
+double PerceptronDual< T > ::evaluate(Point< T > p){
     return p.dot(solution.w);
 }
 
-PerceptronFixedMarginDual::PerceptronFixedMarginDual(std::shared_ptr<Data> samples, double gamma, double rate, Kernel *K, Solution *initial_solution){
+template < typename T >
+PerceptronFixedMarginDual< T >::PerceptronFixedMarginDual(std::shared_ptr<Data< T > > samples, double gamma, double rate, Kernel *K, Solution *initial_solution){
     this->samples = samples;
     //this->solution = *initial_solution;
     this->rate = rate;
@@ -293,7 +306,8 @@ PerceptronFixedMarginDual::PerceptronFixedMarginDual(std::shared_ptr<Data> sampl
     }
 }
 
-bool PerceptronFixedMarginDual::train(){
+template < typename T >
+bool PerceptronFixedMarginDual< T >::train(){
     size_t e, i, j, k, s, idx, r, size = samples->getSize(), dim = samples->getDim();
     double y, lambda, norm = solution.norm, time = start_time+max_time;
     double bias = solution.bias;
@@ -301,7 +315,7 @@ bool PerceptronFixedMarginDual::train(){
     const double tworate = 2*rate;
     vector<int> index = samples->getIndex();
     vector<double> func = solution.func, Kv;
-    vector<shared_ptr<Point> > points = samples->getPoints();
+    vector<shared_ptr<Point< T > > > points = samples->getPoints();
     dMatrix *K = kernel->getKernelMatrixPointer();
 
     e = 1, s = 0;
@@ -360,6 +374,55 @@ bool PerceptronFixedMarginDual::train(){
     return (e == 0);
 }
 
-double PerceptronFixedMarginDual::evaluate(Point p){
+template < typename T >
+double PerceptronFixedMarginDual< T >::evaluate(Point< T > p){
 
 }
+
+template class PerceptronPrimal<int>;
+template class PerceptronPrimal<double>;
+template class PerceptronPrimal<float>;
+template class PerceptronPrimal<int8_t>;
+template class PerceptronPrimal<char>;
+template class PerceptronPrimal<long long int>;
+template class PerceptronPrimal<short int>;
+template class PerceptronPrimal<long double>;
+template class PerceptronPrimal<unsigned char>;
+template class PerceptronPrimal<unsigned int>;
+template class PerceptronPrimal<unsigned short int>;
+
+template class PerceptronFixedMarginPrimal<int>;
+template class PerceptronFixedMarginPrimal<double>;
+template class PerceptronFixedMarginPrimal<float>;
+template class PerceptronFixedMarginPrimal<int8_t>;
+template class PerceptronFixedMarginPrimal<char>;
+template class PerceptronFixedMarginPrimal<long long int>;
+template class PerceptronFixedMarginPrimal<short int>;
+template class PerceptronFixedMarginPrimal<long double>;
+template class PerceptronFixedMarginPrimal<unsigned char>;
+template class PerceptronFixedMarginPrimal<unsigned int>;
+template class PerceptronFixedMarginPrimal<unsigned short int>;
+
+template class PerceptronDual<int>;
+template class PerceptronDual<double>;
+template class PerceptronDual<float>;
+template class PerceptronDual<int8_t>;
+template class PerceptronDual<char>;
+template class PerceptronDual<long long int>;
+template class PerceptronDual<short int>;
+template class PerceptronDual<long double>;
+template class PerceptronDual<unsigned char>;
+template class PerceptronDual<unsigned int>;
+template class PerceptronDual<unsigned short int>;
+
+template class PerceptronFixedMarginDual<int>;
+template class PerceptronFixedMarginDual<double>;
+template class PerceptronFixedMarginDual<float>;
+template class PerceptronFixedMarginDual<int8_t>;
+template class PerceptronFixedMarginDual<char>;
+template class PerceptronFixedMarginDual<long long int>;
+template class PerceptronFixedMarginDual<short int>;
+template class PerceptronFixedMarginDual<long double>;
+template class PerceptronFixedMarginDual<unsigned char>;
+template class PerceptronFixedMarginDual<unsigned int>;
+template class PerceptronFixedMarginDual<unsigned short int>;

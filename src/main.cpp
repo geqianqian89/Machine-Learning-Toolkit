@@ -6,6 +6,7 @@
 #include "../includes/PrimalClassifier.hpp"
 #include "../includes/DualClassifier.hpp"
 #include "../includes/Validation.hpp"
+#include "../includes/Perceptron.hpp"
 
 using namespace std;
 
@@ -15,7 +16,8 @@ int main(){
 	dMatrix *mat;
     Visualization<float> vis(&data);
     Validation<float> val(make_shared<Data<float> >(data));
-
+    PerceptronPrimal<float> perc(make_shared<Data<float > >(data), 2, 1, nullptr);
+    perc.train();
     k.compute(data);
 	mat = k.getKernelMatrixPointer();
 
@@ -25,10 +27,11 @@ int main(){
         }
         cout << endl;
 	}
+	Solution sol = perc.getSolution();
 	cout << data << endl;
 	cout << data[0]->norm(2) << endl;
 	cout << (*data[0])[0] << endl;
-	vis.plot2D(1, 2);
+	vis.plot2D(1, 2, sol);
 
 }
 

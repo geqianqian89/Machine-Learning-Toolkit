@@ -7,7 +7,8 @@
 
 #include "FeatureSelection.hpp"
 
-class RFE : public FeatureSelection {
+template < typename T >
+class RFE : public FeatureSelection< T > {
 public:
 
 private:
@@ -17,8 +18,8 @@ private:
         double fname;
     };
 
-    RFE(std::shared_ptr<Data> samples = nullptr, Classifier* classifier = nullptr, Validation::CrossValidation *cv = nullptr, int depth = 0, int skip = 0, int jump = 0, bool leave_one_out = false);
-    std::unique_ptr<Data> selectFeatures() override ;
+    RFE(std::shared_ptr<Data< T > > samples = nullptr, Classifier< T >* classifier = nullptr, Validation::CrossValidation *cv = nullptr, int depth = 0, int skip = 0, int jump = 0, bool leave_one_out = false);
+    std::unique_ptr<Data< T > > selectFeatures() override ;
     static int compare_weight_greater(const select_weight &a, const select_weight &b);
 };
 
