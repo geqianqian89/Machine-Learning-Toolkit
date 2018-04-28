@@ -218,19 +218,6 @@ string dtoa(double n){
     return string(s);
 }
 
-double maxAbsElement(vector<double> x){
-    int i, dim = x.size();
-    double max, absv;
-
-    for(i = 0, max = -INF; i < dim; i++){
-        absv = fabs(x[i]);
-        if(absv > max){
-            max = absv;
-        }
-    }
-
-    return max;
-}
 
 template<typename Out>
 void split(const std::string &s, char delim, Out result) {

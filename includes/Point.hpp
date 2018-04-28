@@ -47,6 +47,10 @@ public :
 
     friend std::ostream &operator<< <>( std::ostream &output, const Point< T > &p );
 
+    T operator[](size_t i) const {return x[i];}
+
+    T& operator[](size_t i) {return x[i];}
+
     bool operator==(const Point< T > &rhs) const;
 
     bool operator!=(const Point< T > &rhs) const;

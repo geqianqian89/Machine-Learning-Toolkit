@@ -2,7 +2,8 @@
 
 using namespace std;
 
-void Classifier::setSamples(std::shared_ptr<Data> samples){
+template < typename T >
+void Classifier::setSamples(std::shared_ptr<Data< T > > samples){
     this->samples = samples;
 }
 

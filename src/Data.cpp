@@ -21,19 +21,15 @@
 using namespace std;
 
 template < typename T >
-Data< T >::Data(const char* pos_class, const char* neg_class){
-    this->pos_class = string(pos_class);
-    this->neg_class = string(neg_class);
-}
+Data< T >::Data(){}
 
 template < typename T >
-Data< T >::Data(string dataset, const char* pos_class, const char* neg_class){
-    if(!load(dataset)){
+Data< T >::Data(const char* dataset, const char* pos_class, const char* neg_class){
+    if(!load(string(dataset))){
         cerr << "Couldn't read the dataset." << endl;
     }
-
-    this->pos_class = string(pos_class);
-    this->neg_class = string(neg_class);
+	this->pos_class = string(pos_class);
+	this->neg_class = string(neg_class);
 }
 
 template < typename T >
@@ -242,7 +238,7 @@ bool Data< T >::load_data(string path){
     //get dimension of the points
     while(getline(input, str)){
         dim = -1;
-
+		
         ss.str(str);
         ss.clear();
 

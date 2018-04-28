@@ -75,7 +75,7 @@ public:
 
 private:
     /// Positive and negative classes. (1, -1 are the default classes)
-    std::string pos_class, neg_class;
+    std::string pos_class = std::string("1"), neg_class = std::string("-1");
     /// Verify if there's some data loaded.
     bool is_empty = true;
     /// Verify if the data is normalized.
@@ -114,19 +114,19 @@ private:
      */
     bool load_txt (std::string path);
 public :
-    /**
-     * \brief Constructor for empty data.
-     * \param pos_class String representing the positive class on the dataset.
-     * \param neg_class String representing the negative class on the dataset.
-     */
-    explicit Data (const char* pos_class = "1", const char* neg_class = "-1");
-    /**
+	/**
      * \brief Data constructor to load a dataset from a file.
      * \param dataset (???) Path to the dataset to be loaded.
      * \param pos_class String representing the positive class on the dataset.
      * \param neg_class String representing the negative class on the dataset.
      */
-    explicit Data (std::string dataset, const char* pos_class = "1", const char* neg_class = "-1");
+    Data (const char* dataset, const char* pos_class = "1", const char* neg_class = "-1");
+    /**
+     * \brief Constructor for empty data.
+     * \param pos_class String representing the positive class on the dataset.
+     * \param neg_class String representing the negative class on the dataset.
+     */
+    Data ();
     /**
      * \brief write Write the data to a file with the given extention.
      * \param fname Name of the file.
@@ -302,6 +302,10 @@ public :
     /*********************************************
      *  Overloaded operators for the Data class. *
      *********************************************/
+
+    shared_ptr<Point< T > > operator[](size_t i) const {return points[i];}
+
+    shared_ptr<Point< T > > & operator[](size_t i) {return points[i];}
 
     void operator=(const Data< T >&);
 

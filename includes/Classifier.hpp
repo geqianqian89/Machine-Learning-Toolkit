@@ -5,15 +5,16 @@
 #include "../includes/Data.hpp"
 #include "../includes/Timer.hpp"
 
+template < typename T >
 class Classifier {
     // Attributes
 protected :
     /// Inform if there's an initial solution.
     bool hasInitialSolution = false;
     /// Samples used in the model training.
-    std::shared_ptr<Data> samples;
+    std::shared_ptr<Data< T > > samples;
     /// Support vectors points.
-    std::vector<Point> svs;
+    template std::vector<Point< T > > svs;
     /// Classifier solution.
     Solution solution;
     /// Learning rate
@@ -55,15 +56,18 @@ public :
     virtual bool train () = 0;
     /**
      * \brief Returns the class of a feature point based on the trained classifier.
-     * \param Point x (???) Features point to be evaluated.
+     * \param Point< T >  x (???) Features point to be evaluated.
      * \return int
      */
-    virtual double evaluate (Point p) = 0;
+    template < typename T >
+    virtual double evaluate (Point< T > p) = 0;
     /**
      * \brief setSamples Set the samples used in the classifier.
      * \param samples Samples to be used.
      */
-    virtual void setSamples(std::shared_ptr<Data> samples);
+    template < typename T >
+    virtual void setSamples(std::shared_ptr<Data< T > > samples);
+
     void setTimer(Timer timer){ this->timer = timer; }
     /**
      * @brief Get the elapsed time in the execution of the classifier.
@@ -90,6 +94,7 @@ public :
      * @param steps Number of steps.
      */
     inline void setSteps(int steps){ this->steps = steps; }
+
     inline void setGamma(double gamma){ this->gamma = gamma;}
     /**
      * @brief Set the partial number of updates of the classifier.

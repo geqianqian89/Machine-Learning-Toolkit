@@ -38,7 +38,20 @@ double stodn(std::string str);
  * \param x The vector used to obtain the max element.
  * \return  The max absolute element found.
  */
-double maxAbsElement(std::vector<double> x);
+template < typename T >
+double maxAbsElement(std::vector< T > x){
+    int i, dim = x.size();
+    double max, absv;
+
+    for(i = 0, max = -INF; i < dim; i++){
+        absv = fabs(x[i]);
+        if(absv > max){
+            max = absv;
+        }
+    }
+
+    return max;
+}
 /**
  * \brief itos Integer to string conversion.
  * \param n Integer to be converted.
