@@ -4,6 +4,7 @@
 #include "../includes/Visualization.hpp"
 #include "../includes/Classifier.hpp"
 #include "../includes/PrimalClassifier.hpp"
+#include "../includes/DualClassifier.hpp"
 
 using namespace std;
 

@@ -5,7 +5,8 @@
 #include "Classifier.hpp"
 #include <vector>
 
-class DualClassifier : public Classifier {
+template < typename T >
+class DualClassifier : public Classifier< T > {
     // Associations
     // Attributes
 protected:
@@ -38,17 +39,17 @@ public:
 
     std::vector<double> getDualWeight(){
         register int i = 0, j = 0, k = 0;
-        size_t size = samples->getSize(), dim = samples->getDim();
+        size_t size = this->samples->getSize(), dim = this->samples->getDim();
         dMatrix H, Hk, matrixdif(size, std::vector<double>(size));
         std::vector<double> alphaaux(size);
 
-        H = kernel->generateMatrixH(samples);
+        H = kernel->generateMatrixH(this->samples);
 
-        solution.w.resize(dim);
+        this->solution.w.resize(dim);
 
         for(k = 0; k < dim; ++k)
         {
-            Hk = kernel->generateMatrixHwithoutDim(samples, k);
+            Hk = kernel->generateMatrixHwithoutDim(this->samples, k);
 
             for(i = 0; i < size; ++i)
                 for(j = 0; j < size; ++j)
@@ -56,38 +57,39 @@ public:
 
             for(i = 0; i < size; ++i)
                 for(alphaaux[i] = 0, j = 0; j < size; ++j)
-                    alphaaux[i] += samples->getPoint(j)->alpha * matrixdif[i][j];
+                    alphaaux[i] += this->samples->getPoint(j)->alpha * matrixdif[i][j];
 
-            for(solution.w[k] = 0, i = 0; i < size; ++i)
-                solution.w[k] += alphaaux[i] * samples->getPoint(i)->alpha;
+            for(this->solution.w[k] = 0, i = 0; i < size; ++i)
+                this->solution.w[k] += alphaaux[i] * this->samples->getPoint(i)->alpha;
         }
 
-        return solution.w;
+        return this->solution.w;
     }
 
     std::vector<double> getDualWeightProdInt(){
         register int i = 0, j = 0, k = 0;
-        size_t size = samples->getSize(), dim = samples->getDim();
+        size_t size = this->samples->getSize(), dim = this->samples->getDim();
         std::vector<double> alphaaux(size);
         dMatrix H(size, std::vector<double>(size));
 
-        solution.w.resize(dim);
+        this->solution.w.resize(dim);
 
         for(k = 0; k < dim; ++k)
         {
             for(i = 0; i < size; ++i)
                 for(j = 0; j < size; ++j)
-                    H[i][j] = samples->getPoint(i)->x[k] * samples->getPoint(j)->x[k] * samples->getPoint(i)->y * samples->getPoint(j)->y;
+                    H[i][j] = this->samples->getPoint(i)->x[k] * this->samples->getPoint(j)->x[k]
+                              * this->samples->getPoint(i)->y * this->samples->getPoint(j)->y;
 
             for(i = 0; i < size; ++i)
                 for(alphaaux[i] = 0, j = 0; j < size; ++j)
-                    alphaaux[i] += samples->getPoint(j)->alpha * H[i][j];
+                    alphaaux[i] += this->samples->getPoint(j)->alpha * H[i][j];
 
-            for(solution.w[k] = 0, i = 0; i < size; ++i)
-                solution.w[k] += alphaaux[i] * samples->getPoint(i)->alpha;
+            for(this->solution.w[k] = 0, i = 0; i < size; ++i)
+                this->solution.w[k] += alphaaux[i] * this->samples->getPoint(i)->alpha;
         }
 
-        return solution.w;
+        return this->solution.w;
     }
 };
 
