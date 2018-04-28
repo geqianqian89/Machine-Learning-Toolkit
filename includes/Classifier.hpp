@@ -66,84 +66,84 @@ public :
      */
     virtual void setSamples(std::shared_ptr<Data< T > > samples) {this->samples = samples;}
 
-    void setTimer(Timer timer){ this->timer = timer; }
+    void setTimer(Timer timer) { this->timer = timer; }
     /**
      * @brief Get the elapsed time in the execution of the classifier.
      * @return double
      */
-    inline double getElapsedTime(){ return timer.Elapsed(); }
+    inline double getElapsedTime() { return timer.Elapsed(); }
     /**
     * @brief Get the total number of updates of the classifier.
     * @return int
     */
-    inline int getCtot(){ return ctot; }
+    inline int getCtot() { return ctot; }
     /**
      * \brief getSteps Returns the number of steps through the data by the classifier.
      * \return int
      */
-    inline int getSteps(){ return steps; }
+    inline int getSteps() { return steps; }
     /**
      * \brief getUpdates Returns the number of updates needed to get to the the solution.
      * \return int
      */
-    inline int getUpdates(){ return ctot; }
+    inline int getUpdates() { return ctot; }
     /**
      * @brief Set the partial number of steps of the classifier.
      * @param steps Number of steps.
      */
-    inline void setSteps(int steps){ this->steps = steps; }
+    inline void setSteps(int steps) { this->steps = steps; }
 
-    inline void setGamma(double gamma){ this->gamma = gamma;}
+    inline void setGamma(double gamma) { this->gamma = gamma;}
     /**
      * @brief Set the partial number of updates of the classifier.
      * @param ctot Number of updates.
      */
-    void setCtot(int ctot){this->ctot = ctot;}
+    void setCtot(int ctot) {this->ctot = ctot;}
     /**
      * @brief Set the level of verbose.
      * @param verbose level of verbose.
      */
-    void setVerbose(int verbose){this->verbose = verbose;}
+    void setVerbose(int verbose) {this->verbose = verbose;}
     /**
      * \brief setStartTime Set the initial time of the classifier.
      * \param start_time Initial time.
      */
-    void setStartTime(double start_time){ this->start_time = start_time;}
+    void setStartTime(double start_time) { this->start_time = start_time;}
     /**
      * \brief setMaxTime Set the maximum time of the classifier.
      * \param max_time Maximum time.
      */
-    void setSolution(Solution solution){this->solution = solution;}
+    void setSolution(Solution solution) {this->solution = solution;}
     /**
      * @brief getSolution Returns the solution of the primal classifier.
      * @return Solution
      */
-    Solution getSolution(){return solution;}
+    Solution getSolution() {return solution;}
     /**
      * @brief Set the max time of execution.
      * @param max_time  Max time.
      */
-    void setMaxTime(double max_time){this->max_time = max_time;}
+    void setMaxTime(double max_time) {this->max_time = max_time;}
     /**
      * \brief setEPS Set the precision of the classifier.
      * \param EPS Precision.
      */
-    void setEPS(double EPS){this->EPS = EPS;}
+    void setEPS(double EPS) {this->EPS = EPS;}
     /**
      * \brief setMaxIterations Set the max number of iterations of the classifier.
      * \param MAX_IT Number max of iterations.
      */
-    void setMaxIterations(int MAX_IT){this->MAX_IT = MAX_IT;}
+    void setMaxIterations(int MAX_IT) {this->MAX_IT = MAX_IT;}
     /**
      * \brief setMaxIterations Set the max number of updates of the classifier.
      * \param MAX_IT Number max of updates.
      */
-    void setMaxUpdates(int MAX_UP){this->MAX_UP = MAX_UP;}
+    void setMaxUpdates(int MAX_UP) {this->MAX_UP = MAX_UP;}
     /**
      * @brief Set the learning rate of the classifier.
      * @param rate Learning rate.
      */
-    void setLearningRate(double rate){this->rate = rate;}
+    void setLearningRate(double rate) {this->rate = rate;}
 };
 
 #endif
