@@ -6,11 +6,12 @@
 #include "Solution.hpp"
 #include "Validation.hpp"
 
+template< typename T >
 class FeatureSelection {
 // Attributes
 protected:
-    std::shared_ptr<Data> samples;
-    Classifier *classifier;
+    std::shared_ptr<Data< T > > samples;
+    Classifier< T > *classifier;
     Solution solution;
     Validation::CrossValidation *cv;
 
@@ -21,30 +22,30 @@ protected:
     int verbose;
 
 public:
-    virtual std::unique_ptr<Data> selectFeatures() = 0;
+    virtual std::unique_ptr<Data< T > > selectFeatures() = 0;
 
-    void setSamples(const std::shared_ptr<Data> &samples) {
-        FeatureSelection::samples = samples;
+    void setSamples(const std::shared_ptr<Data< T > > &samples) {
+        this->samples = samples;
     }
 
-    void setClassifier(Classifier *classifier) {
-        FeatureSelection::classifier = classifier;
+    void setClassifier(Classifier< T > *classifier) {
+        this->classifier = classifier;
     }
 
     void setSolution(const Solution &solution) {
-        FeatureSelection::solution = solution;
+        this->solution = solution;
     }
 
     void setDepth(int depth) {
-        FeatureSelection::depth = depth;
+        this->depth = depth;
     }
 
     void setJump(int jump) {
-        FeatureSelection::jump = jump;
+        this->jump = jump;
     }
 
     void setSkip(int skip) {
-        FeatureSelection::skip = skip;
+        this->skip = skip;
     }
 
     void setVerbose(int verbose){

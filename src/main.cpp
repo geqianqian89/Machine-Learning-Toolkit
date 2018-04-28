@@ -5,6 +5,7 @@
 #include "../includes/Classifier.hpp"
 #include "../includes/PrimalClassifier.hpp"
 #include "../includes/DualClassifier.hpp"
+#include "../includes/Validation.hpp"
 
 using namespace std;
 
@@ -13,6 +14,7 @@ int main(){
 	Data<float> data("cmake-build-debug/DB/test.data");
 	dMatrix *mat;
     Visualization<float> vis(&data);
+    Validation<float> val(make_shared<Data<float> >(data));
 
     k.compute(data);
 	mat = k.getKernelMatrixPointer();
