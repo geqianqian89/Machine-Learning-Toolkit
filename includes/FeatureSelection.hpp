@@ -1,4 +1,4 @@
-#ifndef FEATURESELECTION__HPP
+/*#ifndef FEATURESELECTION__HPP
 #define FEATURESELECTION__HPP
 
 #include "Data.hpp"
@@ -13,7 +13,7 @@ protected:
     std::shared_ptr<Data< T > > samples;
     Classifier< T > *classifier;
     Solution solution;
-    Validation::CrossValidation *cv;
+    Validation< T >::CrossValidation *cv;
 
     int depth;
     int jump;
@@ -54,3 +54,4 @@ public:
 };
 
 #endif
+*/

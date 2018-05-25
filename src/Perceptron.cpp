@@ -17,21 +17,21 @@ PerceptronPrimal< T >::PerceptronPrimal(std::shared_ptr<Data< T > > samples, dou
 
 template < typename T >
 bool PerceptronPrimal< T >::train(){
-    int size = samples->getSize(), dim = samples->getDim();
+    size_t size = this->samples->getSize(), dim = this->samples->getDim();
     int i, j, e, idx;
-    double norm, y, time = start_time + max_time, bias = 0;
+    double norm, y, time = this->start_time + this->max_time, bias = 0;
     bool cond;
     vector<double> func(size, 0), w(dim, 0);
     vector< T > x;
-    vector<int> index = samples->getIndex();
+    vector<int> index = this->samples->getIndex();
 
     if(w.size() == 0) w.resize(dim);
 
-    timer.Reset();
-    while(timer.Elapsed() - time <= 0){
+    this->timer.Reset();
+    while(this->timer.Elapsed() - time <= 0){
         for(e = 0, i = 0; i < size; ++i){
             idx = index[i];
-            shared_ptr<Point< T > > p = samples->getPoint(idx);
+            auto p = this->samples->getPoint(idx);
             x = p->x;
             y = p->y;
 
@@ -42,35 +42,35 @@ bool PerceptronPrimal< T >::train(){
             //Checking if the point is a mistake
             if(y*func[idx] <= 0.0){
                 for(norm = 0.0, j = 0; j < dim; ++j){
-                    w[j] += rate * y * x[j];
+                    w[j] += this->rate * y * x[j];
                     norm += w[j] * w[j];
                 }
                 norm = sqrt(norm);
-                bias += rate * y;
-                ctot++; e++;
+                bias += this->rate * y;
+                this->ctot++; e++;
             }
-            else if(steps > 0 && e > 1) break;
+            else if(this->steps > 0 && e > 1) break;
         }
-        steps++;	//Number of iterations update
+        this->steps++;	//Number of iterations update
 
         //stop criterion
         if(e == 0) 		break;
-        if(steps > MAX_IT) 	break;
-        if(ctot > MAX_UP)	break;
+        if(this->steps > this->MAX_IT) 	break;
+        if(this->ctot > this->MAX_UP)	break;
     }
 
-    solution.bias = bias;
-    solution.w = w;
-    solution.norm = norm;
+    this->solution.bias = bias;
+    this->solution.w = w;
+    this->solution.norm = norm;
 
     return (e == 0);
 }
 
 template < typename T >
 double PerceptronPrimal< T >::evaluate(Point< T > p){
-    int i, dim = solution.w.size();
-    double bias = solution.bias, func;
-    vector<double> w = solution.w;
+    size_t i, dim = this->solution.w.size();
+    double bias = this->solution.bias, func;
+    vector<double> w = this->solution.w;
 
     for(func = bias; i < dim; i++){
         func += w[i] * p.x[i];
@@ -78,7 +78,7 @@ double PerceptronPrimal< T >::evaluate(Point< T > p){
 }
 
 template < typename T >
-PerceptronFixedMarginPrimal< T >::PerceptronFixedMarginPrimal(std::shared_ptr<PerceptronFixedMarginDual< T > > samples, double gamma, double q, double rate, Solution *initial_solution){
+PerceptronFixedMarginPrimal< T >::PerceptronFixedMarginPrimal(std::shared_ptr<Data< T > > samples, double gamma, double q, double rate, Solution *initial_solution){
     this->samples = samples;
     this->q = q;
     this->rate = rate;
@@ -89,24 +89,25 @@ PerceptronFixedMarginPrimal< T >::PerceptronFixedMarginPrimal(std::shared_ptr<Pe
 
 template < typename T >
 bool PerceptronFixedMarginPrimal< T >::train(){
-    int i, j, k, e, s, r, dim = samples->getDim();
-    int idx, sign = 1, size = samples->getSize(), n = dim, n_temp = 0, largn = 0;
-    double norm = solution.norm, lambda = 1.0, y, time = start_time + max_time;
-    double sumnorm = 0.0, bias = solution.bias, largw = 0.0, largw_temp = 0.0;
+    size_t i, j, k, e, s, r, dim = this->samples->getDim();
+    size_t size = this->samples->getSize(), n = dim;
+    int idx, sign = 1, n_temp = 0, largn = 0;
+    double norm = this->solution.norm, lambda = 1.0, y, time = this->start_time + this->max_time;
+    double sumnorm = 0.0, bias = this->solution.bias, largw = 0.0, largw_temp = 0.0;
     bool cond;
-    vector<double> func = solution.func, w = solution.w;
+    vector<double> func = this->solution.func, w = this->solution.w;
     vector< T > x;
-    vector<int> index = samples->getIndex();
+    vector<int> index = this->samples->getIndex();
     shared_ptr<Point< T > > p;
 
     if(w.size() == 0) w.resize(dim);
     e = s = 0;
 
-    timer.Reset();
-    while(timer.Elapsed() - time <= 0){
+    this->timer.Reset();
+    while(this->timer.Elapsed() - time <= 0){
         for(e = 0, i = 0; i < size; ++i){
             idx = index[i];
-            p = samples->getPoint(idx);
+            p = this->samples->getPoint(idx);
             x = p->x;
             y = p->y;
 
@@ -116,45 +117,45 @@ bool PerceptronFixedMarginPrimal< T >::train(){
             }
 
             //Checking if the point is a mistake
-            if(y*func[idx] <= gamma*norm - samples->getPoint(idx)->alpha*flexible){
-                lambda = (norm) ? (1-rate*gamma/norm) : 1;
+            if(y*func[idx] <= this->gamma*norm - this->samples->getPoint(idx)->alpha*this->flexible){
+                lambda = (norm) ? (1-this->rate*this->gamma/norm) : 1;
                 for(r = 0; r < size; ++r){
-                    shared_ptr<Point< T > > b = samples->getPoint(r);
+                    shared_ptr<Point< T > > b = this->samples->getPoint(r);
                     b->alpha *= lambda;
-                    samples->setPoint(r, b);
+                    this->samples->setPoint(r, b);
                 }
 
-                if(q == 1.0){ //Linf
+                if(this->q == 1.0){ //Linf
                     for(sumnorm = 0.0, j = 0; j < dim; ++j){
                         sign = (w[j] < 0)? -1:1;
-                        lambda = (norm > 0 && w[j] != 0) ? gamma * sign: 0;
-                        w[j] += rate * (y * x[j] - lambda);
+                        lambda = (norm > 0 && w[j] != 0) ? this->gamma * sign: 0;
+                        w[j] += this->rate * (y * x[j] - lambda);
                         sumnorm += fabs(w[j]);
                     }
                     norm = sumnorm;
                 }
-                else if(q == 2.0){ //L2
+                else if(this->q == 2.0){ //L2
                     for(sumnorm = 0.0, j = 0; j < dim; ++j){
-                        lambda = (norm > 0 && w[j] != 0) ? w[j] * gamma / norm : 0;
-                        w[j] += rate * (y * x[j] - lambda);
+                        lambda = (norm > 0 && w[j] != 0) ? w[j] * this->gamma / norm : 0;
+                        w[j] += this->rate * (y * x[j] - lambda);
                         sumnorm += w[j] * w[j];
                     }
                     norm = sqrt(sumnorm);
                 }
-                else if(q == -1.0){ //L1
+                else if(this->q == -1.0){ //L1
                     largw_temp = fabs(w[0]);
                     n_temp = 1;
                     for(j = 0; j < dim; ++j){
-                        if(largw == 0 || fabs(largw - fabs(w[j]))/largw < EPS){
+                        if(largw == 0 || fabs(largw - fabs(w[j]))/largw < this->EPS){
                             sign = (w[j] < 0)? -1:1;
-                            lambda = (norm > 0 && w[j] != 0) ? gamma * sign / n : 0;
-                            w[j] += rate * (y * x[j] - lambda);
+                            lambda = (norm > 0 && w[j] != 0) ? this->gamma * sign / n : 0;
+                            w[j] += this->rate * (y * x[j] - lambda);
                         }
                         else
-                            w[j] += rate * (y * x[j]);
+                            w[j] += this->rate * (y * x[j]);
 
                         if(j > 0){
-                            if(fabs(largw_temp - fabs(w[j]))/largw_temp < EPS)
+                            if(fabs(largw_temp - fabs(w[j]))/largw_temp < this->EPS)
                                 n_temp++;
                             else if(fabs(w[j]) > largw_temp){
                                 largw_temp = fabs(w[j]);
@@ -168,42 +169,42 @@ bool PerceptronFixedMarginPrimal< T >::train(){
                     if(n > largn) largn = n;
                 }else{ //Other Lp formulations
                     for(sumnorm = 0, j = 0; j < dim; ++j){
-                        lambda = (norm > 0 && w[j] != 0) ? w[j] * gamma * pow(fabs(w[j]), q-2.0) * pow(norm, 1.0-q) : 0;
-                        w[j] += rate * (y * x[j] - lambda);
-                        sumnorm += pow(fabs(w[j]), q);
+                        lambda = (norm > 0 && w[j] != 0) ? w[j] * this->gamma * pow(fabs(w[j]), this->q-2.0) * pow(norm, 1.0-this->q) : 0;
+                        w[j] += this->rate * (y * x[j] - lambda);
+                        sumnorm += pow(fabs(w[j]), this->q);
                     }
-                    norm = pow(sumnorm, 1.0/q);
+                    norm = pow(sumnorm, 1.0/this->q);
                 }
-                bias += rate * y;
-                p->alpha += rate;
-                samples->setPoint(idx, p);
+                bias += this->rate * y;
+                p->alpha += this->rate;
+                this->samples->setPoint(idx, p);
 
                 k = (i > s) ? s++ : e;
                 j = index[k];
                 index[k] = idx;
                 index[i] = j;
-                ctot++; e++;
-            }else if(steps > 0 && e > 1 && i > s) break;
+                this->ctot++; e++;
+            }else if(this->steps > 0 && e > 1 && i > s) break;
         }
-        ++steps; //Number of iterations update
+        ++this->steps; //Number of iterations update
 
         //stop criterion
         if(e == 0) 		break;
-        if(steps > MAX_IT)	break;
-        if(ctot > MAX_UP)	break;
+        if(this->steps > this->MAX_IT)	break;
+        if(this->ctot > this->MAX_UP)	break;
     }
 
-    solution.norm = norm;
-    solution.bias = bias;
-    solution.w = w;
+    this->solution.norm = norm;
+    this->solution.bias = bias;
+    this->solution.w = w;
     return (e == 0);
 }
 
 template < typename T >
 double PerceptronFixedMarginPrimal< T >::evaluate(Point< T > p){
-    int i, dim = solution.w.size();
-    double bias = solution.bias, func;
-    vector<double> w = solution.w;
+    size_t i, dim = this->solution.w.size();
+    double bias = this->solution.bias, func;
+    vector<double> w = this->solution.w;
 
     for(i = 0, func = bias; i < dim; i++){
         func += w[i] * p.x[i];
@@ -224,24 +225,24 @@ PerceptronDual< T >::PerceptronDual(std::shared_ptr<Data< T > > samples, double 
 
 template < typename T >
 bool PerceptronDual< T > ::train(){
-    int y, e, i, j, idx, r, size = samples->getSize(), dim = samples->getDim();
-    double norm = solution.norm, time = start_time+max_time;
-    double bias = solution.bias;
-    const double sqrate = rate * rate;
-    const double tworate = 2 * rate;
-    vector<int> index = samples->getIndex();
+    size_t y, e, i, j, idx, r, size = this->samples->getSize(), dim = this->samples->getDim();
+    double norm = this->solution.norm, time = this->start_time+this->max_time;
+    double bias = this->solution.bias;
+    const double sqrate = this->rate * this->rate;
+    const double tworate = 2 * this->rate;
+    vector<int> index = this->samples->getIndex();
     vector<double> func(size, 0.0), Kv;
-    vector<shared_ptr<Point< T > > > points = samples->getPoints();
-    dMatrix K = kernel->getKernelMatrix();
+    vector<shared_ptr<Point< T > > > points = this->samples->getPoints();
+    dMatrix K = this->kernel->getKernelMatrix();
 
-    if(alpha.size() == 0){
-        alpha.assign(size, 0.0);
+    if(this->alpha.size() == 0){
+        this->alpha.assign(size, 0.0);
     }
 
     e = 1;
 
-    timer.Reset();
-    while(timer.Elapsed() - time <= 0){
+    this->timer.Reset();
+    while(this->timer.Elapsed() - time <= 0){
         for(e = 0, i = 0; i < size; ++i){
             idx = index[i];
             y = points[idx]->y;
@@ -251,34 +252,34 @@ bool PerceptronDual< T > ::train(){
 
             //Calculating function
             for(f = bias, r = 0; r < size; ++r)
-                f += alpha[r] * points[index[r]]->y*Kv[index[r]];
+                f += this->alpha[r] * points[index[r]]->y*Kv[index[r]];
             func[idx] = f;
 
             //Checking if the point is a mistake
             if(y * f <= 0.0){
                 norm = sqrt(norm * norm + tworate*points[idx]->y*func[idx] - bias + sqrate*Kv[idx]);
-                alpha[i] += rate;
-                bias += rate * y;
-                ++ctot, ++e;
-            }else if(steps > 0 && e > 1) break;
+                this->alpha[i] += this->rate;
+                bias += this->rate * y;
+                ++this->ctot, ++e;
+            }else if(this->steps > 0 && e > 1) break;
         }
-        ++steps;
+        ++this->steps;
 
         //stop criterion
         if(e == 0)	   break;
-        if(steps > MAX_IT) break;
-        if(ctot > MAX_UP) break;
+        if(this->steps > this->MAX_IT) break;
+        if(this->ctot > this->MAX_UP) break;
     }
 
-    solution.bias = bias;
-    solution.norm = norm;
-    solution.alpha = alpha;
-    solution.margin = 0.0;
-    solution.w.resize(dim);
+    this->solution.bias = bias;
+    this->solution.norm = norm;
+    this->solution.alpha = this->alpha;
+    this->solution.margin = 0.0;
+    this->solution.w.resize(dim);
 
     for(i = 0; i < dim; i++){
         for(j = 0; j < size; j++){
-            solution.w[i] += alpha[j]*points[j]->y*points[j]->x[i];
+            this->solution.w[i] += this->alpha[j]*points[j]->y*points[j]->x[i];
         }
     }
 
@@ -287,7 +288,8 @@ bool PerceptronDual< T > ::train(){
 
 template < typename T >
 double PerceptronDual< T > ::evaluate(Point< T > p){
-    return p.dot(solution.w);
+    return 0.0;
+    //return p.dot(this->solution.w);
 }
 
 template < typename T >
@@ -301,73 +303,73 @@ PerceptronFixedMarginDual< T >::PerceptronFixedMarginDual(std::shared_ptr<Data< 
     if(initial_solution)
         this->alpha = (*initial_solution).alpha;
     else{
-        alpha.resize(samples->getSize());
-        solution.func.resize(samples->getSize());
+        this->alpha.resize(samples->getSize());
+        this->solution.func.resize(samples->getSize());
     }
 }
 
 template < typename T >
 bool PerceptronFixedMarginDual< T >::train(){
-    size_t e, i, j, k, s, idx, r, size = samples->getSize(), dim = samples->getDim();
-    double y, lambda, norm = solution.norm, time = start_time+max_time;
-    double bias = solution.bias;
-    const double sqrate  = rate*rate;
-    const double tworate = 2*rate;
-    vector<int> index = samples->getIndex();
-    vector<double> func = solution.func, Kv;
-    vector<shared_ptr<Point< T > > > points = samples->getPoints();
-    dMatrix *K = kernel->getKernelMatrixPointer();
+    size_t e, i, j, k, s, idx, r, size = this->samples->getSize(), dim = this->samples->getDim();
+    double y, lambda, norm = this->solution.norm, time = this->start_time+this->max_time;
+    double bias = this->solution.bias;
+    const double sqrate  = this->rate*this->rate;
+    const double tworate = 2*this->rate;
+    vector<int> index = this->samples->getIndex();
+    vector<double> func = this->solution.func, Kv;
+    vector<shared_ptr<Point< T > > > points = this->samples->getPoints();
+    dMatrix *K = this->kernel->getKernelMatrixPointer();
 
     e = 1, s = 0;
 
-    timer.Reset();
-    while(timer.Elapsed() - time <= 0){
+    this->timer.Reset();
+    while(this->timer.Elapsed() - time <= 0){
         for(e = 0, i = 0; i < size; ++i){
             idx = index[i];
             y = points[idx]->y;
 
             //Checking if the point is a mistake
 
-            if(y*func[idx] - gamma*norm <= 0){
-                lambda = (gamma) ? (1-rate*gamma/norm) : 1;
+            if(y*func[idx] - this->gamma*norm <= 0){
+                lambda = (this->gamma) ? (1-this->rate*this->gamma/norm) : 1;
                 Kv     = (*K)[idx];
                 norm  *= lambda;
 
                 for(r = 0; r < size; ++r){
                     points[r]->alpha *= lambda;
-                    func[r]  = lambda * func[r] + rate*y*(Kv[r]+1) + bias*(1-lambda);
+                    func[r]  = lambda * func[r] + this->rate*y*(Kv[r]+1) + bias*(1-lambda);
                 }
 
                 norm = sqrt(norm*norm + tworate*points[idx]->y*lambda*(func[idx]-bias) + sqrate*Kv[idx]);
-                points[idx]->alpha += rate;
+                points[idx]->alpha += this->rate;
 
-                bias += rate * y;
+                bias += this->rate * y;
 
                 k = (i > s) ? ++s : e;
                 j = index[k];
                 index[k] = idx;
                 index[i] = j;
-                ++ctot; ++e;
-            }else if(steps > 0 && e > 1 && i > s) break;
+                ++this->ctot; ++e;
+            }else if(this->steps > 0 && e > 1 && i > s) break;
         }
 
-        ++steps; //Number of iterations update
+        ++this->steps; //Number of iterations update
         //stop criterion
         if(e == 0)     break;
-        if(steps > MAX_IT) break;
-        if(ctot > MAX_UP) break;
+        if(this->steps > this->MAX_IT) break;
+        if(this->ctot > this->MAX_UP) break;
     }
 
-    samples->setIndex(index);
-    solution.bias = bias;
-    solution.norm = norm;
-    solution.func = func;
-    solution.w.resize(dim);
-    solution.alpha.resize(size);
+    this->samples->setIndex(index);
+    this->solution.bias = bias;
+    this->solution.norm = norm;
+    this->solution.func = func;
+    this->solution.w.resize(dim);
+    this->solution.alpha.resize(size);
     for(i = 0; i < dim; i++){
         for(j = 0; j < size; j++){
-            solution.alpha[j] = points[j]->alpha;
-            solution.w[i] += points[j]->alpha * points[j]->y * points[j]->x[i];
+            this->solution.alpha[j] = points[j]->alpha;
+            this->solution.w[i] += points[j]->alpha * points[j]->y * points[j]->x[i];
         }
     }
 

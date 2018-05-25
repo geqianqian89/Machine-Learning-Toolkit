@@ -7,19 +7,25 @@
 #include "../includes/DualClassifier.hpp"
 #include "../includes/Validation.hpp"
 #include "../includes/Perceptron.hpp"
+#include "../includes/IMA.hpp"
 
 using namespace std;
 
 int main(){
     Kernel k(2, 0.1);
-	Data<float> data("cmake-build-debug/DB/test.data");
+	Data<double> data("DB/test.data");
 	dMatrix *mat;
-    Visualization<float> vis(&data);
-    Validation<float> val(make_shared<Data<float> >(data));
-    PerceptronPrimal<float> perc(make_shared<Data<float > >(data), 2, 1, nullptr);
+    Visualization<double> vis(&data);
+    PerceptronPrimal<double> perc(make_shared<Data<double> >(data), 2, 1, nullptr);
+    IMAp<double> ima(make_shared<Data<double> >(data), 0);
+    Validation<double> val(make_shared<Data<double> >(data), &ima);
+
     perc.train();
+    ima.setVerbose(3);
+    ima.train();
     k.compute(data);
 	mat = k.getKernelMatrixPointer();
+	//val.validation(3,3);
 
 	for(int i = 0; i < data.getSize(); i++){
         for(int j = 0; j < data.getSize(); j++){
@@ -29,9 +35,12 @@ int main(){
 	}
 	Solution sol = perc.getSolution();
 	cout << data << endl;
-	cout << data[0]->norm(2) << endl;
-	cout << (*data[0])[0] << endl;
-	vis.plot2D(1, 2, sol);
+
+	for (int i; i < sol.w.size(); i++){
+        cout << sol.w[i] << " ";
+	}
+	cout << sol.bias << endl;
+	vis.plot2DwithHyperplane(1, 2, sol);
 
 }
 

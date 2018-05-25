@@ -317,7 +317,6 @@ bool Data< T >::load_data(string path){
                         }else if(flag){
                             buffer.push_back(i);
                         }else if(i == ':' && i > 0 && this->size == 0){	//Get features names in the first running
-                        	cout << dim << endl;
                             fnames[dim] = stoin(buffer);
                             flag = true;
                             buffer.clear();
@@ -327,7 +326,6 @@ bool Data< T >::load_data(string path){
                         }
                     }
                 }
-
                 if(is_number(buffer)){
                     new_point->x[(atEnd)?dim:dim-1] = stodn(buffer);
                     dim++;

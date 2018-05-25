@@ -11,73 +11,75 @@
 
 using namespace std;
 
-IMAp::IMAp(std::shared_ptr<Data> samples, double margin,  Solution *initial_solution) {
+template < typename T >
+IMAp< T >::IMAp(std::shared_ptr<Data< T > > samples, double margin,  Solution *initial_solution) {
     this->samples = samples;
     this->margin = margin;
 
     if(initial_solution){
-        w = initial_solution->w;
-        solution.bias = initial_solution->bias;
-        hasInitialSolution = true;
+        this->w = initial_solution->w;
+        this->solution.bias = initial_solution->bias;
+        this->hasInitialSolution = true;
     }else{
-        w.resize(samples->getDim());
+        this->w.resize(samples->getDim());
     }
 }
 
-bool IMAp::train() {
+template < typename T >
+bool IMAp< T >::train() {
     unsigned int tMax = 0;
     int i, j, n, maiorn = 0, flagNao1aDim = 0, y, it, sign = 1;
-    int size = samples->getSize(), dim = samples->getDim(), t1=1, t3=1;
+    size_t size = this->samples->getSize(), dim = this->samples->getDim(), t1=1, t3=1;
     double gamma, secs, bias = 0.0, alpha, rmargin = margin, inc;
     double min = 0.0, max = 0.0, norm = 1.0, maiorw = 0.0;
     vector<double> w_saved, func;
-    vector<int> index = samples->getIndex(), fnames = samples->getFeaturesNames();
-    vector<shared_ptr<Point> > points = samples->getPoints();
-    IMApFixedMargin imapFixMargin(samples, gamma);
+    vector<int> index = this->samples->getIndex(), fnames = this->samples->getFeaturesNames();
+    auto points = this->samples->getPoints();
+    IMApFixedMargin< T > imapFixMargin(this->samples, gamma);
     Solution tempSol;
 
     n = dim;
-    rate = 1.0;
+    this->rate = 1.0;
     //Initializing data struct
-    solution.norm  = 1.0;
+    this->solution.norm  = 1.0;
 
     //Allocating space for w_saved and func
     w_saved.resize(dim);
     func.resize(size);
 
     //Allocating space for w
-    if(hasInitialSolution) {
-        if (q == 1)
-            for (solution.norm = 0.0, i = 0; i < dim; ++i) solution.norm += fabs(w[i]);
-        else if (q == 2) {
-            for (solution.norm = 0.0, i = 0; i < dim; ++i) solution.norm += w[i] * w[i];
-            solution.norm = sqrt(solution.norm);
+    if(this->hasInitialSolution) {
+        if (this->q == 1)
+            for (this->solution.norm = 0.0, i = 0; i < dim; ++i) this->solution.norm += fabs(this->w[i]);
+        else if (this->q == 2) {
+            for (this->solution.norm = 0.0, i = 0; i < dim; ++i) this->solution.norm += this->w[i] * this->w[i];
+            this->solution.norm = sqrt(this->solution.norm);
         } else {
-            for (solution.norm = 0.0, i = 0; i < dim; ++i) solution.norm += pow(fabs(w[i]), q);
-            solution.norm = pow(solution.norm, 1.0 / q);
+            for (this->solution.norm = 0.0, i = 0; i < dim; ++i) this->solution.norm += pow(fabs(this->w[i]), this->q);
+            this->solution.norm = pow(this->solution.norm, 1.0 / this->q);
         }
 
-        for (i = 0; i < dim; ++i) w[i] /= solution.norm;
+        for (i = 0; i < dim; ++i) this->w[i] /= this->solution.norm;
 
-        solution.bias /= solution.norm;
-        solution.norm = 1;
+        this->solution.bias /= this->solution.norm;
+        this->solution.norm = 1;
         flagNao1aDim = 1;
         int flag = 0;
 
         for (min = DBL_MAX, max = -DBL_MAX, i = 0; i < size; ++i) {
             y = points[i]->y;
             for (func[i] = 0, j = 0; j < dim; ++j)
-                func[i] += w[j] * points[i]->x[j];
+                func[i] += this->w[j] * points[i]->x[j];
             if (y == 1 && func[i] < min) min = func[i];
             else if (y == -1 && func[i] > max) max = func[i];
         }
 
-        solution.bias = -(min + max) / 2.0;
+        this->solution.bias = -(min + max) / 2.0;
 
         for (min = DBL_MAX, max = -DBL_MAX, i = 0; i < size; ++i) {
             y = points[i]->y;
-            for (func[i] = solution.bias, j = 0; j < dim; ++j)
-                func[i] += w[j] * points[i]->x[j];
+            for (func[i] = this->solution.bias, j = 0; j < dim; ++j)
+                func[i] += this->w[j] * points[i]->x[j];
             if (func[i] * y < 0) flag++;
             if (y == 1 && func[i] < min) min = func[i];
             else if (y == -1 && func[i] > max) max = func[i];
@@ -86,10 +88,10 @@ bool IMAp::train() {
         if (flag) rmargin = 0;
         else rmargin = fabs(min);
 
-        if (margin == 0) tMax = MAX_UP;
+        if (margin == 0) tMax = this->MAX_UP;
         else {
-            double raio = Statistics::getRadius(*samples, -1, q);//data_get_radius(sample, -1, q);
-            tMax = (raio * raio - rmargin * rmargin) / pow(margin - rmargin, 2);
+            double raio = Statistics< T >::getRadius(*this->samples, -1, this->q);//data_get_radius(sample, -1, this->q);
+            tMax = (raio * raio - rmargin * rmargin) / pow(this->margin - rmargin, 2);
             if (rmargin == 0) tMax *= 1.5;
         }
 
@@ -102,33 +104,33 @@ bool IMAp::train() {
         index.resize(size);
         for(i = 0; i < size; ++i) index[i] = i;
     }
-    samples->setIndex(index);
+    this->samples->setIndex(index);
 
     //Initializing alpha
     for(i = 0; i < size; ++i) { points[i]->alpha = 0.0; }
 
-    if(verbose)
+    if(this->verbose)
     {
         cout << "-----------------------------------------------------------------------------\n";
         cout << " pmf    steps     updates              margin              norm          secs\n";
         cout << "-----------------------------------------------------------------------------\n";
     }
 
-    it = 0; ctot = 0; steps = 0; gamma = 0.0;
+    it = 0; this->ctot = 0; this->steps = 0; gamma = 0.0;
 
-    imapFixMargin.setCtot(ctot);
-    imapFixMargin.setqNorm(q);
-    imapFixMargin.setSteps(steps);
+    imapFixMargin.setCtot(this->ctot);
+    imapFixMargin.setqNorm(this->q);
+    imapFixMargin.setSteps(this->steps);
     imapFixMargin.setGamma(gamma);
-    imapFixMargin.setFlexible(flexible);
-    imapFixMargin.setLearningRate(rate);
+    imapFixMargin.setFlexible(this->flexible);
+    imapFixMargin.setLearningRate(this->rate);
 
     *imapFixMargin.getFlagNot1aDim() = flagNao1aDim;
 
     while(imapFixMargin.train())
     {
-        ctot = imapFixMargin.getCtot();
-        steps = imapFixMargin.getSteps();
+        this->ctot = imapFixMargin.getCtot();
+        this->steps = imapFixMargin.getSteps();
         //Finding minimum and maximum functional values
         tempSol = imapFixMargin.getSolution();
         norm  = tempSol.norm;
@@ -139,8 +141,8 @@ bool IMAp::train() {
         {
             y = points[i]->y;
             alpha = points[i]->alpha;
-            if((func[i] + y*alpha*flexible) >= 0 && min > (func[i] + y*alpha*flexible)/norm) min = (func[i] + y*alpha*flexible)/norm;
-            else if((func[i] + y*alpha*flexible) <  0 && max < (func[i] + y*alpha*flexible)/norm) max = (func[i] + y*alpha*flexible)/norm;
+            if((func[i] + y*alpha*this->flexible) >= 0 && min > (func[i] + y*alpha*this->flexible)/norm) min = (func[i] + y*alpha*this->flexible)/norm;
+            else if((func[i] + y*alpha*this->flexible) <  0 && max < (func[i] + y*alpha*this->flexible)/norm) max = (func[i] + y*alpha*this->flexible)/norm;
         }
         //Saving good weights
         for(i = 0; i < dim; i++) w_saved[i] = tempSol.w[i];
@@ -156,103 +158,107 @@ bool IMAp::train() {
 
         //Obtaining new gamma_f
         gamma = (min-max)/2.0;
-        inc = (1+alpha_aprox)*rmargin;
+        inc = (1+this->alpha_aprox)*rmargin;
         if(gamma < inc) gamma = inc;
         rmargin = mmargin;
 
         if(it == 2)
-            t1 = ctot;
-        t3 = ctot;
+            t1 = this->ctot;
+        t3 = this->ctot;
 
         if(it > 1)
         {
-            rate = sqrt(t1) / sqrt(t3);
-            if(verbose) cout << "\tRATE: " << rate << "\n";
+            this->rate = sqrt(t1) / sqrt(t3);
+            if(this->verbose) cout << "\tRATE: " << this->rate << "\n";
         }
-        else if(it == 1 && verbose)
-            if(verbose) cout << "\tRATE: " << rate << "\n";
+        else if(it == 1 && this->verbose)
+            if(this->verbose) cout << "\tRATE: " << this->rate << "\n";
 
         secs = imapFixMargin.getElapsedTime()/1000;
-        if(verbose) cout << " " << it+1 << "        " << steps << "           " << ctot << "              " << rmargin << "            " << norm << "           " << secs << " ";
+        if(this->verbose) cout << " " << it+1 << "        " << this->steps << "           " << this->ctot << "              " << rmargin << "            " << norm << "           " << secs << " ";
 
         ++it; //IMA iteration increment
 
-        imapFixMargin.setCtot(ctot);
-        imapFixMargin.setSteps(steps);
+        imapFixMargin.setCtot(this->ctot);
+        imapFixMargin.setSteps(this->steps);
         imapFixMargin.setGamma(gamma);
         imapFixMargin.setSolution(tempSol);
-        imapFixMargin.setLearningRate(rate);
+        imapFixMargin.setLearningRate(this->rate);
 
         //  break;
         if(flagNao1aDim) break;
     }
 
-    solution.w = w_saved;
-    solution.margin = rmargin;
-    solution.norm = norm;
-    solution.bias = bias;
+    this->solution.w = w_saved;
+    this->solution.margin = rmargin;
+    this->solution.norm = norm;
+    this->solution.bias = bias;
 
-    if(verbose)
+    if(this->verbose)
     {
         cout << "\n-----------------------------------------------------------------------------\n";
         cout << "Number of times that the Fixed Margin Perceptron was called: " << it+1 << "\n";
-        cout << "Number of steps through data: " << steps <<"\n";
-        cout << "Number of updates: " << ctot << "\n";
+        cout << "Number of steps through data: " << this->steps <<"\n";
+        cout << "Number of updates: " << this->ctot << "\n";
         cout << "Margin found: " << rmargin << "\n";
         cout << "Min: " << fabs(min) << " / Max: " << fabs(max) << "\n\n";
-        if(verbose == 3)
+        if(this->verbose == 3)
         {
             for(i = 0; i < dim; ++i) cout << "W[" << fnames[i] << "]: " << w_saved[i] << "\n";
-            cout << "Bias: " << solution.bias << "\n\n";
+            cout << "Bias: " << this->solution.bias << "\n\n";
         }
     }
 
-    samples->resetIndex();
+    this->samples->resetIndex();
 
     if(!it)
     {
-        if(verbose) cout << "FMP convergency wasn't reached!\n";
+        if(this->verbose) cout << "FMP convergency wasn't reached!\n";
         return 0;
     }
     return 1;
 }
 
-double IMAp::evaluate(Point p) {
+template < typename T >
+double IMAp< T >::evaluate(Point< T > p) {
     return 0;
 }
 
-IMApFixedMargin::IMApFixedMargin(std::shared_ptr<Data> samples, double gamma, Solution *initial_solution) {
+template < typename T >
+IMApFixedMargin< T >::IMApFixedMargin(std::shared_ptr<Data< T > > samples, double gamma, Solution *initial_solution) {
     this->gamma = gamma;
     this->samples = samples;
 
     if(initial_solution){
-        w = initial_solution->w;
-        solution.bias = initial_solution->bias;
-        solution.norm = initial_solution->norm;
+        this->w = initial_solution->w;
+        this->solution.bias = initial_solution->bias;
+        this->solution.norm = initial_solution->norm;
     }else{
-        w.resize(samples->getDim());
-        solution.func.resize(samples->getSize());
+        this->w.resize(samples->getDim());
+        this->solution.func.resize(samples->getSize());
     }
 }
 
-bool IMApFixedMargin::train() {
+template < typename T >
+bool IMApFixedMargin< T >::train() {
     int c, e, i, k, s, j;
     int t, idx, r;
-    int size = samples->getSize(), dim = samples->getDim();
-    double norm = solution.norm , bias = solution.bias, lambda = 1, y, time = max_time;
+    size_t size = this->samples->getSize(), dim = this->samples->getDim();
+    double norm = this->solution.norm , bias = this->solution.bias, lambda = 1, y, time = this->max_time;
     register double sumnorm = 0; //soma das normas para o calculo posterior (nao mais sqrt)
     double maiorw_temp = 0;
     int n_temp, sign= 1;
     bool cond;
-    vector<double> x, func(size, 0.0);
-    vector<int> index = samples->getIndex();
-    vector<shared_ptr<Point> > points = samples->getPoints();
+    vector<double> func(size, 0.0);
+    vector<int> index = this->samples->getIndex();
+    vector< T > x;
+    vector<shared_ptr<Point< T > > > points = this->samples->getPoints();
     e = 1,s = 0;
 
-    timer.Reset();
-    start_time = timer.Elapsed();
-    time += start_time;
-    while(timer.Elapsed() - time <= 0)
+    this->timer.Reset();
+    this->start_time = this->timer.Elapsed();
+    time += this->start_time;
+    while(this->timer.Elapsed() - time <= 0)
     {
         for(e = 0, i = 0; i < size; ++i)
         {
@@ -263,58 +269,58 @@ bool IMApFixedMargin::train() {
 
             //calculating function
             for(func[idx] = bias, j = 0; j < dim; ++j)
-                func[idx] += w[j] * x[j];
+                func[idx] += this->w[j] * x[j];
 
             //Checking if the point is a mistake
-            if(y*func[idx] <= gamma*norm - points[idx]->alpha*flexible)
+            if(y*func[idx] <= this->gamma*norm - points[idx]->alpha*this->flexible)
             {
-                lambda = (norm) ? (1-rate*gamma/norm) : 1;
+                lambda = (norm) ? (1-this->rate*this->gamma/norm) : 1;
                 for(r = 0; r < size; ++r)
                     points[r]->alpha *= lambda;
 
-                if(q == 1.0) //Linf
+                if(this->q == 1.0) //Linf
                 {
                     for(sumnorm = 0, j = 0; j < dim; ++j)
                     {
-                        sign = 1; if(w[j] < 0) sign = -1;
-                        lambda = (norm > 0 && w[j] != 0) ? gamma * sign: 0;
-                        w[j] += rate * (y * x[j] - lambda);
-                        sumnorm += fabs(w[j]);
+                        sign = 1; if(this->w[j] < 0) sign = -1;
+                        lambda = (norm > 0 && this->w[j] != 0) ? this->gamma * sign: 0;
+                        this->w[j] += this->rate * (y * x[j] - lambda);
+                        sumnorm += fabs(this->w[j]);
                     }
                     norm = sumnorm;
                 }
-                else if(q == 2.0) //L2
+                else if(this->q == 2.0) //L2
                 {
                     for(sumnorm = 0, j = 0; j < dim; ++j)
                     {
-                        lambda = (norm > 0 && w[j] != 0) ? w[j] * gamma / norm : 0;
-                        w[j] += rate * (y * x[j] - lambda);
-                        sumnorm += w[j] * w[j];
+                        lambda = (norm > 0 && this->w[j] != 0) ? this->w[j] * this->gamma / norm : 0;
+                        this->w[j] += this->rate * (y * x[j] - lambda);
+                        sumnorm += this->w[j] * this->w[j];
                     }
                     norm = sqrt(sumnorm);
                 }
-                else if(q == -1.0) //L1
+                else if(this->q == -1.0) //L1
                 {
-                    maiorw_temp = fabs(w[0]);
+                    maiorw_temp = fabs(this->w[0]);
                     n_temp = 1;
                     for(j = 0; j < dim; ++j)
                     {
-                        if(maiorw == 0 || fabs(maiorw - fabs(w[j]))/maiorw < EPS)
+                        if(maiorw == 0 || fabs(maiorw - fabs(this->w[j]))/maiorw < this->EPS)
                         {
-                            sign = 1; if(w[j] < 0) sign = -1;
-                            lambda = (norm > 0 && w[j] != 0) ? gamma * sign / n : 0;
-                            w[j] += rate * (y * x[j] - lambda);
+                            sign = 1; if(this->w[j] < 0) sign = -1;
+                            lambda = (norm > 0 && this->w[j] != 0) ? this->gamma * sign / n : 0;
+                            this->w[j] += this->rate * (y * x[j] - lambda);
                         }
                         else
-                            w[j] += rate * (y * x[j]);
+                            this->w[j] += this->rate * (y * x[j]);
 
                         if(j > 0)
                         {
-                            if(fabs(maiorw_temp - fabs(w[j]))/maiorw_temp < EPS)
+                            if(fabs(maiorw_temp - fabs(this->w[j]))/maiorw_temp < this->EPS)
                                 n_temp++;
-                            else if(fabs(w[j]) > maiorw_temp)
+                            else if(fabs(this->w[j]) > maiorw_temp)
                             {
-                                maiorw_temp = fabs(w[j]);
+                                maiorw_temp = fabs(this->w[j]);
                                 n_temp = 1;
                             }
                         }
@@ -328,70 +334,73 @@ bool IMApFixedMargin::train() {
                 {
                     for(sumnorm = 0, j = 0; j < dim; ++j)
                     {
-                        lambda = (norm > 0 && w[j] != 0) ? w[j] * gamma * pow(fabs(w[j]), q-2.0) * pow(norm, 1.0-q) : 0;
-                        w[j] += rate * (y * x[j] - lambda);
-                        sumnorm += pow(fabs(w[j]), q);
+                        lambda = (norm > 0 && this->w[j] != 0) ? this->w[j] * this->gamma * pow(fabs(this->w[j]), this->q-2.0) * pow(norm, 1.0-this->q) : 0;
+                        this->w[j] += this->rate * (y * x[j] - lambda);
+                        sumnorm += pow(fabs(this->w[j]), this->q);
                     }
-                    norm = pow(sumnorm, 1.0/q);
+                    norm = pow(sumnorm, 1.0/this->q);
                 }
-                bias += rate * y;
-                points[idx]->alpha += rate;
+                bias += this->rate * y;
+                points[idx]->alpha += this->rate;
 
                 k = (i > s) ? s++ : e;
                 j = index[k];
                 index[k] = idx;
                 index[i] = j;
-                ctot++; e++;
+                this->ctot++; e++;
 
             }else if(t > 0 && e > 1 && i > s) break;
         }
-        steps++; //Number of iterations update
+        this->steps++; //Number of iterations update
         //stop criterion
         if(e == 0)     break;
-        if(steps > MAX_IT) break;
-        if(ctot > MAX_UP) break;
-        if(flagNao1aDim) if(ctot > tMax) break;
+        if(this->steps > this->MAX_IT) break;
+        if(this->ctot > this->MAX_UP) break;
+        if(flagNao1aDim) if(this->ctot > tMax) break;
     }
 
-    samples->setIndex(index);
-    solution.norm = norm;
-    solution.bias = bias;
-    solution.w = w;
-    solution.func = func;
+    this->samples->setIndex(index);
+    this->solution.norm = norm;
+    this->solution.bias = bias;
+    this->solution.w = this->w;
+    this->solution.func = func;
 
     if(e == 0) return 1;
     else       return 0;
 }
 
-double IMApFixedMargin::evaluate(Point p) {
+template < typename T >
+double IMApFixedMargin< T >::evaluate(Point< T > p) {
     return 0;
 }
 
-IMADual::IMADual(std::shared_ptr<Data> samples, Kernel *k, double rate, Solution *initial_solution) {
+template < typename T >
+IMADual< T >::IMADual(std::shared_ptr<Data< T > > samples, Kernel *k, double rate, Solution *initial_solution) {
     this->samples = samples;
     this->kernel = k;
     this->rate = rate;
 
     if(initial_solution){
-        solution.w = initial_solution->w;
-        solution.bias = initial_solution->bias;
-        hasInitialSolution = true;
+        this->solution.w = initial_solution->w;
+        this->solution.bias = initial_solution->bias;
+        this->hasInitialSolution = true;
     }else{
-        solution.w.resize(samples->getDim());
+        this->solution.w.resize(samples->getDim());
     }
 }
 
-bool IMADual::train() {
+template < typename T >
+bool IMADual< T >::train() {
     register int it;
     double rmargin = 0, secs;
 
     register int i, j;
-    int sv = 0, size = samples->getSize(), dim = samples->getDim();
+    size_t sv = 0, size = this->samples->getSize(), dim = this->samples->getDim();
     double min, max, norm = 0;
     dMatrix K;
-    vector<int> index = samples->getIndex();
+    vector<int> index = this->samples->getIndex();
     vector<double> w_saved(dim), saved_alphas(size), func(size);
-    vector<shared_ptr<Point> > points = samples->getPoints();
+    vector<shared_ptr<Point< T > > > points = this->samples->getPoints();
 
     //Allocating space for index
     if(index.size() == 0)
@@ -401,38 +410,38 @@ bool IMADual::train() {
         //Initializing alpha and bias
         for(i = 0; i < size; ++i) { index[i] = i; }
     }
-    solution.bias = 0;
+    this->solution.bias = 0;
 
     //Allocating space kernel matrix
-    kernel->compute(*samples);
+    this->kernel->compute(*this->samples);
 
-    if(verbose)
+    if(this->verbose)
     {
         cout << "-------------------------------------------------------------------\n";
         cout << "  steps      updates        margin          norm       svs     secs\n";
         cout << "-------------------------------------------------------------------\n";
     }
 
-    it = 0; ctot = 0; steps = 0; gamma = 0;
+    it = 0; this->ctot = 0; this->steps = 0; this->gamma = 0;
     double start_time = 100.0f*clock()/CLOCKS_PER_SEC;
 
-    PerceptronFixedMarginDual percDual(samples, gamma, rate, kernel, nullptr);
+    PerceptronFixedMarginDual< T > percDual(this->samples, this->gamma, this->rate, this->kernel, nullptr);
     Solution sol;
 
     while(true){
         if(!percDual.train()) break;
 
         //Finding minimum and maximum functional values
-        ctot = percDual.getCtot();
-        steps = percDual.getSteps();
+        this->ctot = percDual.getCtot();
+        this->steps = percDual.getSteps();
         sol = percDual.getSolution();
         norm = sol.norm;
-        solution.bias = sol.bias;
+        this->solution.bias = sol.bias;
         func = sol.func;
 
         for(sv = 0, min = DBL_MAX, max = -DBL_MAX, i = 0; i < size; ++i)
         {
-            if(points[i]->alpha > EPS*rate) { sv++; saved_alphas[i] = points[i]->alpha; }
+            if(points[i]->alpha > this->EPS*this->rate) { sv++; saved_alphas[i] = points[i]->alpha; }
             else                           { saved_alphas[i] = 0.0; }
             if(func[i] >= 0 && min > func[i]/norm) min = func[i]/norm;
             else if(func[i] <  0 && max < func[i]/norm) max = func[i]/norm;
@@ -442,77 +451,90 @@ bool IMADual::train() {
         rmargin = (fabs(min) > fabs(max)) ? fabs(max) : fabs(min);
 
         //Obtaining new gamma_f
-        gamma = (min-max)/2.0;
-        if(gamma < MIN_INC*rmargin) gamma = MIN_INC*rmargin;
+        this->gamma = (min-max)/2.0;
+        if(this->gamma < this->MIN_INC*rmargin) this->gamma = this->MIN_INC*rmargin;
 
-        percDual.setCtot(ctot);
-        percDual.setSteps(steps);
-        percDual.setGamma(gamma);
+        percDual.setCtot(this->ctot);
+        percDual.setSteps(this->steps);
+        percDual.setGamma(this->gamma);
         percDual.setSolution(sol);
 
         secs = (100.0f*clock()/CLOCKS_PER_SEC-start_time)/100.0f;
 
-        if(verbose) cout << "    " << steps <<"         " << ctot << "          " << rmargin << "         " << norm << "     " << sv <<"     "<< secs << endl;
+        if(this->verbose) cout << "    " << this->steps <<"         " << this->ctot << "          " << rmargin << "         " << norm << "     " << sv <<"     "<< secs << endl;
         ++it; //IMA iteration increment
     }
 
-    ctot = percDual.getCtot();
-    steps = percDual.getSteps();
+    this->ctot = percDual.getCtot();
+    this->steps = percDual.getSteps();
     sol = percDual.getSolution();
     norm = sol.norm;
-    solution.bias = sol.bias;
+    this->solution.bias = sol.bias;
     func = sol.func;
 
     for(i = 0; i < size; ++i) points[i]->alpha = saved_alphas[i];
 
-    solution.norm = kernel->norm(*samples);
+    this->solution.norm = this->kernel->norm(*this->samples);
 
     /*recuperando o vetor DJ -- "pesos" das componentes*/
-    int kernel_type = kernel->getType();
-    double kernel_param = kernel->getParam();
+    int kernel_type = this->kernel->getType();
+    double kernel_param = this->kernel->getParam();
 
     if(kernel_type == 0)
         for(i = 0; i < dim; i++){
             for(j = 0; j < size; j++){
-                solution.w[i] += alpha[j]*points[j]->y*points[j]->x[i];
+                this->solution.w[i] += this->alpha[j]*points[j]->y*points[j]->x[i];
             }
         }
     else
     {
         if(kernel_type == 1 && kernel_param == 1)
-            getDualWeightProdInt();
+            DualClassifier< T >::getDualWeightProdInt();
         else
-            getDualWeight();
-        if(it) Data::normalize(solution.w, 2);
+            DualClassifier< T >::getDualWeight();
+        if(it) Data< T >::normalize(this->solution.w, 2);
     }
 
-    solution.margin = rmargin;
+    this->solution.margin = rmargin;
 
-    if(verbose)
+    if(this->verbose)
     {
         cout << "-------------------------------------------------------------------\n";
         cout << "Number of times that the Fixed Margin Perceptron was called:: " << it+1 << endl;
-        cout << "Number of steps through data: " << steps << endl;
-        cout << "Number of updates: " << ctot << endl;
+        cout << "Number of steps through data: " << this->steps << endl;
+        cout << "Number of updates: " << this->ctot << endl;
         cout << "Number of support vectors: " << sv << endl;
         cout << "Margin found: " << rmargin << "\n\n";
-        if(verbose > 1)
+        if(this->verbose > 1)
         {
-            vector<int> fnames = samples->getFeaturesNames();
+            vector<int> fnames = this->samples->getFeaturesNames();
             for(i = 0; i < dim; i++)
-                cout << "W[" << fnames[i] << "]: " << solution.w[i] << endl;
-            cout << "Bias: " << solution.bias << "\n\n";
+                cout << "W[" << fnames[i] << "]: " << this->solution.w[i] << endl;
+            cout << "Bias: " << this->solution.bias << "\n\n";
         }
     }
 
     if(!it)
     {
-        if(verbose) cout << "FMP convergency wasn't reached!\n";
+        if(this->verbose) cout << "FMP convergency wasn't reached!\n";
         return 0;
     }
     return true;
 }
 
-double IMADual::evaluate(Point p) {
+template < typename T >
+double IMADual< T >::evaluate(Point< T > p) {
     return 0;
 }
+
+template class IMAp<int>;
+template class IMAp<double>;
+template class IMAp<float>;
+template class IMAp<int8_t>;
+template class IMAp<char>;
+template class IMAp<long long int>;
+template class IMAp<short int>;
+template class IMAp<long double>;
+template class IMAp<unsigned char>;
+template class IMAp<unsigned int>;
+template class IMAp<unsigned short int>;
