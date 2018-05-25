@@ -21,6 +21,9 @@ int main(){
     Validation<double> val(make_shared<Data<double> >(data), &ima);
 
     perc.train();
+    ima.setAlphaAprox(1);
+    ima.setFlexible(0);
+    ima.setpNorm(2);
     ima.setVerbose(3);
     ima.train();
     k.compute(data);
