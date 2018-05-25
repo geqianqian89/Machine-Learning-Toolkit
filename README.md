@@ -8,20 +8,22 @@ It's not intended to be just a collection of algorithms, but also to auxiliate a
 through a set of interconected modules that can be used in most ML projects.<br />
 
 ## Requirements
-To compile the framework these are the requirements:
+These are the requirements to build the project:
 * gnuplot >= 5.0
 * g++ >= 4.9.4 
 * cmake (To compile using the makefile in build folder)
 
 ## Modules status
-* Data manipulation - Ready to use.
-* Data visualization - Ready to use.
-* Classifiers (Primal and Dual) - Ready to use.
-* Validation (K-Fold Cross-Validation) - Ready to use.
-* Feature Selection - In development.
+* Data manipulation [![Generic badge](https://img.shields.io/badge/status-Ready-green.svg)](https://shields.io/)
+
+* Data visualization [![Generic badge](https://img.shields.io/badge/status-Ready-green.svg)](https://shields.io/)
+* Classifiers (Primal and Dual) [![Generic badge](https://img.shields.io/badge/status-Ready-green.svg)](https://shields.io/)
+* Validation (K-Fold Cross-Validation) [![Generic badge](https://img.shields.io/badge/status-Ready-green.svg)](https://shields.io/)
+* Feature Selection [![Generic badge](https://img.shields.io/badge/status-Development-red.svg)](https://shields.io/)
 
 ## Documentation
-You can find the documentation at the project page: [UFJF-MLTK](https://mateus558.github.io/Machine-Learning-Toolkit/index.html).
+You can find the documentation at the project page: [UFJF-MLTK](https://mateus558.github.io/Machine-Learning-Toolkit/index.html). <br />
+And for examples and other information you can access the [wiki](https://github.com/mateus558/Machine-Learning-Toolkit/wiki).
 
 ## Authors
 Mateus Coutinho Marim (mateus.marim@ice.ufjf.br) <br />
