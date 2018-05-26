@@ -34,7 +34,7 @@ void Visualization< T >::setStyle(string style){
 template < typename T >
 void Visualization< T >::createPosNegTemps(){
     size_t i, j, size = samples->getSize(), dim = samples->getDim();
-    ofstream neg_file("neg.plt"), pos_file("pos.plt"), und_file("und.plt");
+    ofstream neg_file("temp/neg.plt"), pos_file("temp/pos.plt"), und_file("temp/und.plt");
 
     for(i = 0; i < size; i++){
         if(samples->getPoint(i)->y == 1){
@@ -176,21 +176,25 @@ void Visualization< T >::plot2DwithHyperplane(int x, int y, Solution s){
     string cmd = fx + "; "+ gx +"; "+ hx +"; plot 'temp/pos.plt' using "+feats+" title '+1' with points, 'temp/neg.plt' using "+feats+" title '-1' with points, f(x) notitle with lines ls 1, g(x) notitle with lines ls 2, h(x) notitle with lines ls 2";
     createPosNegTemps();
 
-    #ifdef __unix__
-    	cmd = "set terminal qt; " + cmd;
-        g.cmd(cmd);
-    #elif _WIN32
-        cmd = "echo " + cmd + " | gnuplot -persist";
+#ifdef __unix__
+    cmd = "set terminal qt; " + cmd;
+    g.cmd(cmd);
+#elif _WIN32
+    cmd = "echo " + cmd + " | gnuplot -persist";
         system(cmd.c_str());
-    #endif
+#endif
 }
 
 template < typename T >
 void Visualization< T >::plot3DwithHyperplane(int x, int y, int z, Solution s){
     string feats = itos(x) + ":" + itos(y) + ":" + itos(z);
+    string hxy = "h(x,y) = "+dtoa(s.w[x-1]/-s.w[y-1])+"*x + "+dtoa(s.w[y-1]/-s.w[z-1])+"*y +"+dtoa((s.bias - s.margin*s.norm)/-s.w[y-1]);
+    string gxy = "g(x,y) = "+dtoa(s.w[x-1]/-s.w[y-1])+"*x + "+dtoa(s.w[y-1]/-s.w[z-1])+"*y +" +dtoa((s.bias + s.margin*s.norm)/-s.w[y-1]);
     string fxy = "f(x,y) = "+dtoa(s.w[x-1]/-s.w[z-1])+"*x + "+dtoa(s.w[y-1]/-s.w[z-1])+"*y + "+dtoa(s.bias/-s.w[z-1]);
-    string cmd = fxy + "; splot 'temp/pos.plt' using "+ feats +" title '+1' with points, 'temp/neg.plt' using "+ feats +" title '-1' with points, f(x,y) notitle with lines ls 1";
+    string cmd = fxy + "; " + gxy + "; " + hxy + "; " + "splot 'temp/pos.plt' using "+ feats +" title '+1' with points, 'temp/neg.plt' using "+ feats +" title '-1' with points, f(x,y) notitle with lines ls 1, g(x,y) notitle with lines ls 2, h(x,y) notitle with lines ls 2";
+
     createPosNegTemps();
+
     #ifdef __unix__
     	cmd = "set terminal qt; " + cmd;
         g.cmd(cmd);

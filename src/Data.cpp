@@ -657,7 +657,7 @@ Data< T >* Data< T >::insertFeatures(std::vector<int> ins_feat){
     bool saveflag;
     vector<int> new_fnames(fsize, 0);
     shared_ptr<Point< T > > p;
-    Data< T > *smout;
+    Data< T > *smout = new Data< T >;
 
     if(fsize == 0) return this;
     sort(ins_feat.begin(), ins_feat.end());
@@ -668,10 +668,11 @@ Data< T >* Data< T >::insertFeatures(std::vector<int> ins_feat){
 
     //Copying information to new data array
     for(i = 0; i < size; i++){
-        p->x.resize(fsize, 0);
-        p->x = points[i]->x;
+        p = make_shared<Point< T > >();
+        p->x.resize(fsize);
         p->alpha = points[i]->alpha;
         p->id = points[i]->id;
+        p->y = points[i]->y;
 
         //Copying features
         s = 0, offset = 0;

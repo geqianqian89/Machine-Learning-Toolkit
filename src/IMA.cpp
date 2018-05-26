@@ -483,7 +483,7 @@ bool IMADual< T >::train() {
     if(kernel_type == 0)
         for(i = 0; i < dim; i++){
             for(j = 0; j < size; j++){
-                this->solution.w[i] += this->alpha[j]*points[j]->y*points[j]->x[i];
+                this->solution.w[i] += points[j]->alpha*points[j]->y*points[j]->x[i];
             }
         }
     else
@@ -538,3 +538,27 @@ template class IMAp<long double>;
 template class IMAp<unsigned char>;
 template class IMAp<unsigned int>;
 template class IMAp<unsigned short int>;
+
+template class IMApFixedMargin<int>;
+template class IMApFixedMargin<double>;
+template class IMApFixedMargin<float>;
+template class IMApFixedMargin<int8_t>;
+template class IMApFixedMargin<char>;
+template class IMApFixedMargin<long long int>;
+template class IMApFixedMargin<short int>;
+template class IMApFixedMargin<long double>;
+template class IMApFixedMargin<unsigned char>;
+template class IMApFixedMargin<unsigned int>;
+template class IMApFixedMargin<unsigned short int>;
+
+template class IMADual<int>;
+template class IMADual<double>;
+template class IMADual<float>;
+template class IMADual<int8_t>;
+template class IMADual<char>;
+template class IMADual<long long int>;
+template class IMADual<short int>;
+template class IMADual<long double>;
+template class IMADual<unsigned char>;
+template class IMADual<unsigned int>;
+template class IMADual<unsigned short int>;

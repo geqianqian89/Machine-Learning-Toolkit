@@ -60,39 +60,39 @@ CMAKE_SOURCE_DIR = "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classificat
 CMAKE_BINARY_DIR = "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/cmake-build-debug"
 
 #=============================================================================
-# Target rules for target CMakeFiles/Classification_Algorithms_System.dir
+# Target rules for target CMakeFiles/UFJF-MLTK.dir
 
 # All Build rule for target.
-CMakeFiles/Classification_Algorithms_System.dir/all:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/depend
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/cmake-build-debug/CMakeFiles" --progress-num=1,2,3,4,5,6,7,8,9,10,11 "Built target Classification_Algorithms_System"
-.PHONY : CMakeFiles/Classification_Algorithms_System.dir/all
+CMakeFiles/UFJF-MLTK.dir/all:
+	$(MAKE) -f CMakeFiles/UFJF-MLTK.dir/build.make CMakeFiles/UFJF-MLTK.dir/depend
+	$(MAKE) -f CMakeFiles/UFJF-MLTK.dir/build.make CMakeFiles/UFJF-MLTK.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/cmake-build-debug/CMakeFiles" --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target UFJF-MLTK"
+.PHONY : CMakeFiles/UFJF-MLTK.dir/all
 
 # Include target in all.
-all: CMakeFiles/Classification_Algorithms_System.dir/all
+all: CMakeFiles/UFJF-MLTK.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Classification_Algorithms_System.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/cmake-build-debug/CMakeFiles" 11
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Classification_Algorithms_System.dir/all
+CMakeFiles/UFJF-MLTK.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/cmake-build-debug/CMakeFiles" 10
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/UFJF-MLTK.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/cmake-build-debug/CMakeFiles" 0
-.PHONY : CMakeFiles/Classification_Algorithms_System.dir/rule
+.PHONY : CMakeFiles/UFJF-MLTK.dir/rule
 
 # Convenience name for target.
-Classification_Algorithms_System: CMakeFiles/Classification_Algorithms_System.dir/rule
+UFJF-MLTK: CMakeFiles/UFJF-MLTK.dir/rule
 
-.PHONY : Classification_Algorithms_System
-
-# clean rule for target.
-CMakeFiles/Classification_Algorithms_System.dir/clean:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/clean
-.PHONY : CMakeFiles/Classification_Algorithms_System.dir/clean
+.PHONY : UFJF-MLTK
 
 # clean rule for target.
-clean: CMakeFiles/Classification_Algorithms_System.dir/clean
+CMakeFiles/UFJF-MLTK.dir/clean:
+	$(MAKE) -f CMakeFiles/UFJF-MLTK.dir/build.make CMakeFiles/UFJF-MLTK.dir/clean
+.PHONY : CMakeFiles/UFJF-MLTK.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/UFJF-MLTK.dir/clean
 
 .PHONY : clean
 

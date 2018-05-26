@@ -69,8 +69,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/bin/cmake-gui -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/share/clion/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Classification_Algorithms_System
+# Target rules for targets named UFJF-MLTK
 
 # Build rule for target.
-Classification_Algorithms_System: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Classification_Algorithms_System
-.PHONY : Classification_Algorithms_System
+UFJF-MLTK: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 UFJF-MLTK
+.PHONY : UFJF-MLTK
 
 # fast build rule for target.
-Classification_Algorithms_System/fast:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/build
-.PHONY : Classification_Algorithms_System/fast
+UFJF-MLTK/fast:
+	$(MAKE) -f CMakeFiles/UFJF-MLTK.dir/build.make CMakeFiles/UFJF-MLTK.dir/build
+.PHONY : UFJF-MLTK/fast
 
 src/Data.o: src/Data.cpp.o
 
@@ -129,7 +129,7 @@ src/Data.o: src/Data.cpp.o
 
 # target to build an object file
 src/Data.cpp.o:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Data.cpp.o
+	$(MAKE) -f CMakeFiles/UFJF-MLTK.dir/build.make CMakeFiles/UFJF-MLTK.dir/src/Data.cpp.o
 .PHONY : src/Data.cpp.o
 
 src/Data.i: src/Data.cpp.i
@@ -138,7 +138,7 @@ src/Data.i: src/Data.cpp.i
 
 # target to preprocess a source file
 src/Data.cpp.i:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Data.cpp.i
+	$(MAKE) -f CMakeFiles/UFJF-MLTK.dir/build.make CMakeFiles/UFJF-MLTK.dir/src/Data.cpp.i
 .PHONY : src/Data.cpp.i
 
 src/Data.s: src/Data.cpp.s
@@ -147,7 +147,7 @@ src/Data.s: src/Data.cpp.s
 
 # target to generate assembly for a file
 src/Data.cpp.s:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Data.cpp.s
+	$(MAKE) -f CMakeFiles/UFJF-MLTK.dir/build.make CMakeFiles/UFJF-MLTK.dir/src/Data.cpp.s
 .PHONY : src/Data.cpp.s
 
 src/IMA.o: src/IMA.cpp.o
@@ -156,7 +156,7 @@ src/IMA.o: src/IMA.cpp.o
 
 # target to build an object file
 src/IMA.cpp.o:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.o
+	$(MAKE) -f CMakeFiles/UFJF-MLTK.dir/build.make CMakeFiles/UFJF-MLTK.dir/src/IMA.cpp.o
 .PHONY : src/IMA.cpp.o
 
 src/IMA.i: src/IMA.cpp.i
@@ -165,7 +165,7 @@ src/IMA.i: src/IMA.cpp.i
 
 # target to preprocess a source file
 src/IMA.cpp.i:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.i
+	$(MAKE) -f CMakeFiles/UFJF-MLTK.dir/build.make CMakeFiles/UFJF-MLTK.dir/src/IMA.cpp.i
 .PHONY : src/IMA.cpp.i
 
 src/IMA.s: src/IMA.cpp.s
@@ -174,7 +174,7 @@ src/IMA.s: src/IMA.cpp.s
 
 # target to generate assembly for a file
 src/IMA.cpp.s:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/IMA.cpp.s
+	$(MAKE) -f CMakeFiles/UFJF-MLTK.dir/build.make CMakeFiles/UFJF-MLTK.dir/src/IMA.cpp.s
 .PHONY : src/IMA.cpp.s
 
 src/Kernel.o: src/Kernel.cpp.o
@@ -183,7 +183,7 @@ src/Kernel.o: src/Kernel.cpp.o
 
 # target to build an object file
 src/Kernel.cpp.o:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Kernel.cpp.o
+	$(MAKE) -f CMakeFiles/UFJF-MLTK.dir/build.make CMakeFiles/UFJF-MLTK.dir/src/Kernel.cpp.o
 .PHONY : src/Kernel.cpp.o
 
 src/Kernel.i: src/Kernel.cpp.i
@@ -192,7 +192,7 @@ src/Kernel.i: src/Kernel.cpp.i
 
 # target to preprocess a source file
 src/Kernel.cpp.i:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Kernel.cpp.i
+	$(MAKE) -f CMakeFiles/UFJF-MLTK.dir/build.make CMakeFiles/UFJF-MLTK.dir/src/Kernel.cpp.i
 .PHONY : src/Kernel.cpp.i
 
 src/Kernel.s: src/Kernel.cpp.s
@@ -201,7 +201,7 @@ src/Kernel.s: src/Kernel.cpp.s
 
 # target to generate assembly for a file
 src/Kernel.cpp.s:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Kernel.cpp.s
+	$(MAKE) -f CMakeFiles/UFJF-MLTK.dir/build.make CMakeFiles/UFJF-MLTK.dir/src/Kernel.cpp.s
 .PHONY : src/Kernel.cpp.s
 
 src/Perceptron.o: src/Perceptron.cpp.o
@@ -210,7 +210,7 @@ src/Perceptron.o: src/Perceptron.cpp.o
 
 # target to build an object file
 src/Perceptron.cpp.o:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Perceptron.cpp.o
+	$(MAKE) -f CMakeFiles/UFJF-MLTK.dir/build.make CMakeFiles/UFJF-MLTK.dir/src/Perceptron.cpp.o
 .PHONY : src/Perceptron.cpp.o
 
 src/Perceptron.i: src/Perceptron.cpp.i
@@ -219,7 +219,7 @@ src/Perceptron.i: src/Perceptron.cpp.i
 
 # target to preprocess a source file
 src/Perceptron.cpp.i:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Perceptron.cpp.i
+	$(MAKE) -f CMakeFiles/UFJF-MLTK.dir/build.make CMakeFiles/UFJF-MLTK.dir/src/Perceptron.cpp.i
 .PHONY : src/Perceptron.cpp.i
 
 src/Perceptron.s: src/Perceptron.cpp.s
@@ -228,35 +228,8 @@ src/Perceptron.s: src/Perceptron.cpp.s
 
 # target to generate assembly for a file
 src/Perceptron.cpp.s:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Perceptron.cpp.s
+	$(MAKE) -f CMakeFiles/UFJF-MLTK.dir/build.make CMakeFiles/UFJF-MLTK.dir/src/Perceptron.cpp.s
 .PHONY : src/Perceptron.cpp.s
-
-src/RFE.o: src/RFE.cpp.o
-
-.PHONY : src/RFE.o
-
-# target to build an object file
-src/RFE.cpp.o:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/RFE.cpp.o
-.PHONY : src/RFE.cpp.o
-
-src/RFE.i: src/RFE.cpp.i
-
-.PHONY : src/RFE.i
-
-# target to preprocess a source file
-src/RFE.cpp.i:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/RFE.cpp.i
-.PHONY : src/RFE.cpp.i
-
-src/RFE.s: src/RFE.cpp.s
-
-.PHONY : src/RFE.s
-
-# target to generate assembly for a file
-src/RFE.cpp.s:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/RFE.cpp.s
-.PHONY : src/RFE.cpp.s
 
 src/Utils.o: src/Utils.cpp.o
 
@@ -264,7 +237,7 @@ src/Utils.o: src/Utils.cpp.o
 
 # target to build an object file
 src/Utils.cpp.o:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Utils.cpp.o
+	$(MAKE) -f CMakeFiles/UFJF-MLTK.dir/build.make CMakeFiles/UFJF-MLTK.dir/src/Utils.cpp.o
 .PHONY : src/Utils.cpp.o
 
 src/Utils.i: src/Utils.cpp.i
@@ -273,7 +246,7 @@ src/Utils.i: src/Utils.cpp.i
 
 # target to preprocess a source file
 src/Utils.cpp.i:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Utils.cpp.i
+	$(MAKE) -f CMakeFiles/UFJF-MLTK.dir/build.make CMakeFiles/UFJF-MLTK.dir/src/Utils.cpp.i
 .PHONY : src/Utils.cpp.i
 
 src/Utils.s: src/Utils.cpp.s
@@ -282,7 +255,7 @@ src/Utils.s: src/Utils.cpp.s
 
 # target to generate assembly for a file
 src/Utils.cpp.s:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Utils.cpp.s
+	$(MAKE) -f CMakeFiles/UFJF-MLTK.dir/build.make CMakeFiles/UFJF-MLTK.dir/src/Utils.cpp.s
 .PHONY : src/Utils.cpp.s
 
 src/Validation.o: src/Validation.cpp.o
@@ -291,7 +264,7 @@ src/Validation.o: src/Validation.cpp.o
 
 # target to build an object file
 src/Validation.cpp.o:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.o
+	$(MAKE) -f CMakeFiles/UFJF-MLTK.dir/build.make CMakeFiles/UFJF-MLTK.dir/src/Validation.cpp.o
 .PHONY : src/Validation.cpp.o
 
 src/Validation.i: src/Validation.cpp.i
@@ -300,7 +273,7 @@ src/Validation.i: src/Validation.cpp.i
 
 # target to preprocess a source file
 src/Validation.cpp.i:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.i
+	$(MAKE) -f CMakeFiles/UFJF-MLTK.dir/build.make CMakeFiles/UFJF-MLTK.dir/src/Validation.cpp.i
 .PHONY : src/Validation.cpp.i
 
 src/Validation.s: src/Validation.cpp.s
@@ -309,7 +282,7 @@ src/Validation.s: src/Validation.cpp.s
 
 # target to generate assembly for a file
 src/Validation.cpp.s:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Validation.cpp.s
+	$(MAKE) -f CMakeFiles/UFJF-MLTK.dir/build.make CMakeFiles/UFJF-MLTK.dir/src/Validation.cpp.s
 .PHONY : src/Validation.cpp.s
 
 src/Visualization.o: src/Visualization.cpp.o
@@ -318,7 +291,7 @@ src/Visualization.o: src/Visualization.cpp.o
 
 # target to build an object file
 src/Visualization.cpp.o:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Visualization.cpp.o
+	$(MAKE) -f CMakeFiles/UFJF-MLTK.dir/build.make CMakeFiles/UFJF-MLTK.dir/src/Visualization.cpp.o
 .PHONY : src/Visualization.cpp.o
 
 src/Visualization.i: src/Visualization.cpp.i
@@ -327,7 +300,7 @@ src/Visualization.i: src/Visualization.cpp.i
 
 # target to preprocess a source file
 src/Visualization.cpp.i:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Visualization.cpp.i
+	$(MAKE) -f CMakeFiles/UFJF-MLTK.dir/build.make CMakeFiles/UFJF-MLTK.dir/src/Visualization.cpp.i
 .PHONY : src/Visualization.cpp.i
 
 src/Visualization.s: src/Visualization.cpp.s
@@ -336,7 +309,7 @@ src/Visualization.s: src/Visualization.cpp.s
 
 # target to generate assembly for a file
 src/Visualization.cpp.s:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/Visualization.cpp.s
+	$(MAKE) -f CMakeFiles/UFJF-MLTK.dir/build.make CMakeFiles/UFJF-MLTK.dir/src/Visualization.cpp.s
 .PHONY : src/Visualization.cpp.s
 
 src/gnuplot_i.o: src/gnuplot_i.cpp.o
@@ -345,7 +318,7 @@ src/gnuplot_i.o: src/gnuplot_i.cpp.o
 
 # target to build an object file
 src/gnuplot_i.cpp.o:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/gnuplot_i.cpp.o
+	$(MAKE) -f CMakeFiles/UFJF-MLTK.dir/build.make CMakeFiles/UFJF-MLTK.dir/src/gnuplot_i.cpp.o
 .PHONY : src/gnuplot_i.cpp.o
 
 src/gnuplot_i.i: src/gnuplot_i.cpp.i
@@ -354,7 +327,7 @@ src/gnuplot_i.i: src/gnuplot_i.cpp.i
 
 # target to preprocess a source file
 src/gnuplot_i.cpp.i:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/gnuplot_i.cpp.i
+	$(MAKE) -f CMakeFiles/UFJF-MLTK.dir/build.make CMakeFiles/UFJF-MLTK.dir/src/gnuplot_i.cpp.i
 .PHONY : src/gnuplot_i.cpp.i
 
 src/gnuplot_i.s: src/gnuplot_i.cpp.s
@@ -363,7 +336,7 @@ src/gnuplot_i.s: src/gnuplot_i.cpp.s
 
 # target to generate assembly for a file
 src/gnuplot_i.cpp.s:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/gnuplot_i.cpp.s
+	$(MAKE) -f CMakeFiles/UFJF-MLTK.dir/build.make CMakeFiles/UFJF-MLTK.dir/src/gnuplot_i.cpp.s
 .PHONY : src/gnuplot_i.cpp.s
 
 src/main.o: src/main.cpp.o
@@ -372,7 +345,7 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.o
+	$(MAKE) -f CMakeFiles/UFJF-MLTK.dir/build.make CMakeFiles/UFJF-MLTK.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -381,7 +354,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.i
+	$(MAKE) -f CMakeFiles/UFJF-MLTK.dir/build.make CMakeFiles/UFJF-MLTK.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -390,7 +363,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) -f CMakeFiles/Classification_Algorithms_System.dir/build.make CMakeFiles/Classification_Algorithms_System.dir/src/main.cpp.s
+	$(MAKE) -f CMakeFiles/UFJF-MLTK.dir/build.make CMakeFiles/UFJF-MLTK.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -401,7 +374,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... Classification_Algorithms_System"
+	@echo "... UFJF-MLTK"
 	@echo "... src/Data.o"
 	@echo "... src/Data.i"
 	@echo "... src/Data.s"
@@ -414,9 +387,6 @@ help:
 	@echo "... src/Perceptron.o"
 	@echo "... src/Perceptron.i"
 	@echo "... src/Perceptron.s"
-	@echo "... src/RFE.o"
-	@echo "... src/RFE.i"
-	@echo "... src/RFE.s"
 	@echo "... src/Utils.o"
 	@echo "... src/Utils.i"
 	@echo "... src/Utils.s"

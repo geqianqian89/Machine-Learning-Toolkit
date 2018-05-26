@@ -75,9 +75,6 @@
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/DualClassifier.hpp">
 			<Option target="Classification_Algorithms_System"/>
 		</Unit>
-		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/FeatureSelection.hpp">
-			<Option target="Classification_Algorithms_System"/>
-		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/IMA.hpp">
 			<Option target="Classification_Algorithms_System"/>
 		</Unit>

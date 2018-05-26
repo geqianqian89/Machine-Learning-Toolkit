@@ -130,7 +130,7 @@ CMAKE_OBJCOPY:FILEPATH=/usr/bin/objcopy
 CMAKE_OBJDUMP:FILEPATH=/usr/bin/objdump
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=Classification_Algorithms_System
+CMAKE_PROJECT_NAME:STATIC=UFJF-MLTK
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -186,6 +186,12 @@ Classification_Algorithms_System_BINARY_DIR:STATIC=/home/mateus558/Dropbox/Apren
 
 //Value Computed by CMake
 Classification_Algorithms_System_SOURCE_DIR:STATIC=/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System
+
+//Value Computed by CMake
+UFJF-MLTK_BINARY_DIR:STATIC=/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/cmake-build-debug
+
+//Value Computed by CMake
+UFJF-MLTK_SOURCE_DIR:STATIC=/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System
 
 
 ########################
