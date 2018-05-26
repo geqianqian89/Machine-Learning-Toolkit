@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 2.8)
 
-project(Classification_Algorithms_System)
+project(UFJF-MLTK)
 file(GLOB SOURCES
     includes/*.hpp
     src/*.cpp
 )
 
-add_executable(${PROJECT_NAME} ${SOURCES} includes/RFE.hpp src/RFE.cpp)
+add_executable(${PROJECT_NAME} ${SOURCES})

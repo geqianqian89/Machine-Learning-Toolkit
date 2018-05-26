@@ -2,6 +2,7 @@
   \brief Implementation of the Data class methods.
   \file Data.cpp
 */
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -19,21 +20,20 @@
 
 using namespace std;
 
-Data::Data(const char* pos_class, const char* neg_class){
-    this->pos_class = string(pos_class);
-    this->neg_class = string(neg_class);
-}
+template < typename T >
+Data< T >::Data(){}
 
-Data::Data(string dataset, const char* pos_class, const char* neg_class){
-    if(!load(dataset)){
+template < typename T >
+Data< T >::Data(const char* dataset, const char* pos_class, const char* neg_class){
+    if(!load(string(dataset))){
         cerr << "Couldn't read the dataset." << endl;
     }
-
-    this->pos_class = string(pos_class);
-    this->neg_class = string(neg_class);
+	this->pos_class = string(pos_class);
+	this->neg_class = string(neg_class);
 }
 
-Type Data::identifyFileType(string file){
+template < typename T >
+Type Data< T >::identifyFileType(string file){
     int l , k, i, j, tsize = types.size();
 
     for(k = file.size() - 1; (k >= 0 && file[k] != '.') ; k--){
@@ -69,7 +69,8 @@ Type Data::identifyFileType(string file){
     return Type::TYPE_INVALID;
 }
 
-bool Data::load(string file){
+template < typename T >
+bool Data< T >::load(string file){
     Type t = identifyFileType(file);
 
     switch (t) {
@@ -89,7 +90,8 @@ bool Data::load(string file){
     return true;
 }
 
-bool Data::load_csv(string path){
+template < typename T >
+bool Data< T >::load_csv(string path){
     ifstream input(path.c_str());
     stringstream ss;
     string str, item;
@@ -173,7 +175,7 @@ bool Data::load_csv(string path){
 
     //Read sample (line) from file
     while(getline(input, str)){
-        auto new_point = make_shared<Point>();
+        auto new_point = make_shared<Point< T > >();
 
         ss.str(str);
         dim = -1;
@@ -218,10 +220,11 @@ bool Data::load_csv(string path){
     return true;
 }
 
-bool Data::load_data(string path){
+template < typename T >
+bool Data< T >::load_data(string path){
     ifstream input(path.c_str());
-    stringstream ss;
     string str, item, buffer;
+    stringstream ss;
     int dim, ldim, c, size;
     bool flag, atEnd = false, cond;
 
@@ -229,15 +232,15 @@ bool Data::load_data(string path){
         cout << "File could not be opened!" << endl;
         return false;
     }
-
     dim = ldim = size = c = 0;
     flag = false;
 
     //get dimension of the points
     while(getline(input, str)){
         dim = -1;
-
+		
         ss.str(str);
+        ss.clear();
 
         while(getline(ss, item, ' ')){
             if(!is_number(item)){
@@ -266,12 +269,11 @@ bool Data::load_data(string path){
 
         ldim = dim;
         size++;
-        ss.clear();
     }
-
-    input.clear();
+	
+	input.clear();
     input.seekg(0, ios::beg);
-
+	    
     //initialize dim and size
     this->dim = dim;
     this->size = size;
@@ -284,14 +286,14 @@ bool Data::load_data(string path){
 
     //reserve memory for points array
     points.resize(size);
-
     size = 0;
+
     //get lines from file
     while(getline(input, str)){
-        auto new_point = make_shared<Point>();
+        auto new_point = make_shared<Point< T > >();
 
         ss.str(str);
-
+		ss.clear();
         dim = 0;
         new_point->x.resize(this->dim, 0.0);
 
@@ -324,7 +326,6 @@ bool Data::load_data(string path){
                         }
                     }
                 }
-
                 if(is_number(buffer)){
                     new_point->x[(atEnd)?dim:dim-1] = stodn(buffer);
                     dim++;
@@ -337,17 +338,19 @@ bool Data::load_data(string path){
                 if(!atEnd) dim++;
             }
         }
+        //cout << points[150] << endl;
         points[size++] = std::move(new_point);
         points[size-1]->id = size;
-        ss.clear();
+
     }
 
+    input.close();
     is_empty = false;
-
     return true;
 }
 
-bool Data::load_arff(string path){
+template < typename T >
+bool Data< T >::load_arff(string path){
     ifstream input(path.c_str());
     istringstream ss;
     string str, item;
@@ -418,7 +421,7 @@ bool Data::load_arff(string path){
 
     //Read line (sample) from file
     while(getline(input, str)){
-        shared_ptr<Point> new_point = make_shared<Point>();
+        auto new_point = make_shared<Point< T > >();
         dim = -1;
         ss.str(str);
 
@@ -463,7 +466,8 @@ bool Data::load_arff(string path){
     return true;
 }
 
-bool Data::load_txt(string path){
+template < typename T >
+bool Data< T >::load_txt(string path){
     ifstream input(path.c_str());
     istringstream ss;
     string str, item;
@@ -520,7 +524,7 @@ bool Data::load_txt(string path){
 
     //get line from file (sample)
     while(getline(input, str)){
-        auto new_point = make_shared<Point>();
+        auto new_point = make_shared<Point< T > >();
 
         //Allocate memory for features
         new_point->x.resize(dim, 0.0);
@@ -548,7 +552,8 @@ bool Data::load_txt(string path){
     return true;
 }
 
-bool Data::removePoint(int pid){
+template < typename T >
+bool Data< T >::removePoint(int pid){
     int i;
 
     if(size == 1){ cout << "Error: RemovePoint, only one point left\n"; return false; }
@@ -582,7 +587,8 @@ bool Data::removePoint(int pid){
     return true;
 }
 
-void Data::write(string fname, string ext){
+template < typename T >
+void Data< T >::write(string fname, string ext){
     int i, j;
     string path = fname + "." + ext;
     ofstream outstream(path.c_str(), ios::out);
@@ -612,10 +618,11 @@ void Data::write(string fname, string ext){
     outstream.close();
 }
 
-vector<bool> Data::removePoints(vector<int> ids){
+template < typename T >
+vector<bool> Data< T >::removePoints(vector<int> ids){
     int idsize = ids.size(), i;
     bool save;
-    shared_ptr<Point> po;
+    shared_ptr<Point< T > > po;
     auto p = points.begin();
     vector<bool> notFound(idsize, true);
 
@@ -644,12 +651,13 @@ vector<bool> Data::removePoints(vector<int> ids){
     return notFound;
 }
 
-Data* Data::insertFeatures(std::vector<int> ins_feat){
+template < typename T >
+Data< T >* Data< T >::insertFeatures(std::vector<int> ins_feat){
     size_t i, j, s, offset = 0, fsize = ins_feat.size();
     bool saveflag;
     vector<int> new_fnames(fsize, 0);
-    shared_ptr<Point> p;
-    Data *smout;
+    shared_ptr<Point< T > > p;
+    Data< T > *smout = new Data< T >;
 
     if(fsize == 0) return this;
     sort(ins_feat.begin(), ins_feat.end());
@@ -660,10 +668,11 @@ Data* Data::insertFeatures(std::vector<int> ins_feat){
 
     //Copying information to new data array
     for(i = 0; i < size; i++){
-        p->x.resize(fsize, 0);
-        p->x = points[i]->x;
+        p = make_shared<Point< T > >();
+        p->x.resize(fsize);
         p->alpha = points[i]->alpha;
         p->id = points[i]->id;
+        p->y = points[i]->y;
 
         //Copying features
         s = 0, offset = 0;
@@ -694,9 +703,10 @@ Data* Data::insertFeatures(std::vector<int> ins_feat){
     return smout;
 }
 
-bool Data::removeFeatures(std::vector<int> feats){
+template < typename T >
+bool Data< T >::removeFeatures(std::vector<int> feats){
     size_t i, j, k, psize = points.size(), rsize = feats.size();
-    vector<double>::iterator itr;
+    typename vector< T >::iterator itr;
     vector<int>::iterator fitr;
 
     if(fnames.size() == 1){
@@ -738,7 +748,8 @@ bool Data::removeFeatures(std::vector<int> feats){
     return true;
 }
 
-bool Data::insertPoint(Data sample, int index){
+template < typename T >
+bool Data< T >::insertPoint(Data< T > sample, int index){
     if(index > sample.getSize()-1){
         cerr << "Index out of bounds. (insertPoint)" << endl;
         return false;
@@ -749,7 +760,8 @@ bool Data::insertPoint(Data sample, int index){
     return true;
 }
 
-bool Data::insertPoint(shared_ptr<Point> p){
+template < typename T >
+bool Data< T >::insertPoint(shared_ptr<Point< T > > p){
     //Dimension verification
     if(int(p->x.size()) > dim){
         cerr << "Point with dimension different from the data. (insertPoint)" << endl;
@@ -773,9 +785,10 @@ bool Data::insertPoint(shared_ptr<Point> p){
     return true;
 }
 
-void Data::changeXVector(vector<int> index){
+template < typename T >
+void Data< T >::changeXVector(vector<int> index){
     int i, j;
-    vector<shared_ptr<Point> > nPoints(size);
+    vector<shared_ptr<Point< T > > > nPoints(size);
 
     //Copy features and classes of the points making the changes
     for(i = 0; i < size; i++){
@@ -787,19 +800,23 @@ void Data::changeXVector(vector<int> index){
     points = nPoints;
 }
 
-shared_ptr<Point> Data::getPoint(int index){
+template < typename T >
+shared_ptr<Point< T > > Data< T >::getPoint(int index){
     return points[index];
 }
 
-void Data::setPoint(int index, shared_ptr<Point> p){
+template < typename T >
+void Data< T >::setPoint(int index, shared_ptr<Point< T > > p){
     points[index] = std::move(p);
 }
 
-Data Data::copy(){
+template < typename T >
+Data< T > Data< T >::copy(){
     return *this;
 }
 
-void Data::copyZero(const Data& other){
+template < typename T >
+void Data< T >::copyZero(const Data< T >& other){
     fnames = other.fnames;
     dim = other.dim;
     size = 0;
@@ -807,10 +824,11 @@ void Data::copyZero(const Data& other){
     normalized = other.normalized;
 }
 
-void Data::join(std::shared_ptr<Data> data){
+template < typename T >
+void Data< T >::join(std::shared_ptr<Data< T > > data){
     size_t i, j, dim1 = data->getDim(), antsize = size, size1 = data->getSize();
     vector<int> index1 = data->getIndex(), antindex = index;
-    vector<shared_ptr<Point> > points1 = data->getPoints();
+    vector<shared_ptr<Point< T > > > points1 = data->getPoints();
 
     if(dim > dim1){
         cerr << "Error: sample1 dimension must be less or equal to sample2\n";
@@ -835,7 +853,8 @@ void Data::join(std::shared_ptr<Data> data){
 
 }
 
-void Data::normalize(double p){
+template < typename T >
+void Data< T >::normalize(double p){
     int i = 0, j = 0;
     double norm = 0.0;
 
@@ -852,7 +871,8 @@ void Data::normalize(double p){
     normalized = true;
 }
 
-void Data::normalize(vector<double> &v, double q){
+template < typename T >
+void Data< T >::normalize(vector<double> &v, double q){
     size_t i = 0, dim = v.size();
     double norm = 0.0;
 
@@ -865,48 +885,59 @@ void Data::normalize(vector<double> &v, double q){
         v[i] /= norm;
 }
 
-void Data::setDim(size_t dim){
+template < typename T >
+void Data< T >::setDim(size_t dim){
     this->dim = dim;
 }
 
-vector<int> Data::getFeaturesNames(){
+template < typename T >
+vector<int> Data< T >::getFeaturesNames(){
     return fnames;
 }
 
-void Data::setFeaturesNames(std::vector<int> fnames){
+template < typename T >
+void Data< T >::setFeaturesNames(std::vector<int> fnames){
     this->fnames = std::move(fnames);
 }
 
-vector<shared_ptr<Point> > Data::getPoints(){
+template < typename T >
+vector<shared_ptr<Point< T > > > Data< T >::getPoints(){
     return points;
 }
 
-vector<int> Data::getIndex(){
+template < typename T >
+vector<int> Data< T >::getIndex(){
     return index;
 }
 
-int Data::getNumberNegativePoints(){
+template < typename T >
+int Data< T >::getNumberNegativePoints(){
     return stats.n_neg;
 }
 
-int Data::getNumberPositivePoints(){
+template < typename T >
+int Data< T >::getNumberPositivePoints(){
     return stats.n_pos;
 }
 
-Statistics Data::getStatistics(){
+template < typename T >
+Statistics< T > Data< T >::getStatistics(){
     return stats;
 }
 
-void Data::setClasses(string pos, string neg){
+template < typename T >
+void Data< T >::setClasses(string pos, string neg){
     pos_class = std::move(pos);
     neg_class = std::move(neg);
 }
 
-bool Data::isEmpty(){
+template < typename T >
+bool Data< T >::isEmpty(){
     return is_empty;
 }
 
-void Data::operator=(const Data& data){
+template < typename T >
+void Data< T >::operator=(const Data< T >& data){
     points = data.points;
     fnames = data.fnames;
     index = data.index;
@@ -920,15 +951,9 @@ void Data::operator=(const Data& data){
     stats = data.stats;
 }
 
-ostream &operator<<( ostream &output, const Data &data ){
-    for(auto p : data.points){
-        output << *p << endl;
-    }
 
-    return output;
-}
-
-void Data::clear(){
+template < typename T >
+void Data< T >::clear(){
     points.clear();
     fnames.clear();
     index.clear();
@@ -936,29 +961,34 @@ void Data::clear(){
     dim = 0;
     stats.n_neg = 0;
     stats.n_pos = 0;
-    stats.centroid = Point();
-    stats.neg_centroid = Point();
-    stats.pos_centroid = Point();
+    stats.centroid = Point< T >();
+    stats.neg_centroid = Point< T >();
+    stats.pos_centroid = Point< T >();
     normalized = false;
     is_empty = true;
 }
 
-Data::~Data(){}
+template < typename T >
+Data< T >::~Data(){}
 
-void Data::setIndex(std::vector<int> index) {
+template < typename T >
+void Data< T >::setIndex(std::vector<int> index) {
     this->index = index;
 }
 
-void Data::resetIndex(){
+template < typename T >
+void Data< T >::resetIndex(){
     index.assign(size, 0);
     iota(index.begin(), index.end(), 0);
 }
 
-double Data::getTime_mult() const {
+template < typename T >
+double Data< T >::getTime_mult() const {
     return time_mult;
 }
 
-bool Data::operator==(const Data &rhs) const {
+template < typename T >
+bool Data< T >::operator==(const Data< T > &rhs) const {
     return points == rhs.points &&
            fnames == rhs.fnames &&
            index == rhs.index &&
@@ -971,6 +1001,19 @@ bool Data::operator==(const Data &rhs) const {
            normalized == rhs.normalized;
 }
 
-bool Data::operator!=(const Data &rhs) const {
+template < typename T >
+bool Data< T >::operator!=(const Data< T > &rhs) const {
     return !(rhs == *this);
 }
+
+template class Data<int>;
+template class Data<double>;
+template class Data<float>;
+template class Data<int8_t>;
+template class Data<char>;
+template class Data<long long int>;
+template class Data<short int>;
+template class Data<long double>;
+template class Data<unsigned char>;
+template class Data<unsigned int>;
+template class Data<unsigned short int>;

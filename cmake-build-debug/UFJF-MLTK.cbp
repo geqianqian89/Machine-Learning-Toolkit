@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6"/>
 	<Project>
-		<Option title="Classification_Algorithms_System"/>
+		<Option title="UFJF-MLTK"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
 		<Option virtualFolders="CMake Files\;"/>
@@ -37,29 +37,29 @@
 					<DistClean command="/usr/bin/make -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="Classification_Algorithms_System">
-				<Option output="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/cmake-build-debug/Classification_Algorithms_System" prefix_auto="0" extension_auto="0"/>
+			<Target title="UFJF-MLTK">
+				<Option output="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/cmake-build-debug/UFJF-MLTK" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/cmake-build-debug/Makefile&quot;  VERBOSE=1 Classification_Algorithms_System"/>
+					<Build command="/usr/bin/make -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/cmake-build-debug/Makefile&quot;  VERBOSE=1 UFJF-MLTK"/>
 					<CompileFile command="/usr/bin/make -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="Classification_Algorithms_System/fast">
-				<Option output="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/cmake-build-debug/Classification_Algorithms_System" prefix_auto="0" extension_auto="0"/>
+			<Target title="UFJF-MLTK/fast">
+				<Option output="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/cmake-build-debug/UFJF-MLTK" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/cmake-build-debug/Makefile&quot;  VERBOSE=1 Classification_Algorithms_System/fast"/>
+					<Build command="/usr/bin/make -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/cmake-build-debug/Makefile&quot;  VERBOSE=1 UFJF-MLTK/fast"/>
 					<CompileFile command="/usr/bin/make -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -67,126 +67,85 @@
 			</Target>
 		</Build>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Classifier.hpp">
-			<Option target="Classification_Algorithms_System"/>
+			<Option target="UFJF-MLTK"/>
 		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Data.hpp">
-			<Option target="Classification_Algorithms_System"/>
+			<Option target="UFJF-MLTK"/>
 		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/DualClassifier.hpp">
-			<Option target="Classification_Algorithms_System"/>
+			<Option target="UFJF-MLTK"/>
 		</Unit>
-<<<<<<< HEAD
-		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/FeatureSelection.hpp">
-			<Option target="Classification_Algorithms_System"/>
-		</Unit>
-=======
->>>>>>> e42648e5f318190fc91ba6dcd22ffb141fb206e8
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/IMA.hpp">
-			<Option target="Classification_Algorithms_System"/>
+			<Option target="UFJF-MLTK"/>
 		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Kernel.hpp">
-			<Option target="Classification_Algorithms_System"/>
+			<Option target="UFJF-MLTK"/>
 		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/MLToolkit.hpp">
-			<Option target="Classification_Algorithms_System"/>
+			<Option target="UFJF-MLTK"/>
 		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Perceptron.hpp">
-			<Option target="Classification_Algorithms_System"/>
+			<Option target="UFJF-MLTK"/>
 		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Point.hpp">
-			<Option target="Classification_Algorithms_System"/>
+			<Option target="UFJF-MLTK"/>
 		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/PrimalClassifier.hpp">
-			<Option target="Classification_Algorithms_System"/>
-		</Unit>
-		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/RFE.hpp">
-			<Option target="Classification_Algorithms_System"/>
+			<Option target="UFJF-MLTK"/>
 		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Random.hpp">
-			<Option target="Classification_Algorithms_System"/>
+			<Option target="UFJF-MLTK"/>
 		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Solution.hpp">
-			<Option target="Classification_Algorithms_System"/>
+			<Option target="UFJF-MLTK"/>
 		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Statistics.hpp">
-			<Option target="Classification_Algorithms_System"/>
+			<Option target="UFJF-MLTK"/>
 		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Timer.hpp">
-			<Option target="Classification_Algorithms_System"/>
+			<Option target="UFJF-MLTK"/>
 		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Utils.hpp">
-			<Option target="Classification_Algorithms_System"/>
+			<Option target="UFJF-MLTK"/>
 		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Validation.hpp">
-			<Option target="Classification_Algorithms_System"/>
+			<Option target="UFJF-MLTK"/>
 		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/ValidationSolution.hpp">
-			<Option target="Classification_Algorithms_System"/>
+			<Option target="UFJF-MLTK"/>
 		</Unit>
-<<<<<<< HEAD
-		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Visualisation.hpp">
-=======
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Visualization.hpp">
->>>>>>> e42648e5f318190fc91ba6dcd22ffb141fb206e8
-			<Option target="Classification_Algorithms_System"/>
+			<Option target="UFJF-MLTK"/>
 		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/gnuplot_i.hpp">
-			<Option target="Classification_Algorithms_System"/>
+			<Option target="UFJF-MLTK"/>
 		</Unit>
-<<<<<<< HEAD
-		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Classifier.cpp">
-			<Option target="Classification_Algorithms_System"/>
-		</Unit>
-=======
->>>>>>> e42648e5f318190fc91ba6dcd22ffb141fb206e8
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Data.cpp">
-			<Option target="Classification_Algorithms_System"/>
+			<Option target="UFJF-MLTK"/>
 		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/IMA.cpp">
-			<Option target="Classification_Algorithms_System"/>
+			<Option target="UFJF-MLTK"/>
 		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Kernel.cpp">
-			<Option target="Classification_Algorithms_System"/>
+			<Option target="UFJF-MLTK"/>
 		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Perceptron.cpp">
-			<Option target="Classification_Algorithms_System"/>
+			<Option target="UFJF-MLTK"/>
 		</Unit>
-<<<<<<< HEAD
-		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Point.cpp">
-			<Option target="Classification_Algorithms_System"/>
-		</Unit>
-		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/PrimalClassifier.cpp">
-			<Option target="Classification_Algorithms_System"/>
-		</Unit>
-		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/RFE.cpp">
-			<Option target="Classification_Algorithms_System"/>
-		</Unit>
-		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Statistics.cpp">
-			<Option target="Classification_Algorithms_System"/>
-		</Unit>
-=======
-		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/RFE.cpp">
-			<Option target="Classification_Algorithms_System"/>
-		</Unit>
->>>>>>> e42648e5f318190fc91ba6dcd22ffb141fb206e8
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Utils.cpp">
-			<Option target="Classification_Algorithms_System"/>
+			<Option target="UFJF-MLTK"/>
 		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Validation.cpp">
-			<Option target="Classification_Algorithms_System"/>
+			<Option target="UFJF-MLTK"/>
 		</Unit>
-<<<<<<< HEAD
-		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Visualisation.cpp">
-=======
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Visualization.cpp">
->>>>>>> e42648e5f318190fc91ba6dcd22ffb141fb206e8
-			<Option target="Classification_Algorithms_System"/>
+			<Option target="UFJF-MLTK"/>
 		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/gnuplot_i.cpp">
-			<Option target="Classification_Algorithms_System"/>
+			<Option target="UFJF-MLTK"/>
 		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/main.cpp">
-			<Option target="Classification_Algorithms_System"/>
+			<Option target="UFJF-MLTK"/>
 		</Unit>
 		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>

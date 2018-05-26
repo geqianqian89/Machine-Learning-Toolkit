@@ -8,15 +8,16 @@
 /**
  * \brief Class of methods for the validation of ML algorithms.
  */
+ template < typename T >
 class Validation {
     // Attributes
 private :
     /// Model to be validated.
-    Classifier *classifier;
+    Classifier< T >  *classifier;
     /// Sample used in the validation.
-    std::shared_ptr<Data> sample;
+    std::shared_ptr<Data< T > > sample;
     /// Train and test sample used.
-    std::shared_ptr<Data> train_sample, test_sample;
+    std::shared_ptr<Data< T > > train_sample, test_sample;
     double initial_error, limit_error, actual_error;
     /// Parameter used in the kernel in case of Dual classifiers.
     double kernel_param;
@@ -55,7 +56,7 @@ public :
      * @param classifier Model to be validated.
      * @param seed  Seed to feed the pseudo random number generator.
      */
-    explicit Validation (std::shared_ptr<Data> sample = std::make_shared<Data>(), Classifier *classifier = nullptr, unsigned int seed = 666);
+    explicit Validation (std::shared_ptr<Data< T > > sample = std::make_shared<Data< T > >(), Classifier< T >  *classifier = nullptr, unsigned int seed = 666);
     /**
      * \brief Executes the Stratified K-fold algorithm
      * \param fold Number of folds.
@@ -78,12 +79,12 @@ public :
      * @brief Get the train sample used in the validation of the model.
      * @return Data
      */
-    std::shared_ptr<Data> getTestSample ();
+    std::shared_ptr<Data< T > > getTestSample ();
     /**
      * @brief Get the train sample used in the validation of the model.
      * @return Data
      */
-    std::shared_ptr<Data> getTrainSample ();
+    std::shared_ptr<Data< T > > getTrainSample ();
     /**
      * @brief Set the verbose.
      * @param verbose Verbose level.

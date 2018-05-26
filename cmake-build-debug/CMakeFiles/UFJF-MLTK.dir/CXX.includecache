@@ -19,12 +19,24 @@ vector
 -
 string
 -
+numeric
+-
+algorithm
+-
+sstream
+-
+iostream
+-
+fstream
+-
 memory
 -
 Point.hpp
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Point.hpp
 Statistics.hpp
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Statistics.hpp
+Utils.hpp
+/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Utils.hpp
 
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/DualClassifier.hpp
 Kernel.hpp
@@ -33,16 +45,6 @@ Classifier.hpp
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Classifier.hpp
 vector
 -
-
-/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/FeatureSelection.hpp
-Data.hpp
-/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Data.hpp
-Classifier.hpp
-/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Classifier.hpp
-Solution.hpp
-/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Solution.hpp
-Validation.hpp
-/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Validation.hpp
 
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/IMA.hpp
 vector
@@ -59,6 +61,10 @@ vector
 -
 memory
 -
+cmath
+-
+utility
+-
 ../includes/Data.hpp
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Data.hpp
 ../includes/Utils.hpp
@@ -71,8 +77,8 @@ Solution.hpp
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Solution.hpp
 Validation.hpp
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Validation.hpp
-Visualisation.hpp
-/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Visualisation.hpp
+Visualization.hpp
+/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Visualization.hpp
 ValidationSolution.hpp
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/ValidationSolution.hpp
 Point.hpp
@@ -95,16 +101,14 @@ iostream
 -
 vector
 -
+cmath
+-
 ../includes/Utils.hpp
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Utils.hpp
 
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/PrimalClassifier.hpp
 Classifier.hpp
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Classifier.hpp
-
-/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/RFE.hpp
-FeatureSelection.hpp
-/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/FeatureSelection.hpp
 
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Random.hpp
 random
@@ -121,17 +125,27 @@ vector
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Statistics.hpp
 vector
 -
+cmath
+-
+iostream
+-
 Point.hpp
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Point.hpp
+Data.hpp
+/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Data.hpp
 
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Timer.hpp
 chrono
 -
 
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Utils.hpp
+vector
+-
 string
 -
-vector
+sstream
+-
+iterator
 -
 
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Validation.hpp
@@ -146,7 +160,7 @@ ValidationSolution.hpp
 Solution.hpp
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Solution.hpp
 
-/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Visualisation.hpp
+/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Visualization.hpp
 dirent.h
 -
 gnuplot_i.hpp
@@ -183,10 +197,6 @@ io.h
 -
 unistd.h
 -
-
-/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Classifier.cpp
-../includes/Classifier.hpp
-/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Classifier.hpp
 
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Data.cpp
 iostream
@@ -231,10 +241,6 @@ float.h
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Perceptron.hpp
 
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Kernel.cpp
-cmath
--
-utility
--
 ../includes/Kernel.hpp
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Kernel.hpp
 
@@ -247,38 +253,6 @@ cmath
 -
 ../includes/Perceptron.hpp
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Perceptron.hpp
-
-/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Point.cpp
-cmath
--
-../includes/Point.hpp
-/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Point.hpp
-
-/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/PrimalClassifier.cpp
-../includes/PrimalClassifier.hpp
-/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/PrimalClassifier.hpp
-
-/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/RFE.cpp
-algorithm
--
-cmath
--
-memory
--
-../includes/RFE.hpp
-/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/RFE.hpp
-
-/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Statistics.cpp
-vector
--
-cmath
--
-iostream
--
-../includes/Statistics.hpp
-/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Statistics.hpp
-../includes/Data.hpp
-/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Data.hpp
 
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Utils.cpp
 cmath
@@ -306,9 +280,9 @@ memory
 ../includes/Kernel.hpp
 /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Kernel.hpp
 
-/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Visualisation.cpp
-../includes/Visualisation.hpp
-/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Visualisation.hpp
+/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Visualization.cpp
+../includes/Visualization.hpp
+/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Visualization.hpp
 cstdio
 -
 string

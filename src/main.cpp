@@ -20,11 +20,11 @@ using namespace std;
 bool sair = false, inva = false;
 double max_time = 100.0f;
 string data_folder = "DB/";
-std::shared_ptr<Data> data(std::make_shared<Data>());
-Data test_sample;
-Data train_sample;
+std::shared_ptr<Data<double> > data(std::make_shared<Data<double> >());
+Data<double> test_sample;
+Data<double> train_sample;
 Solution sol;
-Visualisation plot(&(*data));
+Visualization<double> plot(&(*data));
 
 //Menus utilities
 void clear(void);
@@ -41,7 +41,7 @@ int selector(void);
 void mainMenu(void);
 void datasetMenu(void);
 void dataMenu(void);
-void visualisationMenu(void);
+void VisualizationMenu(void);
 void classifiersMenu(void);
 void validationMenu(void);
 
@@ -49,7 +49,7 @@ void validationMenu(void);
 void mainOption(int);
 void datasetOption(int);
 void dataOption(int);
-void visualisationOption(int);
+void VisualizationOption(int);
 void classifiersOption(int);
 void primalClassifiersOption(int);
 void dualClassifiersOption(int);
@@ -193,7 +193,7 @@ void mainMenu(){
 
     cout << "1 - Dataset" << endl;
     cout << "2 - Data" << endl;
-    cout << "3 - Data Visualisation" << endl;
+    cout << "3 - Data Visualization" << endl;
     cout << "4 - Classifiers" << endl;
     cout << "8 - Validation" << endl;
     cout << "0 - Exit" << endl;
@@ -240,7 +240,7 @@ void dataMenu(void){
     dataOption(option);
 }
 
-void visualisationMenu(void){
+void VisualizationMenu(void){
     int option;
 
     clear();
@@ -253,7 +253,7 @@ void visualisationMenu(void){
     cout << "0 - Back to the main menu" << endl;
 
     option = selector();
-    visualisationOption(option);
+    VisualizationOption(option);
 }
 
 void classifiersMenu(){
@@ -294,7 +294,7 @@ void mainOption(int option){
             dataMenu();
             break;
         case 3:
-            visualisationMenu();
+            VisualizationMenu();
             break;
         case 4:
             classifiersMenu();
@@ -438,7 +438,7 @@ void datasetOption(int option){
                     cout << "Seed for timestamps: ";
                     cin >> seed;
 
-                    Validation valid(data, nullptr, seed);
+                    Validation<double> valid(data, nullptr, seed);
 
                     clock_t begin = clock();
                     valid.partTrainTest(fold);
@@ -519,10 +519,11 @@ void dataOption(int option){
                         cin.clear();
                     }
                 }
-                Data *temp = data->insertFeatures(feats);
+                Data<double> *temp = data->insertFeatures(feats);
 
                 if(!temp->isEmpty()){
-                    data.reset(temp);
+                    data.reset();
+                    data = make_shared<Data<double> >(*temp);
                 }else{
                     cerr << "Something went wrong." << endl;
                 }
@@ -596,7 +597,7 @@ void dataOption(int option){
                 cin >> index;
                 clock_t begin = clock();
                 cout << endl;
-                cout << "The variance values is: " << Statistics::variance(*data, index) << endl;
+                cout << "The variance values is: " << Statistics<double>::variance(*data, index) << endl;
                 clock_t end = clock();
 
                 double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
@@ -617,7 +618,7 @@ void dataOption(int option){
                 cout << endl;
 
                 clock_t begin = clock();
-                cout << "The value of the radius is: " << Statistics::getRadius(*data, index, q) << endl;
+                cout << "The value of the radius is: " << Statistics<double>::getRadius(*data, index, q) << endl;
                 clock_t end = clock();
 
                 double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
@@ -636,7 +637,7 @@ void dataOption(int option){
                 cout << endl;
 
                 clock_t begin = clock();
-                cout << "The value of the center of the classes are: " << Statistics::getDistCenters(*data, index) << endl;
+                cout << "The value of the center of the classes are: " << Statistics<double>::getDistCenters(*data, index) << endl;
                 cout << endl;
                 clock_t end = clock();
 
@@ -677,7 +678,7 @@ void dataOption(int option){
             break;
         case 8:
             if(!data->isEmpty()){
-                cout << data << endl;
+                cout << *data << endl;
             }else cout << "Load a dataset first...\n\n";
 
             waitUserAction();
@@ -692,7 +693,7 @@ void dataOption(int option){
     dataMenu();
 }
 
-void visualisationOption(int opt){
+void VisualizationOption(int opt){
     int x, y, z;
 
     switch (opt) {
@@ -748,7 +749,7 @@ void visualisationOption(int opt){
             inva = true;
             break;
     }
-    visualisationMenu();
+    VisualizationMenu();
 }
 
 void classifiersOption(int option){
@@ -797,7 +798,7 @@ void validationOption(int option){
     switch(option){
         case 1:
             if(!data->isEmpty()){
-                IMAp imap(data);
+                IMAp<double> imap(data);
 
                 cout << "Quantity of K-fold: ";
                 cin >> qtde;
@@ -844,7 +845,7 @@ void validationOption(int option){
                 imap.setAlphaAprox(alpha_prox);
 
                 clock_t begin = clock();
-                Validation validate(data, &imap, 10);
+                Validation<double> validate(data, &imap, 10);
 
                 validate.setVerbose(2);
                 validate.partTrainTest(fold);
@@ -886,9 +887,9 @@ void validationOption(int option){
                 K.setParam(kernel_param);
 
                 clock_t begin = clock();
-                IMADual ima_dual(data, &K, rate, nullptr);
+                IMADual<double> ima_dual(data, &K, rate, nullptr);
 
-                Validation validate(data, &ima_dual, 10);
+                Validation<double> validate(data, &ima_dual, 10);
 
                 validate.setVerbose(2);
                 validate.partTrainTest(fold);
@@ -926,7 +927,7 @@ void primalClassifiersOption(int option){
                 cin >> q;
                 cout << endl;
 
-                PerceptronPrimal perc(data, q, rate);
+                PerceptronPrimal<double> perc(data, q, rate);
 
                 clock_t begin = clock();
                 perc.train();
@@ -963,7 +964,7 @@ void primalClassifiersOption(int option){
                 cin >> gamma;
                 cout << endl;
 
-                PerceptronFixedMarginPrimal perc(data, gamma, q, rate);
+                PerceptronFixedMarginPrimal<double> perc(data, gamma, q, rate);
 
                 clock_t begin = clock();
                 perc.train();
@@ -1024,7 +1025,7 @@ void primalClassifiersOption(int option){
                 cin >> alpha_prox;
                 cout << endl;
 
-                IMAp imap(data);
+                IMAp<double> imap(data);
 
                 imap.setMaxTime(max_time);
                 imap.setpNorm(p);
@@ -1088,7 +1089,7 @@ void dualClassifiersOption(int option){
                 K.setParam(kernel_param);
                 K.compute(*data);
 
-                PerceptronDual perc_dual(data, rate, &K);
+                PerceptronDual<double> perc_dual(data, rate, &K);
                 perc_dual.train();
 
                 sol = perc_dual.getSolution();
@@ -1147,7 +1148,7 @@ void dualClassifiersOption(int option){
                 K.setParam(kernel_param);
                 K.compute(*data);
 
-                PerceptronFixedMarginDual perc_fixmargin_dual(data, gamma, rate, &K);
+                PerceptronFixedMarginDual<double> perc_fixmargin_dual(data, gamma, rate, &K);
                 perc_fixmargin_dual.train();
 
                 sol = perc_fixmargin_dual.getSolution();
@@ -1198,7 +1199,7 @@ void dualClassifiersOption(int option){
                 K.setParam(kernel_param);
 
                 clock_t begin = clock();
-                IMADual ima_dual(data, &K, rate, nullptr);
+                IMADual<double> ima_dual(data, &K, rate, nullptr);
 
                 ima_dual.setVerbose(2);
                 ima_dual.train();

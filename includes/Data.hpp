@@ -33,12 +33,19 @@
 #ifndef DATA__HPP
 #define DATA__HPP
 #pragma pack(1)
+
 #include <vector>
 #include <string>
+#include <numeric>
+#include <algorithm>
+#include <sstream>
+#include <iostream>
+#include <fstream>
 #include <memory>
 
 #include "Point.hpp"
 #include "Statistics.hpp"
+#include "Utils.hpp"
 
 static const std::vector<std::string> types {"data", "csv", "arff", "txt", "plt"};
 enum  Type {TYPE_INVALID = -1, TYPE_DATA = 0, TYPE_CSV = 1, TYPE_ARFF = 2, TYPE_TXT = 3};
@@ -46,12 +53,14 @@ enum  Type {TYPE_INVALID = -1, TYPE_DATA = 0, TYPE_CSV = 1, TYPE_ARFF = 2, TYPE_
 /**
  * \brief Wrapper for the dataset data.
  */
+
+template < typename T >
 class Data {
     // Associations
     // Attributes
 private :
     /// Set of points.
-    std::vector<std::shared_ptr<Point> > points;
+    std::vector<std::shared_ptr<Point< T > > > points;
     /// Features names.
     std::vector<int> fnames;
     /// Points indexes.
@@ -66,13 +75,13 @@ public:
 
 private:
     /// Positive and negative classes. (1, -1 are the default classes)
-    std::string pos_class, neg_class;
+    std::string pos_class = std::string("1"), neg_class = std::string("-1");
     /// Verify if there's some data loaded.
     bool is_empty = true;
     /// Verify if the data is normalized.
     bool normalized = false;
     /// Values for statistical methods.
-    Statistics stats;
+    Statistics< T > stats;
     // Operations
     /**
      * \brief Returns the type of the file.
@@ -105,19 +114,19 @@ private:
      */
     bool load_txt (std::string path);
 public :
-    /**
-     * \brief Constructor for empty data.
-     * \param pos_class String representing the positive class on the dataset.
-     * \param neg_class String representing the negative class on the dataset.
-     */
-    Data (const char* pos_class = "1", const char* neg_class = "-1");
-    /**
+	/**
      * \brief Data constructor to load a dataset from a file.
      * \param dataset (???) Path to the dataset to be loaded.
      * \param pos_class String representing the positive class on the dataset.
      * \param neg_class String representing the negative class on the dataset.
      */
-    Data (std::string dataset, const char* pos_class = "1", const char* neg_class = "-1");
+    Data (const char* dataset, const char* pos_class = "1", const char* neg_class = "-1");
+    /**
+     * \brief Constructor for empty data.
+     * \param pos_class String representing the positive class on the dataset.
+     * \param neg_class String representing the negative class on the dataset.
+     */
+    Data ();
     /**
      * \brief write Write the data to a file with the given extention.
      * \param fname Name of the file.
@@ -141,21 +150,21 @@ public :
     void setDim(size_t dim);
     /**
      * \brief Returns a shared pointer to the vector of Points of the sample.
-     * \return std::vector<std::shared_ptr<Point> >
+     * \return std::vector<std::shared_ptr<Point< T > > >
      */
-    std::vector<std::shared_ptr<Point> > getPoints ();
+    std::vector<std::shared_ptr<Point< T > > > getPoints ();
     /**
      * \brief Returns a shared pointer to the point with the given index.
      * \param index    Position of a point in the points array.
-     * \return std::vector<Points>
+     * \return std::vector<Point< T > >
      */
-    std::shared_ptr<Point> getPoint (int index);
+    std::shared_ptr<Point< T > > getPoint (int index);
     /**
      * \brief setPoint Set the point in a position of the data.
      * \param index (???) Index of the point that will be set.
      * \param p (???) Point to be set.
      */
-    void setPoint (int index, std::shared_ptr<Point> p);
+    void setPoint (int index, std::shared_ptr<Point< T > > p);
     /**
      * \brief Returns the features names.
      * \return std::vector<int>
@@ -170,7 +179,7 @@ public :
      * \brief Returns a class with the statistics info of the sample.
      * \return Statistics
      */
-    Statistics getStatistics ();
+    Statistics< T > getStatistics ();
     /**
      * \brief Returns the vector of indexes.
      * \return std::vector<int>
@@ -221,31 +230,31 @@ public :
      * \brief Returns a copy of the data.
      * \return Data
      */
-    Data copy ();
+    Data< T > copy ();
     /**
      * \brief Returns a copy of the data with zero points.
      * \return Data
      */
-    void copyZero (const Data& other);
+    void copyZero (const Data< T >& other);
     /**
      * \brief Merge one dataset with another.
      * \param data (???) Dataset to be joined.
      * \return bool
      */
-    void join(std::shared_ptr<Data> data);
+    void join(std::shared_ptr<Data< T > > data);
     /**
      * \brief Insert a point to the data from another sample.
      * \param sample (???) Sample with the point to be added.
      * \param id (???) Index of the point to be added.
      * \return bool
      */
-    bool insertPoint (Data sample, int id);
+    bool insertPoint (Data< T > sample, int id);
     /**
      * \brief Insert a point to the end of vector points.
      * \param p (???) Point to be inserted.
      * \return bool
      */
-    bool insertPoint (std::shared_ptr<Point> p);
+    bool insertPoint (std::shared_ptr<Point< T > > p);
     /**
      * \brief Remove several points from the sample.
      * \param ids (???) Ids of the points to be removed (must be sorted).
@@ -263,7 +272,7 @@ public :
      * @param ins_feat (???) Array with features that will be in the Data object.
      * @return Data If the object is empty something wrong happened.
      */
-    Data* insertFeatures(std::vector<int> ins_feat);
+    Data< T >* insertFeatures(std::vector<int> ins_feat);
     /**
      * \brief Remove several features from the sample.
      * \param feats (???) Names of the features to be removed (must be sorted).
@@ -294,15 +303,29 @@ public :
      *  Overloaded operators for the Data class. *
      *********************************************/
 
-    void operator=(const Data&);
+    shared_ptr<Point< T > > operator[](size_t i) const {return points[i];}
 
-    bool operator==(const Data &rhs) const;
+    shared_ptr<Point< T > > & operator[](size_t i) {return points[i];}
 
-    bool operator!=(const Data &rhs) const;
+    void operator=(const Data< T >&);
 
-    friend std::ostream &operator<<( std::ostream &output, const Data &data );
+    bool operator==(const Data< T > &rhs) const;
+
+    bool operator!=(const Data< T > &rhs) const;
+	
+	template< typename U >
+    friend std::ostream &operator<<( std::ostream &output, const Data< U > &data );
 
     ~Data();
 };
+
+template < typename T >
+ostream &operator<<( ostream &output, const Data< T > &data ){
+    for(auto p : data.points){
+        output << *p << endl;
+    }
+
+    return output;
+}
 
 #endif
