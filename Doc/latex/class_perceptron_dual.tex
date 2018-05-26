@@ -1,5 +1,5 @@
-\hypertarget{class_perceptron_dual}{}\section{Perceptron\+Dual Class Reference}
-\label{class_perceptron_dual}\index{Perceptron\+Dual@{Perceptron\+Dual}}
+\hypertarget{class_perceptron_dual}{}\section{Perceptron\+Dual$<$ T $>$ Class Template Reference}
+\label{class_perceptron_dual}\index{Perceptron\+Dual$<$ T $>$@{Perceptron\+Dual$<$ T $>$}}
 
 
 Wrapper for the implementation of the Perceptron dual algorithm.  
@@ -11,7 +11,7 @@ Wrapper for the implementation of the Perceptron dual algorithm.
 
 
 
-Inheritance diagram for Perceptron\+Dual\+:\nopagebreak
+Inheritance diagram for Perceptron\+Dual$<$ T $>$\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -20,7 +20,7 @@ Inheritance diagram for Perceptron\+Dual\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Perceptron\+Dual\+:\nopagebreak
+Collaboration diagram for Perceptron\+Dual$<$ T $>$\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -30,25 +30,29 @@ Collaboration diagram for Perceptron\+Dual\+:\nopagebreak
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_perceptron_dual_a7f1955774c5758e55232b88c2d8a048a}\label{class_perceptron_dual_a7f1955774c5758e55232b88c2d8a048a}} 
-{\bfseries Perceptron\+Dual} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_data}{Data} $>$ \hyperlink{class_classifier_aad6a4fcea8f44339d7a6302f530852ca}{samples}=nullptr, double \hyperlink{class_classifier_af9867e5919742de1303dd971a9a1c19a}{rate}=0.\+5, \hyperlink{class_kernel}{Kernel} $\ast$K=nullptr, \hyperlink{class_solution}{Solution} $\ast$initial\+\_\+solution=nullptr)
+\mbox{\Hypertarget{class_perceptron_dual_a09289b10cd42be37fe50a7733f2a83e4}\label{class_perceptron_dual_a09289b10cd42be37fe50a7733f2a83e4}} 
+{\bfseries Perceptron\+Dual} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_data}{Data}$<$ T $>$ $>$ \hyperlink{class_classifier_a0000b47a2e0784ada4c52d7046c4adb8}{samples}=nullptr, double \hyperlink{class_classifier_a7b1c4ef87631bd9e46682e5bc4315111}{rate}=0.\+5, \hyperlink{class_kernel}{Kernel} $\ast$K=nullptr, \hyperlink{class_solution}{Solution} $\ast$initial\+\_\+solution=nullptr)
 \item 
-bool \hyperlink{class_perceptron_dual_a67acd9361cba43bbe2d682c4acd4ecaf}{train} () override
+bool \hyperlink{class_perceptron_dual_ac5e6aac8184fdf8f9d39d8d183d49190}{train} () override
 \begin{DoxyCompactList}\small\item\em Function that execute the training phase of a classification algorithm. \end{DoxyCompactList}\item 
-double \hyperlink{class_perceptron_dual_af45407197f22fd513296f7a80e7683d9}{evaluate} (\hyperlink{class_point}{Point} p) override
+double \hyperlink{class_perceptron_dual_afae65908732e5f011be1d384387c71fe}{evaluate} (\hyperlink{class_point}{Point}$<$ T $>$ p) override
 \begin{DoxyCompactList}\small\item\em Returns the class of a feature point based on the trained classifier. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
 \subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Perceptron\+Dual$<$ T $>$}
+
 Wrapper for the implementation of the Perceptron dual algorithm. 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_perceptron_dual_af45407197f22fd513296f7a80e7683d9}\label{class_perceptron_dual_af45407197f22fd513296f7a80e7683d9}} 
+\mbox{\Hypertarget{class_perceptron_dual_afae65908732e5f011be1d384387c71fe}\label{class_perceptron_dual_afae65908732e5f011be1d384387c71fe}} 
 \index{Perceptron\+Dual@{Perceptron\+Dual}!evaluate@{evaluate}}
 \index{evaluate@{evaluate}!Perceptron\+Dual@{Perceptron\+Dual}}
 \subsubsection{\texorpdfstring{evaluate()}{evaluate()}}
-{\footnotesize\ttfamily double Perceptron\+Dual\+::evaluate (\begin{DoxyParamCaption}\item[{\hyperlink{class_point}{Point}}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+double \hyperlink{class_perceptron_dual}{Perceptron\+Dual}$<$ T $>$\+::evaluate (\begin{DoxyParamCaption}\item[{\hyperlink{class_point}{Point}$<$ T $>$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -56,7 +60,7 @@ Returns the class of a feature point based on the trained classifier.
 
 
 \begin{DoxyParams}{Parameters}
-{\em \hyperlink{class_point}{Point}} & x (???) Features point to be evaluated. \\
+{\em Point$<$} & T $>$ x (???) Features point to be evaluated. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -64,13 +68,14 @@ int
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_classifier_ae8e9554823b85ddc2dcad2955da811d9}{Classifier}.
+Implements \hyperlink{class_classifier_ab3b9544a8d9c3cbde8d5865c7e9be0fb}{Classifier$<$ T $>$}.
 
-\mbox{\Hypertarget{class_perceptron_dual_a67acd9361cba43bbe2d682c4acd4ecaf}\label{class_perceptron_dual_a67acd9361cba43bbe2d682c4acd4ecaf}} 
+\mbox{\Hypertarget{class_perceptron_dual_ac5e6aac8184fdf8f9d39d8d183d49190}\label{class_perceptron_dual_ac5e6aac8184fdf8f9d39d8d183d49190}} 
 \index{Perceptron\+Dual@{Perceptron\+Dual}!train@{train}}
 \index{train@{train}!Perceptron\+Dual@{Perceptron\+Dual}}
 \subsubsection{\texorpdfstring{train()}{train()}}
-{\footnotesize\ttfamily bool Perceptron\+Dual\+::train (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_perceptron_dual}{Perceptron\+Dual}$<$ T $>$\+::train (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -81,7 +86,7 @@ void
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_classifier_a2306a5de27555ab093593ac9642bc7d9}{Classifier}.
+Implements \hyperlink{class_classifier_a120849bfdfa3ba7a0388b32b2d76bf4f}{Classifier$<$ T $>$}.
 
 
 

@@ -2,9 +2,15 @@
 \label{_data_8hpp}\index{includes/\+Data.\+hpp@{includes/\+Data.\+hpp}}
 {\ttfamily \#include $<$vector$>$}\newline
 {\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$numeric$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
 {\ttfamily \#include $<$memory$>$}\newline
 {\ttfamily \#include \char`\"{}Point.\+hpp\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Statistics.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Utils.\+hpp\char`\"{}}\newline
 Include dependency graph for Data.\+hpp\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -22,7 +28,7 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \hyperlink{class_data}{Data}
+class \hyperlink{class_data}{Data$<$ T $>$}
 \begin{DoxyCompactList}\small\item\em Wrapper for the dataset data. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Enumerations}
 \begin{DoxyCompactItemize}
@@ -36,6 +42,12 @@ enum {\bfseries Type} \{ \newline
 \newline
 {\bfseries T\+Y\+P\+E\+\_\+\+T\+XT} = 3
  \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_data_8hpp_a4e6c3141b57fb6582acc4dac8f62a891}\label{_data_8hpp_a4e6c3141b57fb6582acc4dac8f62a891}} 
+{\footnotesize template$<$typename T $>$ }\\ostream \& {\bfseries operator$<$$<$} (ostream \&output, const \hyperlink{class_data}{Data}$<$ T $>$ \&data)
 \end{DoxyCompactItemize}
 
 

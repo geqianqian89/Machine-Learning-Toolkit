@@ -1,15 +1,15 @@
 var searchData=
 [
-  ['parttraintest',['partTrainTest',['../class_validation.html#afc2e7f15bc873853b70e2cc3c47eecdc',1,'Validation']]],
+  ['parttraintest',['partTrainTest',['../class_validation.html#a1e9580697a164d4bfbe721f2f1589c57',1,'Validation']]],
   ['perceptron_2ehpp',['Perceptron.hpp',['../_perceptron_8hpp.html',1,'']]],
   ['perceptrondual',['PerceptronDual',['../class_perceptron_dual.html',1,'']]],
   ['perceptronfixedmargindual',['PerceptronFixedMarginDual',['../class_perceptron_fixed_margin_dual.html',1,'']]],
   ['perceptronfixedmarginprimal',['PerceptronFixedMarginPrimal',['../class_perceptron_fixed_margin_primal.html',1,'']]],
   ['perceptronprimal',['PerceptronPrimal',['../class_perceptron_primal.html',1,'']]],
-  ['plot2d',['plot2D',['../class_visualisation.html#a7569c77520391e6adf7e285410f4b358',1,'Visualisation']]],
-  ['plot2dwithhyperplane',['plot2DwithHyperplane',['../class_visualisation.html#a39b7bd29878bfc2d21fc4219803fd99d',1,'Visualisation']]],
-  ['plot3d',['plot3D',['../class_visualisation.html#a39cf83c146a4c92a32782bfdf6168594',1,'Visualisation']]],
-  ['plot3dwithhyperplane',['plot3DwithHyperplane',['../class_visualisation.html#a3318af0b08322183e0dbe8d4891b580d',1,'Visualisation']]],
+  ['plot2d',['plot2D',['../class_visualization.html#a3aa4e2d24528629a5e28eeb4b1cde57c',1,'Visualization']]],
+  ['plot2dwithhyperplane',['plot2DwithHyperplane',['../class_visualization.html#a84789ed07fbc542c027ab43faa51b6c6',1,'Visualization']]],
+  ['plot3d',['plot3D',['../class_visualization.html#aa4de991872471f8628151610e674c6aa',1,'Visualization']]],
+  ['plot3dwithhyperplane',['plot3DwithHyperplane',['../class_visualization.html#a1c667677812cb6b3381ee271a674bcad',1,'Visualization']]],
   ['plot_5fequation',['plot_equation',['../class_gnuplot.html#a42dfb8c9d4636745c7be277ed818e849',1,'Gnuplot']]],
   ['plot_5fequation3d',['plot_equation3d',['../class_gnuplot.html#a79aed3a6927f7d1d3497cba441e8a943',1,'Gnuplot']]],
   ['plot_5fimage',['plot_image',['../class_gnuplot.html#aae22c0470a6fbbc1f5e84dec8d023381',1,'Gnuplot']]],
@@ -23,6 +23,5 @@ var searchData=
   ['plotfile_5fxy_5ferr',['plotfile_xy_err',['../class_gnuplot.html#afe9d44ba12f617188111ab915010f3ab',1,'Gnuplot']]],
   ['plotfile_5fxyz',['plotfile_xyz',['../class_gnuplot.html#a9dbde2a91eb816481657f3a22c9b0046',1,'Gnuplot']]],
   ['point',['Point',['../class_point.html',1,'']]],
-  ['point_2ecpp',['Point.cpp',['../_point_8cpp.html',1,'']]],
   ['primalclassifier',['PrimalClassifier',['../class_primal_classifier.html',1,'']]]
 ];

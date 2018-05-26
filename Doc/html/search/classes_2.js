@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['featureselection',['FeatureSelection',['../class_feature_selection.html',1,'']]]
+  ['gnuplot',['Gnuplot',['../class_gnuplot.html',1,'']]],
+  ['gnuplotexception',['GnuplotException',['../class_gnuplot_exception.html',1,'']]]
 ];

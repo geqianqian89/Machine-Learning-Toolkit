@@ -1,5 +1,5 @@
-\hypertarget{class_statistics}{}\section{Statistics Class Reference}
-\label{class_statistics}\index{Statistics@{Statistics}}
+\hypertarget{class_statistics}{}\section{Statistics$<$ T $>$ Class Template Reference}
+\label{class_statistics}\index{Statistics$<$ T $>$@{Statistics$<$ T $>$}}
 
 
 Class with methods for statistical computations.  
@@ -12,41 +12,45 @@ Class with methods for statistical computations.
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static double \hyperlink{class_statistics_ab121520f7556f75e295e04ff71f2af39}{mean} (std\+::vector$<$ double $>$ p)
+static double \hyperlink{class_statistics_a5c3639c37f312703cdebfe179a3c5180}{mean} (std\+::vector$<$ T $>$ p)
 \begin{DoxyCompactList}\small\item\em Compute the mean (average) of a vector. \end{DoxyCompactList}\item 
-static double \hyperlink{class_statistics_a4201ed0f3f817591bcf18d8ba7bfc1e0}{get\+Feature\+Mean} (\hyperlink{class_data}{Data} data, int index)
+static double \hyperlink{class_statistics_a0e62b9652ef3e3827daaed01c48faaa0}{get\+Feature\+Mean} (\hyperlink{class_data}{Data}$<$ T $>$ data, int index)
 \begin{DoxyCompactList}\small\item\em Computes the mean of a feature in the sample. \end{DoxyCompactList}\item 
-static double \hyperlink{class_statistics_af3a74e0ab944341356b8afeb9fc0ecbd}{variance} (std\+::vector$<$ double $>$ p)
+static double \hyperlink{class_statistics_a4c323761a6c8704bf25d68d7818fe7c5}{variance} (std\+::vector$<$ T $>$ p)
 \begin{DoxyCompactList}\small\item\em Compute the variance of a vector. \end{DoxyCompactList}\item 
-static double \hyperlink{class_statistics_a0390754b117a9b7a637b44992ed2ebf6}{variance} (\hyperlink{class_data}{Data} data, int index)
+static double \hyperlink{class_statistics_a02f605eec578754e63de82acce5a3f34}{variance} (\hyperlink{class_data}{Data}$<$ T $>$ data, int index)
 \begin{DoxyCompactList}\small\item\em Compute the variance of a sample. \end{DoxyCompactList}\item 
-static double \hyperlink{class_statistics_a75435245095cd0fd54b2d57a6ae592da}{stdev} (std\+::vector$<$ double $>$ p)
+static double \hyperlink{class_statistics_accf969226645d2fe2cb16ab24c3eeb33}{stdev} (std\+::vector$<$ T $>$ p)
 \begin{DoxyCompactList}\small\item\em Compute the standard deviation of a vector. \end{DoxyCompactList}\item 
-static double \hyperlink{class_statistics_a4cd8cbff1c0b3cdf08adf6c7fc453251}{get\+Feature\+Stdev} (\hyperlink{class_data}{Data} data, int index)
+static double \hyperlink{class_statistics_abc9b84947508360382100784f43d2b25}{get\+Feature\+Stdev} (\hyperlink{class_data}{Data}$<$ T $>$ data, int index)
 \begin{DoxyCompactList}\small\item\em Computes the standard deviation of a feature. \end{DoxyCompactList}\item 
-static double \hyperlink{class_statistics_ac6fd43364deef34396204503b90bf792}{get\+Radius} (\hyperlink{class_data}{Data} data, int index, double q)
+static double \hyperlink{class_statistics_a157fcc6f57bed7b0b353bff8145c5964}{get\+Radius} (\hyperlink{class_data}{Data}$<$ T $>$ data, int index, double q)
 \begin{DoxyCompactList}\small\item\em Returns radius of the ball that circ. the data. \end{DoxyCompactList}\item 
-static double \hyperlink{class_statistics_a9150c8c61b5c5255d448e9e3ed387c73}{get\+Dist\+Centers} (\hyperlink{class_data}{Data} data, int index)
+static double \hyperlink{class_statistics_ac7673aaf51acf57cfc240cb213f4b30f}{get\+Dist\+Centers} (\hyperlink{class_data}{Data}$<$ T $>$ data, int index)
 \begin{DoxyCompactList}\small\item\em Returns distance of centers of the classes. \end{DoxyCompactList}\item 
-static double \hyperlink{class_statistics_a705f3b85e91f08f926670c6602fffda6}{get\+Dist\+Centers\+Without\+Feats} (\hyperlink{class_data}{Data} data, std\+::vector$<$ int $>$ feats, int index)
+static double \hyperlink{class_statistics_a781ebfca723e5c57db495635225363e6}{get\+Dist\+Centers\+Without\+Feats} (\hyperlink{class_data}{Data}$<$ T $>$ data, std\+::vector$<$ int $>$ feats, int index)
 \begin{DoxyCompactList}\small\item\em Returns distance of centers of the classes without given features. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_statistics_a242d9fdd7c3ba48097582a2662b6f48d}\label{class_statistics_a242d9fdd7c3ba48097582a2662b6f48d}} 
-class {\bfseries Data}
+\mbox{\Hypertarget{class_statistics_a51b30b6248fac4c53524437ace868c08}\label{class_statistics_a51b30b6248fac4c53524437ace868c08}} 
+class {\bfseries Data$<$ T $>$}
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Statistics$<$ T $>$}
+
 Class with methods for statistical computations. 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_statistics_a9150c8c61b5c5255d448e9e3ed387c73}\label{class_statistics_a9150c8c61b5c5255d448e9e3ed387c73}} 
+\mbox{\Hypertarget{class_statistics_ac7673aaf51acf57cfc240cb213f4b30f}\label{class_statistics_ac7673aaf51acf57cfc240cb213f4b30f}} 
 \index{Statistics@{Statistics}!get\+Dist\+Centers@{get\+Dist\+Centers}}
 \index{get\+Dist\+Centers@{get\+Dist\+Centers}!Statistics@{Statistics}}
 \subsubsection{\texorpdfstring{get\+Dist\+Centers()}{getDistCenters()}}
-{\footnotesize\ttfamily double Statistics\+::get\+Dist\+Centers (\begin{DoxyParamCaption}\item[{\hyperlink{class_data}{Data}}]{data,  }\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+double \hyperlink{class_statistics}{Statistics}$<$ T $>$\+::get\+Dist\+Centers (\begin{DoxyParamCaption}\item[{\hyperlink{class_data}{Data}$<$ T $>$}]{data,  }\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -62,11 +66,12 @@ Returns distance of centers of the classes.
 \begin{DoxyReturn}{Returns}
 double 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_statistics_a705f3b85e91f08f926670c6602fffda6}\label{class_statistics_a705f3b85e91f08f926670c6602fffda6}} 
+\mbox{\Hypertarget{class_statistics_a781ebfca723e5c57db495635225363e6}\label{class_statistics_a781ebfca723e5c57db495635225363e6}} 
 \index{Statistics@{Statistics}!get\+Dist\+Centers\+Without\+Feats@{get\+Dist\+Centers\+Without\+Feats}}
 \index{get\+Dist\+Centers\+Without\+Feats@{get\+Dist\+Centers\+Without\+Feats}!Statistics@{Statistics}}
 \subsubsection{\texorpdfstring{get\+Dist\+Centers\+Without\+Feats()}{getDistCentersWithoutFeats()}}
-{\footnotesize\ttfamily double Statistics\+::get\+Dist\+Centers\+Without\+Feats (\begin{DoxyParamCaption}\item[{\hyperlink{class_data}{Data}}]{data,  }\item[{std\+::vector$<$ int $>$}]{feats,  }\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+double \hyperlink{class_statistics}{Statistics}$<$ T $>$\+::get\+Dist\+Centers\+Without\+Feats (\begin{DoxyParamCaption}\item[{\hyperlink{class_data}{Data}$<$ T $>$}]{data,  }\item[{std\+::vector$<$ int $>$}]{feats,  }\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -84,11 +89,12 @@ Returns distance of centers of the classes without given features.
 \begin{DoxyReturn}{Returns}
 double 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_statistics_a4201ed0f3f817591bcf18d8ba7bfc1e0}\label{class_statistics_a4201ed0f3f817591bcf18d8ba7bfc1e0}} 
+\mbox{\Hypertarget{class_statistics_a0e62b9652ef3e3827daaed01c48faaa0}\label{class_statistics_a0e62b9652ef3e3827daaed01c48faaa0}} 
 \index{Statistics@{Statistics}!get\+Feature\+Mean@{get\+Feature\+Mean}}
 \index{get\+Feature\+Mean@{get\+Feature\+Mean}!Statistics@{Statistics}}
 \subsubsection{\texorpdfstring{get\+Feature\+Mean()}{getFeatureMean()}}
-{\footnotesize\ttfamily double Statistics\+::get\+Feature\+Mean (\begin{DoxyParamCaption}\item[{\hyperlink{class_data}{Data}}]{data,  }\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+double \hyperlink{class_statistics}{Statistics}$<$ T $>$\+::get\+Feature\+Mean (\begin{DoxyParamCaption}\item[{\hyperlink{class_data}{Data}$<$ T $>$}]{data,  }\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -104,11 +110,12 @@ Computes the mean of a feature in the sample.
 \begin{DoxyReturn}{Returns}
 double 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_statistics_a4cd8cbff1c0b3cdf08adf6c7fc453251}\label{class_statistics_a4cd8cbff1c0b3cdf08adf6c7fc453251}} 
+\mbox{\Hypertarget{class_statistics_abc9b84947508360382100784f43d2b25}\label{class_statistics_abc9b84947508360382100784f43d2b25}} 
 \index{Statistics@{Statistics}!get\+Feature\+Stdev@{get\+Feature\+Stdev}}
 \index{get\+Feature\+Stdev@{get\+Feature\+Stdev}!Statistics@{Statistics}}
 \subsubsection{\texorpdfstring{get\+Feature\+Stdev()}{getFeatureStdev()}}
-{\footnotesize\ttfamily double Statistics\+::get\+Feature\+Stdev (\begin{DoxyParamCaption}\item[{\hyperlink{class_data}{Data}}]{data,  }\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+double \hyperlink{class_statistics}{Statistics}$<$ T $>$\+::get\+Feature\+Stdev (\begin{DoxyParamCaption}\item[{\hyperlink{class_data}{Data}$<$ T $>$}]{data,  }\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -124,11 +131,12 @@ Computes the standard deviation of a feature.
 \begin{DoxyReturn}{Returns}
 double 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_statistics_ac6fd43364deef34396204503b90bf792}\label{class_statistics_ac6fd43364deef34396204503b90bf792}} 
+\mbox{\Hypertarget{class_statistics_a157fcc6f57bed7b0b353bff8145c5964}\label{class_statistics_a157fcc6f57bed7b0b353bff8145c5964}} 
 \index{Statistics@{Statistics}!get\+Radius@{get\+Radius}}
 \index{get\+Radius@{get\+Radius}!Statistics@{Statistics}}
 \subsubsection{\texorpdfstring{get\+Radius()}{getRadius()}}
-{\footnotesize\ttfamily double Statistics\+::get\+Radius (\begin{DoxyParamCaption}\item[{\hyperlink{class_data}{Data}}]{data,  }\item[{int}]{index,  }\item[{double}]{q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+double \hyperlink{class_statistics}{Statistics}$<$ T $>$\+::get\+Radius (\begin{DoxyParamCaption}\item[{\hyperlink{class_data}{Data}$<$ T $>$}]{data,  }\item[{int}]{index,  }\item[{double}]{q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -146,11 +154,12 @@ Returns radius of the ball that circ. the data.
 \begin{DoxyReturn}{Returns}
 double 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_statistics_ab121520f7556f75e295e04ff71f2af39}\label{class_statistics_ab121520f7556f75e295e04ff71f2af39}} 
+\mbox{\Hypertarget{class_statistics_a5c3639c37f312703cdebfe179a3c5180}\label{class_statistics_a5c3639c37f312703cdebfe179a3c5180}} 
 \index{Statistics@{Statistics}!mean@{mean}}
 \index{mean@{mean}!Statistics@{Statistics}}
 \subsubsection{\texorpdfstring{mean()}{mean()}}
-{\footnotesize\ttfamily double Statistics\+::mean (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+double \hyperlink{class_statistics}{Statistics}$<$ T $>$\+::mean (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T $>$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -164,11 +173,12 @@ Compute the mean (average) of a vector.
 \begin{DoxyReturn}{Returns}
 double 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_statistics_a75435245095cd0fd54b2d57a6ae592da}\label{class_statistics_a75435245095cd0fd54b2d57a6ae592da}} 
+\mbox{\Hypertarget{class_statistics_accf969226645d2fe2cb16ab24c3eeb33}\label{class_statistics_accf969226645d2fe2cb16ab24c3eeb33}} 
 \index{Statistics@{Statistics}!stdev@{stdev}}
 \index{stdev@{stdev}!Statistics@{Statistics}}
 \subsubsection{\texorpdfstring{stdev()}{stdev()}}
-{\footnotesize\ttfamily double Statistics\+::stdev (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+double \hyperlink{class_statistics}{Statistics}$<$ T $>$\+::stdev (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T $>$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -182,11 +192,12 @@ Compute the standard deviation of a vector.
 \begin{DoxyReturn}{Returns}
 double 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_statistics_af3a74e0ab944341356b8afeb9fc0ecbd}\label{class_statistics_af3a74e0ab944341356b8afeb9fc0ecbd}} 
+\mbox{\Hypertarget{class_statistics_a4c323761a6c8704bf25d68d7818fe7c5}\label{class_statistics_a4c323761a6c8704bf25d68d7818fe7c5}} 
 \index{Statistics@{Statistics}!variance@{variance}}
 \index{variance@{variance}!Statistics@{Statistics}}
 \subsubsection{\texorpdfstring{variance()}{variance()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily static double Statistics\+::variance (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+static double \hyperlink{class_statistics}{Statistics}$<$ T $>$\+::variance (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T $>$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -200,11 +211,12 @@ Compute the variance of a vector.
 \begin{DoxyReturn}{Returns}
 double 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_statistics_a0390754b117a9b7a637b44992ed2ebf6}\label{class_statistics_a0390754b117a9b7a637b44992ed2ebf6}} 
+\mbox{\Hypertarget{class_statistics_a02f605eec578754e63de82acce5a3f34}\label{class_statistics_a02f605eec578754e63de82acce5a3f34}} 
 \index{Statistics@{Statistics}!variance@{variance}}
 \index{variance@{variance}!Statistics@{Statistics}}
 \subsubsection{\texorpdfstring{variance()}{variance()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily double Statistics\+::variance (\begin{DoxyParamCaption}\item[{\hyperlink{class_data}{Data}}]{data,  }\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+double \hyperlink{class_statistics}{Statistics}$<$ T $>$\+::variance (\begin{DoxyParamCaption}\item[{\hyperlink{class_data}{Data}$<$ T $>$}]{data,  }\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -222,7 +234,6 @@ double
 \end{DoxyReturn}
 
 
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-includes/Statistics.\+hpp\item 
-src/Statistics.\+cpp\end{DoxyCompactItemize}
+includes/Statistics.\+hpp\end{DoxyCompactItemize}

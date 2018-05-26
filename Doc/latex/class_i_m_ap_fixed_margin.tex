@@ -1,5 +1,5 @@
-\hypertarget{class_i_m_ap_fixed_margin}{}\section{I\+M\+Ap\+Fixed\+Margin Class Reference}
-\label{class_i_m_ap_fixed_margin}\index{I\+M\+Ap\+Fixed\+Margin@{I\+M\+Ap\+Fixed\+Margin}}
+\hypertarget{class_i_m_ap_fixed_margin}{}\section{I\+M\+Ap\+Fixed\+Margin$<$ T $>$ Class Template Reference}
+\label{class_i_m_ap_fixed_margin}\index{I\+M\+Ap\+Fixed\+Margin$<$ T $>$@{I\+M\+Ap\+Fixed\+Margin$<$ T $>$}}
 
 
 Wrapper for the implementation of the Incremental Margin Algorithm primal with fixed margin.  
@@ -11,7 +11,7 @@ Wrapper for the implementation of the Incremental Margin Algorithm primal with f
 
 
 
-Inheritance diagram for I\+M\+Ap\+Fixed\+Margin\+:\nopagebreak
+Inheritance diagram for I\+M\+Ap\+Fixed\+Margin$<$ T $>$\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -20,7 +20,7 @@ Inheritance diagram for I\+M\+Ap\+Fixed\+Margin\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for I\+M\+Ap\+Fixed\+Margin\+:\nopagebreak
+Collaboration diagram for I\+M\+Ap\+Fixed\+Margin$<$ T $>$\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -30,31 +30,35 @@ Collaboration diagram for I\+M\+Ap\+Fixed\+Margin\+:\nopagebreak
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_i_m_ap_fixed_margin_ac211e503f485e28c2d362d1184859c4e}\label{class_i_m_ap_fixed_margin_ac211e503f485e28c2d362d1184859c4e}} 
-{\bfseries I\+M\+Ap\+Fixed\+Margin} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_data}{Data} $>$ \hyperlink{class_classifier_aad6a4fcea8f44339d7a6302f530852ca}{samples}=nullptr, double gamma=0, \hyperlink{class_solution}{Solution} $\ast$initial\+\_\+solution=nullptr)
+\mbox{\Hypertarget{class_i_m_ap_fixed_margin_a90724da378b06629c891dea9fa49e379}\label{class_i_m_ap_fixed_margin_a90724da378b06629c891dea9fa49e379}} 
+{\bfseries I\+M\+Ap\+Fixed\+Margin} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_data}{Data}$<$ T $>$ $>$ \hyperlink{class_classifier_a0000b47a2e0784ada4c52d7046c4adb8}{samples}=nullptr, double gamma=0, \hyperlink{class_solution}{Solution} $\ast$initial\+\_\+solution=nullptr)
 \item 
-bool \hyperlink{class_i_m_ap_fixed_margin_a79fd9791d7c0998706f280d446ece5ee}{train} () override
+bool \hyperlink{class_i_m_ap_fixed_margin_a4d99742be5fe5a21b8ae6f99547a98c8}{train} () override
 \begin{DoxyCompactList}\small\item\em Function that execute the training phase of a classification algorithm. \end{DoxyCompactList}\item 
-double \hyperlink{class_i_m_ap_fixed_margin_a97272623213a2bdac41c171fe0522302}{evaluate} (\hyperlink{class_point}{Point} p) override
+double \hyperlink{class_i_m_ap_fixed_margin_a909eb58c78c20780494598b478f8846f}{evaluate} (\hyperlink{class_point}{Point}$<$ T $>$ p) override
 \begin{DoxyCompactList}\small\item\em Returns the class of a feature point based on the trained classifier. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_i_m_ap_fixed_margin_ab19fc4f2f6dfa772f279e74cd36553e3}\label{class_i_m_ap_fixed_margin_ab19fc4f2f6dfa772f279e74cd36553e3}} 
+\mbox{\Hypertarget{class_i_m_ap_fixed_margin_ac928b3c55da2171adce3231223f85d42}\label{class_i_m_ap_fixed_margin_ac928b3c55da2171adce3231223f85d42}} 
 int $\ast$ {\bfseries get\+Flag\+Not1a\+Dim} ()
 \item 
-\mbox{\Hypertarget{class_i_m_ap_fixed_margin_a542018e09de5ffdcee81844c2b82f22c}\label{class_i_m_ap_fixed_margin_a542018e09de5ffdcee81844c2b82f22c}} 
+\mbox{\Hypertarget{class_i_m_ap_fixed_margin_a90bd97bde25c511399400a85a5f786e2}\label{class_i_m_ap_fixed_margin_a90bd97bde25c511399400a85a5f786e2}} 
 unsigned long $\ast$ {\bfseries gett\+Max} ()
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
 \subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class I\+M\+Ap\+Fixed\+Margin$<$ T $>$}
+
 Wrapper for the implementation of the Incremental Margin Algorithm primal with fixed margin. 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_i_m_ap_fixed_margin_a97272623213a2bdac41c171fe0522302}\label{class_i_m_ap_fixed_margin_a97272623213a2bdac41c171fe0522302}} 
+\mbox{\Hypertarget{class_i_m_ap_fixed_margin_a909eb58c78c20780494598b478f8846f}\label{class_i_m_ap_fixed_margin_a909eb58c78c20780494598b478f8846f}} 
 \index{I\+M\+Ap\+Fixed\+Margin@{I\+M\+Ap\+Fixed\+Margin}!evaluate@{evaluate}}
 \index{evaluate@{evaluate}!I\+M\+Ap\+Fixed\+Margin@{I\+M\+Ap\+Fixed\+Margin}}
 \subsubsection{\texorpdfstring{evaluate()}{evaluate()}}
-{\footnotesize\ttfamily double I\+M\+Ap\+Fixed\+Margin\+::evaluate (\begin{DoxyParamCaption}\item[{\hyperlink{class_point}{Point}}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+double \hyperlink{class_i_m_ap_fixed_margin}{I\+M\+Ap\+Fixed\+Margin}$<$ T $>$\+::evaluate (\begin{DoxyParamCaption}\item[{\hyperlink{class_point}{Point}$<$ T $>$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -62,7 +66,7 @@ Returns the class of a feature point based on the trained classifier.
 
 
 \begin{DoxyParams}{Parameters}
-{\em \hyperlink{class_point}{Point}} & x (???) Features point to be evaluated. \\
+{\em Point$<$} & T $>$ x (???) Features point to be evaluated. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -70,13 +74,14 @@ int
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_classifier_ae8e9554823b85ddc2dcad2955da811d9}{Classifier}.
+Implements \hyperlink{class_classifier_ab3b9544a8d9c3cbde8d5865c7e9be0fb}{Classifier$<$ T $>$}.
 
-\mbox{\Hypertarget{class_i_m_ap_fixed_margin_a79fd9791d7c0998706f280d446ece5ee}\label{class_i_m_ap_fixed_margin_a79fd9791d7c0998706f280d446ece5ee}} 
+\mbox{\Hypertarget{class_i_m_ap_fixed_margin_a4d99742be5fe5a21b8ae6f99547a98c8}\label{class_i_m_ap_fixed_margin_a4d99742be5fe5a21b8ae6f99547a98c8}} 
 \index{I\+M\+Ap\+Fixed\+Margin@{I\+M\+Ap\+Fixed\+Margin}!train@{train}}
 \index{train@{train}!I\+M\+Ap\+Fixed\+Margin@{I\+M\+Ap\+Fixed\+Margin}}
 \subsubsection{\texorpdfstring{train()}{train()}}
-{\footnotesize\ttfamily bool I\+M\+Ap\+Fixed\+Margin\+::train (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_i_m_ap_fixed_margin}{I\+M\+Ap\+Fixed\+Margin}$<$ T $>$\+::train (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -87,7 +92,7 @@ void
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_classifier_a2306a5de27555ab093593ac9642bc7d9}{Classifier}.
+Implements \hyperlink{class_classifier_a120849bfdfa3ba7a0388b32b2d76bf4f}{Classifier$<$ T $>$}.
 
 
 

@@ -1,5 +1,5 @@
-\hypertarget{class_perceptron_fixed_margin_dual}{}\section{Perceptron\+Fixed\+Margin\+Dual Class Reference}
-\label{class_perceptron_fixed_margin_dual}\index{Perceptron\+Fixed\+Margin\+Dual@{Perceptron\+Fixed\+Margin\+Dual}}
+\hypertarget{class_perceptron_fixed_margin_dual}{}\section{Perceptron\+Fixed\+Margin\+Dual$<$ T $>$ Class Template Reference}
+\label{class_perceptron_fixed_margin_dual}\index{Perceptron\+Fixed\+Margin\+Dual$<$ T $>$@{Perceptron\+Fixed\+Margin\+Dual$<$ T $>$}}
 
 
 Wrapper for the implementation of the Perceptron dual with fixed margin algorithm.  
@@ -11,7 +11,7 @@ Wrapper for the implementation of the Perceptron dual with fixed margin algorith
 
 
 
-Inheritance diagram for Perceptron\+Fixed\+Margin\+Dual\+:\nopagebreak
+Inheritance diagram for Perceptron\+Fixed\+Margin\+Dual$<$ T $>$\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -20,7 +20,7 @@ Inheritance diagram for Perceptron\+Fixed\+Margin\+Dual\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Perceptron\+Fixed\+Margin\+Dual\+:\nopagebreak
+Collaboration diagram for Perceptron\+Fixed\+Margin\+Dual$<$ T $>$\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -30,25 +30,29 @@ Collaboration diagram for Perceptron\+Fixed\+Margin\+Dual\+:\nopagebreak
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_perceptron_fixed_margin_dual_a81a26a097e22c5d99dedad0ea87d87a1}\label{class_perceptron_fixed_margin_dual_a81a26a097e22c5d99dedad0ea87d87a1}} 
-{\bfseries Perceptron\+Fixed\+Margin\+Dual} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_data}{Data} $>$ \hyperlink{class_classifier_aad6a4fcea8f44339d7a6302f530852ca}{samples}=nullptr, double gamma=1.\+0, double \hyperlink{class_classifier_af9867e5919742de1303dd971a9a1c19a}{rate}=0.\+5, \hyperlink{class_kernel}{Kernel} $\ast$K=nullptr, \hyperlink{class_solution}{Solution} $\ast$initial\+\_\+solution=nullptr)
+\mbox{\Hypertarget{class_perceptron_fixed_margin_dual_ac1397a3a17a88769befdf64f83573895}\label{class_perceptron_fixed_margin_dual_ac1397a3a17a88769befdf64f83573895}} 
+{\bfseries Perceptron\+Fixed\+Margin\+Dual} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_data}{Data}$<$ T $>$ $>$ \hyperlink{class_classifier_a0000b47a2e0784ada4c52d7046c4adb8}{samples}=nullptr, double gamma=1.\+0, double \hyperlink{class_classifier_a7b1c4ef87631bd9e46682e5bc4315111}{rate}=0.\+5, \hyperlink{class_kernel}{Kernel} $\ast$K=nullptr, \hyperlink{class_solution}{Solution} $\ast$initial\+\_\+solution=nullptr)
 \item 
-bool \hyperlink{class_perceptron_fixed_margin_dual_a0925463956b40a5999e91e60e3e0bf1f}{train} () override
+bool \hyperlink{class_perceptron_fixed_margin_dual_a58a5acdd6afaedff53fab23779f01486}{train} () override
 \begin{DoxyCompactList}\small\item\em Function that execute the training phase of a classification algorithm. \end{DoxyCompactList}\item 
-double \hyperlink{class_perceptron_fixed_margin_dual_aa7847f8930102f8e1f49ca5e417c7888}{evaluate} (\hyperlink{class_point}{Point} p) override
+double \hyperlink{class_perceptron_fixed_margin_dual_acafabadf6d2552fde0bfb32f0344c6e3}{evaluate} (\hyperlink{class_point}{Point}$<$ T $>$ p) override
 \begin{DoxyCompactList}\small\item\em Returns the class of a feature point based on the trained classifier. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
 \subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Perceptron\+Fixed\+Margin\+Dual$<$ T $>$}
+
 Wrapper for the implementation of the Perceptron dual with fixed margin algorithm. 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_perceptron_fixed_margin_dual_aa7847f8930102f8e1f49ca5e417c7888}\label{class_perceptron_fixed_margin_dual_aa7847f8930102f8e1f49ca5e417c7888}} 
+\mbox{\Hypertarget{class_perceptron_fixed_margin_dual_acafabadf6d2552fde0bfb32f0344c6e3}\label{class_perceptron_fixed_margin_dual_acafabadf6d2552fde0bfb32f0344c6e3}} 
 \index{Perceptron\+Fixed\+Margin\+Dual@{Perceptron\+Fixed\+Margin\+Dual}!evaluate@{evaluate}}
 \index{evaluate@{evaluate}!Perceptron\+Fixed\+Margin\+Dual@{Perceptron\+Fixed\+Margin\+Dual}}
 \subsubsection{\texorpdfstring{evaluate()}{evaluate()}}
-{\footnotesize\ttfamily double Perceptron\+Fixed\+Margin\+Dual\+::evaluate (\begin{DoxyParamCaption}\item[{\hyperlink{class_point}{Point}}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+double \hyperlink{class_perceptron_fixed_margin_dual}{Perceptron\+Fixed\+Margin\+Dual}$<$ T $>$\+::evaluate (\begin{DoxyParamCaption}\item[{\hyperlink{class_point}{Point}$<$ T $>$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -56,7 +60,7 @@ Returns the class of a feature point based on the trained classifier.
 
 
 \begin{DoxyParams}{Parameters}
-{\em \hyperlink{class_point}{Point}} & x (???) Features point to be evaluated. \\
+{\em Point$<$} & T $>$ x (???) Features point to be evaluated. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -64,13 +68,14 @@ int
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_classifier_ae8e9554823b85ddc2dcad2955da811d9}{Classifier}.
+Implements \hyperlink{class_classifier_ab3b9544a8d9c3cbde8d5865c7e9be0fb}{Classifier$<$ T $>$}.
 
-\mbox{\Hypertarget{class_perceptron_fixed_margin_dual_a0925463956b40a5999e91e60e3e0bf1f}\label{class_perceptron_fixed_margin_dual_a0925463956b40a5999e91e60e3e0bf1f}} 
+\mbox{\Hypertarget{class_perceptron_fixed_margin_dual_a58a5acdd6afaedff53fab23779f01486}\label{class_perceptron_fixed_margin_dual_a58a5acdd6afaedff53fab23779f01486}} 
 \index{Perceptron\+Fixed\+Margin\+Dual@{Perceptron\+Fixed\+Margin\+Dual}!train@{train}}
 \index{train@{train}!Perceptron\+Fixed\+Margin\+Dual@{Perceptron\+Fixed\+Margin\+Dual}}
 \subsubsection{\texorpdfstring{train()}{train()}}
-{\footnotesize\ttfamily bool Perceptron\+Fixed\+Margin\+Dual\+::train (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_perceptron_fixed_margin_dual}{Perceptron\+Fixed\+Margin\+Dual}$<$ T $>$\+::train (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -81,7 +86,7 @@ void
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_classifier_a2306a5de27555ab093593ac9642bc7d9}{Classifier}.
+Implements \hyperlink{class_classifier_a120849bfdfa3ba7a0388b32b2d76bf4f}{Classifier$<$ T $>$}.
 
 
 

@@ -1,5 +1,5 @@
-\hypertarget{class_point}{}\section{Point Class Reference}
-\label{class_point}\index{Point@{Point}}
+\hypertarget{class_point}{}\section{Point$<$ T $>$ Class Template Reference}
+\label{class_point}\index{Point$<$ T $>$@{Point$<$ T $>$}}
 
 
 Class of a \hyperlink{class_point}{Point} of doubles in a space of n dimensions.  
@@ -12,51 +12,61 @@ Class of a \hyperlink{class_point}{Point} of doubles in a space of n dimensions.
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_point_aa2847c6f3245886323975a5087f5c1f5}\label{class_point_aa2847c6f3245886323975a5087f5c1f5}} 
-{\bfseries Point} (int dim, int val=0)
+\mbox{\Hypertarget{class_point_a56a5b5e43d23520e22c7cd17b04c2104}\label{class_point_a56a5b5e43d23520e22c7cd17b04c2104}} 
+{\bfseries Point} (int dim, T val=0)
 \item 
-double \hyperlink{class_point_a9d8da6733d7e4110a62e8d0f82676761}{dot} (std\+::vector$<$ double $>$ p)
+double \hyperlink{class_point_ab1a74677723b3774be565d88af2187f8}{dot} (std\+::vector$<$ T $>$ p)
 \begin{DoxyCompactList}\small\item\em Computes the dot product with a vector. \end{DoxyCompactList}\item 
-double \hyperlink{class_point_aab64e3f0a9eecba00a1607eb4c7768c3}{norm} (int p=2)
+double \hyperlink{class_point_a399e38f00c2bb383ba6291b2318e7207}{norm} (int p=2)
 \begin{DoxyCompactList}\small\item\em Returns the p-\/norm of the point. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_point_a0c0525e4a539e462236840739cd81495}\label{class_point_a0c0525e4a539e462236840739cd81495}} 
-bool {\bfseries operator==} (const \hyperlink{class_point}{Point} \&rhs) const
+\mbox{\Hypertarget{class_point_aba7138253ab56cbf55b531b9893f52c6}\label{class_point_aba7138253ab56cbf55b531b9893f52c6}} 
+T {\bfseries operator\mbox{[}$\,$\mbox{]}} (size\+\_\+t i) const
 \item 
-\mbox{\Hypertarget{class_point_a412beea7de93a9e22b8ace5fb4170111}\label{class_point_a412beea7de93a9e22b8ace5fb4170111}} 
-bool {\bfseries operator!=} (const \hyperlink{class_point}{Point} \&rhs) const
+\mbox{\Hypertarget{class_point_a36b981edbfca0b989ea90f4de6877f76}\label{class_point_a36b981edbfca0b989ea90f4de6877f76}} 
+T \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (size\+\_\+t i)
+\item 
+\mbox{\Hypertarget{class_point_a612545df2153b095b9013da5a14f495f}\label{class_point_a612545df2153b095b9013da5a14f495f}} 
+bool {\bfseries operator==} (const \hyperlink{class_point}{Point}$<$ T $>$ \&rhs) const
+\item 
+\mbox{\Hypertarget{class_point_a6d43c8a1405f87422a02645d400a6c01}\label{class_point_a6d43c8a1405f87422a02645d400a6c01}} 
+bool {\bfseries operator!=} (const \hyperlink{class_point}{Point}$<$ T $>$ \&rhs) const
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_point_a1e22056737f10e31025b353c86e3b9e3}\label{class_point_a1e22056737f10e31025b353c86e3b9e3}} 
-std\+::vector$<$ double $>$ \hyperlink{class_point_a1e22056737f10e31025b353c86e3b9e3}{x}
+\mbox{\Hypertarget{class_point_a8b8cc26f89935fdc83ed464c053c0476}\label{class_point_a8b8cc26f89935fdc83ed464c053c0476}} 
+std\+::vector$<$ T $>$ \hyperlink{class_point_a8b8cc26f89935fdc83ed464c053c0476}{x}
 \begin{DoxyCompactList}\small\item\em Features values. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_point_afa38be143ae800e6ad69ce8ed4df62d8}\label{class_point_afa38be143ae800e6ad69ce8ed4df62d8}} 
-double \hyperlink{class_point_afa38be143ae800e6ad69ce8ed4df62d8}{y} = 0
+\mbox{\Hypertarget{class_point_abd1a56102bc430eb08fc37dac9aa4c0b}\label{class_point_abd1a56102bc430eb08fc37dac9aa4c0b}} 
+double \hyperlink{class_point_abd1a56102bc430eb08fc37dac9aa4c0b}{y} = 0
 \begin{DoxyCompactList}\small\item\em \hyperlink{class_point}{Point} classification. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_point_a8595ba929b962c97293ab35a0c60b434}\label{class_point_a8595ba929b962c97293ab35a0c60b434}} 
+\mbox{\Hypertarget{class_point_aa852a1c045d196abd841a6e1e87c27d8}\label{class_point_aa852a1c045d196abd841a6e1e87c27d8}} 
 double {\bfseries alpha} = 0.\+0
 \item 
-\mbox{\Hypertarget{class_point_a8448ad503b3aa40f3c9d4b6e3c5a039e}\label{class_point_a8448ad503b3aa40f3c9d4b6e3c5a039e}} 
-size\+\_\+t \hyperlink{class_point_a8448ad503b3aa40f3c9d4b6e3c5a039e}{id} = 0
+\mbox{\Hypertarget{class_point_af7d6dfc3296421e9f10311d29720aa3b}\label{class_point_af7d6dfc3296421e9f10311d29720aa3b}} 
+size\+\_\+t \hyperlink{class_point_af7d6dfc3296421e9f10311d29720aa3b}{id} = 0
 \begin{DoxyCompactList}\small\item\em \hyperlink{class_point}{Point} identification. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_point_a18e1e2eb3b3b27719f367688e8611b45}\label{class_point_a18e1e2eb3b3b27719f367688e8611b45}} 
-std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&output, const \hyperlink{class_point}{Point} \&p)
+\mbox{\Hypertarget{class_point_ae01781a3264312efb15b109d37fceb38}\label{class_point_ae01781a3264312efb15b109d37fceb38}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&output, const \hyperlink{class_point}{Point}$<$ T $>$ \&p)
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Point$<$ T $>$}
+
 Class of a \hyperlink{class_point}{Point} of doubles in a space of n dimensions. 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_point_a9d8da6733d7e4110a62e8d0f82676761}\label{class_point_a9d8da6733d7e4110a62e8d0f82676761}} 
+\mbox{\Hypertarget{class_point_ab1a74677723b3774be565d88af2187f8}\label{class_point_ab1a74677723b3774be565d88af2187f8}} 
 \index{Point@{Point}!dot@{dot}}
 \index{dot@{dot}!Point@{Point}}
 \subsubsection{\texorpdfstring{dot()}{dot()}}
-{\footnotesize\ttfamily double Point\+::dot (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$}]{p }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+double \hyperlink{class_point}{Point}$<$ T $>$\+::dot (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T $>$}]{p }\end{DoxyParamCaption})}
 
 
 
@@ -70,11 +80,12 @@ Computes the dot product with a vector.
 \begin{DoxyReturn}{Returns}
 double 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_point_aab64e3f0a9eecba00a1607eb4c7768c3}\label{class_point_aab64e3f0a9eecba00a1607eb4c7768c3}} 
+\mbox{\Hypertarget{class_point_a399e38f00c2bb383ba6291b2318e7207}\label{class_point_a399e38f00c2bb383ba6291b2318e7207}} 
 \index{Point@{Point}!norm@{norm}}
 \index{norm@{norm}!Point@{Point}}
 \subsubsection{\texorpdfstring{norm()}{norm()}}
-{\footnotesize\ttfamily double Point\+::norm (\begin{DoxyParamCaption}\item[{int}]{p = {\ttfamily 2} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+double \hyperlink{class_point}{Point}$<$ T $>$\+::norm (\begin{DoxyParamCaption}\item[{int}]{p = {\ttfamily 2} }\end{DoxyParamCaption})}
 
 
 
@@ -90,7 +101,6 @@ double
 \end{DoxyReturn}
 
 
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-includes/Point.\+hpp\item 
-src/\hyperlink{_point_8cpp}{Point.\+cpp}\end{DoxyCompactItemize}
+includes/Point.\+hpp\end{DoxyCompactItemize}

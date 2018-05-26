@@ -32,20 +32,20 @@ void \hyperlink{class_kernel_a3801cee0d86f25f1500d202f43a84b65}{set\+Kernel\+Mat
 \begin{DoxyCompactList}\small\item\em set\+Kernel\+Matrix Set a pre computed kernel matrix. \end{DoxyCompactList}\item 
 d\+Matrix \hyperlink{class_kernel_a5e398c63fee5f0e30b6dfb735c75e41a}{get\+Kernel\+Matrix} ()
 \begin{DoxyCompactList}\small\item\em get\+Kernel\+Matrix Get the kernel matrix. \end{DoxyCompactList}\item 
-void \hyperlink{class_kernel_a5dfd3a6b535745eadd9e17dc086d87c6}{compute} (\hyperlink{class_data}{Data} samples)
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{class_kernel_ab6d87a5acc63347bf7e1a40ac4abf03f}{compute} (\hyperlink{class_data}{Data}$<$ T $>$ samples)
 \begin{DoxyCompactList}\small\item\em compute Compute the kernel matrix with the given type and parameter. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_kernel_a0980c9b8d0b7bb2858c00c207ba42e02}\label{class_kernel_a0980c9b8d0b7bb2858c00c207ba42e02}} 
-d\+Matrix {\bfseries generate\+MatrixH} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_data}{Data} $>$ samples)
+\mbox{\Hypertarget{class_kernel_a3c4abf76959117a2bed74fc634f75cc5}\label{class_kernel_a3c4abf76959117a2bed74fc634f75cc5}} 
+{\footnotesize template$<$typename T $>$ }\\d\+Matrix {\bfseries generate\+MatrixH} (const std\+::shared\+\_\+ptr$<$ \hyperlink{class_data}{Data}$<$ T $>$ $>$ samples)
 \item 
-\mbox{\Hypertarget{class_kernel_a2cd7254deccfaf4c60e4551b9c8aef25}\label{class_kernel_a2cd7254deccfaf4c60e4551b9c8aef25}} 
-d\+Matrix {\bfseries generate\+Matrix\+Hwithout\+Dim} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_data}{Data} $>$ samples, int dim)
+\mbox{\Hypertarget{class_kernel_a61cf016246470cc59c73a9771c1b06ac}\label{class_kernel_a61cf016246470cc59c73a9771c1b06ac}} 
+{\footnotesize template$<$typename T $>$ }\\d\+Matrix {\bfseries generate\+Matrix\+Hwithout\+Dim} (const std\+::shared\+\_\+ptr$<$ \hyperlink{class_data}{Data}$<$ T $>$ $>$ samples, int dim)
 \item 
-double \hyperlink{class_kernel_aa07703cd76124769325d942582b16b5f}{function} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_point}{Point} $>$ one, std\+::shared\+\_\+ptr$<$ \hyperlink{class_point}{Point} $>$ two, int dim)
+{\footnotesize template$<$typename T $>$ }\\double \hyperlink{class_kernel_a48ef2d6a0786b1a150f75af3f595c536}{function} (shared\+\_\+ptr$<$ \hyperlink{class_point}{Point}$<$ T $>$ $>$ one, shared\+\_\+ptr$<$ \hyperlink{class_point}{Point}$<$ T $>$ $>$ two, int dim)
 \begin{DoxyCompactList}\small\item\em function Compute the kernel function between two points. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_kernel_a6bc15688392e214705c7217e5a6a1411}\label{class_kernel_a6bc15688392e214705c7217e5a6a1411}} 
-double {\bfseries function\+Without\+Dim} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_point}{Point} $>$ one, std\+::shared\+\_\+ptr$<$ \hyperlink{class_point}{Point} $>$ two, int j, int dim)
+\mbox{\Hypertarget{class_kernel_aae7563927691a73b6f20b0194087c035}\label{class_kernel_aae7563927691a73b6f20b0194087c035}} 
+{\footnotesize template$<$typename T $>$ }\\double {\bfseries function\+Without\+Dim} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_point}{Point}$<$ T $>$ $>$ one, std\+::shared\+\_\+ptr$<$ \hyperlink{class_point}{Point}$<$ T $>$ $>$ two, int j, int dim)
 \item 
-double \hyperlink{class_kernel_a1f548d2e5477ae0ee3dd3bc7f23e6920}{norm} (\hyperlink{class_data}{Data} data)
+{\footnotesize template$<$typename T $>$ }\\double \hyperlink{class_kernel_a686e3cd96a93d7742226dedd5beb9da7}{norm} (\hyperlink{class_data}{Data}$<$ T $>$ data)
 \begin{DoxyCompactList}\small\item\em norm Computes norm in dual variables. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -71,11 +71,12 @@ Class constructor.
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_kernel_a5dfd3a6b535745eadd9e17dc086d87c6}\label{class_kernel_a5dfd3a6b535745eadd9e17dc086d87c6}} 
+\mbox{\Hypertarget{class_kernel_ab6d87a5acc63347bf7e1a40ac4abf03f}\label{class_kernel_ab6d87a5acc63347bf7e1a40ac4abf03f}} 
 \index{Kernel@{Kernel}!compute@{compute}}
 \index{compute@{compute}!Kernel@{Kernel}}
 \subsubsection{\texorpdfstring{compute()}{compute()}}
-{\footnotesize\ttfamily void Kernel\+::compute (\begin{DoxyParamCaption}\item[{\hyperlink{class_data}{Data}}]{samples }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Kernel\+::compute (\begin{DoxyParamCaption}\item[{\hyperlink{class_data}{Data}$<$ T $>$}]{samples }\end{DoxyParamCaption})}
 
 
 
@@ -86,11 +87,12 @@ compute Compute the kernel matrix with the given type and parameter.
 {\em samples} & \hyperlink{class_data}{Data} used to compute the kernel matrix. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_kernel_aa07703cd76124769325d942582b16b5f}\label{class_kernel_aa07703cd76124769325d942582b16b5f}} 
+\mbox{\Hypertarget{class_kernel_a48ef2d6a0786b1a150f75af3f595c536}\label{class_kernel_a48ef2d6a0786b1a150f75af3f595c536}} 
 \index{Kernel@{Kernel}!function@{function}}
 \index{function@{function}!Kernel@{Kernel}}
 \subsubsection{\texorpdfstring{function()}{function()}}
-{\footnotesize\ttfamily double Kernel\+::function (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \hyperlink{class_point}{Point} $>$}]{one,  }\item[{std\+::shared\+\_\+ptr$<$ \hyperlink{class_point}{Point} $>$}]{two,  }\item[{int}]{dim }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+double Kernel\+::function (\begin{DoxyParamCaption}\item[{shared\+\_\+ptr$<$ \hyperlink{class_point}{Point}$<$ T $>$ $>$}]{one,  }\item[{shared\+\_\+ptr$<$ \hyperlink{class_point}{Point}$<$ T $>$ $>$}]{two,  }\item[{int}]{dim }\end{DoxyParamCaption})}
 
 
 
@@ -147,11 +149,12 @@ get\+Type Returns the kernel type used in the kernel computations.
 \begin{DoxyReturn}{Returns}
 int. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_kernel_a1f548d2e5477ae0ee3dd3bc7f23e6920}\label{class_kernel_a1f548d2e5477ae0ee3dd3bc7f23e6920}} 
+\mbox{\Hypertarget{class_kernel_a686e3cd96a93d7742226dedd5beb9da7}\label{class_kernel_a686e3cd96a93d7742226dedd5beb9da7}} 
 \index{Kernel@{Kernel}!norm@{norm}}
 \index{norm@{norm}!Kernel@{Kernel}}
 \subsubsection{\texorpdfstring{norm()}{norm()}}
-{\footnotesize\ttfamily double Kernel\+::norm (\begin{DoxyParamCaption}\item[{\hyperlink{class_data}{Data}}]{data }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+double Kernel\+::norm (\begin{DoxyParamCaption}\item[{\hyperlink{class_data}{Data}$<$ T $>$}]{data }\end{DoxyParamCaption})}
 
 
 

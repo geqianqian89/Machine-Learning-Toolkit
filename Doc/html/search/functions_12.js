@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['write',['write',['../class_data.html#a6550f72555320ae9225ba216a9f4e7b3',1,'Data']]]
+  ['write',['write',['../class_data.html#a1f0bf8cc73e43cd6915289706abc46b2',1,'Data']]]
 ];

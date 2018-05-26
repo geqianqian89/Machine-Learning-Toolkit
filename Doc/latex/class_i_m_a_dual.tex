@@ -1,8 +1,8 @@
-\hypertarget{class_i_m_a_dual}{}\section{I\+M\+A\+Dual Class Reference}
-\label{class_i_m_a_dual}\index{I\+M\+A\+Dual@{I\+M\+A\+Dual}}
+\hypertarget{class_i_m_a_dual}{}\section{I\+M\+A\+Dual$<$ T $>$ Class Template Reference}
+\label{class_i_m_a_dual}\index{I\+M\+A\+Dual$<$ T $>$@{I\+M\+A\+Dual$<$ T $>$}}
 
 
-Inheritance diagram for I\+M\+A\+Dual\+:\nopagebreak
+Inheritance diagram for I\+M\+A\+Dual$<$ T $>$\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -11,7 +11,7 @@ Inheritance diagram for I\+M\+A\+Dual\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for I\+M\+A\+Dual\+:\nopagebreak
+Collaboration diagram for I\+M\+A\+Dual$<$ T $>$\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -21,22 +21,23 @@ Collaboration diagram for I\+M\+A\+Dual\+:\nopagebreak
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_i_m_a_dual_a4d061aacf7ca5efe9d7f4a98be0fdbe2}\label{class_i_m_a_dual_a4d061aacf7ca5efe9d7f4a98be0fdbe2}} 
-{\bfseries I\+M\+A\+Dual} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_data}{Data} $>$ \hyperlink{class_classifier_aad6a4fcea8f44339d7a6302f530852ca}{samples}=nullptr, \hyperlink{class_kernel}{Kernel} $\ast$k=nullptr, double \hyperlink{class_classifier_af9867e5919742de1303dd971a9a1c19a}{rate}=1, \hyperlink{class_solution}{Solution} $\ast$initial\+\_\+solution=nullptr)
+\mbox{\Hypertarget{class_i_m_a_dual_a22a5cf72fe88fd8bb846cf1b5758d61c}\label{class_i_m_a_dual_a22a5cf72fe88fd8bb846cf1b5758d61c}} 
+{\bfseries I\+M\+A\+Dual} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_data}{Data}$<$ T $>$ $>$ \hyperlink{class_classifier_a0000b47a2e0784ada4c52d7046c4adb8}{samples}=nullptr, \hyperlink{class_kernel}{Kernel} $\ast$k=nullptr, double \hyperlink{class_classifier_a7b1c4ef87631bd9e46682e5bc4315111}{rate}=1, \hyperlink{class_solution}{Solution} $\ast$initial\+\_\+solution=nullptr)
 \item 
-bool \hyperlink{class_i_m_a_dual_aad4b4f97645da661c954259e52c424b4}{train} () override
+bool \hyperlink{class_i_m_a_dual_aff820af6454ceeef4d23af48476d7218}{train} () override
 \begin{DoxyCompactList}\small\item\em Function that execute the training phase of a classification algorithm. \end{DoxyCompactList}\item 
-double \hyperlink{class_i_m_a_dual_a6e8fe0bee8e37f64de229c3fdf2a20c3}{evaluate} (\hyperlink{class_point}{Point} p) override
+double \hyperlink{class_i_m_a_dual_af67dfc75554d055cfdf761ee940243d7}{evaluate} (\hyperlink{class_point}{Point}$<$ T $>$ p) override
 \begin{DoxyCompactList}\small\item\em Returns the class of a feature point based on the trained classifier. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_i_m_a_dual_a6e8fe0bee8e37f64de229c3fdf2a20c3}\label{class_i_m_a_dual_a6e8fe0bee8e37f64de229c3fdf2a20c3}} 
+\mbox{\Hypertarget{class_i_m_a_dual_af67dfc75554d055cfdf761ee940243d7}\label{class_i_m_a_dual_af67dfc75554d055cfdf761ee940243d7}} 
 \index{I\+M\+A\+Dual@{I\+M\+A\+Dual}!evaluate@{evaluate}}
 \index{evaluate@{evaluate}!I\+M\+A\+Dual@{I\+M\+A\+Dual}}
 \subsubsection{\texorpdfstring{evaluate()}{evaluate()}}
-{\footnotesize\ttfamily double I\+M\+A\+Dual\+::evaluate (\begin{DoxyParamCaption}\item[{\hyperlink{class_point}{Point}}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+double \hyperlink{class_i_m_a_dual}{I\+M\+A\+Dual}$<$ T $>$\+::evaluate (\begin{DoxyParamCaption}\item[{\hyperlink{class_point}{Point}$<$ T $>$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -44,7 +45,7 @@ Returns the class of a feature point based on the trained classifier.
 
 
 \begin{DoxyParams}{Parameters}
-{\em \hyperlink{class_point}{Point}} & x (???) Features point to be evaluated. \\
+{\em Point$<$} & T $>$ x (???) Features point to be evaluated. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -52,13 +53,14 @@ int
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_classifier_ae8e9554823b85ddc2dcad2955da811d9}{Classifier}.
+Implements \hyperlink{class_classifier_ab3b9544a8d9c3cbde8d5865c7e9be0fb}{Classifier$<$ T $>$}.
 
-\mbox{\Hypertarget{class_i_m_a_dual_aad4b4f97645da661c954259e52c424b4}\label{class_i_m_a_dual_aad4b4f97645da661c954259e52c424b4}} 
+\mbox{\Hypertarget{class_i_m_a_dual_aff820af6454ceeef4d23af48476d7218}\label{class_i_m_a_dual_aff820af6454ceeef4d23af48476d7218}} 
 \index{I\+M\+A\+Dual@{I\+M\+A\+Dual}!train@{train}}
 \index{train@{train}!I\+M\+A\+Dual@{I\+M\+A\+Dual}}
 \subsubsection{\texorpdfstring{train()}{train()}}
-{\footnotesize\ttfamily bool I\+M\+A\+Dual\+::train (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \hyperlink{class_i_m_a_dual}{I\+M\+A\+Dual}$<$ T $>$\+::train (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -69,7 +71,7 @@ void
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_classifier_a2306a5de27555ab093593ac9642bc7d9}{Classifier}.
+Implements \hyperlink{class_classifier_a120849bfdfa3ba7a0388b32b2d76bf4f}{Classifier$<$ T $>$}.
 
 
 
