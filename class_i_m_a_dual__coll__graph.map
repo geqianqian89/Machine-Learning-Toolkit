@@ -1,7 +1,7 @@
-<map id="IMADual" name="IMADual">
-<area shape="rect" id="node2" href="$class_dual_classifier.html" title="DualClassifier" alt="" coords="5,260,109,287"/>
-<area shape="rect" id="node3" href="$class_classifier.html" title="Classifier" alt="" coords="68,184,145,211"/>
-<area shape="rect" id="node4" href="$class_solution.html" title="Solution" alt="" coords="68,95,137,121"/>
-<area shape="rect" id="node5" href="$class_kernel.html" title="Class for the kernel computations. " alt="" coords="29,5,88,32"/>
-<area shape="rect" id="node6" href="$class_timer.html" title="Timer" alt="" coords="162,95,217,121"/>
+<map id="IMADual&lt; T &gt;" name="IMADual&lt; T &gt;">
+<area shape="rect" id="node2" href="$class_dual_classifier.html" title="DualClassifier\&lt; T \&gt;" alt="" coords="5,260,141,287"/>
+<area shape="rect" id="node3" href="$class_classifier.html" title="Classifier\&lt; T \&gt;" alt="" coords="80,184,189,211"/>
+<area shape="rect" id="node4" href="$class_solution.html" title="Solution" alt="" coords="80,95,149,121"/>
+<area shape="rect" id="node5" href="$class_kernel.html" title="Class for the kernel computations. " alt="" coords="35,5,93,32"/>
+<area shape="rect" id="node6" href="$class_timer.html" title="Timer" alt="" coords="174,95,229,121"/>
 </map>

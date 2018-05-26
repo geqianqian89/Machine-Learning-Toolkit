@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['parttraintest',['partTrainTest',['../class_validation.html#afc2e7f15bc873853b70e2cc3c47eecdc',1,'Validation']]],
-  ['plot2d',['plot2D',['../class_visualisation.html#a7569c77520391e6adf7e285410f4b358',1,'Visualisation']]],
-  ['plot2dwithhyperplane',['plot2DwithHyperplane',['../class_visualisation.html#a39b7bd29878bfc2d21fc4219803fd99d',1,'Visualisation']]],
-  ['plot3d',['plot3D',['../class_visualisation.html#a39cf83c146a4c92a32782bfdf6168594',1,'Visualisation']]],
-  ['plot3dwithhyperplane',['plot3DwithHyperplane',['../class_visualisation.html#a3318af0b08322183e0dbe8d4891b580d',1,'Visualisation']]],
+  ['parttraintest',['partTrainTest',['../class_validation.html#a1e9580697a164d4bfbe721f2f1589c57',1,'Validation']]],
+  ['plot2d',['plot2D',['../class_visualization.html#a3aa4e2d24528629a5e28eeb4b1cde57c',1,'Visualization']]],
+  ['plot2dwithhyperplane',['plot2DwithHyperplane',['../class_visualization.html#a84789ed07fbc542c027ab43faa51b6c6',1,'Visualization']]],
+  ['plot3d',['plot3D',['../class_visualization.html#aa4de991872471f8628151610e674c6aa',1,'Visualization']]],
+  ['plot3dwithhyperplane',['plot3DwithHyperplane',['../class_visualization.html#a1c667677812cb6b3381ee271a674bcad',1,'Visualization']]],
   ['plot_5fequation',['plot_equation',['../class_gnuplot.html#a42dfb8c9d4636745c7be277ed818e849',1,'Gnuplot']]],
   ['plot_5fequation3d',['plot_equation3d',['../class_gnuplot.html#a79aed3a6927f7d1d3497cba441e8a943',1,'Gnuplot']]],
   ['plot_5fimage',['plot_image',['../class_gnuplot.html#aae22c0470a6fbbc1f5e84dec8d023381',1,'Gnuplot']]],

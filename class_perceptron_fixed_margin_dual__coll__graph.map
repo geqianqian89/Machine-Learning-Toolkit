@@ -1,7 +1,7 @@
-<map id="PerceptronFixedMarginDual" name="PerceptronFixedMarginDual">
-<area shape="rect" id="node2" href="$class_dual_classifier.html" title="DualClassifier" alt="" coords="45,260,149,287"/>
-<area shape="rect" id="node3" href="$class_classifier.html" title="Classifier" alt="" coords="107,184,185,211"/>
-<area shape="rect" id="node4" href="$class_solution.html" title="Solution" alt="" coords="107,95,177,121"/>
-<area shape="rect" id="node5" href="$class_kernel.html" title="Class for the kernel computations. " alt="" coords="69,5,127,32"/>
-<area shape="rect" id="node6" href="$class_timer.html" title="Timer" alt="" coords="201,95,256,121"/>
+<map id="PerceptronFixedMarginDual&lt; T &gt;" name="PerceptronFixedMarginDual&lt; T &gt;">
+<area shape="rect" id="node2" href="$class_dual_classifier.html" title="DualClassifier\&lt; T \&gt;" alt="" coords="45,260,181,287"/>
+<area shape="rect" id="node3" href="$class_classifier.html" title="Classifier\&lt; T \&gt;" alt="" coords="119,184,229,211"/>
+<area shape="rect" id="node4" href="$class_solution.html" title="Solution" alt="" coords="119,95,189,121"/>
+<area shape="rect" id="node5" href="$class_kernel.html" title="Class for the kernel computations. " alt="" coords="74,5,133,32"/>
+<area shape="rect" id="node6" href="$class_timer.html" title="Timer" alt="" coords="213,95,268,121"/>
 </map>

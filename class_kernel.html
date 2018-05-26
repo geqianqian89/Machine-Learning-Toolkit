@@ -104,24 +104,30 @@ dMatrix *&#160;</td><td class="memItemRight" valign="bottom"><b>getKernelMatrixP
 <tr class="memitem:a5e398c63fee5f0e30b6dfb735c75e41a"><td class="memItemLeft" align="right" valign="top">dMatrix&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kernel.html#a5e398c63fee5f0e30b6dfb735c75e41a">getKernelMatrix</a> ()</td></tr>
 <tr class="memdesc:a5e398c63fee5f0e30b6dfb735c75e41a"><td class="mdescLeft">&#160;</td><td class="mdescRight">getKernelMatrix Get the kernel matrix.  <a href="#a5e398c63fee5f0e30b6dfb735c75e41a">More...</a><br /></td></tr>
 <tr class="separator:a5e398c63fee5f0e30b6dfb735c75e41a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5dfd3a6b535745eadd9e17dc086d87c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kernel.html#a5dfd3a6b535745eadd9e17dc086d87c6">compute</a> (<a class="el" href="class_data.html">Data</a> samples)</td></tr>
-<tr class="memdesc:a5dfd3a6b535745eadd9e17dc086d87c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute Compute the kernel matrix with the given type and parameter.  <a href="#a5dfd3a6b535745eadd9e17dc086d87c6">More...</a><br /></td></tr>
-<tr class="separator:a5dfd3a6b535745eadd9e17dc086d87c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0980c9b8d0b7bb2858c00c207ba42e02"><td class="memItemLeft" align="right" valign="top"><a id="a0980c9b8d0b7bb2858c00c207ba42e02"></a>
-dMatrix&#160;</td><td class="memItemRight" valign="bottom"><b>generateMatrixH</b> (std::shared_ptr&lt; <a class="el" href="class_data.html">Data</a> &gt; samples)</td></tr>
-<tr class="separator:a0980c9b8d0b7bb2858c00c207ba42e02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2cd7254deccfaf4c60e4551b9c8aef25"><td class="memItemLeft" align="right" valign="top"><a id="a2cd7254deccfaf4c60e4551b9c8aef25"></a>
-dMatrix&#160;</td><td class="memItemRight" valign="bottom"><b>generateMatrixHwithoutDim</b> (std::shared_ptr&lt; <a class="el" href="class_data.html">Data</a> &gt; samples, int dim)</td></tr>
-<tr class="separator:a2cd7254deccfaf4c60e4551b9c8aef25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa07703cd76124769325d942582b16b5f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kernel.html#aa07703cd76124769325d942582b16b5f">function</a> (std::shared_ptr&lt; <a class="el" href="class_point.html">Point</a> &gt; one, std::shared_ptr&lt; <a class="el" href="class_point.html">Point</a> &gt; two, int dim)</td></tr>
-<tr class="memdesc:aa07703cd76124769325d942582b16b5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">function Compute the kernel function between two points.  <a href="#aa07703cd76124769325d942582b16b5f">More...</a><br /></td></tr>
-<tr class="separator:aa07703cd76124769325d942582b16b5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6bc15688392e214705c7217e5a6a1411"><td class="memItemLeft" align="right" valign="top"><a id="a6bc15688392e214705c7217e5a6a1411"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>functionWithoutDim</b> (std::shared_ptr&lt; <a class="el" href="class_point.html">Point</a> &gt; one, std::shared_ptr&lt; <a class="el" href="class_point.html">Point</a> &gt; two, int j, int dim)</td></tr>
-<tr class="separator:a6bc15688392e214705c7217e5a6a1411"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f548d2e5477ae0ee3dd3bc7f23e6920"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kernel.html#a1f548d2e5477ae0ee3dd3bc7f23e6920">norm</a> (<a class="el" href="class_data.html">Data</a> data)</td></tr>
-<tr class="memdesc:a1f548d2e5477ae0ee3dd3bc7f23e6920"><td class="mdescLeft">&#160;</td><td class="mdescRight">norm Computes norm in dual variables.  <a href="#a1f548d2e5477ae0ee3dd3bc7f23e6920">More...</a><br /></td></tr>
-<tr class="separator:a1f548d2e5477ae0ee3dd3bc7f23e6920"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6d87a5acc63347bf7e1a40ac4abf03f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ab6d87a5acc63347bf7e1a40ac4abf03f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_kernel.html#ab6d87a5acc63347bf7e1a40ac4abf03f">compute</a> (<a class="el" href="class_data.html">Data</a>&lt; T &gt; samples)</td></tr>
+<tr class="memdesc:ab6d87a5acc63347bf7e1a40ac4abf03f"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute Compute the kernel matrix with the given type and parameter.  <a href="#ab6d87a5acc63347bf7e1a40ac4abf03f">More...</a><br /></td></tr>
+<tr class="separator:ab6d87a5acc63347bf7e1a40ac4abf03f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c4abf76959117a2bed74fc634f75cc5"><td class="memTemplParams" colspan="2"><a id="a3c4abf76959117a2bed74fc634f75cc5"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a3c4abf76959117a2bed74fc634f75cc5"><td class="memTemplItemLeft" align="right" valign="top">dMatrix&#160;</td><td class="memTemplItemRight" valign="bottom"><b>generateMatrixH</b> (const std::shared_ptr&lt; <a class="el" href="class_data.html">Data</a>&lt; T &gt; &gt; samples)</td></tr>
+<tr class="separator:a3c4abf76959117a2bed74fc634f75cc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61cf016246470cc59c73a9771c1b06ac"><td class="memTemplParams" colspan="2"><a id="a61cf016246470cc59c73a9771c1b06ac"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a61cf016246470cc59c73a9771c1b06ac"><td class="memTemplItemLeft" align="right" valign="top">dMatrix&#160;</td><td class="memTemplItemRight" valign="bottom"><b>generateMatrixHwithoutDim</b> (const std::shared_ptr&lt; <a class="el" href="class_data.html">Data</a>&lt; T &gt; &gt; samples, int dim)</td></tr>
+<tr class="separator:a61cf016246470cc59c73a9771c1b06ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48ef2d6a0786b1a150f75af3f595c536"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a48ef2d6a0786b1a150f75af3f595c536"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_kernel.html#a48ef2d6a0786b1a150f75af3f595c536">function</a> (shared_ptr&lt; <a class="el" href="class_point.html">Point</a>&lt; T &gt; &gt; one, shared_ptr&lt; <a class="el" href="class_point.html">Point</a>&lt; T &gt; &gt; two, int dim)</td></tr>
+<tr class="memdesc:a48ef2d6a0786b1a150f75af3f595c536"><td class="mdescLeft">&#160;</td><td class="mdescRight">function Compute the kernel function between two points.  <a href="#a48ef2d6a0786b1a150f75af3f595c536">More...</a><br /></td></tr>
+<tr class="separator:a48ef2d6a0786b1a150f75af3f595c536"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae7563927691a73b6f20b0194087c035"><td class="memTemplParams" colspan="2"><a id="aae7563927691a73b6f20b0194087c035"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aae7563927691a73b6f20b0194087c035"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><b>functionWithoutDim</b> (std::shared_ptr&lt; <a class="el" href="class_point.html">Point</a>&lt; T &gt; &gt; one, std::shared_ptr&lt; <a class="el" href="class_point.html">Point</a>&lt; T &gt; &gt; two, int j, int dim)</td></tr>
+<tr class="separator:aae7563927691a73b6f20b0194087c035"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a686e3cd96a93d7742226dedd5beb9da7"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a686e3cd96a93d7742226dedd5beb9da7"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_kernel.html#a686e3cd96a93d7742226dedd5beb9da7">norm</a> (<a class="el" href="class_data.html">Data</a>&lt; T &gt; data)</td></tr>
+<tr class="memdesc:a686e3cd96a93d7742226dedd5beb9da7"><td class="mdescLeft">&#160;</td><td class="mdescRight">norm Computes norm in dual variables.  <a href="#a686e3cd96a93d7742226dedd5beb9da7">More...</a><br /></td></tr>
+<tr class="separator:a686e3cd96a93d7742226dedd5beb9da7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class for the kernel computations. </p>
@@ -153,16 +159,18 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>functionWithoutDim<
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a5dfd3a6b535745eadd9e17dc086d87c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5dfd3a6b535745eadd9e17dc086d87c6">&#9670;&nbsp;</a></span>compute()</h2>
+<a id="ab6d87a5acc63347bf7e1a40ac4abf03f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6d87a5acc63347bf7e1a40ac4abf03f">&#9670;&nbsp;</a></span>compute()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void Kernel::compute </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_data.html">Data</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="class_data.html">Data</a>&lt; T &gt;&#160;</td>
           <td class="paramname"><em>samples</em></td><td>)</td>
           <td></td>
         </tr>
@@ -179,22 +187,24 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>functionWithoutDim<
 
 </div>
 </div>
-<a id="aa07703cd76124769325d942582b16b5f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa07703cd76124769325d942582b16b5f">&#9670;&nbsp;</a></span>function()</h2>
+<a id="a48ef2d6a0786b1a150f75af3f595c536"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48ef2d6a0786b1a150f75af3f595c536">&#9670;&nbsp;</a></span>function()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">double Kernel::function </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_point.html">Point</a> &gt;&#160;</td>
+          <td class="paramtype">shared_ptr&lt; <a class="el" href="class_point.html">Point</a>&lt; T &gt; &gt;&#160;</td>
           <td class="paramname"><em>one</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_point.html">Point</a> &gt;&#160;</td>
+          <td class="paramtype">shared_ptr&lt; <a class="el" href="class_point.html">Point</a>&lt; T &gt; &gt;&#160;</td>
           <td class="paramname"><em>two</em>, </td>
         </tr>
         <tr>
@@ -284,16 +294,18 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>functionWithoutDim<
 
 </div>
 </div>
-<a id="a1f548d2e5477ae0ee3dd3bc7f23e6920"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f548d2e5477ae0ee3dd3bc7f23e6920">&#9670;&nbsp;</a></span>norm()</h2>
+<a id="a686e3cd96a93d7742226dedd5beb9da7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a686e3cd96a93d7742226dedd5beb9da7">&#9670;&nbsp;</a></span>norm()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">double Kernel::norm </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_data.html">Data</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="class_data.html">Data</a>&lt; T &gt;&#160;</td>
           <td class="paramname"><em>data</em></td><td>)</td>
           <td></td>
         </tr>

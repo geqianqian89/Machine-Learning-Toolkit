@@ -1,11 +1,9 @@
 <map id="includes/Timer.hpp" name="includes/Timer.hpp">
-<area shape="rect" id="node2" href="$_classifier_8hpp_source.html" title="includes/Classifier.hpp" alt="" coords="369,80,523,107"/>
-<area shape="rect" id="node3" href="$_dual_classifier_8hpp_source.html" title="includes/DualClassifier.hpp" alt="" coords="221,229,402,256"/>
-<area shape="rect" id="node6" href="$_feature_selection_8hpp_source.html" title="includes/FeatureSelection.hpp" alt="" coords="607,229,805,256"/>
-<area shape="rect" id="node8" href="$_validation_8hpp_source.html" title="includes/Validation.hpp" alt="" coords="427,155,583,181"/>
-<area shape="rect" id="node10" href="$_primal_classifier_8hpp_source.html" title="includes/PrimalClassifier.hpp" alt="" coords="5,229,196,256"/>
-<area shape="rect" id="node4" href="$_i_m_a_8hpp_source.html" title="includes/IMA.hpp" alt="" coords="166,304,289,331"/>
-<area shape="rect" id="node5" href="$_perceptron_8hpp.html" title="includes/Perceptron.hpp" alt="" coords="313,304,475,331"/>
-<area shape="rect" id="node7" href="$_r_f_e_8hpp_source.html" title="includes/RFE.hpp" alt="" coords="643,304,769,331"/>
-<area shape="rect" id="node9" href="$_m_l_toolkit_8hpp_source.html" title="includes/MLToolkit.hpp" alt="" coords="427,229,583,256"/>
+<area shape="rect" id="node2" href="$_classifier_8hpp_source.html" title="includes/Classifier.hpp" alt="" coords="229,80,384,107"/>
+<area shape="rect" id="node3" href="$_dual_classifier_8hpp_source.html" title="includes/DualClassifier.hpp" alt="" coords="5,229,187,256"/>
+<area shape="rect" id="node6" href="$_primal_classifier_8hpp_source.html" title="includes/PrimalClassifier.hpp" alt="" coords="211,229,402,256"/>
+<area shape="rect" id="node7" href="$_validation_8hpp_source.html" title="includes/Validation.hpp" alt="" coords="385,155,541,181"/>
+<area shape="rect" id="node4" href="$_i_m_a_8hpp_source.html" title="includes/IMA.hpp" alt="" coords="161,304,284,331"/>
+<area shape="rect" id="node5" href="$_perceptron_8hpp.html" title="includes/Perceptron.hpp" alt="" coords="308,304,471,331"/>
+<area shape="rect" id="node8" href="$_m_l_toolkit_8hpp_source.html" title="includes/MLToolkit.hpp" alt="" coords="426,229,582,256"/>
 </map>

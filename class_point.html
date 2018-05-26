@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Machine Learning Toolkit: Point Class Reference</title>
+<title>Machine Learning Toolkit: Point&lt; T &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -67,7 +67,7 @@ $(function() {
 <a href="#friends">Friends</a> &#124;
 <a href="class_point-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Point Class Reference</div>  </div>
+<div class="title">Point&lt; T &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -78,59 +78,70 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa2847c6f3245886323975a5087f5c1f5"><td class="memItemLeft" align="right" valign="top"><a id="aa2847c6f3245886323975a5087f5c1f5"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Point</b> (int dim, int val=0)</td></tr>
-<tr class="separator:aa2847c6f3245886323975a5087f5c1f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d8da6733d7e4110a62e8d0f82676761"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point.html#a9d8da6733d7e4110a62e8d0f82676761">dot</a> (std::vector&lt; double &gt; p)</td></tr>
-<tr class="memdesc:a9d8da6733d7e4110a62e8d0f82676761"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the dot product with a vector.  <a href="#a9d8da6733d7e4110a62e8d0f82676761">More...</a><br /></td></tr>
-<tr class="separator:a9d8da6733d7e4110a62e8d0f82676761"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab64e3f0a9eecba00a1607eb4c7768c3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point.html#aab64e3f0a9eecba00a1607eb4c7768c3">norm</a> (int p=2)</td></tr>
-<tr class="memdesc:aab64e3f0a9eecba00a1607eb4c7768c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the p-norm of the point.  <a href="#aab64e3f0a9eecba00a1607eb4c7768c3">More...</a><br /></td></tr>
-<tr class="separator:aab64e3f0a9eecba00a1607eb4c7768c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c0525e4a539e462236840739cd81495"><td class="memItemLeft" align="right" valign="top"><a id="a0c0525e4a539e462236840739cd81495"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_point.html">Point</a> &amp;rhs) const</td></tr>
-<tr class="separator:a0c0525e4a539e462236840739cd81495"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a412beea7de93a9e22b8ace5fb4170111"><td class="memItemLeft" align="right" valign="top"><a id="a412beea7de93a9e22b8ace5fb4170111"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="class_point.html">Point</a> &amp;rhs) const</td></tr>
-<tr class="separator:a412beea7de93a9e22b8ace5fb4170111"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56a5b5e43d23520e22c7cd17b04c2104"><td class="memItemLeft" align="right" valign="top"><a id="a56a5b5e43d23520e22c7cd17b04c2104"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Point</b> (int dim, T val=0)</td></tr>
+<tr class="separator:a56a5b5e43d23520e22c7cd17b04c2104"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1a74677723b3774be565d88af2187f8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point.html#ab1a74677723b3774be565d88af2187f8">dot</a> (std::vector&lt; T &gt; p)</td></tr>
+<tr class="memdesc:ab1a74677723b3774be565d88af2187f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the dot product with a vector.  <a href="#ab1a74677723b3774be565d88af2187f8">More...</a><br /></td></tr>
+<tr class="separator:ab1a74677723b3774be565d88af2187f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a399e38f00c2bb383ba6291b2318e7207"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point.html#a399e38f00c2bb383ba6291b2318e7207">norm</a> (int p=2)</td></tr>
+<tr class="memdesc:a399e38f00c2bb383ba6291b2318e7207"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the p-norm of the point.  <a href="#a399e38f00c2bb383ba6291b2318e7207">More...</a><br /></td></tr>
+<tr class="separator:a399e38f00c2bb383ba6291b2318e7207"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba7138253ab56cbf55b531b9893f52c6"><td class="memItemLeft" align="right" valign="top"><a id="aba7138253ab56cbf55b531b9893f52c6"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (size_t i) const</td></tr>
+<tr class="separator:aba7138253ab56cbf55b531b9893f52c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36b981edbfca0b989ea90f4de6877f76"><td class="memItemLeft" align="right" valign="top"><a id="a36b981edbfca0b989ea90f4de6877f76"></a>
+T &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (size_t i)</td></tr>
+<tr class="separator:a36b981edbfca0b989ea90f4de6877f76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a612545df2153b095b9013da5a14f495f"><td class="memItemLeft" align="right" valign="top"><a id="a612545df2153b095b9013da5a14f495f"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_point.html">Point</a>&lt; T &gt; &amp;rhs) const</td></tr>
+<tr class="separator:a612545df2153b095b9013da5a14f495f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d43c8a1405f87422a02645d400a6c01"><td class="memItemLeft" align="right" valign="top"><a id="a6d43c8a1405f87422a02645d400a6c01"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="class_point.html">Point</a>&lt; T &gt; &amp;rhs) const</td></tr>
+<tr class="separator:a6d43c8a1405f87422a02645d400a6c01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a1e22056737f10e31025b353c86e3b9e3"><td class="memItemLeft" align="right" valign="top"><a id="a1e22056737f10e31025b353c86e3b9e3"></a>
-std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point.html#a1e22056737f10e31025b353c86e3b9e3">x</a></td></tr>
-<tr class="memdesc:a1e22056737f10e31025b353c86e3b9e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Features values. <br /></td></tr>
-<tr class="separator:a1e22056737f10e31025b353c86e3b9e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa38be143ae800e6ad69ce8ed4df62d8"><td class="memItemLeft" align="right" valign="top"><a id="afa38be143ae800e6ad69ce8ed4df62d8"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point.html#afa38be143ae800e6ad69ce8ed4df62d8">y</a> = 0</td></tr>
-<tr class="memdesc:afa38be143ae800e6ad69ce8ed4df62d8"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_point.html" title="Class of a Point of doubles in a space of n dimensions. ">Point</a> classification. <br /></td></tr>
-<tr class="separator:afa38be143ae800e6ad69ce8ed4df62d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8595ba929b962c97293ab35a0c60b434"><td class="memItemLeft" align="right" valign="top"><a id="a8595ba929b962c97293ab35a0c60b434"></a>
+<tr class="memitem:a8b8cc26f89935fdc83ed464c053c0476"><td class="memItemLeft" align="right" valign="top"><a id="a8b8cc26f89935fdc83ed464c053c0476"></a>
+std::vector&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point.html#a8b8cc26f89935fdc83ed464c053c0476">x</a></td></tr>
+<tr class="memdesc:a8b8cc26f89935fdc83ed464c053c0476"><td class="mdescLeft">&#160;</td><td class="mdescRight">Features values. <br /></td></tr>
+<tr class="separator:a8b8cc26f89935fdc83ed464c053c0476"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd1a56102bc430eb08fc37dac9aa4c0b"><td class="memItemLeft" align="right" valign="top"><a id="abd1a56102bc430eb08fc37dac9aa4c0b"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point.html#abd1a56102bc430eb08fc37dac9aa4c0b">y</a> = 0</td></tr>
+<tr class="memdesc:abd1a56102bc430eb08fc37dac9aa4c0b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_point.html" title="Class of a Point of doubles in a space of n dimensions. ">Point</a> classification. <br /></td></tr>
+<tr class="separator:abd1a56102bc430eb08fc37dac9aa4c0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa852a1c045d196abd841a6e1e87c27d8"><td class="memItemLeft" align="right" valign="top"><a id="aa852a1c045d196abd841a6e1e87c27d8"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>alpha</b> = 0.0</td></tr>
-<tr class="separator:a8595ba929b962c97293ab35a0c60b434"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8448ad503b3aa40f3c9d4b6e3c5a039e"><td class="memItemLeft" align="right" valign="top"><a id="a8448ad503b3aa40f3c9d4b6e3c5a039e"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point.html#a8448ad503b3aa40f3c9d4b6e3c5a039e">id</a> = 0</td></tr>
-<tr class="memdesc:a8448ad503b3aa40f3c9d4b6e3c5a039e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_point.html" title="Class of a Point of doubles in a space of n dimensions. ">Point</a> identification. <br /></td></tr>
-<tr class="separator:a8448ad503b3aa40f3c9d4b6e3c5a039e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:aa852a1c045d196abd841a6e1e87c27d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7d6dfc3296421e9f10311d29720aa3b"><td class="memItemLeft" align="right" valign="top"><a id="af7d6dfc3296421e9f10311d29720aa3b"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point.html#af7d6dfc3296421e9f10311d29720aa3b">id</a> = 0</td></tr>
+<tr class="memdesc:af7d6dfc3296421e9f10311d29720aa3b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_point.html" title="Class of a Point of doubles in a space of n dimensions. ">Point</a> identification. <br /></td></tr>
+<tr class="separator:af7d6dfc3296421e9f10311d29720aa3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a18e1e2eb3b3b27719f367688e8611b45"><td class="memItemLeft" align="right" valign="top"><a id="a18e1e2eb3b3b27719f367688e8611b45"></a>
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;output, const <a class="el" href="class_point.html">Point</a> &amp;p)</td></tr>
-<tr class="separator:a18e1e2eb3b3b27719f367688e8611b45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae01781a3264312efb15b109d37fceb38"><td class="memItemLeft" align="right" valign="top"><a id="ae01781a3264312efb15b109d37fceb38"></a>
+std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;output, const <a class="el" href="class_point.html">Point</a>&lt; T &gt; &amp;p)</td></tr>
+<tr class="separator:ae01781a3264312efb15b109d37fceb38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class of a <a class="el" href="class_point.html" title="Class of a Point of doubles in a space of n dimensions. ">Point</a> of doubles in a space of n dimensions. </p>
+<div class="textblock"><h3>template&lt;typename T&gt;<br />
+class Point&lt; T &gt;</h3>
+
+<p>Class of a <a class="el" href="class_point.html" title="Class of a Point of doubles in a space of n dimensions. ">Point</a> of doubles in a space of n dimensions. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9d8da6733d7e4110a62e8d0f82676761"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d8da6733d7e4110a62e8d0f82676761">&#9670;&nbsp;</a></span>dot()</h2>
+<a id="ab1a74677723b3774be565d88af2187f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1a74677723b3774be565d88af2187f8">&#9670;&nbsp;</a></span>dot()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">double Point::dot </td>
+          <td class="memname">double <a class="el" href="class_point.html">Point</a>&lt; T &gt;::dot </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; double &gt;&#160;</td>
+          <td class="paramtype">std::vector&lt; T &gt;&#160;</td>
           <td class="paramname"><em>p</em></td><td>)</td>
           <td></td>
         </tr>
@@ -148,14 +159,16 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 
 </div>
 </div>
-<a id="aab64e3f0a9eecba00a1607eb4c7768c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab64e3f0a9eecba00a1607eb4c7768c3">&#9670;&nbsp;</a></span>norm()</h2>
+<a id="a399e38f00c2bb383ba6291b2318e7207"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a399e38f00c2bb383ba6291b2318e7207">&#9670;&nbsp;</a></span>norm()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">double Point::norm </td>
+          <td class="memname">double <a class="el" href="class_point.html">Point</a>&lt; T &gt;::norm </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>p</em> = <code>2</code></td><td>)</td>
@@ -175,9 +188,8 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>includes/<a class="el" href="_point_8hpp_source.html">Point.hpp</a></li>
-<li>src/<a class="el" href="_point_8cpp.html">Point.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

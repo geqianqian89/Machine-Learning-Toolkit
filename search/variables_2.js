@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ctot',['ctot',['../class_classifier.html#a99d9a7f504212bb3dc2726c10a2333c6',1,'Classifier']]]
+  ['ctot',['ctot',['../class_classifier.html#af3bc30b5c675507c12b23fbbc7164093',1,'Classifier']]]
 ];

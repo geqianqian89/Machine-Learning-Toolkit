@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['eps',['EPS',['../class_classifier.html#ad7cd0cfea68461340df2adb0c132dc93',1,'Classifier']]]
+  ['eps',['EPS',['../class_classifier.html#a690342152fdf43a17e67afad15d86503',1,'Classifier']]]
 ];

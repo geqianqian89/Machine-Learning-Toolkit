@@ -1,6 +1,6 @@
-<map id="DualClassifier" name="DualClassifier">
-<area shape="rect" id="node3" href="$class_i_m_a_dual.html" title="IMADual" alt="" coords="5,155,79,181"/>
-<area shape="rect" id="node4" href="$class_perceptron_dual.html" title="Wrapper for the implementation of the Perceptron dual algorithm. " alt="" coords="103,155,215,181"/>
-<area shape="rect" id="node5" href="$class_perceptron_fixed_margin_dual.html" title="Wrapper for the implementation of the Perceptron dual with fixed margin algorithm. " alt="" coords="240,155,423,181"/>
-<area shape="rect" id="node2" href="$class_classifier.html" title="Classifier" alt="" coords="121,5,198,32"/>
+<map id="DualClassifier&lt; T &gt;" name="DualClassifier&lt; T &gt;">
+<area shape="rect" id="node3" href="$class_i_m_a_dual.html" title="IMADual\&lt; T \&gt;" alt="" coords="5,155,111,181"/>
+<area shape="rect" id="node4" href="$class_perceptron_dual.html" title="Wrapper for the implementation of the Perceptron dual algorithm. " alt="" coords="135,155,279,181"/>
+<area shape="rect" id="node5" href="$class_perceptron_fixed_margin_dual.html" title="Wrapper for the implementation of the Perceptron dual with fixed margin algorithm. " alt="" coords="304,155,519,181"/>
+<area shape="rect" id="node2" href="$class_classifier.html" title="Classifier\&lt; T \&gt;" alt="" coords="153,5,262,32"/>
 </map>
