@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Classification_Algorithms_System"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Classification_Algorithms_System">
+				<Option output="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/cmake-build-debug/Classification_Algorithms_System" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/cmake-build-debug/Makefile&quot;  VERBOSE=1 Classification_Algorithms_System"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Classification_Algorithms_System/fast">
+				<Option output="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/cmake-build-debug/Classification_Algorithms_System" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/cmake-build-debug/Makefile&quot;  VERBOSE=1 Classification_Algorithms_System/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/mateus558/Dropbox/Aprendizado\ de\ Máquinas/Classification_Algorithms_System/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Classifier.hpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Data.hpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/DualClassifier.hpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/IMA.hpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Kernel.hpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/MLToolkit.hpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Perceptron.hpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Point.hpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/PrimalClassifier.hpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/RFE.hpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Random.hpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Solution.hpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Statistics.hpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Timer.hpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Utils.hpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Validation.hpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/ValidationSolution.hpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/Visualization.hpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/includes/gnuplot_i.hpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Data.cpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/IMA.cpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Kernel.cpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Perceptron.cpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/RFE.cpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Utils.cpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Validation.cpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/Visualization.cpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/gnuplot_i.cpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/src/main.cpp">
+			<Option target="Classification_Algorithms_System"/>
+		</Unit>
+		<Unit filename="/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
