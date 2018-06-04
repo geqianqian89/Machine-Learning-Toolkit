@@ -101,7 +101,7 @@ bool {\bfseries operator!=} (const \hyperlink{class_data}{Data}$<$ T $>$ \&rhs) 
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static void \hyperlink{class_data_a11440c71d8f4dc4f4c064c06c0ae1b4e}{normalize} (std\+::vector$<$ double $>$ \&p, double q)
+static void \hyperlink{class_data_ad5c41d33e1de7531b952d6f33b7eca90}{normalize} (std\+::vector$<$ double $>$ \&p, double q)
 \begin{DoxyCompactList}\small\item\em normalize Normalize a vector using a Lp-\/norm. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
@@ -163,7 +163,7 @@ Constructor for empty data.
 \index{Data@{Data}!change\+X\+Vector@{change\+X\+Vector}}
 \index{change\+X\+Vector@{change\+X\+Vector}!Data@{Data}}
 \subsubsection{\texorpdfstring{change\+X\+Vector()}{changeXVector()}}
-{\footnotesize\ttfamily template$<$typename T$>$ \\
+{\footnotesize\ttfamily template$<$typename T $>$ \\
 void \hyperlink{class_data}{Data}$<$ T $>$\+::change\+X\+Vector (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$}]{index }\end{DoxyParamCaption})}
 
 
@@ -447,7 +447,7 @@ bool
 \index{Data@{Data}!load@{load}}
 \index{load@{load}!Data@{Data}}
 \subsubsection{\texorpdfstring{load()}{load()}}
-{\footnotesize\ttfamily template$<$typename T$>$ \\
+{\footnotesize\ttfamily template$<$typename T $>$ \\
 bool \hyperlink{class_data}{Data}$<$ T $>$\+::load (\begin{DoxyParamCaption}\item[{std\+::string}]{file }\end{DoxyParamCaption})}
 
 
@@ -478,12 +478,12 @@ normalize Normalize the dataset using a Lp-\/norm.
 {\em p} & Norm to be utilized. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_data_a11440c71d8f4dc4f4c064c06c0ae1b4e}\label{class_data_a11440c71d8f4dc4f4c064c06c0ae1b4e}} 
+\mbox{\Hypertarget{class_data_ad5c41d33e1de7531b952d6f33b7eca90}\label{class_data_ad5c41d33e1de7531b952d6f33b7eca90}} 
 \index{Data@{Data}!normalize@{normalize}}
 \index{normalize@{normalize}!Data@{Data}}
 \subsubsection{\texorpdfstring{normalize()}{normalize()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$typename T$>$ \\
-static void \hyperlink{class_data}{Data}$<$ T $>$\+::normalize (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$ \&}]{p,  }\item[{double}]{q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \hyperlink{class_data}{Data}$<$ T $>$\+::normalize (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$ \&}]{p,  }\item[{double}]{q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -538,7 +538,7 @@ bool
 \index{Data@{Data}!remove\+Points@{remove\+Points}}
 \index{remove\+Points@{remove\+Points}!Data@{Data}}
 \subsubsection{\texorpdfstring{remove\+Points()}{removePoints()}}
-{\footnotesize\ttfamily template$<$typename T$>$ \\
+{\footnotesize\ttfamily template$<$typename T $>$ \\
 vector$<$ bool $>$ \hyperlink{class_data}{Data}$<$ T $>$\+::remove\+Points (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$}]{ids }\end{DoxyParamCaption})}
 
 
@@ -557,7 +557,7 @@ booleans informing which points were removed succesfully.
 \index{Data@{Data}!set\+Classes@{set\+Classes}}
 \index{set\+Classes@{set\+Classes}!Data@{Data}}
 \subsubsection{\texorpdfstring{set\+Classes()}{setClasses()}}
-{\footnotesize\ttfamily template$<$typename T$>$ \\
+{\footnotesize\ttfamily template$<$typename T $>$ \\
 void \hyperlink{class_data}{Data}$<$ T $>$\+::set\+Classes (\begin{DoxyParamCaption}\item[{std\+::string}]{pos,  }\item[{std\+::string}]{neg }\end{DoxyParamCaption})}
 
 
@@ -641,7 +641,7 @@ set\+Point Set the point in a position of the data.
 \index{Data@{Data}!write@{write}}
 \index{write@{write}!Data@{Data}}
 \subsubsection{\texorpdfstring{write()}{write()}}
-{\footnotesize\ttfamily template$<$typename T$>$ \\
+{\footnotesize\ttfamily template$<$typename T $>$ \\
 void \hyperlink{class_data}{Data}$<$ T $>$\+::write (\begin{DoxyParamCaption}\item[{std\+::string}]{fname,  }\item[{std\+::string}]{ext }\end{DoxyParamCaption})}
 
 

@@ -28,8 +28,8 @@ Data< T >::Data(const char* dataset, const char* pos_class, const char* neg_clas
     if(!load(string(dataset))){
         cerr << "Couldn't read the dataset." << endl;
     }
-	this->pos_class = string(pos_class);
-	this->neg_class = string(neg_class);
+    this->pos_class = string(pos_class);
+    this->neg_class = string(neg_class);
 }
 
 template < typename T >
@@ -238,7 +238,7 @@ bool Data< T >::load_data(string path){
     //get dimension of the points
     while(getline(input, str)){
         dim = -1;
-		
+
         ss.str(str);
         ss.clear();
 
@@ -270,10 +270,10 @@ bool Data< T >::load_data(string path){
         ldim = dim;
         size++;
     }
-	
-	input.clear();
+
+    input.clear();
     input.seekg(0, ios::beg);
-	    
+
     //initialize dim and size
     this->dim = dim;
     this->size = size;
@@ -293,7 +293,7 @@ bool Data< T >::load_data(string path){
         auto new_point = make_shared<Point< T > >();
 
         ss.str(str);
-		ss.clear();
+        ss.clear();
         dim = 0;
         new_point->x.resize(this->dim, 0.0);
 

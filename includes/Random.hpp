@@ -14,31 +14,31 @@
 #include <functional>
 
 namespace Random {
-  std::mt19937 m_gen;
-  unsigned int m_seed;
+    std::mt19937 m_gen;
+    unsigned int m_seed;
 
-  auto init(unsigned int seed = 666) {
-      m_seed = (seed == 666)?std::random_device {} (): seed;
-      m_gen.seed(m_seed);
+    auto init(unsigned int seed = 666) {
+        m_seed = (seed == 666)?std::random_device {} (): seed;
+        m_gen.seed(m_seed);
 
-      return m_seed;
-  }
+        return m_seed;
+    }
 
-  int intInRange(int low, int high) {
-      std::uniform_int_distribution<int> dist(low, high);
+    int intInRange(int low, int high) {
+        std::uniform_int_distribution<int> dist(low, high);
 
-      return dist(m_gen);
-  }
+        return dist(m_gen);
+    }
 
-  float floatInRange(float low, float high) {
-      std::uniform_real_distribution<float> dist(low, high);
+    float floatInRange(float low, float high) {
+        std::uniform_real_distribution<float> dist(low, high);
 
-      return dist(m_gen);
-  }
+        return dist(m_gen);
+    }
 
-  auto getSeed(){
-      return m_seed;
-  }
+    auto getSeed(){
+        return m_seed;
+    }
 
 }
 

@@ -62,7 +62,7 @@ var searchData=
   ['statistics',['Statistics',['../class_statistics.html',1,'']]],
   ['stdev',['stdev',['../class_statistics.html#accf969226645d2fe2cb16ab24c3eeb33',1,'Statistics']]],
   ['steps',['steps',['../class_classifier.html#a154ed9ff7a3d989ed25dda7215289f64',1,'Classifier']]],
-  ['stodn',['stodn',['../_utils_8hpp.html#a0187e008853de2faa4269af7602af7d5',1,'Utils.hpp']]],
-  ['stoin',['stoin',['../_utils_8hpp.html#a8f8f36f1e1b6c6900fac56c148f754eb',1,'Utils.hpp']]],
+  ['stodn',['stodn',['../_utils_8hpp.html#a0187e008853de2faa4269af7602af7d5',1,'stodn(std::string str):&#160;Utils.cpp'],['../_utils_8cpp.html#a5a71f54c5a674098cd327eb73ef77149',1,'stodn(string str):&#160;Utils.cpp']]],
+  ['stoin',['stoin',['../_utils_8hpp.html#a8f8f36f1e1b6c6900fac56c148f754eb',1,'stoin(std::string str):&#160;Utils.cpp'],['../_utils_8cpp.html#a32f98cacc8ec2ab7033423e3a85572da',1,'stoin(string str):&#160;Utils.cpp']]],
   ['svs',['svs',['../class_classifier.html#ae8695222e93f7fea1a1e585d4c126f7d',1,'Classifier::svs()'],['../class_solution.html#ae9f64bc0520b7c42d3c395f48748eca5',1,'Solution::svs()']]]
 ];

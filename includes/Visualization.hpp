@@ -15,7 +15,7 @@
 /**
  * \brief Class for visualize data using gnuplot.
  */
- template < typename T >
+template < typename T >
 class Visualization {
     // Attributes
 private :

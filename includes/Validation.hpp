@@ -8,7 +8,7 @@
 /**
  * \brief Class of methods for the validation of ML algorithms.
  */
- template < typename T >
+template < typename T >
 class Validation {
     // Attributes
 private :

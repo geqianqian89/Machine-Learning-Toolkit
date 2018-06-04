@@ -13,7 +13,7 @@
 /**
  * \brief Wrapper for the implementation of the Incremental Margin Algorithm primal.
  */
- template < typename T >
+template < typename T >
 class IMAp : public PrimalClassifier< T > {
 private:
     double margin;

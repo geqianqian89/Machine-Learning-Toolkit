@@ -911,7 +911,7 @@ void validationOption(int option){
             inva = true;
             break;
     }
-   mainOption(8);
+    mainOption(8);
 }
 
 void primalClassifiersOption(int option){

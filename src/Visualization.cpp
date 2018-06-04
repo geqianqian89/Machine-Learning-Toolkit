@@ -17,18 +17,18 @@ Visualization< T >::Visualization(Data< T > *sample){
 
 template < typename T >
 void Visualization< T >::setTitle(string title){
-	#ifdef __unix__
-	    g.set_title(title);
-	#elif _WIN32
-	#endif
+#ifdef __unix__
+    g.set_title(title);
+#elif _WIN32
+#endif
 }
 
 template < typename T >
 void Visualization< T >::setStyle(string style){
-    #ifdef __unix__
-    	g.set_style(style);
-    #elif _WIN32
-    #endif
+#ifdef __unix__
+    g.set_style(style);
+#elif _WIN32
+#endif
 }
 
 template < typename T >
@@ -85,26 +85,26 @@ template < typename T >
 vector<string> Visualization< T >::getTempFilesNames(){
     vector<string> files;
 
-    #ifdef __unix__
-        DIR *dpdf;
-        struct dirent *epdf;
-        string path = string("temp");
+#ifdef __unix__
+    DIR *dpdf;
+    struct dirent *epdf;
+    string path = string("temp");
 
-        dpdf = opendir(path.c_str());
-        if(dpdf != NULL){
-            while((epdf = readdir(dpdf))){
-                string file = string(epdf->d_name);
-                if(valid_file(file) && !file.empty()){
-                    files.push_back(file);
-                }
+    dpdf = opendir(path.c_str());
+    if(dpdf != NULL){
+        while((epdf = readdir(dpdf))){
+            string file = string(epdf->d_name);
+            if(valid_file(file) && !file.empty()){
+                files.push_back(file);
             }
-        }else{
-            cout << "Folder not found!" << endl;
         }
+    }else{
+        cout << "Folder not found!" << endl;
+    }
 
-        closedir(dpdf);
-    #elif _WIN32
-        HANDLE hFind;
+    closedir(dpdf);
+#elif _WIN32
+    HANDLE hFind;
         WIN32_FIND_DATA data;
 
         hFind = FindFirstFile(".\\temp\\*.*", &data);
@@ -119,7 +119,7 @@ vector<string> Visualization< T >::getTempFilesNames(){
         }
     #else
         cerr << "Can't remove temporary files, please remove manually. (Unsupported System)." << endl;
-    #endif
+#endif
 
     return files;
 }
@@ -142,13 +142,13 @@ void Visualization< T >::plot2D(int x, int y){
     string dims = itos(x) + ":" + itos(y);
     string cmd = "set terminal qt; plot 'temp/pos.plt' using " + dims + " title '+1' with points, 'temp/neg.plt' using " + dims + " title '-1' with points";
     createPosNegTemps();
-    #ifdef __unix__
-    	cmd = "set terminal qt; " + cmd;
-        g.cmd(cmd);
-    #elif _WIN32
-        cmd = "echo " + cmd + " | gnuplot -persist";
+#ifdef __unix__
+    cmd = "set terminal qt; " + cmd;
+    g.cmd(cmd);
+#elif _WIN32
+    cmd = "echo " + cmd + " | gnuplot -persist";
         system(cmd.c_str());
-    #endif
+#endif
 }
 
 template < typename T >
@@ -156,13 +156,13 @@ void Visualization< T >::plot3D(int x, int y, int z){
     string dims = itos(x) + ":" + itos(y) + ":" + itos(z);
     string cmd = "splot 'temp/pos.plt' using " + dims + " title '+1' with points, 'temp/neg.plt' using " + dims + " title '-1' with points";
     createPosNegTemps();
-    #ifdef __unix__
-    	cmd = "set terminal qt; " + cmd;
-        g.cmd(cmd);
-    #elif _WIN32
-        cmd = "echo " + cmd + " | gnuplot -persist";
+#ifdef __unix__
+    cmd = "set terminal qt; " + cmd;
+    g.cmd(cmd);
+#elif _WIN32
+    cmd = "echo " + cmd + " | gnuplot -persist";
         system(cmd.c_str());
-    #endif
+#endif
 }
 
 template < typename T >
@@ -195,21 +195,21 @@ void Visualization< T >::plot3DwithHyperplane(int x, int y, int z, Solution s){
 
     createPosNegTemps();
 
-    #ifdef __unix__
-    	cmd = "set terminal qt; " + cmd;
-        g.cmd(cmd);
-    #elif _WIN32
-        cmd = "echo " + cmd + " | gnuplot -persist";
+#ifdef __unix__
+    cmd = "set terminal qt; " + cmd;
+    g.cmd(cmd);
+#elif _WIN32
+    cmd = "echo " + cmd + " | gnuplot -persist";
         system(cmd.c_str());
-    #endif
+#endif
 }
 
 template < typename T >
 Visualization< T >::~Visualization(){
-	#ifdef __unix__
-	    g.cmd("quit");
-    #elif _WIN32
-    #endif
+#ifdef __unix__
+    g.cmd("quit");
+#elif _WIN32
+#endif
     removeTempFiles();
 }
 

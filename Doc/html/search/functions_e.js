@@ -57,6 +57,6 @@ var searchData=
   ['setverbose',['setVerbose',['../class_classifier.html#ac9e142714dff18a8caa5c9e3d7cfcbfc',1,'Classifier::setVerbose()'],['../class_validation.html#adddf2e9eb960b7636e6615ecbd9783bb',1,'Validation::setVerbose()']]],
   ['showonscreen',['showonscreen',['../class_gnuplot.html#a356d2faaa79f08d13fec9718b776b28d',1,'Gnuplot']]],
   ['stdev',['stdev',['../class_statistics.html#accf969226645d2fe2cb16ab24c3eeb33',1,'Statistics']]],
-  ['stodn',['stodn',['../_utils_8hpp.html#a0187e008853de2faa4269af7602af7d5',1,'Utils.hpp']]],
-  ['stoin',['stoin',['../_utils_8hpp.html#a8f8f36f1e1b6c6900fac56c148f754eb',1,'Utils.hpp']]]
+  ['stodn',['stodn',['../_utils_8hpp.html#a0187e008853de2faa4269af7602af7d5',1,'stodn(std::string str):&#160;Utils.cpp'],['../_utils_8cpp.html#a5a71f54c5a674098cd327eb73ef77149',1,'stodn(string str):&#160;Utils.cpp']]],
+  ['stoin',['stoin',['../_utils_8hpp.html#a8f8f36f1e1b6c6900fac56c148f754eb',1,'stoin(std::string str):&#160;Utils.cpp'],['../_utils_8cpp.html#a32f98cacc8ec2ab7033423e3a85572da',1,'stoin(string str):&#160;Utils.cpp']]]
 ];

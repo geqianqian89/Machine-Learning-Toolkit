@@ -30,7 +30,7 @@ private :
     size_t n_neg = 0;
 // Operations
 public:
-    explicit Statistics (){}
+    Statistics (){}
     /**
      * \brief Compute the mean (average) of a vector.
      * \param p (???) Point to compute the mean.

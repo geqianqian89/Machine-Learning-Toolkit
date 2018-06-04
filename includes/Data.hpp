@@ -50,6 +50,9 @@
 static const std::vector<std::string> types {"data", "csv", "arff", "txt", "plt"};
 enum  Type {TYPE_INVALID = -1, TYPE_DATA = 0, TYPE_CSV = 1, TYPE_ARFF = 2, TYPE_TXT = 3};
 
+template < typename T > 
+class Statistics;
+
 /**
  * \brief Wrapper for the dataset data.
  */
@@ -114,7 +117,7 @@ private:
      */
     bool load_txt (std::string path);
 public :
-	/**
+    /**
      * \brief Data constructor to load a dataset from a file.
      * \param dataset (???) Path to the dataset to be loaded.
      * \param pos_class String representing the positive class on the dataset.
@@ -303,26 +306,26 @@ public :
      *  Overloaded operators for the Data class. *
      *********************************************/
 
-    shared_ptr<Point< T > > operator[](size_t i) const {return points[i];}
+    std::shared_ptr<Point< T > > operator[](size_t i) const {return points[i];}
 
-    shared_ptr<Point< T > > & operator[](size_t i) {return points[i];}
+    std::shared_ptr<Point< T > > & operator[](size_t i) {return points[i];}
 
     void operator=(const Data< T >&);
 
     bool operator==(const Data< T > &rhs) const;
 
     bool operator!=(const Data< T > &rhs) const;
-	
-	template< typename U >
+
+    template< typename U >
     friend std::ostream &operator<<( std::ostream &output, const Data< U > &data );
 
     ~Data();
 };
 
 template < typename T >
-ostream &operator<<( ostream &output, const Data< T > &data ){
+std::ostream &operator<<( std::ostream &output, const Data< T > &data ){
     for(auto p : data.points){
-        output << *p << endl;
+        output << *p << std::endl;
     }
 
     return output;

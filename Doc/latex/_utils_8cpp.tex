@@ -27,15 +27,12 @@ Include dependency graph for Utils.\+cpp\+:\nopagebreak
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{_utils_8cpp_a023a5c6fa42981cbd7b582ee1b214e7b}\label{_utils_8cpp_a023a5c6fa42981cbd7b582ee1b214e7b}} 
-bool {\bfseries is\+\_\+number} (string str)
-\item 
-\mbox{\Hypertarget{_utils_8cpp_a32f98cacc8ec2ab7033423e3a85572da}\label{_utils_8cpp_a32f98cacc8ec2ab7033423e3a85572da}} 
-int {\bfseries stoin} (string str)
-\item 
-\mbox{\Hypertarget{_utils_8cpp_a5a71f54c5a674098cd327eb73ef77149}\label{_utils_8cpp_a5a71f54c5a674098cd327eb73ef77149}} 
-double {\bfseries stodn} (string str)
-\item 
+bool \hyperlink{_utils_8cpp_a023a5c6fa42981cbd7b582ee1b214e7b}{is\+\_\+number} (string str)
+\begin{DoxyCompactList}\small\item\em Verify if the string is a number. \end{DoxyCompactList}\item 
+int \hyperlink{_utils_8cpp_a32f98cacc8ec2ab7033423e3a85572da}{stoin} (string str)
+\begin{DoxyCompactList}\small\item\em Converts the string to an integer. \end{DoxyCompactList}\item 
+double \hyperlink{_utils_8cpp_a5a71f54c5a674098cd327eb73ef77149}{stodn} (string str)
+\begin{DoxyCompactList}\small\item\em Converts the string to a double. \end{DoxyCompactList}\item 
 string \hyperlink{_utils_8cpp_a26f5a4cacb0634afa02adbeebd3f023c}{itos} (int n)
 \begin{DoxyCompactList}\small\item\em itos Integer to string conversion. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{_utils_8cpp_aad7fea725cb4b198ace1aa3df5051244}\label{_utils_8cpp_aad7fea725cb4b198ace1aa3df5051244}} 
@@ -81,6 +78,24 @@ dtoa Double to string conversion.
 \begin{DoxyReturn}{Returns}
 string 
 \end{DoxyReturn}
+\mbox{\Hypertarget{_utils_8cpp_a023a5c6fa42981cbd7b582ee1b214e7b}\label{_utils_8cpp_a023a5c6fa42981cbd7b582ee1b214e7b}} 
+\index{Utils.\+cpp@{Utils.\+cpp}!is\+\_\+number@{is\+\_\+number}}
+\index{is\+\_\+number@{is\+\_\+number}!Utils.\+cpp@{Utils.\+cpp}}
+\subsubsection{\texorpdfstring{is\+\_\+number()}{is\_number()}}
+{\footnotesize\ttfamily bool is\+\_\+number (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})}
+
+
+
+Verify if the string is a number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & String to be tested. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
 \mbox{\Hypertarget{_utils_8cpp_a26f5a4cacb0634afa02adbeebd3f023c}\label{_utils_8cpp_a26f5a4cacb0634afa02adbeebd3f023c}} 
 \index{Utils.\+cpp@{Utils.\+cpp}!itos@{itos}}
 \index{itos@{itos}!Utils.\+cpp@{Utils.\+cpp}}
@@ -98,4 +113,40 @@ itos Integer to string conversion.
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_utils_8cpp_a5a71f54c5a674098cd327eb73ef77149}\label{_utils_8cpp_a5a71f54c5a674098cd327eb73ef77149}} 
+\index{Utils.\+cpp@{Utils.\+cpp}!stodn@{stodn}}
+\index{stodn@{stodn}!Utils.\+cpp@{Utils.\+cpp}}
+\subsubsection{\texorpdfstring{stodn()}{stodn()}}
+{\footnotesize\ttfamily double stodn (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})}
+
+
+
+Converts the string to a double. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The string to be converted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The double resulted from the conversion. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_utils_8cpp_a32f98cacc8ec2ab7033423e3a85572da}\label{_utils_8cpp_a32f98cacc8ec2ab7033423e3a85572da}} 
+\index{Utils.\+cpp@{Utils.\+cpp}!stoin@{stoin}}
+\index{stoin@{stoin}!Utils.\+cpp@{Utils.\+cpp}}
+\subsubsection{\texorpdfstring{stoin()}{stoin()}}
+{\footnotesize\ttfamily int stoin (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})}
+
+
+
+Converts the string to an integer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & String to be converted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The integer resulted from the conversion. 
 \end{DoxyReturn}
