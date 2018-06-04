@@ -32,7 +32,6 @@
 
 #ifndef DATA__HPP
 #define DATA__HPP
-#pragma pack(1)
 
 #include <vector>
 #include <string>
