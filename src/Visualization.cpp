@@ -188,11 +188,11 @@ void Visualization< T >::plot2DwithHyperplane(int x, int y, Solution s){
 template < typename T >
 void Visualization< T >::plot3DwithHyperplane(int x, int y, int z, Solution s){
     string feats = itos(x) + ":" + itos(y) + ":" + itos(z);
-    string hxy = "h(x,y) = "+dtoa(s.w[x-1]/-s.w[y-1])+"*x + "+dtoa(s.w[y-1]/-s.w[z-1])+"*y +"+dtoa((s.bias - s.margin*s.norm)/-s.w[y-1]);
-    string gxy = "g(x,y) = "+dtoa(s.w[x-1]/-s.w[y-1])+"*x + "+dtoa(s.w[y-1]/-s.w[z-1])+"*y +" +dtoa((s.bias + s.margin*s.norm)/-s.w[y-1]);
+    //string hxy = "h(x,y) = "+dtoa(s.w[x-1]/-s.w[y-1])+"*x + "+dtoa(s.w[y-1]/-s.w[z-1])+"*y +"+dtoa((s.bias - s.margin*s.norm)/-s.w[y-1]);
+    //string gxy = "g(x,y) = "+dtoa(s.w[x-1]/-s.w[y-1])+"*x + "+dtoa(s.w[y-1]/-s.w[z-1])+"*y +" +dtoa((s.bias + s.margin*s.norm)/-s.w[y-1]);
     string fxy = "f(x,y) = "+dtoa(s.w[x-1]/-s.w[z-1])+"*x + "+dtoa(s.w[y-1]/-s.w[z-1])+"*y + "+dtoa(s.bias/-s.w[z-1]);
-    string cmd = fxy + "; " + gxy + "; " + hxy + "; " + "splot 'temp/pos.plt' using "+ feats +" title '+1' with points, 'temp/neg.plt' using "+ feats +" title '-1' with points, f(x,y) notitle with lines ls 1, g(x,y) notitle with lines ls 2, h(x,y) notitle with lines ls 2";
-
+    //string cmd = fxy + "; " + gxy + "; " + hxy + "; " + "splot 'temp/pos.plt' using "+ feats +" title '+1' with points, 'temp/neg.plt' using "+ feats +" title '-1' with points, f(x,y) notitle with lines ls 1, g(x,y) notitle with lines ls 2, h(x,y) notitle with lines ls 2";
+	string cmd = fxy + "; splot 'temp/pos.plt' using "+ feats +" title '+1' with points, 'temp/neg.plt' using "+ feats +" title '-1' with points, f(x,y) notitle with lines ls 1";
     createPosNegTemps();
 
 #ifdef __unix__
