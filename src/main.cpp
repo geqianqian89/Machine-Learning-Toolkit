@@ -116,18 +116,18 @@ vector<string> list_datasets(bool list){
     closedir(dpdf);
 #elif _WIN32
     HANDLE hFind;
-        WIN32_FIND_DATA data;
+        WIN32_FIND_DATA data1;
         string path = ".\\" + data_folder + "\\*.*";
 
-        hFind = FindFirstFile(path.c_str(), &data);
+        hFind = FindFirstFile(path.c_str(), &data1);
         if (hFind != INVALID_HANDLE_VALUE) {
           do {
-            string file_name(data->cFileName);
+            string file_name(data1.cFileName);
             if(valid_file(file_name) && !file_name.empty()){
                 if(list) cout << "[" << files.size() << "] " << file_name << endl;
                 files.push_back(file_name);
             }
-          } while (FindNextFile(hFind, &data));
+          } while (FindNextFile(hFind, &data1));
           FindClose(hFind);
         }
     #else
