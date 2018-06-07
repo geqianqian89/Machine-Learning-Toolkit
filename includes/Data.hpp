@@ -122,7 +122,7 @@ public :
      * \param pos_class String representing the positive class on the dataset.
      * \param neg_class String representing the negative class on the dataset.
      */
-    Data (const char* dataset, const char* pos_class = "1", const char* neg_class = "-1");
+    explicit Data (const char* dataset, const char* pos_class = "1", const char* neg_class = "-1");
     /**
      * \brief Constructor for empty data.
      * \param pos_class String representing the positive class on the dataset.

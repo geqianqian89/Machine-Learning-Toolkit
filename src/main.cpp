@@ -61,7 +61,7 @@ int main(int argc, char* argv[]){
         data->load(string(argv[1]));
     }
     while (true) {
-        if(sair) exitProgram();
+        if(sair) break;
         clear();
         mainMenu();
     }
@@ -243,7 +243,7 @@ void dataMenu(void){
 void VisualizationMenu(void){
     int option;
 
-    clear();
+    //clear();
     header();
 
     cout << "1 - Plot features in 2D" << endl;

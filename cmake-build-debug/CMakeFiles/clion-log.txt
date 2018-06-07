@@ -1,4 +1,3 @@
-/usr/share/clion/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System"
--- Configuring done
--- Generating done
--- Build files have been written to: /home/mateus558/Dropbox/Aprendizado de Máquinas/Classification_Algorithms_System/cmake-build-debug
+version https://git-lfs.github.com/spec/v1
+oid sha256:d73f088dad1c1e3ecb19edba09dcbbb77c19dedb486019dd5b2e84187bf05321
+size 409

@@ -140,12 +140,13 @@ void Visualization< T >::removeTempFiles(){
 template < typename T >
 void Visualization< T >::plot2D(int x, int y){
     string dims = itos(x) + ":" + itos(y);
-    string cmd = "set terminal qt; plot 'temp/pos.plt' using " + dims + " title '+1' with points, 'temp/neg.plt' using " + dims + " title '-1' with points";
+    string cmd = "plot 'temp/pos.plt' using " + dims + " title '+1' with points, 'temp/neg.plt' using " + dims + " title '-1' with points";
     createPosNegTemps();
 #ifdef __unix__
     cmd = "set terminal qt; " + cmd;
     g.cmd(cmd);
 #elif _WIN32
+    cmd = "set terminal windows; " + cmd;
     cmd = "echo " + cmd + " | gnuplot -persist";
         system(cmd.c_str());
 #endif
@@ -180,6 +181,7 @@ void Visualization< T >::plot2DwithHyperplane(int x, int y, Solution s){
     cmd = "set terminal qt; " + cmd;
     g.cmd(cmd);
 #elif _WIN32
+	cmd = "set terminal windows; " + cmd;
     cmd = "echo " + cmd + " | gnuplot -persist";
         system(cmd.c_str());
 #endif
@@ -199,7 +201,8 @@ void Visualization< T >::plot3DwithHyperplane(int x, int y, int z, Solution s){
     cmd = "set terminal qt; " + cmd;
     g.cmd(cmd);
 #elif _WIN32
-    cmd = "echo " + cmd + " | gnuplot -persist";
+    cmd = "set terminal windows; " + cmd;
+	cmd = "echo " + cmd + " | gnuplot -persist";
         system(cmd.c_str());
 #endif
 }
