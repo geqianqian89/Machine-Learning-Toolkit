@@ -6,6 +6,7 @@
 
 #include <cmath>
 #include <cstring>
+#include <sstream>
 #include "../includes/Utils.hpp"
 #define PRECISION 1E-9
 #define MAX_NUMBER_STRING_SIZE 32
@@ -47,36 +48,34 @@ int stoin(string str){
     return (sign) ? num * -1 : num;
 }
 
+double atof(char s[])
+{
+    double val, power;
+    int i, sign;
+    for (i = 0; isspace(s[i]); i++) /* skip white space */
+        ;
+    sign = (s[i] == '-') ? -1 : 1;
+    if (s[i] == '+' || s[i] == '-')
+        i++;
+    for (val = 0.0; isdigit(s[i]); i++)
+        val = 10.0 * val + (s[i] - '0');
+    if (s[i] == '.')
+        i++;
+    for (power = 1.0; isdigit(s[i]); i++) {
+        val = 10.0 * val + (s[i] - '0');
+        power *= 10;
+    }
+    return sign * val / power;
+}
+
 double stodn(string str){
-    double num, f = 0.1;
-    int i = 1, m = 1, j = 0, sign = 0, size = str.size();
+    double d = 0.0;
+    stringstream ss;
 
-    if(str[0] == '-'){
-        sign = 1;
-    }
+    ss<< str;
+    ss >> d;
 
-    for(i = i + sign; i < size; ++i){
-        if(str[i] == '.') break;
-        m *= 10;
-    }
-
-    for(i = sign; i < size; ++i){
-        if(str[i] == '.'){
-            i++;
-            break;
-        }
-        num += int(str[i] - '0')*m;
-        m /= 10;
-    }
-
-    for(j = i; j < size; ++j){
-        if(str[j] >= int('0') && str[j] <= int('9')){
-            num += int(str[j] - '0')*f;
-            f *= 0.1;
-        }
-    }
-
-    return (sign) ? num * -1 : num;
+    return d;
 }
 
 string itos(int n){

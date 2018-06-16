@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <cmath>
+#include <ctime>
 #include <float.h>
 #include "../includes/IMA.hpp"
 #include "../includes/Timer.hpp"
@@ -30,13 +31,15 @@ bool IMAp< T >::train() {
     unsigned int tMax = 0;
     int i, j, n, maiorn = 0, flagNao1aDim = 0, y, it, sign = 1;
     size_t size = this->samples->getSize(), dim = this->samples->getDim(), t1=1, t3=1;
-    double gamma, secs, bias = 0.0, alpha, rmargin = margin, inc;
+    double gamma, secs, bias = 0.0, alpha, rmargin = margin, inc, stime;
     double min = 0.0, max = 0.0, norm = 1.0, maiorw = 0.0;
     vector<double> w_saved, func;
     vector<int> index = this->samples->getIndex(), fnames = this->samples->getFeaturesNames();
     auto points = this->samples->getPoints();
     IMApFixedMargin< T > imapFixMargin(this->samples, gamma);
     Solution tempSol;
+
+    this->timer.Reset();
 
     n = dim;
     this->rate = 1.0;
@@ -124,11 +127,16 @@ bool IMAp< T >::train() {
     imapFixMargin.setGamma(gamma);
     imapFixMargin.setFlexible(this->flexible);
     imapFixMargin.setLearningRate(this->rate);
-
+    imapFixMargin.setMaxTime(this->max_time);
+    stime = this->timer.Elapsed();
+    imapFixMargin.setStartTime(stime);
     *imapFixMargin.getFlagNot1aDim() = flagNao1aDim;
 
     while(imapFixMargin.train())
     {
+        stime += imapFixMargin.getElapsedTime();
+        //imapFixMargin.setStartTime(stime);
+
         this->ctot = imapFixMargin.getCtot();
         this->steps = imapFixMargin.getSteps();
         //Finding minimum and maximum functional values
@@ -146,7 +154,8 @@ bool IMAp< T >::train() {
         }
         //Saving good weights
         for(i = 0; i < dim; i++) w_saved[i] = tempSol.w[i];
-        //Compute real margin
+
+        //Obtaining real margin
         rmargin = (fabs(min) > fabs(max)) ? fabs(max) : fabs(min);
 
         //Shift no bias
@@ -169,18 +178,16 @@ bool IMAp< T >::train() {
         if(it > 1)
         {
             this->rate = sqrt(t1) / sqrt(t3);
-            if(this->verbose) cout << "\tRATE: " << this->rate << "\n";
+            if(this->verbose) cout << "RATE: " << this->rate << "\n";
         }
         else if(it == 1 && this->verbose)
-            if(this->verbose) cout << "\tRATE: " << this->rate << "\n";
+            cout << "RATE: " << this->rate << "\n";
 
-        secs = imapFixMargin.getElapsedTime()/1000;
+        secs = stime/1000;
         if(this->verbose) cout << " " << it+1 << "        " << this->steps << "           " << this->ctot << "              " << rmargin << "            " << norm << "           " << secs << " ";
 
         ++it; //IMA iteration increment
 
-        imapFixMargin.setCtot(this->ctot);
-        imapFixMargin.setSteps(this->steps);
         imapFixMargin.setGamma(gamma);
         imapFixMargin.setSolution(tempSol);
         imapFixMargin.setLearningRate(this->rate);
@@ -189,6 +196,8 @@ bool IMAp< T >::train() {
         if(flagNao1aDim) break;
     }
 
+    this->steps = imapFixMargin.getSteps();
+    this->ctot = imapFixMargin.getCtot();
     this->solution.w = w_saved;
     this->solution.margin = rmargin;
     this->solution.norm = norm;
@@ -202,7 +211,7 @@ bool IMAp< T >::train() {
         cout << "Number of updates: " << this->ctot << "\n";
         cout << "Margin found: " << rmargin << "\n";
         cout << "Min: " << fabs(min) << " / Max: " << fabs(max) << "\n\n";
-        if(this->verbose == 3)
+        if(this->verbose >= 2)
         {
             for(i = 0; i < dim; ++i) cout << "W[" << fnames[i] << "]: " << w_saved[i] << "\n";
             cout << "Bias: " << this->solution.bias << "\n\n";
@@ -241,10 +250,10 @@ IMApFixedMargin< T >::IMApFixedMargin(std::shared_ptr<Data< T > > samples, doubl
 
 template < typename T >
 bool IMApFixedMargin< T >::train() {
-    int c, e, i, k, s, j;
+    int c, e = 1, i, k, s = 0, j;
     int t, idx, r;
     size_t size = this->samples->getSize(), dim = this->samples->getDim();
-    double norm = this->solution.norm , bias = this->solution.bias, lambda = 1, y, time = this->max_time;
+    double norm = this->solution.norm , bias = this->solution.bias, lambda = 1, y, time = this->max_time + this->start_time;
     register double sumnorm = 0; //soma das normas para o calculo posterior (nao mais sqrt)
     double maiorw_temp = 0;
     int n_temp, sign= 1;
@@ -252,31 +261,29 @@ bool IMApFixedMargin< T >::train() {
     vector<double> func(size, 0.0);
     vector<int> index = this->samples->getIndex();
     vector< T > x;
-    vector<shared_ptr<Point< T > > > points = this->samples->getPoints();
-    e = 1,s = 0;
 
-    this->timer.Reset();
-    this->start_time = this->timer.Elapsed();
-    time += this->start_time;
     while(this->timer.Elapsed() - time <= 0)
     {
         for(e = 0, i = 0; i < size; ++i)
         {
             //shuffling data r = i + rand()%(size-i); j = index[i]; idx = index[i] = index[r]; index[r] = j;
             idx = index[i];
-            x = points[idx]->x;
-            y = points[idx]->y;
-
+            //cout << idx << endl;
+            x = (*this->samples)[idx]->x;
+            y = (*this->samples)[idx]->y;
+            //if(i == 100) return 1;
             //calculating function
-            for(func[idx] = bias, j = 0; j < dim; ++j)
+            for(func[idx] = bias, j = 0; j < dim; ++j){
                 func[idx] += this->w[j] * x[j];
+            }
 
+            //cout << "funcidx: " << y*func[idx] << " marg: " << this->gamma*norm - points[idx]->alpha*this->flexible <<"\n ";
             //Checking if the point is a mistake
-            if(y*func[idx] <= this->gamma*norm - points[idx]->alpha*this->flexible)
+            if(y*func[idx] <= this->gamma*norm - (*this->samples)[idx]->alpha*this->flexible)
             {
                 lambda = (norm) ? (1-this->rate*this->gamma/norm) : 1;
                 for(r = 0; r < size; ++r)
-                    points[r]->alpha *= lambda;
+                    (*this->samples)[r]->alpha *= lambda;
 
                 if(this->q == 1.0) //Linf
                 {
@@ -305,10 +312,10 @@ bool IMApFixedMargin< T >::train() {
                     n_temp = 1;
                     for(j = 0; j < dim; ++j)
                     {
-                        if(maiorw == 0 || fabs(maiorw - fabs(this->w[j]))/maiorw < this->EPS)
+                        if(this->maiorw == 0 || fabs(this->maiorw - fabs(this->w[j]))/this->maiorw < this->EPS)
                         {
                             sign = 1; if(this->w[j] < 0) sign = -1;
-                            lambda = (norm > 0 && this->w[j] != 0) ? this->gamma * sign / n : 0;
+                            lambda = (norm > 0 && this->w[j] != 0) ? this->gamma * sign / this->n : 0;
                             this->w[j] += this->rate * (y * x[j] - lambda);
                         }
                         else
@@ -325,12 +332,12 @@ bool IMApFixedMargin< T >::train() {
                             }
                         }
                     }
-                    maiorw = maiorw_temp;
-                    n = n_temp;
-                    norm = maiorw;
-                    if(n > maiorn) maiorn = n;
+                    this->maiorw = maiorw_temp;
+                    this->n = n_temp;
+                    norm = this->maiorw;
+                    if(this->n > this->maiorn) this->maiorn = this->n;
                 }
-                else //outras formula\E7\F5es - Lp
+                else //outras formula��es - Lp
                 {
                     for(sumnorm = 0, j = 0; j < dim; ++j)
                     {
@@ -341,22 +348,23 @@ bool IMApFixedMargin< T >::train() {
                     norm = pow(sumnorm, 1.0/this->q);
                 }
                 bias += this->rate * y;
-                points[idx]->alpha += this->rate;
+                (*this->samples)[idx]->alpha += this->rate;
 
                 k = (i > s) ? s++ : e;
                 j = index[k];
                 index[k] = idx;
                 index[i] = j;
                 this->ctot++; e++;
-
-            }else if(t > 0 && e > 1 && i > s) break;
+            }
+            else if(this->steps > 0 && e > 1 && i > s) break;
         }
         this->steps++; //Number of iterations update
+        //cout << e << endl;
         //stop criterion
         if(e == 0)     break;
         if(this->steps > this->MAX_IT) break;
         if(this->ctot > this->MAX_UP) break;
-        if(flagNao1aDim) if(this->ctot > tMax) break;
+        if(this->flagNao1aDim) if(this->ctot > tMax) break;
     }
 
     this->samples->setIndex(index);
@@ -396,11 +404,13 @@ bool IMADual< T >::train() {
 
     register int i, j;
     size_t sv = 0, size = this->samples->getSize(), dim = this->samples->getDim();
-    double min, max, norm = 0;
+    double min, max, norm = 0, stime = 0;
     dMatrix K;
     vector<int> index = this->samples->getIndex();
     vector<double> w_saved(dim), saved_alphas(size), func(size);
     vector<shared_ptr<Point< T > > > points = this->samples->getPoints();
+
+    this->timer.Reset();
 
     //Allocating space for index
     if(index.size() == 0)
@@ -413,7 +423,7 @@ bool IMADual< T >::train() {
     this->solution.bias = 0;
 
     //Allocating space kernel matrix
-    this->kernel->compute(*this->samples);
+    this->kernel->compute(this->samples);
 
     if(this->verbose)
     {
@@ -423,28 +433,32 @@ bool IMADual< T >::train() {
     }
 
     it = 0; this->ctot = 0; this->steps = 0; this->gamma = 0;
-    double start_time = 100.0f*clock()/CLOCKS_PER_SEC;
 
     PerceptronFixedMarginDual< T > percDual(this->samples, this->gamma, this->rate, this->kernel, nullptr);
-    Solution sol;
+    Solution sol, *solr;
 
-    while(true){
-        if(!percDual.train()) break;
+    percDual.setLearningRate(this->rate);
+    percDual.setMaxTime(this->max_time);
+    //this->timer.Reset();
+    //stime = this->timer.Elapsed();
+    //percDual.setStartTime(stime);
+
+    while(percDual.train()){
+        stime += percDual.getElapsedTime();
 
         //Finding minimum and maximum functional values
         this->ctot = percDual.getCtot();
         this->steps = percDual.getSteps();
-        sol = percDual.getSolution();
-        norm = sol.norm;
-        this->solution.bias = sol.bias;
-        func = sol.func;
+        solr = percDual.getSolutionRef();
+        norm = solr->norm;
+        this->solution.bias = solr->bias;
 
         for(sv = 0, min = DBL_MAX, max = -DBL_MAX, i = 0; i < size; ++i)
         {
             if(points[i]->alpha > this->EPS*this->rate) { sv++; saved_alphas[i] = points[i]->alpha; }
             else                           { saved_alphas[i] = 0.0; }
-            if(func[i] >= 0 && min > func[i]/norm) min = func[i]/norm;
-            else if(func[i] <  0 && max < func[i]/norm) max = func[i]/norm;
+            if(solr->func[i] >= 0 && min > solr->func[i]/norm) min = solr->func[i]/norm;
+            else if(solr->func[i] <  0 && max < solr->func[i]/norm) max = solr->func[i]/norm;
         }
 
         //Obtaining real margin
@@ -454,12 +468,8 @@ bool IMADual< T >::train() {
         this->gamma = (min-max)/2.0;
         if(this->gamma < this->MIN_INC*rmargin) this->gamma = this->MIN_INC*rmargin;
 
-        percDual.setCtot(this->ctot);
-        percDual.setSteps(this->steps);
         percDual.setGamma(this->gamma);
-        percDual.setSolution(sol);
-
-        secs = (100.0f*clock()/CLOCKS_PER_SEC-start_time)/100.0f;
+        secs = percDual.getElapsedTime()/1000;
 
         if(this->verbose) cout << "    " << this->steps <<"         " << this->ctot << "          " << rmargin << "         " << norm << "     " << sv <<"     "<< secs << endl;
         ++it; //IMA iteration increment
@@ -489,9 +499,9 @@ bool IMADual< T >::train() {
     else
     {
         if(kernel_type == 1 && kernel_param == 1)
-            DualClassifier< T >::getDualWeightProdInt();
+            w_saved = DualClassifier< T >::getDualWeightProdInt();
         else
-            DualClassifier< T >::getDualWeight();
+            w_saved = DualClassifier< T >::getDualWeight();
         if(it) Data< T >::normalize(this->solution.w, 2);
     }
 
@@ -505,7 +515,7 @@ bool IMADual< T >::train() {
         cout << "Number of updates: " << this->ctot << endl;
         cout << "Number of support vectors: " << sv << endl;
         cout << "Margin found: " << rmargin << "\n\n";
-        if(this->verbose > 1)
+        if(this->verbose > 2)
         {
             vector<int> fnames = this->samples->getFeaturesNames();
             for(i = 0; i < dim; i++)

@@ -6,16 +6,16 @@
    \author Mateus Coutinho Marim
 */
 
-#include <chrono>
+#include <cstdio>
+#include <ctime>
 
 class Timer {
 public:
-    typedef std::chrono::high_resolution_clock Clock;
-    typedef std::chrono::milliseconds ms;
-
-    inline void Reset(){ epoch = Clock::now(); }
-    inline double Elapsed() const { return std::chrono::duration_cast<ms>(Clock::now() - epoch).count(); }
+    inline Timer() {start = std::clock();}
+    inline void Reset(){ start = std::clock(); }
+    inline double Elapsed() const { return 100.0f*( std::clock() - start ) / (double) CLOCKS_PER_SEC; }
 private:
-    Clock::time_point epoch;
+    std::clock_t start;
+    double duration;
 };
 #endif

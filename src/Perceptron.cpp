@@ -233,7 +233,7 @@ bool PerceptronDual< T > ::train(){
     vector<int> index = this->samples->getIndex();
     vector<double> func(size, 0.0), Kv;
     vector<shared_ptr<Point< T > > > points = this->samples->getPoints();
-    dMatrix K = this->kernel->getKernelMatrix();
+    dMatrix *K = this->kernel->getKernelMatrixPointer();
 
     if(this->alpha.size() == 0){
         this->alpha.assign(size, 0.0);
@@ -241,13 +241,12 @@ bool PerceptronDual< T > ::train(){
 
     e = 1;
 
-    this->timer.Reset();
     while(this->timer.Elapsed() - time <= 0){
         for(e = 0, i = 0; i < size; ++i){
             idx = index[i];
             y = points[idx]->y;
 
-            Kv = K[idx];
+            Kv = (*K)[idx];
             double f;
 
             //Calculating function
@@ -317,16 +316,14 @@ bool PerceptronFixedMarginDual< T >::train(){
     const double tworate = 2*this->rate;
     vector<int> index = this->samples->getIndex();
     vector<double> func = this->solution.func, Kv;
-    vector<shared_ptr<Point< T > > > points = this->samples->getPoints();
     dMatrix *K = this->kernel->getKernelMatrixPointer();
 
     e = 1, s = 0;
 
-    this->timer.Reset();
     while(this->timer.Elapsed() - time <= 0){
         for(e = 0, i = 0; i < size; ++i){
             idx = index[i];
-            y = points[idx]->y;
+            y = (*this->samples)[idx]->y;
 
             //Checking if the point is a mistake
 
@@ -336,12 +333,12 @@ bool PerceptronFixedMarginDual< T >::train(){
                 norm  *= lambda;
 
                 for(r = 0; r < size; ++r){
-                    points[r]->alpha *= lambda;
+                    (*this->samples)[r]->alpha *= lambda;
                     func[r]  = lambda * func[r] + this->rate*y*(Kv[r]+1) + bias*(1-lambda);
                 }
 
-                norm = sqrt(norm*norm + tworate*points[idx]->y*lambda*(func[idx]-bias) + sqrate*Kv[idx]);
-                points[idx]->alpha += this->rate;
+                norm = sqrt(norm*norm + tworate*(*this->samples)[idx]->y*lambda*(func[idx]-bias) + sqrate*Kv[idx]);
+                (*this->samples)[idx]->alpha += this->rate;
 
                 bias += this->rate * y;
 
@@ -368,8 +365,8 @@ bool PerceptronFixedMarginDual< T >::train(){
     this->solution.alpha.resize(size);
     for(i = 0; i < dim; i++){
         for(j = 0; j < size; j++){
-            this->solution.alpha[j] = points[j]->alpha;
-            this->solution.w[i] += points[j]->alpha * points[j]->y * points[j]->x[i];
+            this->solution.alpha[j] = (*this->samples)[j]->alpha;
+            this->solution.w[i] += (*this->samples)[j]->alpha * (*this->samples)[j]->y * (*this->samples)[j]->x[i];
         }
     }
 

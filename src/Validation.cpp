@@ -75,10 +75,8 @@ double Validation< T > ::kFold (int fold, int seed){
     size_t qtdpos = 0, qtdneg = 0, cost_pos = 0, cost_neg = 0, svcount = 0;
     double error = 0.0, func = 0.0, margin = 0.0;
     vector<double> w;
-    dMatrix matrix;
     vector<int> error_arr(fold);
-    unique_ptr<Data< T > > sample_pos(make_unique<Data< T > > ()), sample_neg(make_unique<Data< T > > ()), test_sample(make_unique<Data< T > > ()),
-            traintest_sample(make_unique<Data< T > > ());
+    unique_ptr<Data< T > > sample_pos(make_unique<Data< T > > ()), sample_neg(make_unique<Data< T > > ()), test_sample(make_unique<Data< T > > ());
     shared_ptr<Data< T > >  train_sample(make_shared<Data< T > > ());
     vector<std::unique_ptr<Data< T > > > vet_sample_pos(fold), vet_sample_neg(fold), vet_sample_final(fold);
     bool isPrimal = classifier->classifierType() == "Primal";
@@ -218,16 +216,17 @@ double Validation< T > ::kFold (int fold, int seed){
         }else{
             DualClassifier< T >  *dual = dynamic_cast<DualClassifier< T > *>(classifier);
             Kernel K(dual->getKernelType(), dual->getKernelParam());
-            dMatrix matrix;
+            dMatrix *matrix;
+            shared_ptr<Data< T > > traintest_sample(make_shared<Data< T > >());
 
-            *traintest_sample = test_sample->copy();
+            *traintest_sample = *test_sample;
             traintest_sample->join(train_sample);
-            K.compute(*traintest_sample);
-            matrix = K.getKernelMatrix();
+            K.compute(traintest_sample);
+            matrix = K.getKernelMatrixPointer();
 
             for(i = 0; i < test_sample->getSize(); ++i){
                 for(func = s.bias, k = 0; k < train_sample->getSize(); ++k)
-                    func += train_sample->getPoint(k)->alpha * train_sample->getPoint(k)->y * matrix[k+test_sample->getSize()][i];
+                    func += train_sample->getPoint(k)->alpha * train_sample->getPoint(k)->y * (*matrix)[k+test_sample->getSize()][i];
 
                 if(test_sample->getPoint(i)->y * func <= 0){
                     if(verbose > 1)
@@ -256,7 +255,6 @@ double Validation< T > ::validation(int fold, int qtde){
             train_size = train_sample->getSize(), train_dim = train_sample->getDim();
     double error = 0, errocross = 0, func = 0.0, margin = 0, bias;
     vector<double> w;
-    Data< T > traintest_sample;
     bool isPrimal = (classifier->classifierType() == "Primal");
 
     sample = train_sample;
@@ -317,9 +315,11 @@ double Validation< T > ::validation(int fold, int qtde){
         DualClassifier< T >  *dual = dynamic_cast<DualClassifier< T > *>(classifier);
         Kernel K(dual->getKernelType(), dual->getKernelParam());
         dMatrix matrix;
+        shared_ptr<Data< T > > traintest_sample(make_shared<Data< T > >());
 
-        traintest_sample.join(test_sample);
-        traintest_sample.join(train_sample);
+        *traintest_sample = *test_sample;
+        traintest_sample->join(train_sample);
+
         K.compute(traintest_sample);
         matrix = K.getKernelMatrix();
 

@@ -17,10 +17,11 @@
 
 using namespace std;
 
+int verbose = 1;
 bool sair = false, inva = false;
-double max_time = 100.0f;
+double max_time = 110.0f;
 string data_folder = "DB/";
-std::shared_ptr<Data<double> > data(std::make_shared<Data<double> >());
+std::shared_ptr<Data<double> > data;
 Data<double> test_sample;
 Data<double> train_sample;
 Solution sol;
@@ -57,6 +58,8 @@ void validationOption(int);
 
 
 int main(int argc, char* argv[]){
+    data = std::make_shared<Data<double> >();
+
     if(argc > 1){
         data->load(string(argv[1]));
     }
@@ -179,8 +182,12 @@ int selector(void){
     }
     cout << " > ";
     cin >> opt;
-    istringstream iss(opt);
-    iss >> o;
+    if(opt != "m") {
+        istringstream iss(opt);
+        iss >> o;
+    }else{
+        o = 109;
+    }
     clear();
     return o;
 }
@@ -196,6 +203,11 @@ void mainMenu(){
     cout << "3 - Data Visualization" << endl;
     cout << "4 - Classifiers" << endl;
     cout << "8 - Validation" << endl;
+    cout << endl;
+    cout << "9 - Set Verbose" << endl;
+    cout << "10 - Set Max Time" << endl;
+    cout << endl;
+    cout << "--------------------------" <<endl;
     cout << "0 - Exit" << endl;
 
     option = selector();
@@ -211,9 +223,9 @@ void datasetMenu(void){
     cout << "1 - Load a dataset" << endl;
     cout << "2 - Dataset information " << endl;
     cout << "3 - Features names" << endl;
-    cout << "4 - Set max time" << endl;
-    cout << "5 - Divide dataset in Train/Test" << endl;
-    cout << "6 - Save Train/Test dataset" << endl;
+    cout << "4 - Divide dataset in Train/Test" << endl;
+    cout << "5 - Save Train/Test dataset" << endl;
+    cout << endl;
     cout << "0 - Back to the main menu" << endl;
 
     option = selector();
@@ -234,6 +246,7 @@ void dataMenu(void){
     cout << "6 - Distance from the center of the classes" << endl;
     cout << "7 - Normalize dataset" << endl;
     cout << "8 - Print dataset" << endl;
+    cout << endl;
     cout << "0 - Back to the main menu" << endl;
 
     option = selector();
@@ -250,6 +263,7 @@ void VisualizationMenu(void){
     cout << "2 - Plot features in 3D" << endl;
     cout << "3 - Plot features in 2D with hyperplane" << endl;
     cout << "4 - Plot features in 3D with hyperplane" << endl;
+    cout << endl;
     cout << "0 - Back to the main menu" << endl;
 
     option = selector();
@@ -264,6 +278,7 @@ void classifiersMenu(){
 
     cout << "1 - Primal Classifiers" << endl;
     cout << "2 - Dual Classifiers" << endl;
+    cout << endl;
     cout << "0 - Back to the main menu" << endl;
 
     option = selector();
@@ -278,7 +293,8 @@ void validationMenu(){
 
     cout << "1 - IMAp" << endl;
     cout << "2 - IMA Dual" << endl;
-    cout << "0 - Back to classifiers menu." << endl;
+    cout << endl;
+    cout << "0 - Back to main menu." << endl;
 
     opt = selector();
     validationOption(opt);
@@ -310,6 +326,19 @@ void mainOption(int option){
             break;
         case 8:
             validationMenu();
+            waitUserAction();
+            break;
+        case 9:
+            cout << "Actual Verbose = " << verbose << endl;
+            cout << "Set verbose: ";
+            cin >> verbose;
+            waitUserAction();
+            break;
+        case 10:
+            cout << "Actual MAX_TIME = " << max_time << endl;
+            cout << "Enter the max time: ";
+            cin >> max_time;
+
             waitUserAction();
             break;
         case 0:
@@ -422,12 +451,6 @@ void datasetOption(int option){
             waitUserAction();
             break;
         case 4:
-            cout << "Enter the max time: ";
-            cin >> max_time;
-
-            waitUserAction();
-            break;
-        case 5:
             if(!data->isEmpty()){
                 int fold;
                 unsigned int seed;
@@ -457,7 +480,7 @@ void datasetOption(int option){
 
             waitUserAction();
             break;
-        case 6:
+        case 5:
             /*if(_data != NULL && !_data->empty()){
                 if(!test_sample){
                     cerr << "Divide the train/test datasets first...\n" << endl;
@@ -763,7 +786,9 @@ void classifiersOption(int option){
             cout << "1 - Perceptron Primal" << endl;
             cout << "2 - Perceptron Primal with fixed margin" << endl;
             cout << "3 - Incremental Margin Algorithm Primal (IMAp)" << endl;
+            cout << endl;
             cout << "0 - Back to classifiers menu" << endl;
+            cout << "m - Back to main menu." << endl;
 
             opt = selector();
             primalClassifiersOption(opt);
@@ -775,7 +800,9 @@ void classifiersOption(int option){
             cout << "1 - Perceptron Dual" << endl;
             cout << "2 - Perceptron Dual with fixed margin" << endl;
             cout << "3 - Incremental Margin Algorithm Dual (IMA Dual)" << endl;
+            cout << endl;
             cout << "0 - Back to classifiers menu" << endl;
+            cout << "m - Back to main menu." << endl;
 
             opt = selector();
             dualClassifiersOption(opt);
@@ -836,18 +863,18 @@ void validationOption(int option){
                 cout << "Alpha aproximation value [1 - alpha]: ";
                 cin >> alpha_prox;
                 cout << endl;
-
+                cout << max_time << endl;
                 imap.setMaxTime(max_time);
                 imap.setpNorm(p);
                 imap.setqNorm(q);
-                imap.setVerbose(1);
+                imap.setVerbose(verbose);
                 imap.setFlexible(flexible);
                 imap.setAlphaAprox(alpha_prox);
 
                 clock_t begin = clock();
                 Validation<double> validate(data, &imap, 10);
 
-                validate.setVerbose(2);
+                validate.setVerbose(verbose);
                 validate.partTrainTest(fold);
                 validate.validation(fold, qtde);
                 clock_t end = clock();
@@ -888,10 +915,11 @@ void validationOption(int option){
 
                 clock_t begin = clock();
                 IMADual<double> ima_dual(data, &K, rate, nullptr);
+                ima_dual.setMaxTime(max_time);
 
                 Validation<double> validate(data, &ima_dual, 10);
 
-                validate.setVerbose(2);
+                validate.setVerbose(verbose);
                 validate.partTrainTest(fold);
                 validate.validation(fold, qtde);
                 clock_t end = clock();
@@ -905,7 +933,10 @@ void validationOption(int option){
             waitUserAction();
             break;
         case 0:
-            classifiersMenu();
+            mainMenu();
+            break;
+        case 109:
+            mainMenu();
             break;
         default:
             inva = true;
@@ -1055,6 +1086,9 @@ void primalClassifiersOption(int option){
         case 0:
             classifiersMenu();
             break;
+        case 109:
+            mainMenu();
+            break;
         default:
             inva = true;
             break;
@@ -1087,7 +1121,7 @@ void dualClassifiersOption(int option){
                 clock_t begin = clock();
                 K.setType(kernel_type);
                 K.setParam(kernel_param);
-                K.compute(*data);
+                K.compute(data);
 
                 PerceptronDual<double> perc_dual(data, rate, &K);
                 perc_dual.train();
@@ -1146,7 +1180,7 @@ void dualClassifiersOption(int option){
                 clock_t begin = clock();
                 K.setType(kernel_type);
                 K.setParam(kernel_param);
-                K.compute(*data);
+                K.compute(data);
 
                 PerceptronFixedMarginDual<double> perc_fixmargin_dual(data, gamma, rate, &K);
                 perc_fixmargin_dual.train();
@@ -1201,7 +1235,8 @@ void dualClassifiersOption(int option){
                 clock_t begin = clock();
                 IMADual<double> ima_dual(data, &K, rate, nullptr);
 
-                ima_dual.setVerbose(2);
+                ima_dual.setMaxTime(max_time);
+                ima_dual.setVerbose(verbose);
                 ima_dual.train();
                 clock_t end = clock();
 
@@ -1217,6 +1252,9 @@ void dualClassifiersOption(int option){
             break;
         case 0:
             classifiersMenu();
+            break;
+        case 109:
+            mainMenu();
             break;
         default:
             break;

@@ -327,7 +327,7 @@ bool Data< T >::load_data(string path){
                     }
                 }
                 if(is_number(buffer)){
-                    new_point->x[(atEnd)?dim:dim-1] = stodn(buffer);
+                    new_point->x[(atEnd)?dim:dim-1] = atof(buffer.c_str());
                     dim++;
                 }
             }else{

@@ -23,7 +23,7 @@ protected :
     /// Initial time.
     double start_time = 0.0f;
     /// Maximum time of training.
-    double max_time = 100;
+    double max_time = 110;
 public:
     double getMax_time() const;
 
@@ -119,6 +119,7 @@ public :
      * @return Solution
      */
     Solution getSolution() {return solution;}
+    Solution *getSolutionRef() { return &solution; }
     /**
      * @brief Set the max time of execution.
      * @param max_time  Max time.

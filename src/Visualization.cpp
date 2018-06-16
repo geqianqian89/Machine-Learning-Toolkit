@@ -175,6 +175,7 @@ void Visualization< T >::plot2DwithHyperplane(int x, int y, Solution s){
     string gx = "g(x) = "+dtoa(s.w[x-1]/-s.w[y-1])+"*x + "+dtoa((s.bias + s.margin*s.norm)/-s.w[y-1]);
     string hx = "h(x) = "+dtoa(s.w[x-1]/-s.w[y-1])+"*x + "+dtoa((s.bias - s.margin*s.norm)/-s.w[y-1]);
     string cmd = fx + "; "+ gx +"; "+ hx +"; plot 'temp/pos.plt' using "+feats+" title '+1' with points, 'temp/neg.plt' using "+feats+" title '-1' with points, f(x) notitle with lines ls 1, g(x) notitle with lines ls 2, h(x) notitle with lines ls 2";
+
     createPosNegTemps();
 
 #ifdef __unix__

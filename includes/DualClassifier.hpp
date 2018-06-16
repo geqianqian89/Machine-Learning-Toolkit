@@ -40,7 +40,7 @@ public:
     std::vector<double> getDualWeight(){
         register int i = 0, j = 0, k = 0;
         size_t size = this->samples->getSize(), dim = this->samples->getDim();
-        dMatrix H, Hk, matrixdif(size, std::vector<double>(size));
+        dMatrix *H, *Hk, matrixdif(size, std::vector<double>(size));
         std::vector<double> alphaaux(size);
 
         H = kernel->generateMatrixH(this->samples);
@@ -53,7 +53,7 @@ public:
 
             for(i = 0; i < size; ++i)
                 for(j = 0; j < size; ++j)
-                    matrixdif[i][j] = H[i][j] - Hk[i][j];
+                    matrixdif[i][j] = (*H)[i][j] - (*Hk)[i][j];
 
             for(i = 0; i < size; ++i)
                 for(alphaaux[i] = 0, j = 0; j < size; ++j)
@@ -78,9 +78,9 @@ public:
         {
             for(i = 0; i < size; ++i)
                 for(j = 0; j < size; ++j)
-                    H[i][j] = this->samples->getPoint(i)->x[k] * this->samples->getPoint(j)->x[k]
-                              * this->samples->getPoint(i)->y * this->samples->getPoint(j)->y;
-
+                    H[i][j] = (*this->samples)[i]->x[k] * (*this->samples)[j]->x[k]
+                              * (*this->samples)[i]->y * (*this->samples)[j]->y;
+            if(this->verbose >= 3) clog << "\n H matrix without dim generated.\n";
             for(i = 0; i < size; ++i)
                 for(alphaaux[i] = 0, j = 0; j < size; ++j)
                     alphaaux[i] += this->samples->getPoint(j)->alpha * H[i][j];

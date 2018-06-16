@@ -20,6 +20,8 @@ private :
     double param;
     /// Kernel matrix.
     dMatrix K;
+    dMatrix H;
+    dMatrix HwithoutDim;
 public :
     /**
      * @brief Class constructor.
@@ -67,13 +69,13 @@ public :
      * @param samples Data used to compute the kernel matrix.
      */
     template < typename T >
-    void compute(Data< T > samples);
+    void compute(std::shared_ptr<Data< T > > samples);
 
     template < typename T >
-    dMatrix generateMatrixH(const std::shared_ptr<Data< T > > samples);
+    dMatrix* generateMatrixH(std::shared_ptr<Data< T > > samples);
 
     template < typename T >
-    dMatrix generateMatrixHwithoutDim(const std::shared_ptr<Data< T > > samples, int dim);
+    dMatrix* generateMatrixHwithoutDim(std::shared_ptr<Data< T > > samples, int dim);
     /**
      * @brief function Compute the kernel function between two points.
      * @param one first point.
@@ -97,51 +99,56 @@ public :
 };
 
 template < typename T >
-void Kernel::compute(Data< T > samples){
-    size_t i, j, size = samples.getSize(), dim = samples.getDim();
-    vector<shared_ptr<Point< T > > > points = samples.getPoints();
+void Kernel::compute(const std::shared_ptr<Data< T > > samples){
+    size_t i, j, size = samples->getSize(), dim = samples->getDim();
 
     K.assign(size, vector<double>(size, 0.0));
 
     //Calculating Matrix
     for(i = 0; i < size; ++i){
         for(j = i; j < size; ++j){
-            K[i][j] = function(points[i], points[j], dim);
+            K[i][j] = function((*samples)[i], (*samples)[j], dim);
             K[j][i] = K[i][j];
         }
     }
 }
 
 template < typename T >
-dMatrix Kernel::generateMatrixH(const std::shared_ptr<Data< T > > samples) {
+dMatrix* Kernel::generateMatrixH(const std::shared_ptr<Data< T > > samples) {
     register int i = 0, j = 0;
     size_t size = samples->getSize(), dim = samples->getDim();
-    dMatrix matrix(size, vector<double>(size));
+
+    H.resize(size, vector<double>(size));
 
     /* Calculating Matrix */
-    for(i = 0; i < size; ++i)
-        for(j = i; j < size; ++j)
-        {
-            matrix[i][j] = function(samples->getPoint(i), samples->getPoint(j), dim) * samples->getPoint(i)->y * samples->getPoint(j)->y;
-            matrix[j][i] = matrix[i][j];
+    for(i = 0; i < size; ++i) {
+        for (j = i; j < size; ++j) {
+            H[i][j] = function(samples->getPoint(i), samples->getPoint(j), dim) * samples->getPoint(i)->y *
+                      samples->getPoint(j)->y;
+            H[j][i] = H[i][j];
         }
-    return matrix;
+    }
+    clog << "\nH matrix generated.\n";
+    return &H;
 }
 
 template < typename T >
-dMatrix Kernel::generateMatrixHwithoutDim(const std::shared_ptr<Data< T > > samples, int dim) {
+dMatrix* Kernel::generateMatrixHwithoutDim(const std::shared_ptr<Data< T > > samples, int dim) {
     register int i = 0, j = 0;
     size_t size = samples->getSize();
-    dMatrix matrix(size, vector<double>(size));
+
+    HwithoutDim.resize(size, vector<double>(size));
 
     /* Calculating Matrix */
-    for(i = 0; i < size; ++i)
-        for(j = i; j < size; ++j)
-        {
-            matrix[i][j] = functionWithoutDim(samples->getPoint(i), samples->getPoint(j), dim, samples->getDim()) * samples->getPoint(i)->y * samples->getPoint(j)->y;
-            matrix[j][i] = matrix[i][j];
+    for(i = 0; i < size; ++i) {
+        for (j = i; j < size; ++j) {
+            HwithoutDim[i][j] = functionWithoutDim((*samples)[i], (*samples)[j], dim, samples->getDim()) *
+                                samples->getPoint(i)->y * samples->getPoint(j)->y;
+            HwithoutDim[j][i] = HwithoutDim[i][j];
         }
-    return matrix;
+    }
+   // clog << "\nH matrix without dim generated.\n";
+    return &HwithoutDim;
 }
 
 template < typename T >
