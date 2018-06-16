@@ -21,7 +21,7 @@ int verbose = 1;
 bool sair = false, inva = false;
 double max_time = 110.0f;
 string data_folder = "DB/";
-std::shared_ptr<Data<double> > data;
+std::shared_ptr<Data<double> > data(std::make_shared<Data<double> >());
 Data<double> test_sample;
 Data<double> train_sample;
 Solution sol;
@@ -58,8 +58,6 @@ void validationOption(int);
 
 
 int main(int argc, char* argv[]){
-    data = std::make_shared<Data<double> >();
-
     if(argc > 1){
         data->load(string(argv[1]));
     }
@@ -256,7 +254,7 @@ void dataMenu(void){
 void VisualizationMenu(void){
     int option;
 
-    //clear();
+    clear();
     header();
 
     cout << "1 - Plot features in 2D" << endl;
