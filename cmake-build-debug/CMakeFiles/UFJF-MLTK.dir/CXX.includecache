@@ -135,7 +135,9 @@ Data.hpp
 C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Data.hpp
 
 C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Timer.hpp
-chrono
+cstdio
+-
+ctime
 -
 
 C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Utils.hpp
@@ -231,6 +233,8 @@ iostream
 -
 cmath
 -
+ctime
+-
 float.h
 -
 ../includes/IMA.hpp
@@ -258,6 +262,8 @@ C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/src/Util
 cmath
 -
 cstring
+-
+sstream
 -
 ../includes/Utils.hpp
 C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Utils.hpp
