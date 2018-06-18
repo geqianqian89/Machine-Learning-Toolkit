@@ -862,11 +862,16 @@ void Data< T >::normalize(double p){
         for(norm = 0, j = 0; j < dim; ++j){
             norm += pow(fabs(points[i]->x[j]),p);
         }
+        points[i]->x.resize(dim+1);
+        points[i]->x[j] = 1;
+        fnames[j] = j+1;
+        norm += pow(fabs(points[i]->x[j]),p);
         norm = pow(norm, 1.0/p);
-        for(j = 0; j < dim; ++j){
+        for(j = 0; j < dim+1; ++j){
             points[i]->x[j] /= norm;
         }
     }
+    dim++;
 
     normalized = true;
 }
