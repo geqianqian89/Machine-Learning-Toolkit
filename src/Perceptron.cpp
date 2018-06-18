@@ -100,10 +100,10 @@ bool PerceptronFixedMarginPrimal< T >::train(){
     vector<int> index = this->samples->getIndex();
     shared_ptr<Point< T > > p;
 
+    if(func.size() == 0) func.resize(size);
     if(w.size() == 0) w.resize(dim);
     e = s = 0;
 
-    this->timer.Reset();
     while(this->timer.Elapsed() - time <= 0){
         for(e = 0, i = 0; i < size; ++i){
             idx = index[i];
@@ -318,6 +318,7 @@ bool PerceptronFixedMarginDual< T >::train(){
     vector<double> func = this->solution.func, Kv;
     dMatrix *K = this->kernel->getKernelMatrixPointer();
 
+    if(func.size() == 0){ func.resize(size);}
     e = 1, s = 0;
 
     while(this->timer.Elapsed() - time <= 0){
