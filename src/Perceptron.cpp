@@ -320,6 +320,7 @@ bool PerceptronFixedMarginDual< T >::train(){
 
     if(func.size() == 0){ func.resize(size);}
     e = 1, s = 0;
+    this->timer.Reset();
 
     while(this->timer.Elapsed() - time <= 0){
         for(e = 0, i = 0; i < size; ++i){

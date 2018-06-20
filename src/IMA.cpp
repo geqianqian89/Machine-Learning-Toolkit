@@ -17,6 +17,8 @@ IMAp< T >::IMAp(std::shared_ptr<Data< T > > samples, double margin,  Solution *i
     this->samples = samples;
     this->margin = margin;
 
+    this->hasInitialSolution = false;
+
     if(initial_solution){
         this->w = initial_solution->w;
         this->solution.bias = initial_solution->bias;
@@ -29,7 +31,7 @@ IMAp< T >::IMAp(std::shared_ptr<Data< T > > samples, double margin,  Solution *i
 template < typename T >
 bool IMAp< T >::train() {
     unsigned int tMax = 0;
-    int i, j, n, maiorn = 0, flagNao1aDim = 0, y, it, sign = 1;
+    int i, j, n, maiorn = 0, flagNao1aDim = 0, y, it, sign = 1, svs = 0;
     size_t size = this->samples->getSize(), dim = this->samples->getDim(), t1=1, t3=1;
     double gamma, secs, bias = 0.0, alpha, rmargin = margin, inc, stime;
     double min = 0.0, max = 0.0, norm = 1.0, maiorw = 0.0;
@@ -145,11 +147,11 @@ bool IMAp< T >::train() {
         bias  = tempSol.bias;
         func = tempSol.func;
 
-        for(min = DBL_MAX, max = -DBL_MAX, i = 0; i < size; ++i)
+        for(svs = 0, min = DBL_MAX, max = -DBL_MAX, i = 0; i < size; ++i)
         {
             y = points[i]->y;
             alpha = points[i]->alpha;
-            if((func[i] + y*alpha*this->flexible) >= 0 && min > (func[i] + y*alpha*this->flexible)/norm) min = (func[i] + y*alpha*this->flexible)/norm;
+            if((func[i] + y*alpha*this->flexible) >= 0 && min > (func[i] + y*alpha*this->flexible)/norm){ min = (func[i] + y*alpha*this->flexible)/norm; }
             else if((func[i] + y*alpha*this->flexible) <  0 && max < (func[i] + y*alpha*this->flexible)/norm) max = (func[i] + y*alpha*this->flexible)/norm;
         }
         //Saving good weights
@@ -195,13 +197,19 @@ bool IMAp< T >::train() {
         //  break;
         if(flagNao1aDim) break;
     }
-
+    for(min = DBL_MAX, max = -DBL_MAX, i = 0; i < size; ++i)
+    {
+        y = points[i]->y;
+        alpha = points[i]->alpha;
+         if(alpha > this->EPS * this->rate) { this->svs.push_back(i); }        
+    }
     this->steps = imapFixMargin.getSteps();
     this->ctot = imapFixMargin.getCtot();
     this->solution.w = w_saved;
     this->solution.margin = rmargin;
     this->solution.norm = norm;
     this->solution.bias = bias;
+    this->solution.svs = this->svs.size();
 
     if(this->verbose)
     {
@@ -210,7 +218,8 @@ bool IMAp< T >::train() {
         cout << "Number of steps through data: " << this->steps <<"\n";
         cout << "Number of updates: " << this->ctot << "\n";
         cout << "Margin found: " << rmargin << "\n";
-        cout << "Min: " << fabs(min) << " / Max: " << fabs(max) << "\n\n";
+        cout << "Min: " << fabs(min) << " / Max: " << fabs(max) << "\n";
+        cout << "Number of Support Vectors: " << this->svs.size()  << "\n\n";
         if(this->verbose >= 2)
         {
             for(i = 0; i < dim; ++i) cout << "W[" << fnames[i] << "]: " << w_saved[i] << "\n";
@@ -230,7 +239,20 @@ bool IMAp< T >::train() {
 
 template < typename T >
 double IMAp< T >::evaluate(Point< T > p) {
-    return 0;
+    double func = 0.0;
+    int i;
+    size_t dim = this->solution.w.size();
+
+    if(p.x.size() != dim){
+        cerr << "The point must have the same dimension of the feature set!" << endl;
+        return 0;
+    }
+
+    for(func = this->solution.bias, i = 0; i < dim; i++){
+        func += this->solution.w[i] * p[i];
+    }
+
+    return (func >= this->solution.margin * this->solution.norm)?1:-1;
 }
 
 template < typename T >
@@ -439,9 +461,8 @@ bool IMADual< T >::train() {
 
     percDual.setLearningRate(this->rate);
     percDual.setMaxTime(this->max_time);
-    //this->timer.Reset();
-    //stime = this->timer.Elapsed();
-    //percDual.setStartTime(stime);
+
+    stime = this->timer.Elapsed();
 
     while(percDual.train()){
         stime += percDual.getElapsedTime();
@@ -469,7 +490,7 @@ bool IMADual< T >::train() {
         if(this->gamma < this->MIN_INC*rmargin) this->gamma = this->MIN_INC*rmargin;
 
         percDual.setGamma(this->gamma);
-        secs = percDual.getElapsedTime()/1000;
+        secs = stime / 1000;
 
         if(this->verbose) cout << "    " << this->steps <<"         " << this->ctot << "          " << rmargin << "         " << norm << "     " << sv <<"     "<< secs << endl;
         ++it; //IMA iteration increment

@@ -24,6 +24,7 @@ public:
     explicit IMAp(std::shared_ptr<Data< T > > samples = nullptr, double margin = 0.0, Solution *initial_solution = nullptr);
 
     bool train() override;
+    std::vector<int> getSupportVectors(){ return svs; }
     double evaluate(Point< T >  p) override;
 };
 

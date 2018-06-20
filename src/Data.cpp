@@ -807,7 +807,7 @@ shared_ptr<Point< T > > Data< T >::getPoint(int index){
 
 template < typename T >
 void Data< T >::setPoint(int index, shared_ptr<Point< T > > p){
-    points[index] = std::move(p);
+    points[index] = p;
 }
 
 template < typename T >
@@ -902,7 +902,7 @@ vector<int> Data< T >::getFeaturesNames(){
 
 template < typename T >
 void Data< T >::setFeaturesNames(std::vector<int> fnames){
-    this->fnames = std::move(fnames);
+    this->fnames = fnames;
 }
 
 template < typename T >
@@ -932,8 +932,8 @@ Statistics< T > Data< T >::getStatistics(){
 
 template < typename T >
 void Data< T >::setClasses(string pos, string neg){
-    pos_class = std::move(pos);
-    neg_class = std::move(neg);
+    pos_class = pos;
+    neg_class = neg;
 }
 
 template < typename T >
@@ -974,7 +974,11 @@ void Data< T >::clear(){
 }
 
 template < typename T >
-Data< T >::~Data(){}
+Data< T >::~Data(){
+    this->points.clear();
+    this->index.clear();
+    this->fnames.clear();
+}
 
 template < typename T >
 void Data< T >::setIndex(std::vector<int> index) {
