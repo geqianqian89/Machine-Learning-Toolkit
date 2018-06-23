@@ -37,6 +37,8 @@ public:
 
     inline void setKernelParam(double param){ kernel->setType(param); }
 
+    std::vector<double> getAlphaVector() { return alpha; }
+
     std::vector<double> getDualWeight(){
         register int i = 0, j = 0, k = 0;
         size_t size = this->samples->getSize(), dim = this->samples->getDim();

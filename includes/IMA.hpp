@@ -24,8 +24,9 @@ public:
     explicit IMAp(std::shared_ptr<Data< T > > samples = nullptr, double margin = 0.0, Solution *initial_solution = nullptr);
 
     bool train() override;
-    std::vector<int> getSupportVectors(){ return svs; }
     double evaluate(Point< T >  p) override;
+
+    std::vector<int> getSupportVectors(){ return svs; }
 };
 
 /**
@@ -54,10 +55,14 @@ template < typename T >
 class IMADual : public DualClassifier< T >  {
 private:
     double margin = 0;
+    /// Support vector.
+    std::vector<int> svs;
 public:
     explicit IMADual(std::shared_ptr<Data< T > > samples = nullptr, Kernel *k = nullptr, double rate = 1, Solution *initial_solution = nullptr);
     bool train() override;
     double evaluate(Point< T >  p) override;
+
+    std::vector<int> getSupportVectors(){ return svs; }
 };
 
 #endif //CLASSIFICATION_ALGORITHMS_SYSTEM_IMAP_HPP

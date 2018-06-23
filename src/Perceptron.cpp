@@ -227,7 +227,7 @@ template < typename T >
 bool PerceptronDual< T > ::train(){
     size_t y, e, i, j, idx, r, size = this->samples->getSize(), dim = this->samples->getDim();
     double norm = this->solution.norm, time = this->start_time+this->max_time;
-    double bias = this->solution.bias;
+    double bias = this->solution.bias, f;
     const double sqrate = this->rate * this->rate;
     const double tworate = 2 * this->rate;
     vector<int> index = this->samples->getIndex();
@@ -246,17 +246,14 @@ bool PerceptronDual< T > ::train(){
             idx = index[i];
             y = points[idx]->y;
 
-            Kv = (*K)[idx];
-            double f;
-
             //Calculating function
             for(f = bias, r = 0; r < size; ++r)
-                f += this->alpha[r] * points[index[r]]->y*Kv[index[r]];
+                f += this->alpha[r] * points[index[r]]->y*(*K)[idx][index[r]];
             func[idx] = f;
 
             //Checking if the point is a mistake
             if(y * f <= 0.0){
-                norm = sqrt(norm * norm + tworate*points[idx]->y*func[idx] - bias + sqrate*Kv[idx]);
+                norm = sqrt(norm * norm + tworate*points[idx]->y*func[idx] - bias + sqrate*(*K)[idx][idx]);
                 this->alpha[i] += this->rate;
                 bias += this->rate * y;
                 ++this->ctot, ++e;
@@ -287,8 +284,13 @@ bool PerceptronDual< T > ::train(){
 
 template < typename T >
 double PerceptronDual< T > ::evaluate(Point< T > p){
+    size_t i, idx, size = this->samples->getSize();
+    double f, bias = this->solution.bias;
+    vector<int> index = this->samples->getIndex();
+    dMatrix *K = this->kernel->getKernelMatrixPointer();
+
+
     return 0.0;
-    //return p.dot(this->solution.w);
 }
 
 template < typename T >
@@ -331,15 +333,14 @@ bool PerceptronFixedMarginDual< T >::train(){
 
             if(y*func[idx] - this->gamma*norm <= 0){
                 lambda = (this->gamma) ? (1-this->rate*this->gamma/norm) : 1;
-                Kv     = (*K)[idx];
                 norm  *= lambda;
 
                 for(r = 0; r < size; ++r){
                     (*this->samples)[r]->alpha *= lambda;
-                    func[r]  = lambda * func[r] + this->rate*y*(Kv[r]+1) + bias*(1-lambda);
+                    func[r]  = lambda * func[r] + this->rate*y*((*K)[idx][r]+1) + bias*(1-lambda);
                 }
 
-                norm = sqrt(norm*norm + tworate*(*this->samples)[idx]->y*lambda*(func[idx]-bias) + sqrate*Kv[idx]);
+                norm = sqrt(norm*norm + tworate*(*this->samples)[idx]->y*lambda*(func[idx]-bias) + sqrate*(*K)[idx][idx]);
                 (*this->samples)[idx]->alpha += this->rate;
 
                 bias += this->rate * y;

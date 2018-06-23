@@ -401,7 +401,20 @@ bool IMApFixedMargin< T >::train() {
 
 template < typename T >
 double IMApFixedMargin< T >::evaluate(Point< T > p) {
-    return 0;
+    double func = 0.0;
+    int i;
+    size_t dim = this->solution.w.size();
+
+    if(p.x.size() != dim){
+        cerr << "The point must have the same dimension of the feature set!" << endl;
+        return 0;
+    }
+
+    for(func = this->solution.bias, i = 0; i < dim; i++){
+        func += this->solution.w[i] * p[i];
+    }
+
+    return (func >= this->solution.margin * this->solution.norm)?1:-1;
 }
 
 template < typename T >
@@ -499,9 +512,15 @@ bool IMADual< T >::train() {
     this->ctot = percDual.getCtot();
     this->steps = percDual.getSteps();
     sol = percDual.getSolution();
+    this->alpha = percDual.getAlphaVector();
     norm = sol.norm;
     this->solution.bias = sol.bias;
     func = sol.func;
+
+    for(i = 0; i < size; ++i)
+    {
+        if(points[i]->alpha > this->EPS*this->rate) { this->svs.push_back(i);}
+    }
 
     for(i = 0; i < size; ++i) points[i]->alpha = saved_alphas[i];
 
@@ -555,7 +574,15 @@ bool IMADual< T >::train() {
 
 template < typename T >
 double IMADual< T >::evaluate(Point< T > p) {
-    return 0;
+    double func, bias = this->solution.bias, fk = 0.0, lambda;
+    size_t size = this->samples->getSize(), dim = this->samples->getDim(), r;
+    auto po = make_shared<Point< T > >(p);
+
+    for(func = bias, r = 0; r < size; ++r){
+        fk = this->kernel->function(po, (*this->samples)[r], dim);
+        func  += (*this->samples)[r]->alpha * (*this->samples)[r]->y * fk;
+    }
+    return (func >= 0)?1:-1;
 }
 
 template class IMAp<int>;
