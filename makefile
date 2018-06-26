@@ -1,6 +1,8 @@
 all:
 	g++ -std=c++14 includes/* src/* -o main
 	#g++ -std=c++14 src/* -o main
+release:
+	g++ -Ofast -std=c++14 src/* includes/* -o UFJF-MLTK-O3-RELEASE
 debug:
 	g++ -g -std=c++14 src/Utils.cpp src/Data.cpp includes/Point.hpp src/main.cpp -o main
 test:

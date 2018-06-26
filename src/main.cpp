@@ -819,6 +819,7 @@ void validationOption(int option){
     int fold, qtde, kernel_type;
     int p, q, i, norm, flexible, svs;
     double rate, gamma, alpha_prox, kernel_param;
+    ValidationSolution sol;
 
     switch(option){
         case 1:
@@ -874,8 +875,14 @@ void validationOption(int option){
 
                 validate.setVerbose(verbose);
                 validate.partTrainTest(fold);
-                validate.validation(fold, qtde);
+                sol = validate.validation(fold, qtde);
                 clock_t end = clock();
+
+                cout << "\n\n   " << fold << "-Fold Cross Validation stats:" << endl;
+                cout << "\nAccuracy: "<< sol.accuracy << endl;
+                cout << "Precision: "<< sol.precision << endl;
+                cout << "Recall: "<< sol.recall << endl;
+                cout << endl;
 
                 double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
                 cout << endl;
@@ -919,8 +926,13 @@ void validationOption(int option){
 
                 validate.setVerbose(verbose);
                 validate.partTrainTest(fold);
-                validate.validation(fold, qtde);
+                sol = validate.validation(fold, qtde);
                 clock_t end = clock();
+
+                cout << "\nAccuracy: "<< sol.accuracy << endl;
+                cout << "Precision: "<< sol.precision << endl;
+                cout << "Recall: "<< sol.recall << endl;
+                cout << endl;
 
                 double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
                 cout << endl;

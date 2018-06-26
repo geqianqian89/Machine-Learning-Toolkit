@@ -578,6 +578,11 @@ double IMADual< T >::evaluate(Point< T > p) {
     size_t size = this->samples->getSize(), dim = this->samples->getDim(), r;
     auto po = make_shared<Point< T > >(p);
 
+    if(p.x.size() != dim){
+        cerr << "The point must have the same dimension of the feature set!" << endl;
+        return 0;
+    }
+
     for(func = bias, r = 0; r < size; ++r){
         fk = this->kernel->function(po, (*this->samples)[r], dim);
         func  += (*this->samples)[r]->alpha * (*this->samples)[r]->y * fk;

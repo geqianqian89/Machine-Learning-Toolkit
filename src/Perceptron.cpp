@@ -68,13 +68,20 @@ bool PerceptronPrimal< T >::train(){
 
 template < typename T >
 double PerceptronPrimal< T >::evaluate(Point< T > p){
-    size_t i, dim = this->solution.w.size();
-    double bias = this->solution.bias, func;
-    vector<double> w = this->solution.w;
+    double func = 0.0;
+    int i;
+    size_t dim = this->solution.w.size();
 
-    for(func = bias; i < dim; i++){
-        func += w[i] * p.x[i];
+    if(p.x.size() != dim){
+        cerr << "The point must have the same dimension of the feature set!" << endl;
+        return 0;
     }
+
+    for(func = this->solution.bias, i = 0; i < dim; i++){
+        func += this->solution.w[i] * p[i];
+    }
+
+    return (func >= 0)?1:-1;
 }
 
 template < typename T >
@@ -202,13 +209,20 @@ bool PerceptronFixedMarginPrimal< T >::train(){
 
 template < typename T >
 double PerceptronFixedMarginPrimal< T >::evaluate(Point< T > p){
-    size_t i, dim = this->solution.w.size();
-    double bias = this->solution.bias, func;
-    vector<double> w = this->solution.w;
+    double func = 0.0;
+    int i;
+    size_t dim = this->solution.w.size();
 
-    for(i = 0, func = bias; i < dim; i++){
-        func += w[i] * p.x[i];
+    if(p.x.size() != dim){
+        cerr << "The point must have the same dimension of the feature set!" << endl;
+        return 0;
     }
+
+    for(func = this->solution.bias, i = 0; i < dim; i++){
+        func += this->solution.w[i] * p[i];
+    }
+
+    return (func >= this->solution.margin * this->solution.norm)?1:-1;
 }
 
 template < typename T >
@@ -284,13 +298,20 @@ bool PerceptronDual< T > ::train(){
 
 template < typename T >
 double PerceptronDual< T > ::evaluate(Point< T > p){
-    size_t i, idx, size = this->samples->getSize();
-    double f, bias = this->solution.bias;
-    vector<int> index = this->samples->getIndex();
-    dMatrix *K = this->kernel->getKernelMatrixPointer();
+    double func, bias = this->solution.bias, fk = 0.0, lambda;
+    size_t size = this->samples->getSize(), dim = this->samples->getDim(), r;
+    auto po = make_shared<Point< T > >(p);
 
+    if(p.x.size() != dim){
+        cerr << "The point must have the same dimension of the feature set!" << endl;
+        return 0;
+    }
 
-    return 0.0;
+    for(func = bias, r = 0; r < size; ++r){
+        fk = this->kernel->function(po, (*this->samples)[r], dim);
+        func  += (*this->samples)[r]->alpha * (*this->samples)[r]->y * fk;
+    }
+    return (func >= 0)?1:-1;
 }
 
 template < typename T >
@@ -378,7 +399,20 @@ bool PerceptronFixedMarginDual< T >::train(){
 
 template < typename T >
 double PerceptronFixedMarginDual< T >::evaluate(Point< T > p){
+    double func, bias = this->solution.bias, fk = 0.0, lambda;
+    size_t size = this->samples->getSize(), dim = this->samples->getDim(), r;
+    auto po = make_shared<Point< T > >(p);
 
+    if(p.x.size() != dim){
+        cerr << "The point must have the same dimension of the feature set!" << endl;
+        return 0;
+    }
+
+    for(func = bias, r = 0; r < size; ++r){
+        fk = this->kernel->function(po, (*this->samples)[r], dim);
+        func  += (*this->samples)[r]->alpha * (*this->samples)[r]->y * fk;
+    }
+    return (func >= 0)?1:-1;
 }
 
 template class PerceptronPrimal<int>;

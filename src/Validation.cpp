@@ -73,6 +73,7 @@ template < typename T >
 double Validation< T > ::kFold (int fold, int seed){
     size_t i = 0, j = 0, k = 0, size = sample->getSize();
     size_t qtdpos = 0, qtdneg = 0, cost_pos = 0, cost_neg = 0, svcount = 0;
+    size_t fp = 0, fn = 0, tp = 0, tn = 0;
     double error = 0.0, func = 0.0, margin = 0.0;
     vector<double> w;
     vector<int> error_arr(fold);
@@ -170,7 +171,7 @@ double Validation< T > ::kFold (int fold, int seed){
     vet_sample_neg.clear();
 
     //Start cross-validation
-    for(j = 0; j < fold; ++j){
+    for(fp = 0, fn = 0, tp = 0, tn = 0, j = 0; j < fold; ++j){
         *test_sample = vet_sample_final[j]->copy();
         train_sample->copyZero(*sample);
 
@@ -207,9 +208,11 @@ double Validation< T > ::kFold (int fold, int seed){
                     if(verbose > 1)
                         cerr << "[" << i+1 << "x] function: " << func << ", y: " << p->y << endl;
                     error_arr[j]++;
+                    if(p->y == -1) fp++; else fn++;
                 }else{
                     if(verbose > 1)
                         cerr << "[" << i+1 << "] function: " << func << ", y: " << p->y << endl;
+                    if(p->y == -1) tn++; else tp++;
                 }
             }
             cout << endl;
@@ -232,15 +235,25 @@ double Validation< T > ::kFold (int fold, int seed){
                     if(verbose > 1)
                         cerr << "[" << i+1 << "x] function: " << func << ", y: " << test_sample->getPoint(i)->y << endl;
                     error_arr[j]++;
+                    if(test_sample->getPoint(i)->y == -1) fp++; else fn++;
                 }else{
                     if(verbose > 1)
                         cerr << "[" << i+1 << "] function: " << func << ", y: " << test_sample->getPoint(i)->y << endl;
+                    if(test_sample->getPoint(i)->y == -1) tn++; else tp++;
                 }
             }
             cout << endl;
         }
         if(verbose) cout << "Error " << j + 1 << ": " << error_arr[j] << " -- " << ((double)error_arr[j]/(double)vet_sample_final[j]->getSize())*100.0f << "%";
         error += ((double)error_arr[j]/(double)vet_sample_final[j]->getSize())*100.0f;
+        this->solution.accuracy += (double)(tp + tn)/(double)(tp + tn + fp + fn);
+        this->solution.precision += (double)tp/(double)(tp + fp);
+        this->solution.recall += (double)tp/(double)(tp + fn);
+        this->solution.tnrate += (double)tn/(double)(tn + fp);
+        this->solution.falseNegative += fn;
+        this->solution.falsePositive += fp;
+        this->solution.trueNegative += tn;
+        this->solution.truePositive += tp;
 
         train_sample = make_shared<Data< T > >();
         test_sample = make_unique<Data< T > >();
@@ -250,9 +263,10 @@ double Validation< T > ::kFold (int fold, int seed){
 }
 
 template < typename T >
-double Validation< T > ::validation(int fold, int qtde){
+ValidationSolution Validation< T > ::validation(int fold, int qtde){
     int i = 0, k = 0, erro = 0, svcount = 0, test_size = test_sample->getSize(),
             train_size = train_sample->getSize(), train_dim = train_sample->getDim();
+    size_t fp = 0, fn = 0, tp = 0, tn = 0;
     double error = 0, errocross = 0, func = 0.0, margin = 0, bias;
     vector<double> w;
     bool isPrimal = (classifier->classifierType() == "Primal");
@@ -268,6 +282,14 @@ double Validation< T > ::validation(int fold, int qtde){
             errocross += kFold(fold, i);
         }
         cout << "\n\nErro " << fold << "-Fold Cross Validation: " << errocross/qtde << "%\n";
+        this->solution.accuracy /= qtde*fold;
+        this->solution.precision /= qtde*fold;
+        this->solution.recall /= qtde*fold;
+        this->solution.tnrate /= qtde*fold;
+        this->solution.falseNegative /= qtde*fold;
+        this->solution.falsePositive /= qtde*fold;
+        this->solution.trueNegative /= qtde*fold;
+        this->solution.truePositive /= qtde*fold;
     }
 
     /*start final validation*/
@@ -303,10 +325,12 @@ double Validation< T > ::validation(int fold, int qtde){
             {
                 if(verbose > 1) cout << "["<< i+1 <<"x] function: " << func << ", y: " << p->y  << "\n";
                 erro++;
+                if(p->y == -1) fp++; else fn++;
             }
             else
             {
                 if(verbose > 1) cout << "["<< i+1 <<"] function: " << func << ", y: " << p->y  << "\n";
+                if(p->y == -1) tn++; else tp++;
             }
             if(verbose) cout.flush();
         }
@@ -333,10 +357,12 @@ double Validation< T > ::validation(int fold, int qtde){
             {
                 if(verbose > 1) cout << "["<< i+1 <<"x] function: " << func << ", y: " << p->y  << "\n";
                 erro++;
+                if(p->y == -1) fp++; else fn++;
             }
             else
             {
                 if(verbose > 1) cout << "["<< i+1 <<"x] function: " << func << ", y: " << p->y  << "\n";
+                if(p->y == -1) tn++; else tp++;
             }
             if(verbose) cout.flush();
         }
@@ -344,6 +370,8 @@ double Validation< T > ::validation(int fold, int qtde){
 
     cout << "Validation Error: " << erro << " -- " << (double)erro/(double)test_sample->getSize()*100.0f << "%\n";
     error += ((double)erro/(double)test_sample->getSize())*100.0f;
+
+    return this->solution;
 }
 
 template < typename T >
