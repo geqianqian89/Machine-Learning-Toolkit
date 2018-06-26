@@ -46,6 +46,16 @@ C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes
 vector
 -
 
+C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/FeatureSelection.hpp
+Data.hpp
+C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Data.hpp
+Classifier.hpp
+C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Classifier.hpp
+Validation.hpp
+C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Validation.hpp
+memory
+-
+
 C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/IMA.hpp
 vector
 -
@@ -109,6 +119,10 @@ C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes
 C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/PrimalClassifier.hpp
 Classifier.hpp
 C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Classifier.hpp
+
+C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/RFE.hpp
+FeatureSelection.hpp
+C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/FeatureSelection.hpp
 
 C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Random.hpp
 random
@@ -257,6 +271,16 @@ cmath
 -
 ../includes/Perceptron.hpp
 C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Perceptron.hpp
+
+C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/src/RFE.cpp
+algorithm
+-
+cmath
+-
+memory
+-
+../includes/RFE.hpp
+C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/RFE.hpp
 
 C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/src/Utils.cpp
 cmath

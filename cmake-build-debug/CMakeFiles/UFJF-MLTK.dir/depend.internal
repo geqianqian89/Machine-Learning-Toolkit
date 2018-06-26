@@ -51,6 +51,20 @@ CMakeFiles/UFJF-MLTK.dir/src/Perceptron.cpp.obj
  C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Visualization.hpp
  C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/gnuplot_i.hpp
  C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/src/Perceptron.cpp
+CMakeFiles/UFJF-MLTK.dir/src/RFE.cpp.obj
+ C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Classifier.hpp
+ C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Data.hpp
+ C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/FeatureSelection.hpp
+ C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Kernel.hpp
+ C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Point.hpp
+ C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/RFE.hpp
+ C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Solution.hpp
+ C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Statistics.hpp
+ C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Timer.hpp
+ C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Utils.hpp
+ C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Validation.hpp
+ C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/ValidationSolution.hpp
+ C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/src/RFE.cpp
 CMakeFiles/UFJF-MLTK.dir/src/Utils.cpp.obj
  C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Utils.hpp
  C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/src/Utils.cpp

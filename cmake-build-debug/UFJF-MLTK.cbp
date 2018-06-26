@@ -89,6 +89,9 @@
 		<Unit filename="C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/DualClassifier.hpp">
 			<Option target="UFJF-MLTK"/>
 		</Unit>
+		<Unit filename="C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/FeatureSelection.hpp">
+			<Option target="UFJF-MLTK"/>
+		</Unit>
 		<Unit filename="C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/IMA.hpp">
 			<Option target="UFJF-MLTK"/>
 		</Unit>
@@ -105,6 +108,9 @@
 			<Option target="UFJF-MLTK"/>
 		</Unit>
 		<Unit filename="C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/PrimalClassifier.hpp">
+			<Option target="UFJF-MLTK"/>
+		</Unit>
+		<Unit filename="C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/RFE.hpp">
 			<Option target="UFJF-MLTK"/>
 		</Unit>
 		<Unit filename="C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Random.hpp">
@@ -144,6 +150,9 @@
 			<Option target="UFJF-MLTK"/>
 		</Unit>
 		<Unit filename="C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/src/Perceptron.cpp">
+			<Option target="UFJF-MLTK"/>
+		</Unit>
+		<Unit filename="C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/src/RFE.cpp">
 			<Option target="UFJF-MLTK"/>
 		</Unit>
 		<Unit filename="C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/src/Utils.cpp">

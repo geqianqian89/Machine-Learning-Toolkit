@@ -36,7 +36,7 @@ public :
         size_t qtde;
         int fold;
         int jump;
-        std::vector<int> seed;
+        std::vector<unsigned int> seed;
 
         double initial_error;
         double actual_error;

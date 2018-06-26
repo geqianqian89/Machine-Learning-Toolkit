@@ -24,10 +24,6 @@ protected :
     double start_time = 0.0f;
     /// Maximum time of training.
     double max_time = 110;
-public:
-    double getMax_time() const;
-
-protected:
     /// Number of steps in the data.
     int steps = 0;
     /// Number of updates of the weights.
@@ -71,22 +67,25 @@ public :
      * @brief Get the elapsed time in the execution of the classifier.
      * @return double
      */
-    inline double getElapsedTime() { return timer.Elapsed(); }
+    inline double getElapsedTime() const { return timer.Elapsed(); }
     /**
     * @brief Get the total number of updates of the classifier.
     * @return int
     */
-    inline int getCtot() { return ctot; }
+    inline int getCtot() const { return ctot; }
     /**
      * \brief getSteps Returns the number of steps through the data by the classifier.
      * \return int
      */
-    inline int getSteps() { return steps; }
+    inline int getSteps() const { return steps; }
     /**
      * \brief getUpdates Returns the number of updates needed to get to the the solution.
      * \return int
      */
-    inline int getUpdates() { return ctot; }
+    inline int getUpdates() const { return ctot; }
+
+    inline double getMaxTime() const { return max_time; }
+
     /**
      * @brief Set the partial number of steps of the classifier.
      * @param steps Number of steps.

@@ -51,6 +51,20 @@ CMakeFiles/UFJF-MLTK.dir/src/Perceptron.cpp.obj: ../includes/Visualization.hpp
 CMakeFiles/UFJF-MLTK.dir/src/Perceptron.cpp.obj: ../includes/gnuplot_i.hpp
 CMakeFiles/UFJF-MLTK.dir/src/Perceptron.cpp.obj: ../src/Perceptron.cpp
 
+CMakeFiles/UFJF-MLTK.dir/src/RFE.cpp.obj: ../includes/Classifier.hpp
+CMakeFiles/UFJF-MLTK.dir/src/RFE.cpp.obj: ../includes/Data.hpp
+CMakeFiles/UFJF-MLTK.dir/src/RFE.cpp.obj: ../includes/FeatureSelection.hpp
+CMakeFiles/UFJF-MLTK.dir/src/RFE.cpp.obj: ../includes/Kernel.hpp
+CMakeFiles/UFJF-MLTK.dir/src/RFE.cpp.obj: ../includes/Point.hpp
+CMakeFiles/UFJF-MLTK.dir/src/RFE.cpp.obj: ../includes/RFE.hpp
+CMakeFiles/UFJF-MLTK.dir/src/RFE.cpp.obj: ../includes/Solution.hpp
+CMakeFiles/UFJF-MLTK.dir/src/RFE.cpp.obj: ../includes/Statistics.hpp
+CMakeFiles/UFJF-MLTK.dir/src/RFE.cpp.obj: ../includes/Timer.hpp
+CMakeFiles/UFJF-MLTK.dir/src/RFE.cpp.obj: ../includes/Utils.hpp
+CMakeFiles/UFJF-MLTK.dir/src/RFE.cpp.obj: ../includes/Validation.hpp
+CMakeFiles/UFJF-MLTK.dir/src/RFE.cpp.obj: ../includes/ValidationSolution.hpp
+CMakeFiles/UFJF-MLTK.dir/src/RFE.cpp.obj: ../src/RFE.cpp
+
 CMakeFiles/UFJF-MLTK.dir/src/Utils.cpp.obj: ../includes/Utils.hpp
 CMakeFiles/UFJF-MLTK.dir/src/Utils.cpp.obj: ../src/Utils.cpp
 

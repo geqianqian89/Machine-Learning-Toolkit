@@ -230,6 +230,33 @@ src/Perceptron.cpp.s:
 	$(MAKE) -f CMakeFiles\UFJF-MLTK.dir\build.make CMakeFiles/UFJF-MLTK.dir/src/Perceptron.cpp.s
 .PHONY : src/Perceptron.cpp.s
 
+src/RFE.obj: src/RFE.cpp.obj
+
+.PHONY : src/RFE.obj
+
+# target to build an object file
+src/RFE.cpp.obj:
+	$(MAKE) -f CMakeFiles\UFJF-MLTK.dir\build.make CMakeFiles/UFJF-MLTK.dir/src/RFE.cpp.obj
+.PHONY : src/RFE.cpp.obj
+
+src/RFE.i: src/RFE.cpp.i
+
+.PHONY : src/RFE.i
+
+# target to preprocess a source file
+src/RFE.cpp.i:
+	$(MAKE) -f CMakeFiles\UFJF-MLTK.dir\build.make CMakeFiles/UFJF-MLTK.dir/src/RFE.cpp.i
+.PHONY : src/RFE.cpp.i
+
+src/RFE.s: src/RFE.cpp.s
+
+.PHONY : src/RFE.s
+
+# target to generate assembly for a file
+src/RFE.cpp.s:
+	$(MAKE) -f CMakeFiles\UFJF-MLTK.dir\build.make CMakeFiles/UFJF-MLTK.dir/src/RFE.cpp.s
+.PHONY : src/RFE.cpp.s
+
 src/Utils.obj: src/Utils.cpp.obj
 
 .PHONY : src/Utils.obj
@@ -386,6 +413,9 @@ help:
 	@echo ... src/Perceptron.obj
 	@echo ... src/Perceptron.i
 	@echo ... src/Perceptron.s
+	@echo ... src/RFE.obj
+	@echo ... src/RFE.i
+	@echo ... src/RFE.s
 	@echo ... src/Utils.obj
 	@echo ... src/Utils.i
 	@echo ... src/Utils.s
