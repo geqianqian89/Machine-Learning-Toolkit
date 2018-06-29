@@ -192,7 +192,7 @@ bool Data< T >::load_csv(string path){
 
             if(cond){
                 if(is_number(item))
-                    new_point->x[(!atEnd)?dim:dim+1] = stodn(item);
+                    new_point->x[(!atEnd)?dim:dim+1] = atof(item.c_str());
             }else{
                 int c;
                 if(is_number(item)){
@@ -437,7 +437,7 @@ bool Data< T >::load_arff(string path){
 
             if(cond){
                 if(is_number(item)){
-                    new_point->x[dim + 1] = stodn(item);
+                    new_point->x[dim + 1] = atof(item.c_str());
                 }
 
             }else{
@@ -535,7 +535,7 @@ bool Data< T >::load_txt(string path){
         while(getline(ss, item, ' ')){
             if(n >= 2){
                 if(is_number(item))
-                    new_point->x[n - 2] = stoin(item);
+                    new_point->x[n - 2] = atof(item.c_str());
                 else{ clog << "Warning: point[" << size  << "] " << n-2 << " feature is not a number." << endl; }
                 new_point->y = 0;
             }

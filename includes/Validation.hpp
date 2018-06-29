@@ -33,14 +33,14 @@ private :
     // Operations
 public :
     struct CrossValidation{
-        size_t qtde;
-        int fold;
-        int jump;
+        size_t qtde = 0;
+        int fold = 0;
+        int jump = 0;
         std::vector<unsigned int> seed;
 
-        double initial_error;
-        double actual_error;
-        double limit_error;
+        double initial_error = 0.0;
+        double actual_error = 0.0;
+        double limit_error = 0.0;
     };
 
     /**
@@ -54,6 +54,10 @@ public :
      * @param seed  Seed to feed the pseudo random number generator.
      */
     explicit Validation (std::shared_ptr<Data< T > > sample = std::make_shared<Data< T > >(), Classifier< T >  *classifier = nullptr, unsigned int seed = 666);
+    /**
+    * \brief Set the seed for the random number generator.
+    * \param seed Seed to be set.
+    */
     void setSeed(unsigned int seed);
     /**
      * \brief Executes the Stratified K-fold algorithm

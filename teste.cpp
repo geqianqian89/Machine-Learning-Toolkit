@@ -2,41 +2,37 @@
 #include "includes/Data.hpp"
 #include "includes/Kernel.hpp"
 #include "includes/Visualization.hpp"
-#include "includes/Classifier.hpp"
-#include "includes/PrimalClassifier.hpp"
-#include "includes/DualClassifier.hpp"
 #include "includes/Validation.hpp"
 #include "includes/Perceptron.hpp"
 #include "includes/IMA.hpp"
+#include "includes/RFE.hpp"
 
 using namespace std;
 
 int main(int argc, char *argv[]){
-	shared_ptr<Data<double> > data(make_shared<Data<double> >());
-	size_t i, size, pos = 0, neg = 0;
-	Kernel K;
-
+	shared_ptr<Data<double> > data(make_shared<Data<double> >()), fdata;
+	IMAp<double> imap(data);
+	Validation<double>::CrossValidation *cv = new Validation<double>::CrossValidation; 
+	RFE<double> rfe(data, &imap, cv, 2, 1, 1);
+	size_t i, size;
+	
+	clog << "Loading dataset..." << endl;
 	data->load(argv[1]);
 	size = data->getSize();
 	
-	cout << "Data loaded." << endl;
-	K.setType(0);
-	
+	clog << "Starting feature selection." << endl;
 	clock_t begin = clock();
-	IMADual<double> ima_dual(data, &K, 1, nullptr);
-
-	ima_dual.setVerbose(0);
-	ima_dual.train();
-	cout << "Classifier trained." << endl;
+	rfe.setVerbose(1);
+	fdata = rfe.selectFeatures();
+	clog << "Features Selected." << endl;
 	clock_t end = clock();
 
-	for(i = 0; i < size; i++){
-		if(ima_dual.evaluate(*((*data)[i])) > 0){
-			pos++;
-		}else neg++;
+	vector<int> fnames = fdata->getFeaturesNames();
+
+	for(auto itr = fnames.begin(); itr != fnames.end(); itr++){
+		cout << *itr << " ";
 	}
+	cout << endl;
 	
-	cout << pos << " positives." << endl;
-	cout << neg << " negatives." << endl;
 }
 

@@ -24,11 +24,11 @@ protected:
     /// Solution of the feature selection
     Solution solution;
 
-    int depth;
-    int jump;
-    int skip;
-    bool leave_one_out;
-    int verbose;
+    int depth = 0;
+    int jump = 0;
+    int skip = 0;
+    bool leave_one_out = false;
+    int verbose = 0;
 
 public:
     virtual std::unique_ptr<Data< T > > selectFeatures() = 0;

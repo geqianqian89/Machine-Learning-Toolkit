@@ -68,16 +68,6 @@ double atof(char s[])
     return sign * val / power;
 }
 
-double stodn(string str){
-    double d = 0.0;
-    stringstream ss;
-
-    ss<< str;
-    ss >> d;
-
-    return d;
-}
-
 string itos(int n){
     char buffer[50];
     int i = 0;

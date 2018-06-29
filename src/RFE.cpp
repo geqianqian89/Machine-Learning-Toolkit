@@ -37,7 +37,7 @@ std::unique_ptr<Data< T > > RFE< T >::selectFeatures() {
     unique_ptr<Data< T > > stmp_partial, stmp(make_unique<Data< T > >());
     Validation< T > validation(this->samples, this->classifier);
 
-    *stmp = *this->samples;
+    *stmp = (*this->samples).copy();
     /*error check*/
     if (this->depth < 1 || this->depth >= dim) {
         cerr << "Invalid depth!\n";
@@ -104,7 +104,6 @@ std::unique_ptr<Data< T > > RFE< T >::selectFeatures() {
                 partial = 1;
                 //data_write(filename, stmp_parcial, 0);
                 weight.clear();
-
             }
             break;
         }
@@ -116,7 +115,7 @@ std::unique_ptr<Data< T > > RFE< T >::selectFeatures() {
 
         stmp_partial.reset();
         stmp_partial = make_unique<Data< T > >();
-        *stmp_partial = *this->samples;
+        *stmp_partial = (*this->samples).copy();
 
         partial_features.clear();
         if(level-this->jump > 0)
@@ -155,10 +154,11 @@ std::unique_ptr<Data< T > > RFE< T >::selectFeatures() {
             if(this->cv->qtde > 0 && level % this->cv->jump == 0)
                 cout << "Dim: " << (dim - level) <<", Margin: " << margin << ", SVs: " << svcount <<", Erro " << this->cv->fold << "-fold: " << kfolderror << "%\n";
             else
-                cout << "Dim: " << (dim-level) << ", Margem: " << margin << ", SVs: " << svcount << endl;
+                cout << "Dim: " << (dim-level) << ", Margin: " << margin << ", SVs: " << svcount << endl;
             //printf("Dim: %d, Margem: %lf, Distancia entre os centros: %f, SVs: %d\n", (dim-level), data_get_dist_centers(stmp), margin, svcount);
         }
 
+        w = this->classifier->getSolutionRef()->w;
         weight.resize(dim);
         auto fnames = this->samples->getFeaturesNames();
 
