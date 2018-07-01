@@ -1,3 +1,8 @@
+/*! Kernel manipulation class
+   \file Kernel.hpp
+   \author Mateus Coutinho Marim
+*/
+
 #ifndef KERNEL__HPP
 #define KERNEL__HPP
 

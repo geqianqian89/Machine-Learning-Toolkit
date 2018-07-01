@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['perceptron_2ehpp',['Perceptron.hpp',['../_perceptron_8hpp.html',1,'']]],
-  ['point_2ehpp',['Point.hpp',['../_point_8hpp.html',1,'']]],
-  ['primalclassifier_2ehpp',['PrimalClassifier.hpp',['../_primal_classifier_8hpp.html',1,'']]]
+  ['mltoolkit_2ehpp',['MLToolkit.hpp',['../_m_l_toolkit_8hpp.html',1,'']]]
 ];
