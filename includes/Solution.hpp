@@ -34,6 +34,8 @@ public :
         margin = other.margin;
         norm = other.norm;
         svs = other.svs;
+
+        return *this;
     }
 };
 
