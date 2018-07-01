@@ -1,66 +1,54 @@
 \hypertarget{_utils_8hpp}{}\section{includes/\+Utils.hpp File Reference}
 \label{_utils_8hpp}\index{includes/\+Utils.\+hpp@{includes/\+Utils.\+hpp}}
-{\ttfamily \#include $<$vector$>$}\\*
-{\ttfamily \#include $<$string$>$}\\*
-{\ttfamily \#include $<$sstream$>$}\\*
-{\ttfamily \#include $<$iterator$>$}\\*
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$iterator$>$}\newline
 Include dependency graph for Utils.\+hpp\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=334pt]{_utils_8hpp__incl}
-\end{center}
-\end{figure}
+% FIG 0
 This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{_utils_8hpp__dep__incl}
-\end{center}
-\end{figure}
+% FIG 1
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define {\bfseries I\+NF}~1\+E8\hypertarget{_utils_8hpp_a12c2040f25d8e3a7b9e1c2024c618cb6}{}\label{_utils_8hpp_a12c2040f25d8e3a7b9e1c2024c618cb6}
-
+\mbox{\Hypertarget{_utils_8hpp_a12c2040f25d8e3a7b9e1c2024c618cb6}\label{_utils_8hpp_a12c2040f25d8e3a7b9e1c2024c618cb6}} 
+\#define {\bfseries I\+NF}~1\+E8
 \end{DoxyCompactItemize}
 \subsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-typedef std\+::vector$<$ std\+::vector$<$ double $>$ $>$ {\bfseries d\+Matrix}\hypertarget{_utils_8hpp_a5b939e9afe8dd07c1182ecede20c61b1}{}\label{_utils_8hpp_a5b939e9afe8dd07c1182ecede20c61b1}
-
+\mbox{\Hypertarget{_utils_8hpp_a5b939e9afe8dd07c1182ecede20c61b1}\label{_utils_8hpp_a5b939e9afe8dd07c1182ecede20c61b1}} 
+typedef std\+::vector$<$ std\+::vector$<$ double $>$ $>$ {\bfseries d\+Matrix}
 \end{DoxyCompactItemize}
 \subsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{_utils_8hpp_ad4bb8dabdbf8ad75e34220cc666b59ca}\label{_utils_8hpp_ad4bb8dabdbf8ad75e34220cc666b59ca}} 
 enum {\bfseries Norm\+Type} \{ {\bfseries N\+O\+R\+M\+\_\+\+L\+I\+NF} = 0, 
 {\bfseries N\+O\+R\+M\+\_\+\+L1} = 1, 
 {\bfseries N\+O\+R\+M\+\_\+\+L2} = 2
- \}\hypertarget{_utils_8hpp_ad4bb8dabdbf8ad75e34220cc666b59ca}{}\label{_utils_8hpp_ad4bb8dabdbf8ad75e34220cc666b59ca}
-
+ \}
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-bool \hyperlink{_utils_8hpp_ad5057d992c7e88f80c37a28044320e45}{is\+\_\+number} (std\+::string str)
+bool \mbox{\hyperlink{_utils_8hpp_ad5057d992c7e88f80c37a28044320e45}{is\+\_\+number}} (std\+::string str)
 \begin{DoxyCompactList}\small\item\em Verify if the string is a number. \end{DoxyCompactList}\item 
-int \hyperlink{_utils_8hpp_a8f8f36f1e1b6c6900fac56c148f754eb}{stoin} (std\+::string str)
+int \mbox{\hyperlink{_utils_8hpp_a8f8f36f1e1b6c6900fac56c148f754eb}{stoin}} (std\+::string str)
 \begin{DoxyCompactList}\small\item\em Converts the string to an integer. \end{DoxyCompactList}\item 
-double \hyperlink{_utils_8hpp_a0187e008853de2faa4269af7602af7d5}{stodn} (std\+::string str)
+double \mbox{\hyperlink{_utils_8hpp_a0187e008853de2faa4269af7602af7d5}{stodn}} (std\+::string str)
 \begin{DoxyCompactList}\small\item\em Converts the string to a double. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T $>$ }\\double \hyperlink{_utils_8hpp_a09a24bfc15c5a255cda38642b6cda9f0}{max\+Abs\+Element} (std\+::vector$<$ T $>$ x)
+{\footnotesize template$<$typename T $>$ }\\double \mbox{\hyperlink{_utils_8hpp_a09a24bfc15c5a255cda38642b6cda9f0}{max\+Abs\+Element}} (std\+::vector$<$ T $>$ x)
 \begin{DoxyCompactList}\small\item\em Returns the max absolute element. \end{DoxyCompactList}\item 
-std\+::string \hyperlink{_utils_8hpp_a2cb59bd32f3873689eb1b5516a1333f7}{itos} (int n)
+std\+::string \mbox{\hyperlink{_utils_8hpp_a2cb59bd32f3873689eb1b5516a1333f7}{itos}} (int n)
 \begin{DoxyCompactList}\small\item\em itos Integer to string conversion. \end{DoxyCompactList}\item 
-std\+::string \hyperlink{_utils_8hpp_aa2e6553d01cd9d5839b137e33d17f256}{dtoa} (double n)
+std\+::string \mbox{\hyperlink{_utils_8hpp_aa2e6553d01cd9d5839b137e33d17f256}{dtoa}} (double n)
 \begin{DoxyCompactList}\small\item\em dtoa Double to string conversion. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename Out $>$ }\\void {\bfseries split} (const std\+::string \&s, char delim, Out result)\hypertarget{_utils_8hpp_a03529396588a5d4dac36c432989fdfaa}{}\label{_utils_8hpp_a03529396588a5d4dac36c432989fdfaa}
-
+\mbox{\Hypertarget{_utils_8hpp_a03529396588a5d4dac36c432989fdfaa}\label{_utils_8hpp_a03529396588a5d4dac36c432989fdfaa}} 
+{\footnotesize template$<$typename Out $>$ }\\void {\bfseries split} (const std\+::string \&s, char delim, Out result)
 \item 
-std\+::vector$<$ std\+::string $>$ {\bfseries split} (const std\+::string \&s, char delim)\hypertarget{_utils_8hpp_ae924c9b43cd7b086945003c09c294d2b}{}\label{_utils_8hpp_ae924c9b43cd7b086945003c09c294d2b}
-
+\mbox{\Hypertarget{_utils_8hpp_ae924c9b43cd7b086945003c09c294d2b}\label{_utils_8hpp_ae924c9b43cd7b086945003c09c294d2b}} 
+std\+::vector$<$ std\+::string $>$ {\bfseries split} (const std\+::string \&s, char delim)
 \end{DoxyCompactItemize}
 
 
@@ -73,13 +61,12 @@ Mateus Coutinho Marim
 
 
 \subsection{Function Documentation}
+\mbox{\Hypertarget{_utils_8hpp_aa2e6553d01cd9d5839b137e33d17f256}\label{_utils_8hpp_aa2e6553d01cd9d5839b137e33d17f256}} 
 \index{Utils.\+hpp@{Utils.\+hpp}!dtoa@{dtoa}}
 \index{dtoa@{dtoa}!Utils.\+hpp@{Utils.\+hpp}}
-\subsubsection[{\texorpdfstring{dtoa(double n)}{dtoa(double n)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string dtoa (
-\begin{DoxyParamCaption}
-\item[{double}]{n}
-\end{DoxyParamCaption}
-)}\hypertarget{_utils_8hpp_aa2e6553d01cd9d5839b137e33d17f256}{}\label{_utils_8hpp_aa2e6553d01cd9d5839b137e33d17f256}
+\subsubsection{\texorpdfstring{dtoa()}{dtoa()}}
+{\footnotesize\ttfamily std\+::string dtoa (\begin{DoxyParamCaption}\item[{double}]{n }\end{DoxyParamCaption})}
+
 
 
 dtoa Double to string conversion. 
@@ -92,13 +79,12 @@ dtoa Double to string conversion.
 \begin{DoxyReturn}{Returns}
 string 
 \end{DoxyReturn}
+\mbox{\Hypertarget{_utils_8hpp_ad5057d992c7e88f80c37a28044320e45}\label{_utils_8hpp_ad5057d992c7e88f80c37a28044320e45}} 
 \index{Utils.\+hpp@{Utils.\+hpp}!is\+\_\+number@{is\+\_\+number}}
 \index{is\+\_\+number@{is\+\_\+number}!Utils.\+hpp@{Utils.\+hpp}}
-\subsubsection[{\texorpdfstring{is\+\_\+number(std\+::string str)}{is_number(std::string str)}}]{\setlength{\rightskip}{0pt plus 5cm}bool is\+\_\+number (
-\begin{DoxyParamCaption}
-\item[{std\+::string}]{str}
-\end{DoxyParamCaption}
-)}\hypertarget{_utils_8hpp_ad5057d992c7e88f80c37a28044320e45}{}\label{_utils_8hpp_ad5057d992c7e88f80c37a28044320e45}
+\subsubsection{\texorpdfstring{is\+\_\+number()}{is\_number()}}
+{\footnotesize\ttfamily bool is\+\_\+number (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})}
+
 
 
 Verify if the string is a number. 
@@ -111,13 +97,12 @@ Verify if the string is a number.
 \begin{DoxyReturn}{Returns}
 bool 
 \end{DoxyReturn}
+\mbox{\Hypertarget{_utils_8hpp_a2cb59bd32f3873689eb1b5516a1333f7}\label{_utils_8hpp_a2cb59bd32f3873689eb1b5516a1333f7}} 
 \index{Utils.\+hpp@{Utils.\+hpp}!itos@{itos}}
 \index{itos@{itos}!Utils.\+hpp@{Utils.\+hpp}}
-\subsubsection[{\texorpdfstring{itos(int n)}{itos(int n)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string itos (
-\begin{DoxyParamCaption}
-\item[{int}]{n}
-\end{DoxyParamCaption}
-)}\hypertarget{_utils_8hpp_a2cb59bd32f3873689eb1b5516a1333f7}{}\label{_utils_8hpp_a2cb59bd32f3873689eb1b5516a1333f7}
+\subsubsection{\texorpdfstring{itos()}{itos()}}
+{\footnotesize\ttfamily std\+::string itos (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
 
 
 itos Integer to string conversion. 
@@ -130,13 +115,13 @@ itos Integer to string conversion.
 \begin{DoxyReturn}{Returns}
 string 
 \end{DoxyReturn}
+\mbox{\Hypertarget{_utils_8hpp_a09a24bfc15c5a255cda38642b6cda9f0}\label{_utils_8hpp_a09a24bfc15c5a255cda38642b6cda9f0}} 
 \index{Utils.\+hpp@{Utils.\+hpp}!max\+Abs\+Element@{max\+Abs\+Element}}
 \index{max\+Abs\+Element@{max\+Abs\+Element}!Utils.\+hpp@{Utils.\+hpp}}
-\subsubsection[{\texorpdfstring{max\+Abs\+Element(std\+::vector$<$ T $>$ x)}{maxAbsElement(std::vector< T > x)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ double max\+Abs\+Element (
-\begin{DoxyParamCaption}
-\item[{std\+::vector$<$ T $>$}]{x}
-\end{DoxyParamCaption}
-)}\hypertarget{_utils_8hpp_a09a24bfc15c5a255cda38642b6cda9f0}{}\label{_utils_8hpp_a09a24bfc15c5a255cda38642b6cda9f0}
+\subsubsection{\texorpdfstring{max\+Abs\+Element()}{maxAbsElement()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+double max\+Abs\+Element (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T $>$}]{x }\end{DoxyParamCaption})}
+
 
 
 Returns the max absolute element. 
@@ -149,13 +134,12 @@ Returns the max absolute element.
 \begin{DoxyReturn}{Returns}
 The max absolute element found. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{_utils_8hpp_a0187e008853de2faa4269af7602af7d5}\label{_utils_8hpp_a0187e008853de2faa4269af7602af7d5}} 
 \index{Utils.\+hpp@{Utils.\+hpp}!stodn@{stodn}}
 \index{stodn@{stodn}!Utils.\+hpp@{Utils.\+hpp}}
-\subsubsection[{\texorpdfstring{stodn(std\+::string str)}{stodn(std::string str)}}]{\setlength{\rightskip}{0pt plus 5cm}double stodn (
-\begin{DoxyParamCaption}
-\item[{std\+::string}]{str}
-\end{DoxyParamCaption}
-)}\hypertarget{_utils_8hpp_a0187e008853de2faa4269af7602af7d5}{}\label{_utils_8hpp_a0187e008853de2faa4269af7602af7d5}
+\subsubsection{\texorpdfstring{stodn()}{stodn()}}
+{\footnotesize\ttfamily double stodn (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})}
+
 
 
 Converts the string to a double. 
@@ -168,13 +152,12 @@ Converts the string to a double.
 \begin{DoxyReturn}{Returns}
 The double resulted from the conversion. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{_utils_8hpp_a8f8f36f1e1b6c6900fac56c148f754eb}\label{_utils_8hpp_a8f8f36f1e1b6c6900fac56c148f754eb}} 
 \index{Utils.\+hpp@{Utils.\+hpp}!stoin@{stoin}}
 \index{stoin@{stoin}!Utils.\+hpp@{Utils.\+hpp}}
-\subsubsection[{\texorpdfstring{stoin(std\+::string str)}{stoin(std::string str)}}]{\setlength{\rightskip}{0pt plus 5cm}int stoin (
-\begin{DoxyParamCaption}
-\item[{std\+::string}]{str}
-\end{DoxyParamCaption}
-)}\hypertarget{_utils_8hpp_a8f8f36f1e1b6c6900fac56c148f754eb}{}\label{_utils_8hpp_a8f8f36f1e1b6c6900fac56c148f754eb}
+\subsubsection{\texorpdfstring{stoin()}{stoin()}}
+{\footnotesize\ttfamily int stoin (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})}
+
 
 
 Converts the string to an integer. 

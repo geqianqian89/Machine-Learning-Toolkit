@@ -12,52 +12,40 @@ Wrapper for the implementation of the Incremental Margin Algorithm primal.
 
 
 Inheritance diagram for I\+M\+Ap$<$ T $>$\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=197pt]{class_i_m_ap__inherit__graph}
-\end{center}
-\end{figure}
+% FIG 0
 
 
 Collaboration diagram for I\+M\+Ap$<$ T $>$\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_i_m_ap__coll__graph}
-\end{center}
-\end{figure}
+% FIG 1
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries I\+M\+Ap} (std\+::shared\+\_\+ptr$<$ \hyperlink{class_data}{Data}$<$ T $>$ $>$ \hyperlink{class_classifier_a0000b47a2e0784ada4c52d7046c4adb8}{samples}=nullptr, double margin=0.\+0, \hyperlink{class_solution}{Solution} $\ast$initial\+\_\+solution=nullptr)\hypertarget{class_i_m_ap_a54d31e0bcbb062d224a40fdb3a9fcdcd}{}\label{class_i_m_ap_a54d31e0bcbb062d224a40fdb3a9fcdcd}
-
+\mbox{\Hypertarget{class_i_m_ap_a54d31e0bcbb062d224a40fdb3a9fcdcd}\label{class_i_m_ap_a54d31e0bcbb062d224a40fdb3a9fcdcd}} 
+{\bfseries I\+M\+Ap} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_data}{Data}}$<$ T $>$ $>$ \mbox{\hyperlink{class_classifier_a0000b47a2e0784ada4c52d7046c4adb8}{samples}}=nullptr, double margin=0.\+0, \mbox{\hyperlink{class_solution}{Solution}} $\ast$initial\+\_\+solution=nullptr)
 \item 
-bool \hyperlink{class_i_m_ap_aa8bf6b0d21a76d388fe81ee516b627e4}{train} () override
+bool \mbox{\hyperlink{class_i_m_ap_aa8bf6b0d21a76d388fe81ee516b627e4}{train}} () override
 \begin{DoxyCompactList}\small\item\em Function that execute the training phase of a classification algorithm. \end{DoxyCompactList}\item 
-double \hyperlink{class_i_m_ap_a41b0739cdc486e3f21e7927f1ad429a8}{evaluate} (\hyperlink{class_point}{Point}$<$ T $>$ p) override
+double \mbox{\hyperlink{class_i_m_ap_a41b0739cdc486e3f21e7927f1ad429a8}{evaluate}} (\mbox{\hyperlink{class_point}{Point}}$<$ T $>$ p) override
 \begin{DoxyCompactList}\small\item\em Returns the class of a feature point based on the trained classifier. \end{DoxyCompactList}\item 
-std\+::vector$<$ int $>$ \hyperlink{class_i_m_ap_a87adda768f1c48c0e4fcdf66f3145ae9}{get\+Support\+Vectors} ()
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_i_m_ap_a87adda768f1c48c0e4fcdf66f3145ae9}{get\+Support\+Vectors}} ()
 \begin{DoxyCompactList}\small\item\em Get the indexes of the support vectors. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
 \subsection{Detailed Description}
-\subsubsection*{template$<$typename T$>$\\*
+\subsubsection*{template$<$typename T$>$\newline
 class I\+M\+Ap$<$ T $>$}
 
 Wrapper for the implementation of the Incremental Margin Algorithm primal. 
 
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_i_m_ap_a41b0739cdc486e3f21e7927f1ad429a8}\label{class_i_m_ap_a41b0739cdc486e3f21e7927f1ad429a8}} 
 \index{I\+M\+Ap@{I\+M\+Ap}!evaluate@{evaluate}}
 \index{evaluate@{evaluate}!I\+M\+Ap@{I\+M\+Ap}}
-\subsubsection[{\texorpdfstring{evaluate(\+Point$<$ T $>$ p) override}{evaluate(Point< T > p) override}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ double {\bf I\+M\+Ap}$<$ T $>$\+::evaluate (
-\begin{DoxyParamCaption}
-\item[{{\bf Point}$<$ T $>$}]{p}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_i_m_ap_a41b0739cdc486e3f21e7927f1ad429a8}{}\label{class_i_m_ap_a41b0739cdc486e3f21e7927f1ad429a8}
+\subsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+double \mbox{\hyperlink{class_i_m_ap}{I\+M\+Ap}}$<$ T $>$\+::evaluate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_point}{Point}}$<$ T $>$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
 
 
 Returns the class of a feature point based on the trained classifier. 
@@ -72,15 +60,15 @@ int
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_classifier_ab3b9544a8d9c3cbde8d5865c7e9be0fb}{Classifier$<$ T $>$}.
+Implements \mbox{\hyperlink{class_classifier_ab3b9544a8d9c3cbde8d5865c7e9be0fb}{Classifier$<$ T $>$}}.
 
+\mbox{\Hypertarget{class_i_m_ap_a87adda768f1c48c0e4fcdf66f3145ae9}\label{class_i_m_ap_a87adda768f1c48c0e4fcdf66f3145ae9}} 
 \index{I\+M\+Ap@{I\+M\+Ap}!get\+Support\+Vectors@{get\+Support\+Vectors}}
 \index{get\+Support\+Vectors@{get\+Support\+Vectors}!I\+M\+Ap@{I\+M\+Ap}}
-\subsubsection[{\texorpdfstring{get\+Support\+Vectors()}{getSupportVectors()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ std\+::vector$<$int$>$ {\bf I\+M\+Ap}$<$ T $>$\+::get\+Support\+Vectors (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_i_m_ap_a87adda768f1c48c0e4fcdf66f3145ae9}{}\label{class_i_m_ap_a87adda768f1c48c0e4fcdf66f3145ae9}
+\subsubsection{\texorpdfstring{get\+Support\+Vectors()}{getSupportVectors()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::vector$<$int$>$ \mbox{\hyperlink{class_i_m_ap}{I\+M\+Ap}}$<$ T $>$\+::get\+Support\+Vectors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
 
 
 Get the indexes of the support vectors. 
@@ -88,13 +76,13 @@ Get the indexes of the support vectors.
 \begin{DoxyReturn}{Returns}
 std\+::vector$<$int$>$ 
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_i_m_ap_aa8bf6b0d21a76d388fe81ee516b627e4}\label{class_i_m_ap_aa8bf6b0d21a76d388fe81ee516b627e4}} 
 \index{I\+M\+Ap@{I\+M\+Ap}!train@{train}}
 \index{train@{train}!I\+M\+Ap@{I\+M\+Ap}}
-\subsubsection[{\texorpdfstring{train() override}{train() override}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ bool {\bf I\+M\+Ap}$<$ T $>$\+::train (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\hypertarget{class_i_m_ap_aa8bf6b0d21a76d388fe81ee516b627e4}{}\label{class_i_m_ap_aa8bf6b0d21a76d388fe81ee516b627e4}
+\subsubsection{\texorpdfstring{train()}{train()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{class_i_m_ap}{I\+M\+Ap}}$<$ T $>$\+::train (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
 
 
 Function that execute the training phase of a classification algorithm. 
@@ -104,11 +92,11 @@ void
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_classifier_a120849bfdfa3ba7a0388b32b2d76bf4f}{Classifier$<$ T $>$}.
+Implements \mbox{\hyperlink{class_classifier_a120849bfdfa3ba7a0388b32b2d76bf4f}{Classifier$<$ T $>$}}.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-includes/\hyperlink{_i_m_a_8hpp}{I\+M\+A.\+hpp}\item 
+includes/\mbox{\hyperlink{_i_m_a_8hpp}{I\+M\+A.\+hpp}}\item 
 src/I\+M\+A.\+cpp\end{DoxyCompactItemize}
