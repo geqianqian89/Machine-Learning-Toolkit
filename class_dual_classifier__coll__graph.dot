@@ -1,0 +1,22 @@
+digraph "DualClassifier&lt; T &gt;"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node5 [label="DualClassifier\< T \>",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node6 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Classifier\< T \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_classifier.html"];
+  Node7 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" svs" ,fontname="Helvetica"];
+  Node7 [label="std::vector\< Point\l\< T \> \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node8 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" solution" ,fontname="Helvetica"];
+  Node8 [label="Solution",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_solution.html"];
+  Node9 -> Node8 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" fnames" ,fontname="Helvetica"];
+  Node9 [label="std::vector\< int \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node10 -> Node8 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" K" ,fontname="Helvetica"];
+  Node10 [label="Kernel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_kernel.html",tooltip="Class for the kernel computations. "];
+  Node11 -> Node8 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" w\nfunc\nalpha" ,fontname="Helvetica"];
+  Node11 [label="std::vector\< double \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node12 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" timer" ,fontname="Helvetica"];
+  Node12 [label="Timer",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_timer.html",tooltip="Wrapper for the implementation of a simple timer. "];
+  Node10 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" kernel" ,fontname="Helvetica"];
+  Node11 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" alpha" ,fontname="Helvetica"];
+}

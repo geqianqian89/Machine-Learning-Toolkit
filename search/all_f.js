@@ -23,5 +23,8 @@ var searchData=
   ['plotfile_5fxy_5ferr',['plotfile_xy_err',['../class_gnuplot.html#afe9d44ba12f617188111ab915010f3ab',1,'Gnuplot']]],
   ['plotfile_5fxyz',['plotfile_xyz',['../class_gnuplot.html#a9dbde2a91eb816481657f3a22c9b0046',1,'Gnuplot']]],
   ['point',['Point',['../class_point.html',1,'']]],
-  ['primalclassifier',['PrimalClassifier',['../class_primal_classifier.html',1,'']]]
+  ['point_2ehpp',['Point.hpp',['../_point_8hpp.html',1,'']]],
+  ['precision',['precision',['../class_validation_solution.html#a967e6a3839a1ac883d41e5b935eb2137',1,'ValidationSolution']]],
+  ['primalclassifier',['PrimalClassifier',['../class_primal_classifier.html',1,'']]],
+  ['primalclassifier_2ehpp',['PrimalClassifier.hpp',['../_primal_classifier_8hpp.html',1,'']]]
 ];

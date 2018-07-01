@@ -1,0 +1,12 @@
+digraph "Solution"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node2 [label="Solution",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node3 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" fnames" ,fontname="Helvetica"];
+  Node3 [label="std::vector\< int \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node4 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" K" ,fontname="Helvetica"];
+  Node4 [label="Kernel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_kernel.html",tooltip="Class for the kernel computations. "];
+  Node5 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" w\nfunc\nalpha" ,fontname="Helvetica"];
+  Node5 [label="std::vector\< double \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+}

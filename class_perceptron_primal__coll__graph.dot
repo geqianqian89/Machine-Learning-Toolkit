@@ -1,0 +1,23 @@
+digraph "PerceptronPrimal&lt; T &gt;"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node3 [label="PerceptronPrimal\< T \>",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node4 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="PrimalClassifier\< T \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_primal_classifier.html"];
+  Node5 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Classifier\< T \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_classifier.html"];
+  Node6 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" svs" ,fontname="Helvetica"];
+  Node6 [label="std::vector\< Point\l\< T \> \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node7 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" solution" ,fontname="Helvetica"];
+  Node7 [label="Solution",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_solution.html"];
+  Node8 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" fnames" ,fontname="Helvetica"];
+  Node8 [label="std::vector\< int \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node9 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" K" ,fontname="Helvetica"];
+  Node9 [label="Kernel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_kernel.html",tooltip="Class for the kernel computations. "];
+  Node10 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" w\nfunc\nalpha" ,fontname="Helvetica"];
+  Node10 [label="std::vector\< double \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node11 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" timer" ,fontname="Helvetica"];
+  Node11 [label="Timer",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_timer.html",tooltip="Wrapper for the implementation of a simple timer. "];
+  Node10 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" w" ,fontname="Helvetica"];
+}
