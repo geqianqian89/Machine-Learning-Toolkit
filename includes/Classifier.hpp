@@ -65,7 +65,10 @@ public :
      * \param samples Samples to be used.
      */
     virtual void setSamples(std::shared_ptr<Data< T > > samples) {this->samples = samples;}
-
+    /**
+     * \brief setTimer Set the timer used in the classifier.
+     * \param timer Timer to be used.
+     */
     void setTimer(Timer timer) { this->timer = timer; }
     /**
      * @brief Get the elapsed time in the execution of the classifier.
@@ -92,7 +95,10 @@ public :
      * @param steps Number of steps.
      */
     inline void setSteps(int steps) { this->steps = steps; }
-
+    /**
+     * @brief Set the gamma (margin) of the classifier.
+     * @param gamma Gamma (margin) of the classifier.
+     */
     inline void setGamma(double gamma) { this->gamma = gamma;}
     /**
      * @brief Set the partial number of updates of the classifier.
@@ -119,6 +125,10 @@ public :
      * @return Solution
      */
     Solution getSolution() {return solution;}
+    /**
+     * @brief getSolution Returns a reference to the solution of the primal classifier.
+     * @return Solution
+     */
     Solution *getSolutionRef() { return &solution; }
     /**
      * @brief Set the max time of execution.

@@ -17,10 +17,13 @@ class Kernel {
 private :
     /// Kernel type and parameter.
     int type;
+    /// Kernel parameter.
     double param;
     /// Kernel matrix.
     dMatrix K;
+    /// H matrix.
     dMatrix H;
+    /// H matrix without a dimension.
     dMatrix HwithoutDim;
 public :
     /**
@@ -70,10 +73,19 @@ public :
      */
     template < typename T >
     void compute(std::shared_ptr<Data< T > > samples);
-
+    /**
+     * @brief compute Compute the H matrix with the computed kernel matrix and given samples.
+     * @param samples Data used to compute the kernel matrix.
+     * @return dMatrix*
+     */
     template < typename T >
     dMatrix* generateMatrixH(std::shared_ptr<Data< T > > samples);
-
+    /**
+     * @brief compute Compute the H matrix without a dimension, with the computed kernel matrix and given samples.
+     * @param samples Data used to compute the kernel matrix.
+     * @param dim dimension to be ignored.
+     * @return dMatrix*
+     */
     template < typename T >
     dMatrix* generateMatrixHwithoutDim(std::shared_ptr<Data< T > > samples, int dim);
     /**
@@ -85,7 +97,14 @@ public :
      */
     template < typename T >
     double function(shared_ptr<Point< T > > one, shared_ptr<Point< T > > two, int dim);
-
+    /**
+     * @brief function Compute the kernel function between two points without a dimension.
+     * @param one first point.
+     * @param two second point.
+     * @param j Dimension to be ignored.
+     * @param dim Dimension of the points.
+     * @return double
+     */
     template < typename T >
     double functionWithoutDim(std::shared_ptr<Point< T > > one, std::shared_ptr<Point< T > > two, int j, int dim);
 
