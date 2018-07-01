@@ -1,3 +1,8 @@
+/*! Visualization wrapper class
+   \file Visualization.hpp
+   \author Mateus Coutinho Marim
+*/
+
 #ifndef VISUALIZATION__HPP
 #define VISUALIZATION__HPP
 #ifdef __unix__

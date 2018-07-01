@@ -5,5 +5,6 @@ var searchData=
   ['data_2ehpp',['Data.hpp',['../_data_8hpp.html',1,'']]],
   ['dot',['dot',['../class_point.html#ab1a74677723b3774be565d88af2187f8',1,'Point']]],
   ['dtoa',['dtoa',['../_utils_8hpp.html#aa2e6553d01cd9d5839b137e33d17f256',1,'dtoa(double n):&#160;Utils.cpp'],['../_utils_8cpp.html#a275d36ee09955d83c3c2433d10088a04',1,'dtoa(double n):&#160;Utils.cpp']]],
-  ['dualclassifier',['DualClassifier',['../class_dual_classifier.html',1,'']]]
+  ['dualclassifier',['DualClassifier',['../class_dual_classifier.html',1,'']]],
+  ['dualclassifier_2ehpp',['DualClassifier.hpp',['../_dual_classifier_8hpp.html',1,'']]]
 ];

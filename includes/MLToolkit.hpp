@@ -1,3 +1,8 @@
+/*! Base includes
+   \file MLToolkit.hpp
+   \author Mateus Coutinho Marim
+*/
+
 #ifndef MLTOOLKIT_H_INCLUDED
 #define MLTOOLKIT_H_INCLUDED
 

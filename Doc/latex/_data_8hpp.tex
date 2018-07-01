@@ -11,24 +11,16 @@
 {\ttfamily \#include \char`\"{}Point.\+hpp\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Statistics.\+hpp\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Utils.\+hpp\char`\"{}}\newline
-Include dependency graph for Data.\+hpp\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{_data_8hpp__incl}
-\end{center}
-\end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{_data_8hpp__dep__incl}
-\end{center}
-\end{figure}
+Include dependency graph for Data.\+hpp\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
 \subsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
-class \hyperlink{class_data}{Data$<$ T $>$}
+class \mbox{\hyperlink{class_statistics}{Statistics$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em Class with methods for statistical computations. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_data}{Data$<$ T $>$}}
 \begin{DoxyCompactList}\small\item\em Wrapper for the dataset data. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Enumerations}
 \begin{DoxyCompactItemize}
@@ -46,13 +38,13 @@ enum {\bfseries Type} \{ \newline
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{_data_8hpp_a4e6c3141b57fb6582acc4dac8f62a891}\label{_data_8hpp_a4e6c3141b57fb6582acc4dac8f62a891}} 
-{\footnotesize template$<$typename T $>$ }\\ostream \& {\bfseries operator$<$$<$} (ostream \&output, const \hyperlink{class_data}{Data}$<$ T $>$ \&data)
+\mbox{\Hypertarget{_data_8hpp_a1fa9a2ea41259b813f122e0d8bb47bca}\label{_data_8hpp_a1fa9a2ea41259b813f122e0d8bb47bca}} 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&output, const \mbox{\hyperlink{class_data}{Data}}$<$ T $>$ \&data)
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-\hyperlink{class_data}{Data} manipulation class
+\mbox{\hyperlink{class_data}{Data}} manipulation class
 
 \begin{DoxyAuthor}{Author}
 Mateus Coutinho Marim 

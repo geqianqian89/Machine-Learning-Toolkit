@@ -1,3 +1,8 @@
+/*! Classifier base class.
+   \file Classifier.hpp
+   \author Mateus Coutinho Marim
+*/
+
 #ifndef CLASSIFIER__HPP
 #define CLASSIFIER__HPP
 

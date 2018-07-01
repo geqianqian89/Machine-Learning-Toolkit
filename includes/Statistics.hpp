@@ -1,3 +1,8 @@
+/*! Statistics wrapper class
+   \file Statistics.hpp
+   \author Mateus Coutinho Marim
+*/
+
 #ifndef STATISTICS__HPP
 #define STATISTICS__HPP
 

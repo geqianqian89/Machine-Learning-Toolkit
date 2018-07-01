@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['random_2ehpp',['Random.hpp',['../_random_8hpp.html',1,'']]]
+  ['ima_2ehpp',['IMA.hpp',['../_i_m_a_8hpp.html',1,'']]]
 ];

@@ -1,25 +1,46 @@
 \hypertarget{class_timer}{}\section{Timer Class Reference}
 \label{class_timer}\index{Timer@{Timer}}
-\subsection*{Public Types}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{class_timer_ab6fc5ea7e1e1e2e3cfa79f8c7cc7005e}\label{class_timer_ab6fc5ea7e1e1e2e3cfa79f8c7cc7005e}} 
-typedef std\+::chrono\+::high\+\_\+resolution\+\_\+clock {\bfseries Clock}
-\item 
-\mbox{\Hypertarget{class_timer_a6840bc0fb5c4764ac55fa693a52bf861}\label{class_timer_a6840bc0fb5c4764ac55fa693a52bf861}} 
-typedef std\+::chrono\+::milliseconds {\bfseries ms}
-\end{DoxyCompactItemize}
+
+
+Wrapper for the implementation of a simple timer.  
+
+
+
+
+{\ttfamily \#include $<$Timer.\+hpp$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{class_timer_a5f16e8da27d2a5a5242dead46de05d97}\label{class_timer_a5f16e8da27d2a5a5242dead46de05d97}} 
+\mbox{\hyperlink{class_timer_a5f16e8da27d2a5a5242dead46de05d97}{Timer}} ()
+\begin{DoxyCompactList}\small\item\em Contructor already initiate the timer to the current time. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_timer_ae7c0c1e7d12de4b8a6e7c64e451cdd2a}\label{class_timer_ae7c0c1e7d12de4b8a6e7c64e451cdd2a}} 
-void {\bfseries Reset} ()
-\item 
+void \mbox{\hyperlink{class_timer_ae7c0c1e7d12de4b8a6e7c64e451cdd2a}{Reset}} ()
+\begin{DoxyCompactList}\small\item\em Set the timer to the current time. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_timer_a23ceb8d8848ca88a46a5df2b07e27516}{Elapsed}} () const
+\begin{DoxyCompactList}\small\item\em Returns the elapsed time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Wrapper for the implementation of a simple timer. 
+
+\subsection{Member Function Documentation}
 \mbox{\Hypertarget{class_timer_a23ceb8d8848ca88a46a5df2b07e27516}\label{class_timer_a23ceb8d8848ca88a46a5df2b07e27516}} 
-double {\bfseries Elapsed} () const
-\end{DoxyCompactItemize}
+\index{Timer@{Timer}!Elapsed@{Elapsed}}
+\index{Elapsed@{Elapsed}!Timer@{Timer}}
+\subsubsection{\texorpdfstring{Elapsed()}{Elapsed()}}
+{\footnotesize\ttfamily double Timer\+::\+Elapsed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the elapsed time. 
+
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-includes/\hyperlink{_timer_8hpp}{Timer.\+hpp}\end{DoxyCompactItemize}
+includes/\mbox{\hyperlink{_timer_8hpp}{Timer.\+hpp}}\end{DoxyCompactItemize}

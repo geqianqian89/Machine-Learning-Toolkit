@@ -1,3 +1,8 @@
+/*! DualClassifier base class.
+   \file DualClassifier.hpp
+   \author Mateus Coutinho Marim
+*/
+
 #ifndef DUALCLASSIFIER__HPP
 #define DUALCLASSIFIER__HPP
 

@@ -1,3 +1,8 @@
+/*! PrimalClassifier base class
+   \file PrimalClassifier.hpp
+   \author Mateus Coutinho Marim
+*/
+
 #ifndef PRIMALCLASSIFIER__HPP
 #define PRIMALCLASSIFIER__HPP
 

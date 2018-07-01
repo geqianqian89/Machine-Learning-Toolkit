@@ -1,14 +1,14 @@
+/*! Random namespace
+   \file Random.hpp
+   \author Mateus Coutinho Marim
+*/
+
 //
 // Created by mateus558 on 25/08/17.
 //
 
 #ifndef RANDOM_H_INCLUDED
 #define RANDOM_H_INCLUDED
-
-/*! Random namespace
-   \file Random.hpp
-   \author Mateus Coutinho Marim
-*/
 
 #include <random>
 #include <functional>

@@ -1,3 +1,8 @@
+/*! Incremental Margin Algorithm implementations
+   \file IMA.hpp
+   \author Mateus Coutinho Marim
+*/
+
 //
 // Created by mateus558 on 01/08/17.
 //

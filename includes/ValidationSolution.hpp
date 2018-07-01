@@ -1,3 +1,8 @@
+/*! ValidationSolution wrapper class
+   \file ValidationSolution.hpp
+   \author Mateus Coutinho Marim
+*/
+
 #ifndef VALIDATIONSOLUTION__HPP
 #define VALIDATIONSOLUTION__HPP
 
