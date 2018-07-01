@@ -1,0 +1,12 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$d6/dba/class_classifier.html" title="Classifier\&lt; T \&gt;" alt="" coords="5,145,112,172"/>
+<area shape="rect" id="node2" href="$d1/dbb/class_dual_classifier.html" title="DualClassifier\&lt; T \&gt;" alt="" coords="165,81,297,108"/>
+<area shape="rect" id="node6" href="$db/d87/class_primal_classifier.html" title="PrimalClassifier\&lt; T \&gt;" alt="" coords="160,208,303,235"/>
+<area shape="rect" id="node3" href="$d6/da4/class_i_m_a_dual.html" title="IMADual\&lt; T \&gt;" alt="" coords="411,5,514,32"/>
+<area shape="rect" id="node4" href="$d7/db4/class_perceptron_dual.html" title="Wrapper for the implementation of the Perceptron dual algorithm. " alt="" coords="391,56,534,83"/>
+<area shape="rect" id="node5" href="$d6/d4e/class_perceptron_fixed_margin_dual.html" title="Wrapper for the implementation of the Perceptron dual with fixed margin algorithm. " alt="" coords="356,107,569,133"/>
+<area shape="rect" id="node7" href="$dd/de8/class_i_m_ap.html" title="Wrapper for the implementation of the Incremental Margin Algorithm primal. " alt="" coords="421,157,504,184"/>
+<area shape="rect" id="node8" href="$df/db6/class_i_m_ap_fixed_margin.html" title="Wrapper for the implementation of the Incremental Margin Algorithm primal with fixed margin..." alt="" coords="385,208,540,235"/>
+<area shape="rect" id="node9" href="$d5/d40/class_perceptron_fixed_margin_primal.html" title="Wrapper for the implementation of the Perceptron primal with fixed margin algorithm. " alt="" coords="351,259,575,285"/>
+<area shape="rect" id="node10" href="$d8/d34/class_perceptron_primal.html" title="Wrapper for the implementation of the Perceptron primal algorithm. " alt="" coords="386,309,539,336"/>
+</map>

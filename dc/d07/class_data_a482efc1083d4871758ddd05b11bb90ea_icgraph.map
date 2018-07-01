@@ -1,0 +1,5 @@
+<map id="Data::getPoint" name="Data::getPoint">
+<area shape="rect" id="node2" href="$dc/d07/class_data.html#a2357782011d11c06500b1d752b9428c6" title="Insert a point to the data from another sample. " alt="" coords="159,5,277,32"/>
+<area shape="rect" id="node4" href="$dd/da7/class_validation.html#a1e9580697a164d4bfbe721f2f1589c57" title="Divide the samples in training and test. " alt="" coords="325,56,488,83"/>
+<area shape="rect" id="node3" href="$dc/d07/class_data.html#adfd307ae8437b7b2da4372eb604a2c43" title="insertFeatures Returns Data object with only features in array. " alt="" coords="337,5,477,32"/>
+</map>

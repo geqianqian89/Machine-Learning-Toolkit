@@ -1,0 +1,18 @@
+<map id="IMAp::train" name="IMAp::train">
+<area shape="rect" id="node2" href="$d8/da8/class_statistics.html#a157fcc6f57bed7b0b353bff8145c5964" title="Returns radius of the ball that circ. the data. " alt="" coords="159,5,301,32"/>
+<area shape="rect" id="node3" href="$d6/dba/class_classifier.html#a318ff28416f40269c532a80827fb30fb" title="Set the partial number of updates of the classifier. " alt="" coords="167,56,293,83"/>
+<area shape="rect" id="node4" href="$db/d87/class_primal_classifier.html#a7e6953c01b190e6ef968b75bd578ad7d" title="setqNorm Set the q norm used by the classifier. (Euclidean norm is the default) " alt="" coords="142,107,318,133"/>
+<area shape="rect" id="node5" href="$d6/dba/class_classifier.html#a55c37a2a00b3dce578d6fde547376dae" title="Set the partial number of steps of the classifier. " alt="" coords="163,157,297,184"/>
+<area shape="rect" id="node6" href="$d6/dba/class_classifier.html#a8ce9a9a19a9deceb12e39e54ef595650" title="Set the gamma (margin) of the classifier. " alt="" coords="157,208,303,235"/>
+<area shape="rect" id="node7" href="$db/d87/class_primal_classifier.html#a7e5c459cb4a377c794502cd9831ee095" title="Set flexibity of the classifier. " alt="" coords="139,259,321,285"/>
+<area shape="rect" id="node8" href="$d6/dba/class_classifier.html#ae705171568ea2066b619609af614129e" title="Set the learning rate of the classifier. " alt="" coords="141,309,319,336"/>
+<area shape="rect" id="node9" href="$d6/dba/class_classifier.html#a1919729daad9103144bffbd189b9fac9" title="Set the max time of execution. " alt="" coords="153,360,307,387"/>
+<area shape="rect" id="node10" href="$d6/dba/class_classifier.html#a92fd489e75afe8b1bd2c88c478cf8f60" title="setStartTime Set the initial time of the classifier. " alt="" coords="151,411,309,437"/>
+<area shape="rect" id="node11" href="$df/db6/class_i_m_ap_fixed_margin.html#a4d99742be5fe5a21b8ae6f99547a98c8" title="Function that execute the training phase of a classification algorithm. " alt="" coords="152,461,308,488"/>
+<area shape="rect" id="node12" href="$d6/dba/class_classifier.html#abbed7a8ea8050ae19a2c4c5f4a5e6002" title="Get the elapsed time in the execution of the classifier. " alt="" coords="142,512,318,539"/>
+<area shape="rect" id="node14" href="$d6/dba/class_classifier.html#aefd89af30ccd3e38194946bacecdf82a" title="Get the total number of updates of the classifier. " alt="" coords="167,563,293,589"/>
+<area shape="rect" id="node15" href="$d6/dba/class_classifier.html#a6e6d5041d6945bc62581323d2d3b5ab1" title="getSteps Returns the number of steps through the data by the classifier. " alt="" coords="163,613,297,640"/>
+<area shape="rect" id="node16" href="$d6/dba/class_classifier.html#a225887f545e5ad0a2bb414f969771cca" title="getSolution Returns the solution of the primal classifier. " alt="" coords="156,664,304,691"/>
+<area shape="rect" id="node17" href="$d6/dba/class_classifier.html#a2eb8d760224eba3091c108155996d3d9" title="setMaxTime Set the maximum time of the classifier. " alt="" coords="156,715,304,741"/>
+<area shape="rect" id="node13" href="$d8/d08/class_timer.html#a23ceb8d8848ca88a46a5df2b07e27516" title="Returns the elapsed time. " alt="" coords="369,512,479,539"/>
+</map>

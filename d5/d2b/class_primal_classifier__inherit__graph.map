@@ -1,0 +1,7 @@
+<map id="PrimalClassifier&lt; T &gt;" name="PrimalClassifier&lt; T &gt;">
+<area shape="rect" id="node3" href="$dd/de8/class_i_m_ap.html" title="Wrapper for the implementation of the Incremental Margin Algorithm primal. " alt="" coords="421,5,504,32"/>
+<area shape="rect" id="node4" href="$df/db6/class_i_m_ap_fixed_margin.html" title="Wrapper for the implementation of the Incremental Margin Algorithm primal with fixed margin..." alt="" coords="385,56,540,83"/>
+<area shape="rect" id="node5" href="$d5/d40/class_perceptron_fixed_margin_primal.html" title="Wrapper for the implementation of the Perceptron primal with fixed margin algorithm. " alt="" coords="351,107,575,133"/>
+<area shape="rect" id="node6" href="$d8/d34/class_perceptron_primal.html" title="Wrapper for the implementation of the Perceptron primal algorithm. " alt="" coords="386,157,539,184"/>
+<area shape="rect" id="node2" href="$d6/dba/class_classifier.html" title="Classifier\&lt; T \&gt;" alt="" coords="5,81,112,108"/>
+</map>
