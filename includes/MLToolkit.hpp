@@ -10,7 +10,6 @@
 #include "Solution.hpp"
 #include "Validation.hpp"
 #include "Visualization.hpp"
-#include "ValidationSolution.hpp"
 #include "Point.hpp"
 #include "Statistics.hpp"
 #include "Utils.hpp"

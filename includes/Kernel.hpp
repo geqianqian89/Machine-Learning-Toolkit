@@ -11,8 +11,8 @@
 #include <cmath>
 #include <utility>
 
-#include "../includes/Data.hpp"
-#include "../includes/Utils.hpp"
+#include "Data.hpp"
+#include "Utils.hpp"
 
 /**
  * \brief Class for the kernel computations.
@@ -101,7 +101,7 @@ public :
      * @return double
      */
     template < typename T >
-    double function(shared_ptr<Point< T > > one, shared_ptr<Point< T > > two, int dim);
+    double function(std::shared_ptr<Point< T > > one, std::shared_ptr<Point< T > > two, int dim);
     /**
      * @brief function Compute the kernel function between two points without a dimension.
      * @param one first point.
@@ -126,7 +126,7 @@ template < typename T >
 void Kernel::compute(const std::shared_ptr<Data< T > > samples){
     size_t i, j, size = samples->getSize(), dim = samples->getDim();
 
-    K.assign(size, vector<double>(size, 0.0));
+    K.assign(size, std::vector<double>(size, 0.0));
 
     //Calculating Matrix
     for(i = 0; i < size; ++i){
@@ -142,7 +142,7 @@ dMatrix* Kernel::generateMatrixH(const std::shared_ptr<Data< T > > samples) {
     register int i = 0, j = 0;
     size_t size = samples->getSize(), dim = samples->getDim();
 
-    H.resize(size, vector<double>(size));
+    H.resize(size, std::vector<double>(size));
 
     /* Calculating Matrix */
     for(i = 0; i < size; ++i) {
@@ -152,7 +152,7 @@ dMatrix* Kernel::generateMatrixH(const std::shared_ptr<Data< T > > samples) {
             H[j][i] = H[i][j];
         }
     }
-    clog << "\nH matrix generated.\n";
+    std::clog << "\nH matrix generated.\n";
     return &H;
 }
 
@@ -161,7 +161,7 @@ dMatrix* Kernel::generateMatrixHwithoutDim(const std::shared_ptr<Data< T > > sam
     register int i = 0, j = 0;
     size_t size = samples->getSize();
 
-    HwithoutDim.resize(size, vector<double>(size));
+    HwithoutDim.resize(size, std::vector<double>(size));
 
     /* Calculating Matrix */
     for(i = 0; i < size; ++i) {
@@ -176,10 +176,10 @@ dMatrix* Kernel::generateMatrixHwithoutDim(const std::shared_ptr<Data< T > > sam
 }
 
 template < typename T >
-double Kernel::function(shared_ptr<Point< T > > one, shared_ptr<Point< T > > two, int dim){
+double Kernel::function(std::shared_ptr<Point< T > > one, std::shared_ptr<Point< T > > two, int dim){
     int i = 0;
     double t, sum = 0.0;
-    vector< T > a = one->x, b = two->x;
+    std::vector< T > a = one->x, b = two->x;
 
     // a.erase(a.end());
     //b.erase(b.end());
@@ -246,7 +246,7 @@ template < typename T >
 double Kernel::norm(Data< T > data){
     size_t i, j, size = data.getSize();
     double sum, sum1;
-    vector<shared_ptr<Point< T > > > points = data.getPoints();
+    auto points = data.getPoints();
 
     sum = sum1 = 0;
 
@@ -259,6 +259,5 @@ double Kernel::norm(Data< T > data){
 
     return sqrt(sum);
 }
-
 
 #endif

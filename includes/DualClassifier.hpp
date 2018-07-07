@@ -20,13 +20,28 @@ protected:
     /// Object for kernel computations.
     Kernel *kernel;
 public:
-    inline std::string classifierType(){ return "Dual"; }
+    inline std::string classifierType() override { return "Dual"; }
+
+    /*********************************************
+     *               Setters                     *
+     *********************************************/
 
     /**
      * @brief setKernel Set the kernel used by the dual classifier.
      * @param q Norm that will be used by the classifier.
      */
     inline void setKernel(Kernel *K){ this->kernel = K; }
+    /**
+     * @brief Set the type of the kernel.
+     * @param type The type of the selected kernel.
+     */
+    inline void setKernelType(int type){ kernel->setType(type); }
+    /**
+     * @brief Set the parameter of the kernel.
+     * @param param The parameter of the selected kernel.
+     */
+    inline void setKernelParam(double param){ kernel->setType(param); }
+    
     /**
      * @brief Get the parameter of the kernel.
      * @return double
@@ -38,20 +53,10 @@ public:
      */
     inline double getKernelType(){ return kernel->getType(); }
     /**
-     * @brief Set the type of the kernel.
-     * @param type The type of the selected kernel.
-     */
-    inline void setKernelType(int type){ kernel->setType(type); }
-    /**
-     * @brief Set the parameter of the kernel.
-     * @param param The parameter of the selected kernel.
-     */
-    inline void setKernelParam(double param){ kernel->setType(param); }
-    /**
      * @brief Get the vector of alphas.
      * @return std::vector<double>
      */
-    std::vector<double> getAlphaVector() { return alpha; }
+    inline std::vector<double> getAlphaVector() { return alpha; }
     /**
      * @brief Compute the weights of the dual classifier. 
      * @return std::vector<double>
@@ -102,7 +107,7 @@ public:
                 for(j = 0; j < size; ++j)
                     H[i][j] = (*this->samples)[i]->x[k] * (*this->samples)[j]->x[k]
                               * (*this->samples)[i]->y * (*this->samples)[j]->y;
-            if(this->verbose >= 3) clog << "\n H matrix without dim generated.\n";
+            if(this->verbose >= 3) std::clog << "\n H matrix without dim generated.\n";
             for(i = 0; i < size; ++i)
                 for(alphaaux[i] = 0, j = 0; j < size; ++j)
                     alphaaux[i] += this->samples->getPoint(j)->alpha * H[i][j];

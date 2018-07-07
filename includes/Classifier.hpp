@@ -39,19 +39,22 @@ protected:
     int ctot = 0;
     /// Max precision.
     double EPS = 1E-9;
+    /// Minimun Increment
     double MIN_INC = 1.001;
     /// Max number of iterations.
     int MAX_IT = 1E9;
     /// Max number of updates.
     int MAX_UP = 1E9;
+    /// Verbose level of the output
     int verbose = 1;
     /// Timer used to measure the time elapsed in the execution of classifier.
     Timer timer;
     // Operations
 public :
+
     /**
-     * @brief Returns the type of the classifier.
-     * @return std::string
+     * \brief Returns the type of the classifier.
+     * \return std::string
      */
     virtual std::string classifierType() = 0;
     /**
@@ -65,6 +68,46 @@ public :
      * \return int
      */
     virtual double evaluate (Point< T > p) = 0;
+
+    /*********************************************
+     *               Getters                     *
+     *********************************************/
+
+    /**
+     * @brief getSolution Returns the solution of the primal classifier.
+     * @return Solution
+     */
+    Solution getSolution() const {return solution;}
+    /**
+     * @brief getSolution Returns a reference to the solution of the primal classifier.
+     * @return Solution
+     */
+    Solution *getSolutionRef() { return &solution; }
+    /**
+     * @brief Get the elapsed time in the execution of the classifier.
+     * @return double
+     */
+    inline double getElapsedTime() const { return timer.Elapsed(); }
+    /**
+    * @brief Get the total number of updates of the classifier.
+    * @return int
+    */
+    inline int getCtot() const { return ctot; }
+    /**
+     * \brief getSteps Returns the number of steps through the data by the classifier.
+     * \return int
+     */
+    inline int getSteps() const { return steps; }
+    /**
+     * \brief getUpdates Returns the number of updates needed to get to the the solution.
+     * \return int
+     */
+    inline int getUpdates() const { return ctot; }
+
+    /*********************************************
+     *               Setters                     *
+     *********************************************/
+
     /**
      * \brief setSamples Set the samples used in the classifier.
      * \param samples Samples to be used.
@@ -75,26 +118,6 @@ public :
      * \param timer Timer to be used.
      */
     void setTimer(Timer timer) { this->timer = timer; }
-    /**
-     * @brief Get the elapsed time in the execution of the classifier.
-     * @return double
-     */
-    inline double getElapsedTime() { return timer.Elapsed(); }
-    /**
-    * @brief Get the total number of updates of the classifier.
-    * @return int
-    */
-    inline int getCtot() { return ctot; }
-    /**
-     * \brief getSteps Returns the number of steps through the data by the classifier.
-     * \return int
-     */
-    inline int getSteps() { return steps; }
-    /**
-     * \brief getUpdates Returns the number of updates needed to get to the the solution.
-     * \return int
-     */
-    inline int getUpdates() { return ctot; }
     /**
      * @brief Set the partial number of steps of the classifier.
      * @param steps Number of steps.
@@ -125,16 +148,6 @@ public :
      * \param max_time Maximum time.
      */
     void setSolution(Solution solution) {this->solution = solution;}
-    /**
-     * @brief getSolution Returns the solution of the primal classifier.
-     * @return Solution
-     */
-    Solution getSolution() {return solution;}
-    /**
-     * @brief getSolution Returns a reference to the solution of the primal classifier.
-     * @return Solution
-     */
-    Solution *getSolutionRef() { return &solution; }
     /**
      * @brief Set the max time of execution.
      * @param max_time  Max time.

@@ -21,7 +21,11 @@ protected :
     /// Percentage of aproximation of the result.
     double alpha_aprox = 0.0;
 public:
-    inline std::string classifierType(){ return "Primal"; }
+    inline std::string classifierType() override { return "Primal"; }
+
+    /*********************************************
+     *               Setters                     *
+     *********************************************/
 
     /**
      * @brief setqNorm Set the q norm used by the classifier. (Euclidean norm is the default)
