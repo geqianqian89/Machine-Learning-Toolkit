@@ -1,5 +1,9 @@
 # UFJF - MLTK (Machine Learning Toolkit)
-[![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/) [![Build Status](https://semaphoreci.com/api/v1/mateus558/machine-learning-toolkit/branches/new_system/badge.svg)](https://semaphoreci.com/mateus558/machine-learning-toolkit) [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+
+[![Build Status](https://semaphoreci.com/api/v1/mateus558/machine-learning-toolkit/branches/new_system/badge.svg)](https://semaphoreci.com/mateus558/machine-learning-toolkit) 
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+[![MIT license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](http://choosealicense.com/licenses/mit)
+[![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
 ## Objective
 This project aims to provide researchers and developers basic tools for manipulation of datasets, implementation and test of ML algorithms
