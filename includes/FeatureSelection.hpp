@@ -60,6 +60,10 @@ public:
     void setVerbose(int verbose){
         this->verbose = verbose;
     }
+
+    void setCrossValidation(typename Validation< T >::CrossValidation *cv){
+        this->cv = cv;
+    }
 };
 
 #endif //UFJF_MLTK_FEATURESELECTION_H

@@ -13,6 +13,7 @@
 #include "../includes/MLToolkit.hpp"
 #include "../includes/Perceptron.hpp"
 #include "../includes/IMA.hpp"
+#include "../includes/RFE.hpp"
 #include "../includes/Timer.hpp"
 
 using namespace std;
@@ -44,6 +45,7 @@ void datasetMenu(void);
 void dataMenu(void);
 void VisualizationMenu(void);
 void classifiersMenu(void);
+void featureSelectionMenu(void);
 void validationMenu(void);
 
 //Functions to call the execution of the menus options
@@ -52,6 +54,7 @@ void datasetOption(int);
 void dataOption(int);
 void VisualizationOption(int);
 void classifiersOption(int);
+void featureSelectionOption(int);
 void primalClassifiersOption(int);
 void dualClassifiersOption(int);
 void validationOption(int);
@@ -117,22 +120,22 @@ vector<string> list_datasets(bool list){
     closedir(dpdf);
 #elif _WIN32
     HANDLE hFind;
-        WIN32_FIND_DATA data1;
-        string path = ".\\" + data_folder + "\\*.*";
+    WIN32_FIND_DATA data1;
+    string path = ".\\" + data_folder + "\\*.*";
 
-        hFind = FindFirstFile(path.c_str(), &data1);
-        if (hFind != INVALID_HANDLE_VALUE) {
-          do {
+    hFind = FindFirstFile(path.c_str(), &data1);
+    if (hFind != INVALID_HANDLE_VALUE) {
+        do {
             string file_name(data1.cFileName);
             if(valid_file(file_name) && !file_name.empty()){
                 if(list) cout << "[" << files.size() << "] " << file_name << endl;
                 files.push_back(file_name);
             }
-          } while (FindNextFile(hFind, &data1));
-          FindClose(hFind);
-        }
-    #else
-        cout << "This system is not supported for this function..." << endl;
+        } while (FindNextFile(hFind, &data1));
+        FindClose(hFind);
+    }
+#else
+    cout << "This system is not supported for this function..." << endl;
 #endif
 
     return files;
@@ -143,8 +146,8 @@ void clear(void){
     system("clear");
 #elif _WIN32
     system("CLS");
-    #else
-        int n;
+#else
+    int n;
         for (n = 0; n < 10; n++)
           printf( "\n\n\n\n\n\n\n\n\n\n" );
 #endif
@@ -200,6 +203,7 @@ void mainMenu(){
     cout << "2 - Data" << endl;
     cout << "3 - Data Visualization" << endl;
     cout << "4 - Classifiers" << endl;
+    cout << "5 - Feature Selection" << endl;
     cout << "8 - Validation" << endl;
     cout << endl;
     cout << "9 - Set Verbose" << endl;
@@ -283,6 +287,20 @@ void classifiersMenu(){
     classifiersOption(option);
 }
 
+void featureSelectionMenu(){
+    int option;
+
+    clear();
+    header();
+
+    cout << "1 - Recursive Feature Elimination (RFE)" << endl;
+    cout << endl;
+    cout << "0 - Back to the main menu" << endl;
+
+    option = selector();
+    featureSelectionOption(option);
+}
+
 void validationMenu(){
     int opt;
 
@@ -314,7 +332,7 @@ void mainOption(int option){
             classifiersMenu();
             break;
         case 5:
-            //featureSelectionMenu();
+            featureSelectionMenu();
             break;
         case 6:
             //genomicMenu();
@@ -815,6 +833,105 @@ void classifiersOption(int option){
     classifiersMenu();
 }
 
+void featureSelectionOption(int option){
+    double q, alpha_aprox, kernel_param;
+    int opt, flex, kernel_type, ddim, jump;
+    Timer time;
+    IMAp<double> imap(data);
+    IMADual<double> imadual(data);
+    Validation<double>::CrossValidation cv;
+    RFE<double> rfe;
+    shared_ptr<Data<double> > res;
+
+    clear();
+    header();
+
+    switch (option){
+        case 1:
+            if(!data->isEmpty()) {
+                cout << "1 - IMAp" << endl;
+                cout << "2 - IMA Dual" << endl;
+                cout << "3 - SMO (Not implemented yet)" << endl;
+                opt = selector();
+                switch (opt) {
+                    case 1:
+                        cout << "q-norm value: ";
+                        cin >> q;
+                        cout << "Flexibilization value (0 - no flexibilization): ";
+                        cin >> flex;
+                        cout << "Alpha aproximation: ";
+                        cin >> alpha_aprox;
+
+                        imap.setqNorm(q);
+                        imap.setFlexible(flex);
+                        imap.setAlphaAprox(alpha_aprox);
+                        imap.setMaxTime(max_time);
+                        rfe.setClassifier(&imap);
+                        break;
+                    case 2:
+                        cout << "Kernel (0)Inner Product (1)Polynomial (2)Gaussian: ";
+                        cin >> kernel_type;
+
+                        if (kernel_type == 1) {
+                            cout << "Polynomial degree: ";
+                        } else if (kernel_type == 2) {
+                            cout << "Gaussian gamma: ";
+                        }
+
+                        if (kernel_type != 0) {
+                            cin >> kernel_param;
+                        }
+                        imadual.setKernelParam(kernel_param);
+                        imadual.setKernelType(kernel_type);
+                        imadual.setMaxTime(max_time);
+                        rfe.setClassifier(&imadual);
+                        break;
+                    case 3:
+
+                        break;
+                }
+                cout << endl;
+                cout << "Desired dimension (max. " << data->getDim() << "): ";
+                cin >> ddim;
+                cout << "Features eliminated at a time: ";
+                cin >> jump;
+                cout << endl;
+
+                rfe.setJump(jump);
+                rfe.setDepth(data->getDim() - ddim);
+
+                cout << "\n--------- Cross-Validation ---------\n" << endl;
+                cout << "Number of Cross-Validation: ";
+                cin >> cv.qtde;
+
+                if (cv.qtde > 0) {
+                    cout << "K-Fold: ";
+                    cin >> cv.fold;
+                    cout << "From how many in how many dimensions: ";
+                    cin >> cv.jump;
+                    cout << "Error margin: ";
+                    cin >> cv.limit_error;
+                }
+                rfe.setCrossValidation(&cv);
+                rfe.setSamples(data);
+
+                time.Reset();
+                res = rfe.selectFeatures();
+                cout << time.Elapsed()/1000 << " seconds to compute.\n";
+            }else{
+                cout << "Load a dataset first..." << endl;
+            }
+            waitUserAction();
+            break;
+        case 0:
+            mainMenu();
+            break;
+        default:
+            featureSelectionMenu();
+            break;
+    }
+}
+
 void validationOption(int option){
     int fold, qtde, kernel_type;
     int p, q, i, norm, flexible, svs;
@@ -858,11 +975,11 @@ void validationOption(int option){
                 cout << "Flexibilization value [0 - no flexibilization]: ";
                 cin >> flexible;
                 cout << endl;
-
                 cout << "Alpha aproximation value [1 - alpha]: ";
                 cin >> alpha_prox;
                 cout << endl;
                 cout << max_time << endl;
+
                 imap.setMaxTime(max_time);
                 imap.setpNorm(p);
                 imap.setqNorm(q);

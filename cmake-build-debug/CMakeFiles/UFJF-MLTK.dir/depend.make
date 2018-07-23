@@ -98,12 +98,14 @@ CMakeFiles/UFJF-MLTK.dir/src/gnuplot_i.cpp.obj: ../src/gnuplot_i.cpp
 CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj: ../includes/Classifier.hpp
 CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj: ../includes/Data.hpp
 CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj: ../includes/DualClassifier.hpp
+CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj: ../includes/FeatureSelection.hpp
 CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj: ../includes/IMA.hpp
 CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj: ../includes/Kernel.hpp
 CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj: ../includes/MLToolkit.hpp
 CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj: ../includes/Perceptron.hpp
 CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj: ../includes/Point.hpp
 CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj: ../includes/PrimalClassifier.hpp
+CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj: ../includes/RFE.hpp
 CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj: ../includes/Solution.hpp
 CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj: ../includes/Statistics.hpp
 CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj: ../includes/Timer.hpp
