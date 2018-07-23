@@ -27,39 +27,39 @@ public:
      *********************************************/
 
     /**
-     * @brief setKernel Set the kernel used by the dual classifier.
-     * @param q Norm that will be used by the classifier.
+     * \brief setKernel Set the kernel used by the dual classifier.
+     * \param q Norm that will be used by the classifier.
      */
     inline void setKernel(Kernel *K){ this->kernel = K; }
     /**
-     * @brief Set the type of the kernel.
-     * @param type The type of the selected kernel.
+     * \brief Set the type of the kernel.
+     * \param type The type of the selected kernel.
      */
     inline void setKernelType(int type){ kernel->setType(type); }
     /**
-     * @brief Set the parameter of the kernel.
-     * @param param The parameter of the selected kernel.
+     * \brief Set the parameter of the kernel.
+     * \param param The parameter of the selected kernel.
      */
     inline void setKernelParam(double param){ kernel->setType(param); }
     
     /**
-     * @brief Get the parameter of the kernel.
-     * @return double
+     * \brief Get the parameter of the kernel.
+     * \return double
      */
     inline double getKernelParam(){ return kernel->getParam(); }
     /**
-     * @brief Get the type of the kernel.
-     * @return double
+     * \brief Get the type of the kernel.
+     * \return double
      */
     inline double getKernelType(){ return kernel->getType(); }
     /**
-     * @brief Get the vector of alphas.
-     * @return std::vector<double>
+     * \brief Get the vector of alphas.
+     * \return std::vector<double>
      */
     inline std::vector<double> getAlphaVector() { return alpha; }
     /**
-     * @brief Compute the weights of the dual classifier. 
-     * @return std::vector<double>
+     * \brief Compute the weights of the dual classifier. 
+     * \return std::vector<double>
      */
     std::vector<double> getDualWeight(){
         register int i = 0, j = 0, k = 0;
@@ -90,8 +90,8 @@ public:
         return this->solution.w;
     }
     /**
-     * @brief Compute the weights with inner product of the dual classifier. 
-     * @return std::vector<double>
+     * \brief Compute the weights with inner product of the dual classifier. 
+     * \return std::vector<double>
      */
     std::vector<double> getDualWeightProdInt(){
         register int i = 0, j = 0, k = 0;

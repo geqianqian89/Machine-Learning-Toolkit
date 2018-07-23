@@ -38,8 +38,6 @@ else()
   set(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 endif()
 
-set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
-
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 file(WRITE "C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"

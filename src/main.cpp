@@ -44,6 +44,7 @@ void datasetMenu(void);
 void dataMenu(void);
 void VisualizationMenu(void);
 void classifiersMenu(void);
+void featureSelectionMenu(void);
 void validationMenu(void);
 
 //Functions to call the execution of the menus options
@@ -52,6 +53,7 @@ void datasetOption(int);
 void dataOption(int);
 void VisualizationOption(int);
 void classifiersOption(int);
+void featureSelectionOption(int);
 void primalClassifiersOption(int);
 void dualClassifiersOption(int);
 void validationOption(int);
@@ -200,6 +202,7 @@ void mainMenu(){
     cout << "2 - Data" << endl;
     cout << "3 - Data Visualization" << endl;
     cout << "4 - Classifiers" << endl;
+    cout << "5 - Feature Selection" << endl;
     cout << "8 - Validation" << endl;
     cout << endl;
     cout << "9 - Set Verbose" << endl;
@@ -283,6 +286,20 @@ void classifiersMenu(){
     classifiersOption(option);
 }
 
+void featureSelectionMenu(){
+    int option;
+
+    clear();
+    header();
+
+    cout << "1 - Recursive Feature Elimination (RFE)" << endl;
+    cout << endl;
+    cout << "0 - Back to the main menu" << endl;
+
+    option = selector();
+    featureSelectionOption(option);
+}
+
 void validationMenu(){
     int opt;
 
@@ -314,7 +331,7 @@ void mainOption(int option){
             classifiersMenu();
             break;
         case 5:
-            //featureSelectionMenu();
+            featureSelectionMenu();
             break;
         case 6:
             //genomicMenu();
@@ -813,6 +830,51 @@ void classifiersOption(int option){
             break;
     }
     classifiersMenu();
+}
+
+void featureSelectionOption(int option){
+    Validation::CrossValidation cv;
+    double q, alpha_aprox;
+    int opt, flex;
+    IMAp<double> imap(data);
+    IMADual<double> imadual(data);
+    RFE
+    clear();
+    header();
+
+    switch (option){
+        case 1:
+            cout << "1 - IMAp" << endl;
+            cout << "2 - IMA Dual" << endl;
+            cout << "3 - SMO (Not implemented yet)" << endl;
+            opt = selector();
+            switch (opt){
+                case 1:
+                    cout << "q-norm value: ";
+                    cin >> q;
+                    imap.setqNorm(q);
+                    cout << "Flexibilization value (0 - no flexibilization): ";
+                    cin >> flex;
+                    imap.setFlexible(flex);
+                    cout << "Alpha aproximation: ";
+                    cin >> alpha_aprox;
+                    imap.setAlphaAprox(alpha_aprox);
+                    break;
+                case 2:
+
+                    break;
+                case 3:
+
+                    break;
+            }
+            break;
+        case 0:
+            mainMenu();
+            break;
+        default:
+            featureSelectionMenu();
+            break;
+    }
 }
 
 void validationOption(int option){

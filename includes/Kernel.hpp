@@ -32,91 +32,94 @@ private :
     dMatrix HwithoutDim;
 public :
     /**
-     * @brief Class constructor.
+     * \brief Class constructor.
      */
     Kernel(int type = 0, double param = 0);
-
+    /**
+     * \brief getKernelMatrixPointer Returns a reference to the kernel matrix.
+     * \return dMatrix*
+     */
     dMatrix* getKernelMatrixPointer();
     /**
-     * @brief Class constructor.
-     * @param K Kernel matrix to be set in initialization.
+     * \brief Class constructor.
+     * \param K Kernel matrix to be set in initialization.
      */
     Kernel(dMatrix kernel_matrix);
     /**
-     * @brief setType Set the kernel type used in the kernel computations.
-     * @param type Kernel type.
+     * \brief setType Set the kernel type used in the kernel computations.
+     * \param type Kernel type.
      */
     void setType(int type);
     /**
-     * @brief setParam Set the kernel parameter used in the kernel computations.
-     * @param param parameter to be set.
+     * \brief setParam Set the kernel parameter used in the kernel computations.
+     * \param param parameter to be set.
      */
     void setParam(int param);
     /**
-     * @brief getType Returns the kernel type used in the kernel computations.
-     * @return int.
+     * \brief getType Returns the kernel type used in the kernel computations.
+     * \return int.
      */
     int getType();
     /**
-     * @brief getParam Returns the kernel parameter used in the kernel computations.
-     * @return double
+     * \brief getParam Returns the kernel parameter used in the kernel computations.
+     * \return double
      */
     double getParam();
     /**
-     * @brief setKernelMatrix Set a pre computed kernel matrix.
-     * @param K Kernel matrix to be set.
+     * \brief setKernelMatrix Set a pre computed kernel matrix.
+     * \param K Kernel matrix to be set.
      */
     void setKernelMatrix(dMatrix K);
     /**
-     * @brief getKernelMatrix Get the kernel matrix.
-     * @return std::vector<std::vector<double> >
+     * \brief getKernelMatrix Get the kernel matrix.
+     * \return std::vector<std::vector<double> >
      */
     dMatrix getKernelMatrix();
     /**
-     * @brief compute Compute the kernel matrix with the given type and parameter.
-     * @param samples Data used to compute the kernel matrix.
+     * \brief compute Compute the kernel matrix with the given type and parameter.
+     * \param samples Data used to compute the kernel matrix.
      */
     template < typename T >
     void compute(std::shared_ptr<Data< T > > samples);
     /**
-     * @brief compute Compute the H matrix with the computed kernel matrix and given samples.
-     * @param samples Data used to compute the kernel matrix.
-     * @return dMatrix*
+     * \brief compute Compute the H matrix with the computed kernel matrix and given samples.
+     * \param samples Data used to compute the kernel matrix.
+     * \return dMatrix*
      */
     template < typename T >
     dMatrix* generateMatrixH(std::shared_ptr<Data< T > > samples);
     /**
-     * @brief compute Compute the H matrix without a dimension, with the computed kernel matrix and given samples.
-     * @param samples Data used to compute the kernel matrix.
-     * @param dim dimension to be ignored.
-     * @return dMatrix*
+     * \brief compute Compute the H matrix without a dimension, with the computed kernel matrix and given samples.
+     * \param samples Data used to compute the kernel matrix.
+     * \param dim dimension to be ignored.
+     * \return dMatrix*
      */
     template < typename T >
     dMatrix* generateMatrixHwithoutDim(std::shared_ptr<Data< T > > samples, int dim);
     /**
-     * @brief function Compute the kernel function between two points.
-     * @param one first point.
-     * @param two second point.
-     * @param dim Dimension of the points.
-     * @return double
+     * \brief function Compute the kernel function between two points.
+     * \param one first point.
+     * \param two second point.
+     * \param dim Dimension of the points.
+     * \return double
      */
     template < typename T >
     double function(std::shared_ptr<Point< T > > one, std::shared_ptr<Point< T > > two, int dim);
     /**
-     * @brief function Compute the kernel function between two points without a dimension.
-     * @param one first point.
-     * @param two second point.
-     * @param j Dimension to be ignored.
-     * @param dim Dimension of the points.
-     * @return double
+     * \brief function Compute the kernel function between two points without a dimension.
+     * \param one first point.
+     * \param two second point.
+     * \param j Dimension to be ignored.
+     * \param dim Dimension of the points.
+     * \return double
      */
     template < typename T >
     double functionWithoutDim(std::shared_ptr<Point< T > > one, std::shared_ptr<Point< T > > two, int j, int dim);
 
     /**
-     * @brief norm Computes norm in dual variables.
-     * @param data Dataset to compute norm.
-     * @return double
+     * \brief norm Computes norm in dual variables.
+     * \param data Dataset to compute norm.
+     * \return double
      */
     template < typename T >
     double norm(Data< T > data);

@@ -111,13 +111,13 @@ public :
      *********************************************/
 
     /**
-     * @brief Get the train sample used in the validation of the model.
-     * @return Data
+     * \brief Get the train sample used in the validation of the model.
+     * \return Data
      */
     std::shared_ptr<Data< T > > getTestSample ();
     /**
-     * @brief Get the train sample used in the validation of the model.
-     * @return Data
+     * \brief Get the train sample used in the validation of the model.
+     * \return Data
      */
     std::shared_ptr<Data< T > > getTrainSample ();
 
@@ -126,8 +126,8 @@ public :
      *********************************************/
 
     /**
-     * @brief Set the verbose.
-     * @param verbose Verbose level.
+     * \brief Set the verbose.
+     * \param verbose Verbose level.
      */
     void setVerbose(int verbose){this->verbose = verbose;}
     /**

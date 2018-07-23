@@ -21,7 +21,6 @@ CMakeFiles/UFJF-MLTK.dir/src/IMA.cpp.obj: ../includes/Statistics.hpp
 CMakeFiles/UFJF-MLTK.dir/src/IMA.cpp.obj: ../includes/Timer.hpp
 CMakeFiles/UFJF-MLTK.dir/src/IMA.cpp.obj: ../includes/Utils.hpp
 CMakeFiles/UFJF-MLTK.dir/src/IMA.cpp.obj: ../includes/Validation.hpp
-CMakeFiles/UFJF-MLTK.dir/src/IMA.cpp.obj: ../includes/ValidationSolution.hpp
 CMakeFiles/UFJF-MLTK.dir/src/IMA.cpp.obj: ../includes/Visualization.hpp
 CMakeFiles/UFJF-MLTK.dir/src/IMA.cpp.obj: ../includes/gnuplot_i.hpp
 CMakeFiles/UFJF-MLTK.dir/src/IMA.cpp.obj: ../src/IMA.cpp
@@ -46,10 +45,15 @@ CMakeFiles/UFJF-MLTK.dir/src/Perceptron.cpp.obj: ../includes/Statistics.hpp
 CMakeFiles/UFJF-MLTK.dir/src/Perceptron.cpp.obj: ../includes/Timer.hpp
 CMakeFiles/UFJF-MLTK.dir/src/Perceptron.cpp.obj: ../includes/Utils.hpp
 CMakeFiles/UFJF-MLTK.dir/src/Perceptron.cpp.obj: ../includes/Validation.hpp
-CMakeFiles/UFJF-MLTK.dir/src/Perceptron.cpp.obj: ../includes/ValidationSolution.hpp
 CMakeFiles/UFJF-MLTK.dir/src/Perceptron.cpp.obj: ../includes/Visualization.hpp
 CMakeFiles/UFJF-MLTK.dir/src/Perceptron.cpp.obj: ../includes/gnuplot_i.hpp
 CMakeFiles/UFJF-MLTK.dir/src/Perceptron.cpp.obj: ../src/Perceptron.cpp
+
+CMakeFiles/UFJF-MLTK.dir/src/Statistics.cpp.obj: ../includes/Data.hpp
+CMakeFiles/UFJF-MLTK.dir/src/Statistics.cpp.obj: ../includes/Point.hpp
+CMakeFiles/UFJF-MLTK.dir/src/Statistics.cpp.obj: ../includes/Statistics.hpp
+CMakeFiles/UFJF-MLTK.dir/src/Statistics.cpp.obj: ../includes/Utils.hpp
+CMakeFiles/UFJF-MLTK.dir/src/Statistics.cpp.obj: ../src/Statistics.cpp
 
 CMakeFiles/UFJF-MLTK.dir/src/Utils.cpp.obj: ../includes/Utils.hpp
 CMakeFiles/UFJF-MLTK.dir/src/Utils.cpp.obj: ../src/Utils.cpp
@@ -65,7 +69,6 @@ CMakeFiles/UFJF-MLTK.dir/src/Validation.cpp.obj: ../includes/Statistics.hpp
 CMakeFiles/UFJF-MLTK.dir/src/Validation.cpp.obj: ../includes/Timer.hpp
 CMakeFiles/UFJF-MLTK.dir/src/Validation.cpp.obj: ../includes/Utils.hpp
 CMakeFiles/UFJF-MLTK.dir/src/Validation.cpp.obj: ../includes/Validation.hpp
-CMakeFiles/UFJF-MLTK.dir/src/Validation.cpp.obj: ../includes/ValidationSolution.hpp
 CMakeFiles/UFJF-MLTK.dir/src/Validation.cpp.obj: ../src/Validation.cpp
 
 CMakeFiles/UFJF-MLTK.dir/src/Visualization.cpp.obj: ../includes/Data.hpp
@@ -95,7 +98,6 @@ CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj: ../includes/Statistics.hpp
 CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj: ../includes/Timer.hpp
 CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj: ../includes/Utils.hpp
 CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj: ../includes/Validation.hpp
-CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj: ../includes/ValidationSolution.hpp
 CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj: ../includes/Visualization.hpp
 CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj: ../includes/gnuplot_i.hpp
 CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj: ../src/main.cpp

@@ -125,9 +125,6 @@
 		<Unit filename="C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Validation.hpp">
 			<Option target="UFJF-MLTK"/>
 		</Unit>
-		<Unit filename="C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/ValidationSolution.hpp">
-			<Option target="UFJF-MLTK"/>
-		</Unit>
 		<Unit filename="C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Visualization.hpp">
 			<Option target="UFJF-MLTK"/>
 		</Unit>
@@ -144,6 +141,9 @@
 			<Option target="UFJF-MLTK"/>
 		</Unit>
 		<Unit filename="C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/src/Perceptron.cpp">
+			<Option target="UFJF-MLTK"/>
+		</Unit>
+		<Unit filename="C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/src/Statistics.cpp">
 			<Option target="UFJF-MLTK"/>
 		</Unit>
 		<Unit filename="C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/src/Utils.cpp">

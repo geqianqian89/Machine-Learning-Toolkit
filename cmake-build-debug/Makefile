@@ -230,6 +230,33 @@ src/Perceptron.cpp.s:
 	$(MAKE) -f CMakeFiles\UFJF-MLTK.dir\build.make CMakeFiles/UFJF-MLTK.dir/src/Perceptron.cpp.s
 .PHONY : src/Perceptron.cpp.s
 
+src/Statistics.obj: src/Statistics.cpp.obj
+
+.PHONY : src/Statistics.obj
+
+# target to build an object file
+src/Statistics.cpp.obj:
+	$(MAKE) -f CMakeFiles\UFJF-MLTK.dir\build.make CMakeFiles/UFJF-MLTK.dir/src/Statistics.cpp.obj
+.PHONY : src/Statistics.cpp.obj
+
+src/Statistics.i: src/Statistics.cpp.i
+
+.PHONY : src/Statistics.i
+
+# target to preprocess a source file
+src/Statistics.cpp.i:
+	$(MAKE) -f CMakeFiles\UFJF-MLTK.dir\build.make CMakeFiles/UFJF-MLTK.dir/src/Statistics.cpp.i
+.PHONY : src/Statistics.cpp.i
+
+src/Statistics.s: src/Statistics.cpp.s
+
+.PHONY : src/Statistics.s
+
+# target to generate assembly for a file
+src/Statistics.cpp.s:
+	$(MAKE) -f CMakeFiles\UFJF-MLTK.dir\build.make CMakeFiles/UFJF-MLTK.dir/src/Statistics.cpp.s
+.PHONY : src/Statistics.cpp.s
+
 src/Utils.obj: src/Utils.cpp.obj
 
 .PHONY : src/Utils.obj
@@ -386,6 +413,9 @@ help:
 	@echo ... src/Perceptron.obj
 	@echo ... src/Perceptron.i
 	@echo ... src/Perceptron.s
+	@echo ... src/Statistics.obj
+	@echo ... src/Statistics.i
+	@echo ... src/Statistics.s
 	@echo ... src/Utils.obj
 	@echo ... src/Utils.i
 	@echo ... src/Utils.s
