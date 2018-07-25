@@ -60,7 +60,7 @@ public :
      * \brief setSamples Set the samples used in the classifier.
      * \param samples Samples to be used.
      */
-    virtual void setSamples(std::shared_ptr<Data< T > > samples) {this->samples = samples;}
+    void setSamples(std::shared_ptr<Data< T > > samples) {this->samples = samples;}
     /**
      * \brief setTimer Set the timer used in the classifier.
      * \param timer Timer to be used.

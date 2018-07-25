@@ -709,6 +709,8 @@ bool Data< T >::removeFeatures(std::vector<int> feats){
     typename vector< T >::iterator itr;
     vector<int>::iterator fitr;
 
+    if(feats.size() == 0) return true;
+
     if(fnames.size() == 1){
         cerr << "Error: RemoveFeature, only one feature left.\n";
         return false;
@@ -998,8 +1000,17 @@ double Data< T >::getTime_mult() const {
 
 template < typename T >
 bool Data< T >::operator==(const Data< T > &rhs) const {
-    return points == rhs.points &&
-           fnames == rhs.fnames &&
+    if(points.size() != rhs.points.size()) return false;
+
+    size_t i, size = points.size();
+
+    for(i = 0; i < size; i++){
+        if(*points[i] != *rhs.points[i]){
+            return false;
+        }
+    }
+
+    return fnames == rhs.fnames &&
            index == rhs.index &&
            size == rhs.size &&
            dim == rhs.dim &&

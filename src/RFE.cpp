@@ -23,10 +23,10 @@ RFE< T >::RFE(std::shared_ptr<Data< T > > samples, Classifier< T > *classifier, 
 }
 
 template < typename T >
-std::unique_ptr<Data< T > > RFE< T >::selectFeatures() {
+std::shared_ptr<Data< T > > RFE< T >::selectFeatures() {
     int i = 0, j = 0;
     size_t dim = this->samples->getDim(), partial_dim = 0;
-    vector<int> features(this->depth), partial_features, choosen_feats;
+    vector<int> features, partial_features, choosen_feats;
     vector<double> w, new_w;
     vector<select_weight> weight;
     int svcount = 0, level = 0, leveljump = 0, partial_svs = 0;
@@ -34,7 +34,8 @@ std::unique_ptr<Data< T > > RFE< T >::selectFeatures() {
     double max_time = this->classifier->getMaxTime(), time_mult = this->samples->getTime_mult();
     double margin = 0, leave_oo = 0, kfolderror = 0, partial_time = 0, partial_margin = 0;
     double START_TIME = 100.0f * clock() / CLOCKS_PER_SEC;
-    unique_ptr<Data< T > > stmp_partial, stmp(make_unique<Data< T > >());
+    shared_ptr<Data< T > > stmp_partial, stmp(make_shared<Data< T > >());
+
     Validation< T > validation(this->samples, this->classifier);
 
     *stmp = (*this->samples).copy();
@@ -43,6 +44,8 @@ std::unique_ptr<Data< T > > RFE< T >::selectFeatures() {
         cerr << "Invalid depth!\n";
         return 0;
     }
+
+    features.resize(this->depth);
 
     /*inicializando o cross-validation*/
     if (this->cv->qtde > 0) {
@@ -72,10 +75,10 @@ std::unique_ptr<Data< T > > RFE< T >::selectFeatures() {
 
         this->classifier->setGamma(margin);
         this->classifier->setSolution(sol);
+        this->classifier->setSamples(stmp);
 
         /*training sample*/
         if (!this->classifier->train()) {
-
             sol = this->classifier->getSolution();
             svcount = sol.svs;
             margin = sol.margin;
@@ -108,13 +111,16 @@ std::unique_ptr<Data< T > > RFE< T >::selectFeatures() {
             break;
         }
 
+        sol = this->classifier->getSolution();
+        margin = sol.margin;
+        svcount = sol.svs;
         partial_margin = margin;
         partial_svs = svcount;
         partial_time = (100.0f*clock()/CLOCKS_PER_SEC-START_TIME)/100.0f;
         partial_dim = dim-level;
 
         stmp_partial.reset();
-        stmp_partial = make_unique<Data< T > >();
+        stmp_partial = make_shared<Data< T > >();
         *stmp_partial = (*this->samples).copy();
 
         partial_features.clear();
@@ -240,7 +246,7 @@ std::unique_ptr<Data< T > > RFE< T >::selectFeatures() {
             w.clear();
         }
 
-        if(*stmp != *this->samples) stmp.reset();
+        if(*stmp != *this->samples){ stmp.reset(); }
 
         /*saving removed feature name*/
         for(i = level; i < leveljump; ++i)

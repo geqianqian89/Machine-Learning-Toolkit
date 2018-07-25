@@ -31,7 +31,7 @@ protected:
     int verbose = 0;
 
 public:
-    virtual std::unique_ptr<Data< T > > selectFeatures() = 0;
+    virtual std::shared_ptr<Data< T > > selectFeatures() = 0;
 
     void setSamples(const std::shared_ptr<Data< T > > &samples) {
         this->samples = samples;
