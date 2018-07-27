@@ -13,7 +13,7 @@ protected:
     /// Alphas vector.
     std::vector<double> alpha;
     /// Object for kernel computations.
-    Kernel *kernel;
+    Kernel *kernel = nullptr;
 public:
     inline std::string classifierType(){ return "Dual"; }
 

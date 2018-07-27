@@ -424,6 +424,10 @@ IMADual< T >::IMADual(std::shared_ptr<Data< T > > samples, Kernel *k, double rat
     this->kernel = k;
     this->rate = rate;
 
+    if(this->kernel == nullptr){
+        this->kernel = new Kernel();
+    }
+
     if(initial_solution){
         this->solution.w = initial_solution->w;
         this->solution.bias = initial_solution->bias;
@@ -435,10 +439,8 @@ IMADual< T >::IMADual(std::shared_ptr<Data< T > > samples, Kernel *k, double rat
 
 template < typename T >
 bool IMADual< T >::train() {
-    register int it;
     double rmargin = 0, secs;
-
-    register int i, j;
+    size_t i, j, it;
     size_t sv = 0, size = this->samples->getSize(), dim = this->samples->getDim();
     double min, max, norm = 0, stime = 0;
     dMatrix K;
@@ -534,7 +536,7 @@ bool IMADual< T >::train() {
     if(kernel_type == 0)
         for(i = 0; i < dim; i++){
             for(j = 0; j < size; j++){
-                this->solution.w[i] += points[j]->alpha*points[j]->y*points[j]->x[i];
+                w_saved[i] += points[j]->alpha*points[j]->y*points[j]->x[i];
             }
         }
     else
@@ -546,6 +548,7 @@ bool IMADual< T >::train() {
         if(it) Data< T >::normalize(this->solution.w, 2);
     }
 
+    this->solution.w = w_saved;
     this->solution.margin = rmargin;
 
     if(this->verbose)
