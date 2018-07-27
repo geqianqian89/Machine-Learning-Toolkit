@@ -209,6 +209,11 @@ void Visualization< T >::plot3DwithHyperplane(int x, int y, int z, Solution s){
 }
 
 template < typename T >
+void Visualization< T >::setSample(Data<T> *sample) {
+    this->samples = sample;
+}
+
+template < typename T >
 Visualization< T >::~Visualization(){
 #ifdef __unix__
     g.cmd("quit");

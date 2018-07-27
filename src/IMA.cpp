@@ -197,6 +197,7 @@ bool IMAp< T >::train() {
         //  break;
         if(flagNao1aDim) break;
     }
+    this->svs.erase(this->svs.begin(), this->svs.end());
     for(min = DBL_MAX, max = -DBL_MAX, i = 0; i < size; ++i)
     {
         y = points[i]->y;

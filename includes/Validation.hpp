@@ -54,6 +54,7 @@ public :
      * @param seed  Seed to feed the pseudo random number generator.
      */
     explicit Validation (std::shared_ptr<Data< T > > sample = std::make_shared<Data< T > >(), Classifier< T >  *classifier = nullptr, unsigned int seed = 666);
+    void setSamples(std::shared_ptr<Data< T > > sample);
     /**
     * \brief Set the seed for the random number generator.
     * \param seed Seed to be set.

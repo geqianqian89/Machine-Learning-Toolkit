@@ -388,6 +388,11 @@ template < typename T >
 Validation< T > ::Validation() : sample(std::make_shared<Data< T > >()), train_sample(std::make_shared<Data< T > >()), test_sample(std::make_shared<Data< T > >()), classifier(nullptr) {}
 
 template < typename T >
+void Validation< T > ::setSamples(shared_ptr<Data<T>> sample) {
+    this->sample = sample;
+}
+
+template < typename T >
 void Validation< T > ::setSeed(unsigned int seed) {
     this->seed = seed;
 }

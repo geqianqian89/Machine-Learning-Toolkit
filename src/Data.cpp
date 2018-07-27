@@ -708,6 +708,7 @@ bool Data< T >::removeFeatures(std::vector<int> feats){
     size_t i, j, k, psize = points.size(), rsize = feats.size();
     typename vector< T >::iterator itr;
     vector<int>::iterator fitr;
+    vector<bool> exist(rsize, true);
 
     if(feats.size() == 0) return true;
 
@@ -723,24 +724,45 @@ bool Data< T >::removeFeatures(std::vector<int> feats){
     //Sort feats for remove features easily
     sort(feats.begin(), feats.end());
 
+    //Check the existence of the features to be removed
+    for(i = 0; i < rsize; i++){
+        for(j = 0; j < dim; j++){
+            if(feats[i] == fnames[j]){
+                break;
+            }
+        }
+        if(j == dim){
+            exist[i] = false;
+        }
+    }
+
     //Remove features from each point
     for(i = 0; i < psize; i++){
+        if(points[i] == nullptr) clog << "WARNING: point is null." << endl;
+
+        // Iterate through the point features
         for(itr = points[i]->x.begin(),k = 0, j = 0; itr != points[i]->x.end();){
-            if(k == rsize) break;
+            while(!exist[k] && k < rsize) k++; // go to next existent feature
+            if(k == rsize) break;              // Verify if is in the end of the feats vector
+
+            // Feature to remove found, remove it from the point and go to the next feat to remove
             if(fnames[j] == feats[k]){
-                if(i == 0)  dim--;
                 itr = points[i]->x.erase(itr);
                 k++;
-            }else itr++;
+            }else{
+                itr++;
+            }
             j++;
         }
     }
 
-    //remove names of non-existent features
+    //remove names of removed features
     for(k = 0; k < rsize; k++){
         for(fitr = fnames.begin(); fitr != fnames.end();){
             if((*fitr) == feats[k]){
                 fitr = fnames.erase(fitr);
+                dim--;
+                break;
             }else{
                 fitr++;
             }
@@ -874,6 +896,7 @@ void Data< T >::normalize(double p){
         }
     }
     dim++;
+    fnames.push_back(dim);
 
     normalized = true;
 }

@@ -735,6 +735,7 @@ void dataOption(int option){
 void VisualizationOption(int opt){
     int x, y, z;
 
+    plot.setSample(&(*data));
     switch (opt) {
         case 1:
             cout << "Enter the feature to plot in the x-axis: ";
@@ -834,7 +835,7 @@ void classifiersOption(int option){
 }
 
 void featureSelectionOption(int option){
-    double q, alpha_aprox, kernel_param;
+    double p, q, alpha_aprox, kernel_param;
     int opt, flex, kernel_type, ddim, jump;
     Timer time;
     IMAp<double> imap(data);
@@ -852,6 +853,9 @@ void featureSelectionOption(int option){
                 cout << "1 - IMAp" << endl;
                 cout << "2 - IMA Dual" << endl;
                 cout << "3 - SMO (Not implemented yet)" << endl;
+                cout << endl;
+                cout << "0 - Back to Feature Selection menu" << endl;
+                cout << "m - Back to Main menu" << endl;
                 opt = selector();
                 switch (opt) {
                     case 1:
@@ -861,6 +865,14 @@ void featureSelectionOption(int option){
                         cin >> flex;
                         cout << "Alpha aproximation: ";
                         cin >> alpha_aprox;
+
+                        if(q == -1.0){
+                            p = 1.0;
+                        }else if(q == 1.0){
+                            p = 100.0;
+                        }else{
+                            p = q/(q-1.0);
+                        }
 
                         imap.setqNorm(q);
                         imap.setFlexible(flex);
@@ -889,7 +901,14 @@ void featureSelectionOption(int option){
                     case 3:
 
                         break;
+                    case 0:
+                        featureSelectionMenu();
+                        break;
+                    case 109:
+                        mainMenu();
+                        break;
                 }
+                clear();
                 cout << endl;
                 cout << "Desired dimension (max. " << data->getDim() << "): ";
                 cin >> ddim;
@@ -900,6 +919,7 @@ void featureSelectionOption(int option){
                 rfe.setJump(jump);
                 rfe.setDepth(data->getDim() - ddim);
 
+                clear();
                 cout << "\n--------- Cross-Validation ---------\n" << endl;
                 cout << "Number of Cross-Validation: ";
                 cin >> cv.qtde;
@@ -914,14 +934,18 @@ void featureSelectionOption(int option){
                 }
                 rfe.setCrossValidation(&cv);
                 rfe.setSamples(data);
-
+                clear();
                 time.Reset();
                 res = rfe.selectFeatures();
+                data.reset();
+                data = res;
+
                 cout << time.Elapsed()/1000 << " seconds to compute.\n";
             }else{
                 cout << "Load a dataset first..." << endl;
             }
             waitUserAction();
+            featureSelectionOption(1);
             break;
         case 0:
             mainMenu();

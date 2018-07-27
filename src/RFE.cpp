@@ -24,28 +24,29 @@ RFE< T >::RFE(std::shared_ptr<Data< T > > samples, Classifier< T > *classifier, 
 
 template < typename T >
 std::shared_ptr<Data< T > > RFE< T >::selectFeatures() {
-    int i = 0, j = 0;
-    size_t dim = this->samples->getDim(), partial_dim = 0;
-    vector<int> features, partial_features, choosen_feats;
+    size_t dim = this->samples->getDim(), partial_dim = 0, i = 0, j = 0;
+    vector<int> features, partial_features, choosen_feats, fnames;
     vector<double> w, new_w;
     vector<select_weight> weight;
+    shared_ptr<Data< T > > stmp_partial, stmp(make_shared<Data< T > >());
+    Validation< T > validation(this->samples, this->classifier);
+    Solution sol;
     int svcount = 0, level = 0, leveljump = 0, partial_svs = 0;
     int partial = 0; //verifica se última solução é uma solução recuperada (parcial)
     double max_time = this->classifier->getMaxTime(), time_mult = this->samples->getTime_mult();
     double margin = 0, leave_oo = 0, kfolderror = 0, partial_time = 0, partial_margin = 0;
     double START_TIME = 100.0f * clock() / CLOCKS_PER_SEC;
-    shared_ptr<Data< T > > stmp_partial, stmp(make_shared<Data< T > >());
-
-    Validation< T > validation(this->samples, this->classifier);
+    double n0 = 1;
 
     *stmp = (*this->samples).copy();
     /*error check*/
-    if (this->depth < 1 || this->depth >= dim) {
+    if(this->depth < 1 || this->depth >= dim){
         cerr << "Invalid depth!\n";
         return 0;
     }
 
     features.resize(this->depth);
+    validation.setSamples(stmp);
 
     /*inicializando o cross-validation*/
     if (this->cv->qtde > 0) {
@@ -56,22 +57,20 @@ std::shared_ptr<Data< T > > RFE< T >::selectFeatures() {
         this->cv->initial_error = 0;
         this->cv->actual_error = 0;
     }
-    double n0 = 1;
-
-    Solution sol;
 
     this->classifier->setVerbose(0);
     validation.setVerbose(0);
 
-    while (true) {
+    while(true) {
         svcount = 0;
         margin = 0;
 
         //if(level != 0) // || level == depth) //else stmp->max_time = max_time;
-        if (level == 1)
+        if (level == 1) {
             n0 = max_time *= first_decay;
-        else if (level > 1)
+        }else if (level > 1) {
             max_time = n0 * exp(-time_mult * ((double) dim / (dim - level)));
+        }
 
         this->classifier->setGamma(margin);
         this->classifier->setSolution(sol);
@@ -110,7 +109,6 @@ std::shared_ptr<Data< T > > RFE< T >::selectFeatures() {
             }
             break;
         }
-
         sol = this->classifier->getSolution();
         margin = sol.margin;
         svcount = sol.svs;
@@ -124,12 +122,17 @@ std::shared_ptr<Data< T > > RFE< T >::selectFeatures() {
         *stmp_partial = (*this->samples).copy();
 
         partial_features.clear();
-        if(level-this->jump > 0)
+
+        int levelminusjump = (level-this->jump);
+
+        if(levelminusjump > 0)
         {
             partial_features.resize((size_t)(level-this->jump));
         }
-        for(i = 0; i < level-this->jump; ++i)
+
+        for(i = 0; (i < levelminusjump && levelminusjump > 0); ++i) {
             partial_features[i] = features[i];
+        }
 
         if(this->cv->qtde > 0)
         {
@@ -165,10 +168,10 @@ std::shared_ptr<Data< T > > RFE< T >::selectFeatures() {
         }
 
         w = this->classifier->getSolutionRef()->w;
-        weight.resize(dim);
-        auto fnames = this->samples->getFeaturesNames();
+        weight.resize(stmp->getDim());
+        auto fnames = stmp->getFeaturesNames();
 
-        for(i = 0; i < dim; ++i)
+        for(i = 0; i < stmp->getDim(); ++i)
         {
             weight[i].w = w[i];
             weight[i].fname = fnames[i];
@@ -188,10 +191,9 @@ std::shared_ptr<Data< T > > RFE< T >::selectFeatures() {
         if(level >= this->depth || (this->cv->qtde > 0 && this->cv->actual_error-this->cv->initial_error > this->cv->limit_error))
         {
             cout << "---------------\n :: FINAL :: \n---------------\n";
-            //if(stmp->dim < 50)
-            choosen_feats = this->samples->getFeaturesNames();
+            choosen_feats = stmp->getFeaturesNames();
             cout << "Choosen Features: ";
-            for(i = 0; i < dim-1; ++i) cout << choosen_feats[i] <<",";
+            for(i = 0; i < stmp->getDim()-1; ++i) cout << choosen_feats[i] <<",";
             cout << choosen_feats[i] << endl;
 
             cout << "---------------\nEliminated Features: ";
@@ -227,14 +229,14 @@ std::shared_ptr<Data< T > > RFE< T >::selectFeatures() {
         /*manutencao do w do pai para o IMA Primal*/
         if(this->classifier->classifierType() == "Primal")
         {
-            for(j = 0; j < dim; ++j)
+            for(j = 0; j < stmp->getDim(); ++j)
                 for(i = level; i < leveljump; ++i)
                     if(weight[i-level].w == w[j])
                         w[j] = 0;
 
             new_w.resize(dim-leveljump);
 
-            for(i = 0, j = 0; j < dim; ++j)
+            for(i = 0, j = 0; j < stmp->getDim(); ++j)
                 if(w[j] != 0)
                     new_w[i++] = w[j];
             //novo_w[i] = w[j]; //bias nao copia mais
@@ -246,7 +248,7 @@ std::shared_ptr<Data< T > > RFE< T >::selectFeatures() {
             w.clear();
         }
 
-        if(*stmp != *this->samples){ stmp.reset(); }
+       // if(*stmp != *this->samples){ stmp.reset(); }
 
         /*saving removed feature name*/
         for(i = level; i < leveljump; ++i)
@@ -263,8 +265,10 @@ std::shared_ptr<Data< T > > RFE< T >::selectFeatures() {
             level = this->depth;
             this->jump  = 0;
         }
-        else
+        else {
             level += this->jump;
+
+        }
         /*get temp data struct*/
         stmp->removeFeatures(features);
     }
@@ -292,7 +296,8 @@ template < typename T >
 int RFE< T >::compare_weight_greater(const select_weight &a, const select_weight &b) {
     /*                 V (greater)*/
     //printf("%d\n",(fabs(ia->w) > fabs(ib->w)) - (fabs(ia->w) < fabs(ib->w)));
-    return (fabs(a.w) > fabs(b.w)) - (fabs(a.w) < fabs(b.w));
+    return  fabs(a.w) < fabs(b.w);
+    //return (fabs(a.w) > fabs(b.w)) - (fabs(a.w) < fabs(b.w));
 }
 
 template class RFE<int>;
