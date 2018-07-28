@@ -56,6 +56,10 @@ C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes
 memory
 -
 
+C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Fisher.hpp
+FeatureSelection.hpp
+C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/FeatureSelection.hpp
+
 C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Golub.hpp
 FeatureSelection.hpp
 C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/FeatureSelection.hpp
@@ -246,6 +250,14 @@ C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes
 ../includes/Utils.hpp
 C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Utils.hpp
 
+C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/src/Fisher.cpp
+../includes/Fisher.hpp
+C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Fisher.hpp
+algorithm
+-
+cmath
+-
+
 C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/src/Golub.cpp
 ../includes/Golub.hpp
 C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Golub.hpp
@@ -367,6 +379,8 @@ C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes
 C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/RFE.hpp
 ../includes/Golub.hpp
 C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Golub.hpp
+../includes/Fisher.hpp
+C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Fisher.hpp
 ../includes/Timer.hpp
 C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Timer.hpp
 

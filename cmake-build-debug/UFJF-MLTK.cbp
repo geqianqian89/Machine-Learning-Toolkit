@@ -92,6 +92,9 @@
 		<Unit filename="C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/FeatureSelection.hpp">
 			<Option target="UFJF-MLTK"/>
 		</Unit>
+		<Unit filename="C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Fisher.hpp">
+			<Option target="UFJF-MLTK"/>
+		</Unit>
 		<Unit filename="C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Golub.hpp">
 			<Option target="UFJF-MLTK"/>
 		</Unit>
@@ -144,6 +147,9 @@
 			<Option target="UFJF-MLTK"/>
 		</Unit>
 		<Unit filename="C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/src/Data.cpp">
+			<Option target="UFJF-MLTK"/>
+		</Unit>
+		<Unit filename="C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/src/Fisher.cpp">
 			<Option target="UFJF-MLTK"/>
 		</Unit>
 		<Unit filename="C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/src/Golub.cpp">

@@ -15,6 +15,7 @@
 #include "../includes/IMA.hpp"
 #include "../includes/RFE.hpp"
 #include "../includes/Golub.hpp"
+#include "../includes/Fisher.hpp"
 #include "../includes/Timer.hpp"
 
 using namespace std;
@@ -846,6 +847,7 @@ void featureSelectionOption(int option){
     Validation<double>::CrossValidation cv;
     RFE<double> rfe;
     Golub<double> golub;
+    Fisher<double> fisher;
     shared_ptr<Data<double> > res;
 
     clear();
@@ -1070,7 +1072,7 @@ void featureSelectionOption(int option){
                         imap.setFlexible(flex);
                         imap.setAlphaAprox(alpha_aprox);
                         imap.setMaxTime(max_time);
-                        //golub.setClassifier(&imap);
+                        fisher.setClassifier(&imap);
                         break;
                     case 2:
                         cout << "Kernel (0)Inner Product (1)Polynomial (2)Gaussian: ";
@@ -1088,7 +1090,7 @@ void featureSelectionOption(int option){
                         imadual.setKernelParam(kernel_param);
                         imadual.setKernelType(kernel_type);
                         imadual.setMaxTime(max_time);
-                        //golub.setClassifier(&imadual);
+                        fisher.setClassifier(&imadual);
                         break;
                     case 3:
 
@@ -1107,13 +1109,15 @@ void featureSelectionOption(int option){
                 cout << endl;
                 cout << "Desired dimension (max. " << data->getDim() << "): ";
                 cin >> ddim;
-                golub.setSamples(data);
+                fisher.setVerbose(verbose);
+                fisher.setFinalDimension(ddim);
+                fisher.setSamples(data);
                 clear();
-                /*time.Reset();
-                res = golub.selectFeatures();
+                time.Reset();
+                res = fisher.selectFeatures();
                 data.reset();
                 data = res;
-                */
+
                 cout << time.Elapsed()/1000 << " seconds to compute.\n";
             }else{
                 cout << "Load a dataset first..." << endl;

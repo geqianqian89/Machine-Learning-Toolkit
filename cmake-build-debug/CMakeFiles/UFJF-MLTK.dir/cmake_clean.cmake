@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/UFJF-MLTK.dir/src/Data.cpp.obj"
+  "CMakeFiles/UFJF-MLTK.dir/src/Fisher.cpp.obj"
   "CMakeFiles/UFJF-MLTK.dir/src/Golub.cpp.obj"
   "CMakeFiles/UFJF-MLTK.dir/src/IMA.cpp.obj"
   "CMakeFiles/UFJF-MLTK.dir/src/Kernel.cpp.obj"

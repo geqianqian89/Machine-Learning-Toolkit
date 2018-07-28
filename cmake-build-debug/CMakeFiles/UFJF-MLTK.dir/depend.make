@@ -7,6 +7,20 @@ CMakeFiles/UFJF-MLTK.dir/src/Data.cpp.obj: ../includes/Statistics.hpp
 CMakeFiles/UFJF-MLTK.dir/src/Data.cpp.obj: ../includes/Utils.hpp
 CMakeFiles/UFJF-MLTK.dir/src/Data.cpp.obj: ../src/Data.cpp
 
+CMakeFiles/UFJF-MLTK.dir/src/Fisher.cpp.obj: ../includes/Classifier.hpp
+CMakeFiles/UFJF-MLTK.dir/src/Fisher.cpp.obj: ../includes/Data.hpp
+CMakeFiles/UFJF-MLTK.dir/src/Fisher.cpp.obj: ../includes/FeatureSelection.hpp
+CMakeFiles/UFJF-MLTK.dir/src/Fisher.cpp.obj: ../includes/Fisher.hpp
+CMakeFiles/UFJF-MLTK.dir/src/Fisher.cpp.obj: ../includes/Kernel.hpp
+CMakeFiles/UFJF-MLTK.dir/src/Fisher.cpp.obj: ../includes/Point.hpp
+CMakeFiles/UFJF-MLTK.dir/src/Fisher.cpp.obj: ../includes/Solution.hpp
+CMakeFiles/UFJF-MLTK.dir/src/Fisher.cpp.obj: ../includes/Statistics.hpp
+CMakeFiles/UFJF-MLTK.dir/src/Fisher.cpp.obj: ../includes/Timer.hpp
+CMakeFiles/UFJF-MLTK.dir/src/Fisher.cpp.obj: ../includes/Utils.hpp
+CMakeFiles/UFJF-MLTK.dir/src/Fisher.cpp.obj: ../includes/Validation.hpp
+CMakeFiles/UFJF-MLTK.dir/src/Fisher.cpp.obj: ../includes/ValidationSolution.hpp
+CMakeFiles/UFJF-MLTK.dir/src/Fisher.cpp.obj: ../src/Fisher.cpp
+
 CMakeFiles/UFJF-MLTK.dir/src/Golub.cpp.obj: ../includes/Classifier.hpp
 CMakeFiles/UFJF-MLTK.dir/src/Golub.cpp.obj: ../includes/Data.hpp
 CMakeFiles/UFJF-MLTK.dir/src/Golub.cpp.obj: ../includes/FeatureSelection.hpp
@@ -113,6 +127,7 @@ CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj: ../includes/Classifier.hpp
 CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj: ../includes/Data.hpp
 CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj: ../includes/DualClassifier.hpp
 CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj: ../includes/FeatureSelection.hpp
+CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj: ../includes/Fisher.hpp
 CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj: ../includes/Golub.hpp
 CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj: ../includes/IMA.hpp
 CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj: ../includes/Kernel.hpp

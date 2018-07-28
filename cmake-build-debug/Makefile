@@ -149,6 +149,33 @@ src/Data.cpp.s:
 	$(MAKE) -f CMakeFiles\UFJF-MLTK.dir\build.make CMakeFiles/UFJF-MLTK.dir/src/Data.cpp.s
 .PHONY : src/Data.cpp.s
 
+src/Fisher.obj: src/Fisher.cpp.obj
+
+.PHONY : src/Fisher.obj
+
+# target to build an object file
+src/Fisher.cpp.obj:
+	$(MAKE) -f CMakeFiles\UFJF-MLTK.dir\build.make CMakeFiles/UFJF-MLTK.dir/src/Fisher.cpp.obj
+.PHONY : src/Fisher.cpp.obj
+
+src/Fisher.i: src/Fisher.cpp.i
+
+.PHONY : src/Fisher.i
+
+# target to preprocess a source file
+src/Fisher.cpp.i:
+	$(MAKE) -f CMakeFiles\UFJF-MLTK.dir\build.make CMakeFiles/UFJF-MLTK.dir/src/Fisher.cpp.i
+.PHONY : src/Fisher.cpp.i
+
+src/Fisher.s: src/Fisher.cpp.s
+
+.PHONY : src/Fisher.s
+
+# target to generate assembly for a file
+src/Fisher.cpp.s:
+	$(MAKE) -f CMakeFiles\UFJF-MLTK.dir\build.make CMakeFiles/UFJF-MLTK.dir/src/Fisher.cpp.s
+.PHONY : src/Fisher.cpp.s
+
 src/Golub.obj: src/Golub.cpp.obj
 
 .PHONY : src/Golub.obj
@@ -431,6 +458,9 @@ help:
 	@echo ... src/Data.obj
 	@echo ... src/Data.i
 	@echo ... src/Data.s
+	@echo ... src/Fisher.obj
+	@echo ... src/Fisher.i
+	@echo ... src/Fisher.s
 	@echo ... src/Golub.obj
 	@echo ... src/Golub.i
 	@echo ... src/Golub.s

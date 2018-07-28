@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/src/Data.cpp" "C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/cmake-build-debug/CMakeFiles/UFJF-MLTK.dir/src/Data.cpp.obj"
+  "C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/src/Fisher.cpp" "C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/cmake-build-debug/CMakeFiles/UFJF-MLTK.dir/src/Fisher.cpp.obj"
   "C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/src/Golub.cpp" "C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/cmake-build-debug/CMakeFiles/UFJF-MLTK.dir/src/Golub.cpp.obj"
   "C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/src/IMA.cpp" "C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/cmake-build-debug/CMakeFiles/UFJF-MLTK.dir/src/IMA.cpp.obj"
   "C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/src/Kernel.cpp" "C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/cmake-build-debug/CMakeFiles/UFJF-MLTK.dir/src/Kernel.cpp.obj"
