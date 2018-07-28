@@ -25,6 +25,7 @@ protected:
     Solution solution;
 
     int depth = 0;
+    int final_dim = 0;
     int jump = 0;
     int skip = 0;
     bool leave_one_out = false;
@@ -40,6 +41,8 @@ public:
     void setClassifier(Classifier< T > *classifier) {
         this->classifier = classifier;
     }
+
+    void setFinalDimension(int final_dim){ this->final_dim = final_dim; }
 
     void setSolution(const Solution &solution) {
         this->solution = solution;

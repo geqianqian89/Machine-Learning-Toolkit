@@ -716,10 +716,10 @@ bool Data< T >::removeFeatures(std::vector<int> feats){
         cerr << "Error: RemoveFeature, only one feature left.\n";
         return false;
     }
-    if(feats.size() >= fnames.size()){
+    /*if(feats.size() >= fnames.size()){
         cerr << "Error: RemoveFeature, more or equal features to remove than exist.\n";
         return false;
-    }
+    }*/
 
     //Sort feats for remove features easily
     sort(feats.begin(), feats.end());

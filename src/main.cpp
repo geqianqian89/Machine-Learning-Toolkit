@@ -14,6 +14,7 @@
 #include "../includes/Perceptron.hpp"
 #include "../includes/IMA.hpp"
 #include "../includes/RFE.hpp"
+#include "../includes/Golub.hpp"
 #include "../includes/Timer.hpp"
 
 using namespace std;
@@ -294,6 +295,8 @@ void featureSelectionMenu(){
     header();
 
     cout << "1 - Recursive Feature Elimination (RFE)" << endl;
+    cout << "2 - Golub" << endl;
+    cout << "3 - Fisher" << endl;
     cout << endl;
     cout << "0 - Back to the main menu" << endl;
 
@@ -842,6 +845,7 @@ void featureSelectionOption(int option){
     IMADual<double> imadual(data);
     Validation<double>::CrossValidation cv;
     RFE<double> rfe;
+    Golub<double> golub;
     shared_ptr<Data<double> > res;
 
     clear();
@@ -850,6 +854,7 @@ void featureSelectionOption(int option){
     switch (option){
         case 1:
             if(!data->isEmpty()) {
+                cout << "Recursive Feature Elimination (RFE)" << endl;
                 cout << "1 - IMAp" << endl;
                 cout << "2 - IMA Dual" << endl;
                 cout << "3 - SMO (Not implemented yet)" << endl;
@@ -907,6 +912,9 @@ void featureSelectionOption(int option){
                     case 109:
                         mainMenu();
                         break;
+                    default:
+                        featureSelectionOption(1);
+                        break;
                 }
                 clear();
                 cout << endl;
@@ -946,6 +954,172 @@ void featureSelectionOption(int option){
             }
             waitUserAction();
             featureSelectionOption(1);
+            break;
+        case 2:
+            if(!data->isEmpty()) {
+                cout << "Golub" << endl;
+                cout << "1 - IMAp" << endl;
+                cout << "2 - IMA Dual" << endl;
+                cout << "3 - SMO (Not implemented yet)" << endl;
+                cout << endl;
+                cout << "0 - Back to Feature Selection menu" << endl;
+                cout << "m - Back to Main menu" << endl;
+                opt = selector();
+                switch (opt) {
+                    case 1:
+                        cout << "q-norm value: ";
+                        cin >> q;
+                        cout << "Flexibilization value (0 - no flexibilization): ";
+                        cin >> flex;
+                        cout << "Alpha aproximation: ";
+                        cin >> alpha_aprox;
+
+                        if(q == -1.0){
+                            p = 1.0;
+                        }else if(q == 1.0){
+                            p = 100.0;
+                        }else{
+                            p = q/(q-1.0);
+                        }
+
+                        imap.setqNorm(q);
+                        imap.setFlexible(flex);
+                        imap.setAlphaAprox(alpha_aprox);
+                        imap.setMaxTime(max_time);
+                        golub.setClassifier(&imap);
+                        break;
+                    case 2:
+                        cout << "Kernel (0)Inner Product (1)Polynomial (2)Gaussian: ";
+                        cin >> kernel_type;
+
+                        if (kernel_type == 1) {
+                            cout << "Polynomial degree: ";
+                        } else if (kernel_type == 2) {
+                            cout << "Gaussian gamma: ";
+                        }
+
+                        if (kernel_type != 0) {
+                            cin >> kernel_param;
+                        }
+                        imadual.setKernelParam(kernel_param);
+                        imadual.setKernelType(kernel_type);
+                        imadual.setMaxTime(max_time);
+                        golub.setClassifier(&imadual);
+                        break;
+                    case 3:
+
+                        break;
+                    case 0:
+                        featureSelectionMenu();
+                        break;
+                    case 109:
+                        mainMenu();
+                        break;
+                    default:
+                        featureSelectionOption(2);
+                        break;
+                }
+                clear();
+                cout << endl;
+                cout << "Desired dimension (max. " << data->getDim() << "): ";
+                cin >> ddim;
+                golub.setVerbose(1);
+                golub.setFinalDimension(ddim);
+                golub.setSamples(data);
+                clear();
+                time.Reset();
+                res = golub.selectFeatures();
+                data.reset();
+                data = res;
+
+                cout << time.Elapsed()/1000 << " seconds to compute.\n";
+            }else{
+                cout << "Load a dataset first..." << endl;
+            }
+            waitUserAction();
+            featureSelectionOption(2);
+            break;
+        case 3:
+            if(!data->isEmpty()) {
+                cout << "Fisher (Not implemented yet)" << endl;
+                cout << "1 - IMAp" << endl;
+                cout << "2 - IMA Dual" << endl;
+                cout << "3 - SMO (Not implemented yet)" << endl;
+                cout << endl;
+                cout << "0 - Back to Feature Selection menu" << endl;
+                cout << "m - Back to Main menu" << endl;
+                opt = selector();
+                switch (opt) {
+                    case 1:
+                        cout << "q-norm value: ";
+                        cin >> q;
+                        cout << "Flexibilization value (0 - no flexibilization): ";
+                        cin >> flex;
+                        cout << "Alpha aproximation: ";
+                        cin >> alpha_aprox;
+
+                        if(q == -1.0){
+                            p = 1.0;
+                        }else if(q == 1.0){
+                            p = 100.0;
+                        }else{
+                            p = q/(q-1.0);
+                        }
+
+                        imap.setqNorm(q);
+                        imap.setFlexible(flex);
+                        imap.setAlphaAprox(alpha_aprox);
+                        imap.setMaxTime(max_time);
+                        //golub.setClassifier(&imap);
+                        break;
+                    case 2:
+                        cout << "Kernel (0)Inner Product (1)Polynomial (2)Gaussian: ";
+                        cin >> kernel_type;
+
+                        if (kernel_type == 1) {
+                            cout << "Polynomial degree: ";
+                        } else if (kernel_type == 2) {
+                            cout << "Gaussian gamma: ";
+                        }
+
+                        if (kernel_type != 0) {
+                            cin >> kernel_param;
+                        }
+                        imadual.setKernelParam(kernel_param);
+                        imadual.setKernelType(kernel_type);
+                        imadual.setMaxTime(max_time);
+                        //golub.setClassifier(&imadual);
+                        break;
+                    case 3:
+
+                        break;
+                    case 0:
+                        featureSelectionMenu();
+                        break;
+                    case 109:
+                        mainMenu();
+                        break;
+                    default:
+                        featureSelectionOption(3);
+                        break;
+                }
+                clear();
+                cout << endl;
+                cout << "Desired dimension (max. " << data->getDim() << "): ";
+                cin >> ddim;
+                golub.setSamples(data);
+                clear();
+                /*time.Reset();
+                res = golub.selectFeatures();
+                data.reset();
+                data = res;
+                */
+                cout << time.Elapsed()/1000 << " seconds to compute.\n";
+            }else{
+                cout << "Load a dataset first..." << endl;
+            }
+            waitUserAction();
+            featureSelectionOption(3);
             break;
         case 0:
             mainMenu();

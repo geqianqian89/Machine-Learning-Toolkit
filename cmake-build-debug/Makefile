@@ -149,6 +149,33 @@ src/Data.cpp.s:
 	$(MAKE) -f CMakeFiles\UFJF-MLTK.dir\build.make CMakeFiles/UFJF-MLTK.dir/src/Data.cpp.s
 .PHONY : src/Data.cpp.s
 
+src/Golub.obj: src/Golub.cpp.obj
+
+.PHONY : src/Golub.obj
+
+# target to build an object file
+src/Golub.cpp.obj:
+	$(MAKE) -f CMakeFiles\UFJF-MLTK.dir\build.make CMakeFiles/UFJF-MLTK.dir/src/Golub.cpp.obj
+.PHONY : src/Golub.cpp.obj
+
+src/Golub.i: src/Golub.cpp.i
+
+.PHONY : src/Golub.i
+
+# target to preprocess a source file
+src/Golub.cpp.i:
+	$(MAKE) -f CMakeFiles\UFJF-MLTK.dir\build.make CMakeFiles/UFJF-MLTK.dir/src/Golub.cpp.i
+.PHONY : src/Golub.cpp.i
+
+src/Golub.s: src/Golub.cpp.s
+
+.PHONY : src/Golub.s
+
+# target to generate assembly for a file
+src/Golub.cpp.s:
+	$(MAKE) -f CMakeFiles\UFJF-MLTK.dir\build.make CMakeFiles/UFJF-MLTK.dir/src/Golub.cpp.s
+.PHONY : src/Golub.cpp.s
+
 src/IMA.obj: src/IMA.cpp.obj
 
 .PHONY : src/IMA.obj
@@ -404,6 +431,9 @@ help:
 	@echo ... src/Data.obj
 	@echo ... src/Data.i
 	@echo ... src/Data.s
+	@echo ... src/Golub.obj
+	@echo ... src/Golub.i
+	@echo ... src/Golub.s
 	@echo ... src/IMA.obj
 	@echo ... src/IMA.i
 	@echo ... src/IMA.s

@@ -56,6 +56,10 @@ C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes
 memory
 -
 
+C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Golub.hpp
+FeatureSelection.hpp
+C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/FeatureSelection.hpp
+
 C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/IMA.hpp
 vector
 -
@@ -242,6 +246,14 @@ C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes
 ../includes/Utils.hpp
 C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Utils.hpp
 
+C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/src/Golub.cpp
+../includes/Golub.hpp
+C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Golub.hpp
+algorithm
+-
+cmath
+-
+
 C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/src/IMA.cpp
 iostream
 -
@@ -353,6 +365,8 @@ C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes
 C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/IMA.hpp
 ../includes/RFE.hpp
 C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/RFE.hpp
+../includes/Golub.hpp
+C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Golub.hpp
 ../includes/Timer.hpp
 C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Timer.hpp
 
