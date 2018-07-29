@@ -35,6 +35,7 @@ protected :
     int MAX_IT = 1E9;
     /// Max number of updates.
     int MAX_UP = 1E9;
+    int MAX_EPOCH = 9999;
     int verbose = 1;
     /// Timer used to measure the time elapsed in the execution of classifier.
     Timer timer;

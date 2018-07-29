@@ -138,6 +138,12 @@ random
 functional
 -
 
+C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/SMO.hpp
+DualClassifier.hpp
+C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/DualClassifier.hpp
+list
+-
+
 C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Solution.hpp
 vector
 -
@@ -306,6 +312,14 @@ memory
 ../includes/RFE.hpp
 C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/RFE.hpp
 
+C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/src/SMO.cpp
+../includes/SMO.hpp
+C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/SMO.hpp
+../includes/Utils.hpp
+C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Utils.hpp
+cmath
+-
+
 C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/src/Utils.cpp
 cmath
 -
@@ -375,6 +389,8 @@ C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes
 C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Perceptron.hpp
 ../includes/IMA.hpp
 C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/IMA.hpp
+../includes/SMO.hpp
+C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/SMO.hpp
 ../includes/RFE.hpp
 C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/RFE.hpp
 ../includes/Golub.hpp

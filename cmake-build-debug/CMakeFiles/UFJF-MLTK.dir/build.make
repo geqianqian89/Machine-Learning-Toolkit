@@ -224,9 +224,33 @@ CMakeFiles/UFJF-MLTK.dir/src/RFE.cpp.obj.provides: CMakeFiles/UFJF-MLTK.dir/src/
 CMakeFiles/UFJF-MLTK.dir/src/RFE.cpp.obj.provides.build: CMakeFiles/UFJF-MLTK.dir/src/RFE.cpp.obj
 
 
+CMakeFiles/UFJF-MLTK.dir/src/SMO.cpp.obj: CMakeFiles/UFJF-MLTK.dir/flags.make
+CMakeFiles/UFJF-MLTK.dir/src/SMO.cpp.obj: ../src/SMO.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mateus Coutinho Mari\Documents\GitHub\Machine-Learning-Toolkit\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/UFJF-MLTK.dir/src/SMO.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\UFJF-MLTK.dir\src\SMO.cpp.obj -c "C:\Users\Mateus Coutinho Mari\Documents\GitHub\Machine-Learning-Toolkit\src\SMO.cpp"
+
+CMakeFiles/UFJF-MLTK.dir/src/SMO.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/UFJF-MLTK.dir/src/SMO.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Mateus Coutinho Mari\Documents\GitHub\Machine-Learning-Toolkit\src\SMO.cpp" > CMakeFiles\UFJF-MLTK.dir\src\SMO.cpp.i
+
+CMakeFiles/UFJF-MLTK.dir/src/SMO.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/UFJF-MLTK.dir/src/SMO.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Mateus Coutinho Mari\Documents\GitHub\Machine-Learning-Toolkit\src\SMO.cpp" -o CMakeFiles\UFJF-MLTK.dir\src\SMO.cpp.s
+
+CMakeFiles/UFJF-MLTK.dir/src/SMO.cpp.obj.requires:
+
+.PHONY : CMakeFiles/UFJF-MLTK.dir/src/SMO.cpp.obj.requires
+
+CMakeFiles/UFJF-MLTK.dir/src/SMO.cpp.obj.provides: CMakeFiles/UFJF-MLTK.dir/src/SMO.cpp.obj.requires
+	$(MAKE) -f CMakeFiles\UFJF-MLTK.dir\build.make CMakeFiles/UFJF-MLTK.dir/src/SMO.cpp.obj.provides.build
+.PHONY : CMakeFiles/UFJF-MLTK.dir/src/SMO.cpp.obj.provides
+
+CMakeFiles/UFJF-MLTK.dir/src/SMO.cpp.obj.provides.build: CMakeFiles/UFJF-MLTK.dir/src/SMO.cpp.obj
+
+
 CMakeFiles/UFJF-MLTK.dir/src/Utils.cpp.obj: CMakeFiles/UFJF-MLTK.dir/flags.make
 CMakeFiles/UFJF-MLTK.dir/src/Utils.cpp.obj: ../src/Utils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mateus Coutinho Mari\Documents\GitHub\Machine-Learning-Toolkit\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/UFJF-MLTK.dir/src/Utils.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mateus Coutinho Mari\Documents\GitHub\Machine-Learning-Toolkit\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/UFJF-MLTK.dir/src/Utils.cpp.obj"
 	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\UFJF-MLTK.dir\src\Utils.cpp.obj -c "C:\Users\Mateus Coutinho Mari\Documents\GitHub\Machine-Learning-Toolkit\src\Utils.cpp"
 
 CMakeFiles/UFJF-MLTK.dir/src/Utils.cpp.i: cmake_force
@@ -250,7 +274,7 @@ CMakeFiles/UFJF-MLTK.dir/src/Utils.cpp.obj.provides.build: CMakeFiles/UFJF-MLTK.
 
 CMakeFiles/UFJF-MLTK.dir/src/Validation.cpp.obj: CMakeFiles/UFJF-MLTK.dir/flags.make
 CMakeFiles/UFJF-MLTK.dir/src/Validation.cpp.obj: ../src/Validation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mateus Coutinho Mari\Documents\GitHub\Machine-Learning-Toolkit\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/UFJF-MLTK.dir/src/Validation.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mateus Coutinho Mari\Documents\GitHub\Machine-Learning-Toolkit\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/UFJF-MLTK.dir/src/Validation.cpp.obj"
 	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\UFJF-MLTK.dir\src\Validation.cpp.obj -c "C:\Users\Mateus Coutinho Mari\Documents\GitHub\Machine-Learning-Toolkit\src\Validation.cpp"
 
 CMakeFiles/UFJF-MLTK.dir/src/Validation.cpp.i: cmake_force
@@ -274,7 +298,7 @@ CMakeFiles/UFJF-MLTK.dir/src/Validation.cpp.obj.provides.build: CMakeFiles/UFJF-
 
 CMakeFiles/UFJF-MLTK.dir/src/Visualization.cpp.obj: CMakeFiles/UFJF-MLTK.dir/flags.make
 CMakeFiles/UFJF-MLTK.dir/src/Visualization.cpp.obj: ../src/Visualization.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mateus Coutinho Mari\Documents\GitHub\Machine-Learning-Toolkit\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/UFJF-MLTK.dir/src/Visualization.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mateus Coutinho Mari\Documents\GitHub\Machine-Learning-Toolkit\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/UFJF-MLTK.dir/src/Visualization.cpp.obj"
 	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\UFJF-MLTK.dir\src\Visualization.cpp.obj -c "C:\Users\Mateus Coutinho Mari\Documents\GitHub\Machine-Learning-Toolkit\src\Visualization.cpp"
 
 CMakeFiles/UFJF-MLTK.dir/src/Visualization.cpp.i: cmake_force
@@ -298,7 +322,7 @@ CMakeFiles/UFJF-MLTK.dir/src/Visualization.cpp.obj.provides.build: CMakeFiles/UF
 
 CMakeFiles/UFJF-MLTK.dir/src/gnuplot_i.cpp.obj: CMakeFiles/UFJF-MLTK.dir/flags.make
 CMakeFiles/UFJF-MLTK.dir/src/gnuplot_i.cpp.obj: ../src/gnuplot_i.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mateus Coutinho Mari\Documents\GitHub\Machine-Learning-Toolkit\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/UFJF-MLTK.dir/src/gnuplot_i.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mateus Coutinho Mari\Documents\GitHub\Machine-Learning-Toolkit\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/UFJF-MLTK.dir/src/gnuplot_i.cpp.obj"
 	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\UFJF-MLTK.dir\src\gnuplot_i.cpp.obj -c "C:\Users\Mateus Coutinho Mari\Documents\GitHub\Machine-Learning-Toolkit\src\gnuplot_i.cpp"
 
 CMakeFiles/UFJF-MLTK.dir/src/gnuplot_i.cpp.i: cmake_force
@@ -322,7 +346,7 @@ CMakeFiles/UFJF-MLTK.dir/src/gnuplot_i.cpp.obj.provides.build: CMakeFiles/UFJF-M
 
 CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj: CMakeFiles/UFJF-MLTK.dir/flags.make
 CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mateus Coutinho Mari\Documents\GitHub\Machine-Learning-Toolkit\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Mateus Coutinho Mari\Documents\GitHub\Machine-Learning-Toolkit\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/UFJF-MLTK.dir/src/main.cpp.obj"
 	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\UFJF-MLTK.dir\src\main.cpp.obj -c "C:\Users\Mateus Coutinho Mari\Documents\GitHub\Machine-Learning-Toolkit\src\main.cpp"
 
 CMakeFiles/UFJF-MLTK.dir/src/main.cpp.i: cmake_force
@@ -353,6 +377,7 @@ UFJF__MLTK_OBJECTS = \
 "CMakeFiles/UFJF-MLTK.dir/src/Kernel.cpp.obj" \
 "CMakeFiles/UFJF-MLTK.dir/src/Perceptron.cpp.obj" \
 "CMakeFiles/UFJF-MLTK.dir/src/RFE.cpp.obj" \
+"CMakeFiles/UFJF-MLTK.dir/src/SMO.cpp.obj" \
 "CMakeFiles/UFJF-MLTK.dir/src/Utils.cpp.obj" \
 "CMakeFiles/UFJF-MLTK.dir/src/Validation.cpp.obj" \
 "CMakeFiles/UFJF-MLTK.dir/src/Visualization.cpp.obj" \
@@ -369,6 +394,7 @@ UFJF-MLTK.exe: CMakeFiles/UFJF-MLTK.dir/src/IMA.cpp.obj
 UFJF-MLTK.exe: CMakeFiles/UFJF-MLTK.dir/src/Kernel.cpp.obj
 UFJF-MLTK.exe: CMakeFiles/UFJF-MLTK.dir/src/Perceptron.cpp.obj
 UFJF-MLTK.exe: CMakeFiles/UFJF-MLTK.dir/src/RFE.cpp.obj
+UFJF-MLTK.exe: CMakeFiles/UFJF-MLTK.dir/src/SMO.cpp.obj
 UFJF-MLTK.exe: CMakeFiles/UFJF-MLTK.dir/src/Utils.cpp.obj
 UFJF-MLTK.exe: CMakeFiles/UFJF-MLTK.dir/src/Validation.cpp.obj
 UFJF-MLTK.exe: CMakeFiles/UFJF-MLTK.dir/src/Visualization.cpp.obj
@@ -378,7 +404,7 @@ UFJF-MLTK.exe: CMakeFiles/UFJF-MLTK.dir/build.make
 UFJF-MLTK.exe: CMakeFiles/UFJF-MLTK.dir/linklibs.rsp
 UFJF-MLTK.exe: CMakeFiles/UFJF-MLTK.dir/objects1.rsp
 UFJF-MLTK.exe: CMakeFiles/UFJF-MLTK.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Mateus Coutinho Mari\Documents\GitHub\Machine-Learning-Toolkit\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable UFJF-MLTK.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Mateus Coutinho Mari\Documents\GitHub\Machine-Learning-Toolkit\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable UFJF-MLTK.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\UFJF-MLTK.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -393,6 +419,7 @@ CMakeFiles/UFJF-MLTK.dir/requires: CMakeFiles/UFJF-MLTK.dir/src/IMA.cpp.obj.requ
 CMakeFiles/UFJF-MLTK.dir/requires: CMakeFiles/UFJF-MLTK.dir/src/Kernel.cpp.obj.requires
 CMakeFiles/UFJF-MLTK.dir/requires: CMakeFiles/UFJF-MLTK.dir/src/Perceptron.cpp.obj.requires
 CMakeFiles/UFJF-MLTK.dir/requires: CMakeFiles/UFJF-MLTK.dir/src/RFE.cpp.obj.requires
+CMakeFiles/UFJF-MLTK.dir/requires: CMakeFiles/UFJF-MLTK.dir/src/SMO.cpp.obj.requires
 CMakeFiles/UFJF-MLTK.dir/requires: CMakeFiles/UFJF-MLTK.dir/src/Utils.cpp.obj.requires
 CMakeFiles/UFJF-MLTK.dir/requires: CMakeFiles/UFJF-MLTK.dir/src/Validation.cpp.obj.requires
 CMakeFiles/UFJF-MLTK.dir/requires: CMakeFiles/UFJF-MLTK.dir/src/Visualization.cpp.obj.requires

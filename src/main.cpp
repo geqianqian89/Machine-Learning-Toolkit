@@ -13,6 +13,7 @@
 #include "../includes/MLToolkit.hpp"
 #include "../includes/Perceptron.hpp"
 #include "../includes/IMA.hpp"
+#include "../includes/SMO.hpp"
 #include "../includes/RFE.hpp"
 #include "../includes/Golub.hpp"
 #include "../includes/Fisher.hpp"
@@ -821,6 +822,7 @@ void classifiersOption(int option){
             cout << "1 - Perceptron Dual" << endl;
             cout << "2 - Perceptron Dual with fixed margin" << endl;
             cout << "3 - Incremental Margin Algorithm Dual (IMA Dual)" << endl;
+            cout << "4 - Sequential Minimal Optimization (SMO)" << endl;
             cout << endl;
             cout << "0 - Back to classifiers menu" << endl;
             cout << "m - Back to main menu." << endl;
@@ -844,6 +846,7 @@ void featureSelectionOption(int option){
     Timer time;
     IMAp<double> imap(data);
     IMADual<double> imadual(data);
+    SMO<double> smo;
     Validation<double>::CrossValidation cv;
     RFE<double> rfe;
     Golub<double> golub;
@@ -859,7 +862,7 @@ void featureSelectionOption(int option){
                 cout << "Recursive Feature Elimination (RFE)" << endl;
                 cout << "1 - IMAp" << endl;
                 cout << "2 - IMA Dual" << endl;
-                cout << "3 - SMO (Not implemented yet)" << endl;
+                cout << "3 - SMO" << endl;
                 cout << endl;
                 cout << "0 - Back to Feature Selection menu" << endl;
                 cout << "m - Back to Main menu" << endl;
@@ -906,7 +909,21 @@ void featureSelectionOption(int option){
                         rfe.setClassifier(&imadual);
                         break;
                     case 3:
+                        cout << "Kernel (0)Inner Product (1)Polynomial (2)Gaussian: ";
+                        cin >> kernel_type;
 
+                        if (kernel_type == 1) {
+                            cout << "Polynomial degree: ";
+                        } else if (kernel_type == 2) {
+                            cout << "Gaussian gamma: ";
+                        }
+
+                        if (kernel_type != 0) {
+                            cin >> kernel_param;
+                        }
+                        smo.setKernelParam(kernel_param);
+                        smo.setKernelType(kernel_type);
+                        rfe.setClassifier(&smo);
                         break;
                     case 0:
                         featureSelectionMenu();
@@ -943,6 +960,7 @@ void featureSelectionOption(int option){
                     cin >> cv.limit_error;
                 }
                 rfe.setCrossValidation(&cv);
+                rfe.setVerbose(verbose);
                 rfe.setSamples(data);
                 clear();
                 time.Reset();
@@ -962,7 +980,7 @@ void featureSelectionOption(int option){
                 cout << "Golub" << endl;
                 cout << "1 - IMAp" << endl;
                 cout << "2 - IMA Dual" << endl;
-                cout << "3 - SMO (Not implemented yet)" << endl;
+                cout << "3 - SMO" << endl;
                 cout << endl;
                 cout << "0 - Back to Feature Selection menu" << endl;
                 cout << "m - Back to Main menu" << endl;
@@ -1009,7 +1027,21 @@ void featureSelectionOption(int option){
                         golub.setClassifier(&imadual);
                         break;
                     case 3:
+                        cout << "Kernel (0)Inner Product (1)Polynomial (2)Gaussian: ";
+                        cin >> kernel_type;
 
+                        if (kernel_type == 1) {
+                            cout << "Polynomial degree: ";
+                        } else if (kernel_type == 2) {
+                            cout << "Gaussian gamma: ";
+                        }
+
+                        if (kernel_type != 0) {
+                            cin >> kernel_param;
+                        }
+                        smo.setKernelParam(kernel_param);
+                        smo.setKernelType(kernel_type);
+                        golub.setClassifier(&smo);
                         break;
                     case 0:
                         featureSelectionMenu();
@@ -1025,7 +1057,7 @@ void featureSelectionOption(int option){
                 cout << endl;
                 cout << "Desired dimension (max. " << data->getDim() << "): ";
                 cin >> ddim;
-                golub.setVerbose(1);
+                golub.setVerbose(verbose);
                 golub.setFinalDimension(ddim);
                 golub.setSamples(data);
                 clear();
@@ -1043,10 +1075,10 @@ void featureSelectionOption(int option){
             break;
         case 3:
             if(!data->isEmpty()) {
-                cout << "Fisher (Not implemented yet)" << endl;
+                cout << "Fisher" << endl;
                 cout << "1 - IMAp" << endl;
                 cout << "2 - IMA Dual" << endl;
-                cout << "3 - SMO (Not implemented yet)" << endl;
+                cout << "3 - SMO" << endl;
                 cout << endl;
                 cout << "0 - Back to Feature Selection menu" << endl;
                 cout << "m - Back to Main menu" << endl;
@@ -1093,7 +1125,21 @@ void featureSelectionOption(int option){
                         fisher.setClassifier(&imadual);
                         break;
                     case 3:
+                        cout << "Kernel (0)Inner Product (1)Polynomial (2)Gaussian: ";
+                        cin >> kernel_type;
 
+                        if (kernel_type == 1) {
+                            cout << "Polynomial degree: ";
+                        } else if (kernel_type == 2) {
+                            cout << "Gaussian gamma: ";
+                        }
+
+                        if (kernel_type != 0) {
+                            cin >> kernel_param;
+                        }
+                        smo.setKernelParam(kernel_param);
+                        smo.setKernelType(kernel_type);
+                        fisher.setClassifier(&smo);
                         break;
                     case 0:
                         featureSelectionMenu();
@@ -1574,6 +1620,38 @@ void dualClassifiersOption(int option){
                 cout << elapsed_secs << " seconds to compute.\n";
 
                 sol = ima_dual.getSolution();
+            }else{
+                cout << "Load a dataset first..." << endl;
+            }
+            waitUserAction();
+            break;
+        case 4:
+            if(!data->isEmpty()){
+                cout << "Kernel [0]Inner Product [1]Polynomial [2]Gaussian: ";
+                cin >> kernel_type;
+
+                if(kernel_type != 0){
+                    if(kernel_type == 1){
+                        cout << "Polynomial degree: ";
+                    }else{
+                        cout << "Gaussian gamma: ";
+                    }
+                    cin >> kernel_param;
+                }
+
+                clock_t begin = clock();
+                SMO<double> smo(data, kernel_type, kernel_param, verbose);
+
+                smo.setMaxTime(max_time);
+                smo.setVerbose(verbose);
+                smo.train();
+                clock_t end = clock();
+
+                double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+                cout << endl;
+                cout << elapsed_secs << " seconds to compute.\n";
+
+                sol = smo.getSolution();
             }else{
                 cout << "Load a dataset first..." << endl;
             }

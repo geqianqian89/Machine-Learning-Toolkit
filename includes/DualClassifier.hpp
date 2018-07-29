@@ -39,6 +39,19 @@ public:
 
     std::vector<double> getAlphaVector() { return alpha; }
 
+    std::vector<double> getWeight(){
+        size_t i, j, dim = this->samples->getDim(), size = this->samples->getSize();
+        std::vector<double> w(dim);
+
+        for(i = 0; i < dim; i++){
+            for(j = 0; j < size; j++){
+                w[i] += (*this->samples)[j]->alpha*(*this->samples)[j]->y*(*this->samples)[j]->x[i];
+            }
+        }
+
+        return w;
+    }
+
     std::vector<double> getDualWeight(){
         register int i = 0, j = 0, k = 0;
         size_t size = this->samples->getSize(), dim = this->samples->getDim();

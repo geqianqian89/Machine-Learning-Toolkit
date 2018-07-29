@@ -122,6 +122,9 @@
 		<Unit filename="C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Random.hpp">
 			<Option target="UFJF-MLTK"/>
 		</Unit>
+		<Unit filename="C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/SMO.hpp">
+			<Option target="UFJF-MLTK"/>
+		</Unit>
 		<Unit filename="C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/includes/Solution.hpp">
 			<Option target="UFJF-MLTK"/>
 		</Unit>
@@ -165,6 +168,9 @@
 			<Option target="UFJF-MLTK"/>
 		</Unit>
 		<Unit filename="C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/src/RFE.cpp">
+			<Option target="UFJF-MLTK"/>
+		</Unit>
+		<Unit filename="C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/src/SMO.cpp">
 			<Option target="UFJF-MLTK"/>
 		</Unit>
 		<Unit filename="C:/Users/Mateus Coutinho Mari/Documents/GitHub/Machine-Learning-Toolkit/src/Utils.cpp">

@@ -70,5 +70,9 @@ void split(const std::string &s, char delim, Out result);
 
 std::vector<std::string> split(const std::string &s, char delim);
 
+double min(double a, double b);
+
+double max(double a, double b);
+
 
 #endif

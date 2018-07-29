@@ -311,6 +311,33 @@ src/RFE.cpp.s:
 	$(MAKE) -f CMakeFiles\UFJF-MLTK.dir\build.make CMakeFiles/UFJF-MLTK.dir/src/RFE.cpp.s
 .PHONY : src/RFE.cpp.s
 
+src/SMO.obj: src/SMO.cpp.obj
+
+.PHONY : src/SMO.obj
+
+# target to build an object file
+src/SMO.cpp.obj:
+	$(MAKE) -f CMakeFiles\UFJF-MLTK.dir\build.make CMakeFiles/UFJF-MLTK.dir/src/SMO.cpp.obj
+.PHONY : src/SMO.cpp.obj
+
+src/SMO.i: src/SMO.cpp.i
+
+.PHONY : src/SMO.i
+
+# target to preprocess a source file
+src/SMO.cpp.i:
+	$(MAKE) -f CMakeFiles\UFJF-MLTK.dir\build.make CMakeFiles/UFJF-MLTK.dir/src/SMO.cpp.i
+.PHONY : src/SMO.cpp.i
+
+src/SMO.s: src/SMO.cpp.s
+
+.PHONY : src/SMO.s
+
+# target to generate assembly for a file
+src/SMO.cpp.s:
+	$(MAKE) -f CMakeFiles\UFJF-MLTK.dir\build.make CMakeFiles/UFJF-MLTK.dir/src/SMO.cpp.s
+.PHONY : src/SMO.cpp.s
+
 src/Utils.obj: src/Utils.cpp.obj
 
 .PHONY : src/Utils.obj
@@ -476,6 +503,9 @@ help:
 	@echo ... src/RFE.obj
 	@echo ... src/RFE.i
 	@echo ... src/RFE.s
+	@echo ... src/SMO.obj
+	@echo ... src/SMO.i
+	@echo ... src/SMO.s
 	@echo ... src/Utils.obj
 	@echo ... src/Utils.i
 	@echo ... src/Utils.s
