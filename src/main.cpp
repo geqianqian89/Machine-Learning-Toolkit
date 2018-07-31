@@ -1472,7 +1472,7 @@ void primalClassifiersOption(int option){
 }
 
 void dualClassifiersOption(int option){
-    int i, kernel_type, kernel_param;
+    int i, kernel_type = 0, kernel_param = 0;
     double rate;
     Kernel K;
 

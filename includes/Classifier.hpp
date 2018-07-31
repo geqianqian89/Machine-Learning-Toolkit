@@ -126,12 +126,12 @@ public :
      * @brief getSolution Returns the solution of the classifier.
      * @return Solution
      */
-    Solution getSolution() {return solution;}
+    Solution getSolution() {return this->solution;}
     /**
      * @brief getSolutionRef Returns a pointer to the solution of the classifier.
      * @return Solution
      */
-    Solution *getSolutionRef() { return &solution; }
+    Solution *getSolutionRef() { return &this->solution; }
     /**
      * @brief Set the max time of execution.
      * @param max_time  Max time.

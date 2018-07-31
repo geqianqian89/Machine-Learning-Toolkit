@@ -79,7 +79,7 @@ bool SMO<T>::train() {
         {
             vector<int> fnames = this->samples->getFeaturesNames();
             for(i = 0; i < dim; i++)
-                cout << "W[" << fnames[i] << "]: "<< w_saved[i] << endl;
+                cout << "W[" << fnames[i] << "]: "<<  this->solution.w[i] << endl;
             cout << "Bias: " << this->solution.bias << "\n\n";
         }
     }
