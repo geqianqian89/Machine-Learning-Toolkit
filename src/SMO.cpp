@@ -37,6 +37,7 @@ bool SMO<T>::train() {
     double norm = 1;
     vector<double> w_saved;
 
+    this->head = new int_dll();
     l_data.resize(size);
 
     /*clear data*/
@@ -133,14 +134,15 @@ bool SMO<T>::max_errors(int i1, double e1) {
     double tmax = 0;
     double e2   = 0;
     double temp = 0;
-    list<size_t>::iterator index;
+    int_dll *list = nullptr;
 
     if(this->verbose>2) printf("  Max errors iterations\n");
 
     /*iterate through the non-bond examples*/
-    for(index = head.begin(); index != head.end(); index++)
+    list = head->next;
+    while(list != nullptr)
     {
-        k = (*index);
+        k = list->index;
         if(l_data[k].done == 0 && (*this->samples)[k]->alpha < C)
         {
             e2 = l_data[k].error;
@@ -148,7 +150,9 @@ bool SMO<T>::max_errors(int i1, double e1) {
 
             if(temp > tmax){ tmax = temp; i2 = k; }
         }
+        list = list->next;
     }
+
     if(i2 >= 0 && take_step(i1,i2)) return true;
 
     return false;
@@ -157,17 +161,20 @@ bool SMO<T>::max_errors(int i1, double e1) {
 template<typename T>
 bool SMO<T>::iterate_non_bound(int i1) {
     int k    = 0;
-    list<size_t>::iterator index;
+    int_dll *list = nullptr;
 
     if(this->verbose>2) printf("  Non-bound iteration\n");
 
     /* look through all non-bound examples*/
-    for(index = head.begin(); index != head.end(); index++)
+    list = head->next;
+    while(list != nullptr)
     {
-        k = (*index);
+        k = list->index;
         if(l_data[k].done == 0 && (*this->samples)[k]->alpha < C)
             if(take_step(i1,k)) return true;
+        list = list->next;
     }
+
     return false;
 }
 
@@ -202,6 +209,7 @@ int SMO<T>::take_step(int i1, int i2) {
     double max_val_f=0, min_val_f=0;
     double bnew=0, b=0; //delta_b=0 , b=0;
     double t1=0, t2=0, error_tot=0;
+    int_dll *list = nullptr;
     dMatrix* matrix = this->kernel->getKernelMatrixPointer();
 
     /*this sample is done*/
@@ -287,21 +295,23 @@ int SMO<T>::take_step(int i1, int i2) {
     (*this->samples)[i2]->alpha = new_alpha2;
 
     /*saving new stuff into sv list*/
-    if(new_alpha1 > 0 && l_data[i1].sv.empty())
+    if(new_alpha1 > 0 && l_data[i1].sv == nullptr)
     {
-        head.push_back(i1);
-        l_data[i1].sv = head; //Verificar essa linha
+        int_dll *list = head->append(head);
+        list->index = i1;
+        l_data[i1].sv = list;
     }
-    else if(new_alpha1 == 0 && !l_data[i1].sv.empty())
-        l_data[i1].sv.erase(l_data[i1].sv.end());
+    else if(new_alpha1 == 0 && l_data[i1].sv != nullptr)
+        l_data[i1].sv->remove(&(l_data[i1].sv));
 
-    if(new_alpha2 > 0 && l_data[i2].sv.empty())
+    if(new_alpha2 > 0 && l_data[i2].sv == nullptr)
     {
-        head.push_back(i2);
-        l_data[i2].sv = head; //Verificar essa linha
+        int_dll *list = head->append(head);
+        list->index = i2;
+        l_data[i2].sv = list;
     }
-    else if(new_alpha2 == 0 && !l_data[i2].sv.empty())
-        l_data[i2].sv.erase(l_data[i2].sv.end());
+    else if(new_alpha2 == 0 && l_data[i2].sv != nullptr)
+        l_data[i1].sv->remove(&(l_data[i2].sv));
 
     /*update bias*/
     t1 = y1 * (new_alpha1 - alpha1);
@@ -327,19 +337,22 @@ int SMO<T>::take_step(int i1, int i2) {
 
     /*updating error cache*/
     error_tot = 0;
-    for(auto index = head.begin(); index != head.end(); index++)
+    list = head->next;
+    while(list != nullptr)
     {
-        i = (*index);
+        i = list->index;
         if((i != i1 && i !=i2) && (*this->samples)[i]->alpha < C)
         {
             l_data[i].error = function(i) - (*this->samples)[i]->y;
             error_tot += l_data[i].error;
         }
+        list = list->next;
     }
+
     l_data[i1].error = 0.0;
     l_data[i2].error = 0.0;
 
-    if(this->verbose>1)
+    if(this->verbose > 1)
         cout << "Total error= " << error_tot << ", alpha(" << i1 << ")= " << new_alpha1 << ", alpha(" << i2 << ")= " << new_alpha2 << endl;
 
     return 1;
@@ -347,16 +360,17 @@ int SMO<T>::take_step(int i1, int i2) {
 
 template<typename T>
 double SMO<T>::function(int index) {
-    size_t i = 0;
+    int i = 0;
     double sum = 0;
-    list<size_t>::iterator id;
     dMatrix* matrix = this->kernel->getKernelMatrixPointer();
+    int_dll *list = head->next;
 
-    for(id = head.begin(); id != head.end(); id++)
+    while(list != nullptr)
     {
-        i = (*id);
+        i = list->index;
         if((*this->samples)[i]->alpha > 0)
             sum += (*this->samples)[i]->alpha * (*this->samples)[i]->y * (*matrix)[i][index];
+        list = list->next;
     }
     sum += this->solution.bias;
 
@@ -425,7 +439,6 @@ int SMO<T>::train_matrix(Kernel *matrix) {
     bool ret = true;
     double norm = 1;
     vector<smo_learning_data> l_data(size);
-    list<size_t> head;
 
     //srand(0);
 
@@ -448,6 +461,75 @@ int SMO<T>::train_matrix(Kernel *matrix) {
     }
 
     return ret;
+}
+
+int_dll::int_dll() {
+    this->next  = nullptr;
+    this->index = -1;
+    this->prev  = nullptr;
+}
+
+int_dll *int_dll::remove(int_dll **node) {
+    int_dll* ret = nullptr;
+
+    if((*node) == nullptr) return nullptr;
+
+    /*remove items from list*/
+    ret = (*node)->prev;
+
+    /*fix reference one*/
+    if((*node)->prev != nullptr)
+        (*node)->prev->next = (*node)->next;
+
+    /*fix reference two*/
+    if((*node)->next != nullptr)
+        (*node)->next->prev = (*node)->prev;
+
+    delete node;
+    (*node) = nullptr;
+
+    return ret;
+}
+
+int_dll *int_dll::append(int_dll *list) {
+    int_dll *tmp = nullptr;
+
+    /*error check*/
+    if(list == nullptr)
+    { cerr << "Error in int linked list\n"; return nullptr; }
+
+    /*save old next*/
+    tmp = list->next;
+
+    /*new node*/
+    list->next = new int_dll;
+    if(list == nullptr) { cerr << "Error: Out of memory\n"; return nullptr; }
+
+    /*reference fixing*/
+    list->next->prev = list;
+    list->next->next = tmp;
+    if(tmp != nullptr) tmp->prev = list->next;
+
+    /*finishing up*/
+    list = list->next;
+    list->index = -1;
+
+    /*returning*/
+    return list;
+}
+
+void int_dll::free(int_dll **head) {
+    int_dll *list = nullptr;
+    int_dll *tmpl = nullptr;
+
+    list = *head;
+    while(list != nullptr)
+    {
+        tmpl = list;
+        list = list->next;
+        delete tmpl;
+    }
+    *head = nullptr;
 }
 
 template class SMO<int>;

@@ -1652,6 +1652,8 @@ void dualClassifiersOption(int option){
                 cout << elapsed_secs << " seconds to compute.\n";
 
                 sol = smo.getSolution();
+                waitUserAction();
+                classifiersOption(2);
             }else{
                 cout << "Load a dataset first..." << endl;
             }

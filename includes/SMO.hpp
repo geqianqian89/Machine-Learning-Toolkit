@@ -12,6 +12,20 @@
 #include "DualClassifier.hpp"
 #include <list>
 
+/*double linked list of integers*/
+struct int_dll
+{
+    int index;
+    struct int_dll *prev;
+    struct int_dll *next;
+
+    int_dll();
+    int_dll* remove(int_dll **node);
+    int_dll* append(int_dll *list);
+    void free(int_dll **head);
+};
+typedef struct int_dll int_dll;
+
 template < typename T >
 class SMO: public DualClassifier < T > {
 private:
@@ -19,13 +33,13 @@ private:
     {
         double error;
         bool done;
-        std::list<size_t> sv;
+        int_dll *sv;
     };
 
     const int C = 9999; //0.05
     const double TOL = 1E-4;
     std::vector<smo_learning_data> l_data;
-    std::list<size_t> head;
+    int_dll *head = nullptr;
 
     bool examine_example(int i1);
     bool max_errors(int i1, double e1);
