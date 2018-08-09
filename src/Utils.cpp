@@ -68,16 +68,6 @@ double atof(char s[])
     return sign * val / power;
 }
 
-double stodn(string str){
-    double d = 0.0;
-    stringstream ss;
-
-    ss<< str;
-    ss >> d;
-
-    return d;
-}
-
 string itos(int n){
     char buffer[50];
     int i = 0;
@@ -233,3 +223,10 @@ std::vector<std::string> split(const std::string &s, char delim) {
     return elems;
 }
 
+double min(double a, double b){
+    return (a < b)?a:b;
+}
+
+double max(double a, double b){
+    return (a > b)?a:b;
+}

@@ -66,7 +66,7 @@ public :
      * \param sample (???) Data< T > to set for visualization.
      * \return void
      */
-    void setSample (Data< T > sample);
+    void setSample (Data< T > *sample);
     /**
      * \brief Set plot title.
      * \param title (???) Plot title.

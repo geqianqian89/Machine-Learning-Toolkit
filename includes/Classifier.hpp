@@ -42,6 +42,7 @@ protected :
     int MAX_IT = 1E9;
     /// Max number of updates.
     int MAX_UP = 1E9;
+    int MAX_EPOCH = 9999;
     /// Verbose level of the output
     int verbose = 1;
     /// Timer used to measure the time elapsed in the execution of classifier.
@@ -74,11 +75,18 @@ public :
      * \brief getSolution Returns the solution of the primal classifier.
      * \return Solution
      */
+    void setSamples(std::shared_ptr<Data< T > > samples) {this->samples = samples;}
+    /**
+     * \brief setTimer Set the timer used in the classifier.
+     * \param timer Timer to be used.
+     */
+    void setTimer(Timer timer) { this->timer = timer; }
     Solution getSolution() const {return solution;}
     /**
      * \brief getSolution Returns a reference to the solution of the primal classifier.
      * \return Solution
      */
+    inline double getElapsedTime() const { return timer.Elapsed(); }
     Solution *getSolutionRef() { return &solution; }
     /**
      * \brief Get the elapsed time in the execution of the classifier.
@@ -100,6 +108,11 @@ public :
      * \return int
      */
     inline int getUpdates() const { return ctot; }
+    /**
+     * \brief getMaxTime Returns the maximum running time of the classifier.
+     * \return double
+     */
+    inline double getMaxTime() const { return max_time; }
 
     /*********************************************
      *               Setters                     *

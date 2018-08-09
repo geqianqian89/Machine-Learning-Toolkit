@@ -18,7 +18,7 @@ protected:
     /// Alphas vector.
     std::vector<double> alpha;
     /// Object for kernel computations.
-    Kernel *kernel;
+    Kernel *kernel = nullptr;
 public:
     inline std::string classifierType() override { return "Dual"; }
 
@@ -52,6 +52,26 @@ public:
      * \return double
      */
     inline double getKernelType(){ return kernel->getType(); }
+
+    inline void setKernelType(int type){ kernel->setType(type); }
+
+    inline void setKernelParam(double param){ kernel->setType(param); }
+
+    std::vector<double> getAlphaVector() { return alpha; }
+
+    std::vector<double> getWeight(){
+        size_t i, j, dim = this->samples->getDim(), size = this->samples->getSize();
+        std::vector<double> w(dim);
+
+        for(i = 0; i < dim; i++){
+            for(j = 0; j < size; j++){
+                w[i] += (*this->samples)[j]->alpha*(*this->samples)[j]->y*(*this->samples)[j]->x[i];
+            }
+        }
+
+        return w;
+    }
+
     /**
      * \brief Get the vector of alphas.
      * \return std::vector<double>

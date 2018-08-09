@@ -123,6 +123,9 @@ public :
      */
     template < typename T >
     double norm(Data< T > data);
+
+    template < typename T >
+    double featureSpaceNorm(std::shared_ptr<Data< T > > data);
 };
 
 template < typename T >
@@ -261,6 +264,30 @@ double Kernel::norm(Data< T > data){
     }
 
     return sqrt(sum);
+}
+
+template < typename T >
+double Kernel::featureSpaceNorm(std::shared_ptr<Data< T > > data) {
+    size_t i = 0, j = 0, size = data->getSize();
+    double sum1 = 0.0;
+    double sum  = 0.0;
+
+    for(i = 0; i < size; ++i)
+    {
+        if((*data)[i]->alpha > 0)
+        {
+            sum1 = 0.0;
+            for(j = 0; j < size; ++j)
+            {
+                if((*data)[j]->alpha > 0)
+                    sum1 += (*data)[j]->y * (*data)[j]->alpha * K[j][i];
+            }
+            sum += (*data)[i]->alpha * (*data)[i]->y * sum1;
+        }
+    }
+    sum = sqrt(sum);
+
+    return sum;
 }
 
 #endif

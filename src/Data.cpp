@@ -192,7 +192,7 @@ bool Data< T >::load_csv(string path){
 
             if(cond){
                 if(is_number(item))
-                    new_point->x[(!atEnd)?dim:dim+1] = stodn(item);
+                    new_point->x[(!atEnd)?dim:dim+1] = atof(item.c_str());
             }else{
                 int c;
                 if(is_number(item)){
@@ -437,7 +437,7 @@ bool Data< T >::load_arff(string path){
 
             if(cond){
                 if(is_number(item)){
-                    new_point->x[dim + 1] = stodn(item);
+                    new_point->x[dim + 1] = atof(item.c_str());
                 }
 
             }else{
@@ -535,7 +535,7 @@ bool Data< T >::load_txt(string path){
         while(getline(ss, item, ' ')){
             if(n >= 2){
                 if(is_number(item))
-                    new_point->x[n - 2] = stoin(item);
+                    new_point->x[n - 2] = atof(item.c_str());
                 else{ clog << "Warning: point[" << size  << "] " << n-2 << " feature is not a number." << endl; }
                 new_point->y = 0;
             }
@@ -708,37 +708,61 @@ bool Data< T >::removeFeatures(std::vector<int> feats){
     size_t i, j, k, psize = points.size(), rsize = feats.size();
     typename vector< T >::iterator itr;
     vector<int>::iterator fitr;
+    vector<bool> exist(rsize, true);
+
+    if(feats.size() == 0) return true;
 
     if(fnames.size() == 1){
         cerr << "Error: RemoveFeature, only one feature left.\n";
         return false;
     }
-    if(feats.size() >= fnames.size()){
+    /*if(feats.size() >= fnames.size()){
         cerr << "Error: RemoveFeature, more or equal features to remove than exist.\n";
         return false;
-    }
+    }*/
 
     //Sort feats for remove features easily
     sort(feats.begin(), feats.end());
 
+    //Check the existence of the features to be removed
+    for(i = 0; i < rsize; i++){
+        for(j = 0; j < dim; j++){
+            if(feats[i] == fnames[j]){
+                break;
+            }
+        }
+        if(j == dim){
+            exist[i] = false;
+        }
+    }
+
     //Remove features from each point
     for(i = 0; i < psize; i++){
+        if(points[i] == nullptr) clog << "WARNING: point is null." << endl;
+
+        // Iterate through the point features
         for(itr = points[i]->x.begin(),k = 0, j = 0; itr != points[i]->x.end();){
-            if(k == rsize) break;
+            while(!exist[k] && k < rsize) k++; // go to next existent feature
+            if(k == rsize) break;              // Verify if is in the end of the feats vector
+
+            // Feature to remove found, remove it from the point and go to the next feat to remove
             if(fnames[j] == feats[k]){
-                if(i == 0)  dim--;
                 itr = points[i]->x.erase(itr);
                 k++;
-            }else itr++;
+            }else{
+                itr++;
+            }
             j++;
         }
     }
 
-    //remove names of non-existent features
+    //remove names of removed features
     for(k = 0; k < rsize; k++){
         for(fitr = fnames.begin(); fitr != fnames.end();){
             if((*fitr) == feats[k]){
                 fitr = fnames.erase(fitr);
+                dim--;
+                break;
             }else{
                 fitr++;
             }
@@ -872,6 +896,7 @@ void Data< T >::normalize(double p){
         }
     }
     dim++;
+    fnames.push_back(dim);
 
     normalized = true;
 }
@@ -998,8 +1023,17 @@ double Data< T >::getTime_mult() const {
 
 template < typename T >
 bool Data< T >::operator==(const Data< T > &rhs) const {
-    return points == rhs.points &&
-           fnames == rhs.fnames &&
+    if(points.size() != rhs.points.size()) return false;
+
+    size_t i, size = points.size();
+
+    for(i = 0; i < size; i++){
+        if(*points[i] != *rhs.points[i]){
+            return false;
+        }
+    }
+
+    return fnames == rhs.fnames &&
            index == rhs.index &&
            size == rhs.size &&
            dim == rhs.dim &&
