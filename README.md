@@ -23,7 +23,7 @@ These are the requirements to build the project:
 * Data visualization [![Generic badge](https://img.shields.io/badge/status-Ready-green.svg)](https://shields.io/)
 * Classifiers (Primal and Dual) [![Generic badge](https://img.shields.io/badge/status-Ready-green.svg)](https://shields.io/)
 * Validation (K-Fold Cross-Validation) [![Generic badge](https://img.shields.io/badge/status-Ready-green.svg)](https://shields.io/)
-* Feature Selection [![Generic badge](https://img.shields.io/badge/status-Ready-red.svg)](https://shields.io/)
+* Feature Selection [![Generic badge](https://img.shields.io/badge/status-Ready-green.svg)](https://shields.io/)
 
 ## Documentation
 You can find the documentation at the project page: [UFJF-MLTK](https://mateus558.github.io/Machine-Learning-Toolkit/index.html). <br />
