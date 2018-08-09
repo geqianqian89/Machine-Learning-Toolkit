@@ -1,5 +1,5 @@
 .idea/*
-cmake-build-debug/DB/gisette.data
+cmake-build-debug/*
 cmake-build-debug/Classification_Algorithms_System
 cmake-build-debug/DB/genomic.tar.gz
 cmake-build-debug/DB/genotype-transp.txt
