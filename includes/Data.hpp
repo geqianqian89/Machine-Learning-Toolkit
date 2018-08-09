@@ -71,11 +71,8 @@ private :
     size_t size = 0;
     /// Dataset points dimension.
     size_t dim = 0;
+    /// Time multiplier
     double time_mult;
-public:
-    double getTime_mult() const;
-
-private:
     /// Positive and negative classes. (1, -1 are the default classes)
     std::string pos_class = std::string("1"), neg_class = std::string("-1");
     /// Verify if there's some data loaded.
@@ -84,7 +81,9 @@ private:
     bool normalized = false;
     /// Values for statistical methods.
     Statistics< T > stats;
-    // Operations
+    
+    // Private Operations
+    
     /**
      * \brief Returns the type of the file.
      * \param file (???) Path to the file.
@@ -115,6 +114,7 @@ private:
      * \return bool
      */
     bool load_txt (std::string path);
+
 public :
     /**
      * \brief Data constructor to load a dataset from a file.
@@ -129,12 +129,11 @@ public :
      * \param neg_class String representing the negative class on the dataset.
      */
     Data ();
-    /**
-     * \brief write Write the data to a file with the given extention.
-     * \param fname Name of the file.
-     * \param ext   Extention of the file.
-     */
-    void write(std::string fname, std::string ext);
+    
+    /*********************************************
+     *               Getters                     *
+     *********************************************/
+
     /**
      * \brief Returns the size of the dataset.
      * \return int
@@ -145,11 +144,6 @@ public :
      * \return int
      */
     inline size_t getDim (){ return dim; }
-    /**
-     * \brief setDim Set the dimension of the points.
-     * \param dim (???) Dimension to be set.
-     */
-    void setDim(size_t dim);
     /**
      * \brief Returns a shared pointer to the vector of Points of the sample.
      * \return std::vector<std::shared_ptr<Point< T > > >
@@ -162,21 +156,10 @@ public :
      */
     std::shared_ptr<Point< T > > getPoint (int index);
     /**
-     * \brief setPoint Set the point in a position of the data.
-     * \param index (???) Index of the point that will be set.
-     * \param p (???) Point to be set.
-     */
-    void setPoint (int index, std::shared_ptr<Point< T > > p);
-    /**
      * \brief Returns the features names.
      * \return std::vector<int>
      */
     std::vector<int> getFeaturesNames ();
-    /**
-     * \brief setFeaturesNames Set the name of the features of the data.
-     * \param fnames (???) Name of the features.
-     */
-    void setFeaturesNames(std::vector<int> fnames);
     /**
      * \brief Returns a class with the statistics info of the sample.
      * \return Statistics
@@ -188,11 +171,6 @@ public :
      */
     std::vector<int> getIndex();
     /**
-     * @brief Set the index vector for the data.
-     * @param index Index vector.
-     */
-    void setIndex(std::vector<int> index);
-    /**
      * \brief Return the number of positive points.
      * \return int
      */
@@ -203,11 +181,59 @@ public :
      */
     int getNumberNegativePoints ();
     /**
+     * \brief Return the time multiplier.
+     * \return double
+     */
+    double getTime_mult() const;
+
+    /*********************************************
+     *               Setters                     *
+     *********************************************/
+
+    /**
+     * \brief setPoint Set the point in a position of the data.
+     * \param index (???) Index of the point that will be set.
+     * \param p (???) Point to be set.
+     */
+    void setPoint (int index, std::shared_ptr<Point< T > > p);
+    /**
+     * \brief setFeaturesNames Set the name of the features of the data.
+     * \param fnames (???) Name of the features.
+     */
+    void setFeaturesNames(std::vector<int> fnames);
+    /**
+     * \brief Set the index vector for the data.
+     * \param index Index vector.
+     */
+    void setIndex(std::vector<int> index);
+    /**
+     * \brief setDim Set the dimension of the points.
+     * \param dim (???) Dimension to be set.
+     */
+    void setDim(size_t dim);
+    /**
      * \brief setClasses Set the classes of the dataset.
      * \param pos   Positive class.
      * \param neg   Negative class.
      */
     void setClasses(std::string pos, std::string neg);
+
+    /*********************************************
+     *              Other operations             *
+     *********************************************/
+
+    /**
+     * \brief Load a dataset from a file.
+     * \param file (???) Path to dataset file.
+     * \return bool
+     */
+    bool load (std::string file);
+    /**
+     * \brief write Write the data to a file with the given extention.
+     * \param fname Name of the file.
+     * \param ext   Extention of the file.
+     */
+    void write(std::string fname, std::string ext);
     /**
      * \brief Returns if there's a dataset loaded.
      * \return bool
@@ -218,12 +244,6 @@ public :
      * \return bool
      */
     inline bool isNormalized(){ return normalized; }
-    /**
-     * \brief Load a dataset from a file.
-     * \param file (???) Path to dataset file.
-     * \return bool
-     */
-    bool load (std::string file);
     /**
      * \brief clear Clear the data.
      */
@@ -298,7 +318,9 @@ public :
      * \param p Vector to be normalized.
      */
     static void normalize(std::vector<double> &p, double q);
-
+    /**
+     * \brief Reset the index vector.
+     */
     void resetIndex();
 
     /*********************************************

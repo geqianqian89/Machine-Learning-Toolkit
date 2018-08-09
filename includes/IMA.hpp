@@ -1,3 +1,8 @@
+/*! Incremental Margin Algorithm implementations
+   \file IMA.hpp
+   \author Mateus Coutinho Marim
+*/
+
 //
 // Created by mateus558 on 01/08/17.
 //
@@ -25,7 +30,10 @@ public:
 
     bool train() override;
     double evaluate(Point< T >  p) override;
-
+    /**
+     * \brief Get the indexes of the support vectors.
+     * \return std::vector<int> 
+     **/
     std::vector<int> getSupportVectors(){ return svs; }
 };
 
@@ -61,7 +69,10 @@ public:
     explicit IMADual(std::shared_ptr<Data< T > > samples = nullptr, Kernel *k = nullptr, double rate = 1, Solution *initial_solution = nullptr);
     bool train() override;
     double evaluate(Point< T >  p) override;
-
+    /**
+     * \brief Get the indexes of support vectors.
+     * \return std::vector<int> 
+     **/
     std::vector<int> getSupportVectors(){ return svs; }
 };
 

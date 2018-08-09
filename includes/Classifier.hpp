@@ -1,3 +1,8 @@
+/*! Classifier base class.
+   \file Classifier.hpp
+   \author Mateus Coutinho Marim
+*/
+
 #ifndef CLASSIFIER__HPP
 #define CLASSIFIER__HPP
 
@@ -19,6 +24,7 @@ protected :
     Solution solution;
     /// Learning rate
     double rate = 0.5f;
+    /// Classifier margin.
     double gamma = 0;
     /// Initial time.
     double start_time = 0.0f;
@@ -30,20 +36,23 @@ protected :
     int ctot = 0;
     /// Max precision.
     double EPS = 1E-9;
+    /// Minimun Increment
     double MIN_INC = 1.001;
     /// Max number of iterations.
     int MAX_IT = 1E9;
     /// Max number of updates.
     int MAX_UP = 1E9;
     int MAX_EPOCH = 9999;
+    /// Verbose level of the output
     int verbose = 1;
     /// Timer used to measure the time elapsed in the execution of classifier.
     Timer timer;
+    
     // Operations
 public :
     /**
-     * @brief Returns the type of the classifier.
-     * @return std::string
+     * \brief Returns the type of the classifier.
+     * \return std::string
      */
     virtual std::string classifierType() = 0;
     /**
@@ -57,9 +66,14 @@ public :
      * \return int
      */
     virtual double evaluate (Point< T > p) = 0;
+
+    /*********************************************
+     *               Getters                     *
+     *********************************************/
+
     /**
-     * \brief setSamples Set the samples used in the classifier.
-     * \param samples Samples to be used.
+     * \brief getSolution Returns the solution of the primal classifier.
+     * \return Solution
      */
     void setSamples(std::shared_ptr<Data< T > > samples) {this->samples = samples;}
     /**
@@ -67,14 +81,21 @@ public :
      * \param timer Timer to be used.
      */
     void setTimer(Timer timer) { this->timer = timer; }
+    Solution getSolution() const {return solution;}
     /**
-     * @brief Get the elapsed time in the execution of the classifier.
-     * @return double
+     * \brief getSolution Returns a reference to the solution of the primal classifier.
+     * \return Solution
+     */
+    inline double getElapsedTime() const { return timer.Elapsed(); }
+    Solution *getSolutionRef() { return &solution; }
+    /**
+     * \brief Get the elapsed time in the execution of the classifier.
+     * \return double
      */
     inline double getElapsedTime() const { return timer.Elapsed(); }
     /**
-    * @brief Get the total number of updates of the classifier.
-    * @return int
+    * \brief Get the total number of updates of the classifier.
+    * \return int
     */
     inline int getCtot() const { return ctot; }
     /**
@@ -92,24 +113,39 @@ public :
      * \return double
      */
     inline double getMaxTime() const { return max_time; }
+
+    /*********************************************
+     *               Setters                     *
+     *********************************************/
+
     /**
-     * @brief Set the partial number of steps of the classifier.
-     * @param steps Number of steps.
+     * \brief setSamples Set the samples used in the classifier.
+     * \param samples Samples to be used.
+     */
+    virtual void setSamples(std::shared_ptr<Data< T > > samples) {this->samples = samples;}
+    /**
+     * \brief setTimer Set the timer used in the classifier.
+     * \param timer Timer to be used.
+     */
+    void setTimer(Timer timer) { this->timer = timer; }
+    /**
+     * \brief Set the partial number of steps of the classifier.
+     * \param steps Number of steps.
      */
     inline void setSteps(int steps) { this->steps = steps; }
     /**
-     * @brief Set the margin of the classifier.
-     * @param gamma margin.
+     * \brief Set the gamma (margin) of the classifier.
+     * \param gamma Gamma (margin) of the classifier.
      */
     inline void setGamma(double gamma) { this->gamma = gamma;}
     /**
-     * @brief Set the partial number of updates of the classifier.
-     * @param ctot Number of updates.
+     * \brief Set the partial number of updates of the classifier.
+     * \param ctot Number of updates.
      */
     void setCtot(int ctot) {this->ctot = ctot;}
     /**
-     * @brief Set the level of verbose.
-     * @param verbose level of verbose.
+     * \brief Set the level of verbose.
+     * \param verbose level of verbose.
      */
     void setVerbose(int verbose) {this->verbose = verbose;}
     /**
@@ -123,18 +159,8 @@ public :
      */
     void setSolution(Solution solution) {this->solution = solution;}
     /**
-     * @brief getSolution Returns the solution of the classifier.
-     * @return Solution
-     */
-    Solution getSolution() {return this->solution;}
-    /**
-     * @brief getSolutionRef Returns a pointer to the solution of the classifier.
-     * @return Solution
-     */
-    Solution *getSolutionRef() { return &this->solution; }
-    /**
-     * @brief Set the max time of execution.
-     * @param max_time  Max time.
+     * \brief Set the max time of execution.
+     * \param max_time  Max time.
      */
     void setMaxTime(double max_time) {this->max_time = max_time;}
     /**
@@ -153,8 +179,8 @@ public :
      */
     void setMaxUpdates(int MAX_UP) {this->MAX_UP = MAX_UP;}
     /**
-     * @brief Set the learning rate of the classifier.
-     * @param rate Learning rate.
+     * \brief Set the learning rate of the classifier.
+     * \param rate Learning rate.
      */
     void setLearningRate(double rate) {this->rate = rate;}
 };

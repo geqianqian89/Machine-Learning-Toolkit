@@ -1,10 +1,10 @@
-#ifndef UTILS_H_INCLUDED
-#define UTILS_H_INCLUDED
-
 /*! Utils functions
    \file Utils.hpp
    \author Mateus Coutinho Marim
 */
+
+#ifndef UTILS_H_INCLUDED
+#define UTILS_H_INCLUDED
 
 #include <vector>
 #include <string>

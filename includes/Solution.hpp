@@ -1,3 +1,8 @@
+/*! Solution wrapper class
+   \file Solution.hpp
+   \author Mateus Coutinho Marim
+*/
+
 #ifndef SOLUTION__HPP
 #define SOLUTION__HPP
 

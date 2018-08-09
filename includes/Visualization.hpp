@@ -1,3 +1,8 @@
+/*! Visualization wrapper class
+   \file Visualization.hpp
+   \author Mateus Coutinho Marim
+*/
+
 #ifndef VISUALIZATION__HPP
 #define VISUALIZATION__HPP
 #ifdef __unix__
@@ -51,6 +56,11 @@ private :
 public :
     Visualization ();
     Visualization (Data< T > *sample);
+
+    /*********************************************
+     *               Setters                     *
+     *********************************************/
+
     /**
      * \brief Set sample to be visualized.
      * \param sample (???) Data< T > to set for visualization.
@@ -69,6 +79,7 @@ public :
      * \return void
      */
     void setStyle (std::string style);
+    
     /**
      * \brief Plot the selected features in 2D.
      * \param x (???) Feature to be used in the x-axis.

@@ -1,3 +1,8 @@
+/*! Point manipulation class
+   \file Point.hpp
+   \author Mateus Coutinho Marim
+*/
+
 #ifndef POINT__HPP
 #define POINT__HPP
 

@@ -1,5 +1,7 @@
 #include "../includes/Kernel.hpp"
 
+using namespace std;
+
 Kernel::Kernel(int type, double param){
     this->type = type;
     this->param = param;
@@ -38,6 +40,5 @@ dMatrix Kernel::getKernelMatrix(){
 dMatrix* Kernel::getKernelMatrixPointer(){
     return &K;
 }
-
 
 

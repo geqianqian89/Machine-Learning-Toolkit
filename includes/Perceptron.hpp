@@ -1,10 +1,10 @@
-#ifndef PERCEPTRONPRIMAL__HPP
-#define PERCEPTRONPRIMAL__HPP
-
 /*! Perceptron algorithm implementations
    \file Perceptron.hpp
    \author Mateus Coutinho Marim
 */
+
+#ifndef PERCEPTRONPRIMAL__HPP
+#define PERCEPTRONPRIMAL__HPP
 
 #include "PrimalClassifier.hpp"
 #include "DualClassifier.hpp"

@@ -7,14 +7,10 @@ Implementation of methods for general use in the system.
 
 {\ttfamily \#include $<$cmath$>$}\newline
 {\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
 {\ttfamily \#include \char`\"{}../includes/\+Utils.\+hpp\char`\"{}}\newline
-Include dependency graph for Utils.\+cpp\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=310pt]{_utils_8cpp__incl}
-\end{center}
-\end{figure}
+Include dependency graph for Utils.\+cpp\+:
+% FIG 0
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -27,13 +23,16 @@ Include dependency graph for Utils.\+cpp\+:\nopagebreak
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-bool \hyperlink{_utils_8cpp_a023a5c6fa42981cbd7b582ee1b214e7b}{is\+\_\+number} (string str)
+bool \mbox{\hyperlink{_utils_8cpp_a023a5c6fa42981cbd7b582ee1b214e7b}{is\+\_\+number}} (string str)
 \begin{DoxyCompactList}\small\item\em Verify if the string is a number. \end{DoxyCompactList}\item 
-int \hyperlink{_utils_8cpp_a32f98cacc8ec2ab7033423e3a85572da}{stoin} (string str)
+int \mbox{\hyperlink{_utils_8cpp_a32f98cacc8ec2ab7033423e3a85572da}{stoin}} (string str)
 \begin{DoxyCompactList}\small\item\em Converts the string to an integer. \end{DoxyCompactList}\item 
-double \hyperlink{_utils_8cpp_a5a71f54c5a674098cd327eb73ef77149}{stodn} (string str)
+\mbox{\Hypertarget{_utils_8cpp_a0255102cc0c35b55cddf49a42e760695}\label{_utils_8cpp_a0255102cc0c35b55cddf49a42e760695}} 
+double {\bfseries atof} (char s\mbox{[}$\,$\mbox{]})
+\item 
+double \mbox{\hyperlink{_utils_8cpp_a5a71f54c5a674098cd327eb73ef77149}{stodn}} (string str)
 \begin{DoxyCompactList}\small\item\em Converts the string to a double. \end{DoxyCompactList}\item 
-string \hyperlink{_utils_8cpp_a26f5a4cacb0634afa02adbeebd3f023c}{itos} (int n)
+string \mbox{\hyperlink{_utils_8cpp_a26f5a4cacb0634afa02adbeebd3f023c}{itos}} (int n)
 \begin{DoxyCompactList}\small\item\em itos Integer to string conversion. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{_utils_8cpp_aad7fea725cb4b198ace1aa3df5051244}\label{_utils_8cpp_aad7fea725cb4b198ace1aa3df5051244}} 
 void {\bfseries reverse} (char $\ast$str, int len)
@@ -41,7 +40,7 @@ void {\bfseries reverse} (char $\ast$str, int len)
 \mbox{\Hypertarget{_utils_8cpp_a631933fa325410873e33addc6c4bb24a}\label{_utils_8cpp_a631933fa325410873e33addc6c4bb24a}} 
 int {\bfseries int\+To\+Str} (int x, char str\mbox{[}$\,$\mbox{]}, int d)
 \item 
-string \hyperlink{_utils_8cpp_a275d36ee09955d83c3c2433d10088a04}{dtoa} (double n)
+string \mbox{\hyperlink{_utils_8cpp_a275d36ee09955d83c3c2433d10088a04}{dtoa}} (double n)
 \begin{DoxyCompactList}\small\item\em dtoa Double to string conversion. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{_utils_8cpp_a03529396588a5d4dac36c432989fdfaa}\label{_utils_8cpp_a03529396588a5d4dac36c432989fdfaa}} 
 {\footnotesize template$<$typename Out $>$ }\\void {\bfseries split} (const std\+::string \&s, char delim, Out result)
