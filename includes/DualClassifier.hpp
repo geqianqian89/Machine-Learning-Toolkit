@@ -53,11 +53,11 @@ public:
      */
     inline double getKernelType(){ return kernel->getType(); }
 
-    inline void setKernelType(int type){ kernel->setType(type); }
-
-    inline void setKernelParam(double param){ kernel->setType(param); }
-
-    std::vector<double> getAlphaVector() { return alpha; }
+    /**
+     * \brief Get the vector of alphas.
+     * \return std::vector<double>
+     */
+    inline std::vector<double> getAlphaVector() { return alpha; }
 
     std::vector<double> getWeight(){
         size_t i, j, dim = this->samples->getDim(), size = this->samples->getSize();
@@ -72,11 +72,6 @@ public:
         return w;
     }
 
-    /**
-     * \brief Get the vector of alphas.
-     * \return std::vector<double>
-     */
-    inline std::vector<double> getAlphaVector() { return alpha; }
     /**
      * \brief Compute the weights of the dual classifier. 
      * \return std::vector<double>

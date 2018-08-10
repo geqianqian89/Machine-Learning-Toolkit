@@ -24,7 +24,7 @@ using namespace std;
 int verbose = 1;
 bool sair = false, inva = false;
 double max_time = 110.0f;
-string data_folder = "DB/";
+string data_folder = "../DB/";
 std::shared_ptr<Data<double> > data(std::make_shared<Data<double> >());
 Data<double> test_sample;
 Data<double> train_sample;
@@ -124,7 +124,7 @@ vector<string> list_datasets(bool list){
 #elif _WIN32
     HANDLE hFind;
     WIN32_FIND_DATA data1;
-    string path = ".\\" + data_folder + "\\*.*";
+    string path = "..\\DB\\*.*";
 
     hFind = FindFirstFile(path.c_str(), &data1);
     if (hFind != INVALID_HANDLE_VALUE) {

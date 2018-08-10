@@ -1,6 +1,5 @@
 all:
 	g++ -std=c++14 includes/* src/* -o main
-	#g++ -std=c++14 src/* -o main
 release:
 	g++ -Ofast -std=c++14 src/* includes/* -o UFJF-MLTK-Ofast-RELEASE
 debug:

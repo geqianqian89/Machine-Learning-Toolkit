@@ -88,12 +88,6 @@ public :
      */
     explicit Validation (std::shared_ptr<Data< T > > sample = std::make_shared<Data< T > >(), Classifier< T >  *classifier = nullptr, unsigned int seed = 666);
 
-    void setSamples(std::shared_ptr<Data< T > > sample);
-    /**
-    * \brief Set the seed for the random number generator.
-    * \param seed Seed to be set.
-    */
-    void setSeed(unsigned int seed);
     /**
      * \brief Divide the samples in training and test.
      * \param fold Number of folds.
@@ -132,6 +126,7 @@ public :
      *               Setters                     *
      *********************************************/
 
+    void setSamples(std::shared_ptr<Data< T > > sample);
     /**
      * \brief Set the verbose.
      * \param verbose Verbose level.
