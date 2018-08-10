@@ -3,7 +3,11 @@ cmake-build-debug/UFJF-MLTK*
 cmake-build-debug/UFJF-MLTK-O3-RELEASE*
 cmake-build-debug/CMakeFiles/*
 cmake-build-debug/temp/*
+cmake-build-debug/CMakeCache.txt
 .Old_system/*
 Doc/*
 Doc/html/*
 Doc/latex/*
+main.exe
+teste.exe
+teste.cpp
