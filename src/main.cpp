@@ -124,7 +124,7 @@ vector<string> list_datasets(bool list){
 #elif _WIN32
     HANDLE hFind;
     WIN32_FIND_DATA data1;
-    string path = ".\\DB\\*.*";
+    string path = "..\\DB\\*.*";
 
     hFind = FindFirstFile(path.c_str(), &data1);
     if (hFind != INVALID_HANDLE_VALUE) {

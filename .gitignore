@@ -1,5 +1,8 @@
 .idea/*
-cmake-build-debug/*
+cmake-build-debug/UFJF-MLTK*
+cmake-build-debug/UFJF-MLTK-O3-RELEASE*
+cmake-build-debug/CMakeFiles/*
+cmake-build-debug/temp/*
 .Old_system/*
 Doc/*
 Doc/html/*
