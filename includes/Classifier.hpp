@@ -71,22 +71,11 @@ public :
      *               Getters                     *
      *********************************************/
 
-    /**
-     * \brief getSolution Returns the solution of the primal classifier.
-     * \return Solution
-     */
-    void setSamples(std::shared_ptr<Data< T > > samples) {this->samples = samples;}
-    /**
-     * \brief setTimer Set the timer used in the classifier.
-     * \param timer Timer to be used.
-     */
-    void setTimer(Timer timer) { this->timer = timer; }
     Solution getSolution() const {return solution;}
     /**
      * \brief getSolution Returns a reference to the solution of the primal classifier.
      * \return Solution
      */
-    inline double getElapsedTime() const { return timer.Elapsed(); }
     Solution *getSolutionRef() { return &solution; }
     /**
      * \brief Get the elapsed time in the execution of the classifier.
