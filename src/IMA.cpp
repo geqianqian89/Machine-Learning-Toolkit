@@ -133,6 +133,8 @@ bool IMAp< T >::train() {
     stime = this->timer.Elapsed();
     imapFixMargin.setStartTime(stime);
     *imapFixMargin.getFlagNot1aDim() = flagNao1aDim;
+    imapFixMargin.setSolution(this->solution);
+    imapFixMargin.setW(this->w);
 
     while(imapFixMargin.train())
     {

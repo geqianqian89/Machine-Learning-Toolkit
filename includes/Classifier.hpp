@@ -127,6 +127,7 @@ public :
      * \param gamma Gamma (margin) of the classifier.
      */
     inline void setGamma(double gamma) { this->gamma = gamma;}
+    void setW(std::vector<double> w) {this->solution.w = w;}
     /**
      * \brief Set the partial number of updates of the classifier.
      * \param ctot Number of updates.
