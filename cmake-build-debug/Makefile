@@ -122,6 +122,60 @@ UFJF-MLTK/fast:
 	$(MAKE) -f CMakeFiles\UFJF-MLTK.dir\build.make CMakeFiles/UFJF-MLTK.dir/build
 .PHONY : UFJF-MLTK/fast
 
+includes/Heap.obj: includes/Heap.cpp.obj
+
+.PHONY : includes/Heap.obj
+
+# target to build an object file
+includes/Heap.cpp.obj:
+	$(MAKE) -f CMakeFiles\UFJF-MLTK.dir\build.make CMakeFiles/UFJF-MLTK.dir/includes/Heap.cpp.obj
+.PHONY : includes/Heap.cpp.obj
+
+includes/Heap.i: includes/Heap.cpp.i
+
+.PHONY : includes/Heap.i
+
+# target to preprocess a source file
+includes/Heap.cpp.i:
+	$(MAKE) -f CMakeFiles\UFJF-MLTK.dir\build.make CMakeFiles/UFJF-MLTK.dir/includes/Heap.cpp.i
+.PHONY : includes/Heap.cpp.i
+
+includes/Heap.s: includes/Heap.cpp.s
+
+.PHONY : includes/Heap.s
+
+# target to generate assembly for a file
+includes/Heap.cpp.s:
+	$(MAKE) -f CMakeFiles\UFJF-MLTK.dir\build.make CMakeFiles/UFJF-MLTK.dir/includes/Heap.cpp.s
+.PHONY : includes/Heap.cpp.s
+
+src/AOS.obj: src/AOS.cpp.obj
+
+.PHONY : src/AOS.obj
+
+# target to build an object file
+src/AOS.cpp.obj:
+	$(MAKE) -f CMakeFiles\UFJF-MLTK.dir\build.make CMakeFiles/UFJF-MLTK.dir/src/AOS.cpp.obj
+.PHONY : src/AOS.cpp.obj
+
+src/AOS.i: src/AOS.cpp.i
+
+.PHONY : src/AOS.i
+
+# target to preprocess a source file
+src/AOS.cpp.i:
+	$(MAKE) -f CMakeFiles\UFJF-MLTK.dir\build.make CMakeFiles/UFJF-MLTK.dir/src/AOS.cpp.i
+.PHONY : src/AOS.cpp.i
+
+src/AOS.s: src/AOS.cpp.s
+
+.PHONY : src/AOS.s
+
+# target to generate assembly for a file
+src/AOS.cpp.s:
+	$(MAKE) -f CMakeFiles\UFJF-MLTK.dir\build.make CMakeFiles/UFJF-MLTK.dir/src/AOS.cpp.s
+.PHONY : src/AOS.cpp.s
+
 src/Data.obj: src/Data.cpp.obj
 
 .PHONY : src/Data.obj
@@ -202,6 +256,33 @@ src/Golub.s: src/Golub.cpp.s
 src/Golub.cpp.s:
 	$(MAKE) -f CMakeFiles\UFJF-MLTK.dir\build.make CMakeFiles/UFJF-MLTK.dir/src/Golub.cpp.s
 .PHONY : src/Golub.cpp.s
+
+src/Hash.obj: src/Hash.cpp.obj
+
+.PHONY : src/Hash.obj
+
+# target to build an object file
+src/Hash.cpp.obj:
+	$(MAKE) -f CMakeFiles\UFJF-MLTK.dir\build.make CMakeFiles/UFJF-MLTK.dir/src/Hash.cpp.obj
+.PHONY : src/Hash.cpp.obj
+
+src/Hash.i: src/Hash.cpp.i
+
+.PHONY : src/Hash.i
+
+# target to preprocess a source file
+src/Hash.cpp.i:
+	$(MAKE) -f CMakeFiles\UFJF-MLTK.dir\build.make CMakeFiles/UFJF-MLTK.dir/src/Hash.cpp.i
+.PHONY : src/Hash.cpp.i
+
+src/Hash.s: src/Hash.cpp.s
+
+.PHONY : src/Hash.s
+
+# target to generate assembly for a file
+src/Hash.cpp.s:
+	$(MAKE) -f CMakeFiles\UFJF-MLTK.dir\build.make CMakeFiles/UFJF-MLTK.dir/src/Hash.cpp.s
+.PHONY : src/Hash.cpp.s
 
 src/IMA.obj: src/IMA.cpp.obj
 
@@ -509,6 +590,12 @@ help:
 	@echo ... UFJF-MLTK
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... includes/Heap.obj
+	@echo ... includes/Heap.i
+	@echo ... includes/Heap.s
+	@echo ... src/AOS.obj
+	@echo ... src/AOS.i
+	@echo ... src/AOS.s
 	@echo ... src/Data.obj
 	@echo ... src/Data.i
 	@echo ... src/Data.s
@@ -518,6 +605,9 @@ help:
 	@echo ... src/Golub.obj
 	@echo ... src/Golub.i
 	@echo ... src/Golub.s
+	@echo ... src/Hash.obj
+	@echo ... src/Hash.i
+	@echo ... src/Hash.s
 	@echo ... src/IMA.obj
 	@echo ... src/IMA.i
 	@echo ... src/IMA.s

@@ -6,4 +6,4 @@ file(GLOB SOURCES
     src/*.cpp
 )
 
-add_executable(${PROJECT_NAME} ${SOURCES})
+add_executable(${PROJECT_NAME} ${SOURCES} includes/AOS.hpp src/AOS.cpp src/Hash.cpp includes/Hash.hpp src/Heap.cpp includes/Heap.hpp)
